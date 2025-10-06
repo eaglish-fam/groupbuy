@@ -96,17 +96,18 @@
     };
 
     /* ============ 小工具 ============ */
+    
     function isURL(s){ return !!s && /^https?:\/\//i.test(s); }
     function isQA(s){ return !!s && s.includes('Q:') && s.includes('|A:'); }
+          // 文字標準化（拿來比較品牌是否相同）
+    function normalizeBrand(s){
+      return (s || '').toLowerCase().replace(/\s+/g, '').trim();
+    }
 // 解析同一格中的多組 Q/A（支援 \n / \r\n / 文字中出現 "Q:" 的黏在一起情況）
 // 支援半形/全形冒號：Q: / Q：、|A: / |A：
     function parseQA(qaString) {
       if (!qaString) return [];
 
-      // 文字標準化（拿來比較品牌是否相同）
-    function normalizeBrand(s){
-      return (s || '').toLowerCase().replace(/\s+/g, '').trim();
-    }
   // 標準化換行與標記
       const norm = qaString
         .replace(/\r\n?/g, '\n')               // \r\n 或 \r -> \n
@@ -805,9 +806,9 @@
         btn('calendar','團購行事曆','bg-blue-100 text-blue-700');
 
       // 月份
-      const today=new Date();
-      const m1=today.getMonth()+1, m2=(today.getMonth()+1)%12+1, m3=(today.getMonth()+2)%12+1;
-
+      const m1=today.getMonth()+1,
+            m2=(today.getMonth()+1)%12+1,
+            m3=(today.getMonth()+2)%12+1;
       // 主內容（⬇️ 這裡插入「即將開團（搜尋結果）」區塊）
       document.getElementById('content').innerHTML =
         `<div class="mb-6">
