@@ -12,13 +12,12 @@
   <meta property="og:title" content="🦅 鷹家Fun生買物社">
   <meta property="og:description" content="精選團購 · 優質好物">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://eagle-groupbuy.netlify.app/">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
 <body class="bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50 min-h-screen">
-  <!-- Shell：只建立一次 -->
+  <!-- Header（只建立一次，不重建） -->
   <header class="bg-white/80 backdrop-blur-sm border-b border-amber-200 sticky top-0 z-20">
     <div class="max-w-6xl mx-auto px-4 py-4">
       <div class="text-center">
@@ -26,11 +25,13 @@
         <p class="text-sm text-amber-700">精選團購 · 優質好物</p>
       </div>
 
-      <!-- 快速區段按鈕 -->
+      <!-- 🔹可選 Banner：JS 依設定決定是否顯示 -->
+      <div id="bannerSlot" class="max-w-4xl mx-auto mt-3 hidden"></div>
+
+      <!-- 四顆區段按鈕（內容渲染時更新） -->
       <div id="sectionButtons" class="flex gap-2 justify-center overflow-x-auto pb-2 pt-3"></div>
 
-      <!-- 搜尋列（固定節點，不重建） -->
-      <!-- 搜尋列（保留輸入框，移除搜尋按鈕） -->
+      <!-- 搜尋列（保留輸入框，無搜尋按鈕） -->
       <div class="mt-3 max-w-3xl mx-auto">
         <div class="relative">
           <input id="searchInput" type="search" enterkeyhint="search" autocomplete="off" aria-label="搜尋品牌"
@@ -42,7 +43,7 @@
     </div>
   </header>
 
-  <!-- 內容區（只重繪這塊） -->
+  <!-- 主內容（只重繪這塊） -->
   <main id="content" class="max-w-6xl mx-auto px-4 py-6">
     <div class="flex items-center justify-center min-h-[40vh]">
       <div class="text-center">
@@ -64,189 +65,181 @@
   </div>
 
   <script>
-    /* ===================== 設定 ===================== */
-    var SHEET_ID     = '1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU';
-    var MAIN_CSV     = 'https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/export?format=csv';
-    var UPCOMING_CSV = 'https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?tqx=out:csv&sheet='+encodeURIComponent('即將開團');
+    /* ============ 設定 ============ */
+    const SHEET_ID     = '1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU';
+    const MAIN_CSV     = 'https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/export?format=csv';
+    const UPCOMING_CSV = 'https://docs.google.com/spreadsheets/d/'+SHEET_ID+'/gviz/tq?tqx=out:csv&sheet='+encodeURIComponent('即將開團');
 
-    var state = {
+    // ✅（可選）Banner：有填就顯示、空字串就隱藏
+    const BANNER_IMAGE_URL = ""; // 例: "https://i.imgur.com/xxxx.jpg"
+    const BANNER_LINK_URL  = ""; // 例: "https://example.com"；可空白
+
+    function renderBanner(){
+      const slot = document.getElementById('bannerSlot');
+      if(!slot) return;
+      if(!BANNER_IMAGE_URL){ slot.innerHTML=""; slot.classList.add('hidden'); return; }
+      let inner = `<img src="${BANNER_IMAGE_URL}" alt="banner" class="w-full max-h-56 object-cover rounded-xl border-2 border-amber-200 shadow-sm">`;
+      if(BANNER_LINK_URL){ inner = `<a href="${BANNER_LINK_URL}" target="_blank" rel="noopener noreferrer">${inner}</a>`; }
+      slot.innerHTML = inner;
+      slot.classList.remove('hidden');
+    }
+
+    /* ============ 狀態 ============ */
+    const state = {
       searchTerm: '',
       groups: [],
-      upcomingGroups: [],  // 只供行事曆用
+      upcomingGroups: [], // 只供行事曆「開團」統計使用
       loading: true,
       error: null,
       showExpired: false,
-      expandedQA: {},
       selectedCalendarMonth: 0
     };
 
-    // 組字保護 & debounce
-    var isComposing = false;
-    var searchDebounce;
-    var STORAGE_KEYS = {
-      search: 'eg_search',
-      showExpired: 'eg_show_expired',
-      month: 'eg_month'
-    };
-
-    /* ===================== 小工具 ===================== */
+    /* ============ 小工具 ============ */
     function isURL(s){ return !!s && /^https?:\/\//i.test(s); }
-    function isQA(s){ return !!s && s.indexOf('Q:')>-1 && s.indexOf('|A:')>-1; }
+    function isQA(s){ return !!s && s.includes('Q:') && s.includes('|A:'); }
     function parseQA(s){
       if(!s) return [];
-      var lines = s.split('\n'), out=[];
-      for(var i=0;i<lines.length;i++){
-        var line=(lines[i]||'').trim(); if(!line) continue;
-        var parts=line.split('|A:'); if(parts.length<2) continue;
-        out.push({ q: parts[0].replace(/^Q:\s*/,'').trim(), a: parts[1].trim() });
-      }
-      return out;
+      return s.split('\n').map(x=>x.trim()).filter(Boolean).map(line=>{
+        const parts=line.split('|A:'); if(parts.length<2) return null;
+        return {q:parts[0].replace(/^Q:\s*/,'').trim(), a:parts[1].trim()};
+      }).filter(Boolean);
     }
     function parseDateSafe(v){
-      if(v==null || v==='') return null;
-      if(typeof v==='number'){ var ms=Math.round((v-25569)*86400*1000); var d=new Date(ms); d.setHours(0,0,0,0); return d; }
-      var s=String(v).trim();
-      var m=s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})$/);
-      if(m){ return new Date(+m[1], +m[2]-1, +m[3]); }
-      var d2=new Date(s); if(!isNaN(d2)){ d2.setHours(0,0,0,0); return d2; }
+      if(!v) return null;
+      if(typeof v==='number'){ const ms=Math.round((v-25569)*86400*1000); const d=new Date(ms); d.setHours(0,0,0,0); return d; }
+      const s=String(v).trim();
+      const m=s.match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})$/);
+      if(m) return new Date(+m[1], +m[2]-1, +m[3]);
+      const d=new Date(s); if(!isNaN(d)) { d.setHours(0,0,0,0); return d; }
       return null;
     }
     function getDaysLeft(endStr){
-      var end=parseDateSafe(endStr); if(!end) return null;
-      var today=new Date(); today.setHours(0,0,0,0);
+      const end=parseDateSafe(endStr); if(!end) return null;
+      const today=new Date(); today.setHours(0,0,0,0);
       return Math.ceil((end - today)/86400000);
     }
-    function isExpired(endStr){
-      var d=getDaysLeft(endStr);
-      return d!==null && d<0;
-    }
-    function isProbablyHTML(t){
-      return /<\/?html[\s>]/i.test(t) || /accounts\.google\.com/.test(t);
-    }
+    function isExpired(endStr){ const d=getDaysLeft(endStr); return d!==null && d<0; }
+    function isProbablyHTML(t){ return /<\/?html[\s>]/i.test(t) || /accounts\.google\.com/.test(t); }
     function formatCount(n){ if(n>99) return '99+'; if(n>9) return '9+'; return String(n); }
 
-    /* ===================== 影片 ===================== */
-    function getGoogleDriveVideoId(url){ if(!url) return null; var m=url.match(/[-\w]{25,}/); return m?m[0]:null; }
+    /* ============ 影片 ============ */
+    function getGoogleDriveVideoId(url){ if(!url) return null; const m=url.match(/[-\w]{25,}/); return m?m[0]:null; }
     function openVideoModal(ev, url){
       ev.stopPropagation();
-      var id=getGoogleDriveVideoId(url); if(!id){ alert('無法載入影片'); return; }
-      var embed='https://drive.google.com/file/d/'+id+'/preview';
+      const id=getGoogleDriveVideoId(url); if(!id){ alert('無法載入影片'); return; }
+      const embed='https://drive.google.com/file/d/'+id+'/preview';
       document.getElementById('videoContainer').innerHTML =
         '<iframe src="'+embed+'" class="w-full h-full" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
-      var m=document.getElementById('videoModal'); m.classList.remove('hidden'); m.classList.add('flex');
+      const m=document.getElementById('videoModal'); m.classList.remove('hidden'); m.classList.add('flex');
     }
-    function closeVideoModal(){ var m=document.getElementById('videoModal'); m.classList.add('hidden'); m.classList.remove('flex'); document.getElementById('videoContainer').innerHTML=''; }
+    function closeVideoModal(){ const m=document.getElementById('videoModal'); m.classList.add('hidden'); m.classList.remove('flex'); document.getElementById('videoContainer').innerHTML=''; }
 
-    /* ===================== 搜尋（不重建節點） ===================== */
-    // 組字保護 & debounce
-    var isComposing = false;
-    var searchDebounce;
-    var STORAGE_KEYS = { search:'eg_search', showExpired:'eg_show_expired', month:'eg_month' };
+    /* ============ 搜尋（即時、無按鈕） ============ */
+    let isComposing = false;
+    let searchDebounce;
+    const STORAGE_KEYS = { search:'eg_search', showExpired:'eg_show_expired', month:'eg_month' };
 
-    // 改成允許不存在搜尋 UI
-    var $search    = document.getElementById('searchInput');
-    var $clear     = document.getElementById('clearBtn');
-    var $searchBtn = null;
-  
-    function applySearch(term){
-      state.searchTerm = term || '';
-      try { localStorage.setItem(STORAGE_KEYS.search, state.searchTerm); } catch(e){}
-      if ($clear) $clear.classList.toggle('hidden', state.searchTerm.length===0);
-      renderContent();
+    const $search = document.getElementById('searchInput') || null;
+    const $clear  = document.getElementById('clearBtn')   || null;
+
+    function applySearch(val){
+      state.searchTerm = val || '';
+      try{ localStorage.setItem(STORAGE_KEYS.search, state.searchTerm); }catch(e){}
+      if($clear) $clear.classList.toggle('hidden', state.searchTerm.length===0);
+      renderContent(); // 只重繪內容區
     }
 
     function hookSearch(){
-      // 若已移除搜尋 UI，直接略過（並確保顯示全部資料）
-      if (!$search || !$searchBtn || !$clear) {
-        state.searchTerm = '';
-        return;
-      }
-
-      // ↓↓↓ 有搜尋 UI 才會跑到底下這些
       try{
-        var saved = localStorage.getItem(STORAGE_KEYS.search) || '';
-        var savedShow = localStorage.getItem(STORAGE_KEYS.showExpired);
-        var savedMonth = localStorage.getItem(STORAGE_KEYS.month);
-        if (saved) { state.searchTerm = saved; $search.value = saved; $clear.classList.remove('hidden'); }
-        if (savedShow!=null) state.showExpired = (savedShow==='true');
-        if (savedMonth!=null) state.selectedCalendarMonth = parseInt(savedMonth,10)||0;
+        const saved = localStorage.getItem(STORAGE_KEYS.search) || '';
+        const savedShow  = localStorage.getItem(STORAGE_KEYS.showExpired);
+        const savedMonth = localStorage.getItem(STORAGE_KEYS.month);
+        if($search && saved){ state.searchTerm = saved; $search.value = saved; if($clear) $clear.classList.remove('hidden'); }
+        if(savedShow  != null) state.showExpired = (savedShow==='true');
+        if(savedMonth != null) state.selectedCalendarMonth = parseInt(savedMonth,10) || 0;
       }catch(e){}
 
-      $search.addEventListener('compositionstart', function(){ isComposing = true; });
-      $search.addEventListener('compositionend',  function(e){ isComposing = false; applySearch(e.target.value); });
-      $search.addEventListener('input', function(e){
-        $clear.classList.toggle('hidden', e.target.value.length===0);
-        if (isComposing) return;
-        clearTimeout(searchDebounce);
-        searchDebounce = setTimeout(function(){ applySearch(e.target.value); }, 250);
-      });
-      $search.addEventListener('keydown', function(e){
-        if (e.key==='Enter'){ e.preventDefault(); applySearch($search.value); }
-      });
-      $clear.addEventListener('click', function(){ $search.value=''; applySearch(''); $search.focus(); });
+      if($search){
+        $search.addEventListener('compositionstart', ()=>{ isComposing = true; });
+        $search.addEventListener('compositionend',  (e)=>{ isComposing = false; applySearch(e.target.value); });
+        $search.addEventListener('input', (e)=>{
+          if($clear) $clear.classList.toggle('hidden', e.target.value.length===0);
+          if(isComposing) return;
+          clearTimeout(searchDebounce);
+          searchDebounce = setTimeout(()=>applySearch(e.target.value), 120);
+        });
+        $search.addEventListener('keydown', (e)=>{
+          if(e.key==='Enter'){ e.preventDefault(); applySearch($search.value); }
+        });
+      }
+      if($clear){
+        $clear.addEventListener('click', ()=>{
+          if($search) $search.value = '';
+          applySearch('');
+          if($search) $search.focus();
+        });
+      }
     }
 
-    /* ===================== 行事曆 ===================== */
-    function getCalendarData(monthOffset){
-      if(typeof monthOffset==='undefined') monthOffset=0;
-      var today=new Date(); today.setHours(0,0,0,0);
-      var target=new Date(today.getFullYear(), today.getMonth()+monthOffset, 1);
-      var curM=target.getMonth(), curY=target.getFullYear();
+    /* ============ 行事曆 ============ */
+    function getCalendarData(monthOffset=0){
+      const today=new Date(); today.setHours(0,0,0,0);
+      const target=new Date(today.getFullYear(), today.getMonth()+monthOffset, 1);
+      const curM=target.getMonth(), curY=target.getFullYear();
 
-      var byEnd={}, byStart={};
+      const byEnd={}, byStart={};
 
-      // 主表：結束
-      for(var i=0;i<state.groups.length;i++){
-        var g=state.groups[i], end=parseDateSafe(g.endDate);
+      // 結束日（主表）
+      state.groups.forEach(g=>{
+        const end=parseDateSafe(g.endDate);
         if(end && end.getMonth()===curM && end.getFullYear()===curY){
-          var d=end.getDate(); if(!byEnd[d]) byEnd[d]=[]; byEnd[d].push(g);
+          const d=end.getDate(); (byEnd[d]||(byEnd[d]=[])).push(g);
         }
-      }
-      // 主表：未來開團
-      for(var j=0;j<state.groups.length;j++){
-        var g2=state.groups[j], st=parseDateSafe(g2.startDate);
+      });
+      // 開團日（主表的未來 + 分頁即將開團）
+      state.groups.forEach(g=>{
+        const st=parseDateSafe(g.startDate);
         if(st && st>=today && st.getMonth()===curM && st.getFullYear()===curY){
-          var d2=st.getDate(); if(!byStart[d2]) byStart[d2]=[]; byStart[d2].push(g2);
+          const d=st.getDate(); (byStart[d]||(byStart[d]=[])).push(g);
         }
-      }
-      // 分頁即將開團 → 也視為開團
-      for(var k=0;k<state.upcomingGroups.length;k++){
-        var ug=state.upcomingGroups[k], ust=parseDateSafe(ug.startDate);
+      });
+      state.upcomingGroups.forEach((ug,i)=>{
+        const ust=parseDateSafe(ug.startDate);
         if(ust && ust>=today && ust.getMonth()===curM && ust.getFullYear()===curY){
-          var d3=ust.getDate(); if(!byStart[d3]) byStart[d3]=[];
-          byStart[d3].push({ id:'u-'+k, brand: ug.brand, price:'', url:'', category:'upcoming' });
+          const d=ust.getDate(); (byStart[d]||(byStart[d]=[])).push({id:'u-'+i, brand:ug.brand, url:''});
         }
-      }
-      return { currentMonth: curM, currentYear: curY, groupsByDateEnd: byEnd, groupsByDateStart: byStart };
+      });
+
+      return { currentMonth:curM, currentYear:curY, groupsByDateEnd:byEnd, groupsByDateStart:byStart };
     }
 
     function renderCalendar(){
-      var cal=getCalendarData(state.selectedCalendarMonth);
-      var curM=cal.currentMonth, curY=cal.currentYear, byEnd=cal.groupsByDateEnd, byStart=cal.groupsByDateStart;
+      const cal=getCalendarData(state.selectedCalendarMonth);
+      const curM=cal.currentMonth, curY=cal.currentYear, byEnd=cal.groupsByDateEnd, byStart=cal.groupsByDateStart;
 
-      var days=new Date(curY, curM+1, 0).getDate();
-      var first=new Date(curY, curM, 1).getDay();
-      var today=new Date(); today.setHours(0,0,0,0);
-      var isThisMonth=(curM===today.getMonth() && curY===today.getFullYear());
+      const days=new Date(curY,curM+1,0).getDate();
+      const first=new Date(curY,curM,1).getDay();
+      const today=new Date(); today.setHours(0,0,0,0);
+      const isThisMonth=(curM===today.getMonth() && curY===today.getFullYear());
 
-      var html='<div class="grid grid-cols-7 gap-2 select-none">';
-      var names=['日','一','二','三','四','五','六'];
-      for(var i=0;i<names.length;i++){ html+='<div class="text-center font-bold text-amber-900 py-2">'+names[i]+'</div>'; }
-      for(var p=0;p<first;p++) html+='<div></div>';
+      let html='<div class="grid grid-cols-7 gap-2 select-none">';
+      const names=['日','一','二','三','四','五','六'];
+      names.forEach(n=>{ html+='<div class="text-center font-bold text-amber-900 py-2">'+n+'</div>'; });
+      for(let i=0;i<first;i++) html+='<div></div>';
 
-      for(var d=1; d<=days; d++){
-        var endList=byEnd[d]||[], startList=byStart[d]||[];
-        var hasEnd=endList.length>0, hasStart=startList.length>0;
+      for(let d=1; d<=days; d++){
+        const endList=byEnd[d]||[], startList=byStart[d]||[];
+        const hasEnd=endList.length>0, hasStart=startList.length>0;
 
-        var isToday=isThisMonth && (d===today.getDate());
-        var isPast=isThisMonth ? (d<today.getDate()) : (state.selectedCalendarMonth<0);
+        const isToday=isThisMonth && d===today.getDate();
+        const isPast = isThisMonth ? d<today.getDate() : (state.selectedCalendarMonth<0);
 
-        var bg='bg-white', text='text-gray-900', border='border-amber-200';
+        let bg='bg-white', text='text-gray-900', border='border-amber-200';
         if(isPast){ bg='bg-gray-100'; text='text-gray-400'; }
         else if(isToday){ bg='bg-blue-100'; text='text-blue-900 font-bold'; }
         else if(hasEnd){
-          var deadline=new Date(curY, curM, d);
-          var left=Math.ceil((deadline - today)/86400000);
+          const left=Math.ceil((new Date(curY,curM,d)-today)/86400000);
           if(left<=3){ bg='bg-red-100 hover:bg-red-200'; text='text-red-700 font-semibold'; border='border-red-200'; }
           else if(left<=7){ bg='bg-orange-100 hover:bg-orange-200'; text='text-orange-700 font-semibold'; border='border-orange-200'; }
           else { bg='bg-amber-100 hover:bg-amber-200'; text='text-amber-700'; border='border-amber-300'; }
@@ -254,47 +247,47 @@
           bg='bg-teal-100 hover:bg-teal-200'; text='text-teal-700 font-semibold'; border='border-teal-200';
         }
 
-        var clickable=(hasEnd||hasStart)?'onclick="showDayGroups('+d+')"':'';
-        html+='<div class="'+bg+' '+text+' rounded-lg p-2 text-center border-2 '+border+' '+(clickable?'cursor-pointer transition-colors':'')+'" '+clickable+'>'
-            +   '<div class="text-sm">'+d+'</div>'
-            +   ((hasEnd||hasStart)?(
-                  '<div class="mt-1 flex items-center justify-center gap-1">'+
-                  (hasEnd?  '<span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white/80 border border-red-300 text-red-700 min-w-[1.1rem] text-center">'+formatCount(endList.length)+'</span>':'')+
-                  (hasStart?'<span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white/80 border border-teal-300 text-teal-700 min-w-[1.1rem] text-center">'+formatCount(startList.length)+'</span>':'')+
-                  '</div>'
-                ):'')
-            + '</div>';
+        const clickable=(hasEnd||hasStart)?`onclick="showDayGroups(${d})"`:'';
+        html+=`
+          <div class="${bg} ${text} rounded-lg p-2 text-center border-2 ${border} ${clickable?'cursor-pointer transition-colors':''}" ${clickable}>
+            <div class="text-sm">${d}</div>
+            ${(hasEnd||hasStart)?`
+              <div class="mt-1 flex items-center justify-center gap-1">
+                ${hasEnd  ? `<span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white/80 border border-red-300 text-red-700 min-w-[1.1rem] text-center">${formatCount(endList.length)}</span>` : ``}
+                ${hasStart? `<span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white/80 border border-teal-300 text-teal-700 min-w-[1.1rem] text-center">${formatCount(startList.length)}</span>` : ``}
+              </div>`:``}
+          </div>`;
       }
       html+='</div>';
       return html;
     }
 
     function showDayGroups(day){
-      var cal=getCalendarData(state.selectedCalendarMonth);
-      var curM=cal.currentMonth, curY=cal.currentYear, byEnd=cal.groupsByDateEnd, byStart=cal.groupsByDateStart;
-      var endList=byEnd[day]||[], startList=byStart[day]||[];
+      const {currentMonth, currentYear, groupsByDateEnd, groupsByDateStart} = getCalendarData(state.selectedCalendarMonth);
+      const endList=groupsByDateEnd[day]||[], startList=groupsByDateStart[day]||[];
 
-      function card(g){
-        return '<div class="bg-amber-50 border-2 border-amber-200 rounded-lg p-3 mb-2">'+
-               '<div class="font-bold text-amber-900">'+g.brand+'</div>'+
-               (g.price?'<div class="text-sm text-amber-700 mt-1">'+g.price+'</div>':'')+
-               (g.url?'<a href="'+g.url+'" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 bg-amber-600 text-white px-3 py-1 rounded text-sm hover:bg-amber-700">前往團購</a>':'')+
-               '</div>';
-      }
+      const card = g => `
+        <div class="bg-amber-50 border-2 border-amber-200 rounded-lg p-3 mb-2">
+          <div class="font-bold text-amber-900">${g.brand||''}</div>
+          ${g.price?`<div class="text-sm text-amber-700 mt-1">${g.price}</div>`:''}
+          ${g.url?`<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 bg-amber-600 text-white px-3 py-1 rounded text-sm hover:bg-amber-700">前往團購</a>`:''}
+        </div>`;
 
-      var modal = '<div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onclick="this.remove()">'+
-                  '<div class="bg-white rounded-xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto" onclick="event.stopPropagation()">'+
-                  '<div class="flex justify-between items-center mb-4">'+
-                  '<h3 class="text-xl font-bold text-amber-900">'+curY+'年 '+(curM+1)+'月 '+day+'日</h3>'+
-                  '<button onclick="this.closest(\'.fixed\').remove()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>'+
-                  '</div>'+
-                  (startList.length?'<h4 class="font-bold text-teal-700 mb-2">當日開團（'+startList.length+'）</h4>'+startList.map(card).join(''):'')+
-                  (endList.length?  '<h4 class="font-bold text-red-700 mt-4 mb-2">當日截止（'+endList.length+'）</h4>'+endList.map(card).join('')  :'')+
-                  '</div></div>';
+      const modal = `
+        <div class="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4" onclick="this.remove()">
+          <div class="bg-white rounded-xl p-6 max-w-md w-full max-h-[80vh] overflow-y-auto" onclick="event.stopPropagation()">
+            <div class="flex justify-between items-center mb-4">
+              <h3 class="text-xl font-bold text-amber-900">${currentYear}年 ${currentMonth+1}月 ${day}日</h3>
+              <button onclick="this.closest('.fixed').remove()" class="text-gray-500 hover:text-gray-700 text-2xl">×</button>
+            </div>
+            ${startList.length?`<h4 class="font-bold text-teal-700 mb-2">當日開團（${startList.length}）</h4>${startList.map(card).join('')}`:''}
+            ${endList.length?  `<h4 class="font-bold text-red-700 mt-4 mb-2">當日截止（${endList.length}）</h4>${endList.map(card).join('')}`:''}
+          </div>
+        </div>`;
       document.body.insertAdjacentHTML('beforeend', modal);
     }
 
-    /* ===================== 資料載入 ===================== */
+    /* ============ 資料載入 ============ */
     function showError(msg){
       state.error = msg; state.loading = false;
       document.getElementById('content').innerHTML =
@@ -307,68 +300,63 @@
 
     async function loadUpcomingFromTab(){
       try{
-        var res=await fetch(UPCOMING_CSV, {credentials:'omit'});
-        var text=await res.text();
+        const res=await fetch(UPCOMING_CSV, {credentials:'omit'});
+        const text=await res.text();
         if(isProbablyHTML(text)) return [];
-        var list=[];
+        const out=[];
         Papa.parse(text, {
           header:true, skipEmptyLines:true,
-          transformHeader:function(h){ return (h||'').trim(); },
-          complete:function(r){
-            var data=r.data||[];
-            for(var i=0;i<data.length;i++){
-              var row=data[i]||{};
-              var brand=(row['品牌']||row['Brand']||'').trim();
-              if(!brand) continue;
-              list.push({
+          transformHeader:h=>(h||'').trim(),
+          complete:(r)=>{
+            (r.data||[]).forEach((row,i)=>{
+              const brand=(row['品牌']||row['Brand']||'').trim();
+              if(!brand) return;
+              out.push({
                 id:'u-tab-'+(i+1),
-                brand: brand,
+                brand,
                 startDate: row['開團日期']||row['StartDate']||'',
                 endDate:   row['結束日期']||row['EndDate']||'',
                 image:     row['圖片網址']||row['Image']||''
               });
-            }
+            });
           }
         });
-        return list;
-      }catch(e){ return []; }
+        return out;
+      }catch{ return []; }
     }
 
     async function loadData(){
       try{
-        var res=await fetch(MAIN_CSV, {credentials:'omit'});
-        var csv=await res.text();
+        const res=await fetch(MAIN_CSV, {credentials:'omit'});
+        const csv=await res.text();
         if(isProbablyHTML(csv)){
           showError('Google Sheet 無法公開讀取。請將權限改為「知道連結的任何人可檢視」，或使用「檔案 → 發佈到網路上」。');
           return;
         }
 
-        var all=[];
+        const all=[];
         Papa.parse(csv, {
           header:true, skipEmptyLines:true,
-          transformHeader:function(h){ return (h||'').trim(); },
-          complete:function(r){
-            var data=r.data||[];
-            for(var i=0;i<data.length;i++){
-              var row=data[i]||{};
-              var brand=(row['品牌']||row['Brand']||'').trim();
-              var url  =(row['連結']||row['URL']||row['Link']||'').trim();
-              if(!brand) continue;
-              if(brand.indexOf('---')>-1 || brand.indexOf('===')>-1) continue;
+          transformHeader:h=>(h||'').trim(),
+          complete:(r)=>{
+            (r.data||[]).forEach((row,i)=>{
+              const brand=(row['品牌']||row['Brand']||'').trim();
+              const url  =(row['連結']||row['URL']||row['Link']||'').trim();
+              if(!brand) return;
+              if(brand.includes('---') || brand.includes('===')) return;
 
-              var typeRaw=String(row['類型']||row['Type']||'').toLowerCase();
-              var category='short';
+              const typeRaw=String(row['類型']||row['Type']||'').toLowerCase();
+              let category='short';
               if(/長期|long/.test(typeRaw)) category='long';
               else if(/折扣|coupon|affiliate/.test(typeRaw)) category='coupon';
               else if(/即將|upcoming/.test(typeRaw)) category='upcoming';
 
               all.push({
                 id:i+1,
-                brand:brand,
-                url:url || '',
+                brand, url,
                 startDate: row['開團日期']||row['StartDate']||'',
                 endDate:   row['結束日期']||row['EndDate']||'',
-                category:  category,
+                category,
                 price: row['價格']||row['Price']||'',
                 image: row['圖片網址']||row['Image']||'',
                 description: row['商品描述']||row['Description']||'',
@@ -378,24 +366,24 @@
                 note: row['備註']||row['Note']||row['Remark']||'',
                 video: row['影片網址']||row['Video']||row['VideoURL']||''
               });
-            }
+            });
           }
         });
 
-        // 渲染用：非 upcoming 且有連結
-        state.groups = all.filter(function(g){ return g.category!=='upcoming' && !!g.url; });
+        // 清單：只保留非 upcoming 且有連結
+        state.groups = all.filter(g => g.category!=='upcoming' && !!g.url);
 
-        // 行事曆用 upcoming：主表 + 分頁
-        var fromMain = all.filter(function(g){ return g.category==='upcoming'; })
-                          .map(function(g){ return {id:'u-main-'+g.id, brand:g.brand, startDate:g.startDate||'', endDate:g.endDate||'', image:g.image||''}; });
-        var fromTab = await loadUpcomingFromTab();
-        var seen={}, merged=fromMain.concat(fromTab);
-        state.upcomingGroups=[];
-        for(var u=0;u<merged.length;u++){
-          var it=merged[u], key=(it.brand||'')+'|'+(it.startDate||'')+'|'+(it.endDate||'');
-          if(seen[key]) continue; seen[key]=true;
+        // 行事曆的開團來源：主表(upcoming) + 分頁
+        const fromMain = all.filter(g=>g.category==='upcoming')
+                            .map(g=>({id:'u-main-'+g.id, brand:g.brand, startDate:g.startDate||'', endDate:g.endDate||'', image:g.image||''}));
+        const fromTab  = await loadUpcomingFromTab();
+        const seen={}, merged = fromMain.concat(fromTab);
+        state.upcomingGroups = [];
+        merged.forEach(it=>{
+          const key=(it.brand||'')+'|'+(it.startDate||'')+'|'+(it.endDate||'');
+          if(seen[key]) return; seen[key]=true;
           state.upcomingGroups.push(it);
-        }
+        });
 
         state.loading=false;
         renderContent();
@@ -404,96 +392,93 @@
       }
     }
 
-    /* ===================== 卡片 ===================== */
+    /* ============ 卡片與操作 ============ */
     function copyCoupon(ev, txt){
       ev.stopPropagation();
-      navigator.clipboard.writeText(txt).then(function(){
-        var t=document.getElementById('copyToast');
+      navigator.clipboard.writeText(txt).then(()=>{
+        const t=document.getElementById('copyToast');
         t.style.opacity='1'; t.style.transform='translateX(0)';
-        setTimeout(function(){ t.style.opacity='0'; t.style.transform='translateX(200%)'; }, 1600);
-      }).catch(function(){ alert('複製失敗，請手動複製：'+txt); });
+        setTimeout(()=>{ t.style.opacity='0'; t.style.transform='translateX(200%)'; }, 1600);
+      }).catch(()=>{ alert('複製失敗，請手動複製：'+txt); });
     }
     function openNote(ev, url){ ev.stopPropagation(); window.open(url, '_blank'); }
 
     function renderGroupCard(g){
-      var daysLeft=getDaysLeft(g.endDate);
-      var expired=isExpired(g.endDate);
-      var noteIsURL=isURL(g.note);
-      var noteIsQA=isQA(g.note);
-      var qaList=noteIsQA?parseQA(g.note):[];
-      var openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
+      const daysLeft=getDaysLeft(g.endDate);
+      const expired=isExpired(g.endDate);
+      const noteIsURL=isURL(g.note);
+      const noteIsQA=isQA(g.note);
+      const qaList=noteIsQA?parseQA(g.note):[];
+      const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500'
+                                : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
 
-      var countdown='';
-      if(g.category==='short' && daysLeft!==null){
-        var label = (daysLeft>0)?('剩 '+daysLeft+' 天'):(daysLeft===0?'今天截止':'結束 '+Math.abs(daysLeft)+' 天');
-        var cls   = (daysLeft<0)?'text-gray-500':(daysLeft<=3?'text-red-600 font-semibold':'text-amber-700');
-        countdown = '<div class="flex items-center gap-2 text-sm mb-3"><span class="'+cls+'">⏱ '+label+'</span></div>';
-      }
+      const countdown = (g.category==='short' && daysLeft!==null)
+        ? `<div class="flex items-center gap-2 text-sm mb-3">
+             <span class="${daysLeft<0?'text-gray-500':(daysLeft<=3?'text-red-600 font-semibold':'text-amber-700')}">
+               ⏱ ${(daysLeft>0)?('剩 '+daysLeft+' 天'):(daysLeft===0?'今天截止':'結束 '+Math.abs(daysLeft)+' 天')}
+             </span>
+           </div>` : '';
 
-      return ''+
-      '<div class="bg-white rounded-xl overflow-hidden border-2 '+(expired?'border-gray-300 opacity-60':'border-amber-200 hover:border-amber-400 hover:shadow-lg')+' transition-all">'+
-        (g.image?'<div class="w-full h-48 bg-gray-100"><img src="'+g.image+'" alt="'+g.brand+'" class="w-full h-full object-cover '+(expired?'grayscale':'')+'"></div>':'')+
-        '<div class="p-5">'+
-          '<h3 class="text-lg font-bold '+(expired?'text-gray-500':'text-amber-900')+' mb-2">'+g.brand+'</h3>'+
-          '<div class="flex flex-wrap gap-2 mb-3">'+
-            (expired?'<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>':'')+
-            (g.tag?'<span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">'+g.tag+'</span>':'')+
-            (g.stock==='售完'?'<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>':'')+
-            (g.stock==='少量'?'<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>':'')+
-          '</div>'+
-          (g.description?'<p class="text-sm '+(expired?'text-gray-400':'text-gray-600')+' mb-3">'+g.description+'</p>':'')+
-          (g.price?'<p class="text-lg font-bold '+(expired?'text-gray-400':'text-amber-700')+' mb-3">'+g.price+'</p>':'')+
-          countdown+
-          ((g.note && !expired)
+      return `
+      <div class="bg-white rounded-xl overflow-hidden border-2 ${expired?'border-gray-300 opacity-60':'border-amber-200 hover:border-amber-400 hover:shadow-lg'} transition-all">
+        ${g.image?`<div class="w-full h-48 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired?'grayscale':''}"></div>`:''}
+        <div class="p-5">
+          <h3 class="text-lg font-bold ${expired?'text-gray-500':'text-amber-900'} mb-2">${g.brand}</h3>
+          <div class="flex flex-wrap gap-2 mb-3">
+            ${expired?'<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>':''}
+            ${g.tag?`<span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">${g.tag}</span>`:''}
+            ${g.stock==='售完'?'<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>':''}
+            ${g.stock==='少量'?'<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>':''}
+          </div>
+          ${g.description?`<p class="text-sm ${expired?'text-gray-400':'text-gray-600'} mb-3">${g.description}</p>`:''}
+          ${g.price?`<p class="text-lg font-bold ${expired?'text-gray-400':'text-amber-700'} mb-3">${g.price}</p>`:''}
+          ${countdown}
+          ${(g.note && !expired)
             ? (noteIsQA
-                ? '<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3"><summary class="cursor-pointer text-indigo-700 font-medium">❓ 常見問題（'+qaList.length+'）</summary>'+
-                  qaList.map(function(qa){ return '<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: '+qa.q+'</p><p class="text-sm text-indigo-700">A: '+qa.a+'</p></div>'; }).join('')+
-                  '</details>'
+                ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
+                     <summary class="cursor-pointer text-indigo-700 font-medium">❓ 常見問題（${qaList.length}）</summary>
+                     ${qaList.map(qa=>`<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
+                   </details>`
                 : (noteIsURL
-                    ? '<div class="mb-3"><button onclick=\'openNote(event, "'+g.note+'")\' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors">📝 查看詳細介紹</button></div>'
-                    : '<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 備註</p><p class="text-sm text-blue-900">'+g.note+'</p></div>')
-              )
-            : ''
-          )+
-          (g.video && !expired ? '<div class="mb-3"><button onclick=\'openVideoModal(event, "'+g.video+'")\' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>' : '')+
-          (g.coupon && !expired ? '<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">'+g.coupon+'</code></div><button onclick=\'copyCoupon(event, "'+g.coupon+'")\' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>' : '')+
-          '<a href="'+g.url+'" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r '+openClass+'">立即前往 →</a>'+
-        '</div>'+
-      '</div>';
+                    ? `<div class="mb-3"><button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors">📝 查看詳細介紹</button></div>`
+                    : `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 備註</p><p class="text-sm text-blue-900">${g.note}</p></div>`))
+            : ''}
+          ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
+          ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
+          <a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired?'仍可查看 →':'立即前往 →'}</a>
+        </div>
+      </div>`;
     }
 
     function renderCouponCard(g){
-      var expired=isExpired(g.endDate);
-      var daysLeft=getDaysLeft(g.endDate);
-      var noteIsURL=isURL(g.note);
-      var noteIsQA=isQA(g.note);
-      var qaList=noteIsQA?parseQA(g.note):[];
+      const expired=isExpired(g.endDate);
+      const daysLeft=getDaysLeft(g.endDate);
+      const noteIsURL=isURL(g.note);
+      const noteIsQA=isQA(g.note);
+      const qaList=noteIsQA?parseQA(g.note):[];
 
-      return ''+
-      '<div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 '+(expired?'border-gray-300 opacity-60':'border-purple-200 hover:border-purple-400 hover:shadow-xl')+' transition-all">'+
-        (g.image?'<div class="w-full h-40 bg-gray-100"><img src="'+g.image+'" alt="'+g.brand+'" class="w-full h-full object-cover '+(expired?'grayscale':'')+'"></div>':'')+
-        '<div class="p-6">'+
-          '<h3 class="text-xl font-bold '+(expired?'text-gray-500':'text-purple-900')+' mb-3 break-words">'+g.brand+'</h3>'+
-          (g.description?'<p class="text-sm '+(expired?'text-gray-400':'text-gray-600')+' mb-4">'+g.description+'</p>':'')+
-          (g.price?'<p class="text-lg font-bold '+(expired?'text-gray-400':'text-purple-700')+' mb-4">'+g.price+'</p>':'')+
-          ((g.note && !expired)
+      return `
+      <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired?'border-gray-300 opacity-60':'border-purple-200 hover:border-purple-400 hover:shadow-xl'} transition-all">
+        ${g.image?`<div class="w-full h-40 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired?'grayscale':''}"></div>`:''}
+        <div class="p-6">
+          <h3 class="text-xl font-bold ${expired?'text-gray-500':'text-purple-900'} mb-3 break-words">${g.brand}</h3>
+          ${g.description?`<p class="text-sm ${expired?'text-gray-400':'text-gray-600'} mb-4">${g.description}</p>`:''}
+          ${g.price?`<p class="text-lg font-bold ${expired?'text-gray-400':'text-purple-700'} mb-4">${g.price}</p>`:''}
+          ${(g.note && !expired)
             ? (noteIsQA
-                ? '<details class="mb-4 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3"><summary class="cursor-pointer text-indigo-700 font-medium">❓ 常見問題（'+qaList.length+'）</summary>'+
-                  qaList.map(function(qa){ return '<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: '+qa.q+'</p><p class="text-sm text-indigo-700">A: '+qa.a+'</p></div>'; }).join('')+
-                  '</details>'
+                ? `<details class="mb-4 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3"><summary class="cursor-pointer text-indigo-700 font-medium">❓ 常見問題（${qaList.length}）</summary>${qaList.map(qa=>`<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}</details>`
                 : (noteIsURL
-                    ? '<button onclick=\'openNote(event, "'+g.note+'")\' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-3 rounded-lg font-medium hover:bg-blue-100 transition-colors mb-4">📝 查看詳細介紹</button>'
-                    : '<div class="mb-4 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 備註</p><p class="text-sm text-blue-900">'+g.note+'</p></div>'))
-            : ''
-          )+
-          ((daysLeft!==null && !expired)?'<div class="flex items-center gap-2 text-sm mb-4"><span class="'+(daysLeft<=7?'text-red-600 font-semibold':'text-purple-700')+'">⏰ '+(daysLeft>0?('剩 '+daysLeft+' 天'):'今天截止')+'</span></div>':'')+
-          (g.coupon && !expired ? '<div class="bg-white border-2 border-purple-300 rounded-xl p-4 mb-4"><p class="text-xs text-purple-600 font-semibold mb-2">🎟️ 折扣碼</p><div class="flex items-center gap-3"><code class="text-xl md:text-2xl font-bold text-purple-900 font-mono break-all flex-1 min-w-0">'+g.coupon+'</code><button onclick=\'copyCoupon(event, "'+g.coupon+'")\' class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium whitespace-nowrap flex-shrink-0">複製</button></div></div>':'')+
-          '<a href="'+g.url+'" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 '+(expired?'opacity-80':'')+'">'+(expired?'仍可查看 →':'立即前往 →')+'</a>'+
-        '</div>'+
-      '</div>';
+                    ? `<button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-3 rounded-lg font-medium hover:bg-blue-100 transition-colors mb-4">📝 查看詳細介紹</button>`
+                    : `<div class="mb-4 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 備註</p><p class="text-sm text-blue-900">${g.note}</p></div>`))
+            : ''}
+          ${(daysLeft!==null && !expired)?`<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft<=7?'text-red-600 font-semibold':'text-purple-700'}">⏰ ${(daysLeft>0)?('剩 '+daysLeft+' 天'):'今天截止'}</span></div>`:''}
+          ${g.coupon && !expired ? `<div class="bg-white border-2 border-purple-300 rounded-xl p-4 mb-4"><p class="text-xs text-purple-600 font-semibold mb-2">🎟️ 折扣碼</p><div class="flex items-center gap-3"><code class="text-xl md:text-2xl font-bold text-purple-900 font-mono break-all flex-1 min-w-0">${g.coupon}</code><button onclick='copyCoupon(event, "${g.coupon}")' class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium whitespace-nowrap flex-shrink-0">複製</button></div></div>`:''}
+          <a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 ${expired?'opacity-80':''}">${expired?'仍可查看 →':'立即前往 →'}</a>
+        </div>
+      </div>`;
     }
 
-    /* ===================== 主內容渲染（只更新 #content） ===================== */
+    /* ============ 內容渲染 ============ */
     function toggleExpired(){
       state.showExpired = !state.showExpired;
       try{ localStorage.setItem(STORAGE_KEYS.showExpired, String(state.showExpired)); }catch(e){}
@@ -513,74 +498,87 @@
       }
       if(state.error){ return; }
 
-      // 篩選
-      var filtered = state.groups.filter(function(g){
-        var okSearch = !state.searchTerm || g.brand.toLowerCase().indexOf(state.searchTerm.toLowerCase())>-1 ||
-                       (g.tag||'').toLowerCase().indexOf(state.searchTerm.toLowerCase())>-1 ||
-                       (g.description||'').toLowerCase().indexOf(state.searchTerm.toLowerCase())>-1;
-        var okExpired = state.showExpired || !isExpired(g.endDate);
+      // 搜尋/過期過濾
+      const q=(state.searchTerm||'').toLowerCase();
+      const filtered = state.groups.filter(g=>{
+        const okSearch = !q
+          || g.brand.toLowerCase().includes(q)
+          || (g.tag||'').toLowerCase().includes(q)
+          || (g.description||'').toLowerCase().includes(q);
+        const okExpired = state.showExpired || !isExpired(g.endDate);
         return okSearch && okExpired;
       });
 
-      var longTerm = filtered.filter(function(g){ return g.category==='long'; });
-      var shortTerm = filtered.filter(function(g){ return g.category==='short'; }).sort(function(a,b){
+      const longTerm = filtered.filter(g=>g.category==='long');
+      const shortTerm= filtered.filter(g=>g.category==='short').sort((a,b)=>{
         if(!a.endDate && !b.endDate) return 0;
         if(!a.endDate) return 1;
         if(!b.endDate) return -1;
-        var A=parseDateSafe(a.endDate), B=parseDateSafe(b.endDate);
-        return A - B;
+        return parseDateSafe(a.endDate) - parseDateSafe(b.endDate);
       });
-      var coupon = filtered.filter(function(g){ return g.category==='coupon'; });
-      var expiredCount = state.groups.filter(function(g){ return isExpired(g.endDate); }).length;
+      const coupon   = filtered.filter(g=>g.category==='coupon');
+      const expiredCount = state.groups.filter(g=>isExpired(g.endDate)).length;
 
-      // 生成區段按鈕（固定節點）
-      var $btns = document.getElementById('sectionButtons');
+      // 更新區段按鈕（不影響搜尋列）
+      const $btns=document.getElementById('sectionButtons');
+      const btn = (id, txt, cls) => `<button onclick="document.getElementById('${id}').scrollIntoView({behavior:'smooth',block:'start'})" class="px-4 py-2 ${cls} rounded-lg font-medium whitespace-nowrap hover:opacity-90 text-sm">${txt}</button>`;
       $btns.innerHTML =
-        (shortTerm.length?'<button onclick="document.getElementById(\'short-term\').scrollIntoView({behavior:\'smooth\',block:\'start\'});" class="px-4 py-2 bg-orange-100 text-orange-700 rounded-lg font-medium whitespace-nowrap hover:bg-orange-200 text-sm">限時團購</button>':'')+
-        (longTerm.length? '<button onclick="document.getElementById(\'long-term\').scrollIntoView({behavior:\'smooth\',block:\'start\'});" class="px-4 py-2 bg-green-100 text-green-700 rounded-lg font-medium whitespace-nowrap hover:bg-green-200 text-sm">長期團購</button>':'')+
-        (coupon.length?   '<button onclick="document.getElementById(\'coupon\').scrollIntoView({behavior:\'smooth\',block:\'start\'});" class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg font-medium whitespace-nowrap hover:bg-purple-200 text-sm">折扣碼優惠</button>':'')+
-        '<button onclick="document.getElementById(\'calendar\').scrollIntoView({behavior:\'smooth\',block:\'start\'});" class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg font-medium whitespace-nowrap hover:bg-blue-200 text-sm">團購行事曆</button>';
+        (shortTerm.length?btn('short-term','限時團購','bg-orange-100 text-orange-700'):'')+
+        (longTerm.length ?btn('long-term','長期團購','bg-green-100 text-green-700'):'')+
+        (coupon.length   ?btn('coupon','折扣碼優惠','bg-purple-100 text-purple-700'):'')+
+        btn('calendar','團購行事曆','bg-blue-100 text-blue-700');
 
-      // 三個月份
-      var today=new Date();
-      var m1=today.getMonth()+1, m2=(today.getMonth()+1)%12 + 1, m3=(today.getMonth()+2)%12 + 1;
+      // 月份
+      const today=new Date();
+      const m1=today.getMonth()+1, m2=(today.getMonth()+1)%12+1, m3=(today.getMonth()+2)%12+1;
 
-      // 內容
+      // 主內容
       document.getElementById('content').innerHTML =
-        '<div class="mb-6">'+
-          (expiredCount?'<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium '+(state.showExpired?'bg-gray-600 text-white':'bg-white text-gray-700 border-2 border-gray-300')+'">'+(state.showExpired?'隱藏':'顯示')+'已結束（'+expiredCount+'）</button>':'')+
-        '</div>'+
+        `<div class="mb-6">
+           ${expiredCount?`<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired?'bg-gray-600 text-white':'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired?'隱藏':'顯示'}已結束（${expiredCount}）</button>`:''}
+         </div>`+
 
-        (shortTerm.length?'<section id="short-term" class="mb-8"><h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">⏳</span>限時團購</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">'+shortTerm.map(renderGroupCard).join('')+'</div></section>':'')+
-        (longTerm.length? '<section id="long-term" class="mb-8"><h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">🗓️</span>常駐團購</h2><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">'+longTerm.map(renderGroupCard).join('')+'</div></section>':'')+
-        (coupon.length?   '<section id="coupon" class="mb-8"><h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">🎟️</span>折扣碼優惠</h2><div class="grid grid-cols-1 md:grid-cols-2 gap-4">'+coupon.map(renderCouponCard).join('')+'</div></section>':'')+
+        (shortTerm.length?`<section id="short-term" class="mb-8">
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">限時</span>限時團購</h2>
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${shortTerm.map(renderGroupCard).join('')}</div>
+         </section>`:'')+
 
-        '<section id="calendar" class="mb-8">'+
-          '<h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">📅</span>團購行事曆</h2>'+
-          '<div class="bg-white rounded-xl p-4 border-2 border-amber-200">'+
-            '<div class="flex gap-2 mb-4 justify-center">'+
-              '<button onclick="switchCalendarMonth(0)" class="px-4 py-2 rounded-lg font-medium '+(state.selectedCalendarMonth===0?'bg-blue-600 text-white':'bg-gray-100 text-gray-700 hover:bg-gray-200')+'">'+m1+'月</button>'+
-              '<button onclick="switchCalendarMonth(1)" class="px-4 py-2 rounded-lg font-medium '+(state.selectedCalendarMonth===1?'bg-blue-600 text-white':'bg-gray-100 text-gray-700 hover:bg-gray-200')+'">'+m2+'月</button>'+
-              '<button onclick="switchCalendarMonth(2)" class="px-4 py-2 rounded-lg font-medium '+(state.selectedCalendarMonth===2?'bg-blue-600 text-white':'bg-gray-100 text-gray-700 hover:bg-gray-200')+'">'+m3+'月</button>'+
-            '</div>'+
-            renderCalendar()+
-            '<div class="mt-4 flex gap-4 text-xs text-gray-600 justify-center flex-wrap">'+
-              '<div class="flex items-center gap-1"><div class="w-4 h-4 bg-blue-100 border border-blue-300 rounded"></div><span>今天</span></div>'+
-              '<div class="flex items-center gap-1"><div class="w-4 h-4 bg-red-100 border border-red-300 rounded"></div><span>3天內截止</span></div>'+
-              '<div class="flex items-center gap-1"><div class="w-4 h-4 bg-orange-100 border border-orange-300 rounded"></div><span>7天內截止</span></div>'+
-              '<div class="flex items-center gap-1"><div class="w-4 h-4 bg-amber-100 border border-amber-300 rounded"></div><span>本月截止</span></div>'+
-              '<div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>＝ 當日截止數</span></div>'+
-              '<div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>＝ 當日開團數</span></div>'+
-            '</div>'+
-          '</div>'+
-        '</section>'+
+        (longTerm.length?`<section id="long-term" class="mb-8">
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">長期</span>常駐團購</h2>
+           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${longTerm.map(renderGroupCard).join('')}</div>
+         </section>`:'')+
 
-        ((filtered.length===0 && state.searchTerm)?'<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「'+state.searchTerm+'」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清除搜尋條件</p></div>':'')+
-        ((filtered.length===0 && !state.searchTerm)?'<div class="text-center py-12 text-amber-700"><p class="text-lg">目前沒有團購項目</p></div>':'');
+        (coupon.length?`<section id="coupon" class="mb-8">
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">🎟️</span>折扣碼優惠</h2>
+           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${coupon.map(renderCouponCard).join('')}</div>
+         </section>`:'')+
+
+        `<section id="calendar" class="mb-8">
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">📅</span>團購行事曆</h2>
+           <div class="bg-white rounded-xl p-4 border-2 border-amber-200">
+             <div class="flex gap-2 mb-4 justify-center">
+               <button onclick="switchCalendarMonth(0)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth===0?'bg-blue-600 text-white':'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m1}月</button>
+               <button onclick="switchCalendarMonth(1)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth===1?'bg-blue-600 text-white':'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m2}月</button>
+               <button onclick="switchCalendarMonth(2)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth===2?'bg-blue-600 text-white':'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m3}月</button>
+             </div>
+             ${renderCalendar()}
+             <div class="mt-4 flex gap-4 text-xs text-gray-600 justify-center flex-wrap">
+               <div class="flex items-center gap-1"><div class="w-4 h-4 bg-blue-100 border border-blue-300 rounded"></div><span>今天</span></div>
+               <div class="flex items-center gap-1"><div class="w-4 h-4 bg-red-100 border border-red-300 rounded"></div><span>3天內截止</span></div>
+               <div class="flex items-center gap-1"><div class="w-4 h-4 bg-orange-100 border border-orange-300 rounded"></div><span>7天內截止</span></div>
+               <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>＝ 當日截止數</span></div>
+               <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>＝ 當日開團數</span></div>
+             </div>
+           </div>
+         </section>`+
+
+        ((filtered.length===0 && state.searchTerm)?`<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「${state.searchTerm}」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清空搜尋</p></div>`:'')+
+        ((filtered.length===0 && !state.searchTerm)?`<div class="text-center py-12 text-amber-700"><p class="text-lg">目前沒有團購項目</p></div>`:'');
     }
 
-    /* ===================== 啟動 ===================== */
+    /* ============ 啟動 ============ */
     hookSearch();
+    renderBanner();       // ← 設定圖片網址後會顯示，留空就自動隱藏
     loadData();
     setInterval(loadData, 5*60*1000);
   </script>
