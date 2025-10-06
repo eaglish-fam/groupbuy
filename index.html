@@ -28,9 +28,6 @@
                   class="absolute right-2 top-1/2 -translate-y-1/2 hidden w-7 h-7 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">×</button>
         </div>
       </div>
-
-      <!-- 社群連結按鈕 -->
-      <div id="socialLinks" class="mt-4 flex justify-center gap-3 flex-wrap"></div>
     </div>
   </header>
 
@@ -62,11 +59,11 @@
       SEARCH_DEBOUNCE: 120,
       // 社群連結（留空的連結不會顯示按鈕）
       SOCIAL_LINKS: {
-        LINE: "https://line.me/ti/g2/WcewqAFHz9CZ4zQRMCeiMNilA281HRQvfH71yg",      // 例: "https://line.me/ti/g2/xxxxx"
-        IG: "https://www.instagram.com/eaglish.fam",        // 例: "https://www.instagram.com/your_account"
-        FB: "https://www.facebook.com/eaglish.family",        // 例: "https://www.facebook.com/your_page"
-        YT: "https://www.youtube.com/@eaglish.family",        // 例: "https://www.youtube.com/@your_channel"
-        TIKTOK: "https://www.tiktok.com/@eaglish.family"     // 例: "https://www.tiktok.com/@your_account"
+        LINE: "https://line.me/ti/g2/WcewqAFHz9CZ4zQRMCeiMNilA281HRQvfH71yg",
+        IG: "https://www.instagram.com/eaglish.fam",
+        FB: "https://www.facebook.com/eaglish.family",
+        YT: "https://www.youtube.com/@eaglish.family",
+        TIKTOK: "https://www.tiktok.com/@eaglish.family"
       }
     };
 
@@ -171,9 +168,6 @@
 
     // ============ 社群連結渲染 ============
     function renderSocialLinks() {
-      const socialContainer = document.getElementById('socialLinks');
-      if (!socialContainer) return;
-
       const socialButtons = [
         { name: 'LINE', url: CONFIG.SOCIAL_LINKS.LINE, icon: '💬', color: 'bg-green-500 hover:bg-green-600', label: 'LINE 社群' },
         { name: 'IG', url: CONFIG.SOCIAL_LINKS.IG, icon: '📷', color: 'bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600', label: 'Instagram' },
@@ -183,21 +177,30 @@
       ];
 
       const buttons = socialButtons
-        .filter(btn => btn.url) // 只顯示有填寫網址的按鈕
+        .filter(btn => btn.url)
         .map(btn => `
           <a href="${btn.url}" target="_blank" rel="noopener noreferrer" 
-             class="${btn.color} text-white px-4 py-2 rounded-lg font-medium text-sm transition-all shadow-md hover:shadow-lg flex items-center gap-2"
-             title="${btn.label}">
-            <span class="text-lg">${btn.icon}</span>
+             class="${btn.color} text-white px-5 py-3 rounded-xl font-medium text-sm transition-all shadow-md hover:shadow-lg hover:scale-105 flex items-center gap-2"
+             title="加入我們的 ${btn.label}">
+            <span class="text-xl">${btn.icon}</span>
             <span>${btn.label}</span>
           </a>
         `).join('');
 
-      if (buttons) {
-        socialContainer.innerHTML = buttons;
-      } else {
-        socialContainer.innerHTML = '';
-      }
+      return buttons ? `
+        <section id="social-section" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+          <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center justify-center gap-2">
+            <span class="bg-gradient-to-r from-amber-100 to-pink-100 text-amber-800 px-3 py-1 rounded-full text-sm">🌟</span>
+            加入我們的社群
+          </h2>
+          <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200">
+            <p class="text-center text-amber-800 mb-4 text-sm">追蹤我們，獲取最新團購資訊和優惠通知！</p>
+            <div class="flex justify-center gap-3 flex-wrap">
+              ${buttons}
+            </div>
+          </div>
+        </section>
+      ` : '';
     }
 
     // ============ 影片處理 ============
@@ -898,6 +901,8 @@
            </div>
          </section>` +
 
+        renderSocialLinks() +
+
         (filtered.length === 0 && state.searchTerm ? `<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「${state.searchTerm}」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清空搜尋</p></div>` : '') +
         (filtered.length === 0 && !state.searchTerm ? `<div class="text-center py-12 text-amber-700"><p class="text-lg">目前沒有團購項目</p></div>` : '');
     }
@@ -905,7 +910,6 @@
     // ============ 初始化 ============
     initSearch();
     renderBanner();
-    renderSocialLinks();
     loadData();
     setInterval(loadData, CONFIG.REFRESH_INTERVAL);
   </script>
