@@ -290,42 +290,55 @@
     }
 
     // 👉 新的 openVideoModal（取代舊版）
+
     function openVideoModal(event, videoUrl) {
       event.stopPropagation();
+
+      // 1) 先判斷是否為 YT / Drive，是的話直接新分頁開啟
+      let host = '';
+      try { host = new URL(videoUrl).hostname.toLowerCase(); } catch(e) {
+        window.open(videoUrl, '_blank', 'noopener,noreferrer'); 
+        return;
+      }
+      const isYouTube = host.includes('youtube.com') || host.includes('youtu.be');
+      const isDrive   = host.includes('drive.google.com');
+
+      if (isYouTube || isDrive) {
+        window.open(videoUrl, '_blank', 'noopener,noreferrer');
+        return; // 不進彈窗
+      }
+
+      // 2) 其餘（IG / Facebook）仍走內嵌彈窗
       const embed = buildVideoEmbed(videoUrl);
-      if (!embed) { alert('此影片連結目前不支援或內容非公開'); return; }
+      if (!embed) { // 萬一解析不到就退而求其次，直接開新分頁
+        window.open(videoUrl, '_blank', 'noopener,noreferrer');
+        return;
+      }
 
       const box = document.getElementById('videoContainer');
-
-      // 讓內部嵌入物件水平/垂直置中
       box.className = 'w-full flex justify-center items-center p-0';
-      // 先清掉舊的比例
       box.style.removeProperty('aspect-ratio');
 
-      // 判斷直式：我們讓直式內容（IG）使用較窄寬度並置中
       const isPortrait = embed.ratio === '9/16';
-
-      // 直式：限制寬度避免「靠左+大片空白」，桌機略放寬
       const wrapperClasses = isPortrait
         ? 'w-full mx-auto max-w-[560px] md:max-w-[640px]'
         : 'w-full mx-auto';
 
-  // 橫式（YouTube/Drive）才套固定比例；FB/IG 交由官方 SDK 自計高度
       if (embed.ratio && !isPortrait) {
-        box.style.aspectRatio = embed.ratio; // 例：16/9
+        box.style.aspectRatio = embed.ratio; // 例如 16/9
       } else {
         box.style.removeProperty('aspect-ratio');
       }
 
-  // 用一層 wrapper 置中外掛（特別是 IG/FB 的 blockquote / div）
       box.innerHTML = `<div class="${wrapperClasses}">${embed.html}</div>`;
-
+  
       const modal = document.getElementById('videoModal');
       modal.classList.remove('hidden');
       modal.classList.add('flex');
 
       if (typeof embed.after === 'function') embed.after();
     }
+
 
     // 若你的檔案裡沒有 closeVideoModal，保留這個；若已經有，可忽略這段
     function closeVideoModal() {
