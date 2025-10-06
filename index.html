@@ -636,7 +636,7 @@
           ${(g.note && !expired)
             ? (noteIsQA
                 ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
-                     <summary class="cursor-pointer text-indigo-700 font-medium">❓ 常見問題（${qaList.length}）</summary>
+                     <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓（${qaList.length}）</summary>
                      ${qaList.map(qa=>`<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
                    </details>`
                 : (noteIsURL
