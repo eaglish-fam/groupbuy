@@ -98,12 +98,38 @@
     /* ============ 小工具 ============ */
     function isURL(s){ return !!s && /^https?:\/\//i.test(s); }
     function isQA(s){ return !!s && s.includes('Q:') && s.includes('|A:'); }
-    function parseQA(s){
-      if(!s) return [];
-      return s.split('\n').map(x=>x.trim()).filter(Boolean).map(line=>{
-        const parts=line.split('|A:'); if(parts.length<2) return null;
-        return {q:parts[0].replace(/^Q:\s*/,'').trim(), a:parts[1].trim()};
-      }).filter(Boolean);
+// 解析同一格中的多組 Q/A（支援 \n / \r\n / 文字中出現 "Q:" 的黏在一起情況）
+// 支援半形/全形冒號：Q: / Q：、|A: / |A：
+    function parseQA(qaString) {
+      if (!qaString) return [];
+
+  // 標準化換行與標記
+      const norm = qaString
+        .replace(/\r\n?/g, '\n')               // \r\n 或 \r -> \n
+        .replace(/[|｜]\s*A\s*[：:]/g, '|A:')  // |A： -> |A:
+        .replace(/Q\s*[：:]/g, 'Q:');          // Q： -> Q:
+
+  // 有些情況會變成「... |A: ... Q: ...」黏在同一行；在 Q: 之前補換行
+      const separated = norm.replace(/(\|A:[^\n]*?)\s+(?=Q:\s*)/g, '$1\n');
+
+  // 以每個 Q: 為切點分段
+      const chunks = separated
+        .split(/(?=Q:\s*)/g)
+        .map(s => s.trim())
+        .filter(s => s.startsWith('Q:'));
+
+      const out = [];
+      for (const chunk of chunks) {
+    // 取出一組 Q / A
+        const m = chunk.match(/^Q:\s*(.*?)\s*\|A:\s*([\s\S]*?)$/);
+        if (m) {
+          out.push({
+            q: m[1].trim(),
+            a: m[2].trim()
+          });
+        }
+      }
+      return out;
     }
     function parseDateSafe(v){
       if(!v) return null;
@@ -158,7 +184,17 @@
         document.body.appendChild(root);
       }
     }
+    // 允許網址帶比例提示：#portrait / #landscape / ?ratio=9:16 / ?ratio=16:9
+    function getRatioHint(url) {
+      let u;
+      try { u = new URL(url); } catch { return null; }
+      const hash = (u.hash || '').toLowerCase();
+      const qp   = (u.searchParams.get('ratio') || '').toLowerCase();
 
+      if (hash.includes('portrait') || qp === '9:16') return '9/16';
+      if (hash.includes('landscape') || qp === '16:9') return '16/9';
+      return null; // 無提示就交由各平台預設
+    }
 /**
  * 依網址判斷平台，回傳：
  * { html: '<embed html>', ratio: '16/9' | '9/16' | null, after: ()=>void }
@@ -170,17 +206,25 @@
       try { u = new URL(url); } catch { return null; }
       const host = u.hostname.toLowerCase();
 
-  // 1) Google Drive
+  // === Google Drive ===
       if (host.includes('drive.google.com')) {
         const m = url.match(/[-\w]{25,}/);
         if (!m) return null;
+
+    // 讀取比例提示；沒給就當 16:9，給了 #portrait 或 ?ratio=9:16 就改直式
+        const ratio = getRatioHint(url) || '16/9';
+
         return {
-          html: `<iframe src="https://drive.google.com/file/d/${m[0]}/preview" class="w-full h-full" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`,
-          ratio: '16/9'
+          html: `<iframe src="https://drive.google.com/file/d/${m[0]}/preview"
+                        class="w-full h-full"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowfullscreen></iframe>`,
+          ratio
         };
       }
 
-  // 2) YouTube（含 youtu.be / shorts）
+  // === YouTube（含 youtu.be / shorts）===
       if (host.includes('youtube.com') || host.includes('youtu.be')) {
         let id = null;
         const m1 = url.match(/youtu\.be\/([^?&/]+)/);
@@ -188,17 +232,28 @@
         const m3 = url.match(/shorts\/([^?&/]+)/);
         id = (m1 && m1[1]) || (m2 && m2[1]) || (m3 && m3[1]) || null;
         if (!id) return null;
+
+    // 也允許手動提示（預設 16:9）
+        const ratio = getRatioHint(url) || '16/9';
+
         return {
-          html: `<iframe src="https://www.youtube.com/embed/${id}?playsinline=1" class="w-full h-full" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`,
-          ratio: '16/9'
+          html: `<iframe src="https://www.youtube.com/embed/${id}?playsinline=1"
+                        class="w-full h-full"
+                        frameborder="0"
+                        allow="autoplay; encrypted-media; picture-in-picture"
+                        allowfullscreen></iframe>`,
+          ratio
         };
       }
 
-      // 3) Instagram（貼文 / Reels：官方 embed.js）
+  // === Instagram ===
       if (host.includes('instagram.com')) {
-        const clean = u.origin + u.pathname.replace(/\/?$/, '/'); // 確保以 / 結尾
+        const clean = u.origin + u.pathname.replace(/\/?$/, '/');
         return {
-          html: `<blockquote class="instagram-media" data-instgrm-permalink="${clean}" data-instgrm-version="14" style="margin:0 auto; max-width:540px; width:100%"></blockquote>`,
+          html: `<blockquote class="instagram-media"
+                            data-instgrm-permalink="${clean}"
+                            data-instgrm-version="14"
+                            style="margin:0 auto; max-width:540px; width:100%"></blockquote>`,
           ratio: '9/16',
           after: () => addScriptOnce('ig-embed-js', 'https://www.instagram.com/embed.js', () => {
             if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
@@ -206,7 +261,7 @@
         };
       }
 
-      // 4) Facebook（影片 / 貼文 / fb.watch）
+  // === Facebook（影片 / 貼文 / fb.watch）===
       if (host.includes('facebook.com') || host === 'fb.watch') {
         const isVideo = /\/watch\/|\/video|\/videos|fb\.watch/.test(url);
         const html = isVideo
@@ -215,7 +270,7 @@
 
         return {
           html,
-          ratio: null, // 交由 FB SDK 自適應高度
+          ratio: null, // 交由 FB SDK 自適應
           after: () => {
             ensureFbRoot();
             addScriptOnce(
@@ -223,7 +278,6 @@
               'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v19.0',
               () => {
                 if (window.FB && window.FB.XFBML && typeof window.FB.XFBML.parse === 'function') {
-                  // 只重新處理我們容器，避免整頁抖動
                   window.FB.XFBML.parse(document.getElementById('videoContainer'));
                 }
               }
