@@ -122,7 +122,22 @@
     function isExpired(endStr){ const d=getDaysLeft(endStr); return d!==null && d<0; }
     function isProbablyHTML(t){ return /<\/?html[\s>]/i.test(t) || /accounts\.google\.com/.test(t); }
     function formatCount(n){ if(n>99) return '99+'; if(n>9) return '9+'; return String(n); }
+    // 讓快速按鈕滾到目標時，預留黏住標頭的高度（行動版/內建瀏覽器也OK）
+    function scrollToSection(sectionId) {
+      const el = document.getElementById(sectionId);
+      if (!el) return;
 
+      // 量到實際 header 高度，再加一點緩衝避免卡邊
+      const header = document.querySelector('header');
+      const headerH = header ? header.getBoundingClientRect().height : 0;
+      const extra   = 8; // 微小緩衝，避免貼太近
+      const top = Math.max(
+        0,
+        el.getBoundingClientRect().top + window.pageYOffset - headerH - extra
+      );
+
+      window.scrollTo({ top, behavior: 'smooth' });
+    }
     /* ============ 影片 ============ */
     function getGoogleDriveVideoId(url){ if(!url) return null; const m=url.match(/[-\w]{25,}/); return m?m[0]:null; }
     function openVideoModal(ev, url){
@@ -521,10 +536,12 @@
 
       // 更新區段按鈕（不影響搜尋列）
       const $btns=document.getElementById('sectionButtons');
-      const btn = (id, txt, cls) => `<button onclick="document.getElementById('${id}').scrollIntoView({behavior:'smooth',block:'start'})" class="px-4 py-2 ${cls} rounded-lg font-medium whitespace-nowrap hover:opacity-90 text-sm">${txt}</button>`;
+      const btn = (id, txt, cls) =>
+        `<button onclick="scrollToSection('${id}')"
+                 class="px-4 py-2 ${cls} rounded-lg font-medium whitespace-nowrap hover:opacity-90 text-sm">${txt}</button>`;
       $btns.innerHTML =
         (shortTerm.length?btn('short-term','限時團購','bg-orange-100 text-orange-700'):'')+
-        (longTerm.length ?btn('long-term','長期團購','bg-green-100 text-green-700'):'')+
+        (longTerm.length ?btn('long-term','常駐團購','bg-green-100 text-green-700'):'')+
         (coupon.length   ?btn('coupon','折扣碼優惠','bg-purple-100 text-purple-700'):'')+
         btn('calendar','團購行事曆','bg-blue-100 text-blue-700');
 
@@ -538,22 +555,22 @@
            ${expiredCount?`<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired?'bg-gray-600 text-white':'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired?'隱藏':'顯示'}已結束（${expiredCount}）</button>`:''}
          </div>`+
 
-        (shortTerm.length?`<section id="short-term" class="mb-8">
+        (shortTerm.length?`<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
            <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">限時</span>限時團購</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${shortTerm.map(renderGroupCard).join('')}</div>
          </section>`:'')+
 
-        (longTerm.length?`<section id="long-term" class="mb-8">
+        (longTerm.length?`<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
            <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">長期</span>常駐團購</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${longTerm.map(renderGroupCard).join('')}</div>
          </section>`:'')+
 
-        (coupon.length?`<section id="coupon" class="mb-8">
+        (coupon.length?`<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
            <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">🎟️</span>折扣碼優惠</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${coupon.map(renderCouponCard).join('')}</div>
          </section>`:'')+
 
-        `<section id="calendar" class="mb-8">
+        `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-8">
            <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">📅</span>團購行事曆</h2>
            <div class="bg-white rounded-xl p-4 border-2 border-amber-200">
              <div class="flex gap-2 mb-4 justify-center">
