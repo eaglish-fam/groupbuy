@@ -137,44 +137,53 @@
     function closeVideoModal(){ var m=document.getElementById('videoModal'); m.classList.add('hidden'); m.classList.remove('flex'); document.getElementById('videoContainer').innerHTML=''; }
 
     /* ===================== 搜尋（不重建節點） ===================== */
-    var $search = document.getElementById('searchInput');
-    var $clear  = document.getElementById('clearBtn');
-    var $searchBtn = document.getElementById('searchBtn');
+    // 組字保護 & debounce
+    var isComposing = false;
+    var searchDebounce;
+    var STORAGE_KEYS = { search:'eg_search', showExpired:'eg_show_expired', month:'eg_month' };
 
+    // 改成允許不存在搜尋 UI
+    var $search    = document.getElementById('searchInput') || null;
+    var $clear     = document.getElementById('clearBtn') || null;
+    var $searchBtn = document.getElementById('searchBtn') || null;
+  
     function applySearch(term){
       state.searchTerm = term || '';
-      localStorage.setItem(STORAGE_KEYS.search, state.searchTerm);
-      $clear.classList.toggle('hidden', state.searchTerm.length===0);
+      try { localStorage.setItem(STORAGE_KEYS.search, state.searchTerm); } catch(e){}
+      if ($clear) $clear.classList.toggle('hidden', state.searchTerm.length===0);
       renderContent();
     }
 
     function hookSearch(){
-      // 記憶設定
+      // 若已移除搜尋 UI，直接略過（並確保顯示全部資料）
+      if (!$search || !$searchBtn || !$clear) {
+        state.searchTerm = '';
+        return;
+      }
+
+      // ↓↓↓ 有搜尋 UI 才會跑到底下這些
       try{
         var saved = localStorage.getItem(STORAGE_KEYS.search) || '';
         var savedShow = localStorage.getItem(STORAGE_KEYS.showExpired);
         var savedMonth = localStorage.getItem(STORAGE_KEYS.month);
-        if(saved){ state.searchTerm = saved; $search.value = saved; $clear.classList.remove('hidden'); }
-        if(savedShow!=null){ state.showExpired = savedShow==='true'; }
-        if(savedMonth!=null){ state.selectedCalendarMonth = parseInt(savedMonth,10)||0; }
+        if (saved) { state.searchTerm = saved; $search.value = saved; $clear.classList.remove('hidden'); }
+        if (savedShow!=null) state.showExpired = (savedShow==='true');
+        if (savedMonth!=null) state.selectedCalendarMonth = parseInt(savedMonth,10)||0;
       }catch(e){}
 
       $search.addEventListener('compositionstart', function(){ isComposing = true; });
-      $search.addEventListener('compositionend', function(e){ isComposing = false; applySearch(e.target.value); });
+      $search.addEventListener('compositionend',  function(e){ isComposing = false; applySearch(e.target.value); });
       $search.addEventListener('input', function(e){
         $clear.classList.toggle('hidden', e.target.value.length===0);
-        if(isComposing) return;
+        if (isComposing) return;
         clearTimeout(searchDebounce);
         searchDebounce = setTimeout(function(){ applySearch(e.target.value); }, 250);
       });
       $search.addEventListener('keydown', function(e){
-        if(e.key==='Enter'){ e.preventDefault(); applySearch($search.value); }
+        if (e.key==='Enter'){ e.preventDefault(); applySearch($search.value); }
       });
       $searchBtn.addEventListener('click', function(){ applySearch($search.value); });
-      $clear.addEventListener('click', function(){
-        $search.value=''; applySearch('');
-        $search.focus();
-      });
+      $clear.addEventListener('click', function(){ $search.value=''; applySearch(''); $search.focus(); });
     }
 
     /* ===================== 行事曆 ===================== */
