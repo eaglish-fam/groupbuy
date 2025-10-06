@@ -233,8 +233,8 @@
         id = (m1 && m1[1]) || (m2 && m2[1]) || (m3 && m3[1]) || null;
         if (!id) return null;
 
-    // 也允許手動提示（預設 16:9）
-        const ratio = getRatioHint(url) || '16/9';
+    // 也允許手動提示（預設 9:16）
+        const ratio = getRatioHint(url) || '9/16';
 
         return {
           html: `<iframe src="https://www.youtube.com/embed/${id}?playsinline=1"
