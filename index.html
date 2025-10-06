@@ -103,6 +103,10 @@
     function parseQA(qaString) {
       if (!qaString) return [];
 
+      // 文字標準化（拿來比較品牌是否相同）
+    function normalizeBrand(s){
+      return (s || '').toLowerCase().replace(/\s+/g, '').trim();
+    }
   // 標準化換行與標記
       const norm = qaString
         .replace(/\r\n?/g, '\n')               // \r\n 或 \r -> \n
@@ -758,12 +762,36 @@
       const expiredCount = state.groups.filter(g=>isExpired(g.endDate)).length;
 
       // ✅ 新增：搜尋比對「即將開團」
+      // ✅ 搜尋比對「即將開團」：只顯示「尚未開始」且「不和目前進行中的品牌重複」
       const term = (state.searchTerm || '').trim().toLowerCase();
-      const upcomingMatches = term
-        ? (state.upcomingGroups || []).filter(u =>
-            (u.brand || '').toLowerCase().includes(term)
-          )
-        : [];
+      const today = new Date(); today.setHours(0,0,0,0);
+
+      // 目前搜尋結果中、正在進行中的品牌集合（排除已結束）
+      const activeBrandSet = new Set(
+        filtered
+          .filter(g => !isExpired(g.endDate))
+          .map(g => normalizeBrand(g.brand))
+      );
+
+      // 先挑出命中關鍵字、且 startDate > 今天、且不在進行中清單的預告
+      const rawUpcoming = term ? (state.upcomingGroups || []).filter(u => {
+        const hit  = (u.brand || '').toLowerCase().includes(term);
+        const st   = parseDateSafe(u.startDate);
+        const fut  = !!st && st > today;                // 只要未來的預告
+        const diff = !activeBrandSet.has(normalizeBrand(u.brand)); // 不與進行中重複
+        return hit && fut && diff;
+      }) : [];
+
+      // 同品牌多筆預告 → 只留「最近要開」的那一筆
+      const soonestByBrand = {};
+      for (const u of rawUpcoming) {
+        const key = normalizeBrand(u.brand);
+        const st  = parseDateSafe(u.startDate);
+        if (!soonestByBrand[key] || st < parseDateSafe(soonestByBrand[key].startDate)) {
+          soonestByBrand[key] = u;
+        }
+      }
+      const upcomingMatches = Object.values(soonestByBrand);
 
       // 更新區段按鈕
       const $btns=document.getElementById('sectionButtons');
@@ -787,7 +815,7 @@
          </div>`+
 
         // 🟣 新增：只有「有輸入關鍵字」且「有命中」才顯示
-        (state.searchTerm && upcomingMatches.length ? `
+        (state.searchTerm && upcomingMatches.length && shortTerm.length===0 && longTerm.length===0 && coupon.length===0 ? `
           <section id="upcoming-search" class="scroll-mt-24 md:scroll-mt-28 mb-8">
             <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
               <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">預告</span>
