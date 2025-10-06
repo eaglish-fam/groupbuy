@@ -28,6 +28,9 @@
                   class="absolute right-2 top-1/2 -translate-y-1/2 hidden w-7 h-7 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">×</button>
         </div>
       </div>
+
+      <!-- 社群連結按鈕 -->
+      <div id="socialLinks" class="mt-4 flex justify-center gap-3 flex-wrap"></div>
     </div>
   </header>
 
@@ -56,7 +59,15 @@
       BANNER_IMAGE_URL: "",
       BANNER_LINK_URL: "",
       REFRESH_INTERVAL: 5 * 60 * 1000,
-      SEARCH_DEBOUNCE: 120
+      SEARCH_DEBOUNCE: 120,
+      // 社群連結（留空的連結不會顯示按鈕）
+      SOCIAL_LINKS: {
+        LINE: "https://line.me/ti/g2/WcewqAFHz9CZ4zQRMCeiMNilA281HRQvfH71yg",      // 例: "https://line.me/ti/g2/xxxxx"
+        IG: "https://www.instagram.com/eaglish.fam",        // 例: "https://www.instagram.com/your_account"
+        FB: "https://www.facebook.com/eaglish.family",        // 例: "https://www.facebook.com/your_page"
+        YT: "https://www.youtube.com/@eaglish.family",        // 例: "https://www.youtube.com/@your_channel"
+        TIKTOK: "https://www.tiktok.com/@eaglish.family"     // 例: "https://www.tiktok.com/@your_account"
+      }
     };
 
     const STORAGE_KEYS = {
@@ -156,6 +167,37 @@
       }
       elements.bannerSlot.innerHTML = inner;
       elements.bannerSlot.classList.remove('hidden');
+    }
+
+    // ============ 社群連結渲染 ============
+    function renderSocialLinks() {
+      const socialContainer = document.getElementById('socialLinks');
+      if (!socialContainer) return;
+
+      const socialButtons = [
+        { name: 'LINE', url: CONFIG.SOCIAL_LINKS.LINE, icon: '💬', color: 'bg-green-500 hover:bg-green-600', label: 'LINE 社群' },
+        { name: 'IG', url: CONFIG.SOCIAL_LINKS.IG, icon: '📷', color: 'bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600', label: 'Instagram' },
+        { name: 'FB', url: CONFIG.SOCIAL_LINKS.FB, icon: '👍', color: 'bg-blue-600 hover:bg-blue-700', label: 'Facebook' },
+        { name: 'YT', url: CONFIG.SOCIAL_LINKS.YT, icon: '▶️', color: 'bg-red-600 hover:bg-red-700', label: 'YouTube' },
+        { name: 'TIKTOK', url: CONFIG.SOCIAL_LINKS.TIKTOK, icon: '🎵', color: 'bg-black hover:bg-gray-800', label: 'TikTok' }
+      ];
+
+      const buttons = socialButtons
+        .filter(btn => btn.url) // 只顯示有填寫網址的按鈕
+        .map(btn => `
+          <a href="${btn.url}" target="_blank" rel="noopener noreferrer" 
+             class="${btn.color} text-white px-4 py-2 rounded-lg font-medium text-sm transition-all shadow-md hover:shadow-lg flex items-center gap-2"
+             title="${btn.label}">
+            <span class="text-lg">${btn.icon}</span>
+            <span>${btn.label}</span>
+          </a>
+        `).join('');
+
+      if (buttons) {
+        socialContainer.innerHTML = buttons;
+      } else {
+        socialContainer.innerHTML = '';
+      }
     }
 
     // ============ 影片處理 ============
@@ -863,6 +905,7 @@
     // ============ 初始化 ============
     initSearch();
     renderBanner();
+    renderSocialLinks();
     loadData();
     setInterval(loadData, CONFIG.REFRESH_INTERVAL);
   </script>
