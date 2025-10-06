@@ -30,13 +30,14 @@
       <div id="sectionButtons" class="flex gap-2 justify-center overflow-x-auto pb-2 pt-3"></div>
 
       <!-- 搜尋列（固定節點，不重建） -->
-      <div class="mt-3 flex gap-2 items-stretch max-w-3xl mx-auto">
-        <div class="relative flex-1">
+      <!-- 搜尋列（保留輸入框，移除搜尋按鈕） -->
+      <div class="mt-3 max-w-3xl mx-auto">
+        <div class="relative">
           <input id="searchInput" type="search" enterkeyhint="search" autocomplete="off" aria-label="搜尋品牌"
                  placeholder="搜尋品牌名稱…" class="w-full pl-3 pr-9 py-3 rounded-xl border-2 border-amber-200 focus:border-amber-400 focus:outline-none bg-white/80">
-          <button id="clearBtn" title="清除" class="absolute right-2 top-1/2 -translate-y-1/2 hidden w-7 h-7 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">×</button>
+          <button id="clearBtn" title="清除"
+                  class="absolute right-2 top-1/2 -translate-y-1/2 hidden w-7 h-7 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300">×</button>
         </div>
-        <button id="searchBtn" class="px-4 py-3 bg-amber-600 text-white rounded-xl font-medium hover:bg-amber-700 whitespace-nowrap">搜尋</button>
       </div>
     </div>
   </header>
@@ -143,9 +144,9 @@
     var STORAGE_KEYS = { search:'eg_search', showExpired:'eg_show_expired', month:'eg_month' };
 
     // 改成允許不存在搜尋 UI
-    var $search    = document.getElementById('searchInput') || null;
-    var $clear     = document.getElementById('clearBtn') || null;
-    var $searchBtn = document.getElementById('searchBtn') || null;
+    var $search    = document.getElementById('searchInput');
+    var $clear     = document.getElementById('clearBtn');
+    var $searchBtn = null;
   
     function applySearch(term){
       state.searchTerm = term || '';
@@ -182,7 +183,6 @@
       $search.addEventListener('keydown', function(e){
         if (e.key==='Enter'){ e.preventDefault(); applySearch($search.value); }
       });
-      $searchBtn.addEventListener('click', function(){ applySearch($search.value); });
       $clear.addEventListener('click', function(){ $search.value=''; applySearch(''); $search.focus(); });
     }
 
