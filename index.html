@@ -602,6 +602,29 @@
       }).catch(()=>{ alert('複製失敗，請手動複製：'+txt); });
     }
     function openNote(ev, url){ ev.stopPropagation(); window.open(url, '_blank'); }
+// ⬇️ 新增這個函式（檔案中只有一份）
+    function renderUpcomingSearchCard(g) {
+      return `
+        <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden border-2 border-pink-200 shadow-md transition-all hover:shadow-lg">
+          ${g.image ? `
+            <div class="w-full h-40 bg-gray-100">
+              <img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover">
+            </div>` : ''
+          }
+          <div class="p-5">
+            <div class="flex items-center gap-2 mb-2">
+              <span class="bg-pink-500 text-white px-2.5 py-0.5 rounded-full text-xs font-bold">敬請期待</span>
+            </div>
+            <h3 class="text-lg font-bold text-pink-900 mb-2">${g.brand || ''}</h3>
+            ${g.startDate ? `<div class="text-sm text-pink-700 mb-1">📅 預計開團：${g.startDate}</div>` : ''}
+            ${g.endDate   ? `<div class="text-sm text-pink-700 mb-3">⏰ 預計結束：${g.endDate}</div>`   : ''}
+            <div class="bg-white border-2 border-pink-300 rounded-lg p-3 text-center">
+              <p class="text-sm text-pink-800 font-medium">團購尚未開始，請密切關注</p>
+            </div>
+          </div>
+        </div>
+      `;
+    }
 
     function renderGroupCard(g){
       const daysLeft=getDaysLeft(g.endDate);
@@ -690,6 +713,8 @@
       renderContent();
     }
 
+
+    // ⬇️ 用這段完整的 renderContent() 直接覆蓋你檔案裡的同名函式
     function renderContent(){
       if(state.loading){
         document.getElementById('content').innerHTML =
@@ -698,7 +723,7 @@
       }
       if(state.error){ return; }
 
-      // 搜尋/過期過濾
+      // ── 搜尋/過期過濾（維持你原本的邏輯） ──
       const q=(state.searchTerm||'').toLowerCase();
       const filtered = state.groups.filter(g=>{
         const okSearch = !q
@@ -719,7 +744,15 @@
       const coupon   = filtered.filter(g=>g.category==='coupon');
       const expiredCount = state.groups.filter(g=>isExpired(g.endDate)).length;
 
-      // 更新區段按鈕（不影響搜尋列）
+      // ✅ 新增：搜尋比對「即將開團」
+      const term = (state.searchTerm || '').trim().toLowerCase();
+      const upcomingMatches = term
+        ? (state.upcomingGroups || []).filter(u =>
+            (u.brand || '').toLowerCase().includes(term)
+          )
+        : [];
+
+      // 更新區段按鈕
       const $btns=document.getElementById('sectionButtons');
       const btn = (id, txt, cls) =>
         `<button onclick="scrollToSection('${id}')"
@@ -734,11 +767,24 @@
       const today=new Date();
       const m1=today.getMonth()+1, m2=(today.getMonth()+1)%12+1, m3=(today.getMonth()+2)%12+1;
 
-      // 主內容
+      // 主內容（⬇️ 這裡插入「即將開團（搜尋結果）」區塊）
       document.getElementById('content').innerHTML =
         `<div class="mb-6">
            ${expiredCount?`<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired?'bg-gray-600 text-white':'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired?'隱藏':'顯示'}已結束（${expiredCount}）</button>`:''}
          </div>`+
+
+        // 🟣 新增：只有「有輸入關鍵字」且「有命中」才顯示
+        (state.searchTerm && upcomingMatches.length ? `
+          <section id="upcoming-search" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+            <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
+              <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">預告</span>
+              即將開團（${upcomingMatches.length}）
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+              ${upcomingMatches.map(renderUpcomingSearchCard).join('')}
+            </div>
+          </section>
+        ` : '') +
 
         (shortTerm.length?`<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
            <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">⏳</span>限時團購</h2>
