@@ -139,17 +139,134 @@
       window.scrollTo({ top, behavior: 'smooth' });
     }
     /* ============ 影片 ============ */
-    function getGoogleDriveVideoId(url){ if(!url) return null; const m=url.match(/[-\w]{25,}/); return m?m[0]:null; }
-    function openVideoModal(ev, url){
-      ev.stopPropagation();
-      const id=getGoogleDriveVideoId(url); if(!id){ alert('無法載入影片'); return; }
-      const embed='https://drive.google.com/file/d/'+id+'/preview';
-      document.getElementById('videoContainer').innerHTML =
-        '<iframe src="'+embed+'" class="w-full h-full" frameborder="0" allow="autoplay" allowfullscreen></iframe>';
-      const m=document.getElementById('videoModal'); m.classList.remove('hidden'); m.classList.add('flex');
-    }
-    function closeVideoModal(){ const m=document.getElementById('videoModal'); m.classList.add('hidden'); m.classList.remove('flex'); document.getElementById('videoContainer').innerHTML=''; }
 
+    // ===== 社群影片整合（只支援：Google Drive / YouTube / Instagram / Facebook） =====
+
+    // 動態載一次外部 script（IG / Facebook 需要）
+    function addScriptOnce(id, src, onload){
+      if (document.getElementById(id)) { onload && onload(); return; }
+      const s = document.createElement('script');
+      s.id = id; s.src = src; s.async = true; s.onload = onload || null;
+      document.head.appendChild(s);
+    }
+
+    // Facebook 需要一個 #fb-root 容器（沒有就補一個）
+    function ensureFbRoot(){
+      if (!document.getElementById('fb-root')) {
+        const root = document.createElement('div');
+        root.id = 'fb-root';
+        document.body.appendChild(root);
+      }
+    }
+
+/**
+ * 依網址判斷平台，回傳：
+ * { html: '<embed html>', ratio: '16/9' | '9/16' | null, after: ()=>void }
+ * - ratio=null 代表不強制固定比例（交由平台自己決定高度），目前用在 Facebook。
+ */
+    function buildVideoEmbed(url){
+      if (!url) return null;
+      let u;
+      try { u = new URL(url); } catch { return null; }
+      const host = u.hostname.toLowerCase();
+
+  // 1) Google Drive
+      if (host.includes('drive.google.com')) {
+        const m = url.match(/[-\w]{25,}/);
+        if (!m) return null;
+        return {
+          html: `<iframe src="https://drive.google.com/file/d/${m[0]}/preview" class="w-full h-full" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`,
+          ratio: '16/9'
+        };
+      }
+
+  // 2) YouTube（含 youtu.be / shorts）
+      if (host.includes('youtube.com') || host.includes('youtu.be')) {
+        let id = null;
+        const m1 = url.match(/youtu\.be\/([^?&/]+)/);
+        const m2 = url.match(/[?&]v=([^?&/]+)/);
+        const m3 = url.match(/shorts\/([^?&/]+)/);
+        id = (m1 && m1[1]) || (m2 && m2[1]) || (m3 && m3[1]) || null;
+        if (!id) return null;
+        return {
+          html: `<iframe src="https://www.youtube.com/embed/${id}?playsinline=1" class="w-full h-full" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`,
+          ratio: '16/9'
+        };
+      }
+
+      // 3) Instagram（貼文 / Reels：官方 embed.js）
+      if (host.includes('instagram.com')) {
+        const clean = u.origin + u.pathname.replace(/\/?$/, '/'); // 確保以 / 結尾
+        return {
+          html: `<blockquote class="instagram-media" data-instgrm-permalink="${clean}" data-instgrm-version="14" style="margin:0 auto; max-width:540px; width:100%"></blockquote>`,
+          ratio: '9/16',
+          after: () => addScriptOnce('ig-embed-js', 'https://www.instagram.com/embed.js', () => {
+            if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+          })
+        };
+      }
+
+      // 4) Facebook（影片 / 貼文 / fb.watch）
+      if (host.includes('facebook.com') || host === 'fb.watch') {
+        const isVideo = /\/watch\/|\/video|\/videos|fb\.watch/.test(url);
+        const html = isVideo
+          ? `<div class="fb-video" data-href="${url}" data-allowfullscreen="true" data-width="auto"></div>`
+          : `<div class="fb-post"  data-href="${url}" data-width="auto"></div>`;
+
+        return {
+          html,
+          ratio: null, // 交由 FB SDK 自適應高度
+          after: () => {
+            ensureFbRoot();
+            addScriptOnce(
+              'fb-embed-js',
+              'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v19.0',
+              () => {
+                if (window.FB && window.FB.XFBML && typeof window.FB.XFBML.parse === 'function') {
+                  // 只重新處理我們容器，避免整頁抖動
+                  window.FB.XFBML.parse(document.getElementById('videoContainer'));
+                }
+              }
+            );
+          }
+        };
+      }
+
+      return null;
+    }
+
+    // 👉 新的 openVideoModal（取代舊版）
+    function openVideoModal(event, videoUrl) {
+      event.stopPropagation();
+      const embed = buildVideoEmbed(videoUrl);
+      if (!embed) { alert('此影片連結目前不支援或內容非公開'); return; }
+
+      const box = document.getElementById('videoContainer');
+
+      // 有 ratio（Drive/YouTube/IG）才設定固定比例；Facebook 交由 SDK 自適應
+      if (embed.ratio) {
+        box.style.aspectRatio = embed.ratio;
+      } else {
+        box.style.removeProperty('aspect-ratio');
+      }
+
+      box.innerHTML = embed.html;
+
+      const modal = document.getElementById('videoModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+
+      if (typeof embed.after === 'function') embed.after();
+    }
+
+    // 若你的檔案裡沒有 closeVideoModal，保留這個；若已經有，可忽略這段
+    function closeVideoModal() {
+      const m = document.getElementById('videoModal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
+      document.getElementById('videoContainer').innerHTML = '';
+    }
+ 
     /* ============ 搜尋（即時、無按鈕） ============ */
     let isComposing = false;
     let searchDebounce;
