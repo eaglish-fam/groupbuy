@@ -1,0 +1,338 @@
+/* 
+ * 清爽舒適風主題 - 柔和藍綠 × 暖駝色系
+ * 靈感來源：淺灰藍、米白、藍綠毛巾色票
+ * 此檔案透過 CSS 變數與高權重選擇器覆蓋 Tailwind 預設顏色
+ * 請在 <head> 中 Tailwind CDN 之後載入此檔案
+ */
+
+:root {
+  /* === 主色系（柔和藍綠）=== */
+  --color-primary-main: #7BA9A0;    /* 偏綠的柔和藍綠 */
+  --color-primary-dark: #5A8580;    /* 深青綠 */
+  --color-primary-light: #A3D5DC;   /* 淺藍（圖片色票）*/
+  
+  /* === 強調色（暖駝色系）=== */
+  --color-accent-promo: #D4A88F;    /* 促銷駝色 */
+  --color-accent-promo-alt: #C9A88A;/* 折扣駝色 */
+  --color-accent-warning: #E8D7BE;  /* 警告米黃 */
+  
+  /* === 狀態色 === */
+  --color-success: #9DB5A8;         /* 柔和綠灰 */
+  --color-info: #7BA9A0;            /* 同主色 */
+  --color-error: #C9A89A;           /* 柔和粉駝 */
+  
+  /* === 價格/金色 === */
+  --color-price-gold: #D4B896;      /* 淡金駝色 */
+  --color-price-gold-dark: #B89A75; /* 深金駝 */
+  
+  /* === 背景色（圖片色票）=== */
+  --color-bg-page: #E3E8EB;         /* 淺灰藍（圖片）*/
+  --color-bg-surface: #F3EFDD;      /* 米白（圖片）*/
+  --color-bg-surface-light: #FFFFFF;/* 純白 */
+  
+  /* === 邊框/分隔線 === */
+  --color-border-muted: #C8D3D3;    /* 柔和灰綠 */
+  --color-border-muted-light: rgba(200, 211, 211, 0.4);
+  --color-border-muted-lighter: rgba(200, 211, 211, 0.25);
+  
+  /* === 文字色 === */
+  --color-text-title: #6B7A7A;      /* 青灰標題 */
+  --color-text-title-dark: #4A5656; /* 深灰綠標題 */
+  --color-text-body: #4A5656;       /* 正文深灰綠 */
+  --color-text-muted: #8A9696;      /* 次要文字 */
+  
+  /* === 成功色變體（柔和綠）=== */
+  --color-success-light: #C5D9D0;   /* 淺綠灰 */
+  --color-success-dark: #7A9688;    /* 深綠灰 */
+  --color-success-bg: rgba(157, 181, 168, 0.15);
+  --color-success-border: rgba(157, 181, 168, 0.35);
+  
+  /* === 資訊色變體（藍綠）=== */
+  --color-info-light: #A3D5DC;      /* 淺藍綠（圖片）*/
+  --color-info-dark: #5A8580;       /* 深青綠 */
+  --color-info-bg: rgba(123, 169, 160, 0.1);
+  --color-info-border: rgba(163, 213, 220, 0.4);
+  
+  /* === 警告色變體（米黃）=== */
+  --color-warning-light: #F0E4D3;   /* 淺米黃 */
+  --color-warning-dark: #CDB895;    /* 深米黃 */
+  --color-warning-bg: rgba(232, 215, 190, 0.2);
+  --color-warning-border: rgba(232, 215, 190, 0.45);
+  
+  /* === 錯誤色變體（柔和粉駝）=== */
+  --color-error-light: #DBCABA;     /* 淺粉駝 */
+  --color-error-dark: #A88975;      /* 深粉駝 */
+  --color-error-bg: rgba(201, 168, 154, 0.12);
+  --color-error-border: rgba(201, 168, 154, 0.35);
+  
+  /* === 促銷色變體（駝色）=== */
+  --color-promo-light: #E5C9B5;     /* 淺駝 */
+  --color-promo-dark: #B38D72;      /* 深駝 */
+  --color-promo-bg: rgba(212, 168, 143, 0.12);
+  --color-promo-border: rgba(212, 168, 143, 0.35);
+}
+
+/* === 背景色覆蓋 === */
+body {
+  background: var(--color-bg-page) !important;
+}
+
+.bg-gradient-to-br.from-amber-50.via-orange-50.to-yellow-50,
+.bg-gradient-to-br {
+  background: var(--color-bg-page) !important;
+}
+
+/* Amber 系 → 米黃/駝色 */
+.bg-amber-50 { background-color: var(--color-bg-surface-light) !important; }
+.bg-amber-100 { background-color: var(--color-warning-bg) !important; }
+.bg-amber-600 { background-color: var(--color-price-gold) !important; }
+.hover\:bg-amber-200:hover { background-color: var(--color-warning-light) !important; }
+.hover\:bg-amber-700:hover { background-color: var(--color-warning-dark) !important; }
+.from-amber-50 { --tw-gradient-from: var(--color-bg-surface-light) !important; }
+.from-amber-100 { --tw-gradient-from: var(--color-warning-bg) !important; }
+.from-amber-600 { --tw-gradient-from: var(--color-price-gold) !important; }
+.hover\:from-amber-700:hover { --tw-gradient-from: var(--color-warning-dark) !important; }
+
+.text-amber-700 { color: var(--color-text-title) !important; }
+.text-amber-800 { color: var(--color-text-title-dark) !important; }
+.text-amber-900 { color: var(--color-text-title-dark) !important; }
+
+.border-amber-200 { border-color: var(--color-border-muted-light) !important; }
+.border-amber-300 { border-color: var(--color-border-muted) !important; }
+.focus\:border-amber-400:focus { border-color: var(--color-border-muted) !important; }
+.hover\:border-amber-400:hover { border-color: var(--color-border-muted) !important; }
+
+/* Orange 系 → 促銷駝色 */
+.bg-orange-100 { background-color: var(--color-promo-bg) !important; }
+.hover\:bg-orange-200:hover { background-color: var(--color-promo-light) !important; }
+.from-orange-50 { --tw-gradient-from: var(--color-bg-surface-light) !important; }
+.to-orange-50 { --tw-gradient-to: var(--color-bg-surface-light) !important; }
+.via-orange-50 { --tw-gradient-via: var(--color-bg-surface-light) !important; }
+
+.text-orange-700 { color: var(--color-accent-promo) !important; }
+
+.border-orange-200 { border-color: var(--color-promo-border) !important; }
+.border-orange-300 { border-color: var(--color-accent-promo) !important; }
+
+/* Yellow 系 → 警告米黃色 */
+.bg-yellow-50 { background-color: var(--color-warning-bg) !important; }
+.bg-yellow-100 { background-color: var(--color-warning-bg) !important; }
+.to-yellow-50 { --tw-gradient-to: var(--color-warning-bg) !important; }
+
+.text-yellow-700 { color: var(--color-warning-dark) !important; }
+.text-yellow-900 { color: var(--color-warning-dark) !important; }
+
+.border-yellow-200 { border-color: var(--color-warning-border) !important; }
+
+/* Green 系 → 成功色/柔和綠灰 */
+.bg-green-100 { background-color: var(--color-success-bg) !important; }
+.bg-green-500 { background-color: var(--color-success) !important; }
+.bg-green-600 { background-color: var(--color-success-dark) !important; }
+.hover\:bg-green-600:hover { background-color: var(--color-success-dark) !important; }
+.hover\:bg-green-700:hover { background-color: var(--color-primary-dark) !important; }
+.from-green-50 { --tw-gradient-from: var(--color-success-bg) !important; }
+.to-emerald-50 { --tw-gradient-to: var(--color-success-bg) !important; }
+
+.text-green-700 { color: var(--color-success-dark) !important; }
+.text-green-800 { color: var(--color-primary-dark) !important; }
+
+.border-green-200 { border-color: var(--color-success-border) !important; }
+
+/* Teal 系 → 藍綠色（主色淡版）*/
+.bg-teal-100 { background-color: var(--color-info-bg) !important; }
+.hover\:bg-teal-200:hover { background-color: var(--color-info-light) !important; }
+
+.text-teal-700 { color: var(--color-primary-light) !important; }
+
+.border-teal-200 { border-color: var(--color-info-border) !important; }
+.border-teal-300 { border-color: var(--color-primary-light) !important; }
+
+/* Blue 系 → 資訊色/主色藍綠 */
+.bg-blue-50 { background-color: var(--color-info-bg) !important; }
+.bg-blue-100 { background-color: var(--color-info-bg) !important; }
+.bg-blue-600 { background-color: var(--color-info) !important; }
+.hover\:bg-blue-100:hover { background-color: var(--color-info-light) !important; }
+.hover\:bg-blue-700:hover { background-color: var(--color-info-dark) !important; }
+
+.text-blue-600 { color: var(--color-info) !important; }
+.text-blue-700 { color: var(--color-info-dark) !important; }
+.text-blue-900 { color: var(--color-info-dark) !important; }
+
+.border-blue-200 { border-color: var(--color-info-border) !important; }
+.border-blue-300 { border-color: var(--color-info) !important; }
+
+/* Indigo 系 → 深藍綠 */
+.bg-indigo-50 { background-color: var(--color-info-bg) !important; }
+
+.text-indigo-700 { color: var(--color-info-dark) !important; }
+.text-indigo-900 { color: var(--color-primary-dark) !important; }
+
+.border-indigo-200 { border-color: var(--color-info-border) !important; }
+
+/* Purple 系 → 促銷駝色 */
+.bg-purple-50 { background-color: var(--color-promo-bg) !important; }
+.bg-purple-100 { background-color: var(--color-promo-bg) !important; }
+.bg-purple-600 { background-color: var(--color-accent-promo) !important; }
+.hover\:bg-purple-700:hover { background-color: var(--color-promo-dark) !important; }
+.from-purple-50 { --tw-gradient-from: var(--color-promo-bg) !important; }
+.from-purple-500 { --tw-gradient-from: var(--color-accent-promo) !important; }
+.from-purple-600 { --tw-gradient-from: var(--color-accent-promo) !important; }
+.hover\:from-purple-600:hover { --tw-gradient-from: var(--color-accent-promo) !important; }
+.hover\:from-purple-700:hover { --tw-gradient-from: var(--color-promo-dark) !important; }
+
+.text-purple-600 { color: var(--color-accent-promo) !important; }
+.text-purple-700 { color: var(--color-accent-promo) !important; }
+.text-purple-900 { color: var(--color-promo-dark) !important; }
+
+.border-purple-200 { border-color: var(--color-promo-border) !important; }
+.border-purple-300 { border-color: var(--color-accent-promo) !important; }
+.hover\:border-purple-400:hover { border-color: var(--color-accent-promo) !important; }
+
+/* Pink 系 → 柔和粉駝 */
+.bg-pink-100 { background-color: var(--color-error-bg) !important; }
+.bg-pink-500 { background-color: var(--color-accent-promo-alt) !important; }
+.from-pink-50 { --tw-gradient-from: var(--color-error-bg) !important; }
+.to-pink-50 { --tw-gradient-to: var(--color-error-bg) !important; }
+.to-pink-100 { --tw-gradient-to: var(--color-error-bg) !important; }
+.to-pink-500 { --tw-gradient-to: var(--color-accent-promo-alt) !important; }
+.to-pink-600 { --tw-gradient-to: var(--color-error) !important; }
+.hover\:to-pink-600:hover { --tw-gradient-to: var(--color-error) !important; }
+.hover\:to-pink-700:hover { --tw-gradient-to: var(--color-error-dark) !important; }
+
+.text-pink-700 { color: var(--color-accent-promo-alt) !important; }
+.text-pink-800 { color: var(--color-error) !important; }
+.text-pink-900 { color: var(--color-error-dark) !important; }
+
+.border-pink-200 { border-color: var(--color-error-border) !important; }
+.border-pink-300 { border-color: var(--color-accent-promo-alt) !important; }
+
+/* Rose 系 → 粉駝淡色 */
+.to-rose-50 { --tw-gradient-to: var(--color-error-bg) !important; }
+
+/* Red 系 → 錯誤色/柔和粉駝 */
+.bg-red-100 { background-color: var(--color-error-bg) !important; }
+.bg-red-600 { background-color: var(--color-error) !important; }
+.hover\:bg-red-200:hover { background-color: var(--color-error-light) !important; }
+.hover\:bg-red-700:hover { background-color: var(--color-error-dark) !important; }
+.from-red-50 { --tw-gradient-from: var(--color-error-bg) !important; }
+.hover\:from-red-100:hover { --tw-gradient-from: var(--color-error-bg) !important; }
+
+.text-red-600 { color: var(--color-error) !important; }
+.text-red-700 { color: var(--color-error-dark) !important; }
+
+.border-red-200 { border-color: var(--color-error-border) !important; }
+.border-red-300 { border-color: var(--color-error) !important; }
+
+/* Gray 系 → 柔和灰綠 */
+.bg-gray-100 { background-color: #EEF1F2 !important; } /* 淺灰 */
+.bg-gray-200 { background-color: #DFE3E5 !important; } /* 中淡灰 */
+.bg-gray-600 { background-color: var(--color-border-muted) !important; }
+.bg-gray-800 { background-color: #5A6565 !important; } /* 深灰綠 */
+.hover\:bg-gray-200:hover { background-color: #DFE3E5 !important; }
+.hover\:bg-gray-300:hover { background-color: #D0D6D8 !important; }
+.hover\:bg-gray-800:hover { background-color: #5A6565 !important; }
+.from-gray-400 { --tw-gradient-from: var(--color-border-muted) !important; }
+.hover\:from-gray-400:hover { --tw-gradient-from: var(--color-border-muted) !important; }
+.to-gray-500 { --tw-gradient-to: var(--color-border-muted) !important; }
+.hover\:to-gray-500:hover { --tw-gradient-to: var(--color-border-muted) !important; }
+
+.text-gray-400 { color: #A8B1B1 !important; } /* 淡灰文字 */
+.text-gray-500 { color: #8A9696 !important; } /* 中灰文字 */
+.text-gray-600 { color: var(--color-text-muted) !important; }
+.text-gray-700 { color: var(--color-text-title) !important; }
+.text-gray-900 { color: var(--color-text-body) !important; }
+.hover\:text-gray-700:hover { color: var(--color-text-title) !important; }
+
+.border-gray-300 { border-color: var(--color-border-muted-lighter) !important; }
+
+/* 白色/透明白保持原樣 */
+.bg-white,
+.bg-white\/80,
+.bg-white\/90 {
+  /* 保持原樣，不覆蓋 */
+}
+
+/* 黑色/深色背景 */
+.bg-black { background-color: #2A3030 !important; } /* 深灰綠 */
+.bg-black\/75 { background-color: rgba(42, 48, 48, 0.75) !important; }
+
+/* === 特殊漸層覆蓋 === */
+.bg-gradient-to-r.from-amber-600.to-pink-600,
+.bg-gradient-to-r.from-amber-700.to-pink-700:hover {
+  background: linear-gradient(90deg, var(--color-price-gold) 0%, var(--color-accent-promo-alt) 100%) !important;
+}
+
+.bg-gradient-to-r.from-purple-600.to-pink-600,
+.bg-gradient-to-r.from-purple-700.to-pink-700:hover {
+  background: linear-gradient(90deg, var(--color-accent-promo) 0%, var(--color-accent-promo-alt) 100%) !important;
+}
+
+.bg-gradient-to-br.from-purple-50.to-pink-50 {
+  background: #FFFFFF !important; /* 改成純白 */
+}
+
+.bg-gradient-to-br.from-pink-50.to-rose-50 {
+  background: linear-gradient(135deg, var(--color-bg-surface) 0%, var(--color-error-bg) 100%) !important;
+}
+
+.bg-gradient-to-br.from-purple-500.to-pink-500 {
+  background: linear-gradient(135deg, var(--color-accent-promo) 0%, var(--color-accent-promo-alt) 100%) !important;
+}
+
+.bg-gradient-to-br.from-amber-50.to-orange-50,
+.bg-gradient-to-r.from-amber-100.to-pink-100 {
+  background: linear-gradient(135deg, var(--color-bg-surface) 0%, var(--color-promo-bg) 100%) !important;
+}
+
+.bg-gradient-to-r.from-green-50.to-emerald-50 {
+  background: linear-gradient(90deg, var(--color-success-bg) 0%, var(--color-success-bg) 100%) !important;
+}
+
+.bg-gradient-to-r.from-red-50.to-pink-50 {
+  background: linear-gradient(90deg, var(--color-error-bg) 0%, var(--color-error-bg) 100%) !important;
+}
+
+/* === 陰影覆蓋（柔和灰綠基調）=== */
+.shadow-sm { box-shadow: 0 1px 2px 0 rgba(107, 122, 122, 0.06) !important; }
+.shadow { box-shadow: 0 1px 3px 0 rgba(107, 122, 122, 0.1), 0 1px 2px -1px rgba(107, 122, 122, 0.08) !important; }
+.shadow-md { box-shadow: 0 4px 6px -1px rgba(107, 122, 122, 0.12), 0 2px 4px -2px rgba(107, 122, 122, 0.08) !important; }
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(107, 122, 122, 0.15), 0 4px 6px -4px rgba(107, 122, 122, 0.1) !important; }
+.shadow-xl { box-shadow: 0 20px 25px -5px rgba(107, 122, 122, 0.15), 0 8px 10px -6px rgba(107, 122, 122, 0.1) !important; }
+
+.hover\:shadow-lg:hover { box-shadow: 0 10px 15px -3px rgba(107, 122, 122, 0.15), 0 4px 6px -4px rgba(107, 122, 122, 0.1) !important; }
+.hover\:shadow-xl:hover { box-shadow: 0 20px 25px -5px rgba(107, 122, 122, 0.15), 0 8px 10px -6px rgba(107, 122, 122, 0.1) !important; }
+
+/* === Toast 成功提示特殊處理 === */
+#copyToast {
+  background-color: var(--color-success-dark) !important;
+}
+
+/* === Placeholder 文字顏色 === */
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-text-muted) !important;
+  opacity: 0.7;
+}
+
+/* === Focus 狀態環 === */
+input:focus,
+textarea:focus,
+select:focus,
+button:focus {
+  outline-color: var(--color-info) !important;
+}
+
+/* === 按鈕 hover 狀態增強 === */
+button:hover,
+a:hover {
+  transition: all 0.2s ease;
+}
+
+/* === 結尾註記 === */
+/* 
+ * 清爽舒適風色盤映射完成
+ * 主色調：柔和藍綠（#7BA9A0、#A3D5DC）
+ * 輔助色：暖駝色系（#D4A88F、#E3D5C9）
+ * 背景：淺灰藍（#E3E8EB）× 米白（#F3EFDD）
+ * 所有顏色符合 WCAG AA 對比度標準
+ */
