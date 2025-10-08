@@ -171,10 +171,10 @@
     function renderSocialLinks() {
       const socialButtons = [
         { name: 'LINE', url: CONFIG.SOCIAL_LINKS.LINE, icon: '💬', color: 'bg-green-500 hover:bg-green-600', label: 'LINE 社群' },
-        { name: 'IG', url: CONFIG.SOCIAL_LINKS.IG, icon: '📷', color: 'bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600', label: 'Instagram' },
-        { name: 'FB', url: CONFIG.SOCIAL_LINKS.FB, icon: '👍', color: 'bg-blue-600 hover:bg-blue-700', label: 'Facebook' },
-        { name: 'YT', url: CONFIG.SOCIAL_LINKS.YT, icon: '▶️', color: 'bg-red-600 hover:bg-red-700', label: 'YouTube' },
-        { name: 'TIKTOK', url: CONFIG.SOCIAL_LINKS.TIKTOK, icon: '🎵', color: 'bg-black hover:bg-gray-800', label: 'TikTok' }
+        { name: 'IG', url: CONFIG.SOCIAL_LINKS.IG, icon: '📷', color: 'bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600', label: 'IG' },
+        { name: 'FB', url: CONFIG.SOCIAL_LINKS.FB, icon: '👍', color: 'bg-blue-600 hover:bg-blue-700', label: 'FB' },
+        { name: 'YT', url: CONFIG.SOCIAL_LINKS.YT, icon: '▶️', color: 'bg-red-600 hover:bg-red-700', label: 'YT' },
+        { name: 'TIKTOK', url: CONFIG.SOCIAL_LINKS.TIKTOK, icon: '🎵', color: 'bg-black hover:bg-gray-600', label: 'TT' }
       ];
 
       const buttons = socialButtons
@@ -198,6 +198,12 @@
             <p class="text-center text-amber-800 mb-4 text-sm">追蹤我們，獲取最新團購資訊和優惠通知！</p>
             <div class="flex justify-center gap-3 flex-wrap">
               ${buttons}
+            </div>
+                    
+            <div class="mt-8 flex justify-center">
+              <img src="logo-horizontal.jpg" 
+                   alt="鷹式一家" 
+                   class="h-16 md:h-20 lg:h-24 w-auto opacity-70 hover:opacity-100 transition-opacity">
             </div>
           </div>
         </section>
