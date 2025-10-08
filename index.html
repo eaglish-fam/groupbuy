@@ -538,7 +538,9 @@
           bg = 'bg-gray-100';
           text = 'text-gray-400';
         } else if (isToday) {
-          bg = 'bg-green-100';
+          bg = 'bg-white';
+          text = 'text-gray-900 font-bold';
+          border = 'border-primary-main border-4';  // 加粗邊框
           text = 'text-green-900 font-bold';
         } else if (hasEnd) {
           const left = Math.ceil((new Date(curY, curM, d) - today) / 86400000);
@@ -559,7 +561,7 @@
 
         const clickable = hasEnd || hasStart ? `onclick="showDayGroups(${d})"` : '';
         html += `
-          <div class="${bg} ${text} rounded-lg p-2 text-center border-2 ${border} ${clickable ? 'cursor-pointer transition-colors' : ''}" ${clickable}>
+          <div class="${bg} ${text} rounded-lg p-2 text-center ${isToday ? 'border-4' : 'border-2'} ${border} ${clickable?'cursor-pointer transition-colors':''}" ${clickable}>
             <div class="text-sm">${d}</div>
             ${hasEnd || hasStart ? `
               <div class="mt-1 flex items-center justify-center gap-1">
