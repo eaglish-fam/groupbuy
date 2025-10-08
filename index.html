@@ -9,6 +9,7 @@
   <meta property="og:description" content="精選團購 · 優質好物">
   <meta property="og:type" content="website">
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="theme-fresh-comfortable.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 </head>
 <body class="bg-white min-h-screen">
@@ -56,7 +57,15 @@
       BANNER_IMAGE_URL: "",
       BANNER_LINK_URL: "",
       REFRESH_INTERVAL: 5 * 60 * 1000,
-      SEARCH_DEBOUNCE: 120
+      SEARCH_DEBOUNCE: 120,
+      // 社群連結（留空的連結不會顯示按鈕）
+      SOCIAL_LINKS: {
+        LINE: "https://line.me/ti/g2/WcewqAFHz9CZ4zQRMCeiMNilA281HRQvfH71yg",
+        IG: "https://www.instagram.com/eaglish.fam",
+        FB: "https://www.facebook.com/eaglish.family",
+        YT: "https://www.youtube.com/@eaglish.family",
+        TIKTOK: "https://www.tiktok.com/@eaglish.family"
+      }
     };
 
     const STORAGE_KEYS = {
@@ -156,6 +165,53 @@
       }
       elements.bannerSlot.innerHTML = inner;
       elements.bannerSlot.classList.remove('hidden');
+    }
+
+    // ============ 社群連結渲染 ============
+    function renderSocialLinks() {
+      const socialButtons = [
+        { name: 'LINE', url: CONFIG.SOCIAL_LINKS.LINE, icon: '💬', color: 'bg-green-500 hover:bg-green-600', label: 'LINE 社群' },
+        { name: 'IG', url: CONFIG.SOCIAL_LINKS.IG, icon: '📷', color: 'bg-gradient-to-br from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600', label: 'IG' },
+        { name: 'FB', url: CONFIG.SOCIAL_LINKS.FB, icon: '👍', color: 'bg-blue-600 hover:bg-blue-700', label: 'FB' },
+        { name: 'YT', url: CONFIG.SOCIAL_LINKS.YT, icon: '▶️', color: 'bg-red-600 hover:bg-red-700', label: 'YT' },
+        { name: 'TIKTOK', url: CONFIG.SOCIAL_LINKS.TIKTOK, icon: '🎵', color: 'bg-black hover:bg-gray-600', label: 'TT' }
+      ];
+
+      const buttons = socialButtons
+        .filter(btn => btn.url)
+        .map(btn => `
+          <a href="${btn.url}" target="_blank" rel="noopener noreferrer" 
+             class="${btn.color} text-white px-5 py-3 rounded-xl font-medium text-sm transition-all shadow-md hover:shadow-lg hover:scale-105 flex items-center gap-2"
+             title="加入我們的 ${btn.label}">
+            <span class="text-xl">${btn.icon}</span>
+            <span>${btn.label}</span>
+          </a>
+        `).join('');
+
+      return buttons ? `
+        <section id="social-section" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+          <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center justify-center gap-2">
+			<h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">加入我們的社群</h2>
+          </h2>
+          <div class="bg-gradient-to-br from-amber-50 to-orange-50 rounded-xl p-6 border-2 border-amber-200">
+            <p class="text-center text-amber-800 mb-4 text-sm">追蹤我們，獲取最新團購資訊和優惠通知！</p>
+            <div class="flex justify-center gap-3 flex-wrap">
+              ${buttons}
+            </div>
+          </div>
+          <div class="mt-10 flex flex-col items-center gap-4">
+            <img src="logo-horizontal.jpg" 
+                 alt="鷹式一家" 
+                 class="h-16 md:h-20 lg:h-24 w-auto opacity-60 hover:opacity-90 transition-opacity rounded-xl">
+        
+            <!-- 網頁底部版權資訊 -->
+            <div class="text-center text-sm text-gray-500 space-y-1">
+              <p class="font-medium"> © 2025 鷹式一家 | 鷹家Fun生買物社 </p>
+              <p class="text-xs">Eaglish Family - 精選團購 · 優質好物</p>
+            </div>
+          </div>
+        </section>
+      ` : '';
     }
 
     // ============ 影片處理 ============
@@ -458,6 +514,150 @@
       return { currentMonth: curM, currentYear: curY, groupsByDateEnd: byEnd, groupsByDateStart: byStart };
     }
 
+    // ============ 當月開團列表 ============
+		function renderMonthlyGroupList() {
+			const today = new Date();
+			today.setHours(0, 0, 0, 0);
+			
+			const target = new Date(today.getFullYear(), today.getMonth() + state.selectedCalendarMonth, 1);
+			const curM = target.getMonth();
+			const curY = target.getFullYear();
+			const monthName = `${curY}年${curM + 1}月`;
+
+			// 收集所有當月開團的項目
+			const monthlyGroups = [];
+
+			// 從 groups 中找出當月開團且未過期的
+			state.groups.forEach(g => {
+				const st = utils.parseDateSafe(g.startDate);
+				if (st && st.getMonth() === curM && st.getFullYear() === curY) {
+					const isExpired = utils.isExpired(g.endDate);
+					monthlyGroups.push({
+						brand: g.brand,
+						startDate: g.startDate,
+						endDate: g.endDate,
+						url: g.url,
+						image: g.image,
+						isExpired: isExpired,
+						isUpcoming: false
+					});
+				}
+			});
+
+			// 從 upcomingGroups 中找出當月即將開團的
+			state.upcomingGroups.forEach(ug => {
+				const st = utils.parseDateSafe(ug.startDate);
+				if (st && st >= today && st.getMonth() === curM && st.getFullYear() === curY) {
+					monthlyGroups.push({
+						brand: ug.brand,
+						startDate: ug.startDate,
+						endDate: ug.endDate || '',
+						url: '',
+						image: ug.image || '',
+						isExpired: false,
+						isUpcoming: true
+					});
+				}
+			});
+
+			// 按開團日期排序
+			monthlyGroups.sort((a, b) => {
+				const dateA = utils.parseDateSafe(a.startDate);
+				const dateB = utils.parseDateSafe(b.startDate);
+				if (!dateA) return 1;
+				if (!dateB) return -1;
+				return dateA - dateB;
+			});
+
+			if (monthlyGroups.length === 0) {
+				return `
+					<div class="mt-6 pt-6 border-t-2 border-gray-200">
+						<div class="text-center py-6 text-gray-500">
+							<p class="text-sm">📭 本月暫無開團項目</p>
+						</div>
+					</div>
+				`;
+			}
+
+			// 格式化日期為 MM-DD 格式
+			const formatDate = (dateStr) => {
+				if (!dateStr) return '';
+				const d = utils.parseDateSafe(dateStr);
+				if (!d) return dateStr;
+				const month = (d.getMonth() + 1).toString().padStart(2, '0');
+				const day = d.getDate().toString().padStart(2, '0');
+				return `${curY}-${month}-${day}`;
+			};
+
+			// 生成列表 HTML
+			const groupListHTML = monthlyGroups.map(g => {
+				const startDateStr = formatDate(g.startDate);
+				const endDateStr = formatDate(g.endDate);
+				
+				return `
+					<div class="border-b border-gray-200 last:border-0">
+						<div class="py-3 flex items-start gap-3 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">
+							${g.image ? `
+								<img src="${g.image}" 
+										 alt="${g.brand}" 
+										 class="w-16 h-16 object-cover rounded-lg flex-shrink-0 ${g.isExpired ? 'grayscale opacity-60' : ''}">
+							` : ''}
+							
+							<div class="flex-1 min-w-0">
+								<div class="flex items-start gap-2 mb-2">
+									<h4 class="font-medium ${g.isExpired ? 'text-gray-500' : 'text-gray-900'} text-sm flex-1 break-words leading-relaxed">${g.brand}</h4>
+									${g.isUpcoming ? '<span class="text-xs bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">即將開團</span>' : ''}
+									${g.isExpired ? '<span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">已結束</span>' : ''}
+								</div>
+								
+								<div class="text-xs ${g.isExpired ? 'text-gray-400' : 'text-gray-600'} space-y-0.5">
+									${startDateStr ? `<div class="flex items-center gap-1"><span>📅</span><span>開團：${startDateStr}</span></div>` : ''}
+									${endDateStr ? `<div class="flex items-center gap-1"><span>⏰</span><span>截止：${endDateStr}</span></div>` : ''}
+								</div>
+							</div>
+							
+							${g.url && !g.isUpcoming ? `
+								<a href="${g.url}" 
+									 target="_blank" 
+									 rel="noopener noreferrer" 
+									 onclick="event.stopPropagation()"
+									 class="flex-shrink-0 ${g.isExpired ? 'bg-gray-400' : 'bg-teal-600 hover:bg-teal-700'} text-white px-3 py-2 rounded-lg text-xs font-medium transition-colors">
+									前往
+								</a>
+							` : ''}
+						</div>
+					</div>
+				`;
+			}).join('');
+
+			return `
+				<div class="mt-6 pt-6 border-t-2 border-gray-200">
+					<details class="group">
+						<summary class="cursor-pointer list-none">
+							<div class="flex items-center justify-between p-4 bg-gradient-to-r from-teal-50 to-blue-50 rounded-lg border-2 border-teal-200 hover:border-teal-300 transition-colors">
+								<div class="flex items-center gap-3">
+									<span class="text-2xl">📋</span>
+									<div>
+										<h3 class="font-bold text-teal-900">${monthName} 即將開團總表</h3>
+										<p class="text-xs text-teal-700 mt-0.5">共 ${monthlyGroups.length} 個團購項目</p>
+									</div>
+								</div>
+								<svg class="w-6 h-6 text-teal-600 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</div>
+						</summary>
+						
+						<div class="mt-4 bg-white rounded-lg border border-gray-200 p-4">
+							<div class="space-y-2">
+								${groupListHTML}
+							</div>
+						</div>
+					</details>
+				</div>
+			`;
+		}
+
     function renderCalendar() {
       const cal = getCalendarData(state.selectedCalendarMonth);
       const { currentMonth: curM, currentYear: curY, groupsByDateEnd: byEnd, groupsByDateStart: byStart } = cal;
@@ -492,18 +692,15 @@
           bg = 'bg-gray-100';
           text = 'text-gray-400';
         } else if (isToday) {
-          bg = 'bg-blue-100';
-          text = 'text-blue-900 font-bold';
+          bg = 'bg-white';
+          text = 'text-gray-900 font-bold';
+          border = 'border-black-900 border-4';  // 加粗邊框
         } else if (hasEnd) {
           const left = Math.ceil((new Date(curY, curM, d) - today) / 86400000);
           if (left <= 3) {
             bg = 'bg-red-100 hover:bg-red-200';
             text = 'text-red-700 font-semibold';
             border = 'border-red-200';
-          } else if (left <= 7) {
-            bg = 'bg-orange-100 hover:bg-orange-200';
-            text = 'text-orange-700 font-semibold';
-            border = 'border-orange-200';
           } else {
             bg = 'bg-amber-100 hover:bg-amber-200';
             text = 'text-amber-700';
@@ -517,7 +714,7 @@
 
         const clickable = hasEnd || hasStart ? `onclick="showDayGroups(${d})"` : '';
         html += `
-          <div class="${bg} ${text} rounded-lg p-2 text-center border-2 ${border} ${clickable ? 'cursor-pointer transition-colors' : ''}" ${clickable}>
+          <div class="${bg} ${text} rounded-lg p-2 text-center ${isToday ? 'border-4' : 'border-2'} ${border} ${clickable?'cursor-pointer transition-colors':''}" ${clickable}>
             <div class="text-sm">${d}</div>
             ${hasEnd || hasStart ? `
               <div class="mt-1 flex items-center justify-center gap-1">
@@ -823,23 +1020,23 @@
         ` : '') +
 
         (shortTerm.length ? `<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">⏳</span>限時團購</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">⏳ 限時團購</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${shortTerm.map(renderGroupCard).join('')}</div>
          </section>` : '') +
 
         (longTerm.length ? `<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">😎</span>常駐團購</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">☀️ 常駐團購</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${longTerm.map(renderGroupCard).join('')}</div>
          </section>` : '') +
 
         (coupon.length ? `<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">🎟️</span>折扣碼優惠</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🎟️ 折扣碼優惠</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${coupon.map(renderCouponCard).join('')}</div>
          </section>` : '') +
 
         `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">📅</span>團購行事曆</h2>
-           <div class="bg-white rounded-xl p-4 border-2 border-amber-200">
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🗓️ 團購行事曆</h2>
+		   <div class="bg-white rounded-xl p-4 border-2 border-amber-200">
              <div class="flex gap-2 mb-4 justify-center">
                <button onclick="switchCalendarMonth(0)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 0 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m1}月</button>
                <button onclick="switchCalendarMonth(1)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 1 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m2}月</button>
@@ -847,14 +1044,16 @@
              </div>
              ${renderCalendar()}
              <div class="mt-4 flex gap-4 text-xs text-gray-600 justify-center flex-wrap">
-               <div class="flex items-center gap-1"><div class="w-4 h-4 bg-blue-100 border border-blue-300 rounded"></div><span>今天</span></div>
                <div class="flex items-center gap-1"><div class="w-4 h-4 bg-red-100 border border-red-300 rounded"></div><span>3天內截止</span></div>
-               <div class="flex items-center gap-1"><div class="w-4 h-4 bg-orange-100 border border-orange-300 rounded"></div><span>7天內截止</span></div>
                <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>＝ 當日截止數</span></div>
                <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>＝ 當日開團數</span></div>
              </div>
+             <!-- 當月開團列表 -->
+             ${renderMonthlyGroupList()}
            </div>
          </section>` +
+
+        renderSocialLinks() +
 
         (filtered.length === 0 && state.searchTerm ? `<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「${state.searchTerm}」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清空搜尋</p></div>` : '') +
         (filtered.length === 0 && !state.searchTerm ? `<div class="text-center py-12 text-amber-700"><p class="text-lg">目前沒有團購項目</p></div>` : '');
