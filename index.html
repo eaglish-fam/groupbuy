@@ -324,6 +324,166 @@
       window.open(url, '_blank');
     }
 
+    // ============ 行事曆按鈕功能 ============
+    function addToCalendar(event, title, date, url, description) {
+      event.stopPropagation();
+      
+      // 偵測裝置
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      
+      if (isIOS) {
+        addToAppleCalendar(title, date, url, description);
+      } else {
+        addToGoogleCalendar(title, date, url, description);
+      }
+    }
+
+    function addToGoogleCalendar(title, date, url, description) {
+      const formatDate = (dateStr) => {
+        if (!dateStr) return '';
+        const d = utils.parseDateSafe(dateStr);
+        if (!d) return '';
+        
+        const year = d.getFullYear();
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        
+        return `${year}${month}${day}T235900`;
+      };
+      
+      const dateFormatted = formatDate(date);
+      
+      let desc = description || '🛒 鷹家Fun生買物社團購';
+      if (url) {
+        desc += `\n\n🔗 團購連結：${url}`;
+      }
+      
+      const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${dateFormatted}/${dateFormatted}&details=${encodeURIComponent(desc)}&trp=false`;
+      
+      window.open(calendarUrl, '_blank', 'noopener,noreferrer');
+    }
+
+    function addToAppleCalendar(title, date, url, description) {
+      const formatDate = (dateStr) => {
+        if (!dateStr) return '';
+        const d = utils.parseDateSafe(dateStr);
+        if (!d) return '';
+        
+        const year = d.getFullYear();
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        
+        return `${year}${month}${day}T235900`;
+      };
+      
+      const dateFormatted = formatDate(date);
+      
+      let desc = description || '🛒 鷹家Fun生買物社團購';
+      if (url) {
+        desc += '\\n\\n🔗 團購連結：' + url;
+      }
+      
+      const icalContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//鷹家Fun生買物社//NONSGML Event//EN',
+        'BEGIN:VEVENT',
+        `UID:${Date.now()}-${Math.random().toString(36).substr(2, 9)}@eaglish.store`,
+        `DTSTAMP:${dateFormatted}`,
+        `DTSTART:${dateFormatted}`,
+        `DTEND:${dateFormatted}`,
+        `SUMMARY:${title}`,
+        `DESCRIPTION:${desc}`,
+        'STATUS:CONFIRMED',
+        'SEQUENCE:0',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT24H',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:明天就要截止了！',
+        'END:VALARM',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+      
+      const blob = new Blob([icalContent], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${title.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '_')}.ics`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function addBothToCalendar(event, brand, startDate, endDate, url) {
+      event.stopPropagation();
+      
+      const isIOS = /iPad|iPhone|iPod/.test(navigator.userAgent);
+      
+      if (isIOS) {
+        addBothToAppleCalendar(brand, startDate, endDate, url);
+      } else {
+        addToGoogleCalendar(`${brand} - 開團`, startDate, url, '🎉 團購開始！');
+        setTimeout(() => {
+          addToGoogleCalendar(`${brand} - 截止`, endDate, url, '⏰ 今天是最後一天！記得下單');
+        }, 500);
+      }
+    }
+
+    function addBothToAppleCalendar(brand, startDate, endDate, url) {
+      const formatDate = (dateStr) => {
+        if (!dateStr) return '';
+        const d = utils.parseDateSafe(dateStr);
+        if (!d) return '';
+        
+        const year = d.getFullYear();
+        const month = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        
+        return `${year}${month}${day}T235900`;
+      };
+      
+      const startFormatted = formatDate(startDate);
+      const endFormatted = formatDate(endDate);
+      
+      const icalContent = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//鷹家Fun生買物社//NONSGML Event//EN',
+        'BEGIN:VEVENT',
+        `UID:${Date.now()}-start@eaglish.store`,
+        `DTSTAMP:${startFormatted}`,
+        `DTSTART:${startFormatted}`,
+        `DTEND:${startFormatted}`,
+        `SUMMARY:${brand} - 開團`,
+        `DESCRIPTION:🎉 團購開始！\\n\\n🔗 團購連結：${url || ''}`,
+        'STATUS:CONFIRMED',
+        'END:VEVENT',
+        'BEGIN:VEVENT',
+        `UID:${Date.now()}-end@eaglish.store`,
+        `DTSTAMP:${endFormatted}`,
+        `DTSTART:${endFormatted}`,
+        `DTEND:${endFormatted}`,
+        `SUMMARY:${brand} - 截止`,
+        `DESCRIPTION:⏰ 今天是最後一天！記得下單\\n\\n🔗 團購連結：${url || ''}`,
+        'STATUS:CONFIRMED',
+        'BEGIN:VALARM',
+        'TRIGGER:-PT24H',
+        'ACTION:DISPLAY',
+        'DESCRIPTION:明天就要截止了！',
+        'END:VALARM',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+      
+      const blob = new Blob([icalContent], { type: 'text/calendar;charset=utf-8' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = `${brand.replace(/[^a-zA-Z0-9\u4e00-\u9fa5]/g, '_')}_團購.ics`;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
     function showDayGroups(day) {
       const { currentMonth, currentYear, groupsByDateEnd, groupsByDateStart } = getCalendarData(state.selectedCalendarMonth);
       const endList = groupsByDateEnd[day] || [];
@@ -530,6 +690,158 @@
       return html;
     }
 
+		// ============ 當月開團列表 ============
+		function renderMonthlyGroupList() {
+			const today = new Date();
+			today.setHours(0, 0, 0, 0);
+			
+			const target = new Date(today.getFullYear(), today.getMonth() + state.selectedCalendarMonth, 1);
+			const curM = target.getMonth();
+			const curY = target.getFullYear();
+			const monthName = `${curY}年${curM + 1}月`;
+
+			// 收集所有當月開團的項目
+			const monthlyGroups = [];
+
+			// 從 groups 中找出當月開團且未過期的
+			state.groups.forEach(g => {
+				const st = utils.parseDateSafe(g.startDate);
+				if (st && st.getMonth() === curM && st.getFullYear() === curY) {
+					const isExpired = utils.isExpired(g.endDate);
+					monthlyGroups.push({
+						brand: g.brand,
+						startDate: g.startDate,
+						endDate: g.endDate,
+						url: g.url,
+						image: g.image,
+						isExpired: isExpired,
+						isUpcoming: false
+					});
+				}
+			});
+
+			// 從 upcomingGroups 中找出當月即將開團的
+			state.upcomingGroups.forEach(ug => {
+				const st = utils.parseDateSafe(ug.startDate);
+				if (st && st >= today && st.getMonth() === curM && st.getFullYear() === curY) {
+					monthlyGroups.push({
+						brand: ug.brand,
+						startDate: ug.startDate,
+						endDate: ug.endDate || '',
+						url: '',
+						image: ug.image || '',
+						isExpired: false,
+						isUpcoming: true
+					});
+				}
+			});
+
+			// 按開團日期排序
+			monthlyGroups.sort((a, b) => {
+				const dateA = utils.parseDateSafe(a.startDate);
+				const dateB = utils.parseDateSafe(b.startDate);
+				if (!dateA) return 1;
+				if (!dateB) return -1;
+				return dateA - dateB;
+			});
+
+			if (monthlyGroups.length === 0) {
+				return `
+					<div class="mt-6 pt-6 border-t-2 border-gray-200">
+						<div class="text-center py-6 text-gray-500">
+							<p class="text-sm">📭 本月暫無開團項目</p>
+						</div>
+					</div>
+				`;
+			}
+
+			// 格式化日期為 MM-DD 格式
+			const formatDate = (dateStr) => {
+				if (!dateStr) return '';
+				const d = utils.parseDateSafe(dateStr);
+				if (!d) return dateStr;
+				const month = (d.getMonth() + 1).toString().padStart(2, '0');
+				const day = d.getDate().toString().padStart(2, '0');
+				return `${curY}-${month}-${day}`;
+			};
+
+			// 生成列表 HTML
+			const groupListHTML = monthlyGroups.map(g => {
+				const startDateStr = formatDate(g.startDate);
+				const endDateStr = formatDate(g.endDate);
+				
+				return `
+					<div class="border-b border-gray-200 last:border-0">
+						<div class="py-3 flex items-start gap-3 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">
+							${g.image ? `
+								<img src="${g.image}" 
+										 alt="${g.brand}" 
+										 class="w-16 h-16 object-cover rounded-lg flex-shrink-0 ${g.isExpired ? 'grayscale opacity-60' : ''}">
+							` : ''}
+							
+							<div class="flex-1 min-w-0">
+								<div class="flex items-start gap-2 mb-2">
+									<h4 class="font-medium ${g.isExpired ? 'text-gray-500' : 'text-gray-900'} text-sm flex-1 break-words leading-relaxed">${g.brand}</h4>
+									${g.isUpcoming ? '<span class="text-xs bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">即將開團</span>' : ''}
+									${g.isExpired ? '<span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">已結束</span>' : ''}
+								</div>
+								
+								<div class="text-xs ${g.isExpired ? 'text-gray-400' : 'text-gray-600'} space-y-0.5">
+									${startDateStr ? `<div class="flex items-center gap-1"><span>📅</span><span>開團：${startDateStr}</span></div>` : ''}
+									${endDateStr ? `<div class="flex items-center gap-1"><span>⏰</span><span>截止：${endDateStr}</span></div>` : ''}
+								</div>
+							</div>
+							
+							<div class="flex flex-col gap-2 flex-shrink-0">
+								${g.url && !g.isUpcoming ? `
+									<a href="${g.url}" 
+										 target="_blank" 
+										 rel="noopener noreferrer" 
+										 onclick="event.stopPropagation()"
+										 class="${g.isExpired ? 'bg-gray-400' : 'bg-teal-600 hover:bg-teal-700'} text-white px-3 py-2 rounded-lg text-xs font-medium transition-colors text-center">
+										前往
+									</a>
+								` : ''}
+								${g.startDate && g.endDate && !g.isExpired ? `
+									<button onclick='addBothToCalendar(event, "${g.brand}", "${g.startDate}", "${g.endDate}", "${g.url}")' 
+													class="bg-blue-50 border border-blue-300 text-blue-600 px-3 py-2 rounded-lg text-xs font-medium hover:bg-blue-100 transition-colors whitespace-nowrap">
+										📅 行事曆
+									</button>
+								` : ''}
+							</div>
+						</div>
+					</div>
+				`;
+			}).join('');
+
+			return `
+				<div class="mt-6 pt-6 border-t-2 border-gray-200">
+					<details class="group">
+						<summary class="cursor-pointer list-none">
+							<div class="flex items-center justify-between p-4 bg-gradient-to-r from-teal-50 to-blue-50 rounded-lg border-2 border-teal-200 hover:border-teal-300 transition-colors">
+								<div class="flex items-center gap-3">
+									<span class="text-2xl">📋</span>
+									<div>
+										<h3 class="font-bold text-teal-900">${monthName} 即將開團總表</h3>
+										<p class="text-xs text-teal-700 mt-0.5">共 ${monthlyGroups.length} 個團購項目</p>
+									</div>
+								</div>
+								<svg class="w-6 h-6 text-teal-600 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+								</svg>
+							</div>
+						</summary>
+						
+						<div class="mt-4 bg-white rounded-lg border border-gray-200 p-4">
+							<div class="space-y-2">
+								${groupListHTML}
+							</div>
+						</div>
+					</details>
+				</div>
+			`;
+		}
+
     // ============ 資料載入 ============
     function showError(msg) {
       state.error = msg;
@@ -707,6 +1019,7 @@
               : ''}
             ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:bg-blue-100 transition-colors">🎬 觀看影片</button></div>` : ''}
             ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
+            ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick='addToCalendar(event, "${g.brand} - 團購截止", "${g.endDate}", "${g.url}", "⏰ 今天是最後一天！記得下單")' class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆（截止提醒）</button></div>` : ''}
             <a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '立即前往 →'}</a>
           </div>
         </div>`;
@@ -812,10 +1125,7 @@
 
         (state.searchTerm && upcomingMatches.length && shortTerm.length === 0 && longTerm.length === 0 && coupon.length === 0 ? `
           <section id="upcoming-search" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-            <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2">
-              <span class="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm">預告</span>
-              即將開團（${upcomingMatches.length}）
-            </h2>
+            <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">即將開團（${upcomingMatches.length}）</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               ${upcomingMatches.map(renderUpcomingSearchCard).join('')}
             </div>
@@ -823,22 +1133,22 @@
         ` : '') +
 
         (shortTerm.length ? `<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-orange-100 text-orange-700 px-3 py-1 rounded-full text-sm">⏳</span>限時團購</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">限時團購</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${shortTerm.map(renderGroupCard).join('')}</div>
          </section>` : '') +
 
         (longTerm.length ? `<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm">😎</span>常駐團購</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">常駐團購</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${longTerm.map(renderGroupCard).join('')}</div>
          </section>` : '') +
 
         (coupon.length ? `<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm">🎟️</span>折扣碼優惠</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">折扣碼優惠</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${coupon.map(renderCouponCard).join('')}</div>
          </section>` : '') +
 
         `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 flex items-center gap-2"><span class="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm">📅</span>團購行事曆</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">團購行事曆</h2>
            <div class="bg-white rounded-xl p-4 border-2 border-amber-200">
              <div class="flex gap-2 mb-4 justify-center">
                <button onclick="switchCalendarMonth(0)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 0 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m1}月</button>
@@ -853,6 +1163,7 @@
                <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>＝ 當日截止數</span></div>
                <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>＝ 當日開團數</span></div>
              </div>
+             ${renderMonthlyGroupList()}
            </div>
          </section>` +
 
