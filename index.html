@@ -515,6 +515,146 @@
       return { currentMonth: curM, currentYear: curY, groupsByDateEnd: byEnd, groupsByDateStart: byStart };
     }
 
+    // ============ 當月開團列表 ============
+    function renderMonthlyGroupList() {
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+  
+      const target = new Date(today.getFullYear(), today.getMonth() + state.selectedCalendarMonth, 1);
+      const curM = target.getMonth();
+      const curY = target.getFullYear();
+      const monthName = `${curY}年${curM + 1}月`;
+
+      // 收集所有當月開團的項目（包括 groups 和 upcomingGroups）
+      const monthlyGroups = [];
+
+      // 從 groups 中找出當月開團且未過期的
+      state.groups.forEach(g => {
+        const st = utils.parseDateSafe(g.startDate);
+        if (st && st.getMonth() === curM && st.getFullYear() === curY) {
+          const isExpired = utils.isExpired(g.endDate);
+          monthlyGroups.push({
+            brand: g.brand,
+            startDate: g.startDate,
+            endDate: g.endDate,
+            url: g.url,
+            price: g.price,
+            image: g.image,
+            isExpired: isExpired,
+            isUpcoming: false
+          });
+        }
+      });
+
+      // 從 upcomingGroups 中找出當月即將開團的
+      state.upcomingGroups.forEach(ug => {
+        const st = utils.parseDateSafe(ug.startDate);
+        if (st && st >= today && st.getMonth() === curM && st.getFullYear() === curY) {
+          monthlyGroups.push({
+            brand: ug.brand,
+            startDate: ug.startDate,
+            endDate: ug.endDate || '',
+            url: '',
+            price: '',
+            image: ug.image || '',
+            isExpired: false,
+            isUpcoming: true
+          });
+        }
+      });
+
+      // 按開團日期排序
+      monthlyGroups.sort((a, b) => {
+        const dateA = utils.parseDateSafe(a.startDate);
+        const dateB = utils.parseDateSafe(b.startDate);
+        if (!dateA) return 1;
+        if (!dateB) return -1;
+        return dateA - dateB;
+      });
+
+      if (monthlyGroups.length === 0) {
+        return `
+          <div class="mt-6 pt-6 border-t-2 border-gray-200">
+            <div class="text-center py-6 text-gray-500">
+              <p class="text-sm">📭 本月暫無開團項目</p>
+            </div>
+          </div>
+        `;
+      }
+
+      // 生成列表 HTML
+      const groupListHTML = monthlyGroups.map(g => {
+        const startDateStr = g.startDate || '待定';
+        const endDateStr = g.endDate || '待定';
+    
+        return `
+          <div class="border-b border-gray-200 last:border-0">
+            <div class="py-3 flex items-center gap-3 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">
+              ${g.image ? `
+                <img src="${g.image}" 
+                     alt="${g.brand}" 
+                     class="w-16 h-16 object-cover rounded-lg flex-shrink-0 ${g.isExpired ? 'grayscale opacity-60' : ''}">
+              ` : `
+                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center flex-shrink-0 text-2xl">
+                  ${g.isUpcoming ? '⏳' : '🛒'}
+                </div>
+              `}
+          
+              <div class="flex-1 min-w-0">
+                <div class="flex items-center gap-2 mb-1">
+                  <h4 class="font-bold ${g.isExpired ? 'text-gray-500' : 'text-gray-900'} truncate">${g.brand}</h4>
+                  ${g.isUpcoming ? '<span class="text-xs bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">即將開團</span>' : ''}
+                  ${g.isExpired ? '<span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">已結束</span>' : ''}
+                </div>
+                <div class="text-xs ${g.isExpired ? 'text-gray-400' : 'text-gray-600'} space-y-0.5">
+                  <p>📅 開團：${startDateStr}</p>
+                  ${g.endDate ? `<p>⏰ 截止：${endDateStr}</p>` : ''}
+                  ${g.price ? `<p class="font-semibold text-amber-700">💰 ${g.price}</p>` : ''}
+                </div>
+              </div>
+          
+              ${g.url && !g.isUpcoming ? `
+                <a href="${g.url}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   onclick="event.stopPropagation()"
+                   class="flex-shrink-0 ${g.isExpired ? 'bg-gray-400' : 'bg-teal-600 hover:bg-teal-700'} text-white px-3 py-2 rounded-lg text-xs font-medium transition-colors">
+                  前往
+                </a>
+              ` : ''}
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      return `
+        <div class="mt-6 pt-6 border-t-2 border-gray-200">
+          <details class="group">
+            <summary class="cursor-pointer list-none">
+              <div class="flex items-center justify-between p-4 bg-gradient-to-r from-teal-50 to-blue-50 rounded-lg border-2 border-teal-200 hover:border-teal-300 transition-colors">
+                <div class="flex items-center gap-3">
+                  <span class="text-2xl">📋</span>
+                  <div>
+                    <h3 class="font-bold text-teal-900">${monthName} 開團總表</h3>
+                    <p class="text-xs text-teal-700 mt-0.5">共 ${monthlyGroups.length} 個團購項目</p>
+                  </div>
+                </div>
+                <svg class="w-6 h-6 text-teal-600 transition-transform group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </div>
+            </summary>
+        
+            <div class="mt-4 bg-white rounded-lg border border-gray-200 p-4">
+              <div class="space-y-2">
+                ${groupListHTML}
+              </div>
+            </div>
+          </details>
+        </div>
+      `;
+    }
+
     function renderCalendar() {
       const cal = getCalendarData(state.selectedCalendarMonth);
       const { currentMonth: curM, currentYear: curY, groupsByDateEnd: byEnd, groupsByDateStart: byStart } = cal;
@@ -906,6 +1046,8 @@
                <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>＝ 當日截止數</span></div>
                <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>＝ 當日開團數</span></div>
              </div>
+             <!-- 當月開團列表 -->
+             ${renderMonthlyGroupList()}
            </div>
          </section>` +
 
