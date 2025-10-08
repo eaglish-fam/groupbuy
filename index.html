@@ -1020,22 +1020,22 @@
         ` : '') +
 
         (shortTerm.length ? `<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">限時團購</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">⏳ 限時團購</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${shortTerm.map(renderGroupCard).join('')}</div>
          </section>` : '') +
 
         (longTerm.length ? `<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">常駐團購</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">☀️ 常駐團購</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${longTerm.map(renderGroupCard).join('')}</div>
          </section>` : '') +
 
         (coupon.length ? `<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">折扣碼優惠</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🎟️ 折扣碼優惠</h2>
            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${coupon.map(renderCouponCard).join('')}</div>
          </section>` : '') +
 
         `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">團購行事曆</h2>
+           <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🗓️ 團購行事曆</h2>
 		   <div class="bg-white rounded-xl p-4 border-2 border-amber-200">
              <div class="flex gap-2 mb-4 justify-center">
                <button onclick="switchCalendarMonth(0)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 0 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m1}月</button>
