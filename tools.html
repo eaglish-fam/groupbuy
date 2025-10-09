@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>行銷工具箱 - 鷹家Fun生買物社</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    :root {
+      --color-primary: #7BA9A0;
+      --color-primary-dark: #5A8580;
+      --color-primary-light: #A3D5DC;
+      --color-accent: #D4A88F;
+      --color-accent-alt: #C9A88A;
+      --color-bg: #E3E8EB;
+      --color-surface: #F3EFDD;
+      --color-border: #C8D3D3;
+      --color-text: #4A5656;
+      --color-text-light: #6B7A7A;
+      --color-text-muted: #8A9696;
+      --color-success: #9DB5A8;
+      --color-error: #C9A89A;
+    }
+    body { background-color: var(--color-bg); }
+    .tool-btn { background-color: #EEF1F2; color: var(--color-text); }
+    .tool-btn:hover { background-color: #DFE3E5; }
+    .tool-btn.active {
+      background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);
+      color: white;
+      box-shadow: 0 4px 6px -1px rgba(107, 122, 122, 0.12);
+    }
+    .source-btn { transition: all 0.2s; }
+    .source-btn.active { transform: scale(1.05); box-shadow: 0 0 0 3px rgba(123, 169, 160, 0.3); }
+    input:focus, select:focus, textarea:focus {
+      outline: none;
+      border-color: var(--color-primary) !important;
+    }
+    button:hover { transform: translateY(-1px); transition: all 0.2s; }
+  </style>
+</head>
+<body class="min-h-screen">
+  <header class="bg-white/80 backdrop-blur-sm sticky top-0 z-20 shadow-sm" style="border-bottom: 2px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 py-4">
+      <div class="flex items-center justify-between">
+        <div>
+          <h1 class="text-2xl font-bold" style="color: var(--color-text);">🛠️ 行銷工具箱</h1>
+          <p class="text-sm" style="color: var(--color-text-light);">鷹家Fun生買物社 - 一站式行銷工具</p>
+        </div>
+        <a href="/" class="text-white px-4 py-2 rounded-lg font-medium transition-all text-sm hover:opacity-90" style="background-color: var(--color-accent);">返回首頁</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-8">
+    <div class="bg-white rounded-xl shadow-lg p-2 mb-6 flex flex-wrap gap-2" style="border: 2px solid var(--color-border);">
+      <button onclick="switchTool('utm')" id="btn-utm" class="tool-btn active flex-1 min-w-[150px] px-4 py-3 rounded-lg font-bold">🔗 UTM 產生器</button>
+      <button onclick="switchTool('qrcode')" id="btn-qrcode" class="tool-btn flex-1 min-w-[150px] px-4 py-3 rounded-lg font-bold">📱 QR Code</button>
+      <button onclick="switchTool('image')" id="btn-image" class="tool-btn flex-1 min-w-[150px] px-4 py-3 rounded-lg font-bold">🖼️ 圖片處理</button>
+    </div>
+
+    <!-- UTM 產生器 -->
+    <div id="tool-utm" class="tool-content">
+      <div class="rounded-xl p-6 mb-6" style="background-color: rgba(123, 169, 160, 0.1); border: 2px solid rgba(163, 213, 220, 0.4);">
+        <h2 class="text-lg font-bold mb-2" style="color: var(--color-primary-dark);">📚 UTM 連結產生器</h2>
+        <p class="text-sm" style="color: var(--color-text);">產生帶追蹤參數的連結，在 Google Analytics 追蹤各平台的流量和轉換率。</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="border: 2px solid var(--color-border);">
+        <div class="p-4" style="background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);">
+          <h2 class="text-xl font-bold text-white">設定 UTM 參數</h2>
+        </div>
+
+        <div class="p-6 space-y-5">
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">網站網址 <span style="color: var(--color-error);">*</span></label>
+            <input type="text" id="utm-baseUrl" value="https://www.eaglish.store" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" oninput="generateUtmUrl()">
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">流量來源 (utm_source) <span style="color: var(--color-error);">*</span></label>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">
+              <button onclick="setUtmSource('line')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: #C5D9D0; color: #4A5656; border-color: #9DB5A8;">💬 LINE</button>
+              <button onclick="setUtmSource('instagram')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: #E5C9B5; color: #4A5656; border-color: #D4A88F;">📷 IG</button>
+              <button onclick="setUtmSource('facebook')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: rgba(123, 169, 160, 0.2); color: #4A5656; border-color: #7BA9A0;">👍 FB</button>
+              <button onclick="setUtmSource('youtube')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: #DBCABA; color: #4A5656; border-color: #C9A89A;">📺 YT</button>
+            </div>
+            <input type="text" id="utm-source" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：line、instagram、facebook" oninput="generateUtmUrl()">
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">媒介類型 (utm_medium)</label>
+            <select id="utm-medium" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" onchange="generateUtmUrl()">
+              <option value="">不填寫</option>
+              <option value="social" selected>social（社群媒體）</option>
+              <option value="email">email（電子郵件）</option>
+              <option value="cpc">cpc（付費廣告）</option>
+              <option value="qrcode">qrcode（QR Code）</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">活動名稱 (utm_campaign)</label>
+            <input type="text" id="utm-campaign" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：double11、new_product" oninput="generateUtmUrl()">
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">內容差異 (utm_content)</label>
+            <input type="text" id="utm-content" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：story、post、banner" oninput="generateUtmUrl()">
+          </div>
+        </div>
+      </div>
+
+      <div id="utm-result" class="mt-6 bg-white rounded-xl shadow-lg overflow-hidden hidden" style="border: 2px solid var(--color-success);">
+        <div class="p-4" style="background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);">
+          <h2 class="text-xl font-bold text-white">✨ 產生的 UTM 連結</h2>
+        </div>
+        <div class="p-6">
+          <div class="rounded-lg p-4 mb-4 border-2" style="background-color: #EEF1F2; border-color: #DFE3E5;">
+            <div class="flex items-start gap-3">
+              <div class="flex-1 min-w-0">
+                <p class="text-xs mb-2 font-semibold" style="color: var(--color-text-muted);">完整網址：</p>
+                <p id="utm-generated" class="text-sm break-all font-mono leading-relaxed" style="color: var(--color-text);"></p>
+              </div>
+              <button onclick="copyUtmUrl()" id="utm-copy-btn" class="flex-shrink-0 text-white px-4 py-2 rounded-lg font-medium transition-all" style="background-color: var(--color-success);">📋 複製</button>
+            </div>
+          </div>
+          <div class="rounded-lg p-4 border" style="background-color: rgba(123, 169, 160, 0.1); border-color: rgba(163, 213, 220, 0.4);">
+            <p class="text-xs font-bold mb-2" style="color: var(--color-primary-dark);">📊 GA4 顯示：</p>
+            <div id="utm-preview" class="text-sm space-y-1" style="color: var(--color-text);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- QR Code 產生器 -->
+    <div id="tool-qrcode" class="tool-content hidden">
+      <div class="rounded-xl p-6 mb-6" style="background-color: rgba(123, 169, 160, 0.1); border: 2px solid rgba(163, 213, 220, 0.4);">
+        <h2 class="text-lg font-bold mb-2" style="color: var(--color-primary-dark);">📱 QR Code 產生器</h2>
+        <p class="text-sm" style="color: var(--color-text);">產生 QR Code 讓客戶掃描進入網站，可自動加上追蹤參數。</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="border: 2px solid var(--color-border);">
+        <div class="p-4" style="background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);">
+          <h2 class="text-xl font-bold text-white">設定 QR Code</h2>
+        </div>
+
+        <div class="p-6 space-y-5">
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">目標網址 <span style="color: var(--color-error);">*</span></label>
+            <input type="text" id="qr-url" value="https://www.eaglish.store" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;">
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">追蹤來源標記（選填）</label>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-3">
+              <button onclick="setQrTracking('package')" class="qr-tracking-btn px-3 py-2 rounded-lg font-medium border-2 text-sm" style="background-color: #E5C9B5; color: #4A5656; border-color: #D4A88F;">📦 包裹</button>
+              <button onclick="setQrTracking('flyer')" class="qr-tracking-btn px-3 py-2 rounded-lg font-medium border-2 text-sm" style="background-color: rgba(123, 169, 160, 0.2); color: #4A5656; border-color: #7BA9A0;">📄 傳單</button>
+              <button onclick="setQrTracking('card')" class="qr-tracking-btn px-3 py-2 rounded-lg font-medium border-2 text-sm" style="background-color: #DBCABA; color: #4A5656; border-color: #C9A89A;">💳 名片</button>
+              <button onclick="setQrTracking('poster')" class="qr-tracking-btn px-3 py-2 rounded-lg font-medium border-2 text-sm" style="background-color: #F0E4D3; color: #4A5656; border-color: #E8D7BE;">🖼️ 海報</button>
+              <button onclick="setQrTracking('store')" class="qr-tracking-btn px-3 py-2 rounded-lg font-medium border-2 text-sm" style="background-color: #C5D9D0; color: #4A5656; border-color: #9DB5A8;">🏪 實體店</button>
+              <button onclick="setQrTracking('event')" class="qr-tracking-btn px-3 py-2 rounded-lg font-medium border-2 text-sm" style="background-color: rgba(201, 168, 154, 0.2); color: #4A5656; border-color: #C9A89A;">🎪 活動</button>
+            </div>
+            <input type="text" id="qr-tracking" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：package、flyer、card">
+            <p class="text-xs mt-1" style="color: var(--color-text-muted);">會自動加上 utm_source=XXX&utm_medium=qrcode</p>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">QR Code 尺寸</label>
+            <div class="grid grid-cols-3 gap-3">
+              <button onclick="setQrSize(200)" class="qr-size-btn border-2 rounded-lg p-3 text-center" style="background-color: #EEF1F2; border-color: #DFE3E5;">
+                <div class="text-2xl mb-1">📱</div>
+                <div class="text-xs font-bold" style="color: var(--color-text);">小</div>
+                <div class="text-xs" style="color: var(--color-text-muted);">200x200</div>
+              </button>
+              <button onclick="setQrSize(300)" id="qr-size-default" class="qr-size-btn border-2 rounded-lg p-3 text-center" style="background-color: var(--color-accent); border-color: var(--color-accent); color: white;">
+                <div class="text-2xl mb-1">🖨️</div>
+                <div class="text-xs font-bold">中（推薦）</div>
+                <div class="text-xs opacity-90">300x300</div>
+              </button>
+              <button onclick="setQrSize(500)" class="qr-size-btn border-2 rounded-lg p-3 text-center" style="background-color: #EEF1F2; border-color: #DFE3E5;">
+                <div class="text-2xl mb-1">🖼️</div>
+                <div class="text-xs font-bold" style="color: var(--color-text);">大</div>
+                <div class="text-xs" style="color: var(--color-text-muted);">500x500</div>
+              </button>
+            </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">QR Code 顏色</label>
+            <div class="grid grid-cols-4 gap-3">
+              <button onclick="setQrColor('#000000')" id="qr-color-default" class="qr-color-btn bg-black text-white rounded-lg p-3 text-center ring-2 ring-black ring-offset-2"><div class="text-xs font-bold">經典黑</div></button>
+              <button onclick="setQrColor('#7BA9A0')" class="qr-color-btn text-white rounded-lg p-3 text-center" style="background-color: #7BA9A0;"><div class="text-xs font-bold">藍綠色</div></button>
+              <button onclick="setQrColor('#D4A88F')" class="qr-color-btn text-white rounded-lg p-3 text-center" style="background-color: #D4A88F;"><div class="text-xs font-bold">駝色</div></button>
+              <button onclick="setQrColor('#5A8580')" class="qr-color-btn text-white rounded-lg p-3 text-center" style="background-color: #5A8580;"><div class="text-xs font-bold">深青綠</div></button>
+            </div>
+          </div>
+
+          <button onclick="generateQRCode()" class="w-full text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl" style="background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);">✨ 產生 QR Code</button>
+        </div>
+      </div>
+
+      <div id="qr-result" class="mt-6 bg-white rounded-xl shadow-lg overflow-hidden hidden" style="border: 2px solid var(--color-success);">
+        <div class="p-4" style="background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);">
+          <h2 class="text-xl font-bold text-white">✨ 你的 QR Code</h2>
+        </div>
+        <div class="p-8">
+          <div class="flex flex-col items-center">
+            <div id="qr-container" class="bg-white p-6 rounded-xl border-4 shadow-lg mb-6" style="border-color: #DFE3E5;"><div id="qrcode"></div></div>
+            <div class="w-full rounded-lg p-4 mb-6 border" style="background-color: rgba(123, 169, 160, 0.1); border-color: rgba(163, 213, 220, 0.4);">
+              <p class="text-xs font-semibold mb-2" style="color: var(--color-primary-dark);">掃描後的網址：</p>
+              <p id="qr-final-url" class="text-sm break-all font-mono" style="color: var(--color-text);"></p>
+            </div>
+            <button onclick="downloadQRCode()" class="text-white px-8 py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl" style="background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);">📥 下載 QR Code 圖片</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 圖片處理工具 -->
+    <div id="tool-image" class="tool-content hidden">
+      <div class="rounded-xl p-6 mb-6" style="background-color: rgba(123, 169, 160, 0.1); border: 2px solid rgba(163, 213, 220, 0.4);">
+        <h2 class="text-lg font-bold mb-2" style="color: var(--color-primary-dark);">🖼️ 圖片壓縮 + 浮水印</h2>
+        <p class="text-sm" style="color: var(--color-text);">壓縮圖片減少檔案大小，並可加上品牌浮水印保護版權。</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="border: 2px solid var(--color-border);">
+        <div class="p-4" style="background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);">
+          <h2 class="text-xl font-bold text-white">上傳圖片</h2>
+        </div>
+
+        <div class="p-6">
+          <div id="img-drop-zone" class="border-4 border-dashed rounded-xl p-12 text-center cursor-pointer transition-colors" style="border-color: #DFE3E5; background-color: #EEF1F2;" onclick="document.getElementById('img-file-input').click()">
+            <div class="text-6xl mb-4">📤</div>
+            <p class="text-lg font-bold mb-2" style="color: var(--color-text);">拖曳圖片到這裡或點擊上傳</p>
+            <p class="text-sm" style="color: var(--color-text-muted);">支援 JPG、PNG、WebP 格式</p>
+            <input type="file" id="img-file-input" accept="image/*" class="hidden" onchange="handleImageSelect(event)" multiple>
+          </div>
+
+          <div id="img-options" class="mt-6 space-y-5 hidden">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <label class="text-sm font-bold" style="color: var(--color-text);">壓縮品質</label>
+                <span id="img-quality-value" class="text-sm font-bold" style="color: var(--color-accent);">80%</span>
+              </div>
+              <input type="range" id="img-quality" min="10" max="100" value="80" class="w-full h-2 rounded-lg appearance-none cursor-pointer" style="background-color: #DFE3E5;" oninput="document.getElementById('img-quality-value').textContent = this.value + '%'">
+            </div>
+
+            <div>
+              <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">最大寬度（像素）</label>
+              <select id="img-max-width" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;">
+                <option value="0">保持原尺寸</option>
+                <option value="800">800px（適合網頁）</option>
+                <option value="1200" selected>1200px（推薦）</option>
+                <option value="1920">1920px（高解析度）</option>
+              </select>
+            </div>
+
+            <div class="rounded-lg p-4" style="background-color: rgba(212, 168, 143, 0.12); border: 2px solid rgba(212, 168, 143, 0.35);">
+              <div class="flex items-center gap-2 mb-3">
+                <input type="checkbox" id="img-add-watermark" class="w-5 h-5 rounded" checked>
+                <label for="img-add-watermark" class="text-sm font-bold" style="color: var(--color-text);">加入浮水印</label>
+              </div>
+              <div id="img-watermark-options" class="space-y-3">
+                <div>
+                  <label class="block text-xs font-bold mb-1" style="color: var(--color-text);">浮水印文字</label>
+                  <input type="text" id="img-watermark-text" value="鷹家Fun生買物社" class="w-full px-3 py-2 rounded-lg border-2 text-sm" style="border-color: rgba(212, 168, 143, 0.35);">
+                </div>
+                <div>
+                  <label class="block text-xs font-bold mb-1" style="color: var(--color-text);">位置</label>
+                  <select id="img-watermark-position" class="w-full px-3 py-2 rounded-lg border-2 text-sm" style="border-color: rgba(212, 168, 143, 0.35);">
+                    <option value="bottom-right">右下角</option>
+                    <option value="bottom-left">左下角</option>
+                    <option value="top-right">右上角</option>
+                    <option value="top-left">左上角</option>
+                    <option value="center">中央</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="block text-xs font-bold mb-1" style="color: var(--color-text);">透明度</label>
+                  <input type="range" id="img-watermark-opacity" min="10" max="100" value="50" class="w-full h-2 rounded-lg appearance-none cursor-pointer" style="background-color: rgba(212, 168, 143, 0.3);" oninput="document.getElementById('img-opacity-value').textContent = this.value + '%'">
+                  <div class="flex justify-between text-xs mt-1" style="color: var(--color-text-muted);">
+                    <span>淡</span>
+                    <span id="img-opacity-value">50%</span>
+                    <span>濃</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <button onclick="processImages()" class="w-full text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl" style="background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);">✨ 開始處理圖片</button>
+          </div>
+        </div>
+      </div>
+
+      <div id="img-preview" class="mt-6 hidden">
+        <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="border: 2px solid var(--color-success);">
+          <div class="p-4" style="background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);">
+            <h2 class="text-xl font-bold text-white">✨ 處理結果</h2>
+          </div>
+          <div id="img-results" class="p-6 space-y-6"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="bg-white/80 mt-12 py-6" style="border-top: 2px solid var(--color-border);">
+    <div class="max-w-6xl mx-auto px-4 text-center">
+      <p class="text-sm" style="color: var(--color-text-light);">© 2025 鷹家Fun生買物社 | 行銷工具箱</p>
+      <p class="text-xs mt-1" style="color: var(--color-text-muted);">Eaglish Family - 精選團購．優質好物</p>
+    </div>
+  </footer>
+
+  <div id="toast" class="fixed top-20 right-4 text-white px-6 py-3 rounded-lg shadow-lg opacity-0 transform translate-x-[200%] transition-all duration-300 z-50" style="background-color: var(--color-success);">✓ 已複製到剪貼簿</div>
+
+  <script>
+    function switchTool(toolName) {
+      document.querySelectorAll('.tool-content').forEach(el => el.classList.add('hidden'));
+      document.getElementById('tool-' + toolName).classList.remove('hidden');
+      document.querySelectorAll('.tool-btn').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('btn-' + toolName).classList.add('active');
+    }
+
+    function setUtmSource(source) {
+      document.getElementById('utm-source').value = source;
+      generateUtmUrl();
+      document.querySelectorAll('.source-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    function generateUtmUrl() {
+      const baseUrl = document.getElementById('utm-baseUrl').value.trim();
+      const source = document.getElementById('utm-source').value.trim();
+      const medium = document.getElementById('utm-medium').value.trim();
+      const campaign = document.getElementById('utm-campaign').value.trim();
+      const content = document.getElementById('utm-content').value.trim();
+
+      if (!baseUrl || !source) {
+        document.getElementById('utm-result').classList.add('hidden');
+        return;
+      }
+
+      const params = new URLSearchParams();
+      if (source) params.append('utm_source', source);
+      if (medium) params.append('utm_medium', medium);
+      if (campaign) params.append('utm_campaign', campaign);
+      if (content) params.append('utm_content', content);
+
+      const fullUrl = `${baseUrl}?${params.toString()}`;
+      document.getElementById('utm-generated').textContent = fullUrl;
+      document.getElementById('utm-result').classList.remove('hidden');
+
+      let preview = [];
+      if (source) preview.push(`來源：<strong>${source}</strong>`);
+      if (medium) preview.push(`媒介：<strong>${medium}</strong>`);
+      if (campaign) preview.push(`活動：<strong>${campaign}</strong>`);
+      if (content) preview.push(`內容：<strong>${content}</strong>`);
+      document.getElementById('utm-preview').innerHTML = preview.join('<br>') || '尚未填寫參數';
+    }
+
+    function copyUtmUrl() {
+      const url = document.getElementById('utm-generated').textContent;
+      navigator.clipboard.writeText(url).then(() => showToast());
+    }
+
+    let qrSize = 300;
+    let qrColor = '#000000';
+    let qrInstance = null;
+
+    function setQrTracking(source) {
+      document.getElementById('qr-tracking').value = source;
+      document.querySelectorAll('.qr-tracking-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+    }
+
+    function setQrSize(size) {
+      qrSize = size;
+      document.querySelectorAll('.qr-size-btn').forEach(btn => {
+        btn.style.backgroundColor = '#EEF1F2';
+        btn.style.borderColor = '#DFE3E5';
+        btn.style.color = 'var(--color-text)';
+      });
+      event.target.style.backgroundColor = 'var(--color-accent)';
+      event.target.style.borderColor = 'var(--color-accent)';
+      event.target.style.color = 'white';
+    }
+
+    function setQrColor(color) {
+      qrColor = color;
+      document.querySelectorAll('.qr-color-btn').forEach(btn => btn.classList.remove('ring-2', 'ring-offset-2'));
+      event.target.classList.add('ring-2', 'ring-offset-2');
+    }
+
+    function generateQRCode() {
+      const targetUrl = document.getElementById('qr-url').value.trim();
+      const tracking = document.getElementById('qr-tracking').value.trim();
+
+      if (!targetUrl) {
+        alert('請輸入目標網址！');
+        return;
+      }
+
+      let finalUrl = targetUrl;
+      if (tracking) {
+        const separator = targetUrl.includes('?') ? '&' : '?';
+        finalUrl = `${targetUrl}${separator}utm_source=${tracking}&utm_medium=qrcode`;
+      }
+
+      const qrcodeContainer = document.getElementById('qrcode');
+      qrcodeContainer.innerHTML = '';
+
+      qrInstance = new QRCode(qrcodeContainer, {
+        text: finalUrl,
+        width: qrSize,
+        height: qrSize,
+        colorDark: qrColor,
+        colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.H
+      });
+
+      document.getElementById('qr-final-url').textContent = finalUrl;
+      document.getElementById('qr-result').classList.remove('hidden');
+      
+      setTimeout(() => {
+        document.getElementById('qr-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+
+    function downloadQRCode() {
+      const canvas = document.querySelector('#qrcode canvas');
+      if (!canvas) {
+        alert('請先產生 QR Code！');
+        return;
+      }
+      const url = canvas.toDataURL('image/png');
+      const link = document.createElement('a');
+      link.download = `qrcode_eaglish_${Date.now()}.png`;
+      link.href = url;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    let uploadedFiles = [];
+
+    const dropZone = document.getElementById('img-drop-zone');
+    dropZone.addEventListener('dragover', (e) => {
+      e.preventDefault();
+      dropZone.style.borderColor = 'var(--color-primary)';
+      dropZone.style.backgroundColor = 'rgba(123, 169, 160, 0.1)';
+    });
+    dropZone.addEventListener('dragleave', () => {
+      dropZone.style.borderColor = '#DFE3E5';
+      dropZone.style.backgroundColor = '#EEF1F2';
+    });
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.style.borderColor = '#DFE3E5';
+      dropZone.style.backgroundColor = '#EEF1F2';
+      const files = Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/'));
+      if (files.length > 0) handleImageFiles(files);
+    });
+
+    function handleImageSelect(event) {
+      const files = Array.from(event.target.files);
+      handleImageFiles(files);
+    }
+
+    function handleImageFiles(files) {
+      uploadedFiles = files;
+      document.getElementById('img-options').classList.remove('hidden');
+      const info = files.length === 1 ? `已選擇 1 張圖片` : `已選擇 ${files.length} 張圖片`;
+      dropZone.innerHTML = `<div class="text-6xl mb-4">✓</div><p class="text-lg font-bold mb-2" style="color: var(--color-success);">${info}</p><p class="text-sm" style="color: var(--color-text-muted);">點擊可重新選擇</p>`;
+    }
+
+    document.getElementById('img-add-watermark').addEventListener('change', function() {
+      document.getElementById('img-watermark-options').style.display = this.checked ? 'block' : 'none';
+    });
+
+    async function processImages() {
+      if (uploadedFiles.length === 0) {
+        alert('請先上傳圖片！');
+        return;
+      }
+
+      const quality = parseInt(document.getElementById('img-quality').value) / 100;
+      const maxWidth = parseInt(document.getElementById('img-max-width').value);
+      const addWatermark = document.getElementById('img-add-watermark').checked;
+      const watermarkText = document.getElementById('img-watermark-text').value;
+      const watermarkPosition = document.getElementById('img-watermark-position').value;
+      const watermarkOpacity = parseInt(document.getElementById('img-watermark-opacity').value) / 100;
+
+      const resultsContainer = document.getElementById('img-results');
+      resultsContainer.innerHTML = '';
+
+      for (let i = 0; i < uploadedFiles.length; i++) {
+        const file = uploadedFiles[i];
+        const result = await processImage(file, { quality, maxWidth, addWatermark, watermarkText, watermarkPosition, watermarkOpacity });
+        resultsContainer.innerHTML += createImageResultCard(file, result, i);
+      }
+
+      document.getElementById('img-preview').classList.remove('hidden');
+      setTimeout(() => {
+        document.getElementById('img-preview').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 100);
+    }
+
+    function processImage(file, options) {
+      return new Promise((resolve) => {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+          const img = new Image();
+          img.onload = function() {
+            let width = img.width;
+            let height = img.height;
+            if (options.maxWidth > 0 && width > options.maxWidth) {
+              height = (height * options.maxWidth) / width;
+              width = options.maxWidth;
+            }
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+            ctx.drawImage(img, 0, 0, width, height);
+            if (options.addWatermark && options.watermarkText) {
+              addWatermark(ctx, width, height, options);
+            }
+            canvas.toBlob((blob) => {
+              resolve({
+                url: URL.createObjectURL(blob),
+                blob,
+                originalSize: file.size,
+                newSize: blob.size,
+                width,
+                height
+              });
+            }, file.type, options.quality);
+          };
+          img.src = e.target.result;
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function addWatermark(ctx, width, height, options) {
+      ctx.save();
+      const fontSize = Math.max(width * 0.04, 20);
+      ctx.font = `bold ${fontSize}px Arial`;
+      ctx.fillStyle = `rgba(255, 255, 255, ${options.watermarkOpacity})`;
+      ctx.strokeStyle = `rgba(0, 0, 0, ${options.watermarkOpacity * 0.5})`;
+      ctx.lineWidth = 2;
+      const textMetrics = ctx.measureText(options.watermarkText);
+      const textWidth = textMetrics.width;
+      const textHeight = fontSize;
+      let x, y;
+      const padding = 20;
+      switch (options.watermarkPosition) {
+        case 'bottom-right': x = width - textWidth - padding; y = height - padding; break;
+        case 'bottom-left': x = padding; y = height - padding; break;
+        case 'top-right': x = width - textWidth - padding; y = textHeight + padding; break;
+        case 'top-left': x = padding; y = textHeight + padding; break;
+        case 'center': x = (width - textWidth) / 2; y = height / 2; break;
+      }
+      ctx.strokeText(options.watermarkText, x, y);
+      ctx.fillText(options.watermarkText, x, y);
+      ctx.restore();
+    }
+
+    function createImageResultCard(originalFile, result, index) {
+      const compressionRate = ((1 - result.newSize / result.originalSize) * 100).toFixed(1);
+      const originalSizeKB = (result.originalSize / 1024).toFixed(1);
+      const newSizeKB = (result.newSize / 1024).toFixed(1);
+      return `
+        <div class="border-2 rounded-lg overflow-hidden" style="border-color: #DFE3E5;">
+          <div class="grid md:grid-cols-2 gap-6 p-6">
+            <div>
+              <p class="text-sm font-bold mb-2" style="color: var(--color-text);">處理後預覽</p>
+              <img src="${result.url}" alt="處理後" class="w-full rounded-lg border-2" style="border-color: #DFE3E5;">
+            </div>
+            <div>
+              <p class="text-sm font-bold mb-3" style="color: var(--color-text);">處理資訊</p>
+              <div class="space-y-2 text-sm">
+                <div class="flex justify-between"><span style="color: var(--color-text-muted);">檔案：</span><span class="font-medium" style="color: var(--color-text);">${originalFile.name}</span></div>
+                <div class="flex justify-between"><span style="color: var(--color-text-muted);">原始：</span><span class="font-medium" style="color: var(--color-text);">${originalSizeKB} KB</span></div>
+                <div class="flex justify-between"><span style="color: var(--color-text-muted);">壓縮後：</span><span class="font-medium" style="color: var(--color-success);">${newSizeKB} KB</span></div>
+                <div class="flex justify-between"><span style="color: var(--color-text-muted);">節省：</span><span class="font-bold" style="color: var(--color-success);">${compressionRate}%</span></div>
+                <div class="flex justify-between"><span style="color: var(--color-text-muted);">尺寸：</span><span class="font-medium" style="color: var(--color-text);">${result.width} x ${result.height} px</span></div>
+              </div>
+              <button onclick="downloadImage(${index}, '${originalFile.name}')" class="w-full mt-6 text-white py-3 rounded-lg font-bold shadow-md hover:shadow-lg" style="background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);">📥 下載圖片</button>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    function downloadImage(index, originalName) {
+      const img = document.querySelectorAll('#img-results img')[index];
+      const link = document.createElement('a');
+      link.download = originalName.replace(/\.[^/.]+$/, '') + '_processed.jpg';
+      link.href = img.src;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }
+
+    function showToast() {
+      const toast = document.getElementById('toast');
+      toast.style.opacity = '1';
+      toast.style.transform = 'translateX(0)';
+      setTimeout(() => {
+        toast.style.opacity = '0';
+        toast.style.transform = 'translateX(200%)';
+      }, 2000);
+    }
+
+    generateUtmUrl();
+  </script>
+</body>
+</html>
