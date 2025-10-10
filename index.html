@@ -1532,11 +1532,6 @@
       
         document.getElementById('videoTitle').textContent = title;
       
-        const shortDescription = description.length > 30 
-          ? description.substring(0, 30) + '...' 
-          : description;
-        document.getElementById('videoDescription').textContent = shortDescription;
-      
         document.getElementById('videoLoading').classList.add('hidden');
         document.getElementById('ytVideoContainer').classList.remove('hidden');
       
