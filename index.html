@@ -77,7 +77,7 @@
   <section id="latestVideo" class="max-w-6xl mx-auto px-4 py-12 mt-12">
     <div class="text-center mb-8">
       <h2 class="text-2xl font-bold mb-2 text-amber-900">📺 最新影片</h2>
-      <p class="text-sm text-amber-700">鷹家婚姻頻道 - 最新分享</p>
+      <p class="text-sm text-amber-700">鷹式一家頻道 - 最新分享</p>
     </div>
     
     <!-- 載入中狀態 -->
@@ -1532,8 +1532,8 @@
       
         document.getElementById('videoTitle').textContent = title;
       
-        const shortDescription = description.length > 150 
-          ? description.substring(0, 150) + '...' 
+        const shortDescription = description.length > 30 
+          ? description.substring(0, 30) + '...' 
           : description;
         document.getElementById('videoDescription').textContent = shortDescription;
       
