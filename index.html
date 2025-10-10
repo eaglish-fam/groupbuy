@@ -1476,7 +1476,7 @@
           const duration = parseDuration(video.contentDetails.duration);
           console.log(`⏱️ 影片「${video.snippet.title}」長度: ${duration} 秒`);
         
-          if (duration > 60) {
+          if (duration > 180) {
             longVideo = video;
             break;
           }
