@@ -73,6 +73,51 @@
     </div>
   </main>
 
+<!-- YouTube 最新影片區 -->
+  <section id="latestVideo" class="max-w-6xl mx-auto px-4 py-12 mt-12">
+    <div class="text-center mb-8">
+      <h2 class="text-2xl font-bold mb-2 text-amber-900">📺 最新影片</h2>
+      <p class="text-sm text-amber-700">鷹家婚姻頻道 - 最新分享</p>
+    </div>
+    
+    <!-- 載入中狀態 -->
+    <div id="videoLoading" class="text-center py-12">
+      <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-amber-200" style="border-top-color: #D4A88F;"></div>
+      <p class="mt-4 text-amber-700">載入影片中...</p>
+    </div>
+    
+    <!-- 影片容器 -->
+    <div id="ytVideoContainer" class="hidden max-w-4xl mx-auto">
+      <div class="relative rounded-xl overflow-hidden shadow-lg border-2 border-amber-200" style="padding-top: 56.25%;">
+        <iframe id="youtubePlayer"
+                class="absolute top-0 left-0 w-full h-full"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen>
+        </iframe>
+      </div>
+      <div class="mt-4 text-center">
+        <h3 id="videoTitle" class="text-lg font-bold mb-2 text-amber-900"></h3>
+        <p id="videoDescription" class="text-sm mb-4 text-amber-700"></p>
+        <a href="https://www.youtube.com/@eaglish.family" target="_blank" rel="noopener"
+           class="inline-block text-white px-6 py-3 rounded-lg font-bold transition-all hover:opacity-90 bg-gradient-to-r from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700">
+          🎬 訂閱我們的頻道
+        </a>
+      </div>
+    </div>
+    
+    <!-- 錯誤狀態 -->
+    <div id="videoError" class="hidden text-center py-12">
+      <div class="text-6xl mb-4">📺</div>
+      <p class="font-bold text-lg mb-2 text-amber-900">暫時無法載入影片</p>
+      <p class="text-sm mb-6 text-amber-700">請直接前往我們的 YouTube 頻道觀看</p>
+      <a href="https://www.youtube.com/@eaglish.family" target="_blank" rel="noopener"
+         class="inline-block text-white px-6 py-3 rounded-lg font-bold transition-all hover:opacity-90 bg-gradient-to-r from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700">
+        前往 YouTube 頻道
+      </a>
+    </div>
+  </section>
+	
   <footer class="bg-gradient-to-br from-amber-50 via-orange-50 to-pink-50 border-t-2 border-amber-200 mt-12">
     <div class="max-w-6xl mx-auto px-4 py-12">
       <!-- 社群邀請區 -->
@@ -1370,6 +1415,90 @@
     renderBanner();
     loadData();
     setInterval(loadData, CONFIG.REFRESH_INTERVAL);
+  </script>
+	<!-- YouTube 最新影片載入 -->
+  <script>
+    // YouTube API 設定
+    const YOUTUBE_API_KEY = 'AIzaSyDZNIs7QBAIpqvxZWZaHPDOt57Cy24eR00';
+    const YOUTUBE_CHANNEL_ID = 'UCoiECoSdugZDJltQ8WkNw3w';
+    
+    // 載入最新影片
+    async function loadLatestYouTubeVideo() {
+      try {
+        const response = await fetch(
+          `https://www.googleapis.com/youtube/v3/search?key=${YOUTUBE_API_KEY}&channelId=${YOUTUBE_CHANNEL_ID}&part=snippet,id&order=date&maxResults=10&type=video`
+        );
+        
+        if (!response.ok) throw new Error('API 請求失敗');
+        
+        const data = await response.json();
+        if (!data.items || data.items.length === 0) throw new Error('找不到影片');
+        
+        const videoIds = data.items.map(item => item.id.videoId).join(',');
+        const detailsResponse = await fetch(
+          `https://www.googleapis.com/youtube/v3/videos?key=${YOUTUBE_API_KEY}&id=${videoIds}&part=contentDetails,snippet`
+        );
+        
+        const detailsData = await detailsResponse.json();
+        const longVideo = detailsData.items.find(video => {
+          const duration = parseDuration(video.contentDetails.duration);
+          return duration > 60;
+        });
+        
+        if (!longVideo) throw new Error('找不到長片影片');
+        displayYouTubeVideo(longVideo);
+        
+      } catch (error) {
+        console.error('載入影片失敗:', error);
+        showYouTubeVideoError();
+      }
+    }
+    
+    function parseDuration(duration) {
+      const match = duration.match(/PT(\d+H)?(\d+M)?(\d+S)?/);
+      const hours = (parseInt(match[1]) || 0);
+      const minutes = (parseInt(match[2]) || 0);
+      const seconds = (parseInt(match[3]) || 0);
+      return hours * 3600 + minutes * 60 + seconds;
+    }
+    
+    function displayYouTubeVideo(video) {
+      const videoId = video.id;
+      const title = video.snippet.title;
+      const description = video.snippet.description;
+      
+      document.getElementById('youtubePlayer').src = 
+        `https://www.youtube.com/embed/${videoId}?rel=0&modestbranding=1`;
+      
+      document.getElementById('videoTitle').textContent = title;
+      
+      const shortDescription = description.length > 150 
+        ? description.substring(0, 150) + '...' 
+        : description;
+      document.getElementById('videoDescription').textContent = shortDescription;
+      
+      document.getElementById('videoLoading').classList.add('hidden');
+      document.getElementById('ytVideoContainer').classList.remove('hidden');
+      
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'view_youtube_video', {
+          video_title: title,
+          video_id: videoId,
+          event_category: 'engagement'
+        });
+      }
+    }
+    
+    function showYouTubeVideoError() {
+      document.getElementById('videoLoading').classList.add('hidden');
+      document.getElementById('videoError').classList.remove('hidden');
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', loadLatestYouTubeVideo);
+    } else {
+      loadLatestYouTubeVideo();
+    }
   </script>
   <script>
     if ('serviceWorker' in navigator) {
