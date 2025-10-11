@@ -72,48 +72,29 @@
       </div>
     </div>
   </main>
-
-<!-- YouTube 最新影片區 -->
+	    <!-- YouTube 最新影片區 -->
   <section id="latestVideo" class="max-w-6xl mx-auto px-4 py-6 mt-6">
     <div class="text-center mb-8">
       <h2 class="text-2xl font-bold mb-2 text-amber-900">📺 鷹式一家 最新影片</h2>
     </div>
-    
-    <!-- 載入中狀態 -->
-    <div id="videoLoading" class="text-center py-12">
-      <div class="inline-block animate-spin rounded-full h-12 w-12 border-4 border-amber-200" style="border-top-color: #D4A88F;"></div>
-      <p class="mt-4 text-amber-700">載入影片中...</p>
-    </div>
-    
-    <!-- 影片容器 -->
-    <div id="ytVideoContainer" class="hidden max-w-4xl mx-auto">
+  
+    <div class="max-w-4xl mx-auto">
       <div class="relative rounded-xl overflow-hidden shadow-lg border-2 border-amber-200" style="padding-top: 56.25%;">
-        <iframe id="youtubePlayer"
-                class="absolute top-0 left-0 w-full h-full"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen>
+        <iframe 
+          class="absolute top-0 left-0 w-full h-full"
+          src="https://www.youtube-nocookie.com/embed/videoseries?list=UUoiECoSdugZDJltQ8WkNw3w"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
         </iframe>
       </div>
+    
       <div class="mt-4 text-center">
-        <h3 id="videoTitle" class="text-lg font-bold mb-2 text-amber-900"></h3>
-        <p id="videoDescription" class="text-sm mb-4 text-amber-700"></p>
         <a href="https://www.youtube.com/@eaglish.family" target="_blank" rel="noopener"
            class="inline-block text-white px-6 py-3 rounded-lg font-bold transition-all hover:opacity-90 bg-gradient-to-r from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700">
           🎬 訂閱我們的頻道
         </a>
       </div>
-    </div>
-    
-    <!-- 錯誤狀態 -->
-    <div id="videoError" class="hidden text-center py-12">
-      <div class="text-6xl mb-4">📺</div>
-      <p class="font-bold text-lg mb-2 text-amber-900">暫時無法載入影片</p>
-      <p class="text-sm mb-6 text-amber-700">請直接前往我們的 YouTube 頻道觀看</p>
-      <a href="https://www.youtube.com/@eaglish.family" target="_blank" rel="noopener"
-         class="inline-block text-white px-6 py-3 rounded-lg font-bold transition-all hover:opacity-90 bg-gradient-to-r from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700">
-        前往 YouTube 頻道
-      </a>
     </div>
   </section>
 	
@@ -1416,31 +1397,7 @@
     setInterval(loadData, CONFIG.REFRESH_INTERVAL);
   </script>
 
-    <!-- YouTube 最新影片區 -->
-  <section id="latestVideo" class="max-w-6xl mx-auto px-4 py-6 mt-6">
-    <div class="text-center mb-8">
-      <h2 class="text-2xl font-bold mb-2 text-amber-900">📺 鷹式一家 最新影片</h2>
-    </div>
-  
-    <div class="max-w-4xl mx-auto">
-      <div class="relative rounded-xl overflow-hidden shadow-lg border-2 border-amber-200" style="padding-top: 56.25%;">
-        <iframe 
-          class="absolute top-0 left-0 w-full h-full"
-          src="https://www.youtube-nocookie.com/embed/videoseries?list=UUoiECoSdugZDJltQ8WkNw3w"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen>
-        </iframe>
-      </div>
-    
-      <div class="mt-4 text-center">
-        <a href="https://www.youtube.com/@eaglish.family" target="_blank" rel="noopener"
-           class="inline-block text-white px-6 py-3 rounded-lg font-bold transition-all hover:opacity-90 bg-gradient-to-r from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700">
-          🎬 訂閱我們的頻道
-        </a>
-      </div>
-    </div>
-  </section>
+
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
