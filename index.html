@@ -867,8 +867,9 @@
           bg = 'bg-gray-100';
           text = 'text-gray-400';
         } else if (isToday) {
-          bg = 'bg-blue-100';
+          bg = 'bg-yellow-100';
           text = 'text-blue-900 font-bold';
+		  border = 'border-black-800';
         } else if (hasEnd) {
           const left = Math.ceil((new Date(curY, curM, d) - today) / 86400000);
           if (left <= 3) {
@@ -1376,9 +1377,8 @@
              </div>
              ${renderCalendar()}
              <div class="mt-4 flex gap-4 text-xs text-gray-600 justify-center flex-wrap">
-               <div class="flex items-center gap-1"><div class="w-4 h-4 bg-blue-100 border border-blue-300 rounded"></div><span>今天</span></div>
+               <div class="flex items-center gap-1"><div class="w-4 h-4 bg-yellow-200 border border-blue-300 rounded"></div><span>今天</span></div>
                <div class="flex items-center gap-1"><div class="w-4 h-4 bg-red-100 border border-red-300 rounded"></div><span>3天內截止</span></div>
-               <div class="flex items-center gap-1"><div class="w-4 h-4 bg-orange-100 border border-orange-300 rounded"></div><span>7天內截止</span></div>
                <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>＝ 當日截止數</span></div>
                <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>＝ 當日開團數</span></div>
              </div>
