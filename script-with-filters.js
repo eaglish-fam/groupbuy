@@ -19,10 +19,12 @@ function toggleSidebar() {
     content.style.marginLeft = '0';
   }
   
+  // 儲存狀態
   try {
     localStorage.setItem(STORAGE_KEYS.sidebarOpen, String(sidebarOpen));
   } catch {}
   
+  // GA4 追蹤
   if (typeof gtag !== 'undefined') {
     gtag('event', 'toggle_sidebar', {
       'action': sidebarOpen ? 'open' : 'close',
@@ -45,6 +47,7 @@ function toggleMobileFilters() {
     btnText.textContent = '篩選';
   }
   
+  // GA4 追蹤
   if (typeof gtag !== 'undefined') {
     gtag('event', 'toggle_mobile_filters', {
       'action': mobileFiltersOpen ? 'open' : 'close',
@@ -103,6 +106,8 @@ const CONFIG = {
   BANNER_LINK_URL: "",
   REFRESH_INTERVAL: 5 * 60 * 1000,
   SEARCH_DEBOUNCE: 120,
+  
+  // 手機版篩選按鈕顯示數量
   MOBILE_FILTER_VISIBLE: 4
 };
 
@@ -128,8 +133,8 @@ const state = {
   selectedCountry: 'all',
   categoryExpanded: false,
   countryExpanded: false,
-  availableCategories: [],
-  availableCountries: []
+  availableCategories: [], // 從資料中動態讀取
+  availableCountries: []    // 從資料中動態讀取
 };
 
 // ============ 工具函數 ============
@@ -139,39 +144,41 @@ const utils = {
   normalizeBrand: s => (s || '').toLowerCase().replace(/\s+/g, '').trim(),
   isProbablyHTML: t => /<\/?html[\s>]/i.test(t) || /accounts\.google\.com/.test(t),
   formatCount: n => n > 99 ? '99+' : n > 9 ? '9+' : String(n),
+  
+  // 正規化分類/國家名稱（用於匹配）
   normalizeFilterValue: v => (v || '').toLowerCase().trim(),
   
+  // 取得分類圖示
   getCategoryIcon: name => {
-    if (!name) return '📦';
     const normalized = utils.normalizeFilterValue(name);
     for (const [key, icon] of Object.entries(CONFIG.CATEGORY_ICONS)) {
       if (utils.normalizeFilterValue(key) === normalized) {
         return icon;
       }
     }
-    return '📦';
+    return '📦'; // 預設圖示
   },
   
+  // 取得分類顏色
   getCategoryColor: name => {
-    if (!name) return 'bg-gray-100 text-gray-700 border-gray-300';
     const normalized = utils.normalizeFilterValue(name);
     for (const [key, color] of Object.entries(CONFIG.CATEGORY_COLORS)) {
       if (utils.normalizeFilterValue(key) === normalized) {
         return color;
       }
     }
-    return 'bg-gray-100 text-gray-700 border-gray-300';
+    return 'bg-gray-100 text-gray-700 border-gray-300'; // 預設顏色
   },
   
+  // 取得國家旗幟
   getCountryFlag: name => {
-    if (!name) return '🌐';
     const normalized = utils.normalizeFilterValue(name);
     for (const [key, flag] of Object.entries(CONFIG.COUNTRY_FLAGS)) {
       if (utils.normalizeFilterValue(key) === normalized) {
         return flag;
       }
     }
-    return '🌐';
+    return '🌐'; // 預設旗幟
   },
 
   parseDateSafe(v) {
@@ -231,12 +238,16 @@ const elements = {
   videoModal: document.getElementById('videoModal'),
   videoContainer: document.getElementById('videoContainer'),
   bannerSlot: document.getElementById('bannerSlot'),
+  
+  // 手機版篩選
   categoryFilters: document.getElementById('categoryFilters'),
   countryFilters: document.getElementById('countryFilters'),
   categoryExpand: document.getElementById('categoryExpand'),
   countryExpand: document.getElementById('countryExpand'),
   categoryExpandContent: document.getElementById('categoryExpandContent'),
   countryExpandContent: document.getElementById('countryExpandContent'),
+  
+  // 桌面版篩選
   desktopCategoryFilters: document.getElementById('desktopCategoryFilters'),
   desktopCountryFilters: document.getElementById('desktopCountryFilters')
 };
@@ -249,6 +260,7 @@ function setFilter(type, value) {
       localStorage.setItem(STORAGE_KEYS.category, value);
     } catch {}
     
+    // GA4 追蹤
     if (typeof gtag !== 'undefined' && value !== 'all') {
       gtag('event', 'filter_category', {
         'category': value,
@@ -261,6 +273,7 @@ function setFilter(type, value) {
       localStorage.setItem(STORAGE_KEYS.country, value);
     } catch {}
     
+    // GA4 追蹤
     if (typeof gtag !== 'undefined' && value !== 'all') {
       gtag('event', 'filter_country', {
         'country': value,
@@ -312,7 +325,11 @@ function getFilterCounts() {
 
 function renderFilters() {
   const { categoryCounts, countryCounts } = getFilterCounts();
+  
+  // 手機版篩選按鈕
   renderMobileFilters(categoryCounts, countryCounts);
+  
+  // 桌面版側邊欄
   renderDesktopFilters(categoryCounts, countryCounts);
 }
 
@@ -425,6 +442,160 @@ function renderBanner() {
   }
   elements.bannerSlot.innerHTML = inner;
   elements.bannerSlot.classList.remove('hidden');
+}
+
+// ============ 影片處理 ============
+const videoHandler = {
+  loadedScripts: new Set(),
+
+  addScriptOnce(id, src, onload) {
+    if (this.loadedScripts.has(id)) {
+      onload && onload();
+      return;
+    }
+    const s = document.createElement('script');
+    s.id = id;
+    s.src = src;
+    s.async = true;
+    s.onload = () => {
+      this.loadedScripts.add(id);
+      onload && onload();
+    };
+    document.head.appendChild(s);
+  },
+
+  ensureFbRoot() {
+    if (!document.getElementById('fb-root')) {
+      const root = document.createElement('div');
+      root.id = 'fb-root';
+      document.body.appendChild(root);
+    }
+  },
+
+  getRatioHint(url) {
+    try {
+      const u = new URL(url);
+      const hash = (u.hash || '').toLowerCase();
+      const qp = (u.searchParams.get('ratio') || '').toLowerCase();
+      if (hash.includes('portrait') || qp === '9:16') return '9/16';
+      if (hash.includes('landscape') || qp === '16:9') return '16/9';
+    } catch {}
+    return null;
+  },
+
+  buildVideoEmbed(url) {
+    if (!url) return null;
+    try {
+      const u = new URL(url);
+      const host = u.hostname.toLowerCase();
+
+      if (host.includes('drive.google.com')) {
+        const m = url.match(/[-\w]{25,}/);
+        if (!m) return null;
+        return {
+          html: `<iframe src="https://drive.google.com/file/d/${m[0]}/preview" class="w-full h-full" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`,
+          ratio: this.getRatioHint(url) || '16/9'
+        };
+      }
+
+      if (host.includes('youtube.com') || host.includes('youtu.be')) {
+        const id = (url.match(/youtu\.be\/([^?&/]+)/) || url.match(/[?&]v=([^?&/]+)/) || url.match(/shorts\/([^?&/]+)/) || [])[1];
+        if (!id) return null;
+        return {
+          html: `<iframe src="https://www.youtube.com/embed/${id}?playsinline=1" class="w-full h-full" frameborder="0" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`,
+          ratio: this.getRatioHint(url) || '9/16'
+        };
+      }
+
+      if (host.includes('instagram.com')) {
+        const clean = u.origin + u.pathname.replace(/\/?$/, '/');
+        return {
+          html: `<blockquote class="instagram-media" data-instgrm-permalink="${clean}" data-instgrm-version="14" style="margin:0 auto; max-width:540px; width:100%"></blockquote>`,
+          ratio: '9/16',
+          after: () => this.addScriptOnce('ig-embed-js', 'https://www.instagram.com/embed.js', () => {
+            window.instgrm?.Embeds?.process();
+          })
+        };
+      }
+
+      if (host.includes('facebook.com') || host === 'fb.watch') {
+        const isVideo = /\/watch\/|\/video|\/videos|fb\.watch/.test(url);
+        return {
+          html: isVideo ? `<div class="fb-video" data-href="${url}" data-allowfullscreen="true" data-width="auto"></div>` 
+                        : `<div class="fb-post" data-href="${url}" data-width="auto"></div>`,
+          ratio: null,
+          after: () => {
+            this.ensureFbRoot();
+            this.addScriptOnce('fb-embed-js', 'https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v19.0', () => {
+              window.FB?.XFBML?.parse?.(elements.videoContainer);
+            });
+          }
+        };
+      }
+    } catch {}
+    return null;
+  }
+};
+
+// ============ 全局函數（供 HTML 調用）============
+function scrollToSection(sectionId) {
+  const el = document.getElementById(sectionId);
+  if (!el) return;
+  const header = document.querySelector('header');
+  const headerH = header ? header.getBoundingClientRect().height : 0;
+  const top = Math.max(0, el.getBoundingClientRect().top + window.pageYOffset - headerH - 8);
+  window.scrollTo({ top, behavior: 'smooth' });
+}
+
+function openVideoModal(event, videoUrl) {
+  event.stopPropagation();
+  
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'watch_video', {
+      'video_url': videoUrl,
+      'event_category': 'engagement',
+      'event_label': videoUrl
+    });
+  }
+  
+  try {
+    const host = new URL(videoUrl).hostname.toLowerCase();
+    if (host.includes('youtube.com') || host.includes('youtu.be') || host.includes('drive.google.com')) {
+      window.open(videoUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
+  } catch {
+    window.open(videoUrl, '_blank', 'noopener,noreferrer');
+    return;
+  }
+
+  const embed = videoHandler.buildVideoEmbed(videoUrl);
+  if (!embed) {
+    window.open(videoUrl, '_blank', 'noopener,noreferrer');
+    return;
+  }
+
+  elements.videoContainer.className = 'w-full flex justify-center items-center p-0';
+  elements.videoContainer.style.removeProperty('aspect-ratio');
+
+  const isPortrait = embed.ratio === '9/16';
+  const wrapperClasses = isPortrait ? 'w-full mx-auto max-w-[560px] md:max-w-[640px]' : 'w-full mx-auto';
+
+  if (embed.ratio && !isPortrait) {
+    elements.videoContainer.style.aspectRatio = embed.ratio;
+  }
+
+  elements.videoContainer.innerHTML = `<div class="${wrapperClasses}">${embed.html}</div>`;
+  elements.videoModal.classList.remove('hidden');
+  elements.videoModal.classList.add('flex');
+
+  embed.after?.();
+}
+
+function closeVideoModal() {
+  elements.videoModal.classList.add('hidden');
+  elements.videoModal.classList.remove('flex');
+  elements.videoContainer.innerHTML = '';
 }
 
 function copyCoupon(ev, txt) {
@@ -827,450 +998,6 @@ function renderMonthlyGroupList() {
 
   const monthlyGroups = [];
 
-  
-  if (state.searchTerm && typeof gtag !== 'undefined') {
-    gtag('event', 'search', {
-      'search_term': state.searchTerm,
-      'event_category': 'engagement'
-    });
-  }
-  
-  try {
-    localStorage.setItem(STORAGE_KEYS.search, state.searchTerm);
-  } catch {}
-  elements.clearBtn?.classList.toggle('hidden', state.searchTerm.length === 0);
-  renderContent();
-}
-
-function initSearch() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEYS.search) || '';
-    const savedShow = localStorage.getItem(STORAGE_KEYS.showExpired);
-    const savedMonth = localStorage.getItem(STORAGE_KEYS.month);
-    const savedCategory = localStorage.getItem(STORAGE_KEYS.category);
-    const savedCountry = localStorage.getItem(STORAGE_KEYS.country);
-    
-    if (elements.searchInput && saved) {
-      state.searchTerm = saved;
-      elements.searchInput.value = saved;
-      elements.clearBtn?.classList.remove('hidden');
-    }
-    if (savedShow != null) state.showExpired = savedShow === 'true';
-    if (savedMonth != null) state.selectedCalendarMonth = parseInt(savedMonth, 10) || 0;
-    if (savedCategory) state.selectedCategory = savedCategory;
-    if (savedCountry) state.selectedCountry = savedCountry;
-  } catch {}
-
-  if (elements.searchInput) {
-    elements.searchInput.addEventListener('compositionstart', () => isComposing = true);
-    elements.searchInput.addEventListener('compositionend', e => {
-      isComposing = false;
-      applySearch(e.target.value);
-    });
-    elements.searchInput.addEventListener('input', e => {
-      elements.clearBtn?.classList.toggle('hidden', e.target.value.length === 0);
-      if (isComposing) return;
-      clearTimeout(searchDebounce);
-      searchDebounce = setTimeout(() => applySearch(e.target.value), CONFIG.SEARCH_DEBOUNCE);
-    });
-    elements.searchInput.addEventListener('keydown', e => {
-      if (e.key === 'Enter') {
-        e.preventDefault();
-        applySearch(elements.searchInput.value);
-      }
-    });
-  }
-
-  elements.clearBtn?.addEventListener('click', () => {
-    if (elements.searchInput) elements.searchInput.value = '';
-    applySearch('');
-    elements.searchInput?.focus();
-  });
-}
-
-// ============ 資料載入 ============
-function showError(msg) {
-  state.error = msg;
-  state.loading = false;
-  elements.content.innerHTML = `
-    <div class="flex items-center justify-center min-h-[40vh]">
-      <div class="text-center">
-        <div class="text-4xl mb-4">⚠️</div>
-        <div class="text-xl text-red-600 font-bold mb-4">${msg}</div>
-
-// ============ 資料載入 ============
-function showError(msg) {
-  state.error = msg;
-  state.loading = false;
-  elements.content.innerHTML = `
-    <div class="flex items-center justify-center min-h-[40vh]">
-      <div class="text-center">
-        <div class="text-4xl mb-4">⚠️</div>
-        <div class="text-xl text-red-600 font-bold mb-4">${msg}</div>
-        <button onclick="location.reload()" class="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700">重新整理</button>
-      </div>
-    </div>`;
-}
-
-async function loadUpcomingFromTab() {
-  try {
-    const UPCOMING_CSV = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent('即將開團')}`;
-    const res = await fetch(UPCOMING_CSV, { credentials: 'omit' });
-    const text = await res.text();
-    if (utils.isProbablyHTML(text)) return [];
-
-    const out = [];
-    Papa.parse(text, {
-      header: true,
-      skipEmptyLines: true,
-      transformHeader: h => (h || '').trim(),
-      complete: r => {
-        (r.data || []).forEach((row, i) => {
-          const brand = (row['品牌'] || row['Brand'] || '').trim();
-          if (!brand) return;
-          out.push({
-            id: 'u-tab-' + (i + 1),
-            brand,
-            startDate: row['開團日期'] || row['StartDate'] || '',
-            endDate: row['結束日期'] || row['EndDate'] || '',
-            image: row['圖片網址'] || row['Image'] || ''
-          });
-        });
-      }
-    });
-    return out;
-  } catch {
-    return [];
-  }
-}
-
-async function loadData() {
-  try {
-    const MAIN_CSV = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/export?format=csv`;
-    const res = await fetch(MAIN_CSV, { credentials: 'omit' });
-    const csv = await res.text();
-
-    if (utils.isProbablyHTML(csv)) {
-      showError('Google Sheet 無法公開讀取。請將權限改為「知道連結的任何人可檢視」，或使用「檔案 → 發佈到網路上」。');
-      return;
-    }
-
-    const all = [];
-    Papa.parse(csv, {
-      header: true,
-      skipEmptyLines: true,
-      transformHeader: h => (h || '').trim(),
-      complete: r => {
-        (r.data || []).forEach((row, i) => {
-          const brand = (row['品牌'] || row['Brand'] || '').trim();
-          const url = (row['連結'] || row['URL'] || row['Link'] || '').trim();
-          if (!brand || brand.includes('---') || brand.includes('===')) return;
-
-          const typeRaw = String(row['類型'] || row['Type'] || '').toLowerCase();
-          let category = 'short';
-          if (/長期|long/.test(typeRaw)) category = 'long';
-          else if (/折扣|coupon|affiliate/.test(typeRaw)) category = 'coupon';
-          else if (/即將|upcoming/.test(typeRaw)) category = 'upcoming';
-
-          all.push({
-            id: i + 1,
-            brand,
-            url,
-            startDate: row['開團日期'] || row['StartDate'] || '',
-            endDate: row['結束日期'] || row['EndDate'] || '',
-            category,
-            image: row['圖片網址'] || row['Image'] || '',
-            description: row['商品描述'] || row['Description'] || '',
-            stock: row['庫存狀態'] || row['Stock'] || '',
-            tag: row['標籤'] || row['Tag'] || '',
-            coupon: row['折扣碼'] || row['Coupon'] || row['DiscountCode'] || '',
-            note: row['備註'] || row['Note'] || row['Remark'] || '',
-            video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
-            itemCategory: row['分類'] || row['Category'] || '',
-            itemCountry: row['國家'] || row['Country'] || ''
-          });
-        });
-      }
-    });
-
-    state.groups = all.filter(g => g.category !== 'upcoming' && !!g.url);
-
-    // 🔥 提取所有不重複的分類和國家
-    const categoriesSet = new Set();
-    const countriesSet = new Set();
-    
-    state.groups.forEach(g => {
-      if (g.itemCategory && g.itemCategory.trim()) {
-        categoriesSet.add(g.itemCategory.trim());
-      }
-      if (g.itemCountry && g.itemCountry.trim()) {
-        countriesSet.add(g.itemCountry.trim());
-      }
-    });
-    
-    // 轉換為陣列並排序
-    state.availableCategories = Array.from(categoriesSet).sort();
-    state.availableCountries = Array.from(countriesSet).sort();
-
-    const fromMain = all.filter(g => g.category === 'upcoming')
-      .map(g => ({ id: 'u-main-' + g.id, brand: g.brand, startDate: g.startDate || '', endDate: g.endDate || '', image: g.image || '' }));
-    const fromTab = await loadUpcomingFromTab();
-    const seen = {};
-    const merged = fromMain.concat(fromTab);
-    state.upcomingGroups = [];
-    merged.forEach(it => {
-      const key = (it.brand || '') + '|' + (it.startDate || '') + '|' + (it.endDate || '');
-      if (seen[key]) return;
-      seen[key] = true;
-      state.upcomingGroups.push(it);
-    });
-
-    state.loading = false;
-    renderFilters();
-    renderContent();
-  } catch {
-    showError('無法連接資料來源（網路或權限問題）');
-  }
-}
-
-// ============ 卡片渲染 ============
-function renderUpcomingSearchCard(g) {
-  return `
-    <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden border-2 border-pink-200 shadow-md transition-all hover:shadow-lg">
-      ${g.image ? `<div class="w-full h-40 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover"></div>` : ''}
-      <div class="p-5">
-        <div class="flex items-center gap-2 mb-2">
-          <span class="bg-pink-500 text-white px-2.5 py-0.5 rounded-full text-xs font-bold">敬請期待</span>
-        </div>
-        <h3 class="text-lg font-bold text-pink-900 mb-2">${g.brand || ''}</h3>
-        ${g.startDate ? `<div class="text-sm text-pink-700 mb-1">📅 預計開團：${g.startDate}</div>` : ''}
-        ${g.endDate ? `<div class="text-sm text-pink-700 mb-3">⏰ 預計結束：${g.endDate}</div>` : ''}
-        <div class="bg-white border-2 border-pink-300 rounded-lg p-3 text-center">
-          <p class="text-sm text-pink-800 font-medium">團購尚未開始，請密切關注</p>
-        </div>
-      </div>
-    </div>`;
-}
-
-function renderGroupCard(g) {
-  const daysLeft = utils.getDaysLeft(g.endDate);
-  const expired = utils.isExpired(g.endDate);
-  const noteIsURL = utils.isURL(g.note);
-  const noteIsQA = utils.isQA(g.note);
-  const qaList = noteIsQA ? utils.parseQA(g.note) : [];
-  const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
-
-  const countdown = g.category === 'short' && daysLeft !== null
-    ? `<div class="flex items-center gap-2 text-sm mb-3">
-         <span class="${daysLeft < 0 ? 'text-gray-500' : daysLeft <= 3 ? 'text-red-600 font-semibold' : 'text-amber-700'}">
-           ⏱ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : daysLeft === 0 ? '今天截止' : '結束 ' + Math.abs(daysLeft) + ' 天'}
-         </span>
-       </div>`
-    : '';
-
-  return `
-    <div class="bg-white rounded-xl overflow-hidden border-2 ${expired ? 'border-gray-300 opacity-60' : 'border-amber-200 hover:border-amber-400 hover:shadow-lg'} transition-all">
-      ${g.image ? `<div class="w-full h-48 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired ? 'grayscale' : ''}"></div>` : ''}
-      <div class="p-5">
-        <h3 class="text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
-        <div class="flex flex-wrap gap-2 mb-3">
-          ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
-          ${g.itemCategory ? `<span class="text-xs ${utils.getCategoryColor(g.itemCategory)} px-2 py-1 rounded-full border font-medium">${utils.getCategoryIcon(g.itemCategory)} ${g.itemCategory}</span>` : ''}
-          ${g.itemCountry ? `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${utils.getCountryFlag(g.itemCountry)} ${g.itemCountry}</span>` : ''}
-          ${g.tag ? `<span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">${g.tag}</span>` : ''}
-          ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
-          ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
-        </div>
-        ${g.description ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-3">${g.description}</p>` : ''}
-        ${countdown}
-        ${g.note && !expired
-          ? noteIsQA
-            ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
-                 <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓（${qaList.length}）</summary>
-                 ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
-               </details>`
-            : noteIsURL
-              ? `<div class="mb-3"><button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors">📝 查看介紹</button></div>`
-              : `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>`
-          : ''}
-        ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
-        ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
-        ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天！記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆（截止提醒）</button></div>` : ''}
-        <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
-           onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', group_category: '${g.category}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
-           class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '立即前往 →'}</a>
-      </div>
-    </div>`;
-}
-
-function renderCouponCard(g) {
-  const expired = utils.isExpired(g.endDate);
-  const daysLeft = utils.getDaysLeft(g.endDate);
-  const noteIsURL = utils.isURL(g.note);
-  const noteIsQA = utils.isQA(g.note);
-  const qaList = noteIsQA ? utils.parseQA(g.note) : [];
-
-  return `
-    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'border-gray-300 opacity-60' : 'border-purple-200 hover:border-purple-400 hover:shadow-xl'} transition-all">
-      ${g.image ? `<div class="w-full h-40 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired ? 'grayscale' : ''}"></div>` : ''}
-      <div class="p-6">
-        <h3 class="text-xl font-bold ${expired ? 'text-gray-500' : 'text-purple-900'} mb-3 break-words">${g.brand}</h3>
-        <div class="flex flex-wrap gap-2 mb-3">
-          ${g.itemCategory ? `<span class="text-xs ${utils.getCategoryColor(g.itemCategory)} px-2 py-1 rounded-full border font-medium">${utils.getCategoryIcon(g.itemCategory)} ${g.itemCategory}</span>` : ''}
-          ${g.itemCountry ? `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${utils.getCountryFlag(g.itemCountry)} ${g.itemCountry}</span>` : ''}
-        </div>
-        ${g.description ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-4">${g.description}</p>` : ''}
-        ${g.note && !expired
-          ? noteIsQA
-            ? `<details class="mb-4 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3"><summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓（${qaList.length}）</summary>${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}</details>`
-            : noteIsURL
-              ? `<button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-3 rounded-lg font-medium hover:bg-blue-100 transition-colors mb-4">📝 查看介紹</button>`
-              : `<div class="mb-4 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 備註</p><p class="text-sm text-blue-900">${g.note}</p></div>`
-          : ''}
-        ${daysLeft !== null && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
-        ${g.coupon && !expired ? `<div class="bg-white border-2 border-purple-300 rounded-xl p-4 mb-4"><p class="text-xs text-purple-600 font-semibold mb-2">🎟️ 折扣碼</p><div class="flex items-center gap-3"><code class="text-xl md:text-2xl font-bold text-purple-900 font-mono break-all flex-1 min-w-0">${g.coupon}</code><button onclick='copyCoupon(event, "${g.coupon}")' class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium whitespace-nowrap flex-shrink-0">複製</button></div></div>` : ''}
-        <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
-           onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_coupon', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
-           class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 ${expired ? 'opacity-80' : ''}">${expired ? '仍可查看 →' : '立即前往 →'}</a>
-      </div>
-    </div>`;
-}
-
-// ============ 內容渲染 ============
-function renderContent() {
-  if (state.loading) {
-    elements.content.innerHTML = `
-      <div class="flex items-center justify-center min-h-[40vh]">
-        <div class="text-center">
-          <div class="text-4xl mb-4">🦅</div>
-          <div class="text-xl text-amber-900 font-bold">載入中...</div>
-        </div>
-      </div>`;
-    return;
-  }
-  if (state.error) return;
-
-  const q = (state.searchTerm || '').toLowerCase();
-  const filtered = state.groups.filter(g => {
-    const okSearch = !q || 
-      g.brand.toLowerCase().includes(q) || 
-      (g.tag || '').toLowerCase().includes(q) || 
-      (g.description || '').toLowerCase().includes(q);
-    
-    const okExpired = state.showExpired || !utils.isExpired(g.endDate);
-    
-    // 🔥 動態分類篩選
-    const okCategory = state.selectedCategory === 'all' || 
-      (g.itemCategory && g.itemCategory.trim() === state.selectedCategory);
-    
-    // 🔥 動態國家篩選
-    const okCountry = state.selectedCountry === 'all' || 
-      (g.itemCountry && g.itemCountry.trim() === state.selectedCountry);
-    
-    return okSearch && okExpired && okCategory && okCountry;
-  });
-
-  const longTerm = filtered.filter(g => g.category === 'long');
-  const shortTerm = filtered.filter(g => g.category === 'short').sort((a, b) => {
-    if (!a.endDate && !b.endDate) return 0;
-    if (!a.endDate) return 1;
-    if (!b.endDate) return -1;
-    return utils.parseDateSafe(a.endDate) - utils.parseDateSafe(b.endDate);
-  });
-  const coupon = filtered.filter(g => g.category === 'coupon');
-  const expiredCount = state.groups.filter(g => utils.isExpired(g.endDate)).length;
-
-  const term = (state.searchTerm || '').trim().toLowerCase();
-  const today = new Date();
-  today.setHours(0, 0, 0, 0);
-
-  const activeBrandSet = new Set(filtered.filter(g => !utils.isExpired(g.endDate)).map(g => utils.normalizeBrand(g.brand)));
-
-  const rawUpcoming = term ? (state.upcomingGroups || []).filter(u => {
-    const hit = (u.brand || '').toLowerCase().includes(term);
-    const st = utils.parseDateSafe(u.startDate);
-    const fut = !!st && st > today;
-    const diff = !activeBrandSet.has(utils.normalizeBrand(u.brand));
-    return hit && fut && diff;
-  }) : [];
-
-  const soonestByBrand = {};
-  for (const u of rawUpcoming) {
-    const key = utils.normalizeBrand(u.brand);
-    const st = utils.parseDateSafe(u.startDate);
-    if (!soonestByBrand[key] || st < utils.parseDateSafe(soonestByBrand[key].startDate)) {
-      soonestByBrand[key] = u;
-    }
-  }
-  const upcomingMatches = Object.values(soonestByBrand);
-
-  const btn = (id, txt, cls) => `<button onclick="scrollToSection('${id}')" class="px-4 py-2 ${cls} rounded-lg font-medium whitespace-nowrap hover:opacity-90 text-sm">${txt}</button>`;
-  elements.sectionButtons.innerHTML = (shortTerm.length ? btn('short-term', '限時團購', 'bg-orange-100 text-orange-700') : '') +
-    (longTerm.length ? btn('long-term', '常駐團購', 'bg-green-100 text-green-700') : '') +
-    (coupon.length ? btn('coupon', '折扣碼優惠', 'bg-purple-100 text-purple-700') : '') +
-    btn('calendar', '團購行事曆', 'bg-blue-100 text-blue-700');
-
-  const m1 = today.getMonth() + 1;
-  const m2 = (today.getMonth() + 1) % 12 + 1;
-  const m3 = (today.getMonth() + 2) % 12 + 1;
-
-  elements.content.innerHTML =
-    `<div class="mb-6">
-       ${expiredCount ? `<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired ? 'bg-gray-600 text-white' : 'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired ? '隱藏' : '顯示'}已結束（${expiredCount}）</button>` : ''}
-     </div>` +
-
-    (state.searchTerm && upcomingMatches.length && shortTerm.length === 0 && longTerm.length === 0 && coupon.length === 0 ? `
-      <section id="upcoming-search" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">即將開團（${upcomingMatches.length}）</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          ${upcomingMatches.map(renderUpcomingSearchCard).join('')}
-        </div>
-      </section>
-    ` : '') +
-
-    (shortTerm.length ? `<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">⏳ 限時團購</h2>
-       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${shortTerm.map(renderGroupCard).join('')}</div>
-     </section>` : '') +
-
-    (longTerm.length ? `<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">☀️ 常駐團購</h2>
-       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${longTerm.map(renderGroupCard).join('')}</div>
-     </section>` : '') +
-
-    (coupon.length ? `<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🎟️ 折扣碼優惠</h2>
-       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${coupon.map(renderCouponCard).join('')}</div>
-     </section>` : '') +
-
-    `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-6">
-       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🗓️ 團購行事曆</h2>
-       <div class="bg-white rounded-xl p-4 border-2 border-amber-200">
-         <div class="flex gap-2 mb-4 justify-center">
-           <button onclick="switchCalendarMonth(0)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 0 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m1}月</button>
-           <button onclick="switchCalendarMonth(1)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 1 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m2}月</button>
-           <button onclick="switchCalendarMonth(2)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 2 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m3}月</button>
-         </div>
-         ${renderCalendar()}
-         <div class="mt-4 flex gap-4 text-xs text-gray-600 justify-center flex-wrap">
-           <div class="flex items-center gap-1"><div class="w-4 h-4 bg-yellow-200 border border-blue-300 rounded"></div><span>今天</span></div>
-           <div class="flex items-center gap-1"><div class="w-4 h-4 bg-red-100 border border-red-300 rounded"></div><span>3天內截止</span></div>
-           <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>＝ 當日截止數</span></div>
-           <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>＝ 當日開團數</span></div>
-         </div>
-         ${renderMonthlyGroupList()}
-       </div>
-     </section>` +
-
-    (filtered.length === 0 && state.searchTerm ? `<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「${state.searchTerm}」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清空搜尋</p></div>` : '') +
-    (filtered.length === 0 && !state.searchTerm ? `<div class="text-center py-12 text-amber-700"><p class="text-lg">目前沒有團購項目</p></div>` : '');
-}
-  const curM = target.getMonth();
-  const curY = target.getFullYear();
-  const monthName = `${curY}年${curM + 1}月`;
-
-  const monthlyGroups = [];
-
   state.groups.forEach(g => {
     const st = utils.parseDateSafe(g.startDate);
     if (st && st.getMonth() === curM && st.getFullYear() === curY) {
@@ -1411,13 +1138,454 @@ let searchDebounce;
 
 function applySearch(val) {
   state.searchTerm = val || '';
+  
+  if (state.searchTerm && typeof gtag !== 'undefined') {
+    gtag('event', 'search', {
+      'search_term': state.searchTerm,
+      'event_category': 'engagement'
+    });
+  }
+  
+  try {
+    localStorage.setItem(STORAGE_KEYS.search, state.searchTerm);
+  } catch {}
+  elements.clearBtn?.classList.toggle('hidden', state.searchTerm.length === 0);
+  renderContent();
+}
+
+function initSearch() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEYS.search) || '';
+    const savedShow = localStorage.getItem(STORAGE_KEYS.showExpired);
+    const savedMonth = localStorage.getItem(STORAGE_KEYS.month);
+    const savedCategory = localStorage.getItem(STORAGE_KEYS.category);
+    const savedCountry = localStorage.getItem(STORAGE_KEYS.country);
+    
+    if (elements.searchInput && saved) {
+      state.searchTerm = saved;
+      elements.searchInput.value = saved;
+      elements.clearBtn?.classList.remove('hidden');
+    }
+    if (savedShow != null) state.showExpired = savedShow === 'true';
+    if (savedMonth != null) state.selectedCalendarMonth = parseInt(savedMonth, 10) || 0;
+    if (savedCategory) state.selectedCategory = savedCategory;
+    if (savedCountry) state.selectedCountry = savedCountry;
+  } catch {}
+
+  if (elements.searchInput) {
+    elements.searchInput.addEventListener('compositionstart', () => isComposing = true);
+    elements.searchInput.addEventListener('compositionend', e => {
+      isComposing = false;
+      applySearch(e.target.value);
+    });
+    elements.searchInput.addEventListener('input', e => {
+      elements.clearBtn?.classList.toggle('hidden', e.target.value.length === 0);
+      if (isComposing) return;
+      clearTimeout(searchDebounce);
+      searchDebounce = setTimeout(() => applySearch(e.target.value), CONFIG.SEARCH_DEBOUNCE);
+    });
+    elements.searchInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applySearch(elements.searchInput.value);
+      }
+    });
+  }
+
+  elements.clearBtn?.addEventListener('click', () => {
+    if (elements.searchInput) elements.searchInput.value = '';
+    applySearch('');
+    elements.searchInput?.focus();
+  });
+}
+
+// ============ 資料載入 ============
+function showError(msg) {
+  state.error = msg;
+  state.loading = false;
+  elements.content.innerHTML = `
+    <div class="flex items-center justify-center min-h-[40vh]">
+      <div class="text-center">
+        <div class="text-4xl mb-4">⚠️</div>
+        <div class="text-xl text-red-600 font-bold mb-4">${msg}</div>
+        <button onclick="location.reload()" class="bg-amber-600 text-white px-6 py-2 rounded-lg hover:bg-amber-700">重新整理</button>
+      </div>
+    </div>`;
+}
+
+async function loadUpcomingFromTab() {
+  try {
+    const UPCOMING_CSV = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent('即將開團')}`;
+    const res = await fetch(UPCOMING_CSV, { credentials: 'omit' });
+    const text = await res.text();
+    if (utils.isProbablyHTML(text)) return [];
+
+    const out = [];
+    Papa.parse(text, {
+      header: true,
+      skipEmptyLines: true,
+      transformHeader: h => (h || '').trim(),
+      complete: r => {
+        (r.data || []).forEach((row, i) => {
+          const brand = (row['品牌'] || row['Brand'] || '').trim();
+          if (!brand) return;
+          out.push({
+            id: 'u-tab-' + (i + 1),
+            brand,
+            startDate: row['開團日期'] || row['StartDate'] || '',
+            endDate: row['結束日期'] || row['EndDate'] || '',
+            image: row['圖片網址'] || row['Image'] || ''
+          });
+        });
+      }
+    });
+    return out;
+  } catch {
+    return [];
+  }
+}
+
+async function loadData() {
+  try {
+    const MAIN_CSV = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/export?format=csv`;
+    const res = await fetch(MAIN_CSV, { credentials: 'omit' });
+    const csv = await res.text();
+
+    if (utils.isProbablyHTML(csv)) {
+      showError('Google Sheet 無法公開讀取。請將權限改為「知道連結的任何人可檢視」，或使用「檔案 → 發佈到網路上」。');
+      return;
+    }
+
+    const all = [];
+    Papa.parse(csv, {
+      header: true,
+      skipEmptyLines: true,
+      transformHeader: h => (h || '').trim(),
+      complete: r => {
+        (r.data || []).forEach((row, i) => {
+          const brand = (row['品牌'] || row['Brand'] || '').trim();
+          const url = (row['連結'] || row['URL'] || row['Link'] || '').trim();
+          if (!brand || brand.includes('---') || brand.includes('===')) return;
+
+          const typeRaw = String(row['類型'] || row['Type'] || '').toLowerCase();
+          let category = 'short';
+          if (/長期|long/.test(typeRaw)) category = 'long';
+          else if (/折扣|coupon|affiliate/.test(typeRaw)) category = 'coupon';
+          else if (/即將|upcoming/.test(typeRaw)) category = 'upcoming';
+
+          all.push({
+            id: i + 1,
+            brand,
+            url,
+            startDate: row['開團日期'] || row['StartDate'] || '',
+            endDate: row['結束日期'] || row['EndDate'] || '',
+            category,
+            image: row['圖片網址'] || row['Image'] || '',
+            description: row['商品描述'] || row['Description'] || '',
+            stock: row['庫存狀態'] || row['Stock'] || '',
+            tag: row['標籤'] || row['Tag'] || '',
+            coupon: row['折扣碼'] || row['Coupon'] || row['DiscountCode'] || '',
+            note: row['備註'] || row['Note'] || row['Remark'] || '',
+            video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
+            itemCategory: row['分類'] || row['Category'] || '',
+            itemCountry: row['國家'] || row['Country'] || ''
+          });
+        });
+      }
+    });
+
+    state.groups = all.filter(g => g.category !== 'upcoming' && !!g.url);
+
+    // 提取所有不重複的分類和國家
+    const categoriesSet = new Set();
+    const countriesSet = new Set();
+    
+    state.groups.forEach(g => {
+      if (g.itemCategory && g.itemCategory.trim()) {
+        categoriesSet.add(g.itemCategory.trim());
+      }
+      if (g.itemCountry && g.itemCountry.trim()) {
+        countriesSet.add(g.itemCountry.trim());
+      }
+    });
+    
+    // 轉換為陣列並排序
+    state.availableCategories = Array.from(categoriesSet).sort();
+    state.availableCountries = Array.from(countriesSet).sort();
+
+    const fromMain = all.filter(g => g.category === 'upcoming')
+      .map(g => ({ id: 'u-main-' + g.id, brand: g.brand, startDate: g.startDate || '', endDate: g.endDate || '', image: g.image || '' }));
+    const fromTab = await loadUpcomingFromTab();
+    const seen = {};
+    const merged = fromMain.concat(fromTab);
+    state.upcomingGroups = [];
+    merged.forEach(it => {
+      const key = (it.brand || '') + '|' + (it.startDate || '') + '|' + (it.endDate || '');
+      if (seen[key]) return;
+      seen[key] = true;
+      state.upcomingGroups.push(it);
+    });
+
+    state.loading = false;
+    renderFilters();
+    renderContent();
+  } catch {
+    showError('無法連接資料來源（網路或權限問題）');
+  }
+}
+
+// ============ 卡片渲染 ============
+function renderUpcomingSearchCard(g) {
+  return `
+    <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden border-2 border-pink-200 shadow-md transition-all hover:shadow-lg">
+      ${g.image ? `<div class="w-full h-40 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover"></div>` : ''}
+      <div class="p-5">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="bg-pink-500 text-white px-2.5 py-0.5 rounded-full text-xs font-bold">敬請期待</span>
+        </div>
+        <h3 class="text-lg font-bold text-pink-900 mb-2">${g.brand || ''}</h3>
+        ${g.startDate ? `<div class="text-sm text-pink-700 mb-1">📅 預計開團：${g.startDate}</div>` : ''}
+        ${g.endDate ? `<div class="text-sm text-pink-700 mb-3">⏰ 預計結束：${g.endDate}</div>` : ''}
+        <div class="bg-white border-2 border-pink-300 rounded-lg p-3 text-center">
+          <p class="text-sm text-pink-800 font-medium">團購尚未開始，請密切關注</p>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderGroupCard(g) {
+  const daysLeft = utils.getDaysLeft(g.endDate);
+  const expired = utils.isExpired(g.endDate);
+  const noteIsURL = utils.isURL(g.note);
+  const noteIsQA = utils.isQA(g.note);
+  const qaList = noteIsQA ? utils.parseQA(g.note) : [];
+  const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
+
+  // 取得分類和國家配置
+  const catIcon = g.itemCategory ? utils.getCategoryIcon(g.itemCategory) : '';
+  const catColor = g.itemCategory ? utils.getCategoryColor(g.itemCategory) : '';
+  const countryFlag = g.itemCountry ? utils.getCountryFlag(g.itemCountry) : '';
+
+  const countdown = g.category === 'short' && daysLeft !== null
+    ? `<div class="flex items-center gap-2 text-sm mb-3">
+         <span class="${daysLeft < 0 ? 'text-gray-500' : daysLeft <= 3 ? 'text-red-600 font-semibold' : 'text-amber-700'}">
+           ⏱ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : daysLeft === 0 ? '今天截止' : '結束 ' + Math.abs(daysLeft) + ' 天'}
+         </span>
+       </div>`
+    : '';
+
+  return `
+    <div class="bg-white rounded-xl overflow-hidden border-2 ${expired ? 'border-gray-300 opacity-60' : 'border-amber-200 hover:border-amber-400 hover:shadow-lg'} transition-all">
+      ${g.image ? `<div class="w-full h-48 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired ? 'grayscale' : ''}"></div>` : ''}
+      <div class="p-5">
+        <h3 class="text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
+        <div class="flex flex-wrap gap-2 mb-3">
+          ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
+          ${g.itemCategory ? `<span class="text-xs ${catColor} px-2 py-1 rounded-full border font-medium">${catIcon} ${g.itemCategory}</span>` : ''}
+          ${g.itemCountry ? `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${countryFlag} ${g.itemCountry}</span>` : ''}
+          ${g.tag ? `<span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">${g.tag}</span>` : ''}
+          ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
+          ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
+        </div>
+        ${g.description ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-3">${g.description}</p>` : ''}
+        ${countdown}
+        ${g.note && !expired
+          ? noteIsQA
+            ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
+                 <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓（${qaList.length}）</summary>
+                 ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
+               </details>`
+            : noteIsURL
+              ? `<div class="mb-3"><button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors">📝 查看介紹</button></div>`
+              : `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>`
+          : ''}
+        ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
+        ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
+        ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天！記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆（截止提醒）</button></div>` : ''}
+        <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
+           onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', group_category: '${g.category}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
+           class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '立即前往 →'}</a>
+      </div>
+    </div>`;
+}
+
+function renderCouponCard(g) {
+  const expired = utils.isExpired(g.endDate);
+  const daysLeft = utils.getDaysLeft(g.endDate);
+  const noteIsURL = utils.isURL(g.note);
+  const noteIsQA = utils.isQA(g.note);
+  const qaList = noteIsQA ? utils.parseQA(g.note) : [];
+
+  const catIcon = g.itemCategory ? utils.getCategoryIcon(g.itemCategory) : '';
+  const catColor = g.itemCategory ? utils.getCategoryColor(g.itemCategory) : '';
+  const countryFlag = g.itemCountry ? utils.getCountryFlag(g.itemCountry) : '';
+
+  return `
+    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'border-gray-300 opacity-60' : 'border-purple-200 hover:border-purple-400 hover:shadow-xl'} transition-all">
+      ${g.image ? `<div class="w-full h-40 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired ? 'grayscale' : ''}"></div>` : ''}
+      <div class="p-6">
+        <h3 class="text-xl font-bold ${expired ? 'text-gray-500' : 'text-purple-900'} mb-3 break-words">${g.brand}</h3>
+        <div class="flex flex-wrap gap-2 mb-3">
+          ${g.itemCategory ? `<span class="text-xs ${catColor} px-2 py-1 rounded-full border font-medium">${catIcon} ${g.itemCategory}</span>` : ''}
+          ${g.itemCountry ? `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${countryFlag} ${g.itemCountry}</span>` : ''}
+        </div>
+        ${g.description ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-4">${g.description}</p>` : ''}
+        ${g.note && !expired
+          ? noteIsQA
+            ? `<details class="mb-4 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3"><summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓（${qaList.length}）</summary>${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}</details>`
+            : noteIsURL
+              ? `<button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-3 rounded-lg font-medium hover:bg-blue-100 transition-colors mb-4">📝 查看介紹</button>`
+              : `<div class="mb-4 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 備註</p><p class="text-sm text-blue-900">${g.note}</p></div>`
+          : ''}
+        ${daysLeft !== null && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
+        ${g.coupon && !expired ? `<div class="bg-white border-2 border-purple-300 rounded-xl p-4 mb-4"><p class="text-xs text-purple-600 font-semibold mb-2">🎟️ 折扣碼</p><div class="flex items-center gap-3"><code class="text-xl md:text-2xl font-bold text-purple-900 font-mono break-all flex-1 min-w-0">${g.coupon}</code><button onclick='copyCoupon(event, "${g.coupon}")' class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium whitespace-nowrap flex-shrink-0">複製</button></div></div>` : ''}
+        <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
+           onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_coupon', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
+           class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 ${expired ? 'opacity-80' : ''}">${expired ? '仍可查看 →' : '立即前往 →'}</a>
+      </div>
+    </div>`;
+}
+
+// ============ 內容渲染 ============
+function renderContent() {
+  if (state.loading) {
+    elements.content.innerHTML = `
+      <div class="flex items-center justify-center min-h-[40vh]">
+        <div class="text-center">
+          <div class="text-4xl mb-4">🦅</div>
+          <div class="text-xl text-amber-900 font-bold">載入中...</div>
+        </div>
+      </div>`;
+    return;
+  }
+  if (state.error) return;
+
+  const q = (state.searchTerm || '').toLowerCase();
+  const filtered = state.groups.filter(g => {
+    // 搜尋篩選
+    const okSearch = !q || 
+      g.brand.toLowerCase().includes(q) || 
+      (g.tag || '').toLowerCase().includes(q) || 
+      (g.description || '').toLowerCase().includes(q);
+    
+    // 過期篩選
+    const okExpired = state.showExpired || !utils.isExpired(g.endDate);
+    
+    // 分類篩選
+    const okCategory = state.selectedCategory === 'all' || 
+      (g.itemCategory && g.itemCategory.trim() === state.selectedCategory);
+    
+    // 國家篩選
+    const okCountry = state.selectedCountry === 'all' || 
+      (g.itemCountry && g.itemCountry.trim() === state.selectedCountry);
+    
+    return okSearch && okExpired && okCategory && okCountry;
+  });
+
+  const longTerm = filtered.filter(g => g.category === 'long');
+  const shortTerm = filtered.filter(g => g.category === 'short').sort((a, b) => {
+    if (!a.endDate && !b.endDate) return 0;
+    if (!a.endDate) return 1;
+    if (!b.endDate) return -1;
+    return utils.parseDateSafe(a.endDate) - utils.parseDateSafe(b.endDate);
+  });
+  const coupon = filtered.filter(g => g.category === 'coupon');
+  const expiredCount = state.groups.filter(g => utils.isExpired(g.endDate)).length;
+
+  const term = (state.searchTerm || '').trim().toLowerCase();
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+
+  const activeBrandSet = new Set(filtered.filter(g => !utils.isExpired(g.endDate)).map(g => utils.normalizeBrand(g.brand)));
+
+  const rawUpcoming = term ? (state.upcomingGroups || []).filter(u => {
+    const hit = (u.brand || '').toLowerCase().includes(term);
+    const st = utils.parseDateSafe(u.startDate);
+    const fut = !!st && st > today;
+    const diff = !activeBrandSet.has(utils.normalizeBrand(u.brand));
+    return hit && fut && diff;
+  }) : [];
+
+  const soonestByBrand = {};
+  for (const u of rawUpcoming) {
+    const key = utils.normalizeBrand(u.brand);
+    const st = utils.parseDateSafe(u.startDate);
+    if (!soonestByBrand[key] || st < utils.parseDateSafe(soonestByBrand[key].startDate)) {
+      soonestByBrand[key] = u;
+    }
+  }
+  const upcomingMatches = Object.values(soonestByBrand);
+
+  const btn = (id, txt, cls) => `<button onclick="scrollToSection('${id}')" class="px-4 py-2 ${cls} rounded-lg font-medium whitespace-nowrap hover:opacity-90 text-sm">${txt}</button>`;
+  elements.sectionButtons.innerHTML = (shortTerm.length ? btn('short-term', '限時團購', 'bg-orange-100 text-orange-700') : '') +
+    (longTerm.length ? btn('long-term', '常駐團購', 'bg-green-100 text-green-700') : '') +
+    (coupon.length ? btn('coupon', '折扣碼優惠', 'bg-purple-100 text-purple-700') : '') +
+    btn('calendar', '團購行事曆', 'bg-blue-100 text-blue-700');
+
+  const m1 = today.getMonth() + 1;
+  const m2 = (today.getMonth() + 1) % 12 + 1;
+  const m3 = (today.getMonth() + 2) % 12 + 1;
+
+  elements.content.innerHTML =
+    `<div class="mb-6">
+       ${expiredCount ? `<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired ? 'bg-gray-600 text-white' : 'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired ? '隱藏' : '顯示'}已結束（${expiredCount}）</button>` : ''}
+     </div>` +
+
+    (state.searchTerm && upcomingMatches.length && shortTerm.length === 0 && longTerm.length === 0 && coupon.length === 0 ? `
+      <section id="upcoming-search" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">即將開團（${upcomingMatches.length}）</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          ${upcomingMatches.map(renderUpcomingSearchCard).join('')}
+        </div>
+      </section>
+    ` : '') +
+
+    (shortTerm.length ? `<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">⏳ 限時團購</h2>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${shortTerm.map(renderGroupCard).join('')}</div>
+     </section>` : '') +
+
+    (longTerm.length ? `<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">☀️ 常駐團購</h2>
+       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${longTerm.map(renderGroupCard).join('')}</div>
+     </section>` : '') +
+
+    (coupon.length ? `<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🎟️ 折扣碼優惠</h2>
+       <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${coupon.map(renderCouponCard).join('')}</div>
+     </section>` : '') +
+
+    `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-6">
+       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🗓️ 團購行事曆</h2>
+       <div class="bg-white rounded-xl p-4 border-2 border-amber-200">
+         <div class="flex gap-2 mb-4 justify-center">
+           <button onclick="switchCalendarMonth(0)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 0 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m1}月</button>
+           <button onclick="switchCalendarMonth(1)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 1 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m2}月</button>
+           <button onclick="switchCalendarMonth(2)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 2 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m3}月</button>
+         </div>
+         ${renderCalendar()}
+         <div class="mt-4 flex gap-4 text-xs text-gray-600 justify-center flex-wrap">
+           <div class="flex items-center gap-1"><div class="w-4 h-4 bg-yellow-200 border border-blue-300 rounded"></div><span>今天</span></div>
+           <div class="flex items-center gap-1"><div class="w-4 h-4 bg-red-100 border border-red-300 rounded"></div><span>3天內截止</span></div>
+           <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>＝ 當日截止數</span></div>
+           <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>＝ 當日開團數</span></div>
+         </div>
+         ${renderMonthlyGroupList()}
+       </div>
+     </section>` +
+
+    (filtered.length === 0 && state.searchTerm ? `<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「${state.searchTerm}」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清空搜尋</p></div>` : '') +
+    (filtered.length === 0 && !state.searchTerm ? `<div class="text-center py-12 text-amber-700"><p class="text-lg">目前沒有團購項目</p></div>` : '');
+}
 
 // ============ 初始化 ============
 function init() {
+  // 恢復側邊欄狀態（僅桌面版）
   if (window.innerWidth >= 1024) {
     try {
       const savedSidebarState = localStorage.getItem(STORAGE_KEYS.sidebarOpen);
       if (savedSidebarState === 'true') {
+        // 延遲打開，避免動畫問題
         setTimeout(() => toggleSidebar(), 100);
       }
     } catch {}
@@ -1431,8 +1599,7 @@ loadData();
 setInterval(loadData, CONFIG.REFRESH_INTERVAL);
 
 // ============ 暴露函數到全域作用域 ============
-window.toggleSidebar = toggleSidebar;
-window.toggleMobileFilters = toggleMobileFilters;
+// 讓 HTML 的 onclick 屬性可以調用這些函數
 window.toggleFilterExpand = toggleFilterExpand;
 window.scrollToSection = scrollToSection;
 window.openVideoModal = openVideoModal;
