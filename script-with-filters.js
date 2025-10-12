@@ -99,6 +99,8 @@ const CONFIG = {
     '東南亞': '🌏',
     '中國': '🇨🇳',
     '香港': '🇭🇰',
+    '歐盟': '🇪🇺',
+    '歐州': '🇪🇺',  // 常見錯字
     '其他': '🌍'
   },
   
@@ -308,15 +310,20 @@ function getFilterCounts() {
   const countryCounts = { all: filtered.length };
   
   filtered.forEach(g => {
-    const cat = g.itemCategory?.trim();
-    const country = g.itemCountry?.trim();
-    
-    if (cat) {
-      categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+    // 處理複選分類（一個商品可能屬於多個分類）
+    if (g.itemCategory && g.itemCategory.trim()) {
+      const categories = g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c);
+      categories.forEach(cat => {
+        categoryCounts[cat] = (categoryCounts[cat] || 0) + 1;
+      });
     }
     
-    if (country) {
-      countryCounts[country] = (countryCounts[country] || 0) + 1;
+    // 處理複選國家（一個商品可能屬於多個國家）
+    if (g.itemCountry && g.itemCountry.trim()) {
+      const countries = g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c);
+      countries.forEach(country => {
+        countryCounts[country] = (countryCounts[country] || 0) + 1;
+      });
     }
   });
   
@@ -1301,11 +1308,16 @@ async function loadData() {
     const countriesSet = new Set();
     
     state.groups.forEach(g => {
+      // 處理分類（可能包含逗號分隔的多個值）
       if (g.itemCategory && g.itemCategory.trim()) {
-        categoriesSet.add(g.itemCategory.trim());
+        const categories = g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c);
+        categories.forEach(cat => categoriesSet.add(cat));
       }
+      
+      // 處理國家（可能包含逗號分隔的多個值）
       if (g.itemCountry && g.itemCountry.trim()) {
-        countriesSet.add(g.itemCountry.trim());
+        const countries = g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c);
+        countries.forEach(country => countriesSet.add(country));
       }
     });
     
@@ -1361,10 +1373,19 @@ function renderGroupCard(g) {
   const qaList = noteIsQA ? utils.parseQA(g.note) : [];
   const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
 
-  // 取得分類和國家配置
-  const catIcon = g.itemCategory ? utils.getCategoryIcon(g.itemCategory) : '';
-  const catColor = g.itemCategory ? utils.getCategoryColor(g.itemCategory) : '';
-  const countryFlag = g.itemCountry ? utils.getCountryFlag(g.itemCountry) : '';
+  // 處理複選的分類和國家
+  const categories = g.itemCategory ? g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
+  const countries = g.itemCountry ? g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
+  
+  // 生成分類標籤
+  const categoryTags = categories.map(cat => 
+    `<span class="text-xs ${utils.getCategoryColor(cat)} px-2 py-1 rounded-full border font-medium">${utils.getCategoryIcon(cat)} ${cat}</span>`
+  ).join('');
+  
+  // 生成國家標籤
+  const countryTags = countries.map(country => 
+    `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${utils.getCountryFlag(country)} ${country}</span>`
+  ).join('');
 
   const countdown = g.category === 'short' && daysLeft !== null
     ? `<div class="flex items-center gap-2 text-sm mb-3">
@@ -1381,8 +1402,8 @@ function renderGroupCard(g) {
         <h3 class="text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         <div class="flex flex-wrap gap-2 mb-3">
           ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
-          ${g.itemCategory ? `<span class="text-xs ${catColor} px-2 py-1 rounded-full border font-medium">${catIcon} ${g.itemCategory}</span>` : ''}
-          ${g.itemCountry ? `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${countryFlag} ${g.itemCountry}</span>` : ''}
+          ${categoryTags}
+          ${countryTags}
           ${g.tag ? `<span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">${g.tag}</span>` : ''}
           ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
           ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
@@ -1416,9 +1437,19 @@ function renderCouponCard(g) {
   const noteIsQA = utils.isQA(g.note);
   const qaList = noteIsQA ? utils.parseQA(g.note) : [];
 
-  const catIcon = g.itemCategory ? utils.getCategoryIcon(g.itemCategory) : '';
-  const catColor = g.itemCategory ? utils.getCategoryColor(g.itemCategory) : '';
-  const countryFlag = g.itemCountry ? utils.getCountryFlag(g.itemCountry) : '';
+  // 處理複選的分類和國家
+  const categories = g.itemCategory ? g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
+  const countries = g.itemCountry ? g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
+  
+  // 生成分類標籤
+  const categoryTags = categories.map(cat => 
+    `<span class="text-xs ${utils.getCategoryColor(cat)} px-2 py-1 rounded-full border font-medium">${utils.getCategoryIcon(cat)} ${cat}</span>`
+  ).join('');
+  
+  // 生成國家標籤
+  const countryTags = countries.map(country => 
+    `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${utils.getCountryFlag(country)} ${country}</span>`
+  ).join('');
 
   return `
     <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'border-gray-300 opacity-60' : 'border-purple-200 hover:border-purple-400 hover:shadow-xl'} transition-all">
@@ -1426,8 +1457,8 @@ function renderCouponCard(g) {
       <div class="p-6">
         <h3 class="text-xl font-bold ${expired ? 'text-gray-500' : 'text-purple-900'} mb-3 break-words">${g.brand}</h3>
         <div class="flex flex-wrap gap-2 mb-3">
-          ${g.itemCategory ? `<span class="text-xs ${catColor} px-2 py-1 rounded-full border font-medium">${catIcon} ${g.itemCategory}</span>` : ''}
-          ${g.itemCountry ? `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${countryFlag} ${g.itemCountry}</span>` : ''}
+          ${categoryTags}
+          ${countryTags}
         </div>
         ${g.description ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-4">${g.description}</p>` : ''}
         ${g.note && !expired
@@ -1471,13 +1502,13 @@ function renderContent() {
     // 過期篩選
     const okExpired = state.showExpired || !utils.isExpired(g.endDate);
     
-    // 分類篩選
+    // 分類篩選（支援複選：「韓國，歐洲」點擊「韓國」也會出現）
     const okCategory = state.selectedCategory === 'all' || 
-      (g.itemCategory && g.itemCategory.trim() === state.selectedCategory);
+      (g.itemCategory && g.itemCategory.split(/[,，]/).map(c => c.trim()).includes(state.selectedCategory));
     
-    // 國家篩選
+    // 國家篩選（支援複選）
     const okCountry = state.selectedCountry === 'all' || 
-      (g.itemCountry && g.itemCountry.trim() === state.selectedCountry);
+      (g.itemCountry && g.itemCountry.split(/[,，]/).map(c => c.trim()).includes(state.selectedCountry));
     
     return okSearch && okExpired && okCategory && okCountry;
   });
