@@ -268,7 +268,7 @@ body {
 }
 
 .bg-gradient-to-br.from-purple-50.to-pink-50 {
-  background: linear-gradient(135deg, var(--color-promo-bg) 0%, var(--color-error-bg) 100%) !important;
+  background:#FFFFFF!important;
 }
 
 .bg-gradient-to-br.from-pink-50.to-rose-50 {
