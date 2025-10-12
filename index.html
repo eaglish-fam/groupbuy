@@ -97,18 +97,27 @@
 <body class="bg-white min-h-screen">
   <header class="bg-white/80 backdrop-blur-sm border-b border-amber-200 sticky top-0 z-30">
     <div class="max-w-7xl mx-auto px-4 py-3">
-      <div class="flex items-center gap-3">
-        <!-- 漢堡選單按鈕（僅桌面版顯示） -->
-        <button id="sidebarToggle" class="hidden lg:flex items-center justify-center w-10 h-10 rounded-lg hover:bg-amber-100 transition-colors" onclick="toggleSidebar()">
+      <!-- 桌面版：漢堡選單 + 標題 + 佔位 -->
+      <div class="hidden lg:flex items-center">
+        <button id="sidebarToggle" class="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-amber-100 transition-colors" onclick="toggleSidebar()">
           <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
           </svg>
         </button>
         
-        <div class="flex-1 text-center lg:text-left">
-          <h1 class="text-xl lg:text-2xl font-bold text-amber-900">🦅 鷹家Fun生買物社</h1>
-          <p class="text-xs lg:text-sm text-amber-700">精選團購 · 優質好物</p>
+        <div class="flex-1 text-center">
+          <h1 class="text-2xl font-bold text-amber-900">🦅 鷹家Fun生買物社</h1>
+          <p class="text-sm text-amber-700">精選團購 · 優質好物</p>
         </div>
+        
+        <!-- 佔位元素，保持標題置中 -->
+        <div class="w-10"></div>
+      </div>
+      
+      <!-- 手機版：標題置中 -->
+      <div class="lg:hidden text-center">
+        <h1 class="text-xl font-bold text-amber-900">🦅 鷹家Fun生買物社</h1>
+        <p class="text-xs text-amber-700">精選團購 · 優質好物</p>
       </div>
       
       <!-- 搜尋框和篩選按鈕 -->
@@ -120,7 +129,7 @@
                   class="absolute right-2 top-1/2 -translate-y-1/2 hidden w-6 h-6 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300 text-sm">×</button>
         </div>
         
-        <!-- 篩選按鈕 -->
+        <!-- 篩選按鈕（僅手機版） -->
         <button id="mobileFilterToggle" class="lg:hidden flex items-center gap-1 bg-amber-100 text-amber-900 px-3 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap" onclick="toggleMobileFilters()">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
