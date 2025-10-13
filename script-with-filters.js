@@ -110,7 +110,7 @@ const CONFIG = {
   SEARCH_DEBOUNCE: 120,
   
   // 手機版篩選按鈕顯示數量
-  MOBILE_FILTER_VISIBLE: 4
+  MOBILE_FILTER_VISIBLE: 12
 };
 
 const STORAGE_KEYS = {
