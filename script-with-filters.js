@@ -1321,9 +1321,22 @@ async function loadData() {
       }
     });
     
-    // 轉換為陣列並排序
+    // 轉換為陣列並自訂排序
     state.availableCategories = Array.from(categoriesSet).sort();
-    state.availableCountries = Array.from(countriesSet).sort();
+    
+    // 自訂國家排序：中國和香港排到最後
+    state.availableCountries = Array.from(countriesSet).sort((a, b) => {
+      const sensitiveCountries = ['中國', '香港'];
+      const aIsSensitive = sensitiveCountries.includes(a);
+      const bIsSensitive = sensitiveCountries.includes(b);
+      
+      // 如果 a 是敏感國家，b 不是，a 排後面
+      if (aIsSensitive && !bIsSensitive) return 1;
+      // 如果 b 是敏感國家，a 不是，b 排後面
+      if (!aIsSensitive && bIsSensitive) return -1;
+      // 否則按照字母順序
+      return a.localeCompare(b, 'zh-TW');
+    });
 
     const fromMain = all.filter(g => g.category === 'upcoming')
       .map(g => ({ id: 'u-main-' + g.id, brand: g.brand, startDate: g.startDate || '', endDate: g.endDate || '', image: g.image || '' }));
