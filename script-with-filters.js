@@ -1450,6 +1450,12 @@ function renderGroupCard(g) {
     </div>`;
 }
 
+// ============================================
+// 修改後的 renderCouponCard 函數
+// 用於：折扣碼優惠
+// 佈局：單欄顯示，折扣碼橫向排列
+// ============================================
+
 function renderCouponCard(g) {
   const expired = utils.isExpired(g.endDate);
   const daysLeft = utils.getDaysLeft(g.endDate);
@@ -1472,17 +1478,17 @@ function renderCouponCard(g) {
   ).join('');
 
   return `
-    <div class="masonry-card bg-gradient-to-br from-purple-50 to-pink-50 ${expired ? 'opacity-60' : ''}">
+    <div class="coupon-card ${expired ? 'opacity-60' : ''}">
       ${g.image ? `
-        <div class="masonry-card-image-wrapper">
+        <div class="coupon-card-image-wrapper">
           <img src="${g.image}" 
                alt="${g.brand}" 
-               class="masonry-card-image ${expired ? 'grayscale' : ''}"
+               class="coupon-card-image ${expired ? 'grayscale' : ''}"
                loading="lazy">
         </div>
       ` : ''}
-      <div class="masonry-card-content p-6">
-        <h3 class="masonry-card-title text-xl font-bold ${expired ? 'text-gray-500' : 'text-purple-900'} mb-3 break-words">${g.brand}</h3>
+      <div class="coupon-card-content p-6">
+        <h3 class="coupon-card-title text-xl font-bold ${expired ? 'text-gray-500' : 'text-purple-900'} mb-3 break-words">${g.brand}</h3>
         <div class="flex flex-wrap gap-2 mb-3">
           ${categoryTags}
           ${countryTags}
@@ -1496,7 +1502,7 @@ function renderCouponCard(g) {
               : `<div class="mb-4 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 備註</p><p class="text-sm text-blue-900">${g.note}</p></div>`
           : ''}
         ${daysLeft !== null && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
-        ${g.coupon && !expired ? `<div class="bg-white border-2 border-purple-300 rounded-xl p-4 mb-4"><p class="text-xs text-purple-600 font-semibold mb-2">🎟️ 折扣碼</p><div class="flex items-center gap-3"><code class="text-xl md:text-2xl font-bold text-purple-900 font-mono break-all flex-1 min-w-0">${g.coupon}</code><button onclick='copyCoupon(event, "${g.coupon}")' class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium whitespace-nowrap flex-shrink-0">複製</button></div></div>` : ''}
+        ${g.coupon && !expired ? `<div class="coupon-code-display"><div class="coupon-code-text">${g.coupon}</div><button onclick='copyCoupon(event, "${g.coupon}")' class="coupon-copy-button">複製</button></div>` : ''}
         <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
            onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_coupon', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
            class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 ${expired ? 'opacity-80' : ''}">${expired ? '仍可查看 →' : '立即前往 →'}</a>
