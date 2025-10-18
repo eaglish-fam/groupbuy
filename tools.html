@@ -55,13 +55,110 @@
 
   <main class="max-w-6xl mx-auto px-4 py-8">
     <div class="bg-white rounded-xl shadow-lg p-2 mb-6 flex flex-wrap gap-2" style="border: 2px solid var(--color-border);">
-      <button onclick="switchTool('utm')" id="btn-utm" class="tool-btn active flex-1 min-w-[150px] px-4 py-3 rounded-lg font-bold">🔗 UTM 產生器</button>
+      <button onclick="switchTool('gdrive')" id="btn-gdrive" class="tool-btn active flex-1 min-w-[150px] px-4 py-3 rounded-lg font-bold">☁️ Drive 轉換</button>
+      <button onclick="switchTool('utm')" id="btn-utm" class="tool-btn flex-1 min-w-[150px] px-4 py-3 rounded-lg font-bold">🔗 UTM 產生器</button>
       <button onclick="switchTool('qrcode')" id="btn-qrcode" class="tool-btn flex-1 min-w-[150px] px-4 py-3 rounded-lg font-bold">📱 QR Code</button>
       <button onclick="switchTool('image')" id="btn-image" class="tool-btn flex-1 min-w-[150px] px-4 py-3 rounded-lg font-bold">🖼️ 圖片處理</button>
     </div>
 
+    <!-- Google Drive 連結轉換器 -->
+    <div id="tool-gdrive" class="tool-content">
+      <div class="rounded-xl p-6 mb-6" style="background-color: rgba(123, 169, 160, 0.1); border: 2px solid rgba(163, 213, 220, 0.4);">
+        <h2 class="text-lg font-bold mb-2" style="color: var(--color-primary-dark);">☁️ Google Drive 連結轉換器</h2>
+        <p class="text-sm" style="color: var(--color-text);">將 Google Drive 分享連結轉換為可直接顯示的圖片網址，並可預覽及壓縮優化。</p>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden mb-6" style="border: 2px solid var(--color-border);">
+        <div class="p-4" style="background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-alt) 100%);">
+          <h2 class="text-xl font-bold text-white">單次轉換</h2>
+        </div>
+
+        <div class="p-6 space-y-5">
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">Google Drive 分享連結 <span style="color: var(--color-error);">*</span></label>
+            <input type="text" id="gdrive-single-url" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="貼上 Google Drive 連結，例：https://drive.google.com/file/d/1abc...">
+            <p class="text-xs mt-1" style="color: var(--color-text-muted);">支援 drive.google.com/file/d/、drive.google.com/open?id= 等格式</p>
+          </div>
+
+          <div class="rounded-lg p-4" style="background-color: rgba(212, 168, 143, 0.12); border: 2px solid rgba(212, 168, 143, 0.35);">
+            <div class="flex items-center gap-2 mb-2">
+              <input type="checkbox" id="gdrive-compress-single" class="w-5 h-5 rounded" checked>
+              <label for="gdrive-compress-single" class="text-sm font-bold" style="color: var(--color-text);">自動壓縮圖片</label>
+            </div>
+            <p class="text-xs" style="color: var(--color-text-muted);">最適化壓縮至 1200px 寬度，適合網頁瀏覽且不影響觀賞體驗</p>
+          </div>
+
+          <button onclick="convertSingleUrl()" class="w-full text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl" style="background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);">✨ 轉換連結</button>
+        </div>
+      </div>
+
+      <div id="gdrive-single-result" class="bg-white rounded-xl shadow-lg overflow-hidden mb-6 hidden" style="border: 2px solid var(--color-success);">
+        <div class="p-4" style="background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);">
+          <h2 class="text-xl font-bold text-white">✨ 轉換結果</h2>
+        </div>
+        <div class="p-6">
+          <div class="grid md:grid-cols-2 gap-6 mb-4">
+            <div>
+              <p class="text-sm font-bold mb-2" style="color: var(--color-text);">預覽圖</p>
+              <div class="rounded-lg border-2 overflow-hidden" style="border-color: #DFE3E5; background-color: #F9FAFB;">
+                <img id="gdrive-single-preview" src="" alt="預覽" class="w-full h-auto" style="max-height: 300px; object-fit: contain;">
+              </div>
+            </div>
+            <div>
+              <p class="text-sm font-bold mb-2" style="color: var(--color-text);">轉換後的網址</p>
+              <div class="rounded-lg p-4 mb-3 border-2" style="background-color: #EEF1F2; border-color: #DFE3E5;">
+                <p id="gdrive-single-converted" class="text-sm break-all font-mono leading-relaxed" style="color: var(--color-text);"></p>
+              </div>
+              <button onclick="copyGdriveSingleUrl()" class="w-full text-white px-4 py-3 rounded-lg font-bold transition-all" style="background-color: var(--color-success);">📋 複製網址</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="border: 2px solid var(--color-border);">
+        <div class="p-4" style="background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);">
+          <h2 class="text-xl font-bold text-white">批次轉換</h2>
+        </div>
+
+        <div class="p-6 space-y-5">
+          <div>
+            <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">多個 Google Drive 連結 <span style="color: var(--color-error);">*</span></label>
+            <textarea id="gdrive-batch-urls" rows="6" class="w-full px-4 py-3 rounded-lg border-2 font-mono text-sm" style="border-color: #DFE3E5;" placeholder="每行一個連結：&#10;https://drive.google.com/file/d/1abc...&#10;https://drive.google.com/file/d/2def...&#10;https://drive.google.com/file/d/3ghi..."></textarea>
+          </div>
+
+          <div class="rounded-lg p-4" style="background-color: rgba(212, 168, 143, 0.12); border: 2px solid rgba(212, 168, 143, 0.35);">
+            <div class="flex items-center gap-2 mb-2">
+              <input type="checkbox" id="gdrive-compress-batch" class="w-5 h-5 rounded" checked>
+              <label for="gdrive-compress-batch" class="text-sm font-bold" style="color: var(--color-text);">自動壓縮圖片</label>
+            </div>
+            <p class="text-xs" style="color: var(--color-text-muted);">最適化壓縮至 1200px 寬度，適合網頁瀏覽且不影響觀賞體驗</p>
+          </div>
+
+          <button onclick="convertBatchUrls()" class="w-full text-white py-4 rounded-xl font-bold text-lg shadow-lg hover:shadow-xl" style="background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);">✨ 批次轉換</button>
+        </div>
+      </div>
+
+      <div id="gdrive-batch-result" class="mt-6 bg-white rounded-xl shadow-lg overflow-hidden hidden" style="border: 2px solid var(--color-success);">
+        <div class="p-4" style="background: linear-gradient(90deg, var(--color-success) 0%, var(--color-primary) 100%);">
+          <h2 class="text-xl font-bold text-white">✨ 批次轉換結果</h2>
+        </div>
+        <div class="p-6">
+          <div id="gdrive-batch-previews" class="grid md:grid-cols-2 lg:grid-cols-3 gap-4 mb-4"></div>
+          <div class="rounded-lg p-4 mb-4 border-2" style="background-color: #EEF1F2; border-color: #DFE3E5;">
+            <div class="flex items-start gap-3">
+              <div class="flex-1 min-w-0">
+                <p class="text-xs mb-2 font-semibold" style="color: var(--color-text-muted);">所有轉換後的網址（每行一個）：</p>
+                <textarea id="gdrive-batch-converted" readonly class="w-full px-3 py-2 text-sm font-mono leading-relaxed border-0 bg-transparent resize-none" rows="6" style="color: var(--color-text);"></textarea>
+              </div>
+              <button onclick="copyGdriveBatchUrls()" class="flex-shrink-0 text-white px-4 py-2 rounded-lg font-medium transition-all" style="background-color: var(--color-success);">📋 全部複製</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- UTM 產生器 -->
-    <div id="tool-utm" class="tool-content">
+    <div id="tool-utm" class="tool-content hidden">
       <div class="rounded-xl p-6 mb-6" style="background-color: rgba(123, 169, 160, 0.1); border: 2px solid rgba(163, 213, 220, 0.4);">
         <h2 class="text-lg font-bold mb-2" style="color: var(--color-primary-dark);">📚 UTM 連結產生器</h2>
         <p class="text-sm" style="color: var(--color-text);">產生帶追蹤參數的連結，在 Google Analytics 追蹤各平台的流量和轉換率。</p>
@@ -612,6 +709,125 @@
         toast.style.opacity = '0';
         toast.style.transform = 'translateX(200%)';
       }, 2000);
+    }
+
+    // Google Drive 連結轉換功能
+    function extractFileId(url) {
+      // 支援多種 Google Drive 連結格式
+      const patterns = [
+        /\/file\/d\/([^\/\?]+)/,  // https://drive.google.com/file/d/FILE_ID/view
+        /[?&]id=([^&]+)/,          // https://drive.google.com/open?id=FILE_ID
+        /\/d\/([^\/\?]+)/          // 其他格式
+      ];
+      
+      for (const pattern of patterns) {
+        const match = url.match(pattern);
+        if (match && match[1]) {
+          return match[1];
+        }
+      }
+      return null;
+    }
+
+    function convertToDirectUrl(fileId, compress = true) {
+      let url = `https://lh3.googleusercontent.com/d/${fileId}`;
+      if (compress) {
+        url += '=w1200'; // 壓縮至 1200px 寬度
+      }
+      return url;
+    }
+
+    function convertSingleUrl() {
+      const inputUrl = document.getElementById('gdrive-single-url').value.trim();
+      const compress = document.getElementById('gdrive-compress-single').checked;
+
+      if (!inputUrl) {
+        alert('請輸入 Google Drive 連結！');
+        return;
+      }
+
+      const fileId = extractFileId(inputUrl);
+      if (!fileId) {
+        alert('無法辨識的 Google Drive 連結格式！\n請確認連結格式正確。');
+        return;
+      }
+
+      const convertedUrl = convertToDirectUrl(fileId, compress);
+      document.getElementById('gdrive-single-converted').textContent = convertedUrl;
+      document.getElementById('gdrive-single-preview').src = convertedUrl;
+      document.getElementById('gdrive-single-result').classList.remove('hidden');
+
+      setTimeout(() => {
+        document.getElementById('gdrive-single-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+
+    function copyGdriveSingleUrl() {
+      const url = document.getElementById('gdrive-single-converted').textContent;
+      navigator.clipboard.writeText(url).then(() => showToast());
+    }
+
+    function convertBatchUrls() {
+      const inputUrls = document.getElementById('gdrive-batch-urls').value.trim();
+      const compress = document.getElementById('gdrive-compress-batch').checked;
+
+      if (!inputUrls) {
+        alert('請輸入至少一個 Google Drive 連結！');
+        return;
+      }
+
+      const urls = inputUrls.split('\n').map(u => u.trim()).filter(u => u);
+      const convertedUrls = [];
+      const previewsContainer = document.getElementById('gdrive-batch-previews');
+      previewsContainer.innerHTML = '';
+
+      let successCount = 0;
+      urls.forEach((url, index) => {
+        const fileId = extractFileId(url);
+        if (fileId) {
+          const convertedUrl = convertToDirectUrl(fileId, compress);
+          convertedUrls.push(convertedUrl);
+          
+          // 建立預覽卡片
+          const card = document.createElement('div');
+          card.className = 'border-2 rounded-lg overflow-hidden';
+          card.style.borderColor = '#DFE3E5';
+          card.innerHTML = `
+            <div class="p-3" style="background-color: rgba(123, 169, 160, 0.1);">
+              <p class="text-xs font-bold" style="color: var(--color-primary-dark);">圖片 ${index + 1}</p>
+            </div>
+            <div class="aspect-square bg-gray-50 flex items-center justify-center overflow-hidden">
+              <img src="${convertedUrl}" alt="預覽 ${index + 1}" class="w-full h-full object-contain" loading="lazy">
+            </div>
+            <div class="p-2 text-center">
+              <button onclick="copySingleFromBatch('${convertedUrl}')" class="text-xs px-3 py-1 rounded font-medium text-white" style="background-color: var(--color-success);">📋 複製</button>
+            </div>
+          `;
+          previewsContainer.appendChild(card);
+          successCount++;
+        }
+      });
+
+      if (successCount === 0) {
+        alert('無法辨識任何有效的 Google Drive 連結！');
+        return;
+      }
+
+      document.getElementById('gdrive-batch-converted').value = convertedUrls.join('\n');
+      document.getElementById('gdrive-batch-result').classList.remove('hidden');
+
+      setTimeout(() => {
+        document.getElementById('gdrive-batch-result').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }, 100);
+    }
+
+    function copyGdriveBatchUrls() {
+      const urls = document.getElementById('gdrive-batch-converted').value;
+      navigator.clipboard.writeText(urls).then(() => showToast());
+    }
+
+    function copySingleFromBatch(url) {
+      navigator.clipboard.writeText(url).then(() => showToast());
     }
 
     generateUtmUrl();
