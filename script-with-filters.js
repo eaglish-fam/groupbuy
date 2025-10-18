@@ -1478,31 +1478,31 @@ function renderCouponCard(g) {
   ).join('');
 
   return `
-    <div class="coupon-card ${expired ? 'opacity-60' : ''}">
-      ${g.image ? `
-        <div class="coupon-card-image-wrapper">
-          <img src="${g.image}" 
-               alt="${g.brand}" 
-               class="coupon-card-image ${expired ? 'grayscale' : ''}"
-               loading="lazy">
+    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}">
+      ${g.image ? `<div class="w-full h-40 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired ? 'grayscale' : ''}" loading="lazy"></div>` : ''}
+      <div class="p-6">
+        <div class="flex items-start justify-between gap-3 mb-3">
+          <h3 class="text-lg font-bold ${expired ? 'text-gray-600' : 'text-purple-900'} flex-1">${g.brand}</h3>
+          ${expired ? '<span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">已結束</span>' : ''}
         </div>
-      ` : ''}
-      <div class="coupon-card-content p-6">
-        <h3 class="coupon-card-title text-xl font-bold ${expired ? 'text-gray-500' : 'text-purple-900'} mb-3 break-words">${g.brand}</h3>
-        <div class="flex flex-wrap gap-2 mb-3">
-          ${categoryTags}
-          ${countryTags}
-        </div>
-        ${g.description ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-4">${g.description}</p>` : ''}
-        ${g.note && !expired
-          ? noteIsQA
-            ? `<details class="mb-4 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3"><summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓（${qaList.length}）</summary>${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}</details>`
-            : noteIsURL
-              ? `<button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-3 rounded-lg font-medium hover:bg-blue-100 transition-colors mb-4">📝 查看介紹</button>`
-              : `<div class="mb-4 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 備註</p><p class="text-sm text-blue-900">${g.note}</p></div>`
-          : ''}
-        ${daysLeft !== null && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
-        ${g.coupon && !expired ? `<div class="coupon-code-display"><div class="coupon-code-text">${g.coupon}</div><button onclick='copyCoupon(event, "${g.coupon}")' class="coupon-copy-button">複製</button></div>` : ''}
+        <div class="flex flex-wrap gap-2 mb-3">${categoryTags}${countryTags}</div>
+        ${g.note && !noteIsURL && !noteIsQA ? `<p class="text-sm text-gray-700 mb-3 leading-relaxed">${g.note}</p>` : ''}
+        ${noteIsURL ? `<a href="${g.note}" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:text-blue-800 mb-3 block underline">📄 查看詳細說明</a>` : ''}
+        ${noteIsQA ? `<div class="space-y-2 mb-3">${qaList.map((qa, i) => `<details class="bg-white rounded-lg border border-purple-200 p-3"><summary class="cursor-pointer font-semibold text-purple-900 text-sm">${qa.q}</summary><div class="mt-2 text-sm text-gray-700">${qa.a}</div></details>`).join('')}</div>` : ''}
+        ${g.video ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
+        ${g.endDate && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
+        ${g.coupon && !expired ? `
+          <div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3">
+            <div class="flex items-center justify-between">
+              <div class="flex-1 min-w-0">
+                <p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p>
+                <code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code>
+              </div>
+              <button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button>
+            </div>
+          </div>
+        ` : ''}
+        ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天！記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
         <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
            onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_coupon', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
            class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 ${expired ? 'opacity-80' : ''}">${expired ? '仍可查看 →' : '立即前往 →'}</a>
@@ -1616,7 +1616,7 @@ function renderContent() {
 
     (coupon.length ? `<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🎟️ 折扣碼優惠</h2>
-       <div class="masonry-grid">${coupon.map(renderCouponCard).join('')}</div>
+       <div class="coupon-grid">${coupon.map(renderCouponCard).join('')}</div>
      </section>` : '') +
 
     `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-6">
