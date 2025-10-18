@@ -1456,6 +1456,11 @@ function renderGroupCard(g) {
 // 佈局：單欄顯示，折扣碼橫向排列
 // ============================================
 
+// ============================================
+// 修正後的 renderCouponCard 函數
+// 修正：將「查看詳細說明」改為按鈕樣式
+// ============================================
+
 function renderCouponCard(g) {
   const expired = utils.isExpired(g.endDate);
   const daysLeft = utils.getDaysLeft(g.endDate);
@@ -1487,7 +1492,7 @@ function renderCouponCard(g) {
         </div>
         <div class="flex flex-wrap gap-2 mb-3">${categoryTags}${countryTags}</div>
         ${g.note && !noteIsURL && !noteIsQA ? `<p class="text-sm text-gray-700 mb-3 leading-relaxed">${g.note}</p>` : ''}
-        ${noteIsURL ? `<a href="${g.note}" target="_blank" rel="noopener noreferrer" class="text-sm text-blue-600 hover:text-blue-800 mb-3 block underline">📄 查看詳細說明</a>` : ''}
+        ${noteIsURL ? `<div class="mb-3"><a href="${g.note}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看詳細說明</a></div>` : ''}
         ${noteIsQA ? `<div class="space-y-2 mb-3">${qaList.map((qa, i) => `<details class="bg-white rounded-lg border border-purple-200 p-3"><summary class="cursor-pointer font-semibold text-purple-900 text-sm">${qa.q}</summary><div class="mt-2 text-sm text-gray-700">${qa.a}</div></details>`).join('')}</div>` : ''}
         ${g.video ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
         ${g.endDate && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
