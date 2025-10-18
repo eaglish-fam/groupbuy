@@ -1241,7 +1241,7 @@ async function loadUpcomingFromTab() {
             brand,
             startDate: row['開團日期'] || row['StartDate'] || '',
             endDate: row['結束日期'] || row['EndDate'] || '',
-            image: row['圖片網址'] || row['Image'] || ''
+            image: row['圖片網址'] || row['image'] || ''
           });
         });
       }
@@ -1287,7 +1287,7 @@ async function loadData() {
             startDate: row['開團日期'] || row['StartDate'] || '',
             endDate: row['結束日期'] || row['EndDate'] || '',
             category,
-            image: row['圖片網址'] || row['Image'] || '',
+            image: row['圖片網址'] || row['image'] || '',
             description: row['商品描述'] || row['Description'] || '',
             stock: row['庫存狀態'] || row['Stock'] || '',
             tag: row['標籤'] || row['Tag'] || '',
