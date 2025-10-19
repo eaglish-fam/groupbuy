@@ -1071,10 +1071,10 @@ function renderMonthlyGroupList() {
       <div class="border-b border-gray-200 last:border-0">
         <div class="py-3 flex items-start gap-3 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">
           ${g.image ? `
-            <img src="${g.image}" 
-                 alt="${g.brand}" 
-                 class="w-16 h-16 object-cover rounded-lg flex-shrink-0 ${g.isExpired ? 'grayscale opacity-60' : ''}">
-          ` : ''}
+
+            <a href="${g.url}" target="_blank" rel="noopener noreferrer" onclick="try{ if(typeof gtag!==\'undefined\'){ gtag(\'event\',\'image_click\',{ event_category:\'engagement\', label:\'${g.brand || \'\'}\' }); } }catch(e){}">\1</a>
+          
+` : ''}
           
           <div class="flex-1 min-w-0">
             <div class="flex items-start gap-2 mb-2">
@@ -1287,8 +1287,8 @@ async function loadData() {
             startDate: row['開團日期'] || row['StartDate'] || '',
             endDate: row['結束日期'] || row['EndDate'] || '',
             category,
-            image: row['圖片網址'] || row['Image'] || row['image'] || row['ImageURL'] || '',
-            description: row['商品描述'] || row['Description'] || row['描述'] || row['副標題'] || row['Subtitle'] || row['商品說明'] || row['說明'] || '',
+            image: row['圖片網址'] || row['image'] || '',
+            description: row['商品描述'] || row['Description'] || '',
             stock: row['庫存狀態'] || row['Stock'] || '',
             tag: row['標籤'] || row['Tag'] || '',
             coupon: row['折扣碼'] || row['Coupon'] || row['DiscountCode'] || '',
@@ -1363,7 +1363,17 @@ async function loadData() {
 function renderUpcomingSearchCard(g) {
   return `
     <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden border-2 border-pink-200 shadow-md transition-all hover:shadow-lg">
-      ${g.image ? `<div class="w-full h-40 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover"></div>` : ''}
+      ${g.image ? `
+  <div class="w-full h-40 bg-gray-100">
+    <a href="${g.url}" target="_blank" rel="noopener noreferrer"
+       onclick="try{ if(typeof gtag!=='undefined'){ gtag('event','coupon_image_click',{ event_category:'engagement', label:'${g.brand || ''}' }); } }catch(e){}">
+      <img src="${g.image}" 
+           class="w-full h-full object-cover ${expired ? 'grayscale' : ''}" 
+           loading="lazy" 
+           alt="${g.brand || ''}">
+    </a>
+  </div>
+` : ''}
       <div class="p-5">
         <div class="flex items-center gap-2 mb-2">
           <span class="bg-pink-500 text-white px-2.5 py-0.5 rounded-full text-xs font-bold">敬請期待</span>
@@ -1419,9 +1429,9 @@ function renderGroupCard(g) {
         </div>
       ` : ''}
       <div class="masonry-card-content p-5">
-        <h3 class="masonry-card-title text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2 text-center">${g.brand}</h3>
-        ${g.description ? `<p class="text-base ${expired ? 'text-amber-700' : 'text-amber-900'} mb-4 text-center">${g.description}</p>` : ''}        
-        <div class="flex flex-wrap gap-3 mb-3">
+        <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
+        ${g.description ? `<p class="text-[13px] md:text-[14px] ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-4">${g.description}</p>` : ''}        
+        <div class="flex flex-wrap gap-2 mb-3">
           ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
           ${categoryTags}
           ${countryTags}
@@ -1429,6 +1439,7 @@ function renderGroupCard(g) {
           ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
           ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
         </div>
+
         ${countdown}
         ${g.note && !expired
           ? noteIsQA
