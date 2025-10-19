@@ -1428,7 +1428,7 @@ function renderGroupCard(g) {
           ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
           ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
         </div>
-        ${g.description ? `<p class="text-lg ${expired ? 'text-gray-600' : 'text-gray-700'} mb-3">${g.description}</p>` : ''}
+        ${g.description ? `<p class="text-lg ${expired ? 'text-gray-600' : 'text-gray-700'} mb-3 text-center">${g.description}</p>` : ''}
         ${countdown}
         ${g.note && !expired
           ? noteIsQA
