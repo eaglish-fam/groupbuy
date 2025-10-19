@@ -1071,10 +1071,14 @@ function renderMonthlyGroupList() {
       <div class="border-b border-gray-200 last:border-0">
         <div class="py-3 flex items-start gap-3 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">
           ${g.image ? `
-            <a href="${g.url}" target="_blank" rel="noopener noreferrer"
-               onclick="event.stopPropagation(); try{ if (typeof gtag !== 'undefined') { gtag('event', 'image_click', { event_category: 'engagement', event_label: '${g.brand || ''}' }); } } catch (e) {}">
+            ${g.url ? `
+              <a href="${g.url}" target="_blank" rel="noopener noreferrer"
+                 onclick="event.stopPropagation(); try{ if (typeof gtag !== 'undefined') { gtag('event', 'image_click', { event_category: 'engagement', event_label: '${g.brand || ''}' }); } } catch (e) {}">
+                <img src="${g.image}" alt="${g.brand || ''}" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" loading="lazy">
+              </a>
+            ` : `
               <img src="${g.image}" alt="${g.brand || ''}" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" loading="lazy">
-            </a>
+            `}
           ` : ''}
           <div class="flex-1 min-w-0">
             <div class="flex items-start gap-2 mb-2">
@@ -1422,10 +1426,20 @@ function renderGroupCard(g) {
     <div class="masonry-card ${expired ? 'opacity-60' : ''}">
       ${g.image ? `
         <div class="masonry-card-image-wrapper">
-          <img src="${g.image}" 
-               alt="${g.brand}" 
-               class="masonry-card-image ${expired ? 'grayscale' : ''}"
-               loading="lazy">
+          ${g.url ? `
+            <a href="${g.url}" target="_blank" rel="noopener noreferrer"
+               onclick="event.stopPropagation(); try{ if(typeof gtag !== 'undefined'){ gtag('event','image_click',{ event_category:'engagement', event_label:'${g.brand || ''}' }); } }catch(e){}">
+              <img src="${g.image}" 
+                   alt="${g.brand}" 
+                   class="masonry-card-image ${expired ? 'grayscale' : ''}"
+                   loading="lazy">
+            </a>
+          ` : `
+            <img src="${g.image}" 
+                 alt="${g.brand}" 
+                 class="masonry-card-image ${expired ? 'grayscale' : ''}"
+                 loading="lazy">
+          `}
         </div>
       ` : ''}
       <div class="masonry-card-content p-5">
