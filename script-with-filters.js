@@ -1419,7 +1419,7 @@ function renderGroupCard(g) {
         </div>
       ` : ''}
       <div class="masonry-card-content p-5">
-        <h3 class="masonry-card-title text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
+        <h3 class="masonry-card-title text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2 text-center">${g.brand}</h3>
         <div class="flex flex-wrap gap-2 mb-3">
           ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
           ${categoryTags}
@@ -1428,7 +1428,7 @@ function renderGroupCard(g) {
           ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
           ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
         </div>
-        ${g.description ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-3">${g.description}</p>` : ''}
+        ${g.description ? `<p class="text-lg ${expired ? 'text-gray-600' : 'text-gray-700'} mb-3">${g.description}</p>` : ''}
         ${countdown}
         ${g.note && !expired
           ? noteIsQA
