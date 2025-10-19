@@ -96,7 +96,8 @@
   </style>
 </head>
 <body class="bg-white min-h-screen">
-  <header class="bg-white/80 backdrop-blur-sm border-b border-amber-200 sticky top-0 z-30">
+  <!-- Logo/標題區（會隨滾動消失） -->
+  <div class="bg-white/80 backdrop-blur-sm border-b border-amber-200">
     <div class="max-w-7xl mx-auto px-4 py-3">
       <!-- 桌面版：漢堡選單 + 標題 + 佔位 -->
       <div class="hidden lg:flex items-center">
@@ -120,9 +121,14 @@
         <h1 class="text-xl font-bold text-amber-900">🦅 鷹家Fun生買物社</h1>
         <p class="text-xs text-amber-700">精選團購 · 優質好物</p>
       </div>
-      
+    </div>
+  </div>
+
+  <!-- 搜尋+標籤區（sticky 固定） -->
+  <header class="bg-white/95 backdrop-blur-sm border-b border-amber-200 sticky top-0 z-30 shadow-sm">
+    <div class="max-w-7xl mx-auto px-4 py-2">
       <!-- 搜尋框和篩選按鈕 -->
-      <div class="mt-3 flex gap-2 items-center">
+      <div class="flex gap-2 items-center">
         <div class="relative flex-1">
           <input id="searchInput" type="search" enterkeyhint="search" autocomplete="off" aria-label="搜尋品牌"
                  placeholder="搜尋品牌名稱…" class="w-full pl-3 pr-9 py-2.5 rounded-lg border-2 border-amber-200 focus:border-amber-400 focus:outline-none bg-white/80 text-sm">
@@ -139,7 +145,10 @@
         </button>
       </div>
       
-      <div id="bannerSlot" class="mt-3 hidden"></div>
+      <div id="bannerSlot" class="mt-2 hidden"></div>
+      
+      <!-- 分類按鈕 -->
+      <div id="sectionButtons" class="flex gap-2 justify-center overflow-x-auto pb-2 pt-2 scrollbar-hide"></div>
     </div>
     
     <!-- 手機版篩選器（可收合） -->
@@ -174,9 +183,6 @@
         </div>
       </div>
     </div>
-    
-    <!-- 分類按鈕 -->
-    <div id="sectionButtons" class="flex gap-2 justify-center overflow-x-auto pb-2 pt-3 px-4 scrollbar-hide"></div>
   </header>
 
   <!-- 側邊欄遮罩（點擊關閉側邊欄） -->
