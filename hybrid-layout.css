@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     background: white;
-    border-radius: 0;
+    border-radius: 8px;  /* 最小程度的圓角 */
     overflow: hidden;
     border: 1px solid #e5e7eb;
     transition: all 0.2s ease;
@@ -370,4 +370,41 @@ html {
   a:active {
     transform: scale(0.95);
   }
+}
+/* ============================================
+   圖片可點擊樣式補丁
+   將此段 CSS 加到您的 masonry-layout.css 或 hybrid-layout.css 檔案的最底部
+   ============================================ */
+
+/* 確保圖片連結是 block 元素 */
+.masonry-card-image-wrapper {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 桌面版：圖片 Hover 時的效果 */
+@media (min-width: 768px) {
+  .masonry-card-image-wrapper:hover .masonry-card-image {
+    opacity: 0.92;
+    transform: scale(1.03);
+  }
+  
+  /* 圖片區域微微抬起 */
+  .masonry-card-image-wrapper:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* 手機版：點擊時的視覺回饋 */
+@media (max-width: 767px) {
+  .masonry-card-image-wrapper:active .masonry-card-image {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+}
+
+/* 防止圖片被選取（美觀考量）*/
+.masonry-card-image {
+  user-select: none;
+  -webkit-user-select: none;
 }
