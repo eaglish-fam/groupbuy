@@ -28,8 +28,7 @@
   
   <!-- 樣式 -->
   <link rel="stylesheet" href="theme-fresh-comfortable.css">
-  <link rel="stylesheet" href="mansory-layout.css">
-  <link rel="stylesheet" href="hybrid-layout.css">
+  <link rel="stylesheet" href="styles-merged-correct.css">
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
   
@@ -1372,10 +1371,10 @@
         : '';
 
       return `
-        <div class="bg-white rounded-xl overflow-hidden border-2 ${expired ? 'border-gray-300 opacity-60' : 'border-amber-200 hover:border-amber-400 hover:shadow-lg'} transition-all">
-          ${g.image ? `<div class="w-full h-48 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired ? 'grayscale' : ''}"></div>` : ''}
-          <div class="p-5">
-            <h3 class="text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
+        <div class="masonry-card ${expired ? 'opacity-60' : ''}">
+          ${g.image ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="masonry-card-image-wrapper"><img src="${g.image}" alt="${g.brand}" class="masonry-card-image ${expired ? 'grayscale' : ''}" loading="lazy"></a>` : ''}
+          <div class="masonry-card-content">
+            <h3 class="masonry-card-title ${expired ? 'text-gray-500' : 'text-amber-900'}">${g.brand}</h3>
             <div class="flex flex-wrap gap-2 mb-3">
               ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
               ${g.tag ? `<span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">${g.tag}</span>` : ''}
@@ -1413,10 +1412,10 @@
       const qaList = noteIsQA ? utils.parseQA(g.note) : [];
 
       return `
-        <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'border-gray-300 opacity-60' : 'border-purple-200 hover:border-purple-400 hover:shadow-xl'} transition-all">
-          ${g.image ? `<div class="w-full h-40 bg-gray-100"><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired ? 'grayscale' : ''}"></div>` : ''}
-          <div class="p-6">
-            <h3 class="text-xl font-bold ${expired ? 'text-gray-500' : 'text-purple-900'} mb-3 break-words">${g.brand}</h3>
+        <div class="coupon-card ${expired ? 'opacity-60' : ''}">
+          ${g.image ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="masonry-card-image-wrapper"><img src="${g.image}" alt="${g.brand}" class="masonry-card-image ${expired ? 'grayscale' : ''}" loading="lazy"></a>` : ''}
+          <div>
+            <h3 class="coupon-card-title ${expired ? 'text-gray-500' : ''}">${g.brand}</h3>
             ${g.description ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-4">${g.description}</p>` : ''}
             ${g.price ? `<p class="text-lg font-bold ${expired ? 'text-gray-400' : 'text-purple-700'} mb-4">${g.price}</p>` : ''}
             ${g.note && !expired
@@ -1426,8 +1425,8 @@
                   ? `<button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-3 rounded-lg font-medium hover:bg-blue-100 transition-colors mb-4">📝 查看介紹</button>`
                   : `<div class="mb-4 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 備註</p><p class="text-sm text-blue-900">${g.note}</p></div>`
               : ''}
-            ${daysLeft !== null && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
-            ${g.coupon && !expired ? `<div class="bg-white border-2 border-purple-300 rounded-xl p-4 mb-4"><p class="text-xs text-purple-600 font-semibold mb-2">🎟️ 折扣碼</p><div class="flex items-center gap-3"><code class="text-xl md:text-2xl font-bold text-purple-900 font-mono break-all flex-1 min-w-0">${g.coupon}</code><button onclick='copyCoupon(event, "${g.coupon}")' class="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-medium whitespace-nowrap flex-shrink-0">複製</button></div></div>` : ''}
+            ${daysLeft !== null && !expired ? `<div class="coupon-card-info"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
+            ${g.coupon && !expired ? `<div class="coupon-code-display"><code class="coupon-code-text">${g.coupon}</code><button onclick='copyCoupon(event, "${g.coupon}")' class="coupon-copy-button">複製</button></div>` : ''}
             <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
                onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_coupon', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
                class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 ${expired ? 'opacity-80' : ''}">${expired ? '仍可查看 →' : '立即前往 →'}</a>
@@ -1516,17 +1515,17 @@
 
         (shortTerm.length ? `<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
            <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">⏳ 限時團購</h2>
-           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${shortTerm.map(renderGroupCard).join('')}</div>
+           <div class="masonry-grid">${shortTerm.map(renderGroupCard).join('')}</div>
          </section>` : '') +
 
         (longTerm.length ? `<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
            <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">☀️ 常駐團購</h2>
-           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">${longTerm.map(renderGroupCard).join('')}</div>
+           <div class="masonry-grid">${longTerm.map(renderGroupCard).join('')}</div>
          </section>` : '') +
 
         (coupon.length ? `<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
            <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🎟️ 折扣碼優惠</h2>
-           <div class="grid grid-cols-1 md:grid-cols-2 gap-4">${coupon.map(renderCouponCard).join('')}</div>
+           <div class="coupon-grid">${coupon.map(renderCouponCard).join('')}</div>
          </section>` : '') +
 
         `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-8">
