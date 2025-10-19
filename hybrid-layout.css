@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: column;
     background: white;
-    border-radius: 4px;  /* 最小程度的圓角 */
+    border-radius: 8px;  /* 最小程度的圓角 */
     overflow: hidden;
     border: 1px solid #e5e7eb;
     transition: all 0.2s ease;
