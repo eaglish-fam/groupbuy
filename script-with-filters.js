@@ -849,7 +849,8 @@ function showDayGroups(day) {
 
   const card = g => `
     <div class="bg-amber-50 border-2 border-amber-200 rounded-lg p-3 mb-2">
-      <div class="font-bold text-amber-900">${g.brand || ''}</div>
+      <div class="font-bold text-amber-900 text-center">${g.brand || ''}</div>
+      ${g.productName ? `<div class="text-sm text-gray-600 text-center mt-1">${g.productName}</div>` : ''}
       ${g.url ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 bg-amber-600 text-white px-3 py-1 rounded text-sm hover:bg-amber-700">前往團購</a>` : ''}
     </div>`;
 
@@ -1078,7 +1079,10 @@ function renderMonthlyGroupList() {
           
           <div class="flex-1 min-w-0">
             <div class="flex items-start gap-2 mb-2">
-              <h4 class="font-medium ${g.isExpired ? 'text-gray-500' : 'text-gray-900'} text-sm flex-1 break-words leading-relaxed">${g.brand}</h4>
+              <div class="flex-1 min-w-0">
+                <h4 class="font-medium ${g.isExpired ? 'text-gray-500' : 'text-gray-900'} text-sm break-words leading-relaxed">${g.brand}</h4>
+                ${g.productName ? `<p class="text-xs ${g.isExpired ? 'text-gray-400' : 'text-gray-600'} mt-0.5">${g.productName}</p>` : ''}
+              </div>
               ${g.isUpcoming ? '<span class="text-xs bg-pink-100 text-pink-700 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">即將開團</span>' : ''}
               ${g.isExpired ? '<span class="text-xs bg-gray-200 text-gray-600 px-2 py-0.5 rounded-full whitespace-nowrap flex-shrink-0">已結束</span>' : ''}
             </div>
@@ -1239,6 +1243,7 @@ async function loadUpcomingFromTab() {
           out.push({
             id: 'u-tab-' + (i + 1),
             brand,
+            productName: row['商品名稱'] || row['ProductName'] || row['product_name'] || '',
             startDate: row['開團日期'] || row['StartDate'] || '',
             endDate: row['結束日期'] || row['EndDate'] || '',
             image: row['圖片網址'] || row['image'] || ''
@@ -1283,6 +1288,7 @@ async function loadData() {
           all.push({
             id: i + 1,
             brand,
+            productName: row['商品名稱'] || row['ProductName'] || row['product_name'] || '',
             url,
             startDate: row['開團日期'] || row['StartDate'] || '',
             endDate: row['結束日期'] || row['EndDate'] || '',
@@ -1368,7 +1374,8 @@ function renderUpcomingSearchCard(g) {
         <div class="flex items-center gap-2 mb-2">
           <span class="bg-pink-500 text-white px-2.5 py-0.5 rounded-full text-xs font-bold">敬請期待</span>
         </div>
-        <h3 class="text-lg font-bold text-pink-900 mb-2">${g.brand || ''}</h3>
+        <h3 class="text-lg font-bold text-pink-900 mb-1 text-center">${g.brand || ''}</h3>
+        ${g.productName ? `<p class="text-sm text-gray-600 mb-2 text-center">${g.productName}</p>` : ''}
         ${g.startDate ? `<div class="text-sm text-pink-700 mb-1">📅 預計開團：${g.startDate}</div>` : ''}
         ${g.endDate ? `<div class="text-sm text-pink-700 mb-3">⏰ 預計結束：${g.endDate}</div>` : ''}
         <div class="bg-white border-2 border-pink-300 rounded-lg p-3 text-center">
@@ -1423,7 +1430,8 @@ function renderGroupCard(g) {
         </a>
       ` : ''}
       <div class="masonry-card-content p-5">
-        <h3 class="masonry-card-title text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
+        <h3 class="masonry-card-title text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-1 text-center">${g.brand}</h3>
+        ${g.productName ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-2 text-center">${g.productName}</p>` : ''}
         <div class="flex flex-wrap gap-2 mb-3">
           ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
           ${categoryTags}
@@ -1491,7 +1499,10 @@ function renderCouponCard(g) {
       ${g.image ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block w-full h-40 bg-gray-100" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_image', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'engagement', event_label: 'coupon_image_click'});}" ><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired ? 'grayscale' : ''}" loading="lazy"></a>` : ''}
       <div class="p-6">
         <div class="flex items-start justify-between gap-3 mb-3">
-          <h3 class="text-lg font-bold ${expired ? 'text-gray-600' : 'text-purple-900'} flex-1">${g.brand}</h3>
+          <div class="flex-1">
+            <h3 class="text-lg font-bold ${expired ? 'text-gray-600' : 'text-purple-900'} text-center">${g.brand}</h3>
+            ${g.productName ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mt-1 text-center">${g.productName}</p>` : ''}
+          </div>
           ${expired ? '<span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">已結束</span>' : ''}
         </div>
         <div class="flex flex-wrap gap-2 mb-3">${categoryTags}${countryTags}</div>
