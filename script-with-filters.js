@@ -1420,7 +1420,7 @@ function renderGroupCard(g) {
       ` : ''}
       <div class="masonry-card-content p-5">
         <h3 class="masonry-card-title text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2 text-center">${g.brand}</h3>
-        ${g.description ? `<p class="text-lg ${expired ? 'text-gray-600' : 'text-gray-700'} mb-3 text-center">${g.description}</p>` : ''}        
+        ${g.description ? `<p class="text-base ${expired ? 'text-amber-700' : 'text-amber-900'} mb-3 text-center">${g.description}</p>` : ''}        
         <div class="flex flex-wrap gap-2 mb-3">
           ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
           ${categoryTags}
