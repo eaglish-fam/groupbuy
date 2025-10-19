@@ -1071,11 +1071,11 @@ function renderMonthlyGroupList() {
       <div class="border-b border-gray-200 last:border-0">
         <div class="py-3 flex items-start gap-3 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">
           ${g.image ? `
-
-            <a href="${g.url}" target="_blank" rel="noopener noreferrer" onclick="try{ if(typeof gtag!==\'undefined\'){ gtag(\'event\',\'image_click\',{ event_category:\'engagement\', label:\'${g.brand || \'\'}\' }); } }catch(e){}">\1</a>
-          
-` : ''}
-          
+            <a href="${g.url}" target="_blank" rel="noopener noreferrer"
+               onclick="event.stopPropagation(); try{ if (typeof gtag !== 'undefined') { gtag('event', 'image_click', { event_category: 'engagement', event_label: '${g.brand || ''}' }); } } catch (e) {}">
+              <img src="${g.image}" alt="${g.brand || ''}" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" loading="lazy">
+            </a>
+          ` : ''}
           <div class="flex-1 min-w-0">
             <div class="flex items-start gap-2 mb-2">
               <h4 class="font-medium ${g.isExpired ? 'text-gray-500' : 'text-gray-900'} text-sm flex-1 break-words leading-relaxed">${g.brand}</h4>
@@ -1429,8 +1429,7 @@ function renderGroupCard(g) {
         </div>
       ` : ''}
       <div class="masonry-card-content p-5">
-        <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
-        ${g.description ? `<p class="text-[13px] md:text-[14px] ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-4">${g.description}</p>` : ''}        
+        <h3 class="masonry-card-title text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         <div class="flex flex-wrap gap-2 mb-3">
           ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
           ${categoryTags}
@@ -1439,7 +1438,7 @@ function renderGroupCard(g) {
           ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
           ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
         </div>
-
+        ${g.description ? `<p class="text-[13px] md:text-[14px] ${expired ? 'text-gray-400' : 'text-gray-600'} leading-6 md:leading-6 mb-3">${g.description}</p>` : ''}
         ${countdown}
         ${g.note && !expired
           ? noteIsQA
