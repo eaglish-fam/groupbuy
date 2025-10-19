@@ -851,7 +851,7 @@ function showDayGroups(day) {
     <div class="bg-amber-50 border-2 border-amber-200 rounded-lg p-3 mb-2">
       <div class="font-bold text-amber-900 text-center">${g.brand || ''}</div>
       ${g.productName ? `<div class="text-sm text-gray-600 text-center mt-1">${g.productName}</div>` : ''}
-      ${g.url ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="inline-block mt-2 bg-amber-600 text-white px-3 py-1 rounded text-sm hover:bg-amber-700">前往團購</a>` : ''}
+      ${g.url ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block w-full mt-2 bg-amber-600 text-white px-3 py-2 rounded text-sm text-center hover:bg-amber-700">前往團購</a>` : ''}
     </div>`;
 
   const modal = `
@@ -1431,8 +1431,8 @@ function renderGroupCard(g) {
       ` : ''}
       <div class="masonry-card-content p-5">
         <h3 class="masonry-card-title text-lg font-bold ${expired ? 'text-gray-500' : 'text-amber-900'} mb-1 text-center">${g.brand}</h3>
-        ${g.productName ? `<p class="text-sm ${expired ? 'text-gray-400' : 'text-gray-600'} mb-2 text-center">${g.productName}</p>` : ''}
-        <div class="flex flex-wrap gap-2 mb-3">
+        ${g.productName ? `<p class="text-base ${expired ? 'text-gray-400' : 'text-gray-600'} mb-3 text-center">${g.productName}</p>` : ''}
+        <div class="flex flex-wrap gap-3 mb-4">
           ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
           ${categoryTags}
           ${countryTags}
