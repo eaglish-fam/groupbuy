@@ -156,38 +156,26 @@
       <div id="bannerSlot" class="mt-3 hidden"></div>
     </div>
     
-    <!-- 手機版篩選器（可收合） -->
-    <div id="mobileFiltersPanel" class="lg:hidden border-t border-amber-200 bg-amber-50/50 overflow-hidden transition-all duration-300" style="max-height: 0;">
-      <div class="px-4 py-3 space-y-3">
-        <!-- 分類篩選 -->
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-sm font-medium text-amber-900">🏷️ 分類</span>
-            <button onclick="toggleFilterExpand('category')" class="text-xs text-amber-600">
-              <span id="categoryToggle">展開 ▼</span>
-            </button>
-          </div>
-          <div id="categoryFilters" class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"></div>
-          <div id="categoryExpand" class="filter-expand">
-            <div id="categoryExpandContent" class="flex flex-wrap gap-2 mt-2"></div>
-          </div>
-        </div>
-        
-        <!-- 國家篩選 -->
-        <div>
-          <div class="flex items-center justify-between mb-2">
-            <span class="text-sm font-medium text-amber-900">🌏 國家</span>
-            <button onclick="toggleFilterExpand('country')" class="text-xs text-amber-600">
-              <span id="countryToggle">展開 ▼</span>
-            </button>
-          </div>
-          <div id="countryFilters" class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"></div>
-          <div id="countryExpand" class="filter-expand">
-            <div id="countryExpandContent" class="flex flex-wrap gap-2 mt-2"></div>
-          </div>
-        </div>
-      </div>
-    </div>
+	<!-- 手機版篩選器（可收合）-->
+	<div id="mobileFiltersPanel" class="lg:hidden border-t border-amber-200 bg-amber-50/50 overflow-hidden transition-all duration-300" style="max-height: 0;">
+	  <div class="px-4 py-3 space-y-3">
+ 	   <!-- 分類篩選 -->
+ 	   <div>
+	      <div class="mb-2">
+	        <span class="text-sm font-medium text-amber-900">🏷️ 分類</span>
+	      </div>
+	      <div id="categoryFilters" class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"></div>
+	    </div>
+    
+	    <!-- 國家篩選 -->
+	    <div>
+	      <div class="mb-2">
+	        <span class="text-sm font-medium text-amber-900">🌍 國家</span>
+	      </div>
+	      <div id="countryFilters" class="flex gap-2 overflow-x-auto pb-2 scrollbar-hide"></div>
+	    </div>
+	  </div>
+	</div>
     
     <!-- 分類按鈕 -->
     <div id="sectionButtons" class="flex gap-2 justify-center overflow-x-auto pb-2 pt-3 px-4 scrollbar-hide"></div>
