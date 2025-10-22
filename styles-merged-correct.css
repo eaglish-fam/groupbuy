@@ -518,3 +518,16 @@ html {
     display: none;
   }
 }
+
+/* SEO 專用：螢幕閱讀器可見，一般使用者不可見 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
