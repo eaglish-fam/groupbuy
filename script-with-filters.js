@@ -1720,3 +1720,44 @@ window.addBothToGoogleCalendar = addBothToGoogleCalendar;
 window.addBothToAppleCalendar = addBothToAppleCalendar;
 window.showCalendarChoice = showCalendarChoice;
 window.setFilter = setFilter;
+
+// 分享功能
+function shareWebsite() {
+  const shareData = {
+    title: '🦅 鷹家Fun生買物社',
+    text: '精選團購 · 優質好物',
+    url: window.location.href
+  };
+  
+  if (navigator.share) {
+    navigator.share(shareData).then(() => {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+          method: 'Web Share API',
+          content_type: 'website',
+          event_category: 'engagement'
+        });
+      }
+    }).catch(() => {});
+  } else {
+    navigator.clipboard.writeText(window.location.href).then(() => {
+      elements.copyToast.textContent = '✓ 連結已複製！快分享給朋友';
+      elements.copyToast.style.opacity = '1';
+      elements.copyToast.style.transform = 'translateX(0)';
+      setTimeout(() => {
+        elements.copyToast.style.opacity = '0';
+        elements.copyToast.style.transform = 'translateX(200%)';
+      }, 2000);
+      
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+          method: 'Copy Link',
+          content_type: 'website',
+          event_category: 'engagement'
+        });
+      }
+    });
+  }
+}
+
+window.shareWebsite = shareWebsite;
