@@ -288,18 +288,6 @@ function setFilter(type, value) {
   renderContent();
 }
 
-function toggleFilterExpand(type) {
-  if (type === 'category') {
-    state.categoryExpanded = !state.categoryExpanded;
-    elements.categoryExpand.classList.toggle('active', state.categoryExpanded);
-    document.getElementById('categoryToggle').textContent = state.categoryExpanded ? '收合 ▲' : '展開 ▼';
-  } else if (type === 'country') {
-    state.countryExpanded = !state.countryExpanded;
-    elements.countryExpand.classList.toggle('active', state.countryExpanded);
-    document.getElementById('countryToggle').textContent = state.countryExpanded ? '收合 ▲' : '展開 ▼';
-  }
-}
-
 function getFilterCounts() {
   const filtered = state.groups.filter(g => {
     const okExpired = state.showExpired || !utils.isExpired(g.endDate);
@@ -341,16 +329,13 @@ function renderFilters() {
 }
 
 function renderMobileFilters(categoryCounts, countryCounts) {
-  // 分類篩選
-  const visibleCategories = state.availableCategories.slice(0, CONFIG.MOBILE_FILTER_VISIBLE);
-  const hiddenCategories = state.availableCategories.slice(CONFIG.MOBILE_FILTER_VISIBLE);
-  
+  // 分類篩選 - 全部顯示在滑動容器中
   elements.categoryFilters.innerHTML = `
     <button onclick="setFilter('category', 'all')" 
             class="px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${state.selectedCategory === 'all' ? 'bg-amber-600 text-white' : 'bg-gray-100 text-gray-700'}">
       全部 (${categoryCounts.all || 0})
     </button>
-  ` + visibleCategories.map(cat => `
+  ` + state.availableCategories.map(cat => `
     <button onclick="setFilter('category', '${cat}')" 
             class="px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${
               state.selectedCategory === cat ? 'bg-amber-600 text-white' : utils.getCategoryColor(cat)
@@ -359,27 +344,13 @@ function renderMobileFilters(categoryCounts, countryCounts) {
     </button>
   `).join('');
   
-  if (hiddenCategories.length > 0) {
-    elements.categoryExpandContent.innerHTML = hiddenCategories.map(cat => `
-      <button onclick="setFilter('category', '${cat}')" 
-              class="px-3 py-1.5 rounded-lg text-sm font-medium ${
-                state.selectedCategory === cat ? 'bg-amber-600 text-white' : utils.getCategoryColor(cat)
-              }">
-        ${utils.getCategoryIcon(cat)} ${cat} ${categoryCounts[cat] ? `(${categoryCounts[cat]})` : ''}
-      </button>
-    `).join('');
-  }
-  
-  // 國家篩選
-  const visibleCountries = state.availableCountries.slice(0, CONFIG.MOBILE_FILTER_VISIBLE);
-  const hiddenCountries = state.availableCountries.slice(CONFIG.MOBILE_FILTER_VISIBLE);
-  
+  // 國家篩選 - 全部顯示在滑動容器中
   elements.countryFilters.innerHTML = `
     <button onclick="setFilter('country', 'all')" 
             class="px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${state.selectedCountry === 'all' ? 'bg-amber-600 text-white' : 'bg-gray-100 text-gray-700'}">
       全部 (${countryCounts.all || 0})
     </button>
-  ` + visibleCountries.map(country => `
+  ` + state.availableCountries.map(country => `
     <button onclick="setFilter('country', '${country}')" 
             class="px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${
               state.selectedCountry === country ? 'bg-amber-600 text-white' : 'bg-blue-100 text-blue-700 border-blue-300'
@@ -387,17 +358,6 @@ function renderMobileFilters(categoryCounts, countryCounts) {
       ${utils.getCountryFlag(country)} ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
     </button>
   `).join('');
-  
-  if (hiddenCountries.length > 0) {
-    elements.countryExpandContent.innerHTML = hiddenCountries.map(country => `
-      <button onclick="setFilter('country', '${country}')" 
-              class="px-3 py-1.5 rounded-lg text-sm font-medium ${
-                state.selectedCountry === country ? 'bg-amber-600 text-white' : 'bg-blue-100 text-blue-700 border-blue-300'
-              }">
-        ${utils.getCountryFlag(country)} ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
-      </button>
-    `).join('');
-  }
 }
 
 function renderDesktopFilters(categoryCounts, countryCounts) {
