@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>找不到頁面 - 鷹家買物社</title>
+  <meta http-equiv="refresh" content="5;url=/">
+  <link rel="canonical" href="https://www.eaglish.store/">
+  
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans TC', sans-serif;
+      background: linear-gradient(135deg, #E3E8EB 0%, #F3EFDD 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      text-align: center;
+      max-width: 500px;
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 40px rgba(107, 122, 122, 0.15);
+      animation: fadeIn 0.5s ease-out;
+    }
+    
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .emoji {
+      font-size: 80px;
+      margin-bottom: 20px;
+      animation: bounce 2s infinite;
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    
+    h1 {
+      font-size: 28px;
+      color: #4A5656;
+      margin-bottom: 15px;
+      font-weight: 700;
+    }
+    
+    p {
+      font-size: 16px;
+      color: #6B7A7A;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    
+    .countdown {
+      font-size: 18px;
+      color: #7BA9A0;
+      font-weight: 600;
+      margin-bottom: 25px;
+    }
+    
+    .countdown span {
+      font-size: 32px;
+      color: #5A8580;
+      font-weight: 700;
+    }
+    
+    .button {
+      display: inline-block;
+      background: linear-gradient(90deg, #7BA9A0 0%, #5A8580 100%);
+      color: white;
+      padding: 14px 40px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(123, 169, 160, 0.3);
+    }
+    
+    .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(123, 169, 160, 0.4);
+    }
+    
+    .button:active {
+      transform: translateY(0);
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 30px 20px;
+      }
+      
+      .emoji {
+        font-size: 60px;
+      }
+      
+      h1 {
+        font-size: 24px;
+      }
+      
+      p {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="emoji">🦅❓</div>
+    <h1>找不到這個頁面</h1>
+    <p>抱歉，您訪問的頁面不存在或已被移除。<br>我們將在 <span class="countdown"><span id="countdown">5</span> 秒</span>後自動返回首頁。</p>
+    <a href="/" class="button">🏠 立即返回首頁</a>
+  </div>
+  
+  <script>
+    // 倒數計時
+    let seconds = 5;
+    const countdownEl = document.getElementById('countdown');
+    
+    const timer = setInterval(() => {
+      seconds--;
+      if (seconds <= 0) {
+        clearInterval(timer);
+        window.location.href = '/';
+      } else {
+        countdownEl.textContent = seconds;
+      }
+    }, 1000);
+    
+    // GA4 追蹤（如果可用）
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'page_not_found', {
+        'page_path': window.location.pathname,
+        'referrer': document.referrer,
+        'event_category': 'errors'
+      });
+    }
+  </script>
+</body>
+</html>
