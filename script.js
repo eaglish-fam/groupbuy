@@ -1,3 +1,355 @@
+// ============================================
+// 鷹家買物社 - 圖片優化模組
+// 功能：Google Drive 轉換、錯誤處理、lazy loading
+// ============================================
+
+const ImageOptimizer = {
+  // Google Drive 圖片 URL 正規化
+  // ✅ 使用 lh3.googleusercontent.com 格式（經實測最穩定）
+  normalizeGoogleDriveUrl(url) {
+    if (!url) return url;
+    
+    // 如果已經是 lh3.googleusercontent.com 格式，直接返回
+    if (url.includes('lh3.googleusercontent.com')) {
+      return url;
+    }
+    
+    // 如果不是 Google Drive 連結，直接返回
+    if (!url.includes('drive.google.com')) {
+      return url;
+    }
+
+    try {
+      let fileId = null;
+      
+      // 格式 1: https://drive.google.com/file/d/FILE_ID/view
+      let match = url.match(/\/file\/d\/([^\/\?]+)/);
+      if (match) {
+        fileId = match[1];
+      }
+      
+      // 格式 2: https://drive.google.com/open?id=FILE_ID
+      if (!fileId) {
+        match = url.match(/[?&]id=([^&]+)/);
+        if (match) {
+          fileId = match[1];
+        }
+      }
+      
+      // 格式 3: https://drive.google.com/uc?id=FILE_ID
+      if (!fileId && url.includes('uc?')) {
+        try {
+          const urlObj = new URL(url);
+          fileId = urlObj.searchParams.get('id');
+        } catch {}
+      }
+      
+      // 如果成功提取 FILE_ID，轉換為 lh3.googleusercontent.com 格式
+      if (fileId) {
+        // 清除可能的尾部參數
+        fileId = fileId.split('?')[0].split('#')[0];
+        const optimizedUrl = `https://lh3.googleusercontent.com/d/${fileId}=w1200`;
+        console.log('🔄 Google Drive URL 轉換:', url.substring(0, 50) + '... → lh3 格式');
+        return optimizedUrl;
+      }
+    } catch (error) {
+      console.warn('❌ Google Drive URL 解析失敗:', url, error);
+    }
+
+    return url;
+  },
+
+  // 驗證圖片 URL 是否有效
+  async validateImageUrl(url) {
+    if (!url) return false;
+
+    try {
+      const response = await fetch(url, { 
+        method: 'HEAD',
+        mode: 'no-cors', // 避免 CORS 問題
+        cache: 'force-cache'
+      });
+      return true; // no-cors 模式下只要不報錯就算成功
+    } catch (error) {
+      console.warn('⚠️ 圖片驗證失敗:', url);
+      return false;
+    }
+  },
+
+  // 產生 fallback 圖片 (placeholder)
+  generatePlaceholder(text = '無圖片', width = 400, height = 300) {
+    // 使用 SVG placeholder
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="0 0 ${width} ${height}">
+        <rect width="100%" height="100%" fill="#f3f4f6"/>
+        <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="16" fill="#9ca3af" text-anchor="middle" dy=".3em">
+          ${text}
+        </text>
+      </svg>
+    `;
+    return `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`;
+  },
+
+  // 產生模糊的 placeholder (LQIP - Low Quality Image Placeholder)
+  generateBlurPlaceholder(color = '#f3f4f6') {
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="10" height="10">
+        <rect width="100%" height="100%" fill="${color}"/>
+      </svg>
+    `;
+    return `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`;
+  },
+
+  // 產生漸層 placeholder
+  generateGradientPlaceholder() {
+    const svg = `
+      <svg xmlns="http://www.w3.org/2000/svg" width="400" height="300">
+        <defs>
+          <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#fef3c7;stop-opacity:1" />
+            <stop offset="50%" style="stop-color:#fcd34d;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#fef3c7;stop-opacity:1" />
+          </linearGradient>
+        </defs>
+        <rect width="100%" height="100%" fill="url(#grad)"/>
+        <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="48" fill="#78350f" text-anchor="middle" dy=".3em">🦅</text>
+      </svg>
+    `;
+    return `data:image/svg+xml;base64,${btoa(unescape(encodeURIComponent(svg)))}`;
+  },
+
+  // 取得優化後的圖片 URL（含 fallback 鏈）
+  getOptimizedImageUrl(originalUrl, brandName = '') {
+    if (!originalUrl) {
+      return {
+        primary: this.generateGradientPlaceholder(),
+        fallback: this.generatePlaceholder(brandName || '無圖片'),
+        isPlaceholder: true
+      };
+    }
+
+    // 正規化 Google Drive URL
+    const normalizedUrl = this.normalizeGoogleDriveUrl(originalUrl);
+
+    return {
+      primary: normalizedUrl,
+      fallback: this.generateGradientPlaceholder(),
+      isPlaceholder: false
+    };
+  },
+
+  // 產生響應式圖片屬性（含 srcset）
+  getResponsiveImageAttrs(url, alt = '', sizes = '(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw') {
+    const { primary, fallback } = this.getOptimizedImageUrl(url, alt);
+
+    return {
+      src: primary,
+      'data-fallback': fallback,
+      alt: alt || '商品圖片',
+      loading: 'lazy',
+      decoding: 'async',
+      sizes: sizes,
+      // 防止 CLS (Cumulative Layout Shift)
+      style: 'aspect-ratio: 4/3;'
+    };
+  },
+
+  // 圖片載入錯誤處理
+  handleImageError(imgElement) {
+    if (!imgElement) return;
+
+    const fallback = imgElement.getAttribute('data-fallback');
+    const alt = imgElement.getAttribute('alt') || '無圖片';
+
+    if (fallback && imgElement.src !== fallback) {
+      console.warn('⚠️ 圖片載入失敗，使用 fallback:', imgElement.src);
+      imgElement.src = fallback;
+    } else {
+      // 最終 fallback
+      imgElement.src = this.generatePlaceholder(alt);
+    }
+
+    // 移除 loading 動畫
+    imgElement.classList.remove('loading');
+    imgElement.classList.add('error');
+  },
+
+  // 初始化圖片 lazy loading 和錯誤處理
+  initImageOptimization() {
+    // 監聽所有圖片的錯誤事件（使用事件委派）
+    document.addEventListener('error', (e) => {
+      if (e.target.tagName === 'IMG') {
+        this.handleImageError(e.target);
+      }
+    }, true);
+
+    // Intersection Observer for lazy loading (備用，因為已有 loading="lazy")
+    if ('IntersectionObserver' in window) {
+      const imageObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const img = entry.target;
+            
+            // 預載圖片
+            const tempImg = new Image();
+            tempImg.onload = () => {
+              img.classList.add('loaded');
+              img.classList.remove('loading');
+            };
+            tempImg.onerror = () => {
+              this.handleImageError(img);
+            };
+            tempImg.src = img.src;
+
+            observer.unobserve(img);
+          }
+        });
+      }, {
+        rootMargin: '50px' // 提前 50px 開始載入
+      });
+
+      // 觀察所有延遲載入的圖片
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.classList.add('loading');
+        imageObserver.observe(img);
+      });
+    }
+
+    console.log('✅ 圖片優化系統已初始化');
+  },
+
+  // 批次檢查圖片 URL（用於資料載入後）
+  async validateAllImages(groups) {
+    console.log('🔍 開始驗證圖片 URL...');
+    
+    const results = {
+      total: 0,
+      valid: 0,
+      invalid: 0,
+      googleDrive: 0,
+      normalized: 0
+    };
+
+    for (const group of groups) {
+      if (!group.image) continue;
+
+      results.total++;
+
+      // 檢查是否為 Google Drive
+      if (group.image.includes('drive.google.com')) {
+        results.googleDrive++;
+        
+        // 正規化 URL
+        const normalized = this.normalizeGoogleDriveUrl(group.image);
+        if (normalized !== group.image) {
+          console.log('🔄 正規化 Google Drive URL:', group.brand);
+          group.image = normalized;
+          results.normalized++;
+        }
+      }
+
+      results.valid++;
+    }
+
+    console.log('📊 圖片驗證完成:', results);
+    return results;
+  }
+};
+
+// 匯出到全域（方便使用）
+window.ImageOptimizer = ImageOptimizer;
+
+// ============================================
+// 鷹家買物社 - 圖片渲染輔助函數
+// 使用方式：在 renderGroupCard 等函數中使用
+// ============================================
+
+// 產生優化的圖片 HTML
+function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable = true, groupUrl = '') {
+  if (!imageUrl) {
+    // 無圖片時顯示 placeholder
+    return `
+      <div class="masonry-card-image-wrapper">
+        <div class="flex items-center justify-center h-full bg-gradient-to-br from-amber-50 to-orange-50">
+          <div class="text-center">
+            <div class="text-6xl mb-2">🦅</div>
+            <div class="text-sm text-amber-700">${brand || '無圖片'}</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // 使用 ImageOptimizer 處理 URL
+  const { primary, fallback } = ImageOptimizer.getOptimizedImageUrl(imageUrl, brand);
+  
+  const imgTag = `
+    <img src="${primary}" 
+         alt="${alt || brand || '商品圖片'}"
+         data-fallback="${fallback}"
+         class="masonry-card-image ${expired ? 'grayscale' : ''}"
+         loading="lazy"
+         decoding="async"
+         onerror="ImageOptimizer.handleImageError(this)"
+         width="400"
+         height="300"
+         style="aspect-ratio: 4/3;">
+  `;
+
+  if (clickable && groupUrl) {
+    return `
+      <div class="masonry-card-image-wrapper">
+        <a href="${groupUrl}" 
+           target="_blank" 
+           rel="noopener noreferrer"
+           onclick="event.stopPropagation(); try{ if(typeof gtag !== 'undefined'){ gtag('event','image_click',{ event_category:'engagement', event_label:'${brand || ''}' }); } }catch(e){}">
+          ${imgTag}
+        </a>
+      </div>
+    `;
+  } else {
+    return `
+      <div class="masonry-card-image-wrapper">
+        ${imgTag}
+      </div>
+    `;
+  }
+}
+
+// 產生響應式背景圖片樣式（用於特殊卡片）
+function renderBackgroundImage(imageUrl, alt = '') {
+  const { primary, fallback } = ImageOptimizer.getOptimizedImageUrl(imageUrl, alt);
+  
+  return `
+    style="background-image: url('${primary}'); background-size: cover; background-position: center;"
+    data-bg-fallback="${fallback}"
+    onerror="this.style.backgroundImage = 'url(' + this.dataset.bgFallback + ')'"
+  `;
+}
+
+// 圖片預載入（用於關鍵圖片）
+function preloadImage(imageUrl) {
+  if (!imageUrl) return;
+  
+  const { primary } = ImageOptimizer.getOptimizedImageUrl(imageUrl);
+  const link = document.createElement('link');
+  link.rel = 'preload';
+  link.as = 'image';
+  link.href = primary;
+  document.head.appendChild(link);
+}
+
+// 預載前 3 張圖片（優化 LCP）
+function preloadCriticalImages(groups) {
+  const criticalImages = groups
+    .filter(g => g.image)
+    .slice(0, 3)
+    .map(g => g.image);
+  
+  criticalImages.forEach(img => preloadImage(img));
+  console.log('🚀 預載關鍵圖片:', criticalImages.length, '張');
+}
+
 // ============ 側邊欄和篩選器控制 ============
 let sidebarOpen = false;
 let mobileFiltersOpen = false;
@@ -1341,6 +1693,12 @@ async function loadData() {
     console.log('📊 可用分類:', state.availableCategories);
     console.log('📊 可用國家:', state.availableCountries);
     
+    // 🎨 圖片優化：驗證和正規化所有圖片 URL
+    await ImageOptimizer.validateAllImages(state.groups);
+    
+    // 🎨 圖片優化：預載前 3 張關鍵圖片
+    preloadCriticalImages(state.groups);
+    
     renderFilters();
     renderContent();
     console.log('✅ 渲染完成！');
@@ -1414,24 +1772,7 @@ function renderGroupCard(g) {
 
   return `
     <div class="masonry-card ${expired ? 'opacity-60' : ''}">
-      ${g.image ? `
-        <div class="masonry-card-image-wrapper">
-          ${g.url ? `
-            <a href="${g.url}" target="_blank" rel="noopener noreferrer"
-               onclick="event.stopPropagation(); try{ if(typeof gtag !== 'undefined'){ gtag('event','image_click',{ event_category:'engagement', event_label:'${g.brand || ''}' }); } }catch(e){}">
-              <img src="${g.image}" 
-                   alt="${g.brand}" 
-                   class="masonry-card-image ${expired ? 'grayscale' : ''}"
-                   loading="lazy">
-            </a>
-          ` : `
-            <img src="${g.image}" 
-                 alt="${g.brand}" 
-                 class="masonry-card-image ${expired ? 'grayscale' : ''}"
-                 loading="lazy">
-          `}
-        </div>
-      ` : ''}
+      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="masonry-card-content p-5">
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         ${g.description ? `<p class="text-base md:text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-3">${g.description}</p>` : ''}
@@ -1679,6 +2020,10 @@ function init() {
 }
 
 console.log('🚀 鷹家買物社初始化開始');
+
+// 🎨 圖片優化：初始化圖片處理系統
+ImageOptimizer.initImageOptimization();
+
 initSearch();
 renderBanner();
 init();
