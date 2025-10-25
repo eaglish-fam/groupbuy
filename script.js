@@ -2079,3 +2079,4 @@ window.addEventListener('beforeunload', () => {
     clearInterval(countdownInterval);
   }
 });
+}
