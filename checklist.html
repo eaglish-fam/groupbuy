@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>✅ Google Sheets 修復檢查清單</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      padding: 20px;
+      color: #1a202c;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .header {
+      text-align: center;
+      color: white;
+      margin-bottom: 32px;
+    }
+    
+    .header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 8px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+    }
+    
+    .header p {
+      font-size: 1.1rem;
+      opacity: 0.95;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1), 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .step {
+      border-left: 4px solid #e2e8f0;
+      padding-left: 20px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    
+    .step.completed {
+      border-left-color: #48bb78;
+    }
+    
+    .step-number {
+      position: absolute;
+      left: -14px;
+      top: 0;
+      width: 28px;
+      height: 28px;
+      background: #e2e8f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      color: #4a5568;
+    }
+    
+    .step.completed .step-number {
+      background: #48bb78;
+      color: white;
+    }
+    
+    .step-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #2d3748;
+    }
+    
+    .step-desc {
+      color: #4a5568;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+    
+    .checkbox-item {
+      display: flex;
+      align-items: start;
+      gap: 12px;
+      padding: 12px;
+      margin-bottom: 8px;
+      border-radius: 8px;
+      background: #f7fafc;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .checkbox-item:hover {
+      background: #edf2f7;
+    }
+    
+    .checkbox-item input[type="checkbox"] {
+      width: 20px;
+      height: 20px;
+      cursor: pointer;
+      margin-top: 2px;
+      flex-shrink: 0;
+    }
+    
+    .checkbox-item label {
+      cursor: pointer;
+      flex: 1;
+      line-height: 1.5;
+    }
+    
+    .code-block {
+      background: #2d3748;
+      color: #68d391;
+      padding: 16px;
+      border-radius: 8px;
+      font-family: "Monaco", "Courier New", monospace;
+      font-size: 13px;
+      overflow-x: auto;
+      margin: 12px 0;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    
+    .button {
+      display: inline-block;
+      background: #667eea;
+      color: white;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    
+    .button:hover {
+      background: #5a67d8;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+    }
+    
+    .button.secondary {
+      background: #48bb78;
+    }
+    
+    .button.secondary:hover {
+      background: #38a169;
+    }
+    
+    .progress-bar {
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 4px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #48bb78, #38a169);
+      width: 0%;
+      transition: width 0.3s ease;
+    }
+    
+    .alert {
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      display: flex;
+      align-items: start;
+      gap: 12px;
+    }
+    
+    .alert.info {
+      background: #ebf8ff;
+      border: 2px solid #3182ce;
+      color: #2c5282;
+    }
+    
+    .alert.success {
+      background: #f0fff4;
+      border: 2px solid #48bb78;
+      color: #22543d;
+    }
+    
+    .alert.warning {
+      background: #fffaf0;
+      border: 2px solid #ed8936;
+      color: #7c2d12;
+    }
+    
+    .icon {
+      font-size: 24px;
+      flex-shrink: 0;
+    }
+    
+    .downloads {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 20px;
+    }
+    
+    .download-card {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    
+    .download-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    }
+    
+    .download-card .icon {
+      font-size: 48px;
+      margin-bottom: 12px;
+    }
+    
+    .download-card h3 {
+      margin-bottom: 8px;
+    }
+    
+    .download-card p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>✅ 修復檢查清單</h1>
+      <p>跟著步驟，快速解決 Google Sheets 載入問題</p>
+    </div>
+
+    <div class="card">
+      <div class="progress-bar">
+        <div id="progressFill" class="progress-fill"></div>
+      </div>
+      <div id="progressText" style="text-align: center; font-weight: 600; color: #4a5568; margin-bottom: 20px;">
+        進度：0 / 15 項完成 (0%)
+      </div>
+    </div>
+
+    <!-- 步驟 1 -->
+    <div class="card">
+      <div class="step" id="step1">
+        <div class="step-number">1</div>
+        <h2 class="step-title">🔐 檢查 Google Sheets 權限</h2>
+        <p class="step-desc">確保 Sheet 能被公開讀取</p>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check1-1">
+          <label for="check1-1">開啟 Google Sheets 連結</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check1-2">
+          <label for="check1-2">點擊右上角「共用」按鈕</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check1-3">
+          <label for="check1-3">設定「一般存取權」為「知道連結的任何人」</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check1-4">
+          <label for="check1-4">確認權限為「檢視者」</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check1-5">
+          <label for="check1-5">點擊「完成」並重新整理網站</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 步驟 2 -->
+    <div class="card">
+      <div class="step" id="step2">
+        <div class="step-number">2</div>
+        <h2 class="step-title">🧪 測試連線</h2>
+        <p class="step-desc">確認資料能正常讀取</p>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check2-1">
+          <label for="check2-1">按 F12 開啟開發者工具</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check2-2">
+          <label for="check2-2">切換到 Console 標籤</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check2-3">
+          <label for="check2-3">貼上測試程式碼並執行（見下方）</label>
+        </div>
+        
+        <div class="code-block">fetch('https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/gviz/tq?tqx=out:csv', {credentials: 'omit'}).then(r => r.text()).then(t => console.log('✅', t.substring(0, 200))).catch(e => console.error('❌', e))</div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check2-4">
+          <label for="check2-4">看到 ✅ 符號和資料預覽</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 步驟 3 -->
+    <div class="card">
+      <div class="step" id="step3">
+        <div class="step-number">3</div>
+        <h2 class="step-title">🔧 更新程式碼</h2>
+        <p class="step-desc">替換修復後的 script.js</p>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check3-1">
+          <label for="check3-1">下載修復版 script.js（見下方下載區）</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check3-2">
+          <label for="check3-2">備份目前的 script.js</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check3-3">
+          <label for="check3-3">用新檔案替換舊檔案</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check3-4">
+          <label for="check3-4">重新整理網站</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 步驟 4 -->
+    <div class="card">
+      <div class="step" id="step4">
+        <div class="step-number">4</div>
+        <h2 class="step-title">✅ 驗證修復</h2>
+        <p class="step-desc">確認問題已解決</p>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check4-1">
+          <label for="check4-1">網站正常顯示團購商品</label>
+        </div>
+        
+        <div class="checkbox-item">
+          <input type="checkbox" id="check4-2">
+          <label for="check4-2">Console 沒有紅色錯誤訊息</label>
+        </div>
+      </div>
+    </div>
+
+    <!-- 完成提示 -->
+    <div id="successAlert" class="alert success" style="display: none;">
+      <span class="icon">🎉</span>
+      <div>
+        <strong>恭喜！所有步驟完成</strong><br>
+        您的網站應該已經能正常運作了。如果還有問題，請參考詳細疑難排解指南。
+      </div>
+    </div>
+
+    <!-- 下載區 -->
+    <div class="card">
+      <h2 style="margin-bottom: 20px;">📦 下載修復檔案</h2>
+      <div class="downloads">
+        <div class="download-card" onclick="window.open('script.js', '_blank')">
+          <div class="icon">📄</div>
+          <h3>script.js</h3>
+          <p>修復後的主程式</p>
+        </div>
+        
+        <div class="download-card" onclick="window.open('sheets-diagnostic.html', '_blank')">
+          <div class="icon">🔍</div>
+          <h3>診斷工具</h3>
+          <p>測試連線狀態</p>
+        </div>
+        
+        <div class="download-card" onclick="window.open('TROUBLESHOOTING.md', '_blank')">
+          <div class="icon">📖</div>
+          <h3>疑難排解</h3>
+          <p>詳細修復指南</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // 計算進度
+    function updateProgress() {
+      const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
+      const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+      const total = allCheckboxes.length;
+      const percentage = Math.round((checkedCount / total) * 100);
+      
+      document.getElementById('progressFill').style.width = percentage + '%';
+      document.getElementById('progressText').textContent = 
+        `進度：${checkedCount} / ${total} 項完成 (${percentage}%)`;
+      
+      // 更新步驟狀態
+      ['step1', 'step2', 'step3', 'step4'].forEach(stepId => {
+        const step = document.getElementById(stepId);
+        const checkboxes = step.querySelectorAll('input[type="checkbox"]');
+        const allChecked = Array.from(checkboxes).every(cb => cb.checked);
+        
+        if (allChecked) {
+          step.classList.add('completed');
+        } else {
+          step.classList.remove('completed');
+        }
+      });
+      
+      // 顯示完成提示
+      if (checkedCount === total) {
+        document.getElementById('successAlert').style.display = 'flex';
+        confetti();
+      } else {
+        document.getElementById('successAlert').style.display = 'none';
+      }
+    }
+    
+    // 監聽所有勾選框
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+      checkbox.addEventListener('change', updateProgress);
+    });
+    
+    // 簡單的慶祝動畫
+    function confetti() {
+      const colors = ['#667eea', '#764ba2', '#48bb78', '#ed8936'];
+      for (let i = 0; i < 50; i++) {
+        const confetti = document.createElement('div');
+        confetti.style.cssText = `
+          position: fixed;
+          width: 10px;
+          height: 10px;
+          background: ${colors[Math.floor(Math.random() * colors.length)]};
+          left: ${Math.random() * 100}%;
+          top: -10px;
+          border-radius: 50%;
+          animation: fall ${2 + Math.random() * 2}s linear forwards;
+          z-index: 9999;
+        `;
+        document.body.appendChild(confetti);
+        setTimeout(() => confetti.remove(), 4000);
+      }
+    }
+    
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes fall {
+        to {
+          transform: translateY(100vh) rotate(360deg);
+          opacity: 0;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+    
+    // 初始化
+    updateProgress();
+  </script>
+</body>
+</html>
