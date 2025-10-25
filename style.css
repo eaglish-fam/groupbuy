@@ -531,3 +531,216 @@ html {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* ============================================
+   輪播圖片修復 CSS
+   請將此內容添加到 style.css 或主 CSS 文件末尾
+   ============================================ */
+
+/* 輪播容器基礎樣式 */
+.masonry-card-image-wrapper {
+  position: relative;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+/* 單張圖片 Hover 效果 */
+.masonry-card-image-wrapper:not([id^="carousel-"]) {
+  transition: transform 0.2s ease;
+}
+
+.masonry-card-image-wrapper:not([id^="carousel-"]) img {
+  transition: transform 0.3s ease;
+  will-change: transform;
+}
+
+@media (min-width: 1024px) {
+  .masonry-card-image-wrapper:not([id^="carousel-"]):hover img {
+    transform: scale(1.05);
+  }
+}
+
+/* 輪播圖片基礎樣式 */
+.carousel-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: #f5f5f5;
+}
+
+.carousel-track {
+  display: flex;
+  transition: transform 0.3s ease-out;
+  will-change: transform;
+}
+
+.carousel-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  min-height: 200px;
+}
+
+.carousel-slide img {
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  pointer-events: none;
+}
+
+/* 輪播指示器樣式 */
+.carousel-dot {
+  transition: all 0.3s ease;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.carousel-dot:hover {
+  transform: scale(1.2);
+}
+
+/* 桌面版箭頭按鈕 */
+.carousel-btn-prev,
+.carousel-btn-next {
+  transition: opacity 0.3s ease, background-color 0.2s ease;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+.carousel-btn-prev:focus,
+.carousel-btn-next:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.carousel-btn-prev:active,
+.carousel-btn-next:active {
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  transform: scale(0.95);
+}
+
+/* 確保輪播在桌面版可見 */
+@media (min-width: 1024px) {
+  .masonry-card-image-wrapper[id^="carousel-"] .carousel-btn-prev,
+  .masonry-card-image-wrapper[id^="carousel-"] .carousel-btn-next {
+    display: flex !important;
+  }
+  
+  /* 確保 group-hover 生效 */
+  .group:hover .carousel-btn-prev,
+  .group:hover .carousel-btn-next {
+    opacity: 1 !important;
+  }
+}
+
+/* 觸控反饋（手機版）*/
+@media (max-width: 1023px) {
+  .carousel-slide:active {
+    opacity: 0.95;
+  }
+  
+  .masonry-card-image-wrapper:active {
+    opacity: 0.9;
+  }
+}
+
+/* 載入中的占位樣式 */
+.carousel-slide img[src*="data:image"] {
+  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* 無障礙 - 鍵盤聚焦樣式 */
+.masonry-card-image-wrapper:focus {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.masonry-card-image-wrapper:focus-visible {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* 高對比模式支援 */
+@media (prefers-contrast: high) {
+  .carousel-btn-prev,
+  .carousel-btn-next {
+    background-color: rgba(0, 0, 0, 0.9) !important;
+    border: 2px solid white;
+  }
+  
+  .carousel-dot {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+}
+
+/* 減少動畫（尊重用戶偏好）*/
+@media (prefers-reduced-motion: reduce) {
+  .carousel-track,
+  .carousel-dot,
+  .carousel-btn-prev,
+  .carousel-btn-next,
+  .masonry-card-image {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* 列印樣式 */
+@media print {
+  .carousel-btn-prev,
+  .carousel-btn-next,
+  .carousel-dot {
+    display: none !important;
+  }
+  
+  .carousel-track {
+    transform: none !important;
+  }
+  
+  .carousel-slide {
+    display: block;
+    page-break-inside: avoid;
+  }
+}
+
+/* 性能優化 - GPU 加速 */
+.carousel-track,
+.masonry-card-image {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* 確保圖片容器有正確的寬高比 */
+.masonry-card-image-wrapper::before {
+  content: '';
+  display: block;
+  padding-top: 75%; /* 4:3 aspect ratio */
+}
+
+.masonry-card-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 修復單張圖片的佈局 */
+.masonry-card-image-wrapper:not([id^="carousel-"]) {
+  position: relative;
+}
+
+.masonry-card-image-wrapper:not([id^="carousel-"])::before {
+  content: '';
+  display: block;
+  padding-top: 75%;
+}
