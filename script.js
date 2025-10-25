@@ -473,117 +473,102 @@ function renderBanner() {
   elements.bannerSlot.classList.remove('hidden');
 }
 
-// ============ ✨ 新增：輪播圖片元件 ============
-function renderImageCarousel(images, brand) {
+
+// ============ ✨ 修復：輪播圖片元件 ============
+window.carouselStates = window.carouselStates || {};
+
+function renderImageCarousel(images, brand, url) {
   if (!images || images.length === 0) return '';
   
   if (images.length === 1) {
-    // 單張圖片，保持原有邏輯
+    // 單張圖片 - 添加點擊連結功能
     return `
-      <div class="masonry-card-image-wrapper">
+      <div class="masonry-card-image-wrapper cursor-pointer group" onclick="window.open('${url}', '_blank', 'noopener,noreferrer')">
         <img src="${images[0]}" 
              alt="${brand}" 
-             class="masonry-card-image"
-             loading="lazy">
+             class="masonry-card-image transition-transform duration-300 group-hover:scale-105"
+             loading="lazy"
+             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23999%22%3E圖片載入失敗%3C/text%3E%3C/svg%3E'">
       </div>
     `;
   }
   
-  // 多張圖片，使用輪播
+  // 多張圖片 - 使用輪播
   const carouselId = `carousel-${Math.random().toString(36).substr(2, 9)}`;
+  
+  // 初始化輪播狀態
+  window.carouselStates[carouselId] = {
+    currentIndex: 0,
+    totalSlides: images.length,
+    url: url
+  };
+  
   return `
-    <div class="masonry-card-image-wrapper relative group" id="${carouselId}">
-      <div class="carousel-container overflow-hidden">
-        <div class="carousel-track flex transition-transform duration-300" style="transform: translateX(0%)">
-          ${images.map(img => `
+    <div class="masonry-card-image-wrapper relative group cursor-pointer" id="${carouselId}" data-url="${url}">
+      <div class="carousel-container overflow-hidden relative">
+        <div class="carousel-track flex transition-transform duration-300 ease-out" style="transform: translateX(0%)">
+          ${images.map((img, idx) => `
             <div class="carousel-slide flex-shrink-0 w-full">
               <img src="${img}" 
-                   alt="${brand}" 
-                   class="masonry-card-image"
-                   loading="lazy">
+                   alt="${brand} - 圖片 ${idx + 1}" 
+                   class="masonry-card-image w-full h-full object-cover select-none"
+                   loading="lazy"
+                   draggable="false"
+                   onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23f0f0f0%22 width=%22400%22 height=%22300%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 fill=%22%23999%22%3E圖片 ${idx + 1} 載入失敗%3C/text%3E%3C/svg%3E'">
             </div>
           `).join('')}
         </div>
       </div>
       
       <!-- 輪播指示器 -->
-      <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+      <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10 pointer-events-none">
         ${images.map((_, idx) => `
-          <button onclick="goToSlide('${carouselId}', ${idx})" 
-                  class="carousel-dot w-2 h-2 rounded-full transition-all ${idx === 0 ? 'bg-white w-4' : 'bg-white/60'}"
-                  data-dot="${idx}">
-          </button>
+          <div class="carousel-dot w-2 h-2 rounded-full transition-all ${idx === 0 ? 'bg-white w-4' : 'bg-white/60'}"
+               data-dot="${idx}">
+          </div>
         `).join('')}
       </div>
       
       <!-- 左右箭頭（桌面版）-->
       ${images.length > 1 ? `
-        <button onclick="prevSlide('${carouselId}')" 
-                class="hidden lg:flex absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10">
+        <button type="button"
+                onclick="event.stopPropagation(); prevSlide('${carouselId}')" 
+                class="carousel-btn-prev hidden lg:flex absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 items-center justify-center">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
           </svg>
         </button>
-        <button onclick="nextSlide('${carouselId}')" 
-                class="hidden lg:flex absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10">
+        <button type="button"
+                onclick="event.stopPropagation(); nextSlide('${carouselId}')" 
+                class="carousel-btn-next hidden lg:flex absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10 items-center justify-center">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
           </svg>
         </button>
       ` : ''}
     </div>
-    <script>
-      // 輪播觸控支援
-      (function() {
-        const carousel = document.getElementById('${carouselId}');
-        if (!carousel) return;
-        
-        let startX = 0;
-        let currentTranslate = 0;
-        let prevTranslate = 0;
-        let currentIndex = 0;
-        const totalSlides = ${images.length};
-        
-        carousel.addEventListener('touchstart', (e) => {
-          startX = e.touches[0].clientX;
-        });
-        
-        carousel.addEventListener('touchmove', (e) => {
-          const currentX = e.touches[0].clientX;
-          const diff = currentX - startX;
-          currentTranslate = prevTranslate + diff;
-        });
-        
-        carousel.addEventListener('touchend', (e) => {
-          const movedBy = currentTranslate - prevTranslate;
-          
-          if (movedBy < -50 && currentIndex < totalSlides - 1) {
-            currentIndex++;
-          } else if (movedBy > 50 && currentIndex > 0) {
-            currentIndex--;
-          }
-          
-          goToSlide('${carouselId}', currentIndex);
-        });
-      })();
-    </script>
   `;
 }
 
-// 輪播控制函數
+// ============ 輪播控制函數 ============
 function goToSlide(carouselId, index) {
   const carousel = document.getElementById(carouselId);
   if (!carousel) return;
   
+  const state = window.carouselStates[carouselId];
+  if (!state) return;
+  
   const track = carousel.querySelector('.carousel-track');
   const dots = carousel.querySelectorAll('.carousel-dot');
-  const totalSlides = dots.length;
   
   // 限制索引範圍
-  index = Math.max(0, Math.min(index, totalSlides - 1));
+  index = Math.max(0, Math.min(index, state.totalSlides - 1));
+  state.currentIndex = index;
   
   // 更新輪播位置
-  track.style.transform = `translateX(-${index * 100}%)`;
+  if (track) {
+    track.style.transform = `translateX(-${index * 100}%)`;
+  }
   
   // 更新指示器
   dots.forEach((dot, idx) => {
@@ -598,21 +583,146 @@ function goToSlide(carouselId, index) {
 }
 
 function nextSlide(carouselId) {
-  const carousel = document.getElementById(carouselId);
-  if (!carousel) return;
+  const state = window.carouselStates[carouselId];
+  if (!state) return;
   
-  const dots = carousel.querySelectorAll('.carousel-dot');
-  const currentIndex = Array.from(dots).findIndex(dot => dot.classList.contains('w-4'));
-  goToSlide(carouselId, currentIndex + 1);
+  const newIndex = Math.min(state.currentIndex + 1, state.totalSlides - 1);
+  goToSlide(carouselId, newIndex);
+  
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'carousel_next', {
+      'event_category': 'engagement',
+      'event_label': carouselId
+    });
+  }
 }
 
 function prevSlide(carouselId) {
-  const carousel = document.getElementById(carouselId);
-  if (!carousel) return;
+  const state = window.carouselStates[carouselId];
+  if (!state) return;
   
-  const dots = carousel.querySelectorAll('.carousel-dot');
-  const currentIndex = Array.from(dots).findIndex(dot => dot.classList.contains('w-4'));
-  goToSlide(carouselId, currentIndex - 1);
+  const newIndex = Math.max(state.currentIndex - 1, 0);
+  goToSlide(carouselId, newIndex);
+  
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'carousel_prev', {
+      'event_category': 'engagement',
+      'event_label': carouselId
+    });
+  }
+}
+
+// ============ 初始化所有輪播的觸控事件 ============
+function initializeCarousels() {
+  document.querySelectorAll('[id^="carousel-"]').forEach(carousel => {
+    const carouselId = carousel.id;
+    const state = window.carouselStates[carouselId];
+    const url = carousel.dataset.url;
+    
+    if (!state) return;
+    
+    // 防止重複初始化
+    if (carousel._initialized) return;
+    carousel._initialized = true;
+    
+    let startX = 0;
+    let currentX = 0;
+    let isDragging = false;
+    let startTime = 0;
+    
+    // 觸控開始
+    carousel.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      currentX = startX;
+      isDragging = false;
+      startTime = Date.now();
+    }, { passive: true });
+    
+    // 觸控移動
+    carousel.addEventListener('touchmove', (e) => {
+      if (!startX) return;
+      
+      currentX = e.touches[0].clientX;
+      const diff = Math.abs(currentX - startX);
+      
+      if (diff > 10) {
+        isDragging = true;
+        e.preventDefault();
+      }
+    }, { passive: false });
+    
+    // 觸控結束
+    carousel.addEventListener('touchend', (e) => {
+      if (!startX) return;
+      
+      const moveDistance = currentX - startX;
+      const moveTime = Date.now() - startTime;
+      
+      if (isDragging && Math.abs(moveDistance) > 50) {
+        // 滑動切換圖片
+        if (moveDistance < -50 && state.currentIndex < state.totalSlides - 1) {
+          nextSlide(carouselId);
+        } else if (moveDistance > 50 && state.currentIndex > 0) {
+          prevSlide(carouselId);
+        }
+      } else if (!isDragging && moveTime < 300) {
+        // 快速點擊 - 打開連結
+        if (url && url !== 'undefined') {
+          window.open(url, '_blank', 'noopener,noreferrer');
+          
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'click_carousel_image', {
+              'event_category': 'engagement',
+              'event_label': carouselId
+            });
+          }
+        }
+      }
+      
+      startX = 0;
+      currentX = 0;
+      isDragging = false;
+    }, { passive: true });
+    
+    // 桌面點擊事件
+    carousel.addEventListener('click', (e) => {
+      // 如果點擊的是箭頭按鈕，不處理
+      if (e.target.closest('.carousel-btn-prev') || e.target.closest('.carousel-btn-next')) {
+        return;
+      }
+      
+      if (url && url !== 'undefined') {
+        window.open(url, '_blank', 'noopener,noreferrer');
+        
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'click_carousel_image', {
+            'event_category': 'engagement',
+            'event_label': carouselId
+          });
+        }
+      }
+    });
+    
+    // 鍵盤支援（無障礙）
+    carousel.setAttribute('tabindex', '0');
+    carousel.setAttribute('role', 'region');
+    carousel.setAttribute('aria-label', `${state.totalSlides} 張圖片輪播`);
+    
+    carousel.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevSlide(carouselId);
+      } else if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextSlide(carouselId);
+      } else if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        if (url && url !== 'undefined') {
+          window.open(url, '_blank', 'noopener,noreferrer');
+        }
+      }
+    });
+  });
 }
 
 // ============ 影片處理 ============
@@ -1614,7 +1724,7 @@ function renderGroupCard(g) {
 
   return `
     <div class="masonry-card ${expired ? 'opacity-60' : ''}">
-      ${images.length > 0 ? renderImageCarousel(images, g.brand) : ''}
+      ${images.length > 0 ? renderImageCarousel(images, g.brand, g.url) : ''}
       <div class="masonry-card-content p-5">
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         ${g.description ? `<p class="text-base md:text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-3">${g.description}</p>` : ''}
@@ -1669,7 +1779,6 @@ function renderGroupCard(g) {
       </div>
     </div>`;
 }
-
 function renderCouponCard(g) {
   const expired = utils.isExpired(g.endDate);
   const daysLeft = utils.getDaysLeft(g.endDate);
@@ -1698,7 +1807,7 @@ function renderCouponCard(g) {
 
   return `
     <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}">
-      ${images.length > 0 ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_image', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'engagement', event_label: 'coupon_image_click'});}">${renderImageCarousel(images, g.brand)}</a>` : ''}
+      ${images.length > 0 ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_image', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'engagement', event_label: 'coupon_image_click'});}">${renderImageCarousel(images, g.brand, g.url)}</a>` : ''}
       <div class="p-6">
         <div class="flex items-start justify-between gap-3 mb-3">
           <div class="flex-1">
@@ -1937,6 +2046,11 @@ function renderContent() {
   if (todayEndingGroups.length > 0) {
     startCountdown();
   }
+  
+  // Initialize carousels after rendering
+  setTimeout(() => {
+    initializeCarousels();
+  }, 100);
 }
 
 // ============ 初始化 ============
