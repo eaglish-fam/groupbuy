@@ -1,11 +1,141 @@
 /* ===================================================
-   圖片渲染完整修復 - 2025/10/25
-   問題：桌面版圖片不顯示 + 手機版圖片出不來
-   解決：統一圖片容器結構，支援多種比例
+   鷹家買物社 - 完整圖片修復版本
+   修復：圖片載入中問題 + 輪播功能缺失
+   日期：2025/10/25
    =================================================== */
 
 /* ============================================
-   通用圖片容器基礎樣式
+   🔧 核心修復：輪播圖片樣式（之前缺少）
+   ============================================ */
+
+/* 輪播容器 */
+.image-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* 輪播圖片基礎樣式 */
+.carousel-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 當前顯示的圖片 */
+.carousel-image.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+/* 輪播控制按鈕 */
+.carousel-controls {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 8px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.masonry-card-image-wrapper:hover .carousel-controls {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.carousel-btn {
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  pointer-events: auto;
+}
+
+.carousel-btn:hover {
+  background: rgba(0, 0, 0, 0.8);
+  transform: scale(1.1);
+}
+
+.carousel-btn:active {
+  transform: scale(0.95);
+}
+
+/* 輪播指示點 */
+.carousel-dots {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 11;
+  padding: 4px 8px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot.active {
+  background: white;
+  width: 20px;
+  border-radius: 4px;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+/* 手機版輪播調整 */
+@media (max-width: 767px) {
+  .carousel-controls {
+    opacity: 1; /* 手機版永久顯示 */
+  }
+  
+  .carousel-btn {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .carousel-dots {
+    bottom: 4px;
+  }
+}
+
+/* ============================================
+   圖片容器基礎樣式
    ============================================ */
 .masonry-card-image-wrapper {
   position: relative;
@@ -16,31 +146,46 @@
   transition: all 0.3s ease;
 }
 
-/* 防止圖片載入前閃爍 */
-.masonry-card-image-wrapper::before {
-  content: '';
+/* 載入動畫（顯示 "圖片載入中" 的原因）*/
+.masonry-card-image-wrapper.loading::before {
+  content: '圖片載入中';
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 40px;
-  height: 40px;
+  color: #9ca3af;
+  font-size: 14px;
+  z-index: 5;
+  white-space: nowrap;
+}
+
+/* 載入旋轉動畫 */
+.masonry-card-image-wrapper.loading::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 40px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
   border: 3px solid #e5e7eb;
   border-top-color: #9ca3af;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+  z-index: 5;
 }
 
 @keyframes spin {
   to { transform: translate(-50%, -50%) rotate(360deg); }
 }
 
-/* 圖片載入完成後隱藏載入動畫 */
-.masonry-card-image-wrapper:has(.masonry-card-image[src])::before {
+/* 圖片載入完成後移除 loading 狀態 */
+.masonry-card-image-wrapper.loaded::before,
+.masonry-card-image-wrapper.loaded::after {
   display: none;
 }
 
-/* 圖片本身的通用樣式 */
+/* 單張圖片樣式 */
 .masonry-card-image {
   display: block;
   width: 100%;
@@ -50,36 +195,29 @@
   transition: all 0.3s ease;
 }
 
-/* 圖片載入失敗的處理 */
-.masonry-card-image:not([src]),
-.masonry-card-image[src=""],
-.masonry-card-image[src*="undefined"] {
-  display: none;
-}
-
 /* ============================================
-   手機端（< 768px）：自動高度，保持原始比例
+   手機端（< 768px）：自適應高度
    ============================================ */
 @media (max-width: 767px) {
   .masonry-card-image-wrapper {
-    /* 移除固定高度，讓圖片自然撐開 */
-    min-height: 120px; /* 最小高度避免太窄 */
-    max-height: 300px; /* 最大高度避免太長 */
+    min-height: 150px;
+    max-height: 300px;
   }
   
-  .masonry-card-image {
-    position: relative; /* 改為 relative，自然流動 */
+  .masonry-card-image,
+  .carousel-image {
+    position: relative;
     height: auto;
     max-height: 300px;
   }
   
-  /* 手機觸控回饋 */
-  .masonry-card-image-wrapper:active {
-    opacity: 0.9;
+  /* 輪播容器在手機版也需要自適應 */
+  .image-carousel {
+    min-height: 150px;
   }
   
-  .masonry-card-image-wrapper:active .masonry-card-image {
-    transform: scale(0.98);
+  .masonry-card-image-wrapper:active {
+    opacity: 0.9;
   }
 }
 
@@ -88,154 +226,52 @@
    ============================================ */
 @media (min-width: 768px) and (max-width: 1023px) {
   .masonry-card-image-wrapper {
-    padding-top: 75%; /* 4:3 比例 */
+    padding-top: 75%; /* 4:3 */
   }
   
-  .masonry-card-image {
+  .masonry-card-image,
+  .carousel-image {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
   }
   
-  /* Hover 效果 */
   .masonry-card-image-wrapper:hover {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
-  
-  .masonry-card-image-wrapper:hover .masonry-card-image {
-    transform: scale(1.05);
-    opacity: 0.95;
-  }
 }
 
 /* ============================================
-   桌面端（≥ 1024px）：固定比例 4:3
+   桌面端（>= 1024px）：固定比例 4:3
    ============================================ */
 @media (min-width: 1024px) {
   .masonry-card-image-wrapper {
-    padding-top: 75%; /* 4:3 比例 */
+    padding-top: 75%; /* 4:3 */
   }
   
-  .masonry-card-image {
+  .masonry-card-image,
+  .carousel-image {
     position: absolute;
     top: 0;
     left: 0;
     height: 100%;
   }
   
-  /* Hover 效果更明顯 */
   .masonry-card-image-wrapper:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
   }
   
-  .masonry-card-image-wrapper:hover .masonry-card-image {
-    transform: scale(1.06);
+  .masonry-card-image-wrapper:hover .masonry-card-image,
+  .masonry-card-image-wrapper:hover .carousel-image.active {
     opacity: 0.92;
+    transform: scale(1.03);
   }
 }
 
 /* ============================================
-   圖片錯誤處理 - 顯示友善提示
+   手機端：團購雙排瀑布流 + 折扣碼單排
    ============================================ */
-.masonry-card-image-wrapper::after {
-  content: '📷';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 48px;
-  opacity: 0.3;
-  pointer-events: none;
-}
-
-/* 圖片成功載入後隱藏 emoji */
-.masonry-card-image-wrapper:has(.masonry-card-image[complete])::after {
-  display: none;
-}
-
-/* ============================================
-   灰階過期商品效果
-   ============================================ */
-.masonry-card.opacity-60 .masonry-card-image {
-  filter: grayscale(100%) opacity(0.6);
-}
-
-/* ============================================
-   無障礙與效能優化
-   ============================================ */
-
-/* 減少動畫（尊重用戶偏好）*/
-@media (prefers-reduced-motion: reduce) {
-  .masonry-card-image-wrapper,
-  .masonry-card-image {
-    transition: none !important;
-    animation: none !important;
-  }
-  
-  .masonry-card-image-wrapper:hover .masonry-card-image {
-    transform: none !important;
-  }
-}
-
-/* 高對比模式 */
-@media (prefers-contrast: high) {
-  .masonry-card-image-wrapper {
-    border: 2px solid currentColor;
-  }
-}
-
-/* 列印時移除動畫 */
-@media print {
-  .masonry-card-image-wrapper {
-    page-break-inside: avoid;
-  }
-  
-  .masonry-card-image {
-    position: relative !important;
-    transform: none !important;
-  }
-}
-
-/* ============================================
-   特殊場景：超寬或超高圖片處理
-   ============================================ */
-
-/* 超寬圖片（16:9 或更寬）*/
-.masonry-card-image[data-aspect="wide"] {
-  object-fit: cover;
-  object-position: center top;
-}
-
-/* 超高圖片（豎版 9:16）*/
-.masonry-card-image[data-aspect="tall"] {
-  object-fit: contain;
-  object-position: center top;
-}
-
-/* ============================================
-   效能優化：GPU 加速
-   ============================================ */
-.masonry-card-image-wrapper,
-.masonry-card-image {
-  will-change: transform;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-/* ============================================
-   DEBUG 模式（開發時可啟用）
-   ============================================ */
-/* 
-.masonry-card-image-wrapper {
-  outline: 2px dashed red;
-}
-
-.masonry-card-image {
-  outline: 2px dashed blue;
-}
-*/
-
 @media (max-width: 767px) {
   
   /* 團購卡片容器 - 雙排瀑布流 */
@@ -271,32 +307,6 @@
   .masonry-card:active {
     transform: scale(0.98);
     opacity: 0.95;
-  }
-  
-  /* 圖片容器 */
-  .masonry-card-image-wrapper {
-    position: relative;
-    width: 100%;
-    background: #f9fafb;
-    overflow: hidden;
-    margin: 0;
-    padding: 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .masonry-card-image-wrapper:active .masonry-card-image {
-    opacity: 0.85;
-    transform: scale(0.98);
-  }
-  
-  .masonry-card-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-    user-select: none;
-    -webkit-user-select: none;
   }
   
   /* 內容區 */
@@ -470,36 +480,6 @@
     border-color: #f59e0b;
   }
   
-  .masonry-card-image-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 75%;
-    background: #f5f5f5;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .masonry-card-image-wrapper:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .masonry-card-image-wrapper:hover .masonry-card-image {
-    opacity: 0.92;
-    transform: scale(1.03);
-  }
-  
-  .masonry-card-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    user-select: none;
-    -webkit-user-select: none;
-  }
-  
   .masonry-card-content {
     padding: 16px;
   }
@@ -556,36 +536,6 @@
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     border-color: #f59e0b;
-  }
-  
-  .masonry-card-image-wrapper {
-    position: relative;
-    width: 100%;
-    padding-top: 75%;
-    background: #f5f5f5;
-    overflow: hidden;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  .masonry-card-image-wrapper:hover {
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .masonry-card-image-wrapper:hover .masonry-card-image {
-    opacity: 0.92;
-    transform: scale(1.03);
-  }
-  
-  .masonry-card-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    user-select: none;
-    -webkit-user-select: none;
   }
   
   .masonry-card-content {
@@ -659,7 +609,8 @@
 }
 
 /* 圖片載入中的佔位 */
-.masonry-card-image[loading="lazy"] {
+.masonry-card-image[loading="lazy"],
+.carousel-image[loading="lazy"] {
   background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 50%, #fef3c7 100%);
 }
 
@@ -720,6 +671,7 @@ html {
   .masonry-card,
   .coupon-card,
   .masonry-card-image,
+  .carousel-image,
   button,
   a {
     transition: none !important;
@@ -760,217 +712,4 @@ html {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
-}
-
-/* ============================================
-   輪播圖片修復 CSS
-   請將此內容添加到 style.css 或主 CSS 文件末尾
-   ============================================ */
-
-/* 輪播容器基礎樣式 */
-.masonry-card-image-wrapper {
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
-}
-
-/* 單張圖片 Hover 效果 */
-.masonry-card-image-wrapper:not([id^="carousel-"]) {
-  transition: transform 0.2s ease;
-}
-
-.masonry-card-image-wrapper:not([id^="carousel-"]) img {
-  transition: transform 0.3s ease;
-  will-change: transform;
-}
-
-@media (min-width: 1024px) {
-  .masonry-card-image-wrapper:not([id^="carousel-"]):hover img {
-    transform: scale(1.05);
-  }
-}
-
-/* 輪播圖片基礎樣式 */
-.carousel-container {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background: #f5f5f5;
-}
-
-.carousel-track {
-  display: flex;
-  transition: transform 0.3s ease-out;
-  will-change: transform;
-}
-
-.carousel-slide {
-  flex: 0 0 100%;
-  width: 100%;
-  min-height: 200px;
-}
-
-.carousel-slide img {
-  user-select: none;
-  -webkit-user-select: none;
-  -webkit-touch-callout: none;
-  pointer-events: none;
-}
-
-/* 輪播指示器樣式 */
-.carousel-dot {
-  transition: all 0.3s ease;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  pointer-events: auto;
-  cursor: pointer;
-}
-
-.carousel-dot:hover {
-  transform: scale(1.2);
-}
-
-/* 桌面版箭頭按鈕 */
-.carousel-btn-prev,
-.carousel-btn-next {
-  transition: opacity 0.3s ease, background-color 0.2s ease;
-  cursor: pointer;
-  pointer-events: auto;
-}
-
-.carousel-btn-prev:focus,
-.carousel-btn-next:focus {
-  outline: 2px solid white;
-  outline-offset: 2px;
-}
-
-.carousel-btn-prev:active,
-.carousel-btn-next:active {
-  background-color: rgba(0, 0, 0, 0.8) !important;
-  transform: scale(0.95);
-}
-
-/* 確保輪播在桌面版可見 */
-@media (min-width: 1024px) {
-  .masonry-card-image-wrapper[id^="carousel-"] .carousel-btn-prev,
-  .masonry-card-image-wrapper[id^="carousel-"] .carousel-btn-next {
-    display: flex !important;
-  }
-  
-  /* 確保 group-hover 生效 */
-  .group:hover .carousel-btn-prev,
-  .group:hover .carousel-btn-next {
-    opacity: 1 !important;
-  }
-}
-
-/* 觸控反饋（手機版）*/
-@media (max-width: 1023px) {
-  .carousel-slide:active {
-    opacity: 0.95;
-  }
-  
-  .masonry-card-image-wrapper:active {
-    opacity: 0.9;
-  }
-}
-
-/* 載入中的占位樣式 */
-.carousel-slide img[src*="data:image"] {
-  background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 50%, #f0f0f0 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s infinite;
-}
-
-@keyframes shimmer {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
-}
-
-/* 無障礙 - 鍵盤聚焦樣式 */
-.masonry-card-image-wrapper:focus {
-  outline: 3px solid #3b82f6;
-  outline-offset: 2px;
-}
-
-.masonry-card-image-wrapper:focus-visible {
-  outline: 3px solid #3b82f6;
-  outline-offset: 2px;
-}
-
-/* 高對比模式支援 */
-@media (prefers-contrast: high) {
-  .carousel-btn-prev,
-  .carousel-btn-next {
-    background-color: rgba(0, 0, 0, 0.9) !important;
-    border: 2px solid white;
-  }
-  
-  .carousel-dot {
-    border: 1px solid rgba(0, 0, 0, 0.5);
-  }
-}
-
-/* 減少動畫（尊重用戶偏好）*/
-@media (prefers-reduced-motion: reduce) {
-  .carousel-track,
-  .carousel-dot,
-  .carousel-btn-prev,
-  .carousel-btn-next,
-  .masonry-card-image {
-    transition: none !important;
-    animation: none !important;
-  }
-}
-
-/* 列印樣式 */
-@media print {
-  .carousel-btn-prev,
-  .carousel-btn-next,
-  .carousel-dot {
-    display: none !important;
-  }
-  
-  .carousel-track {
-    transform: none !important;
-  }
-  
-  .carousel-slide {
-    display: block;
-    page-break-inside: avoid;
-  }
-}
-
-/* 性能優化 - GPU 加速 */
-.carousel-track,
-.masonry-card-image {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-/* 確保圖片容器有正確的寬高比 */
-.masonry-card-image-wrapper::before {
-  content: '';
-  display: block;
-  padding-top: 75%; /* 4:3 aspect ratio */
-}
-
-.masonry-card-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-/* 修復單張圖片的佈局 */
-.masonry-card-image-wrapper:not([id^="carousel-"]) {
-  position: relative;
-}
-
-.masonry-card-image-wrapper:not([id^="carousel-"])::before {
-  content: '';
-  display: block;
-  padding-top: 75%;
 }
