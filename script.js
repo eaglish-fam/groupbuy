@@ -1,94 +1,135 @@
-// ============ 圖片處理工具 ============
+// ============ 圖片處理工具 (ENHANCED VERSION) ============
 const ImageHelper = {
   normalizeGoogleDriveUrl(url) {
     if (!url || typeof url !== 'string') return null;
-    if (url.includes('drive.google.com/uc?')) return url;
     
+    // Keep lh3 format as-is (fastest)
+    if (url.includes('lh3.googleusercontent.com/d/')) {
+      return url;
+    }
+    
+    let fileId = null;
     const patterns = [
+      /lh3\.googleusercontent\.com\/d\/([a-zA-Z0-9_-]+)/,
       /\/file\/d\/([a-zA-Z0-9_-]+)/,
-      /id=([a-zA-Z0-9_-]+)/,
       /\/d\/([a-zA-Z0-9_-]+)/,
-      /drive\.google\.com.*?([a-zA-Z0-9_-]{25,})/
+      /[?&]id=([a-zA-Z0-9_-]+)/,
+      /([a-zA-Z0-9_-]{25,})/
     ];
     
     for (const pattern of patterns) {
       const match = url.match(pattern);
-      if (match && match[1]) {
-        return `https://drive.google.com/uc?export=view&id=${match[1]}`;
+      if (match && match[1] && match[1].length >= 25) {
+        fileId = match[1];
+        break;
       }
     }
     
-    return url;
+    if (!fileId) return url;
+    return `https://lh3.googleusercontent.com/d/${fileId}=w1200`;
   },
 
   getFallbackUrls(primaryUrl) {
     const fallbacks = [];
+    if (!primaryUrl) return fallbacks;
     
-    if (primaryUrl && primaryUrl.includes('drive.google.com')) {
-      const normalized = this.normalizeGoogleDriveUrl(primaryUrl);
-      if (normalized !== primaryUrl) fallbacks.push(normalized);
-      
-      const fileId = primaryUrl.match(/([a-zA-Z0-9_-]{25,})/)?.[1];
-      if (fileId) {
-        fallbacks.push(`https://drive.google.com/thumbnail?id=${fileId}&sz=w400`);
+    const fileId = this.extractFileId(primaryUrl);
+    
+    if (fileId) {
+      if (!primaryUrl.includes('lh3.googleusercontent.com')) {
+        fallbacks.push(`https://lh3.googleusercontent.com/d/${fileId}=w1200`);
       }
+      fallbacks.push(`https://lh3.googleusercontent.com/d/${fileId}=w800`);
+      fallbacks.push(`https://lh3.googleusercontent.com/d/${fileId}=w400`);
+      fallbacks.push(`https://drive.google.com/thumbnail?id=${fileId}&sz=w800`);
+      fallbacks.push(`https://drive.google.com/uc?export=view&id=${fileId}`);
     }
     
-    fallbacks.push('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23f3f4f6" width="400" height="300"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" fill="%239ca3af" font-size="18"%3E圖片載入中...%3C/text%3E%3C/svg%3E');
+    if (!fallbacks.includes(primaryUrl)) {
+      fallbacks.unshift(primaryUrl);
+    }
     
-    return fallbacks;
+    return [...new Set(fallbacks)];
+  },
+  
+  extractFileId(url) {
+    if (!url) return null;
+    
+    const patterns = [
+      /lh3\.googleusercontent\.com\/d\/([a-zA-Z0-9_-]+)/,
+      /\/file\/d\/([a-zA-Z0-9_-]+)/,
+      /\/d\/([a-zA-Z0-9_-]+)/,
+      /[?&]id=([a-zA-Z0-9_-]+)/,
+      /([a-zA-Z0-9_-]{25,})/
+    ];
+    
+    for (const pattern of patterns) {
+      const match = url.match(pattern);
+      if (match && match[1] && match[1].length >= 25) {
+        return match[1];
+      }
+    }
+    return null;
   }
 };
 
+
+// ============ 優化的圖片初始化函數 ============
 function initializeImages() {
-  const allImages = document.querySelectorAll('.masonry-card-image');
+  const allImages = document.querySelectorAll('.masonry-card-image, .carousel-image');
   
-  allImages.forEach((img, index) => {
-    const originalSrc = img.getAttribute('src');
+  allImages.forEach((img) => {
     const wrapper = img.closest('.masonry-card-image-wrapper');
+    if (!wrapper) return;
     
-    if (!originalSrc || !wrapper) return;
+    const originalSrc = img.getAttribute('data-src') || img.getAttribute('src');
+    if (!originalSrc || originalSrc.startsWith('data:image/svg')) return;
     
     wrapper.classList.add('loading');
+    wrapper.classList.remove('loaded', 'error');
     
-    const normalizedSrc = ImageHelper.normalizeGoogleDriveUrl(originalSrc);
-    if (normalizedSrc !== originalSrc) {
-      img.src = normalizedSrc;
-    }
+    const normalizedUrl = ImageHelper.normalizeGoogleDriveUrl(originalSrc);
+    const fallbackUrls = ImageHelper.getFallbackUrls(normalizedUrl || originalSrc);
     
-    img.onload = function() {
-      wrapper.classList.remove('loading');
-      wrapper.classList.add('loaded');
-      
-      const aspectRatio = this.naturalWidth / this.naturalHeight;
-      if (aspectRatio > 1.7) this.setAttribute('data-aspect', 'wide');
-      else if (aspectRatio < 0.7) this.setAttribute('data-aspect', 'tall');
-    };
+    let currentAttempt = 0;
     
-    img.onerror = function() {
-      const fallbacks = ImageHelper.getFallbackUrls(originalSrc);
-      
-      if (fallbacks.length > 0) {
-        this.src = fallbacks[0];
-      } else {
+    function tryLoad() {
+      if (currentAttempt >= fallbackUrls.length) {
         wrapper.classList.remove('loading');
         wrapper.classList.add('error');
-        wrapper.innerHTML = `
-          <div class="flex items-center justify-center h-full bg-gray-100 text-gray-400 text-sm">
-            <div class="text-center p-4">
-              <div class="text-3xl mb-2">📷</div>
-              <div>圖片無法載入</div>
-            </div>
-          </div>
-        `;
+        img.src = 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="300"%3E%3Crect fill="%23fee2e2" width="400" height="300"/%3E%3Ctext x="50%25" y="50%25" text-anchor="middle" fill="%23ef4444" font-size="14"%3E無法載入%3C/text%3E%3C/svg%3E';
+        return;
       }
-    };
+      
+      const testImg = new Image();
+      const timeout = setTimeout(() => {
+        testImg.src = '';
+        currentAttempt++;
+        tryLoad();
+      }, 5000);
+      
+      testImg.onload = function() {
+        clearTimeout(timeout);
+        img.src = fallbackUrls[currentAttempt];
+        img.removeAttribute('data-src');
+        wrapper.classList.remove('loading');
+        wrapper.classList.add('loaded');
+        
+        const ratio = this.naturalWidth / this.naturalHeight;
+        if (ratio > 1.7) img.setAttribute('data-aspect', 'wide');
+        else if (ratio < 0.7) img.setAttribute('data-aspect', 'tall');
+      };
+      
+      testImg.onerror = function() {
+        clearTimeout(timeout);
+        currentAttempt++;
+        tryLoad();
+      };
+      
+      testImg.src = fallbackUrls[currentAttempt];
+    }
     
-    setTimeout(() => {
-      if (wrapper.classList.contains('loading')) {
-        img.onerror();
-      }
-    }, 10000);
+    tryLoad();
   });
 }
 
@@ -1586,65 +1627,80 @@ function renderGroupCard(g) {
     `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${utils.getCountryFlag(country)} ${country}</span>`
   ).join('');
 
-  const images = g.image ? g.image.split(/[,，|]/).map(url => url.trim()).filter(url => url) : [];
+  const images = g.image ? g.image.split(/[,、|]/).map(url => url.trim()).filter(url => url) : [];
   let imageHTML = '';
-  
+
   if (images.length === 0) {
     imageHTML = '';
   } else if (images.length === 1) {
+  // Single image - use data-src for lazy load
+    const normalizedUrl = ImageHelper.normalizeGoogleDriveUrl(images[0]);
     imageHTML = `
       <div class="masonry-card-image-wrapper">
         ${g.url ? `
           <a href="${g.url}" target="_blank" rel="noopener noreferrer"
-             onclick="event.stopPropagation(); try{ if(typeof gtag !== 'undefined'){ gtag('event','image_click',{ event_category:'engagement', event_label:'${g.brand || ''}' }); } }catch(e){}">
-            <img src="${images[0]}" 
-                 alt="${g.brand}" 
+             onclick="event.stopPropagation(); trackImageClick('${g.brand || ''}');">
+            <img data-src="${normalizedUrl || images[0]}" 
+                 src="${ImageHelper.getPlaceholderSvg()}"
+                 alt="${g.brand}的商品圖片" 
                  class="masonry-card-image ${expired ? 'grayscale' : ''}"
-                 loading="lazy">
+                 loading="lazy"
+                 width="400"
+                 height="300">
           </a>
         ` : `
-          <img src="${images[0]}" 
-               alt="${g.brand}" 
+          <img data-src="${normalizedUrl || images[0]}" 
+               src="${ImageHelper.getPlaceholderSvg()}"
+               alt="${g.brand}的商品圖片" 
                class="masonry-card-image ${expired ? 'grayscale' : ''}"
-               loading="lazy">
+               loading="lazy"
+               width="400"
+               height="300">
         `}
       </div>
     `;
   } else {
+    // Multiple images - carousel
     const carouselId = `carousel-${g.id}`;
+    const normalizedImages = images.map(img => ImageHelper.normalizeGoogleDriveUrl(img) || img);
+  
     imageHTML = `
       <div class="masonry-card-image-wrapper relative">
         <div class="image-carousel" data-carousel-id="${carouselId}">
-          ${images.map((img, idx) => `
-            <img src="${img}" 
-                 alt="${g.brand} ${idx + 1}" 
+          ${normalizedImages.map((img, idx) => `
+            <img data-src="${img}" 
+                 src="${ImageHelper.getPlaceholderSvg()}"
+                 alt="${g.brand}的商品圖片 ${idx + 1}" 
                  class="carousel-image ${idx === 0 ? 'active' : ''} ${expired ? 'grayscale' : ''}"
-                 loading="lazy">
+                 loading="lazy"
+                 width="400"
+                 height="300">
           `).join('')}
         </div>
-        <div class="carousel-controls">
-          <button onclick="prevSlide('${carouselId}')" class="carousel-btn carousel-btn-prev" aria-label="Previous image">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-            </svg>
-          </button>
-          <button onclick="nextSlide('${carouselId}')" class="carousel-btn carousel-btn-next" aria-label="Next image">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </button>
-        </div>
-        <div class="carousel-dots">
-          ${images.map((_, idx) => `
-            <button onclick="goToSlide('${carouselId}', ${idx})" 
-                    class="carousel-dot ${idx === 0 ? 'active' : ''}" 
-                    aria-label="Go to image ${idx + 1}"></button>
-          `).join('')}
-        </div>
+        ${normalizedImages.length > 1 ? `
+          <div class="carousel-controls">
+            <button onclick="prevSlide('${carouselId}')" class="carousel-btn carousel-btn-prev" aria-label="上一張圖片">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+              </svg>
+            </button>
+            <button onclick="nextSlide('${carouselId}')" class="carousel-btn carousel-btn-next" aria-label="下一張圖片">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </button>
+          </div>
+          <div class="carousel-dots">
+            ${normalizedImages.map((_, idx) => `
+              <button onclick="goToSlide('${carouselId}', ${idx})" 
+                      class="carousel-dot ${idx === 0 ? 'active' : ''}" 
+                      aria-label="前往第 ${idx + 1} 張圖片"></button>
+            `).join('')}
+          </div>
+        ` : ''}
       </div>
     `;
   }
-
   const countdown = g.category === 'short' && daysLeft !== null
     ? `<div class="flex items-center gap-2 text-sm mb-3">
          <span class="${daysLeft < 0 ? 'text-gray-500' : daysLeft <= 3 ? 'text-red-600 font-semibold' : 'text-amber-700'}">
@@ -1686,6 +1742,17 @@ function renderGroupCard(g) {
            class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>
       </div>
     </div>`;
+}
+
+// Track image clicks for analytics
+function trackImageClick(brandName) {
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'image_click', {
+      'event_category': 'engagement',
+      'event_label': brandName,
+      'brand': brandName
+    });
+  }
 }
 
 function renderCouponCard(g) {
@@ -1919,14 +1986,12 @@ function renderContent() {
   if (todayEndingGroups.length > 0) {
     startCountdown();
   }
-  
+
   setTimeout(() => {
     initializeCarousels();
-  }, 100);
-  setTimeout(() => {
-    initializeImages();
-  }, 150);
-}
+    initializeImages(); // This will now use the enhanced version
+  }, 200);
+
 
 // ============ 初始化 ============
 function init() {
