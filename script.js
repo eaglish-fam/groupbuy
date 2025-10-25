@@ -19,12 +19,10 @@ function toggleSidebar() {
     content.style.marginLeft = '0';
   }
   
-  // 儲存狀態
   try {
     localStorage.setItem(STORAGE_KEYS.sidebarOpen, String(sidebarOpen));
   } catch {}
   
-  // GA4 追蹤
   if (typeof gtag !== 'undefined') {
     gtag('event', 'toggle_sidebar', {
       'action': sidebarOpen ? 'open' : 'close',
@@ -47,7 +45,6 @@ function toggleMobileFilters() {
     btnText.textContent = '篩選';
   }
   
-  // GA4 追蹤
   if (typeof gtag !== 'undefined') {
     gtag('event', 'toggle_mobile_filters', {
       'action': mobileFiltersOpen ? 'open' : 'close',
@@ -56,11 +53,44 @@ function toggleMobileFilters() {
   }
 }
 
+// ============ ✨ 新增：清除所有篩選功能 ============
+function clearAllFilters() {
+  // 重置所有篩選狀態
+  state.searchTerm = '';
+  state.selectedCategory = 'all';
+  state.selectedCountry = 'all';
+  
+  // 清空搜尋框
+  if (elements.searchInput) {
+    elements.searchInput.value = '';
+  }
+  
+  // 更新 localStorage
+  try {
+    localStorage.setItem(STORAGE_KEYS.search, '');
+    localStorage.setItem(STORAGE_KEYS.category, 'all');
+    localStorage.setItem(STORAGE_KEYS.country, 'all');
+  } catch {}
+  
+  // 隱藏清除按鈕
+  elements.clearBtn?.classList.add('hidden');
+  
+  // GA4 追蹤
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'clear_all_filters', {
+      'event_category': 'engagement'
+    });
+  }
+  
+  // 重新渲染
+  renderFilters();
+  renderContent();
+}
+
 // ============ 配置 ============
 const CONFIG = {
   SHEET_ID: '1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU',
   
-  // 🎨 分類圖示對應（可自訂，沒有的會使用預設）
   CATEGORY_ICONS: {
     '食品': '🍱',
     '母嬰': '👶',
@@ -74,7 +104,6 @@ const CONFIG = {
     '其他': '🎁'
   },
   
-  // 🎨 分類顏色對應（可自訂，沒有的會使用預設）
   CATEGORY_COLORS: {
     '食品': 'bg-orange-100 text-orange-700 border-orange-300',
     '母嬰': 'bg-pink-100 text-pink-700 border-pink-300',
@@ -88,7 +117,6 @@ const CONFIG = {
     '其他': 'bg-gray-100 text-gray-700 border-gray-300'
   },
   
-  // 🌏 國家旗幟對應（可自訂，沒有的會使用預設）
   COUNTRY_FLAGS: {
     '台灣': '🇹🇼',
     '日本': '🇯🇵',
@@ -100,16 +128,14 @@ const CONFIG = {
     '中國': '🇨🇳',
     '香港': '🇭🇰',
     '歐盟': '🇪🇺',
-    '歐州': '🇪🇺',  // 常見錯字
-    '其他': '🌍'
+    '歐州': '🇪🇺',
+    '其他': '🌐'
   },
   
   BANNER_IMAGE_URL: "",
   BANNER_LINK_URL: "",
   REFRESH_INTERVAL: 5 * 60 * 1000,
   SEARCH_DEBOUNCE: 120,
-  
-  // 手機版篩選按鈕顯示數量
   MOBILE_FILTER_VISIBLE: 12
 };
 
@@ -135,8 +161,8 @@ const state = {
   selectedCountry: 'all',
   categoryExpanded: false,
   countryExpanded: false,
-  availableCategories: [], // 從資料中動態讀取
-  availableCountries: []    // 從資料中動態讀取
+  availableCategories: [],
+  availableCountries: []
 };
 
 // ============ 工具函數 ============
@@ -147,10 +173,8 @@ const utils = {
   isProbablyHTML: t => /<\/?html[\s>]/i.test(t) || /accounts\.google\.com/.test(t),
   formatCount: n => n > 99 ? '99+' : n > 9 ? '9+' : String(n),
   
-  // 正規化分類/國家名稱（用於匹配）
   normalizeFilterValue: v => (v || '').toLowerCase().trim(),
   
-  // 取得分類圖示
   getCategoryIcon: name => {
     const normalized = utils.normalizeFilterValue(name);
     for (const [key, icon] of Object.entries(CONFIG.CATEGORY_ICONS)) {
@@ -158,10 +182,9 @@ const utils = {
         return icon;
       }
     }
-    return '📦'; // 預設圖示
+    return '📦';
   },
   
-  // 取得分類顏色
   getCategoryColor: name => {
     const normalized = utils.normalizeFilterValue(name);
     for (const [key, color] of Object.entries(CONFIG.CATEGORY_COLORS)) {
@@ -169,10 +192,9 @@ const utils = {
         return color;
       }
     }
-    return 'bg-gray-100 text-gray-700 border-gray-300'; // 預設顏色
+    return 'bg-gray-100 text-gray-700 border-gray-300';
   },
   
-  // 取得國家旗幟
   getCountryFlag: name => {
     const normalized = utils.normalizeFilterValue(name);
     for (const [key, flag] of Object.entries(CONFIG.COUNTRY_FLAGS)) {
@@ -180,7 +202,13 @@ const utils = {
         return flag;
       }
     }
-    return '🌐'; // 預設旗幟
+    return '🌐';
+  },
+
+  // ✨ 新增：解析多個以逗號分隔的 URL
+  parseMultipleURLs: urlString => {
+    if (!urlString || !urlString.trim()) return [];
+    return urlString.split(/[,，]/).map(u => u.trim()).filter(u => u && utils.isURL(u));
   },
 
   parseDateSafe(v) {
@@ -215,6 +243,17 @@ const utils = {
     return d !== null && d < 0;
   },
 
+  // ✨ 新增：檢查是否為今日截止
+  isEndingToday(endStr) {
+    const d = this.getDaysLeft(endStr);
+    return d === 0;
+  },
+
+  // ✨ 新增：獲取今日截止的商品列表
+  getTodayEndingGroups(groups) {
+    return groups.filter(g => this.isEndingToday(g.endDate));
+  },
+
   parseQA(qaString) {
     if (!qaString) return [];
     const norm = qaString
@@ -240,19 +279,54 @@ const elements = {
   videoModal: document.getElementById('videoModal'),
   videoContainer: document.getElementById('videoContainer'),
   bannerSlot: document.getElementById('bannerSlot'),
-  
-  // 手機版篩選
   categoryFilters: document.getElementById('categoryFilters'),
   countryFilters: document.getElementById('countryFilters'),
   categoryExpand: document.getElementById('categoryExpand'),
   countryExpand: document.getElementById('countryExpand'),
   categoryExpandContent: document.getElementById('categoryExpandContent'),
   countryExpandContent: document.getElementById('countryExpandContent'),
-  
-  // 桌面版篩選
   desktopCategoryFilters: document.getElementById('desktopCategoryFilters'),
   desktopCountryFilters: document.getElementById('desktopCountryFilters')
 };
+
+// ============ ✨ 新增：倒數計時功能 ============
+let countdownInterval = null;
+
+function startCountdown() {
+  // 清除舊的計時器
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+
+  const countdownElement = document.getElementById('todayEndingCountdown');
+  if (!countdownElement) return;
+
+  countdownInterval = setInterval(() => {
+    const now = new Date();
+    const endOfDay = new Date();
+    endOfDay.setHours(23, 59, 59, 999);
+    
+    const diff = endOfDay - now;
+    
+    if (diff <= 0) {
+      countdownElement.innerHTML = '<span class="text-red-600 font-bold animate-pulse">已截止！</span>';
+      clearInterval(countdownInterval);
+      // 1 秒後重新載入數據
+      setTimeout(() => loadData(), 1000);
+      return;
+    }
+    
+    const hours = Math.floor(diff / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+    
+    countdownElement.innerHTML = `
+      <span class="font-mono font-bold text-red-600">
+        ${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}
+      </span>
+    `;
+  }, 1000);
+}
 
 // ============ 篩選功能 ============
 function setFilter(type, value) {
@@ -262,7 +336,6 @@ function setFilter(type, value) {
       localStorage.setItem(STORAGE_KEYS.category, value);
     } catch {}
     
-    // GA4 追蹤
     if (typeof gtag !== 'undefined' && value !== 'all') {
       gtag('event', 'filter_category', {
         'category': value,
@@ -275,7 +348,6 @@ function setFilter(type, value) {
       localStorage.setItem(STORAGE_KEYS.country, value);
     } catch {}
     
-    // GA4 追蹤
     if (typeof gtag !== 'undefined' && value !== 'all') {
       gtag('event', 'filter_country', {
         'country': value,
@@ -298,7 +370,6 @@ function getFilterCounts() {
   const countryCounts = { all: filtered.length };
   
   filtered.forEach(g => {
-    // 處理複選分類（一個商品可能屬於多個分類）
     if (g.itemCategory && g.itemCategory.trim()) {
       const categories = g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c);
       categories.forEach(cat => {
@@ -306,7 +377,6 @@ function getFilterCounts() {
       });
     }
     
-    // 處理複選國家（一個商品可能屬於多個國家）
     if (g.itemCountry && g.itemCountry.trim()) {
       const countries = g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c);
       countries.forEach(country => {
@@ -320,16 +390,11 @@ function getFilterCounts() {
 
 function renderFilters() {
   const { categoryCounts, countryCounts } = getFilterCounts();
-  
-  // 手機版篩選按鈕
   renderMobileFilters(categoryCounts, countryCounts);
-  
-  // 桌面版側邊欄
   renderDesktopFilters(categoryCounts, countryCounts);
 }
 
 function renderMobileFilters(categoryCounts, countryCounts) {
-  // 分類篩選 - 全部顯示在滑動容器中
   elements.categoryFilters.innerHTML = `
     <button onclick="setFilter('category', 'all')" 
             class="px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${state.selectedCategory === 'all' ? 'bg-amber-600 text-white' : 'bg-gray-100 text-gray-700'}">
@@ -344,7 +409,6 @@ function renderMobileFilters(categoryCounts, countryCounts) {
     </button>
   `).join('');
   
-  // 國家篩選 - 全部顯示在滑動容器中
   elements.countryFilters.innerHTML = `
     <button onclick="setFilter('country', 'all')" 
             class="px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${state.selectedCountry === 'all' ? 'bg-amber-600 text-white' : 'bg-gray-100 text-gray-700'}">
@@ -361,7 +425,6 @@ function renderMobileFilters(categoryCounts, countryCounts) {
 }
 
 function renderDesktopFilters(categoryCounts, countryCounts) {
-  // 桌面版分類
   elements.desktopCategoryFilters.innerHTML = `
     <button onclick="setFilter('category', 'all')" 
             class="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
@@ -378,7 +441,6 @@ function renderDesktopFilters(categoryCounts, countryCounts) {
     </button>
   `).join('');
   
-  // 桌面版國家
   elements.desktopCountryFilters.innerHTML = `
     <button onclick="setFilter('country', 'all')" 
             class="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
@@ -409,6 +471,148 @@ function renderBanner() {
   }
   elements.bannerSlot.innerHTML = inner;
   elements.bannerSlot.classList.remove('hidden');
+}
+
+// ============ ✨ 新增：輪播圖片元件 ============
+function renderImageCarousel(images, brand) {
+  if (!images || images.length === 0) return '';
+  
+  if (images.length === 1) {
+    // 單張圖片，保持原有邏輯
+    return `
+      <div class="masonry-card-image-wrapper">
+        <img src="${images[0]}" 
+             alt="${brand}" 
+             class="masonry-card-image"
+             loading="lazy">
+      </div>
+    `;
+  }
+  
+  // 多張圖片，使用輪播
+  const carouselId = `carousel-${Math.random().toString(36).substr(2, 9)}`;
+  return `
+    <div class="masonry-card-image-wrapper relative group" id="${carouselId}">
+      <div class="carousel-container overflow-hidden">
+        <div class="carousel-track flex transition-transform duration-300" style="transform: translateX(0%)">
+          ${images.map(img => `
+            <div class="carousel-slide flex-shrink-0 w-full">
+              <img src="${img}" 
+                   alt="${brand}" 
+                   class="masonry-card-image"
+                   loading="lazy">
+            </div>
+          `).join('')}
+        </div>
+      </div>
+      
+      <!-- 輪播指示器 -->
+      <div class="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+        ${images.map((_, idx) => `
+          <button onclick="goToSlide('${carouselId}', ${idx})" 
+                  class="carousel-dot w-2 h-2 rounded-full transition-all ${idx === 0 ? 'bg-white w-4' : 'bg-white/60'}"
+                  data-dot="${idx}">
+          </button>
+        `).join('')}
+      </div>
+      
+      <!-- 左右箭頭（桌面版）-->
+      ${images.length > 1 ? `
+        <button onclick="prevSlide('${carouselId}')" 
+                class="hidden lg:flex absolute left-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button onclick="nextSlide('${carouselId}')" 
+                class="hidden lg:flex absolute right-2 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full opacity-0 group-hover:opacity-100 transition-opacity z-10">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      ` : ''}
+    </div>
+    <script>
+      // 輪播觸控支援
+      (function() {
+        const carousel = document.getElementById('${carouselId}');
+        if (!carousel) return;
+        
+        let startX = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+        let currentIndex = 0;
+        const totalSlides = ${images.length};
+        
+        carousel.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+        });
+        
+        carousel.addEventListener('touchmove', (e) => {
+          const currentX = e.touches[0].clientX;
+          const diff = currentX - startX;
+          currentTranslate = prevTranslate + diff;
+        });
+        
+        carousel.addEventListener('touchend', (e) => {
+          const movedBy = currentTranslate - prevTranslate;
+          
+          if (movedBy < -50 && currentIndex < totalSlides - 1) {
+            currentIndex++;
+          } else if (movedBy > 50 && currentIndex > 0) {
+            currentIndex--;
+          }
+          
+          goToSlide('${carouselId}', currentIndex);
+        });
+      })();
+    </script>
+  `;
+}
+
+// 輪播控制函數
+function goToSlide(carouselId, index) {
+  const carousel = document.getElementById(carouselId);
+  if (!carousel) return;
+  
+  const track = carousel.querySelector('.carousel-track');
+  const dots = carousel.querySelectorAll('.carousel-dot');
+  const totalSlides = dots.length;
+  
+  // 限制索引範圍
+  index = Math.max(0, Math.min(index, totalSlides - 1));
+  
+  // 更新輪播位置
+  track.style.transform = `translateX(-${index * 100}%)`;
+  
+  // 更新指示器
+  dots.forEach((dot, idx) => {
+    if (idx === index) {
+      dot.classList.add('bg-white', 'w-4');
+      dot.classList.remove('bg-white/60');
+    } else {
+      dot.classList.remove('bg-white', 'w-4');
+      dot.classList.add('bg-white/60');
+    }
+  });
+}
+
+function nextSlide(carouselId) {
+  const carousel = document.getElementById(carouselId);
+  if (!carousel) return;
+  
+  const dots = carousel.querySelectorAll('.carousel-dot');
+  const currentIndex = Array.from(dots).findIndex(dot => dot.classList.contains('w-4'));
+  goToSlide(carouselId, currentIndex + 1);
+}
+
+function prevSlide(carouselId) {
+  const carousel = document.getElementById(carouselId);
+  if (!carousel) return;
+  
+  const dots = carousel.querySelectorAll('.carousel-dot');
+  const currentIndex = Array.from(dots).findIndex(dot => dot.classList.contains('w-4'));
+  goToSlide(carouselId, currentIndex - 1);
 }
 
 // ============ 影片處理 ============
@@ -504,7 +708,7 @@ const videoHandler = {
   }
 };
 
-// ============ 全局函數（供 HTML 調用）============
+// ============ 全域函數（供 HTML 調用）============
 function scrollToSection(sectionId) {
   const el = document.getElementById(sectionId);
   if (!el) return;
@@ -514,31 +718,35 @@ function scrollToSection(sectionId) {
   window.scrollTo({ top, behavior: 'smooth' });
 }
 
-function openVideoModal(event, videoUrl) {
+// ✨ 優化：支援多影片選擇
+function openVideoModal(event, videoUrl, videoIndex = 0) {
   event.stopPropagation();
+  
+  const videos = utils.parseMultipleURLs(videoUrl);
+  const currentVideo = videos[videoIndex] || videos[0];
   
   if (typeof gtag !== 'undefined') {
     gtag('event', 'watch_video', {
-      'video_url': videoUrl,
+      'video_url': currentVideo,
       'event_category': 'engagement',
-      'event_label': videoUrl
+      'event_label': currentVideo
     });
   }
   
   try {
-    const host = new URL(videoUrl).hostname.toLowerCase();
+    const host = new URL(currentVideo).hostname.toLowerCase();
     if (host.includes('youtube.com') || host.includes('youtu.be') || host.includes('drive.google.com')) {
-      window.open(videoUrl, '_blank', 'noopener,noreferrer');
+      window.open(currentVideo, '_blank', 'noopener,noreferrer');
       return;
     }
   } catch {
-    window.open(videoUrl, '_blank', 'noopener,noreferrer');
+    window.open(currentVideo, '_blank', 'noopener,noreferrer');
     return;
   }
 
-  const embed = videoHandler.buildVideoEmbed(videoUrl);
+  const embed = videoHandler.buildVideoEmbed(currentVideo);
   if (!embed) {
-    window.open(videoUrl, '_blank', 'noopener,noreferrer');
+    window.open(currentVideo, '_blank', 'noopener,noreferrer');
     return;
   }
 
@@ -552,7 +760,27 @@ function openVideoModal(event, videoUrl) {
     elements.videoContainer.style.aspectRatio = embed.ratio;
   }
 
-  elements.videoContainer.innerHTML = `<div class="${wrapperClasses}">${embed.html}</div>`;
+  // 如果有多個影片，顯示選擇按鈕
+  let videoSelector = '';
+  if (videos.length > 1) {
+    videoSelector = `
+      <div class="flex gap-2 justify-center mb-4 flex-wrap">
+        ${videos.map((v, idx) => `
+          <button onclick="openVideoModal(event, '${videoUrl}', ${idx})" 
+                  class="px-3 py-1.5 rounded-lg text-sm font-medium ${
+                    idx === videoIndex ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                  }">
+            影片 ${idx + 1}
+          </button>
+        `).join('')}
+      </div>
+    `;
+  }
+
+  elements.videoContainer.innerHTML = `
+    ${videoSelector}
+    <div class="${wrapperClasses}">${embed.html}</div>
+  `;
   elements.videoModal.classList.remove('hidden');
   elements.videoModal.classList.add('flex');
 
@@ -1009,7 +1237,7 @@ function renderMonthlyGroupList() {
     return `
       <div class="mt-6 pt-6 border-t-2 border-gray-200">
         <div class="text-center py-6 text-gray-500">
-          <p class="text-sm">📭 本月暫無開團項目</p>
+          <p class="text-sm">🔭 本月暫無開團項目</p>
         </div>
       </div>
     `;
@@ -1222,28 +1450,15 @@ async function loadUpcomingFromTab() {
 }
 
 async function loadData() {
-  console.log('🔄 開始載入資料...');
   try {
     const MAIN_CSV = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/export?format=csv`;
-    console.log('📡 請求 Google Sheets:', MAIN_CSV);
-    
     const res = await fetch(MAIN_CSV, { credentials: 'omit' });
-    console.log('✅ 收到回應:', res.status, res.statusText);
-    
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}: ${res.statusText}`);
-    }
-    
     const csv = await res.text();
-    console.log('📝 CSV 資料長度:', csv.length, '字元');
 
     if (utils.isProbablyHTML(csv)) {
-      console.error('❌ 回傳內容是 HTML，非 CSV');
       showError('Google Sheet 無法公開讀取。請將權限改為「知道連結的任何人可檢視」，或使用「檔案 → 發佈到網路上」。');
       return;
     }
-    
-    console.log('✅ CSV 格式正確，開始解析...');
 
     const all = [];
     Papa.parse(csv, {
@@ -1275,7 +1490,10 @@ async function loadData() {
             stock: row['庫存狀態'] || row['Stock'] || '',
             tag: row['標籤'] || row['Tag'] || '',
             coupon: row['折扣碼'] || row['Coupon'] || row['DiscountCode'] || '',
+            // ✨ 新增：分離的欄位
             note: row['備註'] || row['Note'] || row['Remark'] || '',
+            blogUrl: row['網誌網址'] || row['BlogURL'] || row['ArticleURL'] || '',
+            qa: row['QA'] || row['Q&A'] || '',
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
             itemCountry: row['國家'] || row['Country'] || ''
@@ -1284,42 +1502,33 @@ async function loadData() {
       }
     });
 
-    console.log('✅ 解析完成，共', all.length, '筆資料');
     state.groups = all.filter(g => g.category !== 'upcoming' && !!g.url);
-    console.log('✅ 過濾後有效團購:', state.groups.length, '筆');
 
     // 提取所有不重複的分類和國家
     const categoriesSet = new Set();
     const countriesSet = new Set();
     
     state.groups.forEach(g => {
-      // 處理分類（可能包含逗號分隔的多個值）
       if (g.itemCategory && g.itemCategory.trim()) {
         const categories = g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c);
         categories.forEach(cat => categoriesSet.add(cat));
       }
       
-      // 處理國家（可能包含逗號分隔的多個值）
       if (g.itemCountry && g.itemCountry.trim()) {
         const countries = g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c);
         countries.forEach(country => countriesSet.add(country));
       }
     });
     
-    // 轉換為陣列並自訂排序
     state.availableCategories = Array.from(categoriesSet).sort();
     
-    // 自訂國家排序：中國和香港排到最後
     state.availableCountries = Array.from(countriesSet).sort((a, b) => {
       const sensitiveCountries = ['中國', '香港'];
       const aIsSensitive = sensitiveCountries.includes(a);
       const bIsSensitive = sensitiveCountries.includes(b);
       
-      // 如果 a 是敏感國家，b 不是，a 排後面
       if (aIsSensitive && !bIsSensitive) return 1;
-      // 如果 b 是敏感國家，a 不是，b 排後面
       if (!aIsSensitive && bIsSensitive) return -1;
-      // 否則按照字母順序
       return a.localeCompare(b, 'zh-TW');
     });
 
@@ -1337,36 +1546,21 @@ async function loadData() {
     });
 
     state.loading = false;
-    console.log('✅ 資料載入完成，開始渲染...');
-    console.log('📊 可用分類:', state.availableCategories);
-    console.log('📊 可用國家:', state.availableCountries);
-    
     renderFilters();
     renderContent();
-    console.log('✅ 渲染完成！');
-  } catch (error) {
-    console.error('❌ 載入資料時發生錯誤:', error);
-    console.error('❌ 錯誤訊息:', error.message);
-    console.error('❌ 錯誤堆疊:', error.stack);
+  } catch {
     showError('無法連接資料來源（網路或權限問題）');
   }
 }
 
 // ============ 卡片渲染 ============
 function renderUpcomingSearchCard(g) {
+  // 解析多圖片
+  const images = utils.parseMultipleURLs(g.image);
+  
   return `
     <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden border-2 border-pink-200 shadow-md transition-all hover:shadow-lg">
-      ${g.image ? `
-  <div class="w-full h-40 bg-gray-100">
-    <a href="${g.url}" target="_blank" rel="noopener noreferrer"
-       onclick="try{ if(typeof gtag!=='undefined'){ gtag('event','coupon_image_click',{ event_category:'engagement', label:'${g.brand || ''}' }); } }catch(e){}">
-      <img src="${g.image}" 
-           class="w-full h-full object-cover ${expired ? 'grayscale' : ''}" 
-           loading="lazy" 
-           alt="${g.brand || ''}">
-    </a>
-  </div>
-` : ''}
+      ${images.length > 0 ? renderImageCarousel(images, g.brand) : ''}
       <div class="p-5">
         <div class="flex items-center gap-2 mb-2">
           <span class="bg-pink-500 text-white px-2.5 py-0.5 rounded-full text-xs font-bold">敬請期待</span>
@@ -1385,21 +1579,27 @@ function renderUpcomingSearchCard(g) {
 function renderGroupCard(g) {
   const daysLeft = utils.getDaysLeft(g.endDate);
   const expired = utils.isExpired(g.endDate);
-  const noteIsURL = utils.isURL(g.note);
-  const noteIsQA = utils.isQA(g.note);
-  const qaList = noteIsQA ? utils.parseQA(g.note) : [];
+  
+  // ✨ 分離後的欄位邏輯
+  const noteIsURL = utils.isURL(g.blogUrl);  // 改用獨立的 blogUrl 欄位
+  const noteIsQA = g.qa && utils.isQA(g.qa);  // 改用獨立的 qa 欄位
+  const qaList = noteIsQA ? utils.parseQA(g.qa) : [];
+  
+  // ✨ 解析多影片 URL
+  const videos = utils.parseMultipleURLs(g.video);
+  
+  // ✨ 解析多圖片
+  const images = utils.parseMultipleURLs(g.image);
+  
   const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
 
-  // 處理複選的分類和國家
   const categories = g.itemCategory ? g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
   const countries = g.itemCountry ? g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
   
-  // 生成分類標籤
   const categoryTags = categories.map(cat => 
     `<span class="text-xs ${utils.getCategoryColor(cat)} px-2 py-1 rounded-full border font-medium">${utils.getCategoryIcon(cat)} ${cat}</span>`
   ).join('');
   
-  // 生成國家標籤
   const countryTags = countries.map(country => 
     `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${utils.getCountryFlag(country)} ${country}</span>`
   ).join('');
@@ -1414,24 +1614,7 @@ function renderGroupCard(g) {
 
   return `
     <div class="masonry-card ${expired ? 'opacity-60' : ''}">
-      ${g.image ? `
-        <div class="masonry-card-image-wrapper">
-          ${g.url ? `
-            <a href="${g.url}" target="_blank" rel="noopener noreferrer"
-               onclick="event.stopPropagation(); try{ if(typeof gtag !== 'undefined'){ gtag('event','image_click',{ event_category:'engagement', event_label:'${g.brand || ''}' }); } }catch(e){}">
-              <img src="${g.image}" 
-                   alt="${g.brand}" 
-                   class="masonry-card-image ${expired ? 'grayscale' : ''}"
-                   loading="lazy">
-            </a>
-          ` : `
-            <img src="${g.image}" 
-                 alt="${g.brand}" 
-                 class="masonry-card-image ${expired ? 'grayscale' : ''}"
-                 loading="lazy">
-          `}
-        </div>
-      ` : ''}
+      ${images.length > 0 ? renderImageCarousel(images, g.brand) : ''}
       <div class="masonry-card-content p-5">
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         ${g.description ? `<p class="text-base md:text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-3">${g.description}</p>` : ''}
@@ -1444,17 +1627,40 @@ function renderGroupCard(g) {
           ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
         </div>
         ${countdown}
-        ${g.note && !expired
-          ? noteIsQA
-            ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
-                 <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓（${qaList.length}）</summary>
-                 ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
-               </details>`
-            : noteIsURL
-              ? `<div class="mb-3"><button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors">📝 查看介紹</button></div>`
-              : `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>`
+        
+        ${/* ✨ 獨立的備註欄位（純文字說明）*/ ''}
+        ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
+        
+        ${/* ✨ 獨立的 Q&A 欄位 */ ''}
+        ${noteIsQA && !expired
+          ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
+               <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓（${qaList.length}）</summary>
+               ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
+             </details>`
           : ''}
-        ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
+        
+        ${/* ✨ 獨立的網誌介紹欄位 */ ''}
+        ${noteIsURL && !expired
+          ? `<div class="mb-3"><button onclick='openNote(event, "${g.blogUrl}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors">📄 查看介紹</button></div>`
+          : ''}
+        
+        ${/* ✨ 多影片支援 */ ''}
+        ${videos.length > 0 && !expired 
+          ? videos.length === 1
+            ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}", 0)' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>`
+            : `<div class="mb-3">
+                 <p class="text-xs text-gray-600 mb-2 font-medium">🎬 影片介紹（${videos.length}）</p>
+                 <div class="grid grid-cols-2 gap-2">
+                   ${videos.map((v, idx) => `
+                     <button onclick='openVideoModal(event, "${g.video}", ${idx})' 
+                             class="bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-3 py-2 rounded-lg text-xs font-medium hover:from-red-100 hover:to-pink-100 transition-colors">
+                       影片 ${idx + 1}
+                     </button>
+                   `).join('')}
+                 </div>
+               </div>`
+          : ''}
+        
         ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
         ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天！記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
         <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
@@ -1464,41 +1670,35 @@ function renderGroupCard(g) {
     </div>`;
 }
 
-// ============================================
-// 修改後的 renderCouponCard 函數
-// 用於：折扣碼優惠
-// 佈局：單欄顯示，折扣碼橫向排列
-// ============================================
-
-// ============================================
-// 修正後的 renderCouponCard 函數
-// 修正：將「查看詳細說明」改為按鈕樣式
-// ============================================
-
 function renderCouponCard(g) {
   const expired = utils.isExpired(g.endDate);
   const daysLeft = utils.getDaysLeft(g.endDate);
-  const noteIsURL = utils.isURL(g.note);
-  const noteIsQA = utils.isQA(g.note);
-  const qaList = noteIsQA ? utils.parseQA(g.note) : [];
+  
+  // ✨ 分離後的欄位邏輯
+  const noteIsURL = utils.isURL(g.blogUrl);
+  const noteIsQA = g.qa && utils.isQA(g.qa);
+  const qaList = noteIsQA ? utils.parseQA(g.qa) : [];
+  
+  // ✨ 解析多圖片
+  const images = utils.parseMultipleURLs(g.image);
+  
+  // ✨ 解析多影片
+  const videos = utils.parseMultipleURLs(g.video);
 
-  // 處理複選的分類和國家
   const categories = g.itemCategory ? g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
   const countries = g.itemCountry ? g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
   
-  // 生成分類標籤
   const categoryTags = categories.map(cat => 
     `<span class="text-xs ${utils.getCategoryColor(cat)} px-2 py-1 rounded-full border font-medium">${utils.getCategoryIcon(cat)} ${cat}</span>`
   ).join('');
   
-  // 生成國家標籤
   const countryTags = countries.map(country => 
     `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${utils.getCountryFlag(country)} ${country}</span>`
   ).join('');
 
   return `
     <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}">
-      ${g.image ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block w-full h-40 bg-gray-100" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_image', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'engagement', event_label: 'coupon_image_click'});}" ><img src="${g.image}" alt="${g.brand}" class="w-full h-full object-cover ${expired ? 'grayscale' : ''}" loading="lazy"></a>` : ''}
+      ${images.length > 0 ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_image', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'engagement', event_label: 'coupon_image_click'});}">${renderImageCarousel(images, g.brand)}</a>` : ''}
       <div class="p-6">
         <div class="flex items-start justify-between gap-3 mb-3">
           <div class="flex-1">
@@ -1508,10 +1708,33 @@ function renderCouponCard(g) {
           ${expired ? '<span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">已結束</span>' : ''}
         </div>
         <div class="flex flex-wrap gap-2 mb-3">${categoryTags}${countryTags}</div>
+        
+        ${/* ✨ 獨立的備註欄位 */ ''}
         ${g.note && !noteIsURL && !noteIsQA ? `<p class="text-sm text-gray-700 mb-3 leading-relaxed">${g.note}</p>` : ''}
-        ${noteIsURL ? `<div class="mb-3"><a href="${g.note}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看詳細說明</a></div>` : ''}
+        
+        ${/* ✨ 獨立的網誌介紹 */ ''}
+        ${noteIsURL ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看詳細說明</a></div>` : ''}
+        
+        ${/* ✨ 獨立的 Q&A */ ''}
         ${noteIsQA ? `<div class="space-y-2 mb-3">${qaList.map((qa, i) => `<details class="bg-white rounded-lg border border-purple-200 p-3"><summary class="cursor-pointer font-semibold text-purple-900 text-sm">${qa.q}</summary><div class="mt-2 text-sm text-gray-700">${qa.a}</div></details>`).join('')}</div>` : ''}
-        ${g.video ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
+        
+        ${/* ✨ 多影片支援 */ ''}
+        ${videos.length > 0 
+          ? videos.length === 1
+            ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}", 0)' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>`
+            : `<div class="mb-3">
+                 <p class="text-xs text-gray-600 mb-2 font-medium">🎬 影片介紹（${videos.length}）</p>
+                 <div class="grid grid-cols-2 gap-2">
+                   ${videos.map((v, idx) => `
+                     <button onclick='openVideoModal(event, "${g.video}", ${idx})' 
+                             class="bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-3 py-2 rounded-lg text-xs font-medium hover:from-red-100 hover:to-pink-100 transition-colors">
+                       影片 ${idx + 1}
+                     </button>
+                   `).join('')}
+                 </div>
+               </div>`
+          : ''}
+        
         ${g.endDate && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
         ${g.coupon && !expired ? `
           <div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3">
@@ -1548,20 +1771,16 @@ function renderContent() {
 
   const q = (state.searchTerm || '').toLowerCase();
   const filtered = state.groups.filter(g => {
-    // 搜尋篩選
     const okSearch = !q || 
       g.brand.toLowerCase().includes(q) || 
       (g.tag || '').toLowerCase().includes(q) || 
       (g.description || '').toLowerCase().includes(q);
     
-    // 過期篩選
     const okExpired = state.showExpired || !utils.isExpired(g.endDate);
     
-    // 分類篩選（支援複選：「韓國，歐洲」點擊「韓國」也會出現）
     const okCategory = state.selectedCategory === 'all' || 
       (g.itemCategory && g.itemCategory.split(/[,，]/).map(c => c.trim()).includes(state.selectedCategory));
     
-    // 國家篩選（支援複選）
     const okCountry = state.selectedCountry === 'all' || 
       (g.itemCountry && g.itemCountry.split(/[,，]/).map(c => c.trim()).includes(state.selectedCountry));
     
@@ -1577,6 +1796,9 @@ function renderContent() {
   });
   const coupon = filtered.filter(g => g.category === 'coupon');
   const expiredCount = state.groups.filter(g => utils.isExpired(g.endDate)).length;
+
+  // ✨ 新增：今日截止的商品
+  const todayEndingGroups = utils.getTodayEndingGroups(shortTerm);
 
   const term = (state.searchTerm || '').trim().toLowerCase();
   const today = new Date();
@@ -1612,9 +1834,32 @@ function renderContent() {
   const m2 = (today.getMonth() + 1) % 12 + 1;
   const m3 = (today.getMonth() + 2) % 12 + 1;
 
+  // ✨ 檢查是否有活躍的篩選
+  const hasActiveFilters = state.searchTerm || state.selectedCategory !== 'all' || state.selectedCountry !== 'all';
+  
+  // ✨ 生成篩選狀態標籤
+  const filterBadges = [];
+  if (state.searchTerm) filterBadges.push(`搜尋: "${state.searchTerm}"`);
+  if (state.selectedCategory !== 'all') filterBadges.push(`分類: ${state.selectedCategory}`);
+  if (state.selectedCountry !== 'all') filterBadges.push(`國家: ${state.selectedCountry}`);
+
   elements.content.innerHTML =
-    `<div class="mb-6">
+    `<div class="mb-6 flex flex-wrap items-center gap-3">
        ${expiredCount ? `<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired ? 'bg-gray-600 text-white' : 'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired ? '隱藏' : '顯示'}已結束（${expiredCount}）</button>` : ''}
+       ${hasActiveFilters ? `
+         <div class="flex items-center gap-2 flex-wrap">
+           <div class="flex items-center gap-2 px-3 py-1.5 bg-blue-50 border border-blue-300 rounded-lg text-sm">
+             <span class="text-blue-700 font-medium">篩選中:</span>
+             ${filterBadges.map(badge => `<span class="bg-white px-2 py-0.5 rounded text-blue-800">${badge}</span>`).join('')}
+           </div>
+           <button onclick="clearAllFilters()" class="px-4 py-2 bg-red-50 border-2 border-red-300 text-red-700 rounded-lg font-medium hover:bg-red-100 transition-colors flex items-center gap-1.5">
+             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+             </svg>
+             清除篩選
+           </button>
+         </div>
+       ` : ''}
      </div>` +
 
     (state.searchTerm && upcomingMatches.length && shortTerm.length === 0 && longTerm.length === 0 && coupon.length === 0 ? `
@@ -1627,7 +1872,32 @@ function renderContent() {
     ` : '') +
 
     (shortTerm.length ? `<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">⏳ 限時團購</h2>
+       <div class="flex items-center justify-between mb-4">
+         <h2 class="text-2xl font-bold text-amber-900 text-center flex-1">⏳ 限時團購</h2>
+       </div>
+       
+       ${/* ✨ 新增：今日截止倒數計時 */ ''}
+       ${todayEndingGroups.length > 0 ? `
+         <div id="todayEndingBanner" class="bg-gradient-to-r from-red-50 to-orange-50 border-2 border-red-300 rounded-xl p-4 mb-6 shadow-md">
+           <div class="flex items-center justify-between flex-wrap gap-3">
+             <div class="flex items-center gap-3">
+               <span class="text-3xl animate-pulse">⏰</span>
+               <div>
+                 <h3 class="font-bold text-red-800 text-lg">今日截止倒數</h3>
+                 <p class="text-sm text-red-700">距離截止還有</p>
+               </div>
+             </div>
+             <div id="todayEndingCountdown" class="text-2xl font-mono font-bold text-red-600">
+               載入中...
+             </div>
+             <div class="flex-1 min-w-[200px]">
+               <p class="text-sm text-red-700 font-medium">今日截止商品：</p>
+               <p class="text-sm text-red-800">${todayEndingGroups.map(g => g.brand).join('、')}</p>
+             </div>
+           </div>
+         </div>
+       ` : ''}
+       
        <div class="masonry-grid">${shortTerm.map(renderGroupCard).join('')}</div>
      </section>` : '') +
 
@@ -1653,8 +1923,8 @@ function renderContent() {
          <div class="mt-4 flex gap-4 text-xs text-gray-600 justify-center flex-wrap">
            <div class="flex items-center gap-1"><div class="w-4 h-4 bg-yellow-200 border border-blue-300 rounded"></div><span>今天</span></div>
            <div class="flex items-center gap-1"><div class="w-4 h-4 bg-red-100 border border-red-300 rounded"></div><span>3天內截止</span></div>
-           <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>＝ 當日截止數</span></div>
-           <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>＝ 當日開團數</span></div>
+           <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-red-300 text-red-700">3</span><span>： 當日截止數</span></div>
+           <div class="flex items-center gap-1"><span class="text-[10px] leading-none px-1.5 py-0.5 rounded bg-white border border-teal-300 text-teal-700">2</span><span>： 當日開團數</span></div>
          </div>
          ${renderMonthlyGroupList()}
        </div>
@@ -1662,32 +1932,33 @@ function renderContent() {
 
     (filtered.length === 0 && state.searchTerm ? `<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「${state.searchTerm}」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清空搜尋</p></div>` : '') +
     (filtered.length === 0 && !state.searchTerm ? `<div class="text-center py-12 text-amber-700"><p class="text-lg">目前沒有團購項目</p></div>` : '');
+
+  // ✨ 啟動倒數計時
+  if (todayEndingGroups.length > 0) {
+    startCountdown();
+  }
 }
 
 // ============ 初始化 ============
 function init() {
-  // 恢復側邊欄狀態（僅桌面版）
   if (window.innerWidth >= 1024) {
     try {
       const savedSidebarState = localStorage.getItem(STORAGE_KEYS.sidebarOpen);
       if (savedSidebarState === 'true') {
-        // 延遲打開，避免動畫問題
         setTimeout(() => toggleSidebar(), 100);
       }
     } catch {}
   }
 }
 
-console.log('🚀 鷹家買物社初始化開始');
 initSearch();
 renderBanner();
 init();
-console.log('🔄 開始載入團購資料...');
 loadData();
 setInterval(loadData, CONFIG.REFRESH_INTERVAL);
 
 // ============ 暴露函數到全域作用域 ============
-// 讓 HTML 的 onclick 屬性可以調用這些函數
+window.toggleFilterExpand = toggleFilterExpand;
 window.scrollToSection = scrollToSection;
 window.openVideoModal = openVideoModal;
 window.closeVideoModal = closeVideoModal;
@@ -1704,6 +1975,10 @@ window.addBothToGoogleCalendar = addBothToGoogleCalendar;
 window.addBothToAppleCalendar = addBothToAppleCalendar;
 window.showCalendarChoice = showCalendarChoice;
 window.setFilter = setFilter;
+window.clearAllFilters = clearAllFilters;  // ✨ 新增
+window.goToSlide = goToSlide;  // ✨ 新增
+window.nextSlide = nextSlide;  // ✨ 新增
+window.prevSlide = prevSlide;  // ✨ 新增
 
 // 分享功能
 function shareWebsite() {
@@ -1745,3 +2020,10 @@ function shareWebsite() {
 }
 
 window.shareWebsite = shareWebsite;
+
+// ✨ 清理計時器（頁面卸載時）
+window.addEventListener('beforeunload', () => {
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+});
