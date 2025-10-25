@@ -1222,15 +1222,28 @@ async function loadUpcomingFromTab() {
 }
 
 async function loadData() {
+  console.log('🔄 開始載入資料...');
   try {
     const MAIN_CSV = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/export?format=csv`;
+    console.log('📡 請求 Google Sheets:', MAIN_CSV);
+    
     const res = await fetch(MAIN_CSV, { credentials: 'omit' });
+    console.log('✅ 收到回應:', res.status, res.statusText);
+    
+    if (!res.ok) {
+      throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+    }
+    
     const csv = await res.text();
+    console.log('📝 CSV 資料長度:', csv.length, '字元');
 
     if (utils.isProbablyHTML(csv)) {
+      console.error('❌ 回傳內容是 HTML，非 CSV');
       showError('Google Sheet 無法公開讀取。請將權限改為「知道連結的任何人可檢視」，或使用「檔案 → 發佈到網路上」。');
       return;
     }
+    
+    console.log('✅ CSV 格式正確，開始解析...');
 
     const all = [];
     Papa.parse(csv, {
@@ -1271,7 +1284,9 @@ async function loadData() {
       }
     });
 
+    console.log('✅ 解析完成，共', all.length, '筆資料');
     state.groups = all.filter(g => g.category !== 'upcoming' && !!g.url);
+    console.log('✅ 過濾後有效團購:', state.groups.length, '筆');
 
     // 提取所有不重複的分類和國家
     const categoriesSet = new Set();
@@ -1322,9 +1337,17 @@ async function loadData() {
     });
 
     state.loading = false;
+    console.log('✅ 資料載入完成，開始渲染...');
+    console.log('📊 可用分類:', state.availableCategories);
+    console.log('📊 可用國家:', state.availableCountries);
+    
     renderFilters();
     renderContent();
-  } catch {
+    console.log('✅ 渲染完成！');
+  } catch (error) {
+    console.error('❌ 載入資料時發生錯誤:', error);
+    console.error('❌ 錯誤訊息:', error.message);
+    console.error('❌ 錯誤堆疊:', error.stack);
     showError('無法連接資料來源（網路或權限問題）');
   }
 }
@@ -1655,15 +1678,16 @@ function init() {
   }
 }
 
+console.log('🚀 鷹家買物社初始化開始');
 initSearch();
 renderBanner();
 init();
+console.log('🔄 開始載入團購資料...');
 loadData();
 setInterval(loadData, CONFIG.REFRESH_INTERVAL);
 
 // ============ 暴露函數到全域作用域 ============
 // 讓 HTML 的 onclick 屬性可以調用這些函數
-window.toggleFilterExpand = toggleFilterExpand;
 window.scrollToSection = scrollToSection;
 window.openVideoModal = openVideoModal;
 window.closeVideoModal = closeVideoModal;
