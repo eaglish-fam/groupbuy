@@ -1,11 +1,241 @@
 /* ===================================================
-   鷹家Fun生買物社 - 合併佈局樣式
-   來源: hybrid-layout.css + masonry-layout.css
+   圖片渲染完整修復 - 2025/10/25
+   問題：桌面版圖片不顯示 + 手機版圖片出不來
+   解決：統一圖片容器結構，支援多種比例
    =================================================== */
 
 /* ============================================
-   手機端：團購雙排瀑布流 + 折扣碼單排
+   通用圖片容器基礎樣式
    ============================================ */
+.masonry-card-image-wrapper {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 防止圖片載入前閃爍 */
+.masonry-card-image-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40px;
+  height: 40px;
+  border: 3px solid #e5e7eb;
+  border-top-color: #9ca3af;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* 圖片載入完成後隱藏載入動畫 */
+.masonry-card-image-wrapper:has(.masonry-card-image[src])::before {
+  display: none;
+}
+
+/* 圖片本身的通用樣式 */
+.masonry-card-image {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-select: none;
+  transition: all 0.3s ease;
+}
+
+/* 圖片載入失敗的處理 */
+.masonry-card-image:not([src]),
+.masonry-card-image[src=""],
+.masonry-card-image[src*="undefined"] {
+  display: none;
+}
+
+/* ============================================
+   手機端（< 768px）：自動高度，保持原始比例
+   ============================================ */
+@media (max-width: 767px) {
+  .masonry-card-image-wrapper {
+    /* 移除固定高度，讓圖片自然撐開 */
+    min-height: 120px; /* 最小高度避免太窄 */
+    max-height: 300px; /* 最大高度避免太長 */
+  }
+  
+  .masonry-card-image {
+    position: relative; /* 改為 relative，自然流動 */
+    height: auto;
+    max-height: 300px;
+  }
+  
+  /* 手機觸控回饋 */
+  .masonry-card-image-wrapper:active {
+    opacity: 0.9;
+  }
+  
+  .masonry-card-image-wrapper:active .masonry-card-image {
+    transform: scale(0.98);
+  }
+}
+
+/* ============================================
+   平板端（768px - 1023px）：固定比例 4:3
+   ============================================ */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .masonry-card-image-wrapper {
+    padding-top: 75%; /* 4:3 比例 */
+  }
+  
+  .masonry-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+  
+  /* Hover 效果 */
+  .masonry-card-image-wrapper:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .masonry-card-image-wrapper:hover .masonry-card-image {
+    transform: scale(1.05);
+    opacity: 0.95;
+  }
+}
+
+/* ============================================
+   桌面端（≥ 1024px）：固定比例 4:3
+   ============================================ */
+@media (min-width: 1024px) {
+  .masonry-card-image-wrapper {
+    padding-top: 75%; /* 4:3 比例 */
+  }
+  
+  .masonry-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+  }
+  
+  /* Hover 效果更明顯 */
+  .masonry-card-image-wrapper:hover {
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  }
+  
+  .masonry-card-image-wrapper:hover .masonry-card-image {
+    transform: scale(1.06);
+    opacity: 0.92;
+  }
+}
+
+/* ============================================
+   圖片錯誤處理 - 顯示友善提示
+   ============================================ */
+.masonry-card-image-wrapper::after {
+  content: '📷';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 48px;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+/* 圖片成功載入後隱藏 emoji */
+.masonry-card-image-wrapper:has(.masonry-card-image[complete])::after {
+  display: none;
+}
+
+/* ============================================
+   灰階過期商品效果
+   ============================================ */
+.masonry-card.opacity-60 .masonry-card-image {
+  filter: grayscale(100%) opacity(0.6);
+}
+
+/* ============================================
+   無障礙與效能優化
+   ============================================ */
+
+/* 減少動畫（尊重用戶偏好）*/
+@media (prefers-reduced-motion: reduce) {
+  .masonry-card-image-wrapper,
+  .masonry-card-image {
+    transition: none !important;
+    animation: none !important;
+  }
+  
+  .masonry-card-image-wrapper:hover .masonry-card-image {
+    transform: none !important;
+  }
+}
+
+/* 高對比模式 */
+@media (prefers-contrast: high) {
+  .masonry-card-image-wrapper {
+    border: 2px solid currentColor;
+  }
+}
+
+/* 列印時移除動畫 */
+@media print {
+  .masonry-card-image-wrapper {
+    page-break-inside: avoid;
+  }
+  
+  .masonry-card-image {
+    position: relative !important;
+    transform: none !important;
+  }
+}
+
+/* ============================================
+   特殊場景：超寬或超高圖片處理
+   ============================================ */
+
+/* 超寬圖片（16:9 或更寬）*/
+.masonry-card-image[data-aspect="wide"] {
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* 超高圖片（豎版 9:16）*/
+.masonry-card-image[data-aspect="tall"] {
+  object-fit: contain;
+  object-position: center top;
+}
+
+/* ============================================
+   效能優化：GPU 加速
+   ============================================ */
+.masonry-card-image-wrapper,
+.masonry-card-image {
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+/* ============================================
+   DEBUG 模式（開發時可啟用）
+   ============================================ */
+/* 
+.masonry-card-image-wrapper {
+  outline: 2px dashed red;
+}
+
+.masonry-card-image {
+  outline: 2px dashed blue;
+}
+*/
+
 @media (max-width: 767px) {
   
   /* 團購卡片容器 - 雙排瀑布流 */
