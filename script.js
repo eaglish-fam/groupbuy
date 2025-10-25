@@ -1991,7 +1991,7 @@ function renderContent() {
     initializeCarousels();
     initializeImages(); // This will now use the enhanced version
   }, 200);
-
+}
 
 // ============ 初始化 ============
 function init() {
@@ -2079,4 +2079,3 @@ window.addEventListener('beforeunload', () => {
     clearInterval(countdownInterval);
   }
 });
-}
