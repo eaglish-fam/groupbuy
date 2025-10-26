@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>投資複利計算器｜一次性・定期定額・不定期現金流・目標反推</title>
+  <meta name="description" content="支援台幣、名目/實質報酬、手續費、稅金、通膨、步進加碼、XIRR、目標反推等情境的投資複利計算器。" />
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Chart.js CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    html,body{height:100%;}
+    .card{ @apply bg-white rounded-2xl shadow p-4 md:p-6; }
+    .btn{ @apply px-3 py-2 rounded-xl shadow text-sm font-medium; }
+    .btn-primary{ @apply bg-blue-600 text-white hover:bg-blue-700; }
+    .btn-ghost{ @apply bg-slate-100 text-slate-700 hover:bg-slate-200; }
+    .input{ @apply w-full px-3 py-2 rounded-xl border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-500; }
+    .label{ @apply text-xs text-slate-500; }
+    .value{ @apply text-base font-semibold; }
+    .tab{ @apply px-3 py-2 rounded-xl text-sm font-medium cursor-pointer select-none; }
+    .tab-active{ @apply bg-blue-600 text-white; }
+    .tab-inactive{ @apply bg-slate-100 text-slate-700 hover:bg-slate-200; }
+    .kpi{ @apply grid gap-2 p-3 rounded-xl bg-slate-50; }
+    .table{ @apply w-full text-sm; }
+    .table th{ @apply text-left text-slate-500 font-medium pb-1; }
+    .table td{ @apply py-1; }
+  </style>
+</head>
+<body class="min-h-full bg-slate-100 text-slate-800">
+  <header class="sticky top-0 z-20 backdrop-blur bg-white/75 border-b border-slate-200">
+    <div class="max-w-6xl mx-auto px-4 py-4 flex items-center gap-4">
+      <div class="text-xl md:text-2xl font-bold">投資複利計算器</div>
+      <div class="hidden md:block text-slate-500">｜一次性、定期定額、不定期、步進加碼、目標反推</div>
+      <div class="ml-auto flex items-center gap-2">
+        <label class="text-sm text-slate-500">幣別</label>
+        <select id="currency" class="input !w-auto">
+          <option value="TWD" selected>新台幣（NT$）</option>
+          <option value="USD">美元（US$）</option>
+          <option value="NZD">紐幣（NZ$）</option>
+        </select>
+      </div>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-4 py-6 grid lg:grid-cols-12 gap-6">
+    <!-- 左側：輸入與控制 -->
+    <section class="lg:col-span-5 card">
+      <div class="flex flex-wrap gap-2 mb-4" id="tabs">
+        <button data-tab="lump" class="tab tab-active">一次性投入</button>
+        <button data-tab="dca" class="tab tab-inactive">每月定期定額</button>
+        <button data-tab="stepup" class="tab tab-inactive">定期不定額（步進加碼）</button>
+        <button data-tab="irregular" class="tab tab-inactive">不定期/不定額</button>
+        <button data-tab="goal" class="tab tab-inactive">目標反推</button>
+      </div>
+
+      <!-- 共用參數 -->
+      <div class="grid grid-cols-2 gap-3 mb-4">
+        <div>
+          <div class="label">年化報酬率（%）</div>
+          <input id="annualReturn" type="number" step="0.01" value="8" class="input" />
+        </div>
+        <div>
+          <div class="label">投資期間（年）</div>
+          <input id="years" type="number" step="0.1" value="10" class="input" />
+        </div>
+        <div>
+          <div class="label">複利頻率</div>
+          <select id="compoundFreq" class="input">
+            <option value="1">每年</option>
+            <option value="2">每半年</option>
+            <option value="4">每季</option>
+            <option value="12" selected>每月</option>
+            <option value="365">每日（近似）</option>
+          </select>
+        </div>
+        <div>
+          <div class="label">通膨率（%/年，計算實質）</div>
+          <input id="inflation" type="number" step="0.01" value="2" class="input" />
+        </div>
+      </div>
+
+      <details class="mb-4">
+        <summary class="cursor-pointer text-sm text-slate-600">進階選項（手續費 / 稅金 / 起始日期）</summary>
+        <div class="mt-3 grid grid-cols-2 gap-3">
+          <div>
+            <div class="label">申購手續費（%/投入）</div>
+            <input id="feePct" type="number" step="0.01" value="0" class="input" />
+          </div>
+          <div>
+            <div class="label">贖回手續費（%/資產）</div>
+            <input id="redeemPct" type="number" step="0.01" value="0" class="input" />
+          </div>
+          <div>
+            <div class="label">年度管理費（%/年）</div>
+            <input id="mgmtPct" type="number" step="0.01" value="0" class="input" />
+          </div>
+          <div>
+            <div class="label">資本利得稅（%/獲利）</div>
+            <input id="taxPct" type="number" step="0.01" value="0" class="input" />
+          </div>
+          <div class="col-span-2">
+            <div class="label">起始日期（不定期現金流與XIRR使用）</div>
+            <input id="startDate" type="date" class="input" />
+          </div>
+        </div>
+      </details>
+
+      <!-- 內容：一次性投入 -->
+      <div id="panel-lump" class="space-y-3">
+        <div>
+          <div class="label">一次性投入金額</div>
+          <input id="lumpAmount" type="number" step="1000" value="300000" class="input" />
+        </div>
+        <div class="flex gap-2">
+          <button class="btn btn-primary" onclick="runLump()">計算</button>
+          <button class="btn btn-ghost" onclick="resetInputs()">重置</button>
+        </div>
+      </div>
+
+      <!-- 內容：定期定額 -->
+      <div id="panel-dca" class="hidden space-y-3">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <div class="label">每月投入金額</div>
+            <input id="dcaAmount" type="number" step="100" value="10000" class="input" />
+          </div>
+          <div>
+            <div class="label">投入日（每月）</div>
+            <input id="dcaDay" type="number" min="1" max="28" value="1" class="input" />
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn btn-primary" onclick="runDCA()">計算</button>
+          <button class="btn btn-ghost" onclick="resetInputs()">重置</button>
+        </div>
+      </div>
+
+      <!-- 內容：步進加碼 -->
+      <div id="panel-stepup" class="hidden space-y-3">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <div class="label">初始每月投入</div>
+            <input id="stepBase" type="number" step="100" value="8000" class="input" />
+          </div>
+          <div>
+            <div class="label">每年加碼（%）</div>
+            <input id="stepPct" type="number" step="0.1" value="5" class="input" />
+          </div>
+          <div>
+            <div class="label">加碼頻率</div>
+            <select id="stepFreq" class="input">
+              <option value="12" selected>每年一次</option>
+              <option value="6">每半年</option>
+              <option value="3">每季</option>
+            </select>
+          </div>
+          <div>
+            <div class="label">最高每月上限</div>
+            <input id="stepCap" type="number" step="100" value="0" class="input" placeholder="0=不設上限" />
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn btn-primary" onclick="runStepUp()">計算</button>
+          <button class="btn btn-ghost" onclick="resetInputs()">重置</button>
+        </div>
+      </div>
+
+      <!-- 內容：不定期不定額 -->
+      <div id="panel-irregular" class="hidden space-y-3">
+        <div class="kpi">
+          <div class="text-sm text-slate-600">新增現金流（投入為正、贖回為負）。最末日自動加入「期末資產」現金流以計算 XIRR。</div>
+          <div class="flex gap-2">
+            <button class="btn btn-ghost" onclick="addCashflowRow()">＋新增一筆</button>
+            <button class="btn btn-ghost" onclick="seedCashflows()">載入範例</button>
+            <button class="btn btn-ghost" onclick="clearCashflows()">清空</button>
+          </div>
+          <div class="overflow-auto border rounded-xl">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="min-width:130px">日期</th>
+                  <th style="min-width:130px">金額（投入+／贖回-）</th>
+                  <th>備註</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="cashflowBody"></tbody>
+            </table>
+          </div>
+        </div>
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <div class="label">期末日期（評價點）</div>
+            <input id="endDate" type="date" class="input" />
+          </div>
+          <div>
+            <div class="label">期末資產市值</div>
+            <input id="endingValue" type="number" step="100" value="0" class="input" />
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn btn-primary" onclick="runIrregular()">計算 & XIRR</button>
+          <button class="btn btn-ghost" onclick="exportCashflows()">匯出CSV</button>
+        </div>
+      </div>
+
+      <!-- 內容：目標反推 -->
+      <div id="panel-goal" class="hidden space-y-3">
+        <div class="grid grid-cols-2 gap-3">
+          <div>
+            <div class="label">目標金額</div>
+            <input id="goalTarget" type="number" step="1000" value="10000000" class="input" />
+          </div>
+          <div>
+            <div class="label">反推項目</div>
+            <select id="goalSolveFor" class="input">
+              <option value="monthly" selected>所需每月投入</option>
+              <option value="years">所需年數</option>
+            </select>
+          </div>
+          <div id="goalMonthlyBox">
+            <div class="label">（若解年數）預設每月投入</div>
+            <input id="goalMonthly" type="number" step="100" value="10000" class="input" />
+          </div>
+          <div id="goalYearsBox">
+            <div class="label">（若解每月）預設年數</div>
+            <input id="goalYears" type="number" step="0.5" value="15" class="input" />
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button class="btn btn-primary" onclick="runGoal()">開始反推</button>
+          <button class="btn btn-ghost" onclick="resetInputs()">重置</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 右側：輸出與圖表 -->
+    <section class="lg:col-span-7 card">
+      <div class="grid md:grid-cols-2 gap-4">
+        <div class="kpi">
+          <div class="text-slate-500 text-xs">期末資產</div>
+          <div id="outFinal" class="text-2xl font-bold">—</div>
+          <div class="text-slate-500 text-xs">（實質）<span id="outFinalReal">—</span></div>
+        </div>
+        <div class="kpi">
+          <div class="text-slate-500 text-xs">總投入 / 總報酬</div>
+          <div class="value"><span id="outTotalIn">—</span> ／ <span id="outGain">—</span></div>
+          <div class="text-slate-500 text-xs">有效年化（CAGR）：<span id="outCAGR">—</span></div>
+        </div>
+        <div class="kpi">
+          <div class="text-slate-500 text-xs">XIRR（不定期）或名義年化</div>
+          <div id="outXIRR" class="value">—</div>
+          <div class="text-slate-500 text-xs">含手續費/管理費/稅金後估算</div>
+        </div>
+        <div class="kpi">
+          <div class="text-slate-500 text-xs">期間與期數</div>
+          <div class="value"><span id="outYears">—</span> 年 ／ <span id="outPeriods">—</span> 期</div>
+          <div class="text-slate-500 text-xs">複利頻率：<span id="outFreq">—</span>／年</div>
+        </div>
+      </div>
+
+      <div class="mt-6">
+        <canvas id="chart" height="120"></canvas>
+      </div>
+
+      <div class="mt-6">
+        <details>
+          <summary class="text-sm text-slate-600 cursor-pointer">展開查看明細表（期別 / 投入 / 利息 / 手續費 / 稅金 / 結餘）</summary>
+          <div class="overflow-auto mt-3 border rounded-xl">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>期數</th><th>日期</th><th>投入</th><th>利息</th><th>費用</th><th>稅金</th><th>期末餘額</th>
+                </tr>
+              </thead>
+              <tbody id="detailBody"></tbody>
+            </table>
+          </div>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-4 pb-10 text-center text-xs text-slate-500">
+    ※ 本工具為教育用途之試算，實際投資請自行評估風險與稅務規定。／ © 2025
+  </footer>
+
+<script>
+// === 工具函式 ===
+const $ = (id) => document.getElementById(id);
+const fmt = new Intl.NumberFormat('zh-Hant-TW', { style: 'currency', currency: 'TWD', maximumFractionDigits: 0 });
+function setCurrency(code){
+  currentCurrency = code;
+  numberFmt = new Intl.NumberFormat('zh-Hant-TW', { style: 'currency', currency: code, maximumFractionDigits: 0 });
+}
+let currentCurrency = 'TWD';
+let numberFmt = new Intl.NumberFormat('zh-Hant-TW', { style: 'currency', currency: 'TWD', maximumFractionDigits: 0 });
+
+function toPct(x){
+  if (x==null || isNaN(x)) return '—';
+  return (x*100).toFixed(2)+'%';
+}
+function pctToRate(v){ return (parseFloat(v)||0)/100; }
+function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
+function addDays(d, days){ const nd=new Date(d); nd.setDate(nd.getDate()+days); return nd; }
+function monthAdd(d, m){ const nd = new Date(d); nd.setMonth(nd.getMonth()+m); return nd; }
+function ymd(d){ if(!d) return ''; const z=new Date(d); return z.toISOString().slice(0,10); }
+
+function resetDetail(){ $('detailBody').innerHTML=''; }
+function pushDetail(i, date, inAmt, interest, fees, tax, bal){
+  const tr = document.createElement('tr');
+  const cells = [i, ymd(date)||'—', numberFmt.format(inAmt), numberFmt.format(interest), numberFmt.format(fees), numberFmt.format(tax), numberFmt.format(bal)];
+  tr.innerHTML = cells.map(c=>`<td>${c}</td>`).join('');
+  $('detailBody').appendChild(tr);
+}
+
+function netGrowthRate(annualReturn, mgmtPct, compoundFreq){
+  // 以名義年化 r，扣除年度管理費後的等效每期利率
+  const r = annualReturn - mgmtPct; // 簡化：將管理費視為從報酬扣除
+  return Math.pow(1 + r, 1/compoundFreq) - 1;
+}
+
+function applyFeesAndTax(gain, feePct, taxPct){
+  const tax = Math.max(0, gain) * taxPct; // 僅對正向獲利課稅
+  const afterTaxGain = gain - tax;
+  const fee = 0; // 單筆交易費另計於投入/贖回
+  return { afterTaxGain, tax };
+}
+
+function inflateToReal(nominalFinal, inflation, years){
+  const real = nominalFinal / Math.pow(1+inflation, years);
+  return real;
+}
+
+// === 圖表 ===
+let chart;
+function renderChart(labels, series){
+  const ctx = $('chart');
+  if (chart) chart.destroy();
+  chart = new Chart(ctx, {
+    type: 'line',
+    data: { labels, datasets: [{ label: '資產餘額', data: series, fill: false }] },
+    options: { responsive: true, interaction: { mode: 'index', intersect: false }, plugins: { legend: { display: false } }, scales: { x: { ticks: { maxRotation: 0 } }, y: { beginAtZero: true } } }
+  });
+}
+
+function updateKPIs({finalValue, finalReal, totalIn, gain, cagr, periods, freq, years, xirr}){
+  $('outFinal').textContent = numberFmt.format(finalValue);
+  $('outFinalReal').textContent = numberFmt.format(finalReal);
+  $('outTotalIn').textContent = numberFmt.format(totalIn);
+  $('outGain').textContent = numberFmt.format(gain);
+  $('outCAGR').textContent = isFinite(cagr) && cagr> -1 ? toPct(cagr) : '—';
+  $('outPeriods').textContent = periods;
+  $('outFreq').textContent = freq;
+  $('outYears').textContent = years.toFixed(2);
+  $('outXIRR').textContent = (xirr!=null && isFinite(xirr)) ? toPct(xirr) : '—';
+}
+
+// === 一次性投入 ===
+function runLump(){
+  resetDetail();
+  const PV = parseFloat($('lumpAmount').value)||0;
+  const rA = pctToRate($('annualReturn').value);
+  const nY = parseFloat($('years').value)||0;
+  const m = parseInt($('compoundFreq').value)||12;
+  const infl = pctToRate($('inflation').value);
+  const feeIn = pctToRate($('feePct').value);
+  const redeem = pctToRate($('redeemPct').value);
+  const mgmt = pctToRate($('mgmtPct').value);
+  const tax = pctToRate($('taxPct').value);
+  const start = $('startDate').value? new Date($('startDate').value): new Date();
+
+  const eff = netGrowthRate(rA, mgmt, m);
+  let bal = PV * (1 - feeIn);
+  let totalIn = PV * (1 - feeIn);
+  let labels=[], series=[];
+  let date = new Date(start);
+
+  for(let i=1;i<=nY*m;i++){
+    const interest = bal * eff;
+    const { afterTaxGain, tax:taxAmt } = applyFeesAndTax(interest, 0, tax);
+    bal += afterTaxGain;
+    const fees = 0; // 無額外交易
+    if(i % m === 0){ labels.push(date.getFullYear()+"年"+((date.getMonth()+1))+'月'); series.push(bal); }
+    pushDetail(i, date, 0, afterTaxGain, fees, taxAmt, bal);
+    date = monthAdd(date, 12/m);
+  }
+  const finalValue = bal * (1 - redeem);
+  const finalReal = inflateToReal(finalValue, infl, nY);
+  const gain = finalValue - totalIn;
+  const cagr = Math.pow(finalValue/Math.max(1,totalIn), 1/nY) - 1;
+
+  renderChart(labels, series);
+  updateKPIs({finalValue, finalReal, totalIn, gain, cagr, periods: nY*m, freq:m, years:nY});
+}
+
+// === 定期定額（每月） ===
+function runDCA(){
+  resetDetail();
+  const amt = parseFloat($('dcaAmount').value)||0;
+  const rA = pctToRate($('annualReturn').value);
+  const nY = parseFloat($('years').value)||0;
+  const m = parseInt($('compoundFreq').value)||12;
+  const infl = pctToRate($('inflation').value);
+  const feeIn = pctToRate($('feePct').value);
+  const redeem = pctToRate($('redeemPct').value);
+  const mgmt = pctToRate($('mgmtPct').value);
+  const tax = pctToRate($('taxPct').value);
+  const start = $('startDate').value? new Date($('startDate').value): new Date();
+
+  const eff = netGrowthRate(rA, mgmt, m);
+  let bal = 0, totalIn=0;
+  let labels=[], series=[];
+  let date = new Date(start);
+
+  for(let i=1;i<=nY*m;i++){
+    // 當期投入（以每期投入近似，若選每月複利則剛好）
+    let contribution = (m===12? amt : amt*(12/m));
+    const fee = contribution * feeIn;
+    contribution -= fee;
+    bal += contribution;
+    totalIn += (contribution + fee);
+
+    const interest = bal * eff;
+    const { afterTaxGain, tax:taxAmt } = applyFeesAndTax(interest, 0, tax);
+    bal += afterTaxGain;
+
+    if(i % m === 0){ labels.push(date.getFullYear()+"年"+((date.getMonth()+1))+'月'); series.push(bal); }
+    pushDetail(i, date, contribution, afterTaxGain, fee, taxAmt, bal);
+    date = monthAdd(date, 12/m);
+  }
+  const finalValue = bal * (1 - redeem);
+  const finalReal = inflateToReal(finalValue, infl, nY);
+  const gain = finalValue - totalIn;
+  // 近似CAGR（基於加權平均投入時間不精確）
+  const cagr = Math.pow(finalValue / Math.max(1,totalIn), 1/nY) - 1;
+
+  renderChart(labels, series);
+  updateKPIs({finalValue, finalReal, totalIn, gain, cagr, periods: nY*m, freq:m, years:nY});
+}
+
+// === 步進加碼 ===
+function runStepUp(){
+  resetDetail();
+  let base = parseFloat($('stepBase').value)||0;
+  const stepPct = pctToRate($('stepPct').value);
+  const stepFreq = parseInt($('stepFreq').value)||12;
+  const cap = parseFloat($('stepCap').value)||0;
+
+  const rA = pctToRate($('annualReturn').value);
+  const nY = parseFloat($('years').value)||0;
+  const m = parseInt($('compoundFreq').value)||12;
+  const infl = pctToRate($('inflation').value);
+  const feeIn = pctToRate($('feePct').value);
+  const redeem = pctToRate($('redeemPct').value);
+  const mgmt = pctToRate($('mgmtPct').value);
+  const tax = pctToRate($('taxPct').value);
+  const start = $('startDate').value? new Date($('startDate').value): new Date();
+
+  const eff = netGrowthRate(rA, mgmt, m);
+  let bal = 0, totalIn=0;
+  let labels=[], series=[];
+  let date = new Date(start);
+
+  for(let i=1;i<=nY*m;i++){
+    // 計算本期投入
+    let thisMonth = base;
+    if (cap>0) thisMonth = Math.min(thisMonth, cap);
+    let contribution = (m===12? thisMonth : thisMonth*(12/m));
+    const fee = contribution * feeIn;
+    contribution -= fee;
+    bal += contribution; totalIn += (contribution + fee);
+
+    const interest = bal * eff;
+    const { afterTaxGain, tax:taxAmt } = applyFeesAndTax(interest, 0, tax);
+    bal += afterTaxGain;
+
+    if(i % stepFreq === 0){ base *= (1 + stepPct); }
+
+    if(i % m === 0){ labels.push(date.getFullYear()+"年"+((date.getMonth()+1))+'月'); series.push(bal); }
+    pushDetail(i, date, contribution, afterTaxGain, fee, taxAmt, bal);
+    date = monthAdd(date, 12/m);
+  }
+
+  const finalValue = bal * (1 - redeem);
+  const finalReal = inflateToReal(finalValue, infl, nY);
+  const gain = finalValue - totalIn;
+  const cagr = Math.pow(finalValue / Math.max(1,totalIn), 1/nY) - 1;
+  renderChart(labels, series);
+  updateKPIs({finalValue, finalReal, totalIn, gain, cagr, periods: nY*m, freq:m, years:nY});
+}
+
+// === 不定期/不定額 + XIRR ===
+function rowTemplate(d, amt, note){
+  return `<tr>
+    <td><input type="date" class="input" value="${d||''}" /></td>
+    <td><input type="number" class="input" value="${amt||0}" step="100" /></td>
+    <td><input type="text" class="input" value="${note||''}" /></td>
+    <td><button class="btn btn-ghost" onclick="this.closest('tr').remove()">刪除</button></td>
+  </tr>`
+}
+function addCashflowRow(){
+  $('cashflowBody').insertAdjacentHTML('beforeend', rowTemplate('', 0, ''));
+}
+function seedCashflows(){
+  const now = $('startDate').value? new Date($('startDate').value): new Date();
+  const rows = [
+    [ymd(now), 50000, '期初'],
+    [ymd(monthAdd(now, 3)), 10000, '第4個月'],
+    [ymd(monthAdd(now, 7)), 20000, '第8個月'],
+    [ymd(monthAdd(now, 13)), 15000, '第14個月']
+  ];
+  clearCashflows();
+  rows.forEach(r=> $('cashflowBody').insertAdjacentHTML('beforeend', rowTemplate(r[0], r[1], r[2])));
+}
+function clearCashflows(){ $('cashflowBody').innerHTML=''; }
+
+function exportCashflows(){
+  const rows = [...$('cashflowBody').querySelectorAll('tr')].map(tr=>{
+    const [d,a,n] = tr.querySelectorAll('input');
+    return { date:d.value, amount:parseFloat(a.value)||0, note:n.value };
+  });
+  let csv = 'date,amount,note\n' + rows.map(r=>`${r.date},${r.amount},${r.note.replaceAll(',', ' ')}\n`).join('');
+  const blob = new Blob([csv], {type:'text/csv;charset=utf-8;'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'cashflows.csv'; a.click(); URL.revokeObjectURL(url);
+}
+
+function daysBetween(a,b){ return (new Date(b)-new Date(a))/(1000*60*60*24); }
+function xirr(cashflows){
+  // 現金流陣列：[{date: Date, amount: Number} ...]，求年化 XIRR
+  // Newton-Raphson with fallback to bisection.
+  if (cashflows.length<2) return NaN;
+  const yearDays = 365;
+  function npv(rate){
+    const t0 = new Date(cashflows[0].date);
+    return cashflows.reduce((sum, cf)=>{
+      const t = daysBetween(t0, cf.date)/yearDays;
+      return sum + cf.amount / Math.pow(1+rate, t);
+    }, 0);
+  }
+  // Bracket search
+  let lo=-0.9999, hi=10; // -99.99% ~ 1000%
+  for(let i=0;i<100;i++){
+    const mid = (lo+hi)/2; const v = npv(mid);
+    if(Math.abs(v)<1e-6) return mid;
+    const vlo = npv(lo);
+    if (Math.sign(v)===Math.sign(vlo)) lo=mid; else hi=mid;
+  }
+  return (lo+hi)/2;
+}
+
+function runIrregular(){
+  resetDetail();
+  const rA = pctToRate($('annualReturn').value);
+  const infl = pctToRate($('inflation').value);
+  const mgmt = pctToRate($('mgmtPct').value);
+
+  const endDate = $('endDate').value? new Date($('endDate').value): new Date();
+  const endingValue = parseFloat($('endingValue').value)||0;
+
+  const effDaily = Math.pow(1 + (rA - mgmt), 1/365) - 1;
+
+  const rows = [...$('cashflowBody').querySelectorAll('tr')].map(tr=>{
+    const [d,a,n] = tr.querySelectorAll('input');
+    return { date:new Date(d.value), amount:parseFloat(a.value)||0, note:n.value };
+  }).filter(r=>r.date instanceof Date && !isNaN(r.date));
+
+  rows.sort((a,b)=> a.date-b.date);
+  let bal = 0, totalIn=0; let labels=[], series=[];
+  let cursor = rows.length? new Date(rows[0].date): new Date();
+
+  // 滾存至期末（每日複利近似）
+  rows.forEach((r, idx)=>{
+    // 成長到此現金流日
+    const gap = Math.max(0, Math.floor(daysBetween(cursor, r.date)));
+    for(let d=0; d<gap; d++){
+      bal *= (1 + effDaily);
+    }
+    cursor = new Date(r.date);
+
+    // 記錄細目（成長日）
+    pushDetail(`D${idx}`, cursor, 0, bal*0, 0, 0, bal);
+
+    // 注入現金流（投入為正，贖回為負）
+    bal += r.amount;
+    if(r.amount>0) totalIn += r.amount;
+    pushDetail(`C${idx}`, cursor, r.amount, 0, 0, 0, bal);
+
+    if(idx===0){ labels.push(ymd(cursor)); series.push(bal); }
+  });
+
+  // 成長至期末
+  const gapEnd = Math.max(0, Math.floor(daysBetween(cursor, endDate)));
+  for(let d=0; d<gapEnd; d++){ bal *= (1 + effDaily); }
+  labels.push(ymd(endDate)); series.push(bal);
+
+  // 用XIRR：將投入（+）與期末資產視為贖回（-）
+  const cf = rows.map(r=>({date:r.date, amount:-r.amount}));
+  cf.push({date:endDate, amount:endingValue});
+  const irr = xirr(cf);
+
+  const finalValue = endingValue;
+  const years = (rows.length? daysBetween(rows[0].date, endDate): 0)/365;
+  const finalReal = inflateToReal(finalValue, infl, years);
+  const gain = finalValue - totalIn;
+
+  renderChart(labels, series);
+  updateKPIs({finalValue, finalReal, totalIn, gain, cagr: irr, periods: rows.length, freq: '—', years, xirr: irr});
+}
+
+// === 目標反推 ===
+function solveMonthlyForTarget(target, rA, years, m){
+  const i = netGrowthRate(rA, 0, m);
+  // FV = PMT * [((1+i)^(n)-1)/i]  ==> PMT
+  const n = Math.round(years*m);
+  if (i===0) return target / n;
+  return target * i / (Math.pow(1+i, n) - 1);
+}
+function solveYearsForTarget(target, rA, monthly, m){
+  const i = netGrowthRate(rA, 0, m);
+  // 以二分法搜尋年數
+  let lo=0, hi=100; // 最多100年
+  for(let k=0;k<100;k++){
+    const mid=(lo+hi)/2; const n=Math.round(mid*m);
+    const fv = (i===0)? monthly*n : monthly*((Math.pow(1+i, n)-1)/i);
+    if (fv>=target) hi=mid; else lo=mid;
+  }
+  return (lo+hi)/2;
+}
+function runGoal(){
+  resetDetail();
+  const target = parseFloat($('goalTarget').value)||0;
+  const mode = $('goalSolveFor').value;
+  const rA = pctToRate($('annualReturn').value);
+  const m = parseInt($('compoundFreq').value)||12;
+
+  if(mode==='monthly'){
+    const years = parseFloat($('goalYears').value)||10;
+    const pmt = solveMonthlyForTarget(target, rA, years, m);
+    const totalIn = pmt * years * m;
+    const finalValue = target;
+    const infl = pctToRate($('inflation').value);
+    const finalReal = inflateToReal(finalValue, infl, years);
+    const cagr = Math.pow(finalValue/Math.max(1,totalIn), 1/years)-1;
+    updateKPIs({finalValue, finalReal, totalIn, gain:finalValue-totalIn, cagr, periods: Math.round(years*m), freq:m, years});
+    renderChart(['0','目標'], [0, finalValue]);
+  } else {
+    const monthly = parseFloat($('goalMonthly').value)||0;
+    const years = solveYearsForTarget(target, rA, monthly, m);
+    const totalIn = monthly * years * m;
+    const infl = pctToRate($('inflation').value);
+    const finalReal = inflateToReal(target, infl, years);
+    const cagr = Math.pow(target/Math.max(1,totalIn), 1/years)-1;
+    updateKPIs({finalValue: target, finalReal, totalIn, gain:target-totalIn, cagr, periods: Math.round(years*m), freq:m, years});
+    renderChart(['0','目標'], [0, target]);
+  }
+}
+
+// === 事件 ===
+$('currency').addEventListener('change', e=>{ setCurrency(e.target.value); runLast(); });
+
+// 切換分頁
+const panels = {
+  lump: $('panel-lump'),
+  dca: $('panel-dca'),
+  stepup: $('panel-stepup'),
+  irregular: $('panel-irregular'),
+  goal: $('panel-goal'),
+};
+let lastRunner = runLump;
+function runLast(){ lastRunner && lastRunner(); }
+
+document.querySelectorAll('#tabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('#tabs button').forEach(b=> b.className = 'tab tab-inactive');
+    btn.className = 'tab tab-active';
+    Object.values(panels).forEach(p=> p.classList.add('hidden'));
+    const key = btn.dataset.tab; panels[key].classList.remove('hidden');
+    lastRunner = ({lump:runLump, dca:runDCA, stepup:runStepUp, irregular:runIrregular, goal:runGoal})[key];
+    resetDetail();
+    if(key!=='irregular') runLast();
+  });
+});
+
+function resetInputs(){
+  ['annualReturn','years','compoundFreq','inflation','feePct','redeemPct','mgmtPct','taxPct','lumpAmount','dcaAmount','stepBase','stepPct','stepCap','goalTarget','goalMonthly','goalYears'].forEach(id=>{
+    const el = $(id); if(!el) return; const v = el.getAttribute('value'); if(v!=null) el.value = v; else if(el.tagName==='SELECT') el.selectedIndex=0; else el.value='';
+  });
+  clearCashflows();
+  $('endingValue').value = 0; $('endDate').value = '';
+  runLast();
+}
+
+// 初始
+runLump();
+</script>
+</body>
+</html>
