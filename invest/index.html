@@ -4,7 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>鷹家投資工具箱｜投資複利・貸款利息</title>
-  <meta name="description" content="鷹家投資工具箱：投資複利計算器、貸款利息試算（信貸/房貸/車貸/保單借款）。支援幣別、通膨、費用、稅金、XIRR/APR、明細表與圖表。" />
+  <meta name="description" content="鷹家投資工具箱：投資複利計算器、貸款利息試算（信貸/房貸/車貸/保單借款）。支援幣別、通膨、費用、稅金、APR、明細表與圖表。" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <link rel="stylesheet" href="./assets/css/styles.css">
   <script type="module" src="./assets/js/app.js"></script>
@@ -118,10 +118,6 @@
               <div class="label">資本利得稅（%/獲利）</div>
               <input id="taxPct" type="number" step="0.01" value="0" class="input" />
             </div>
-            <div style="grid-column:1/ -1">
-              <div class="label">起始日期（不定期現金流與XIRR使用）</div>
-              <input id="startDate" type="date" class="input" />
-            </div>
           </div>
         </details>
 
@@ -221,11 +217,6 @@
             <div class="label">總投入 / 總報酬</div>
             <div class="value"><span id="outTotalIn">—</span> ／ <span id="outGain">—</span></div>
             <div class="label">有效年化（CAGR）：<span id="outCAGR">—</span></div>
-          </div>
-          <div class="kpi">
-            <div class="label">XIRR（不定期）或名義年化</div>
-            <div id="outXIRR" class="value">—</div>
-            <div class="label">含手續費/管理費/稅金後估算</div>
           </div>
           <div class="kpi">
             <div class="label">期間與期數</div>
