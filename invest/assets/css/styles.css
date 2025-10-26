@@ -36,3 +36,25 @@ a{color:inherit;text-decoration:none}
 
 .hidden{ display:none !important }
 .row{ display:flex; gap:.5rem; align-items:center; flex-wrap:wrap }
+
+/* 工具箱作用域，取消全站對 .input 加的背景圖示，避免破圖 */
+#ig input[type="number"],
+#ig input[type="text"],
+#ig input[type="date"],
+#ig select {
+  background-image: none !important;
+  background-repeat: no-repeat !important;
+  background-position: initial !important;
+  background-size: auto !important;
+  padding-left: .75rem !important; /* 還原內距，避免原本為了圖示多留的空間 */
+}
+
+/* 去掉 number 的上下微調箭頭（保持我們的視覺一致） */
+#ig input[type="number"]::-webkit-outer-spin-button,
+#ig input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#ig input[type="number"] {
+  appearance: textfield;
+}
