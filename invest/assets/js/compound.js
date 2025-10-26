@@ -151,36 +151,6 @@ export function runStepUp(){
   updateKPIs({finalValue,finalReal,totalIn,gain,cagr,periods:nY*m,freq:m,years:nY});
 }
 
-// Irregular + XIRR
-function xirr(cashflows){
-  if(cashflows.length<2) return NaN;
-  const yearDays=365;
-  function npv(rate){
-    const t0=new Date(cashflows[0].date);
-    return cashflows.reduce((sum,cf)=>{
-      const t=(new Date(cf.date)-t0)/(1000*60*60*24)/yearDays;
-      return sum + cf.amount / Math.pow(1+rate, t);
-    },0);
-  }
-  let lo=-0.9999, hi=10;
-  for(let i=0;i<100;i++){
-    const mid=(lo+hi)/2, v=npv(mid);
-    if(Math.abs(v)<1e-6) return mid;
-    const vlo=npv(lo); if(Math.sign(v)===Math.sign(vlo)) lo=mid; else hi=mid;
-  }
-  return (lo+hi)/2;
-}
-
-function rowTemplate(d, amt, note){
-  return `<tr>
-    <td><input type="date" class="input" value="${d||''}" /></td>
-    <td><input type="number" class="input" value="${amt||0}" step="100" /></td>
-    <td><input type="text" class="input" value="${note||''}" placeholder="例如：初始投入" /></td>
-    <td><button class="btn btn-ghost" onclick="this.closest('tr').remove()">刪除</button></td>
-  </tr>`
-}
-
-
 // Goal
 export function solveMonthlyForTarget(target, rA, years, m){
   const i = Math.pow(1 + rA, 1/m) - 1;
