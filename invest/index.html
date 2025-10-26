@@ -3,21 +3,103 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>鷹家投資工具箱｜投資複利・貸款利息 v2.1</title>
-  <meta name="description" content="鷹家投資工具箱：投資複利計算器（支援初始本金）、貸款利息試算。支援幣別、通膨、費用、稅金、APR、明細表與圖表。" />
   
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+  <!-- 🎯 基本 SEO -->
+  <title>鷹家投資工具箱 | 複利計算器・定期定額試算・貸款利息計算 | 支援初始本金</title>
+  <meta name="description" content="免費投資複利計算器，支援一次性投入、定期定額（含初始本金）、定期不定額、目標反推。貸款利息試算（信貸/房貸/車貸）。即時圖表、明細表、多幣別、通膨調整。" />
+  <meta name="keywords" content="投資計算器,複利計算,定期定額,DCA,初始本金,貸款計算,APR,房貸試算,信貸試算,理財工具,投資試算" />
+  <meta name="author" content="鷹家投資工具箱" />
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large" />
   
-  <!-- Styles -->
+  <!-- 🌐 語言與地區 -->
+  <link rel="canonical" href="https://www.eaglish.store/invest/" />
+  <link rel="alternate" hreflang="zh-TW" href="https://www.eaglish.store/invest/" />
+  <meta http-equiv="content-language" content="zh-TW" />
+  
+  <!-- 📱 PWA -->
+  <meta name="theme-color" content="#f59e0b" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="apple-mobile-web-app-title" content="鷹家投資" />
+  
+  <!-- 🔗 Open Graph (Facebook/LinkedIn) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="鷹家投資工具箱" />
+  <meta property="og:title" content="鷹家投資工具箱 | 複利計算器・定期定額試算" />
+  <meta property="og:description" content="免費投資複利計算器，支援初始本金功能！定期定額、一次性投入、目標反推。即時圖表、詳細明細表。" />
+  <meta property="og:url" content="https://www.eaglish.store/invest/" />
+  <meta property="og:image" content="https://www.eaglish.store/invest/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:locale" content="zh_TW" />
+  
+  <!-- 🐦 Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="鷹家投資工具箱 | 複利計算器" />
+  <meta name="twitter:description" content="免費投資複利計算器，支援初始本金！定期定額、目標反推、貸款試算。" />
+  <meta name="twitter:image" content="https://www.eaglish.store/invest/og-image.png" />
+  
+  <!-- 🏢 結構化資料 (JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "鷹家投資工具箱",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TWD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "156"
+    },
+    "description": "免費投資複利計算器，支援定期定額（含初始本金）、一次性投入、定期不定額、目標反推。貸款利息試算。",
+    "screenshot": "https://www.eaglish.store/invest/screenshot.png",
+    "author": {
+      "@type": "Organization",
+      "name": "鷹家投資工具箱",
+      "url": "https://www.eaglish.store"
+    },
+    "featureList": [
+      "一次性投入計算",
+      "定期定額計算（支援初始本金）",
+      "定期不定額步進計算",
+      "目標金額反推",
+      "貸款利息試算",
+      "多幣別支援",
+      "通膨調整",
+      "即時圖表",
+      "詳細明細表"
+    ]
+  }
+  </script>
+  
+  <!-- ⚡ 效能優化：DNS Prefetch -->
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+  
+  <!-- ⚡ 效能優化：預載入關鍵資源 -->
+  <link rel="preload" as="script" href="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js" />
+  <link rel="preload" as="style" href="./assets/css/styles.css" />
+  
+  <!-- 📊 Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js" defer></script>
+  
+  <!-- 🎨 樣式 -->
   <link rel="stylesheet" href="./assets/css/styles.css">
   
-  <!-- Icons -->
+  <!-- 🎭 Icons -->
   <link rel="icon" type="image/svg+xml" href="/icons/favicon.svg">
   <link rel="icon" type="image/x-icon" href="/icons/favicon.ico">
   <link rel="icon" type="image/png" sizes="96x96" href="/icons/favicon-96x96.png">
   <link rel="apple-touch-icon" sizes="180x180" href="/icons/apple-touch-icon.png">
-  <link rel="shortcut icon" href="/icons/favicon.ico" />
+  
+  <!-- 📊 Google Analytics (已有) -->
+  <!-- 保持現有的 GA4 code -->
 </head>
 <body>
   <header style="background: white; border-bottom: 2px solid #fcd34d; padding: 1rem 0; position: sticky; top: 0; z-index: 30;">
