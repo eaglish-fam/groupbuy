@@ -1,9 +1,9 @@
 /* ============================================
-   鷹家投資工具箱 - 優化版樣式 v2.1
-   改進：效能、無障礙、響應式
+   鷹家投資工具箱 - 修正版樣式 v2.1.1
+   修復：Dark Mode Header + Sticky 功能
    ============================================ */
 
-/* 🎨 CSS Variables for Theme */
+/* 🎨 CSS Variables */
 :root {
   --primary-color: #f59e0b;
   --primary-dark: #d97706;
@@ -14,17 +14,36 @@
   --text-primary: #1f2937;
   --text-secondary: #6b7280;
   --border-color: #e5e7eb;
+  --bg-main: #ffffff;
+  --bg-card: #ffffff;
   --border-radius: 0.75rem;
   --transition-speed: 0.2s;
 }
 
-/* 🚀 效能優化：Critical CSS */
+/* 🌙 Dark Mode Variables */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --border-color: #4b5563;
+    --bg-main: #111827;
+    --bg-card: #1f2937;
+  }
+}
+
+/* 📐 基礎樣式 */
+* {
+  box-sizing: border-box;
+}
+
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Noto Sans TC', sans-serif;
   margin: 0;
   padding: 0;
   color: var(--text-primary);
+  background: var(--bg-main);
   line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .container {
@@ -33,9 +52,53 @@ body {
   padding: 0 1rem;
 }
 
+/* 🔝 Sticky Header (修復！) */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 30;
+  background: var(--bg-main);
+  border-bottom: 2px solid var(--primary-color);
+  padding: 1rem 0;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* Header 內容樣式 */
+header h1 {
+  margin: 0;
+  color: #78350f;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+@media (prefers-color-scheme: dark) {
+  header h1 {
+    color: var(--primary-color);
+  }
+}
+
+header p {
+  margin: 0.25rem 0 0 0;
+  font-size: 0.75rem;
+  color: #92400e;
+}
+
+@media (prefers-color-scheme: dark) {
+  header p {
+    color: var(--text-secondary);
+  }
+}
+
 /* ⚡ 載入動畫 */
 .loading-skeleton {
-  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background: linear-gradient(90deg, 
+    var(--border-color) 25%, 
+    rgba(229, 231, 235, 0.5) 50%, 
+    var(--border-color) 75%
+  );
   background-size: 200% 100%;
   animation: shimmer 1.5s infinite;
   border-radius: var(--border-radius);
@@ -47,7 +110,7 @@ body {
 }
 
 /* 🎯 Input 優化 */
-.input {
+.input, select {
   width: 100%;
   padding: 0.625rem 0.875rem;
   border: 2px solid var(--border-color);
@@ -55,9 +118,11 @@ body {
   font-size: 0.9375rem;
   transition: all var(--transition-speed);
   outline: none;
+  background: var(--bg-card);
+  color: var(--text-primary);
 }
 
-.input:focus {
+.input:focus, select:focus {
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
 }
@@ -69,6 +134,12 @@ body {
 .input::placeholder {
   color: #9ca3af;
   opacity: 1;
+}
+
+@media (prefers-color-scheme: dark) {
+  .input::placeholder {
+    color: #6b7280;
+  }
 }
 
 /* 🎨 按鈕系統 */
@@ -113,9 +184,9 @@ body {
 }
 
 .btn-ghost:hover {
-  background: var(--primary-light);
+  background: rgba(245, 158, 11, 0.1);
   border-color: var(--primary-color);
-  color: var(--primary-dark);
+  color: var(--primary-color);
 }
 
 /* 📱 響應式網格 */
@@ -144,12 +215,13 @@ body {
 
 /* 🎴 卡片組件 */
 .card {
-  background: white;
+  background: var(--bg-card);
   border-radius: var(--border-radius);
   padding: 1.5rem;
   margin-bottom: 1rem;
   border: 2px solid var(--border-color);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 /* 📊 KPI 顯示 */
@@ -158,6 +230,13 @@ body {
   padding: 1rem;
   border-radius: 0.5rem;
   border: 1px solid var(--border-color);
+  transition: background 0.3s ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  .kpi {
+    background: linear-gradient(135deg, #374151, #1f2937);
+  }
 }
 
 .kpi .label {
@@ -184,6 +263,7 @@ body {
   border-radius: 0.5rem;
   transition: all var(--transition-speed);
   white-space: nowrap;
+  color: var(--text-primary);
 }
 
 .tab-active {
@@ -196,8 +276,8 @@ body {
 }
 
 .tab-inactive:hover {
-  background: var(--primary-light);
-  color: var(--primary-dark);
+  background: rgba(245, 158, 11, 0.1);
+  color: var(--primary-color);
 }
 
 /* 📋 表格優化 */
@@ -209,7 +289,7 @@ body {
 
 .table th {
   background: var(--primary-light);
-  color: var(--primary-dark);
+  color: #78350f;
   font-weight: 600;
   padding: 0.75rem;
   text-align: left;
@@ -218,18 +298,32 @@ body {
   z-index: 1;
 }
 
+@media (prefers-color-scheme: dark) {
+  .table th {
+    background: #374151;
+    color: var(--primary-color);
+  }
+}
+
 .table td {
   padding: 0.75rem;
   border-bottom: 1px solid var(--border-color);
 }
 
 .table tr:hover {
-  background: #fafafa;
+  background: rgba(245, 158, 11, 0.05);
 }
 
-/* 🎯 隱藏類 */
+/* 🎯 工具類 */
 .hidden {
   display: none !important;
+}
+
+.row {
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 /* 🔄 過渡動畫 */
@@ -238,8 +332,14 @@ body {
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from { 
+    opacity: 0; 
+    transform: translateY(10px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
 }
 
 /* ♿ 無障礙優化 */
@@ -261,7 +361,7 @@ body {
   outline-offset: 2px;
 }
 
-/* ⚡ 效能優化：減少重繪 */
+/* ⚡ 效能優化 */
 .will-change-transform {
   will-change: transform;
 }
@@ -270,6 +370,18 @@ body {
 @media (max-width: 767px) {
   .container {
     padding: 0 0.75rem;
+  }
+  
+  header {
+    padding: 0.75rem 0;
+  }
+  
+  header h1 {
+    font-size: 1.25rem;
+  }
+  
+  header p {
+    font-size: 0.7rem;
   }
   
   .card {
@@ -292,8 +404,13 @@ body {
 
 /* 🖨️ 列印樣式 */
 @media print {
-  .btn, .tab, header {
+  header, .btn, .tab {
     display: none;
+  }
+  
+  body {
+    background: white;
+    color: black;
   }
   
   .card {
@@ -303,24 +420,109 @@ body {
   }
 }
 
-/* 🌙 Dark Mode Support (可選) */
+/* 🎨 特殊元素 */
+details {
+  margin-bottom: 1rem;
+}
+
+details summary {
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  user-select: none;
+  transition: background 0.2s ease;
+}
+
+details summary:hover {
+  background: rgba(245, 158, 11, 0.1);
+}
+
+details[open] summary {
+  margin-bottom: 0.75rem;
+}
+
+/* 🔧 Label 樣式 */
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin-bottom: 0.375rem;
+}
+
+/* 📊 Canvas (圖表) */
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+/* 🌟 新功能標示 */
+.badge-new {
+  display: inline-block;
+  background: var(--primary-color);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
+  margin-left: 0.25rem;
+  vertical-align: middle;
+}
+
+/* 💡 提示框 */
+.tip-box {
+  background: var(--primary-light);
+  border: 2px solid var(--primary-color);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  margin-bottom: 1rem;
+}
+
 @media (prefers-color-scheme: dark) {
-  :root {
-    --text-primary: #f9fafb;
-    --text-secondary: #d1d5db;
-    --border-color: #374151;
+  .tip-box {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: var(--primary-dark);
   }
-  
-  body {
-    background: #111827;
+}
+
+/* 🎯 初始投資卡片特殊樣式 */
+#initialInvestmentInfo {
+  background: #fef3c7 !important;
+  border: 2px solid #fbbf24 !important;
+}
+
+@media (prefers-color-scheme: dark) {
+  #initialInvestmentInfo {
+    background: rgba(245, 158, 11, 0.15) !important;
+    border-color: var(--primary-color) !important;
   }
-  
-  .card {
-    background: #1f2937;
+}
+
+/* 🔍 選擇器樣式優化 */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 12px;
+  padding-right: 2.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  select {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23d1d5db' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
   }
-  
-  .input {
-    background: #374151;
-    color: #f9fafb;
-  }
+}
+
+/* 💾 確保平滑過渡 */
+* {
+  transition-property: background-color, border-color, color;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+}
+
+button, input, select {
+  transition-property: background-color, border-color, color, transform, box-shadow;
 }
