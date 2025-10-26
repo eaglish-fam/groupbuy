@@ -1,82 +1,326 @@
-html,body{height:100%;background:#F1F5F9;color:#0F172A;font-family:system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,"Noto Sans",sans-serif}
-a{color:inherit;text-decoration:none}
-.container{max-width:1120px;margin:0 auto;padding:0 1rem}
-.card{ background:#fff; border-radius:1rem; box-shadow:0 1px 6px rgba(15,23,42,.08); padding:1rem; }
-@media (min-width:768px){ .card{ padding:1.5rem; } }
+/* ============================================
+   鷹家投資工具箱 - 優化版樣式 v2.1
+   改進：效能、無障礙、響應式
+   ============================================ */
 
-.btn{ padding:.5rem .75rem; border-radius:.75rem; font-size:.875rem; font-weight:600; box-shadow:0 1px 4px rgba(0,0,0,.06); transition:transform .05s ease, background .15s ease; display:inline-flex; align-items:center; gap:.5rem }
-.btn:active{ transform:scale(0.98); }
-.btn-primary{ background:#2563EB; color:#fff; }
-.btn-primary:hover{ background:#1D4ED8; }
-.btn-ghost{ background:#F1F5F9; color:#334155; }
-.btn-ghost:hover{ background:#E2E8F0; }
-
-.input{ width:100%; padding:.5rem .75rem; border:1px solid #CBD5E1; border-radius:.75rem; background:#fff }
-.input:focus{ outline:none; box-shadow:0 0 0 2px rgba(37,99,235,.35); }
-.label{ font-size:.75rem; color:#64748B; }
-.value{ font-weight:700; }
-
-.tab{ padding:.5rem .75rem; border-radius:.75rem; font-size:.875rem; font-weight:700; cursor:pointer; user-select:none; background:#F1F5F9; color:#334155; box-shadow:0 1px 3px rgba(0,0,0,.06); transition:background .15s, box-shadow .15s, transform .05s; border:1px solid #E2E8F0 }
-.tab:hover{ background:#E2E8F0; }
-.tab:active{ transform:scale(.98) }
-.tab-active{ background:#2563EB; color:#fff; box-shadow:0 2px 6px rgba(37,99,235,.35); border-color:#2563EB }
-.tab-inactive{ background:#F1F5F9; color:#334155; }
-
-.kpi{ display:grid; gap:.5rem; padding:.75rem; border-radius:.75rem; background:#F8FAFC; }
-.table{ width:100%; font-size:.875rem; border-collapse:separate; border-spacing:0 .25rem; }
-.table th{ text-align:left; color:#64748B; font-weight:600; padding:.25rem .25rem .5rem; }
-.table td{ padding:.25rem; }
-
-.grid{ display:grid; gap:1.5rem }
-.grid-cols-12{ grid-template-columns:repeat(12, minmax(0, 1fr)) }
-.col-span-5{ grid-column:span 5 / span 5 }
-.col-span-7{ grid-column:span 7 / span 7 }
-@media (max-width:1024px){ .grid-cols-12{ grid-template-columns:1fr } .col-span-5,.col-span-7{ grid-column:auto } }
-
-.hidden{ display:none !important }
-.row{ display:flex; gap:.5rem; align-items:center; flex-wrap:wrap }
-
-/* 修復輸入框破圖問題 - 移除所有自動添加的背景圖示 */
-.input,
-input.input,
-select.input,
-input[type="number"],
-input[type="text"],
-input[type="date"],
-select {
-  background: #fff !important;
-  background-image: none !important;
-  background-repeat: no-repeat !important;
-  background-position: initial !important;
-  background-size: auto !important;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+/* 🎨 CSS Variables for Theme */
+:root {
+  --primary-color: #f59e0b;
+  --primary-dark: #d97706;
+  --primary-light: #fef3c7;
+  --secondary-color: #2563eb;
+  --success-color: #10b981;
+  --error-color: #ef4444;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --border-color: #e5e7eb;
+  --border-radius: 0.75rem;
+  --transition-speed: 0.2s;
 }
 
-/* 移除 number 類型的上下箭頭（可選） */
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
+/* 🚀 效能優化：Critical CSS */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   margin: 0;
+  padding: 0;
+  color: var(--text-primary);
+  line-height: 1.6;
 }
 
-input[type="number"] {
-  -moz-appearance: textfield;
+.container {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
-/* 移除可能的 before/after 偽元素 */
-.input::before,
-.input::after,
-input::before,
-input::after {
-  content: none !important;
-  background: none !important;
+/* ⚡ 載入動畫 */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--border-radius);
 }
 
-/* 確保 select 下拉箭頭正常顯示（如果需要） */
-select.input {
-  background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23334155' d='M6 9L1 4h10z'/%3E%3C/svg%3E") no-repeat right 0.75rem center !important;
-  background-size: 12px !important;
-  padding-right: 2.5rem !important;
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* 🎯 Input 優化 */
+.input {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  border: 2px solid var(--border-color);
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  transition: all var(--transition-speed);
+  outline: none;
+}
+
+.input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.1);
+}
+
+.input:invalid {
+  border-color: var(--error-color);
+}
+
+.input::placeholder {
+  color: #9ca3af;
+  opacity: 1;
+}
+
+/* 🎨 按鈕系統 */
+.btn {
+  padding: 0.625rem 1.25rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  cursor: pointer;
+  transition: all var(--transition-speed);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  white-space: nowrap;
+  user-select: none;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-dark));
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+
+.btn-primary:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-primary:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-ghost {
+  background: transparent;
+  color: var(--text-secondary);
+  border: 2px solid var(--border-color);
+}
+
+.btn-ghost:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-color);
+  color: var(--primary-dark);
+}
+
+/* 📱 響應式網格 */
+.grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.grid-cols-12 {
+  grid-template-columns: repeat(12, 1fr);
+}
+
+.col-span-5 {
+  grid-column: span 5;
+}
+
+.col-span-7 {
+  grid-column: span 7;
+}
+
+@media (max-width: 1023px) {
+  .col-span-5, .col-span-7 {
+    grid-column: span 12;
+  }
+}
+
+/* 🎴 卡片組件 */
+.card {
+  background: white;
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid var(--border-color);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* 📊 KPI 顯示 */
+.kpi {
+  background: linear-gradient(135deg, #fafafa, #f5f5f5);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border-color);
+}
+
+.kpi .label {
+  font-size: 0.8125rem;
+  color: var(--text-secondary);
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+}
+
+.kpi .value {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* 🏷️ 分頁標籤 */
+.tab {
+  padding: 0.625rem 1rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  border-radius: 0.5rem;
+  transition: all var(--transition-speed);
+  white-space: nowrap;
+}
+
+.tab-active {
+  background: var(--primary-color);
+  color: white;
+}
+
+.tab-inactive {
+  color: var(--text-secondary);
+}
+
+.tab-inactive:hover {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+}
+
+/* 📋 表格優化 */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.table th {
+  background: var(--primary-light);
+  color: var(--primary-dark);
+  font-weight: 600;
+  padding: 0.75rem;
+  text-align: left;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.table td {
+  padding: 0.75rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.table tr:hover {
+  background: #fafafa;
+}
+
+/* 🎯 隱藏類 */
+.hidden {
+  display: none !important;
+}
+
+/* 🔄 過渡動畫 */
+.fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ♿ 無障礙優化 */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Focus 樣式 */
+*:focus-visible {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* ⚡ 效能優化：減少重繪 */
+.will-change-transform {
+  will-change: transform;
+}
+
+/* 📱 手機優化 */
+@media (max-width: 767px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .card {
+    padding: 1rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+  
+  .table {
+    font-size: 0.8125rem;
+  }
+  
+  .table th, .table td {
+    padding: 0.5rem;
+  }
+}
+
+/* 🖨️ 列印樣式 */
+@media print {
+  .btn, .tab, header {
+    display: none;
+  }
+  
+  .card {
+    border: 1px solid #000;
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+}
+
+/* 🌙 Dark Mode Support (可選) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+    --border-color: #374151;
+  }
+  
+  body {
+    background: #111827;
+  }
+  
+  .card {
+    background: #1f2937;
+  }
+  
+  .input {
+    background: #374151;
+    color: #f9fafb;
+  }
 }
