@@ -1,7 +1,7 @@
 
 import { $, setCurrency } from './format.js';
 import { tabs, bindCurrency, show, hide } from './ui.js';
-import { runLump, runDCA, runStepUp, runIrregular, runGoal, wireCompoundTabs } from './compound.js';
+import { runLump, runDCA, runStepUp, runGoal, wireCompoundTabs } from './compound.js';
 import { applyLoanPreset, runLoan, resetLoan } from './loan.js';
 
 // Header currency
@@ -35,7 +35,6 @@ const { runLast } = wireCompoundTabs();
 window.runLump = runLump;
 window.runDCA = runDCA;
 window.runStepUp = runStepUp;
-window.runIrregular = runIrregular;
 window.runGoal = runGoal;
 
 window.applyLoanPreset = applyLoanPreset;
