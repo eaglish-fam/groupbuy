@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>鷹家投資工具箱｜投資複利・貸款利息</title>
-  <meta name="description" content="鷹家投資工具箱：投資複利計算器、貸款利息試算（信貸/房貸/車貸/保單借款）。支援幣別、通膨、費用、稅金、APR、明細表與圖表。" />
+  <title>鷹家投資工具箱｜投資複利・貸款利息 v2.1</title>
+  <meta name="description" content="鷹家投資工具箱：投資複利計算器（支援初始本金）、貸款利息試算。支援幣別、通膨、費用、稅金、APR、明細表與圖表。" />
   
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
@@ -25,8 +25,9 @@
       <!-- 標題 -->
       <div style="text-align: center; margin-bottom: 0.75rem;">
         <h1 style="font-size: 1.5rem; font-weight: 700; color: #78350f; margin: 0;">
-          🦅 鷹家投資工具箱
+          🦅 鷹家投資工具箱 <span style="font-size: 0.75rem; color: #f59e0b;">v2.1</span>
         </h1>
+        <p style="font-size: 0.75rem; color: #92400e; margin: 0.25rem 0 0 0;">🆕 定期定額現在支援初始本金!</p>
       </div>
     
       <!-- 控制列 -->
@@ -72,8 +73,8 @@
       <section class="col-span-5 card">
         <div class="row" id="tabs">
           <button data-tab="lump" class="tab tab-active">💰 一次性投入</button>
-          <button data-tab="dca" class="tab tab-inactive">📅 每月定期定額</button>
-          <button data-tab="stepup" class="tab tab-inactive">📈 定期不定額（步進加碼）</button>
+          <button data-tab="dca" class="tab tab-inactive">📅 定期定額 <span style="color:#f59e0b; font-size:0.7rem;">★NEW</span></button>
+          <button data-tab="stepup" class="tab tab-inactive">📈 定期不定額 <span style="color:#f59e0b; font-size:0.7rem;">★NEW</span></button>
           <button data-tab="goal" class="tab tab-inactive">🎯 目標反推</button>
         </div>
 
@@ -140,6 +141,18 @@
         </div>
 
         <div id="panel-dca" class="hidden">
+          <!-- 🆕 新增初始投資欄位 -->
+          <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 0.5rem; padding: 0.75rem; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.25rem;">💡</span>
+              <span style="font-weight: 600; color: #92400e;">新功能：支援初始本金</span>
+            </div>
+            <div>
+              <div class="label" style="color: #92400e;">初始投資本金（可選，已有存款）</div>
+              <input id="dcaInitial" type="number" step="1000" value="0" class="input" placeholder="例如：已有 100,000 元存款" />
+            </div>
+          </div>
+          
           <div class="grid" style="grid-template-columns:1fr 1fr; gap:.75rem">
             <div>
               <div class="label">每月投入金額</div>
@@ -157,6 +170,18 @@
         </div>
 
         <div id="panel-stepup" class="hidden">
+          <!-- 🆕 新增初始投資欄位 -->
+          <div style="background: #fef3c7; border: 2px solid #f59e0b; border-radius: 0.5rem; padding: 0.75rem; margin-bottom: 1rem;">
+            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem;">
+              <span style="font-size: 1.25rem;">💡</span>
+              <span style="font-weight: 600; color: #92400e;">新功能：支援初始本金</span>
+            </div>
+            <div>
+              <div class="label" style="color: #92400e;">初始投資本金（可選，已有存款）</div>
+              <input id="stepInitial" type="number" step="1000" value="0" class="input" placeholder="例如：已有 100,000 元存款" />
+            </div>
+          </div>
+          
           <div class="grid" style="grid-template-columns:1fr 1fr; gap:.75rem">
             <div>
               <div class="label">初始每月投入</div>
@@ -229,6 +254,12 @@
             <div class="label">期間與期數</div>
             <div class="value"><span id="outYears">—</span> 年 ／ <span id="outPeriods">—</span> 期</div>
             <div class="label">複利頻率：<span id="outFreq">—</span>／年</div>
+          </div>
+          <!-- 🆕 初始投資資訊顯示 -->
+          <div id="initialInvestmentInfo" class="kpi hidden" style="background: #fef3c7; border: 2px solid #fbbf24;">
+            <div class="label" style="color: #92400e;">💰 初始本金</div>
+            <div id="outInitial" style="font-size:1.25rem;font-weight:700;color:#92400e">—</div>
+            <div class="label" style="color: #78350f; font-size: 0.75rem;">已計入總投入</div>
           </div>
         </div>
         <div style="margin-top:1rem"><canvas id="chart" height="120"></canvas></div>
@@ -334,11 +365,12 @@
     </div>
 
     <footer class="container" style="padding:2rem 0;text-align:center;color:#64748B;font-size:.75rem">
-      ※ 本工具為教育用途之試算，實際投資請自行評估風險與稅務規定。／ © 2025
+      ※ 本工具為教育用途之試算，實際投資請自行評估風險與稅務規定。<br>
+      v2.1.0 - 新增定期定額初始本金功能 / © 2025 鷹家投資工具箱
     </footer>
   </main>
 
-  <!-- 🎯 只需要載入這一個 JS 檔案！ -->
+  <!-- 🎯 載入增強版 JS -->
   <script src="./assets/js/calculator.js"></script>
 </body>
 </html>
