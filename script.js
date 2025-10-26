@@ -1946,6 +1946,20 @@ function renderContent() {
   const btn = (id, txt, cls) => `<button onclick="scrollToSection('${id}')" class="px-4 py-2 ${cls} rounded-lg font-medium whitespace-nowrap hover:opacity-90 text-sm">${txt}</button>`;
   elements.sectionButtons.innerHTML = (shortTerm.length ? btn('short-term', '限時團購', 'bg-orange-100 text-orange-700') : '') +
     (longTerm.length ? btn('long-term', '常駐團購', 'bg-green-100 text-green-700') : '') +
+    `<section class="scroll-mt-24 md:scroll-mt-28 mb-8">
+      <div class="flex justify-center">
+        <a href="/invest" 
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
+           onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_invest_tool', {event_category: 'navigation', event_label: 'investment_tool'});}">
+          📊 投資理財試算工具
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+    </section>` +
     (coupon.length ? btn('coupon', '折扣碼優惠', 'bg-purple-100 text-purple-700') : '') +
     btn('calendar', '團購行事曆', 'bg-blue-100 text-blue-700');
 
