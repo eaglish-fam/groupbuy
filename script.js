@@ -1805,16 +1805,20 @@ function renderGroupCard(g) {
     </div>`;
 }
 
-// ============================================
-// 修改後的 renderCouponCard 函數
-// 用於：折扣碼優惠
-// 佈局：單欄顯示，折扣碼橫向排列
-// ============================================
-
-// ============================================
-// 修正後的 renderCouponCard 函數
-// 修正：將「查看詳細說明」改為按鈕樣式
-// ============================================
+`<section class="scroll-mt-24 md:scroll-mt-28 mb-8">
+  <div class="text-center">
+    <a href="/invest" 
+       target="_blank"
+       rel="noopener noreferrer"
+       class="inline-flex items-center gap-3 bg-gradient-to-r from-gray-400 to-gray-600 hover:from-gray-700 hover:to-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
+       onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_invest_tool', {event_category: 'navigation', event_label: 'investment_tool'});}">
+      📊 投資理財試算工具
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+      </svg>
+    </a>
+  </div>
+</section>` 
 
 function renderCouponCard(g) {
   const expired = utils.isExpired(g.endDate);
