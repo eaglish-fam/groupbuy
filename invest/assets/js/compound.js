@@ -180,69 +180,6 @@ function rowTemplate(d, amt, note){
   </tr>`
 }
 
-export function addCashflowRow(){ 
-  const tbody = $('cashflowBody');
-  if(!tbody) return;
-  tbody.insertAdjacentHTML('beforeend', rowTemplate('',0,'')); 
-}
-
-export function seedCashflows(){
-  const now=$('startDate').value? new Date($('startDate').value):new Date();
-  const rows=[
-    [ymd(now),50000,'期初'],
-    [ymd(monthAdd(now,3)),10000,'第4個月'],
-    [ymd(monthAdd(now,7)),20000,'第8個月'],
-    [ymd(monthAdd(now,13)),15000,'第14個月']
-  ];
-  clearCashflows(); 
-  rows.forEach(r=> $('cashflowBody').insertAdjacentHTML('beforeend', rowTemplate(r[0],r[1],r[2])));
-}
-
-export function clearCashflows(){ 
-  const tbody = $('cashflowBody');
-  if(tbody) tbody.innerHTML=''; 
-}
-
-export function runIrregular(){
-  resetDetail();
-  const rA=pctToRate($('annualReturn').value);
-  const infl=pctToRate($('inflation').value);
-  const mgmt=pctToRate($('mgmtPct').value);
-  const endDate=$('endDate').value? new Date($('endDate').value):new Date();
-  const endingValue=+$('endingValue').value||0;
-  const effDaily=Math.pow(1+(rA-mgmt),1/365)-1;
-
-  const rows=[...$('cashflowBody').querySelectorAll('tr')].map(tr=>{
-    const [d,a,n]=tr.querySelectorAll('input');
-    return {date:new Date(d.value), amount:parseFloat(a.value)||0, note:n.value};
-  }).filter(r=>r.date instanceof Date && !isNaN(r.date)).sort((a,b)=> +a.date - +b.date);
-
-  let bal=0,totalIn=0; let labels=[],series=[];
-  let cursor=rows.length? new Date(rows[0].date):new Date();
-  rows.forEach((r,idx)=>{
-    const gap=Math.max(0, Math.floor((r.date - cursor)/(1000*60*60*24)));
-    for(let d=0; d<gap; d++){ bal*=(1+effDaily); }
-    cursor=new Date(r.date);
-    // log
-    const interest=0; // 已反映在滾存
-    pushDetail(`D${idx}`, cursor, 0, interest, 0, 0, bal);
-    bal+=r.amount; if(r.amount>0) totalIn+=r.amount;
-    pushDetail(`C${idx}`, cursor, r.amount, 0, 0, 0, bal);
-    if(idx===0){ labels.push(ymd(cursor)); series.push(bal); }
-  });
-  const gapEnd=Math.max(0, Math.floor((endDate - cursor)/(1000*60*60*24)));
-  for(let d=0; d<gapEnd; d++){ bal*=(1+effDaily); }
-  labels.push(ymd(endDate)); series.push(bal);
-
-  const cf=rows.map(r=>({date:r.date, amount:-r.amount})); cf.push({date:endDate, amount:endingValue});
-  const irr=xirr(cf);
-  const years=(rows.length? (endDate - rows[0].date)/(1000*60*60*24)/365:0);
-  const finalReal=endingValue / Math.pow(1+infl, years);
-  const gain=endingValue-totalIn;
-
-  renderChart(labels,series);
-  updateKPIs({finalValue:endingValue, finalReal, totalIn, gain, cagr:irr, periods:rows.length, freq:'—', years, xirr:irr});
-}
 
 // Goal
 export function solveMonthlyForTarget(target, rA, years, m){
@@ -288,7 +225,7 @@ export function runGoal(){
 
 // wiring
 export function wireCompoundTabs(){
-  const panels = { lump:$('panel-lump'), dca:$('panel-dca'), stepup:$('panel-stepup'), irregular:$('panel-irregular'), goal:$('panel-goal') };
+  const panels = { lump:$('panel-lump'), dca:$('panel-dca'), stepup:$('panel-stepup'), goal:$('panel-goal') };
   let lastRunner = runLump;
   function runLast(){ lastRunner && lastRunner(); }
   document.querySelectorAll('#tabs button').forEach(btn=>{
@@ -298,17 +235,9 @@ export function wireCompoundTabs(){
       Object.values(panels).forEach(p=> p.classList.add('hidden'));
       const key=btn.dataset.tab; 
       panels[key].classList.remove('hidden');
-      lastRunner = ({lump:runLump, dca:runDCA, stepup:runStepUp, irregular:runIrregular, goal:runGoal})[key];
-      
-      // 切換到不定期面板時，如果表格空的就自動添加一筆範例
-      if(key==='irregular') {
-        const tbody = $('cashflowBody');
-        if(tbody && tbody.children.length === 0) {
-          addCashflowRow();
-        }
-      } else {
-        runLast();
-      }
+      lastRunner = ({lump:runLump, dca:runDCA, stepup:runStepUp, goal:runGoal})[key];
+
+      runLast();
     });
   });
   return { runLast, setLast:(fn)=> lastRunner=fn };
