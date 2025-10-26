@@ -1,4 +1,3 @@
-
 import { $, pctToRate, daysBetween, monthAdd, ymd, toPct, numberFmt } from './format.js';
 import { renderChart } from './chart.js';
 
@@ -171,21 +170,39 @@ function xirr(cashflows){
   }
   return (lo+hi)/2;
 }
-export function addCashflowRow(){ $('cashflowBody').insertAdjacentHTML('beforeend', rowTemplate('',0,'')); }
-export function seedCashflows(){
-  const now=$('startDate').value? new Date($('startDate').value):new Date();
-  const rows=[[ymd(now),50000,'期初'],[ymd(monthAdd(now,3)),10000,'第4個月'],[ymd(monthAdd(now,7)),20000,'第8個月'],[ymd(monthAdd(now,13)),15000,'第14個月']];
-  clearCashflows(); rows.forEach(r=> $('cashflowBody').insertAdjacentHTML('beforeend', rowTemplate(r[0],r[1],r[2])));
-}
-export function clearCashflows(){ $('cashflowBody').innerHTML=''; }
+
 function rowTemplate(d, amt, note){
   return `<tr>
     <td><input type="date" class="input" value="${d||''}" /></td>
     <td><input type="number" class="input" value="${amt||0}" step="100" /></td>
-    <td><input type="text" class="input" value="${note||''}" /></td>
+    <td><input type="text" class="input" value="${note||''}" placeholder="例如：初始投入" /></td>
     <td><button class="btn btn-ghost" onclick="this.closest('tr').remove()">刪除</button></td>
   </tr>`
 }
+
+export function addCashflowRow(){ 
+  const tbody = $('cashflowBody');
+  if(!tbody) return;
+  tbody.insertAdjacentHTML('beforeend', rowTemplate('',0,'')); 
+}
+
+export function seedCashflows(){
+  const now=$('startDate').value? new Date($('startDate').value):new Date();
+  const rows=[
+    [ymd(now),50000,'期初'],
+    [ymd(monthAdd(now,3)),10000,'第4個月'],
+    [ymd(monthAdd(now,7)),20000,'第8個月'],
+    [ymd(monthAdd(now,13)),15000,'第14個月']
+  ];
+  clearCashflows(); 
+  rows.forEach(r=> $('cashflowBody').insertAdjacentHTML('beforeend', rowTemplate(r[0],r[1],r[2])));
+}
+
+export function clearCashflows(){ 
+  const tbody = $('cashflowBody');
+  if(tbody) tbody.innerHTML=''; 
+}
+
 export function runIrregular(){
   resetDetail();
   const rA=pctToRate($('annualReturn').value);
@@ -279,9 +296,19 @@ export function wireCompoundTabs(){
       document.querySelectorAll('#tabs button').forEach(b=> b.className='tab tab-inactive');
       btn.className='tab tab-active';
       Object.values(panels).forEach(p=> p.classList.add('hidden'));
-      const key=btn.dataset.tab; panels[key].classList.remove('hidden');
+      const key=btn.dataset.tab; 
+      panels[key].classList.remove('hidden');
       lastRunner = ({lump:runLump, dca:runDCA, stepup:runStepUp, irregular:runIrregular, goal:runGoal})[key];
-      if(key!=='irregular') runLast();
+      
+      // 切換到不定期面板時，如果表格空的就自動添加一筆範例
+      if(key==='irregular') {
+        const tbody = $('cashflowBody');
+        if(tbody && tbody.children.length === 0) {
+          addCashflowRow();
+        }
+      } else {
+        runLast();
+      }
     });
   });
   return { runLast, setLast:(fn)=> lastRunner=fn };
