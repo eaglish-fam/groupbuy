@@ -12,7 +12,7 @@ function netGrowthRate(annualReturn, mgmtPct, compoundFreq){ const r = annualRet
 function applyFeesAndTax(gain, taxPct){ const tax = Math.max(0, gain) * taxPct; const afterTaxGain = gain - tax; return { afterTaxGain, tax }; }
 function inflateToReal(nominalFinal, inflation, years){ return nominalFinal / Math.pow(1+inflation, years); }
 
-export function updateKPIs({finalValue, finalReal, totalIn, gain, cagr, periods, freq, years, xirr}){
+export function updateKPIs({finalValue, finalReal, totalIn, gain, cagr, periods, freq, years}){
   $('outFinal').textContent = numberFmt.format(finalValue);
   $('outFinalReal').textContent = numberFmt.format(finalReal);
   $('outTotalIn').textContent = numberFmt.format(totalIn);
@@ -21,7 +21,6 @@ export function updateKPIs({finalValue, finalReal, totalIn, gain, cagr, periods,
   $('outPeriods').textContent = periods;
   $('outFreq').textContent = freq;
   $('outYears').textContent = (years||0).toFixed(2);
-  $('outXIRR').textContent = (xirr!=null&&isFinite(xirr))? toPct(xirr):'—';
 }
 
 // Lump sum
