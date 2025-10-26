@@ -526,3 +526,35 @@ select {
 button, input, select {
   transition-property: background-color, border-color, color, transform, box-shadow;
 }
+
+/* 🔧 防止輸入格破版 */
+.input[type="number"] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  font-family: 'Monaco', 'Consolas', monospace;
+  text-align: right;
+}
+
+.input[type="number"]::-webkit-inner-spin-button,
+.input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.input[type="number"]:focus {
+  text-align: left;
+  overflow: auto;
+}
+
+.grid > div {
+  min-width: 0;
+  overflow: hidden;
+}
+
+@media (max-width: 767px) {
+  .input[type="number"] {
+    font-size: 0.875rem;
+  }
+}
