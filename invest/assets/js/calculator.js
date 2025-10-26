@@ -1,8 +1,7 @@
 // ============================================
-// 🦅 鷹家投資工具箱 - 統一版本
-// All-in-One JavaScript File
-// Version: 2.0.0
-// Date: 2025-10-26
+// 🦅 鷹家投資工具箱 - 增強版 v2.1.0
+// 新增：定期定額支援初始投資本金
+// Date: 2025-10-27
 // ============================================
 
 // ============================================
@@ -201,7 +200,7 @@ function inflateToReal(nominalFinal, inflation, years) {
   return nominalFinal / Math.pow(1 + inflation, years);
 }
 
-function updateKPIs({ finalValue, finalReal, totalIn, gain, cagr, periods, freq, years }) {
+function updateKPIs({ finalValue, finalReal, totalIn, gain, cagr, periods, freq, years, initialInvestment }) {
   const updateEl = (id, val) => {
     const el = $(id);
     if (el) el.textContent = val;
@@ -215,6 +214,16 @@ function updateKPIs({ finalValue, finalReal, totalIn, gain, cagr, periods, freq,
   updateEl('outPeriods', periods);
   updateEl('outFreq', freq);
   updateEl('outYears', (years || 0).toFixed(2));
+  
+  // 🆕 顯示初始投資資訊 (如果有的話)
+  if (initialInvestment && initialInvestment > 0) {
+    updateEl('outInitial', numberFmt.format(initialInvestment));
+    const initialInfo = $('initialInvestmentInfo');
+    if (initialInfo) initialInfo.classList.remove('hidden');
+  } else {
+    const initialInfo = $('initialInvestmentInfo');
+    if (initialInfo) initialInfo.classList.add('hidden');
+  }
 }
 
 // Lump Sum Calculator
@@ -261,12 +270,13 @@ function runLump() {
   updateKPIs({ finalValue, finalReal, totalIn, gain, cagr, periods: nY * m, freq: m, years: nY });
 }
 
-// DCA Calculator
+// 🆕 Enhanced DCA Calculator with Initial Investment
 function runDCA() {
-  console.log('📅 Running DCA calculation...');
+  console.log('📅 Running Enhanced DCA calculation with initial investment...');
   resetDetail();
 
   const amt = getInputValue('dcaAmount', 0);
+  const initialInvestment = getInputValue('dcaInitial', 0); // 🆕 初始投資本金
   const rA = pctToRate(getInputValue('annualReturn', 8));
   const nY = getInputValue('years', 10);
   const m = getInputValue('compoundFreq', 12);
@@ -278,26 +288,29 @@ function runDCA() {
   const start = getInputDate('startDate');
 
   const eff = netGrowthRate(rA, mgmt, m);
-  let bal = 0, totalIn = 0;
+  
+  // 🆕 起始餘額 = 初始投資扣除手續費
+  let bal = initialInvestment * (1 - feeIn);
+  let totalIn = initialInvestment * (1 - feeIn);
+  
   let labels = [], series = [];
   let date = new Date(start);
 
   for (let i = 1; i <= nY * m; i++) {
-    let contribution = (m === 12 ? amt : amt * (12 / m));
-    const fee = contribution * feeIn;
-    contribution -= fee;
-    bal += contribution;
-    totalIn += (contribution + fee);
-
+    const inAmt = amt * (1 - feeIn);
+    bal += inAmt;
+    totalIn += inAmt;
     const interest = bal * eff;
     const { afterTaxGain, tax: taxAmt } = applyFeesAndTax(interest, tax);
     bal += afterTaxGain;
-
+    const fees = amt * feeIn;
+    
     if (i % m === 0) {
       labels.push(date.getFullYear() + "年" + ((date.getMonth() + 1)) + '月');
       series.push(bal);
     }
-    pushDetail(i, date, contribution, afterTaxGain, fee, taxAmt, bal);
+    
+    pushDetail(i, date, inAmt, afterTaxGain, fees, taxAmt, bal);
     date = monthAdd(date, 12 / m);
   }
 
@@ -307,17 +320,28 @@ function runDCA() {
   const cagr = Math.pow(finalValue / Math.max(1, totalIn), 1 / nY) - 1;
 
   renderChart(labels, series);
-  updateKPIs({ finalValue, finalReal, totalIn, gain, cagr, periods: nY * m, freq: m, years: nY });
+  updateKPIs({ 
+    finalValue, 
+    finalReal, 
+    totalIn, 
+    gain, 
+    cagr, 
+    periods: nY * m, 
+    freq: m, 
+    years: nY,
+    initialInvestment: initialInvestment * (1 - feeIn) // 🆕 傳遞初始投資資訊
+  });
 }
 
-// Step-Up Calculator
+// StepUp Calculator (Enhanced with Initial Investment)
 function runStepUp() {
-  console.log('📈 Running Step-Up calculation...');
+  console.log('📈 Running StepUp calculation...');
   resetDetail();
 
-  let base = getInputValue('stepBase', 0);
+  const base = getInputValue('stepBase', 8000);
+  const initialInvestment = getInputValue('stepInitial', 0); // 🆕 初始投資本金
   const stepPct = pctToRate(getInputValue('stepPct', 5));
-  const stepFreq = getInputValue('stepFreq', 12);
+  const stepEvery = getInputValue('stepFreq', 12);
   const cap = getInputValue('stepCap', 0);
   const rA = pctToRate(getInputValue('annualReturn', 8));
   const nY = getInputValue('years', 10);
@@ -330,30 +354,35 @@ function runStepUp() {
   const start = getInputDate('startDate');
 
   const eff = netGrowthRate(rA, mgmt, m);
-  let bal = 0, totalIn = 0;
+  
+  // 🆕 起始餘額 = 初始投資扣除手續費
+  let bal = initialInvestment * (1 - feeIn);
+  let totalIn = initialInvestment * (1 - feeIn);
+  
+  let current = base;
   let labels = [], series = [];
   let date = new Date(start);
 
   for (let i = 1; i <= nY * m; i++) {
-    let thisMonth = base;
-    if (cap > 0) thisMonth = Math.min(thisMonth, cap);
-    let contribution = (m === 12 ? thisMonth : thisMonth * (12 / m));
-    const fee = contribution * feeIn;
-    contribution -= fee;
-    bal += contribution;
-    totalIn += (contribution + fee);
-
+    if (i > 1 && i % stepEvery === 1) {
+      current = current * (1 + stepPct);
+      if (cap > 0 && current > cap) current = cap;
+    }
+    
+    const inAmt = current * (1 - feeIn);
+    bal += inAmt;
+    totalIn += inAmt;
     const interest = bal * eff;
     const { afterTaxGain, tax: taxAmt } = applyFeesAndTax(interest, tax);
     bal += afterTaxGain;
-
-    if (i % stepFreq === 0) { base *= (1 + stepPct); }
-
+    const fees = current * feeIn;
+    
     if (i % m === 0) {
       labels.push(date.getFullYear() + "年" + ((date.getMonth() + 1)) + '月');
       series.push(bal);
     }
-    pushDetail(i, date, contribution, afterTaxGain, fee, taxAmt, bal);
+    
+    pushDetail(i, date, inAmt, afterTaxGain, fees, taxAmt, bal);
     date = monthAdd(date, 12 / m);
   }
 
@@ -363,55 +392,68 @@ function runStepUp() {
   const cagr = Math.pow(finalValue / Math.max(1, totalIn), 1 / nY) - 1;
 
   renderChart(labels, series);
-  updateKPIs({ finalValue, finalReal, totalIn, gain, cagr, periods: nY * m, freq: m, years: nY });
+  updateKPIs({ 
+    finalValue, 
+    finalReal, 
+    totalIn, 
+    gain, 
+    cagr, 
+    periods: nY * m, 
+    freq: m, 
+    years: nY,
+    initialInvestment: initialInvestment * (1 - feeIn) // 🆕 傳遞初始投資資訊
+  });
 }
 
 // Goal Calculator
-function solveMonthlyForTarget(target, rA, years, m) {
-  const i = Math.pow(1 + rA, 1 / m) - 1;
-  const n = Math.round(years * m);
-  if (i === 0) return target / n;
-  return target * i / (Math.pow(1 + i, n) - 1);
-}
-
-function solveYearsForTarget(target, rA, monthly, m) {
-  const i = Math.pow(1 + rA, 1 / m) - 1;
-  let lo = 0, hi = 100;
-  for (let k = 0; k < 100; k++) {
-    const mid = (lo + hi) / 2;
-    const n = Math.round(mid * m);
-    const fv = (i === 0) ? monthly * n : monthly * ((Math.pow(1 + i, n) - 1) / i);
-    if (fv >= target) hi = mid; else lo = mid;
-  }
-  return (lo + hi) / 2;
-}
-
 function runGoal() {
   console.log('🎯 Running Goal calculation...');
   resetDetail();
 
-  const target = getInputValue('goalTarget', 0);
-  const mode = getSelectValue('goalSolveFor', 'monthly');
+  const target = getInputValue('goalTarget', 10000000);
+  const solveFor = getSelectValue('goalSolveFor', 'monthly');
   const rA = pctToRate(getInputValue('annualReturn', 8));
   const m = getInputValue('compoundFreq', 12);
   const infl = pctToRate(getInputValue('inflation', 2));
+  const feeIn = pctToRate(getInputValue('feePct', 0));
+  const redeem = pctToRate(getInputValue('redeemPct', 0));
+  const mgmt = pctToRate(getInputValue('mgmtPct', 0));
+  const tax = pctToRate(getInputValue('taxPct', 0));
 
-  if (mode === 'monthly') {
-    const years = getInputValue('goalYears', 10);
-    const pmt = solveMonthlyForTarget(target, rA, years, m);
-    const totalIn = pmt * years * m;
-    const finalReal = target / Math.pow(1 + infl, years);
-    const cagr = Math.pow(target / Math.max(1, totalIn), 1 / years) - 1;
-    renderChart(['0', '目標'], [0, target]);
-    updateKPIs({ finalValue: target, finalReal, totalIn, gain: target - totalIn, cagr, periods: Math.round(years * m), freq: m, years });
+  const eff = netGrowthRate(rA, mgmt, m);
+  let result = { value: 0, type: solveFor };
+
+  if (solveFor === 'monthly') {
+    const nY = getInputValue('goalYears', 15);
+    const n = nY * m;
+    const targetAdj = target / (1 - redeem);
+    const factor = Math.pow(1 + eff, n) - 1;
+    const pmt = (targetAdj * eff) / factor;
+    const grossPmt = pmt / (1 - feeIn);
+    result.value = grossPmt;
+    result.years = nY;
+    result.periods = n;
+    
+    alert(`💡 達成目標 ${numberFmt.format(target)}，需每期投入約 ${numberFmt.format(grossPmt)}`);
   } else {
-    const monthly = getInputValue('goalMonthly', 0);
-    const years = solveYearsForTarget(target, rA, monthly, m);
-    const totalIn = monthly * years * m;
-    const finalReal = target / Math.pow(1 + infl, years);
-    const cagr = Math.pow(target / Math.max(1, totalIn), 1 / years) - 1;
-    renderChart(['0', '目標'], [0, target]);
-    updateKPIs({ finalValue: target, finalReal, totalIn, gain: target - totalIn, cagr, periods: Math.round(years * m), freq: m, years });
+    const pmt = getInputValue('goalMonthly', 10000);
+    const netPmt = pmt * (1 - feeIn);
+    const targetAdj = target / (1 - redeem);
+    
+    let lo = 0, hi = 100;
+    for (let iter = 0; iter < 100; iter++) {
+      const mid = (lo + hi) / 2;
+      const n = mid * m;
+      const factor = Math.pow(1 + eff, n) - 1;
+      const fv = netPmt * (factor / eff);
+      if (Math.abs(fv - targetAdj) < 1000) {
+        result.value = mid;
+        result.periods = n;
+        alert(`💡 每期投入 ${numberFmt.format(pmt)}，約需 ${mid.toFixed(1)} 年可達成目標 ${numberFmt.format(target)}`);
+        break;
+      }
+      if (fv < targetAdj) lo = mid; else hi = mid;
+    }
   }
 }
 
@@ -631,7 +673,7 @@ function irrFromSchedule(cfs, py) {
 // ============================================
 
 function initApp() {
-  console.log('🦅 Initializing 鷹家投資工具箱...');
+  console.log('🦅 Initializing 鷹家投資工具箱 v2.1.0...');
 
   // Header currency binding
   bindCurrency(() => {
