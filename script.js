@@ -1991,21 +1991,21 @@ function renderContent() {
        </div>
      </section>` +
 
-     `<section class="scroll-mt-24 md:scroll-mt-28 mb-8">
-       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🧰 康先生工具箱</h2> 
-       <div class="text-center">
-         <a href="/invest" 
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-3 bg-gradient-to-r from-gray-400 to-gray-500 hover:from-green-500 hover:to-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
-            onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_invest_tool', {event_category: 'navigation', event_label: 'investment_tool'});}">
-           📊 投資理財工具
-           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
-           </svg>
-         </a>
-       </div>
-     </section>`+ 
+    `<section class="scroll-mt-24 md:scroll-mt-28 mb-8">
+      <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🧰 康先生工具箱</h2> 
+      <div class="text-center">
+        <a href="/invest" 
+           target="_blank"
+           rel="noopener noreferrer"
+           class="inline-flex items-center gap-3 bg-gradient-to-r from-gray-400 to-gray-500 hover:from-green-500 hover:to-red-500 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all hover:scale-105 shadow-lg"
+           onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_invest_tool', {event_category: 'navigation', event_label: 'investment_tool'});}">
+          📊 投資理財工具
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+          </svg>
+        </a>
+      </div>
+    </section>` + 
     
 
     (filtered.length === 0 && state.searchTerm ? `<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「${state.searchTerm}」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清空搜尋</p></div>` : '') +
