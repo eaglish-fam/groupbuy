@@ -37,24 +37,30 @@ a{color:inherit;text-decoration:none}
 .hidden{ display:none !important }
 .row{ display:flex; gap:.5rem; align-items:center; flex-wrap:wrap }
 
-/* 工具箱作用域，取消全站對 .input 加的背景圖示，避免破圖 */
+/* ===== 投資工具箱作用域：徹底關閉輸入框背景小圖，避免破圖 ===== */
+#ig .input,
+#ig input.input,
+#ig select.input,
 #ig input[type="number"],
 #ig input[type="text"],
 #ig input[type="date"],
 #ig select {
+  background: none !important;
   background-image: none !important;
   background-repeat: no-repeat !important;
   background-position: initial !important;
   background-size: auto !important;
-  padding-left: .75rem !important; /* 還原內距，避免原本為了圖示多留的空間 */
+  -webkit-appearance: none; /* Safari */
+  appearance: none;
+  padding-left: .75rem !important; /* 還原因小圖多留的內距 */
+  background-color: #fff !important;
 }
 
-/* 去掉 number 的上下微調箭頭（保持我們的視覺一致） */
+/* number 的上下微調箭頭（視覺一致，非必要） */
 #ig input[type="number"]::-webkit-outer-spin-button,
-#ig input[type="number"]::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-#ig input[type="number"] {
-  appearance: textfield;
-}
+#ig input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+#ig input[type="number"] { appearance: textfield; }
+
+/* 某些主題會用 before/after 畫圖示，這裡也一併拔掉 */
+#ig .input::before,
+#ig .input::after { content: none !important; background: none !important; }
