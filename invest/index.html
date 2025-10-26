@@ -17,21 +17,33 @@
   
 </head>
 <body>
-  <header style="position:sticky;top:0;z-index:20;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);border-bottom:1px solid #E2E8F0">
-    <div class="container" style="display:flex;gap:1rem;align-items:center;padding:1rem 0;">
-      <a href="/" style="font-size:1.25rem;font-weight:800 text-center">鷹家投資工具箱</a>
-<!-- <div class="hidden md:block text-slate-500">｜投資複利・貸款利息</div> -->
-      <a href="/" class="btn btn-primary" style="margin-left:auto">🛒 回首頁</a>
-      <div class="row">
-        <label class="label">幣別</label>
-        <select id="currency" class="input" style="width:auto">
-          <option value="TWD" selected>新台幣（NT$）</option>
-          <option value="USD">美元（US$）</option>
-          <option value="NZD">紐幣（NZ$）</option>
-          <option value="JPY">日圓（¥）</option>
-          <option value="CNY">人民幣（CN¥）</option>
-          <option value="AUD">澳幣（A$）</option>
-        </select>
+  <header style="background: white; border-bottom: 2px solid #fcd34d; padding: 1rem 0; position: sticky; top: 0; z-index: 30;">
+    <div style="max-width: 1120px; margin: 0 auto; padding: 0 1rem;">
+      <!-- 標題 -->
+      <div style="text-align: center; margin-bottom: 0.75rem;">
+        <h1 style="font-size: 1.5rem; font-weight: 700; color: #78350f; margin: 0;">
+          🦅 鷹家投資工具箱
+        </h1>
+      </div>
+    
+      <!-- 控制列 -->
+      <div style="display: flex; gap: 0.75rem; justify-content: center; align-items: center; flex-wrap: wrap;">
+        <button id="backBtn" class="btn btn-primary" onclick="window.location.href='/'">
+          🏠 回首頁
+        </button>
+      
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <span style="font-size: 0.875rem; color: #64748B;">幣別</span>
+          <select id="currency" class="input" style="min-width: 140px;">
+            <option value="TWD">新台幣 (NT$)</option>
+            <option value="USD">美元 ($)</option>
+            <option value="EUR">歐元 (€)</option>
+            <option value="JPY">日圓 (¥)</option>
+            <option value="CNY">人民幣 (CNY)</option>
+            <option value="CNY">澳幣 (AUD)</option>
+            <option value="CNY">紐幣 (NZD)</option>
+          </select>
+        </div>
       </div>
     </div>
   </header>
