@@ -71,7 +71,6 @@
           <button data-tab="lump" class="tab tab-active">💰 一次性投入</button>
           <button data-tab="dca" class="tab tab-inactive">📅 每月定期定額</button>
           <button data-tab="stepup" class="tab tab-inactive">📈 定期不定額（步進加碼）</button>
-          <button data-tab="irregular" class="tab tab-inactive">🗓️ 不定期/不定額</button>
           <button data-tab="goal" class="tab tab-inactive">🎯 目標反推</button>
         </div>
 
@@ -180,43 +179,6 @@
           <div class="row" style="margin-top:.5rem">
             <button class="btn btn-primary" onclick="runStepUp()">計算</button>
             <button class="btn btn-ghost" onclick="location.reload()">重置</button>
-          </div>
-        </div>
-
-        <div id="panel-irregular" class="hidden">
-          <div class="kpi">
-            <div style="font-size:.875rem;color:#475569">新增現金流（投入為正、贖回為負）。最末日自動加入「期末資產」現金流以計算 XIRR。</div>
-            <div class="row">
-              <button class="btn btn-ghost" onclick="addCashflowRow()">＋新增一筆</button>
-              <button class="btn btn-ghost" onclick="seedCashflows()">載入範例</button>
-              <button class="btn btn-ghost" onclick="clearCashflows()">清空</button>
-            </div>
-            <div style="overflow:auto;border:1px solid #E2E8F0;border-radius:.75rem">
-              <table class="table">
-                <thead>
-                  <tr>
-                    <th style="min-width:130px">日期</th>
-                    <th style="min-width:130px">金額（投入+／贖回-）</th>
-                    <th>備註</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody id="cashflowBody"></tbody>
-              </table>
-            </div>
-          </div>
-          <div class="grid" style="grid-template-columns:1fr 1fr; gap:.75rem">
-            <div>
-              <div class="label">期末日期（評價點）</div>
-              <input id="endDate" type="date" class="input" />
-            </div>
-            <div>
-              <div class="label">期末資產市值</div>
-              <input id="endingValue" type="number" step="100" value="0" class="input" />
-            </div>
-          </div>
-          <div class="row" style="margin-top:.5rem">
-            <button class="btn btn-primary" onclick="runIrregular()">計算 & XIRR</button>
           </div>
         </div>
 
