@@ -2012,8 +2012,15 @@ function renderGroupCard(g) {
           <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
           ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
         </details>` : ''}
-        
-        ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
+
+        ${g.blogUrl && !expired ? 
+          `<div class="mb-3">
+            <button onclick='window.open("${g.blogUrl}", "_blank")'
+              class="w-full bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-indigo-200 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-indigo-100 hover:to-purple-100 transition-colors">
+               📝 查看介紹
+             </button>
+           </div>` 
+        : ''}
         ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
         ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天!記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
         <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
