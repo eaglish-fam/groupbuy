@@ -488,7 +488,8 @@ const state = {
   categoryExpanded: false,
   countryExpanded: false,
   availableCategories: [], // 從資料中動態讀取
-  availableCountries: []    // 從資料中動態讀取
+  availableCountries: [],    // 從資料中動態讀取
+  hasActiveFilters: false
 };
 
 // ============ 工具函數 ============
@@ -635,7 +636,43 @@ function setFilter(type, value) {
       });
     }
   }
+  updateFilterStatus();
+  renderFilters();
+  renderContent();
+}
+
+// ===== 新增篩選狀態管理函數 =====
+function updateFilterStatus() {
+  state.hasActiveFilters = 
+    state.selectedCategory !== 'all' || 
+    state.selectedCountry !== 'all' ||
+    state.searchTerm.trim() !== '';
+}
+
+function clearAllFilters() {
+  state.selectedCategory = 'all';
+  state.selectedCountry = 'all';
+  state.searchTerm = '';
   
+  try {
+    localStorage.removeItem(STORAGE_KEYS.category);
+    localStorage.removeItem(STORAGE_KEYS.country);
+    localStorage.removeItem(STORAGE_KEYS.search);
+  } catch {}
+  
+  const searchInput = document.getElementById('searchInput');
+  if (searchInput) searchInput.value = '';
+  
+  const clearBtn = document.getElementById('clearBtn');
+  if (clearBtn) clearBtn.classList.add('hidden');
+  
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'clear_filters', {
+      'event_category': 'engagement'
+    });
+  }
+  
+  updateFilterStatus();
   renderFilters();
   renderContent();
 }
@@ -748,6 +785,81 @@ function renderDesktopFilters(categoryCounts, countryCounts) {
   `).join('');
 }
 
+// ===== 新增倒數計時功能 =====
+
+function getTodayDeadlines() {
+  const today = new Date();
+  today.setHours(0, 0, 0, 0);
+  const tomorrow = new Date(today);
+  tomorrow.setDate(tomorrow.getDate() + 1);
+  
+  return state.groups.filter(g => {
+    if (!g.endDate) return false;
+    const endDate = utils.parseDateSafe(g.endDate);
+    if (!endDate) return false;
+    return endDate >= today && endDate < tomorrow;
+  }).map(g => g.brand || g.productName || '未命名');
+}
+
+function formatTimeRemaining() {
+  const now = new Date();
+  const endOfDay = new Date();
+  endOfDay.setHours(23, 59, 59, 999);
+  
+  const diff = endOfDay - now;
+  const hours = Math.floor(diff / (1000 * 60 * 60));
+  const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  
+  return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+}
+
+function renderTodayCountdown() {
+  const deadlines = getTodayDeadlines();
+  if (deadlines.length === 0) return '';
+  
+  const timeLeft = formatTimeRemaining();
+  const brandsText = deadlines.slice(0, 3).join('、');
+  const moreText = deadlines.length > 3 ? `等${deadlines.length}個團購` : '';
+  
+  return `
+    <div id="todayCountdown" class="bg-gradient-to-r from-red-50 via-orange-50 to-red-50 border-2 border-red-300 rounded-lg px-4 py-3 mb-4">
+      <div class="flex items-center justify-between gap-3 flex-wrap">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl animate-pulse-subtle">⏰</span>
+          <span class="font-bold text-red-700">今日截止倒數</span>
+        </div>
+        <div class="flex items-center gap-3 text-sm">
+          <span id="countdownTime" class="font-mono text-xl font-bold text-red-600">${timeLeft}</span>
+          <span class="text-gray-700">${brandsText}${moreText ? ' ' + moreText : ''}</span>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+let countdownInterval = null;
+
+function startCountdownTimer() {
+  if (countdownInterval) {
+    clearInterval(countdownInterval);
+  }
+  
+  countdownInterval = setInterval(() => {
+    const countdownEl = document.getElementById('todayCountdown');
+    if (countdownEl && getTodayDeadlines().length > 0) {
+      const timeLeft = formatTimeRemaining();
+      const timeEl = countdownEl.querySelector('#countdownTime');
+      if (timeEl) {
+        timeEl.textContent = timeLeft;
+      }
+    } else if (countdownEl) {
+      countdownEl.remove();
+      clearInterval(countdownInterval);
+    }
+  }, 60000); // 每分鐘更新
+}
+
+
 // ============ Banner 渲染 ============
 function renderBanner() {
   if (!CONFIG.BANNER_IMAGE_URL) {
@@ -855,6 +967,32 @@ const videoHandler = {
     return null;
   }
 };
+
+// ===== 新增 Sticky Header 功能 =====
+let lastScrollTop = 0;
+let isHeaderCompact = false;
+
+function initStickyHeader() {
+  const header = document.querySelector('header');
+  if (!header) return;
+  
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // 向下滾動且超過100px時,壓縮header
+    if (scrollTop > 100 && scrollTop > lastScrollTop && !isHeaderCompact) {
+      header.classList.add('header-compact');
+      isHeaderCompact = true;
+    }
+    // 向上滾動或回到頂部時,展開header
+    else if ((scrollTop < lastScrollTop || scrollTop < 50) && isHeaderCompact) {
+      header.classList.remove('header-compact');
+      isHeaderCompact = false;
+    }
+    
+    lastScrollTop = scrollTop;
+  });
+}
 
 // ============ 全局函數（供 HTML 調用）============
 function scrollToSection(sectionId) {
@@ -1477,6 +1615,8 @@ function applySearch(val) {
     localStorage.setItem(STORAGE_KEYS.search, state.searchTerm);
   } catch {}
   elements.clearBtn?.classList.toggle('hidden', state.searchTerm.length === 0);
+  
+  updateFilterStatus();
   renderContent();
 }
 
@@ -1613,7 +1753,6 @@ async function loadData() {
           if (/長期|long/.test(typeRaw)) category = 'long';
           else if (/折扣|coupon|affiliate/.test(typeRaw)) category = 'coupon';
           else if (/即將|upcoming/.test(typeRaw)) category = 'upcoming';
-
           all.push({
             id: i + 1,
             brand,
@@ -1627,7 +1766,9 @@ async function loadData() {
             stock: row['庫存狀態'] || row['Stock'] || '',
             tag: row['標籤'] || row['Tag'] || '',
             coupon: row['折扣碼'] || row['Coupon'] || row['DiscountCode'] || '',
-            note: row['備註'] || row['Note'] || row['Remark'] || '',
+            note: row['備註'] || row['Note'] || row['Remark'] || '', // 純文字備註
+            blogUrl: row['網誌網址'] || row['BlogURL'] || row['blog_url'] || '', // 新增
+            qa: row['QA'] || row['Q&A'] || '', // 新增
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
             itemCountry: row['國家'] || row['Country'] || ''
@@ -1743,9 +1884,7 @@ function renderUpcomingSearchCard(g) {
 function renderGroupCard(g) {
   const daysLeft = utils.getDaysLeft(g.endDate);
   const expired = utils.isExpired(g.endDate);
-  const noteIsURL = utils.isURL(g.note);
-  const noteIsQA = utils.isQA(g.note);
-  const qaList = noteIsQA ? utils.parseQA(g.note) : [];
+  const qaList = g.qa && utils.isQA(g.qa) ? utils.parseQA(g.qa) : [];
   const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
 
   // 處理複選的分類和國家
@@ -1785,19 +1924,22 @@ function renderGroupCard(g) {
           ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
         </div>
         ${countdown}
-        ${g.note && !expired
-          ? noteIsQA
-            ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
-                 <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓（${qaList.length}）</summary>
-                 ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
-               </details>`
-            : noteIsURL
-              ? `<div class="mb-3"><button onclick='openNote(event, "${g.note}")' class="w-full bg-blue-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-100 transition-colors">📝 查看介紹</button></div>`
-              : `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>`
-          : ''}
+        
+        <!-- 純文字備註 -->
+        ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
+        
+        <!-- 網誌連結 (獨立欄位) -->
+        ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="block w-full bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-indigo-200 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-indigo-100 hover:to-purple-100 transition-colors text-center">📝 查看介紹</a></div>` : ''}
+        
+        <!-- QA (獨立欄位) -->
+        ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
+          <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
+          ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
+        </details>` : ''}
+        
         ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
         ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
-        ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天！記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
+        ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天!記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
         <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
            onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', group_category: '${g.category}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
            class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>
@@ -1865,16 +2007,18 @@ function renderCouponCard(g) {
 // ============ 內容渲染 ============
 function renderContent() {
   if (state.loading) {
-    elements.content.innerHTML = `
-      <div class="flex items-center justify-center min-h-[40vh]">
-        <div class="text-center">
-          <div class="text-4xl mb-4">🦅</div>
-          <div class="text-xl text-amber-900 font-bold">載入中...</div>
-        </div>
-      </div>`;
-    return;
+    elements.content.innerHTML = 
+     `<div class="mb-6 flex gap-3 items-center flex-wrap">
+       ${expiredCount ? `<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired ? 'bg-gray-600 text-white' : 'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired ? '隱藏' : '顯示'}已結束(${expiredCount})</button>` : ''}
+       ${state.hasActiveFilters ? `<button onclick="clearAllFilters()" class="filter-clear-btn px-4 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors flex items-center gap-2">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+         </svg>
+         清除篩選
+      </button>` : ''}
+     </div>`;  // ✅ 移除 +，改為 ;
+    return;    // ✅ 加上 return
   }
-  if (state.error) return;
 
   const q = (state.searchTerm || '').toLowerCase();
   const filtered = state.groups.filter(g => {
@@ -1956,8 +2100,10 @@ function renderContent() {
       </section>
     ` : '') +
 
-    (shortTerm.length ? `<section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+    (shortTerm.length ? `
+     <section id="short-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">⏳ 限時團購</h2>
+       ${renderTodayCountdown()}
        <div class="masonry-grid">${shortTerm.map(renderGroupCard).join('')}</div>
      </section>` : '') +
 
@@ -2009,6 +2155,10 @@ function renderContent() {
     
     (filtered.length === 0 && state.searchTerm ? `<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「${state.searchTerm}」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清空搜尋</p></div>` : '') +
     (filtered.length === 0 && !state.searchTerm ? `<div class="text-center py-12 text-amber-700"><p class="text-lg">目前沒有團購項目</p></div>` : '');
+  // 啟動倒數計時器
+  if (getTodayDeadlines().length > 0) {
+    setTimeout(startCountdownTimer, 500);
+  }
 }
 
 // ============ 初始化 ============
@@ -2023,6 +2173,8 @@ function init() {
       }
     } catch {}
   }
+  // 初始化 Sticky Header
+  initStickyHeader();
 }
 
 console.log('🚀 鷹家買物社初始化開始');
@@ -2036,25 +2188,6 @@ init();
 console.log('🔄 開始載入團購資料...');
 loadData();
 setInterval(loadData, CONFIG.REFRESH_INTERVAL);
-
-// ============ 暴露函數到全域作用域 ============
-// 讓 HTML 的 onclick 屬性可以調用這些函數
-window.scrollToSection = scrollToSection;
-window.openVideoModal = openVideoModal;
-window.closeVideoModal = closeVideoModal;
-window.copyCoupon = copyCoupon;
-window.openNote = openNote;
-window.addToCalendar = addToCalendar;
-window.addBothToCalendar = addBothToCalendar;
-window.showDayGroups = showDayGroups;
-window.toggleExpired = toggleExpired;
-window.switchCalendarMonth = switchCalendarMonth;
-window.addToGoogleCalendar = addToGoogleCalendar;
-window.addToAppleCalendar = addToAppleCalendar;
-window.addBothToGoogleCalendar = addBothToGoogleCalendar;
-window.addBothToAppleCalendar = addBothToAppleCalendar;
-window.showCalendarChoice = showCalendarChoice;
-window.setFilter = setFilter;
 
 // 分享功能
 function shareWebsite() {
@@ -2095,4 +2228,26 @@ function shareWebsite() {
   }
 }
 
+
+// 讓 HTML 的 onclick 屬性可以調用這些函數
+window.scrollToSection = scrollToSection;
+window.openVideoModal = openVideoModal;
+window.closeVideoModal = closeVideoModal;
+window.copyCoupon = copyCoupon;
+window.openNote = openNote;
+window.addToCalendar = addToCalendar;
+window.addBothToCalendar = addBothToCalendar;
+window.showDayGroups = showDayGroups;
+window.toggleExpired = toggleExpired;
+window.switchCalendarMonth = switchCalendarMonth;
+window.addToGoogleCalendar = addToGoogleCalendar;
+window.addToAppleCalendar = addToAppleCalendar;
+window.addBothToGoogleCalendar = addBothToGoogleCalendar;
+window.addBothToAppleCalendar = addBothToAppleCalendar;
+window.showCalendarChoice = showCalendarChoice;
+window.setFilter = setFilter;
+
 window.shareWebsite = shareWebsite;
+window.clearAllFilters = clearAllFilters;
+window.getTodayDeadlines = getTodayDeadlines;
+window.formatTimeRemaining = formatTimeRemaining;
