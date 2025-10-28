@@ -1837,13 +1837,6 @@ async function loadData() {
             coupon: row['折扣碼'] || row['Coupon'] || row['DiscountCode'] || '',
             note: row['備註'] || row['Note'] || row['Remark'] || '', // 純文字備註
             blogUrl: row['網誌網址'] || row['BlogURL'] || row['blog_url'] || '', // 新增
-            blogUrl: (() => {
-              const raw = row['網誌網址'] || row['BlogURL'] || row['blog_url'] || '';
-              const pick = utils.isURL?.(raw) ? raw : (utils.extractFirstUrl?.(raw) || '');
-              if (pick) return pick;
-              // 後援：從備註/描述抓第一個 URL
-              return utils.extractFirstUrl?.(row['備註'] || row['Note'] || row['Remark'] || row['商品描述'] || row['Description'] || '') || '';
-            })(),
             qa: row['QA'] || row['Q&A'] || '', // 新增
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
