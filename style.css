@@ -531,3 +531,210 @@ html {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* ============================================
+   鷹家買物社 - CSS 補丁
+   新增功能:
+   1. Sticky Header 壓縮效果
+   2. 倒數計時動畫
+   3. 清除篩選按鈕動畫
+   
+   使用方式: 將以下內容添加到 style.css 文件末尾
+   ============================================ */
+
+/* ============================================
+   Sticky Header 優化
+   ============================================ */
+
+/* Header 基礎過渡效果 */
+header {
+  transition: padding 0.3s ease;
+}
+
+/* 壓縮模式 */
+header.header-compact {
+  padding-top: 0.5rem !important;
+  padding-bottom: 0.5rem !important;
+}
+
+/* 桌面版 Logo 區域 - 壓縮時隱藏 */
+header.header-compact .hidden.lg\\:flex {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+/* 手機版標題區域 - 壓縮時隱藏 */
+header.header-compact .lg\\:hidden.text-center {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+/* 保持搜尋框區域可見 */
+header.header-compact .mt-3.flex.gap-2 {
+  margin-top: 0.5rem !important;
+}
+
+/* 保持分類按鈕可見 */
+header.header-compact #sectionButtons {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+/* Banner 在壓縮模式下也隱藏 */
+header.header-compact #bannerSlot {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+/* ============================================
+   倒數計時樣式
+   ============================================ */
+
+/* 倒數計時脈動動畫 */
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 倒數計時數字樣式 */
+#countdownTime {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   清除篩選按鈕動畫
+   ============================================ */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.filter-clear-btn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ============================================
+   響應式優化
+   ============================================ */
+
+/* 平板和手機適配 */
+@media (max-width: 1023px) {
+  header.header-compact {
+    padding-top: 0.375rem !important;
+    padding-bottom: 0.375rem !important;
+  }
+
+  /* 倒數計時手機版優化 */
+  #todayCountdown .flex-wrap {
+    justify-content: center;
+  }
+
+  #todayCountdown .text-sm {
+    font-size: 0.75rem;
+  }
+}
+
+/* 手機版 */
+@media (max-width: 767px) {
+
+  /* 倒數計時更緊湊 */
+  #todayCountdown {
+    padding: 0.5rem;
+  }
+
+  #countdownTime {
+    font-size: 1.25rem;
+  }
+
+  #todayCountdown .text-2xl {
+    font-size: 1.5rem;
+  }
+}
+
+/* ============================================
+   無障礙優化
+   ============================================ */
+
+/* 動畫優化 - 尊重用戶偏好 */
+@media (prefers-reduced-motion: reduce) {
+
+  header,
+  header.header-compact,
+  header.header-compact .hidden.lg\\:flex,
+  header.header-compact .lg\\:hidden.text-center,
+  header.header-compact #bannerSlot,
+  .filter-clear-btn {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .animate-pulse-subtle {
+    animation: none !important;
+  }
+}
+
+/* 高對比模式 */
+@media (prefers-contrast: high) {
+  #todayCountdown {
+    border-width: 3px;
+  }
+
+  .filter-clear-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ============================================
+   列印樣式
+   ============================================ */
+
+@media print {
+  header.header-compact {
+    padding: 1rem !important;
+  }
+
+  header.header-compact .hidden.lg\\:flex,
+  header.header-compact .lg\\:hidden.text-center {
+    max-height: none;
+    opacity: 1;
+  }
+
+  #todayCountdown,
+  .filter-clear-btn {
+    display: none;
+  }
+}
