@@ -1837,6 +1837,13 @@ async function loadData() {
             coupon: row['折扣碼'] || row['Coupon'] || row['DiscountCode'] || '',
             note: row['備註'] || row['Note'] || row['Remark'] || '', // 純文字備註
             blogUrl: row['網誌網址'] || row['BlogURL'] || row['blog_url'] || '', // 新增
+            blogUrl: (() => {
+              const raw = row['網誌網址'] || row['BlogURL'] || row['blog_url'] || '';
+              const pick = utils.isURL?.(raw) ? raw : (utils.extractFirstUrl?.(raw) || '');
+              if (pick) return pick;
+              // 後援：從備註/描述抓第一個 URL
+              return utils.extractFirstUrl?.(row['備註'] || row['Note'] || row['Remark'] || row['商品描述'] || row['Description'] || '') || '';
+            })(),
             qa: row['QA'] || row['Q&A'] || '', // 新增
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
@@ -1998,7 +2005,7 @@ function renderGroupCard(g) {
         ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
         
         <!-- 網誌連結 (獨立欄位) -->
-        ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="block w-full bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-indigo-200 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-indigo-100 hover:to-purple-100 transition-colors text-center">📝 查看介紹</a></div>` : ''}
+        ${utils.isURL(g.blogUrl) && !expired ?  `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="block w-full bg-gradient-to-r from-indigo-50 to-purple-50 border-2 border-indigo-200 text-indigo-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-indigo-100 hover:to-purple-100 transition-colors text-center">📝 查看介紹</a></div>` : ''}
         
         <!-- QA (獨立欄位) -->
         ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
