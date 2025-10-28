@@ -259,75 +259,6 @@ const ImageOptimizer = {
 // 匯出到全域（方便使用）
 window.ImageOptimizer = ImageOptimizer;
 
-function initStickyHeader() {
-  const header = document.querySelector('header');
-  if (!header) {
-    console.warn('⚠️ Header 元素未找到');
-    return;
-  }
-  
-  console.log('✅ Sticky Header 已初始化（純 JS 版本）');
-  
-  // 儲存原始高度
-  let originalHeight = null;
-  
-  window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // 記錄原始高度
-    if (!originalHeight && !isHeaderCompact) {
-      originalHeight = header.offsetHeight;
-    }
-    
-    // 向下滾動且超過50px時，壓縮header
-    if (scrollTop > 50 && scrollTop > lastScrollTop && !isHeaderCompact) {
-      header.style.minHeight = '60px';
-      header.style.maxHeight = '60px';
-      header.style.overflow = 'hidden';
-      header.style.paddingTop = '0.5rem';
-      header.style.paddingBottom = '0.5rem';
-      header.style.transition = 'all 0.3s ease-in-out';
-      
-      // 隱藏第一個子元素
-      const firstChild = header.children[0];
-      if (firstChild) {
-        firstChild.style.maxHeight = '0';
-        firstChild.style.opacity = '0';
-        firstChild.style.overflow = 'hidden';
-        firstChild.style.margin = '0';
-        firstChild.style.padding = '0';
-        firstChild.style.transition = 'all 0.3s ease-in-out';
-      }
-      
-      isHeaderCompact = true;
-      console.log('🔽 Header 壓縮');
-    }
-    // 向上滾動或回到頂部時，展開header
-    else if ((scrollTop < lastScrollTop || scrollTop < 30) && isHeaderCompact) {
-      header.style.minHeight = '';
-      header.style.maxHeight = '';
-      header.style.overflow = '';
-      header.style.paddingTop = '';
-      header.style.paddingBottom = '';
-      
-      // 恢復第一個子元素
-      const firstChild = header.children[0];
-      if (firstChild) {
-        firstChild.style.maxHeight = '';
-        firstChild.style.opacity = '';
-        firstChild.style.overflow = '';
-        firstChild.style.margin = '';
-        firstChild.style.padding = '';
-      }
-      
-      isHeaderCompact = false;
-      console.log('🔼 Header 展開');
-    }
-    
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
-}
-
 // ============================================
 // 鷹家買物社 - 圖片渲染輔助函數
 // 使用方式：在 renderGroupCard 等函數中使用
@@ -1925,16 +1856,17 @@ function renderUpcomingSearchCard(g) {
   return `
     <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden border-2 border-pink-200 shadow-md transition-all hover:shadow-lg">
       ${g.image ? `
-  <div class="w-full h-40 bg-gray-100">
-    <a href="${g.url}" target="_blank" rel="noopener noreferrer"
-       onclick="try{ if(typeof gtag!=='undefined'){ gtag('event','coupon_image_click',{ event_category:'engagement', label:'${g.brand || ''}' }); } }catch(e){}">
-      <img src="${g.image}" 
-           class="w-full h-full object-cover ${expired ? 'grayscale' : ''}" 
-           loading="lazy" 
-           alt="${g.brand || ''}">
-    </a>
-  </div>
-` : ''}
+        <div class="w-full h-40 bg-gray-100">
+          ${g.url ? `
+            <a href="${g.url}" target="_blank" rel="noopener noreferrer"
+               onclick="try{ if(typeof gtag!=='undefined'){ gtag('event','coupon_image_click',{ event_category:'engagement', event_label:'${g.brand || ''}' }); } }catch(e){}">
+              <img src="${g.image}" class="w-full h-full object-cover" loading="lazy" alt="${g.brand || ''}">
+            </a>
+          ` : `
+            <img src="${g.image}" class="w-full h-full object-cover" loading="lazy" alt="${g.brand || ''}">
+          `}
+        </div>
+      ` : ''}
       <div class="p-5">
         <div class="flex items-center gap-2 mb-2">
           <span class="bg-pink-500 text-white px-2.5 py-0.5 rounded-full text-xs font-bold">敬請期待</span>
@@ -1998,7 +1930,7 @@ function renderGroupCard(g) {
         ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
         
         <!-- 網誌連結 (獨立欄位) -->
-        ${g.blogUrl && !expired ?`<div class="mb-3"><a href="${g.note}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</a></div>` : ''}
+        ${g.blogUrl && !expired ?`<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</a></div>` : ''}
         
         <!-- QA (獨立欄位) -->
         ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
