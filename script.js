@@ -1885,6 +1885,7 @@ function renderUpcomingSearchCard(g) {
 function renderGroupCard(g) {
   const daysLeft = utils.getDaysLeft(g.endDate);
   const expired = utils.isExpired(g.endDate);
+  const blogUrl = g.blogUrl || (utils.isURL(g.note) ? g.note : '');
   const qaList = g.qa && utils.isQA(g.qa) ? utils.parseQA(g.qa) : [];
   const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
 
