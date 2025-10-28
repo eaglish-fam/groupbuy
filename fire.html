@@ -1,14 +1,14 @@
-<!DOCTYPE html>
+html = r"""<!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>鷹家財務自由路徑試算｜FIRE Playground（離線 v1.3）</title>
+  <title>財務自由路徑試算｜FIRE Playground</title>
   <style>
     :root{
-      --bg:#0f172a;--panel:#111827;--ink:#e5e7eb;--muted:#9ca3af;--line:#1f2937;
-      --blue:#60a5fa;--orange:#fb923c;--green:#34d399;--asset:#cbd5e1;
-      --sur:#8b5cf6;--life:#a78bfa;--fire:#ef4444;--fat:#f59e0b;--teal:#22d3ee;
+      --bg:#0f172a;--panel:#0b1220;--ink:#e5e7eb;--muted:#9ca3af;--line:#1f2937;
+      --blue:#60a5fa;--teal:#22d3ee;--orange:#fb923c;--green:#34d399;--asset:#cbd5e1;
+      --sur:#8b5cf6;--life:#a78bfa;--fire:#ef4444;--fat:#f59e0b;
     }
     *{box-sizing:border-box}
     html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol;line-height:1.5}
@@ -21,8 +21,7 @@
     .grid{display:grid;grid-template-columns:1fr;gap:8px;padding:10px}
     .row{display:grid;grid-template-columns:1.2fr 1fr;gap:8px;align-items:center}
     label{font-size:12px;color:var(--muted)}
-    input[type="number"]{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #2b3443;background:#0b1220;color:var(--ink);outline:none}
-    select{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #2b3443;background:#0b1220;color:var(--ink)}
+    input[type="number"],select{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #2b3443;background:#0b1220;color:var(--ink);outline:none}
     .actions{display:flex;gap:8px;flex-wrap:wrap;padding:0 10px 10px}
     button{cursor:pointer;border:1px solid var(--line);background:#0b1220;color:#e5e7eb;padding:8px 12px;border-radius:10px}
     button.primary{background:#0ea5e9;border-color:#0284c7}
@@ -32,8 +31,11 @@
     .k p{margin:2px 0;font-size:12px;color:#cbd5e1}
     .ok{border-color:#14532d;background:rgba(34,197,94,0.08)}
     .warn{border-color:#7f1d1d;background:rgba(239,68,68,0.06)}
-    .note{padding:8px 12px;color:#fbbf24;font-size:12px}
+    .legend{font-size:12px;color:#cbd5e1;margin:6px 10px 0 10px}
+    .legend span{display:inline-flex;align-items:center;margin-right:16px;white-space:nowrap}
+    .legend i{display:inline-block;width:14px;height:3px;margin-right:6px;border-radius:2px}
     canvas{display:block;width:100%;height:420px}
+    footer{padding:14px 12px;color:#9ca3af;font-size:12px;border-top:1px solid var(--line);text-align:center}
     @media(min-width:880px){
       .wrap{grid-template-columns:360px 1fr}
       .kpi{grid-template-columns:repeat(3,1fr)}
@@ -42,8 +44,8 @@
 </head>
 <body>
   <header>
-    <h1>鷹家財務自由路徑試算｜FIRE Playground（離線 v1.3）</h1>
-    <p>修正：<b>工作自由＝副業 ≥ 主業</b>。圖上新增「副業收入」曲線，並保留 FIRE 的「資產門檻」於右軸。</p>
+    <h1>財務自由路徑試算｜FIRE Playground</h1>
+    <p>輸入台幣金額與參數，系統即時計算：生存自由／生活自由／工作自由（副業≥主業）／FIRE／FAT FIRE 的達成時間與資產門檻。</p>
   </header>
 
   <main class="wrap">
@@ -61,17 +63,13 @@
         <div class="row"><label>投資年化報酬 %</label><input id="returnRate" type="number" step="0.1" value="6"/></div>
         <div class="row"><label>提領率 % / 年</label><input id="wr" type="number" step="0.1" value="4"/></div>
         <div class="row"><label>模擬年數</label><input id="years" type="number" min="1" max="60" value="40"/></div>
-        <div class="row"><label>盈餘全部投入？</label>
-          <select id="reinvest"><option value="yes" selected>是</option><option value="no">否</option></select>
-        </div>
       </div>
       <div class="actions">
         <button class="primary" id="calc">重新計算</button>
         <button id="fatfill">用生活 × 1.8 填入 FAT</button>
+        <button id="share">分享參數連結</button>
+        <button id="export">匯出 PNG</button>
         <button id="reset">重設</button>
-      </div>
-      <div class="note">
-        里程碑定義：生存自由（副業≥生存）／生活自由（總收入≥生活）／<b>工作自由（副業≥主業）</b>／FIRE（資產×提領率≥生活）／FAT FIRE。
       </div>
     </section>
 
@@ -80,21 +78,54 @@
       <div class="kpi" id="kpi"></div>
     </section>
 
-    <section class="panel">
-      <h2>現金流 & 資產成長趨勢（月）</h2>
+    <section class="panel" id="chart1panel">
+      <h2>現金流關係（月）</h2>
+      <div class="legend" id="legend1"></div>
       <div style="padding:10px">
-        <canvas id="cv" height="420"></canvas>
+        <canvas id="cv1" height="420"></canvas>
+      </div>
+    </section>
+
+    <section class="panel" id="chart2panel">
+      <h2>資產增長模擬（三種生活路徑）</h2>
+      <div class="legend" id="legend2"></div>
+      <div style="padding:10px">
+        <canvas id="cv2" height="420"></canvas>
       </div>
     </section>
   </main>
 
+  <footer>
+    ⚠️ 本工具僅供教育與財務規劃參考，非投資建議。所有金額以新台幣計算，採「月」為週期、年化率折算為月複利。
+  </footer>
+
   <script>
+    // ----- helpers -----
     const $ = s=>document.querySelector(s);
     const fmt = n=>'NT$'+Math.round(n).toLocaleString('zh-TW');
     const monthsToY = m => m===Infinity ? '尚未達成（模擬期內）' : (Math.floor(m/12)+' 年 '+(m%12? m%12+' 個月':''));
+    const css = n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
 
-    const defaults = {survival:60000, lifestyle:120000, fat:216000, assets:3000000, mainIncome:200000, sideIncome:40000, mainGrowth:3, sideGrowth:10, returnRate:6, wr:4, years:40, reinvest:'yes'};
+    // preset + URL params
+    const defaults = {survival:60000, lifestyle:120000, fat:216000, assets:3000000, mainIncome:200000, sideIncome:40000, mainGrowth:3, sideGrowth:10, returnRate:6, wr:4, years:40};
+    function applyParams(){
+      const u = new URLSearchParams(location.search);
+      let changed=false;
+      for(const k in defaults){
+        if(u.has(k)){ const el=document.getElementById(k); if(el){ el.value = u.get(k); changed=true; } }
+      }
+      return changed;
+    }
+    function shareLink(){
+      const u = new URL(location.href);
+      u.search='';
+      const p = read();
+      for(const k in p){ if(['years'].includes(k) || typeof p[k]==='number') u.searchParams.set(k, p[k]); }
+      navigator.clipboard?.writeText(u.toString());
+      alert('已複製分享連結：\\n'+u.toString());
+    }
 
+    // read inputs
     function read(){
       return {
         survival:+$('#survival').value||0,
@@ -108,10 +139,10 @@
         r:(+$('#returnRate').value||0)/100,
         wr:(+$('#wr').value||0)/100,
         years:Math.max(1, Math.min(60, +$('#years').value||40)),
-        reinvest: $('#reinvest').value==='yes'
       };
     }
 
+    // simulate
     function simulate(){
       const p = read();
       const months = p.years*12|0;
@@ -119,35 +150,81 @@
       const sG = Math.pow(1+p.gSide,1/12)-1;
       const rM = Math.pow(1+p.r,1/12)-1;
       const wrM = p.wr/12;
-      const L=[]; const main=[]; const sideOnly=[]; const total=[]; const passive=[]; const assets=[];
-      const t = {survival:Infinity, life:Infinity, work:Infinity, fire:Infinity, fat:Infinity};
-      let A = p.assets0;
+
+      const L=[]; const main=[]; const sideOnly=[]; const total=[]; const passive=[];
+      // asset paths for three spending scenarios
+      const A0=p.assets0; let As=A0, Am=A0, Al=A0;
+      const asset_sur=[], asset_mid=[], asset_life=[];
+
+      const t = {survival:Infinity, life:Infinity, work:Infinity,
+                 fire_s:Infinity, fire_m:Infinity, fire_l:Infinity,
+                 fat_s:Infinity, fat_m:Infinity, fat_l:Infinity};
+
       for(let m=0;m<=months;m++){
         const ma = p.main0*Math.pow(1+mG,m);
         const si = p.side0*Math.pow(1+sG,m);
-        const pa = A*wrM;
-        const to = ma+si+pa;
-        L.push((m/12).toFixed(1)+'y'); main.push(ma); sideOnly.push(si); total.push(to); passive.push(pa); assets.push(A);
+        const pa_s = As*wrM, pa_m = Am*wrM, pa_l = Al*wrM; // passive depends on each path's assets
+        const to_s = ma+si+pa_s, to_m = ma+si+pa_m, to_l = ma+si+pa_l;
+
+        L.push((m).toString()); // we'll label with integer years separately
+        main.push(ma); sideOnly.push(si); total.push(ma+si+ (A0*wrM)); // total for display only (approx without path dependency)
+        passive.push((As+Am+Al)/3*wrM); // show avg passive for first chart for sense
+
+        // milestones (flow-based)
         if(t.survival===Infinity && si>=p.survival) t.survival=m;
-        if(t.life===Infinity && to>=p.lifestyle) t.life=m;
-        if(t.work===Infinity && si>=ma) t.work=m;           // ★ 工作自由：副業 ≥ 主業
-        if(t.fire===Infinity && pa>=p.lifestyle) t.fire=m;
-        if(t.fat===Infinity && pa>=p.fat) t.fat=m;
-        const c = p.reinvest? Math.max(0, to-p.lifestyle):0;
-        A = A*(1+rM) + c;
+        if(t.life===Infinity && (ma+si+((As+Am+Al)/3*wrM))>=p.lifestyle) t.life=m; // using avg passive to approximate
+        if(t.work===Infinity && si>=ma) t.work=m;
+
+        // assets update by scenarios
+        // spending amounts:
+        const spend_sur = p.survival;
+        const spend_life= p.lifestyle;
+        const spend_mid = (p.survival+p.lifestyle)/2;
+
+        const save_s = Math.max(0, to_s - spend_sur);
+        const save_m = Math.max(0, to_m - spend_mid);
+        const save_l = Math.max(0, to_l - spend_life);
+
+        As = As*(1+rM) + save_s;
+        Am = Am*(1+rM) + save_m;
+        Al = Al*(1+rM) + save_l;
+
+        asset_sur.push(As); asset_mid.push(Am); asset_life.push(Al);
+
+        // FIRE & FAT crossings per path
+        const fireTarget=p.lifestyle*12/p.wr, fatTarget=p.fat*12/p.wr;
+        if(t.fire_s===Infinity && As>=fireTarget) t.fire_s=m;
+        if(t.fire_m===Infinity && Am>=fireTarget) t.fire_m=m;
+        if(t.fire_l===Infinity && Al>=fireTarget) t.fire_l=m;
+        if(t.fat_s===Infinity && As>=fatTarget) t.fat_s=m;
+        if(t.fat_m===Infinity && Am>=fatTarget) t.fat_m=m;
+        if(t.fat_l===Infinity && Al>=fatTarget) t.fat_l=m;
       }
-      const fireTarget=p.lifestyle*12/p.wr, fatTarget=p.fat*12/p.wr;
-      return {p,L,main,sideOnly,total,passive,assets,t,fireTarget,fatTarget};
+
+      return {
+        p,L,main,sideOnly,total,passive,
+        asset_sur,asset_mid,asset_life,
+        t,
+        fireTarget:p.lifestyle*12/p.wr,
+        fatTarget:p.fat*12/p.wr
+      };
     }
 
+    // KPI rendering
     function KPI(S){
       const el = $('#kpi');
       const K = [
-        ['生存自由（副業 ≥ 生存）', S.t.survival, [['達成時間', monthsToY(S.t.survival)], ['達成時副業月收', S.t.survival<Infinity? fmt(S.sideOnly[S.t.survival]):'—']]],
-        ['生活自由（總收入 ≥ 生活）', S.t.life, [['達成時間', monthsToY(S.t.life)], ['達成時總收入', S.t.life<Infinity? fmt(S.total[S.t.life]):'—']]],
-        ['工作自由（副業 ≥ 主業）', S.t.work, [['達成時間', monthsToY(S.t.work)], ['達成時副業', S.t.work<Infinity? fmt(S.sideOnly[S.t.work]):'—'], ['達成時主業', S.t.work<Infinity? fmt(S.main[S.t.work]):'—']]],
-        ['財富自由 FIRE（資產 ≥ 生活/提領率）', S.t.fire, [['達成時間', monthsToY(S.t.fire)], ['資產門檻', fmt(S.fireTarget)], ['達成時資產', S.t.fire<Infinity? fmt(S.assets[S.t.fire]):'—']]],
-        ['財富豐盛 FAT FIRE（資產 ≥ FAT/提領率）', S.t.fat, [['達成時間', monthsToY(S.t.fat)], ['資產門檻', fmt(S.fatTarget)], ['達成時資產', S.t.fat<Infinity? fmt(S.assets[S.t.fat]):'—']]],
+        ['生存自由（副業 ≥ 生存）', S.t.survival, [['達成時間', monthsToY(S.t.survival)], ['副業月收', S.t.survival<Infinity? fmt(S.sideOnly[S.t.survival]):'—']]],
+        ['生活自由（總收入 ≥ 生活）', S.t.life, [['達成時間', monthsToY(S.t.life)], ['總收入（約）', S.t.life<Infinity? fmt(S.main[S.t.life]+S.sideOnly[S.t.life]+S.passive?.[S.t.life]||0):'—']]],
+        ['工作自由（副業 ≥ 主業）', S.t.work, [['達成時間', monthsToY(S.t.work)], ['副業', S.t.work<Infinity? fmt(S.sideOnly[S.t.work]):'—'], ['主業', S.t.work<Infinity? fmt(S.main[S.t.work]):'—']]],
+        ['FIRE（資產 ≥ 生活/提領率）', Math.min(S.t.fire_s,S.t.fire_m,S.t.fire_l),
+          [['達成時間（生存/中間/生活）',
+            [S.t.fire_s,S.t.fire_m,S.t.fire_l].map(monthsToY).join(' ｜ ')],
+           ['資產門檻', fmt(S.fireTarget)]]],
+        ['FAT FIRE（資產 ≥ FAT/提領率）', Math.min(S.t.fat_s,S.t.fat_m,S.t.fat_l),
+          [['達成時間（生存/中間/生活）',
+            [S.t.fat_s,S.t.fat_m,S.t.fat_l].map(monthsToY).join(' ｜ ')],
+           ['資產門檻', fmt(S.fatTarget)]]],
       ];
       el.innerHTML = K.map(([title,t,rows])=>{
         const cls = 'k ' + (t<Infinity? 'ok':'warn');
@@ -156,95 +233,190 @@
       }).join('');
     }
 
-    // ----- Canvas Chart（雙軸；加入副業曲線） -----
-    const css = n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-    const colors = {main:css('--blue'), side:css('--teal'), orange:css('--orange'), green:css('--green'), assets:css('--asset'),
-                    sur:css('--sur'), life:css('--life'), fire:css('--fire'), fat:css('--fat')};
+    // ------- Chart 1: cash flows (no assets line here) -------
+    function legend(container, items){
+      container.innerHTML = items.map(([name,color,style])=>{
+        const border = style==='dash' ? '2px dashed '+color : '2px solid '+color;
+        return `<span><i style="background:${color};border:${border}"></i>${name}</span>`;
+      }).join('');
+    }
 
-    function draw(S){
-      const cv = $('#cv'); const dpr = Math.max(1, window.devicePixelRatio||1);
-      const padLeft=86, padRight=120, padTop=22, padBot=38;
+    function drawChart1(S){
+      const cv = $('#cv1'); const dpr = Math.max(1, window.devicePixelRatio||1);
+      const padLeft=84, padRight=24, padTop=22, padBot=38;
       const W = cv.clientWidth, H = cv.clientHeight;
       cv.width = W*dpr; cv.height = H*dpr;
       const ctx = cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
       ctx.clearRect(0,0,W,H);
+      const plot = {x:padLeft, y:padTop, w:W-padLeft-padRight, h:H-padTop-padBot};
+
+      const colors = {main:css('--blue'), side:css('--teal'), total:css('--orange'), passive:css('--green'), sur:css('--sur'), life:css('--life')};
+      legend($('#legend1'), [['主業',colors.main],['副業',colors.side],['總收入（含平均被動）',colors.total],['被動（平均）',colors.passive],['生存支出',colors.sur,'dash'],['生活支出',colors.life,'dash']]);
 
       const leftSets = [
         {name:'主業', data:S.main, color:colors.main, w:2},
         {name:'副業', data:S.sideOnly, color:colors.side, w:2},
-        {name:'總收入（含被動）', data:S.total, color:colors.orange, w:2},
-        {name:'被動（提領）', data:S.passive, color:colors.green, w:2},
-        {name:'生存支出', data:Array(S.L.length).fill(S.p.survival), color:colors.sur, dash:[6,4], w:1},
-        {name:'生活支出', data:Array(S.L.length).fill(S.p.lifestyle), color:colors.life, dash:[6,4], w:1},
+        {name:'總收入（含平均被動）', data:S.total, color:colors.total, w:2},
+        {name:'被動（平均）', data:S.passive, color:colors.passive, w:2},
+        {name:'生存支出', data:Array(S.main.length).fill(S.p.survival), color:colors.sur, dash:[6,4], w:1},
+        {name:'生活支出', data:Array(S.main.length).fill(S.p.lifestyle), color:colors.life, dash:[6,4], w:1},
       ];
-      const rightSets = [
-        {name:'資產', data:S.assets, color:colors.assets, dash:[5,4], w:1.5},
-        {name:'FIRE 資產門檻', data:Array(S.L.length).fill(S.fireTarget), color:colors.fire, dash:[4,4], w:1.2},
-        {name:'FAT FIRE 資產門檻', data:Array(S.L.length).fill(S.fatTarget), color:colors.fat, dash:[4,4], w:1.2}
-      ];
-
-      const plot = {x:padLeft, y:padTop, w:W-padLeft-padRight, h:H-padTop-padBot};
-
       const lMin=0, lMax=Math.max(...leftSets.flatMap(s=>s.data));
-      const rMin=0, rMax=Math.max(...rightSets.flatMap(s=>s.data));
-      const xPos = i => plot.x + plot.w * (i/(S.L.length-1));
+      const xPos = i => plot.x + plot.w * (i/(S.main.length-1));
       const yLeft = v => plot.y + plot.h * (1 - (v-lMin)/(lMax-lMin||1));
-      const yRight= v => plot.y + plot.h * (1 - (v-rMin)/(rMax-rMin||1));
 
-      // grids
+      // grids & integer-year ticks
       ctx.strokeStyle='#1f2937'; ctx.lineWidth=1; ctx.font='11px system-ui'; ctx.fillStyle='#9ca3af';
+      const years = S.p.years;
       for(let i=0;i<=5;i++){
         const y = plot.y + plot.h*(1 - i/5);
         ctx.beginPath(); ctx.moveTo(plot.x, y); ctx.lineTo(plot.x+plot.w, y); ctx.stroke();
         const lv = lMin + (lMax-lMin)*i/5;
-        const rv = rMin + (rMax-rMin)*i/5;
         ctx.fillText('NT$'+Math.round(lv).toLocaleString('zh-TW'), 6, y+4);
-        ctx.fillText('資產 '+('NT$'+Math.round(rv).toLocaleString('zh-TW')), plot.x+plot.w+6, y+4);
       }
-      for(let i=0;i<=10;i++){
-        const idx = Math.floor((S.L.length-1)*i/10);
-        ctx.fillText(S.L[idx], plot.x + plot.w*i/10 - 10, H-12);
+      for(let y=0;y<=years;y++){
+        const i = Math.round(S.main.length * (y/years));
+        const x = plot.x + plot.w * (y/years);
+        ctx.fillText(y+'y', x-8, H-12);
+        ctx.beginPath(); ctx.moveTo(x, plot.y+plot.h); ctx.lineTo(x, plot.y+plot.h+4); ctx.stroke();
       }
 
-      function line(set, yfn){
+      function line(set){
         ctx.beginPath();
-        set.data.forEach((v,i)=>{ const x=xPos(i), y=yfn(v); if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); });
+        set.data.forEach((v,i)=>{ const x=xPos(i), y=yLeft(v); if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); });
         ctx.lineWidth=set.w; ctx.setLineDash(set.dash||[]); ctx.strokeStyle=set.color; ctx.stroke(); ctx.setLineDash([]);
       }
-      leftSets.forEach(s=>line(s,yLeft));
-      rightSets.forEach(s=>line(s,yRight));
+      leftSets.forEach(line);
 
-      // markers：工作自由、FIRE、FAT
-      const marks = [];
-      if(S.t.work<Infinity) marks.push({x:xPos(S.t.work), y:yLeft(S.sideOnly[S.t.work]), color:colors.side, label:'工作自由（副≥主）'});
-      if(S.t.fire<Infinity) marks.push({x:xPos(S.t.fire), y:yRight(S.assets[S.t.fire]), color:colors.fire, label:'FIRE 達成'});
-      if(S.t.fat<Infinity) marks.push({x:xPos(S.t.fat), y:yRight(S.assets[S.t.fat]), color:colors.fat, label:'FAT 達成'});
-      marks.forEach(p=>{ ctx.fillStyle=p.color; ctx.beginPath(); ctx.arc(p.x,p.y,4,0,Math.PI*2); ctx.fill(); ctx.fillStyle='#cbd5e1'; ctx.fillText(p.label, p.x+6, p.y-6); });
-
-      // legend
-      const legend=[
-        ['主業',colors.main],['副業',colors.side],['總收入（含被動）',colors.orange],['被動（提領）',colors.green],
-        ['資產',colors.assets],
-        ['生存支出',colors.sur],['生活支出',colors.life],
-        ['FIRE 資產門檻',colors.fire],['FAT FIRE 資產門檻',colors.fat]
-      ];
-      let lx=plot.x, ly=plot.y-4; ctx.textBaseline='bottom'; ctx.fillStyle='#cbd5e1';
-      legend.forEach(([txt,c])=>{ ctx.fillStyle=c; ctx.fillRect(lx, ly-8, 14, 3); ctx.fillStyle='#cbd5e1'; ctx.fillText(' '+txt, lx+16, ly); lx += ctx.measureText(' '+txt).width + 48; });
+      // marker for work freedom
+      if(S.t.work<Infinity){
+        const x = xPos(S.t.work), y = yLeft(S.sideOnly[S.t.work]);
+        ctx.fillStyle=colors.side; ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2); ctx.fill();
+        ctx.fillStyle='#cbd5e1'; ctx.fillText('工作自由（副≥主）', x+6,y-6);
+      }
     }
 
-    function run(){ const S = simulate(); KPI(S); draw(S); }
+    // ------- Chart 2: assets for three spending paths -------
+    function drawChart2(S){
+      const cv = $('#cv2'); const dpr = Math.max(1, window.devicePixelRatio||1);
+      const padLeft=84, padRight=120, padTop=22, padBot=38;
+      const W = cv.clientWidth, H = cv.clientHeight;
+      cv.width = W*dpr; cv.height = H*dpr;
+      const ctx = cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+      ctx.clearRect(0,0,W,H);
+      const plot = {x:padLeft, y:padTop, w:W-padLeft-padRight, h:H-padTop-padBot};
+
+      const colors = {sur:'#7dd3fc', mid:'#60a5fa', life:'#1d4ed8', asset:css('--asset'), fire:css('--fire'), fat:css('--fat')};
+      legend($('#legend2'), [['資產（生存支出路徑）',colors.sur],['資產（中間支出路徑）',colors.mid],['資產（生活支出路徑）',colors.life],['FIRE 資產門檻',colors.fire,'dash'],['FAT FIRE 資產門檻',colors.fat,'dash']]);
+
+      const rightSets = [
+        {name:'資產（生存）', data:S.asset_sur, color:colors.sur, w:2},
+        {name:'資產（中間）', data:S.asset_mid, color:colors.mid, w:2},
+        {name:'資產（生活）', data:S.asset_life, color:colors.life, w:2},
+        {name:'FIRE門檻', data:Array(S.asset_sur.length).fill(S.fireTarget), color:colors.fire, dash:[4,4], w:1.2},
+        {name:'FAT門檻', data:Array(S.asset_sur.length).fill(S.fatTarget), color:colors.fat, dash:[4,4], w:1.2}
+      ];
+      const rMin=0, rMax=Math.max(...rightSets.flatMap(s=>s.data));
+      const xPos = i => plot.x + plot.w * (i/(S.asset_sur.length-1));
+      const yRight = v => plot.y + plot.h * (1 - (v-rMin)/(rMax-rMin||1));
+
+      // grids & integer-year ticks
+      ctx.strokeStyle='#1f2937'; ctx.lineWidth=1; ctx.font='11px system-ui'; ctx.fillStyle='#9ca3af';
+      for(let i=0;i<=5;i++){
+        const y = plot.y + plot.h*(1 - i/5);
+        ctx.beginPath(); ctx.moveTo(plot.x, y); ctx.lineTo(plot.x+plot.w, y); ctx.stroke();
+        const rv = rMin + (rMax-rMin)*i/5;
+        ctx.fillText('資產 NT$'+Math.round(rv).toLocaleString('zh-TW'), plot.x+plot.w+6, y+4);
+      }
+      const years = S.p.years;
+      for(let y=0;y<=years;y++){
+        const x = plot.x + plot.w * (y/years);
+        ctx.fillText(y+'y', x-8, H-12);
+        ctx.beginPath(); ctx.moveTo(x, plot.y+plot.h); ctx.lineTo(x, plot.y+plot.h+4); ctx.stroke();
+      }
+
+      function line(set){
+        ctx.beginPath();
+        set.data.forEach((v,i)=>{ const x=xPos(i), y=yRight(v); if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); });
+        ctx.lineWidth=set.w; ctx.setLineDash(set.dash||[]); ctx.strokeStyle=set.color; ctx.stroke(); ctx.setLineDash([]);
+      }
+      rightSets.forEach(line);
+
+      // markers for FIRE/FAT per path
+      const pts=[
+        ['fire_s','資產（生存）',colors.sur, S.asset_sur],
+        ['fire_m','資產（中間）',colors.mid, S.asset_mid],
+        ['fire_l','資產（生活）',colors.life, S.asset_life],
+        ['fat_s','資產（生存）',colors.sur, S.asset_sur, true],
+        ['fat_m','資產（中間）',colors.mid, S.asset_mid, true],
+        ['fat_l','資產（生活）',colors.life, S.asset_life, true],
+      ];
+      pts.forEach(([key,label,color,arr,isFat])=>{
+        const m = S.t[key];
+        if(m<Infinity){
+          const x=xPos(m), y=yRight(arr[m]);
+          ctx.fillStyle=color; ctx.beginPath(); ctx.arc(x,y,4,0,Math.PI*2); ctx.fill();
+          ctx.fillStyle='#cbd5e1';
+          ctx.fillText((isFat?'FAT ':'FIRE ')+label+' 達成', x+6,y-6);
+        }
+      });
+    }
+
+    function run(){
+      const S = simulate();
+      KPI(S); drawChart1(S); drawChart2(S);
+      window.currentState = S; // for export
+    }
+
+    // export two canvases + KPI summary into one PNG
+    function exportPNG(){
+      const S = window.currentState || simulate();
+      const c1 = $('#cv1'), c2 = $('#cv2');
+      const w = Math.max(c1.width, c2.width)/ (window.devicePixelRatio||1);
+      const h = (c1.height + c2.height)/ (window.devicePixelRatio||1);
+      const extra = 160; // header + KPI text
+      const dpr = Math.max(1, window.devicePixelRatio||1);
+      const cv = document.createElement('canvas');
+      cv.width = w*dpr; cv.height = (h+extra)*dpr;
+      const ctx = cv.getContext('2d'); ctx.setTransform(dpr,0,0,dpr,0,0);
+
+      // bg
+      ctx.fillStyle = getComputedStyle(document.body).backgroundColor; ctx.fillRect(0,0,w,h+extra);
+      // header
+      ctx.fillStyle='#e5e7eb'; ctx.font='16px system-ui'; ctx.fillText('財務自由路徑試算｜FIRE Playground', 12, 24);
+      ctx.font='12px system-ui'; ctx.fillStyle='#9ca3af';
+      ctx.fillText('分享自：eaglish.store', 12, 44);
+
+      // KPI snippet
+      ctx.fillStyle='#cbd5e1'; ctx.font='12px system-ui';
+      const lines=[
+        '里程碑：',
+        `• 生存自由：${monthsToY(S.t.survival)}`,
+        `• 生活自由：${monthsToY(S.t.life)}`,
+        `• 工作自由（副≥主）：${monthsToY(S.t.work)}`,
+        `• FIRE（生/中/生）：${[S.t.fire_s,S.t.fire_m,S.t.fire_l].map(monthsToY).join(' ｜ ')}`,
+        `• FAT（生/中/生）：${[S.t.fat_s,S.t.fat_m,S.t.fat_l].map(monthsToY).join(' ｜ ')}`
+      ];
+      let y=66; lines.forEach(t=>{ ctx.fillText(t,12,y); y+=16; });
+
+      // draw canvases
+      ctx.drawImage(c1, 0, extra, w, c1.height/dpr);
+      ctx.drawImage(c2, 0, extra + c1.height/dpr, w, c2.height/dpr);
+
+      const url = cv.toDataURL('image/png');
+      const a = document.createElement('a');
+      a.href = url; a.download = 'fire_result.png'; a.click();
+    }
+
+    // actions
     $('#calc').addEventListener('click', run);
     $('#fatfill').addEventListener('click', ()=>{$('#fat').value=Math.round((+$('#lifestyle').value||0)*1.8); run();});
-    $('#reset').addEventListener('click', ()=>{ 
-      for(const k in defaults){ const el = document.getElementById(k); if(!el) continue; el.value = defaults[k]; } 
-      run();
-    });
+    $('#reset').addEventListener('click', ()=>{ for(const k in defaults){ const el = document.getElementById(k); if(!el) continue; el.value = defaults[k]; } run();});
+    $('#share').addEventListener('click', shareLink);
+    $('#export').addEventListener('click', exportPNG);
     window.addEventListener('resize', run, {passive:true});
-    run();
-  </script>
 
-  <footer style="padding:14px 12px;color:#9ca3af;font-size:12px;border-top:1px solid var(--line);text-align:center">
-    ⚠️ 本工具僅供教育與規劃參考，非投資建議。所有金額以新台幣計算，採「月」為週期、年化率折算為月複利。｜離線版 v1.3
-  </footer>
+    applyParams(); run();
+  </script>
 </body>
 </html>
