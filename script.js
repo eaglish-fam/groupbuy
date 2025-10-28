@@ -2007,17 +2007,15 @@ function renderCouponCard(g) {
 // ============ 內容渲染 ============
 function renderContent() {
   if (state.loading) {
-    elements.content.innerHTML = 
-     `<div class="mb-6 flex gap-3 items-center flex-wrap">
-       ${expiredCount ? `<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired ? 'bg-gray-600 text-white' : 'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired ? '隱藏' : '顯示'}已結束(${expiredCount})</button>` : ''}
-       ${state.hasActiveFilters ? `<button onclick="clearAllFilters()" class="filter-clear-btn px-4 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors flex items-center gap-2">
-         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-         </svg>
-         清除篩選
-      </button>` : ''}
-     </div>`;  // ✅ 移除 +，改為 ;
-    return;    // ✅ 加上 return
+    elements.content.innerHTML = `
+      <div class="flex items-center justify-center min-h-[40vh]">
+        <div class="text-center">
+          <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mb-4"></div>
+          <p class="text-amber-800 font-medium">載入中...</p>
+        </div>
+      </div>
+    `;
+    return;
   }
 
   const q = (state.searchTerm || '').toLowerCase();
@@ -2087,8 +2085,14 @@ function renderContent() {
   const m3 = (today.getMonth() + 2) % 12 + 1;
 
   elements.content.innerHTML =
-    `<div class="mb-6">
+    `<div class="mb-6 flex gap-3 items-center flex-wrap">
        ${expiredCount ? `<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired ? 'bg-gray-600 text-white' : 'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired ? '隱藏' : '顯示'}已結束（${expiredCount}）</button>` : ''}
+       ${state.hasActiveFilters ? `<button onclick="clearAllFilters()" class="filter-clear-btn px-4 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors flex items-center gap-2">
+         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+         </svg>
+         清除篩選
+       </button>` : ''}
      </div>` +
 
     (state.searchTerm && upcomingMatches.length && shortTerm.length === 0 && longTerm.length === 0 && coupon.length === 0 ? `
