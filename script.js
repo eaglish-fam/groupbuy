@@ -1885,7 +1885,7 @@ function renderUpcomingSearchCard(g) {
 function renderGroupCard(g) {
   const daysLeft = utils.getDaysLeft(g.endDate);
   const expired = utils.isExpired(g.endDate);
-  const blogUrl = g.blogUrl || (utils.isURL(g.note) ? g.note : '');
+  const blogUrl = g.blogUrl || (utils.isURL(g.blogUrl) ? g.blogUrl : '');
   const qaList = g.qa && utils.isQA(g.qa) ? utils.parseQA(g.qa) : [];
   const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
 
@@ -1931,7 +1931,7 @@ function renderGroupCard(g) {
         ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
         
         <!-- 網誌連結 (獨立欄位) -->
-        ${blogUrl && !expired ?`<div class="mb-3"><a href="${blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</a></div>` : ''}
+        ${g.blogUrl && !expired ?`<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</a></div>` : ''}
         
         <!-- QA (獨立欄位) -->
         ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
