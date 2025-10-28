@@ -259,6 +259,75 @@ const ImageOptimizer = {
 // 匯出到全域（方便使用）
 window.ImageOptimizer = ImageOptimizer;
 
+function initStickyHeader() {
+  const header = document.querySelector('header');
+  if (!header) {
+    console.warn('⚠️ Header 元素未找到');
+    return;
+  }
+  
+  console.log('✅ Sticky Header 已初始化（純 JS 版本）');
+  
+  // 儲存原始高度
+  let originalHeight = null;
+  
+  window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // 記錄原始高度
+    if (!originalHeight && !isHeaderCompact) {
+      originalHeight = header.offsetHeight;
+    }
+    
+    // 向下滾動且超過50px時，壓縮header
+    if (scrollTop > 50 && scrollTop > lastScrollTop && !isHeaderCompact) {
+      header.style.minHeight = '60px';
+      header.style.maxHeight = '60px';
+      header.style.overflow = 'hidden';
+      header.style.paddingTop = '0.5rem';
+      header.style.paddingBottom = '0.5rem';
+      header.style.transition = 'all 0.3s ease-in-out';
+      
+      // 隱藏第一個子元素
+      const firstChild = header.children[0];
+      if (firstChild) {
+        firstChild.style.maxHeight = '0';
+        firstChild.style.opacity = '0';
+        firstChild.style.overflow = 'hidden';
+        firstChild.style.margin = '0';
+        firstChild.style.padding = '0';
+        firstChild.style.transition = 'all 0.3s ease-in-out';
+      }
+      
+      isHeaderCompact = true;
+      console.log('🔽 Header 壓縮');
+    }
+    // 向上滾動或回到頂部時，展開header
+    else if ((scrollTop < lastScrollTop || scrollTop < 30) && isHeaderCompact) {
+      header.style.minHeight = '';
+      header.style.maxHeight = '';
+      header.style.overflow = '';
+      header.style.paddingTop = '';
+      header.style.paddingBottom = '';
+      
+      // 恢復第一個子元素
+      const firstChild = header.children[0];
+      if (firstChild) {
+        firstChild.style.maxHeight = '';
+        firstChild.style.opacity = '';
+        firstChild.style.overflow = '';
+        firstChild.style.margin = '';
+        firstChild.style.padding = '';
+      }
+      
+      isHeaderCompact = false;
+      console.log('🔼 Header 展開');
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+  });
+}
+
 // ============================================
 // 鷹家買物社 - 圖片渲染輔助函數
 // 使用方式：在 renderGroupCard 等函數中使用
