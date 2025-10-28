@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>財務自由路徑試算｜FIRE Playground</title>
+<style>
+  :root{--bg:#0d1117;--panel:#161b22;--ink:#e6edf3;--muted:#9da7b3;
+        --blue:#58a6ff;--teal:#2ea043;--orange:#f0883e;--pink:#ff7b72;--red:#f85149;
+        --vio:#a371f7;--lav:#d2a8ff;}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans TC",system-ui,-apple-system,Segoe UI,Roboto}
+  header{padding:18px 16px 6px}
+  header h1{margin:0;font-size:20px;text-align:center}
+  header p{margin:6px 0 0;color:var(--muted);font-size:12px;text-align:center}
+  .card{max-width:880px;margin:18px auto;background:var(--panel);border:1px solid #30363d;border-radius:12px;padding:14px}
+  .card h2{margin:6px 8px 12px;font-size:15px;color:#c9d1d9}
+  canvas{width:100%!important;height:400px!important;display:block}
+  .actions{text-align:center;margin:12px 0 24px}
+  .btn{display:inline-block;background:#238636;border:1px solid #2ea043;color:#fff;padding:8px 14px;border-radius:8px;margin:0 6px;cursor:pointer}
+  footer{max-width:880px;margin:6px auto 20px;color:#9da7b3;text-align:center;font-size:12px}
+</style>
+</head>
+<body>
+<header>
+  <h1>財務自由路徑試算｜FIRE Playground</h1>
+  <p>輸入台幣金額與參數，系統即時計算：生存自由／生活自由／工作自由（副業≥主業）／FIRE／FAT FIRE 的達成時間與資產門檻。</p>
+</header>
+
+<section class="card">
+  <h2>現金流趨勢（主業、副業、支出）</h2>
+  <canvas id="cashChart"></canvas>
+</section>
+
+<section class="card">
+  <h2>資產增長模擬（三種生活路徑）</h2>
+  <canvas id="assetChart"></canvas>
+</section>
+
+<div class="actions">
+  <button class="btn" id="shareLink">分享這次試算</button>
+  <button class="btn" id="savePng">下載結果圖</button>
+</div>
+
+<footer>本工具僅供教育與財務規劃參考，非投資建議。</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1"></script>
+<script>
+// ====== 參數（可日後接表單） ======
+const YEARS = 30;                       // 模擬年數
+const lifeMonthly = 120000;             // 生活支出/月
+const survivalMonthly = 60000;          // 生存支出/月
+const withdrawRate = 0.04;              // 年提領率
+const fatLife = Math.round(lifeMonthly*1.8);
+
+// 現金流（僅示意，可接成長率模型）
+const years = Array.from({length: YEARS+1}, (_,i)=>i);
+const mainIncome = years.map(y => 200000 + y*3000);   // 主業
+const sideIncome = years.map(y =>  40000 + y*5000);   // 副業
+const totalIncome= years.map((_,i)=> mainIncome[i]+sideIncome[i]); // 總收入
+
+// ====== 橫軸刻度：依年數自動稀疏 ======
+function tickStep(nYears){
+  if(nYears<=10) return 1;
+  if(nYears<=20) return 2;
+  return 5;
+}
+const step = tickStep(YEARS);
+const tickCb = (value, index) => (index % step === 0 ? value : '');
+
+// ====== 第一張：現金流圖 ======
+const cashCtx = document.getElementById('cashChart');
+const cashChart = new Chart(cashCtx, {
+  type: 'line',
+  data: {
+    labels: years,
+    datasets: [
+      {label:'主業收入', data: mainIncome, borderColor: getComputedStyle(document.documentElement).getPropertyValue('--blue').trim(), borderWidth:2, tension:0.15},
+      {label:'副業收入', data: sideIncome, borderColor: getComputedStyle(document.documentElement).getPropertyValue('--teal').trim(), borderWidth:2, tension:0.15},
+      {label:'總收入',   data: totalIncome, borderColor: getComputedStyle(document.documentElement).getPropertyValue('--orange').trim(), borderWidth:2, tension:0.15},
+      {label:'生存支出', data: years.map(_=>survivalMonthly), borderColor:getComputedStyle(document.documentElement).getPropertyValue('--pink').trim(), borderDash:[6,6], borderWidth:2},
+      {label:'生活支出', data: years.map(_=>lifeMonthly), borderColor:getComputedStyle(document.documentElement).getPropertyValue('--red').trim(), borderDash:[6,6], borderWidth:2},
+    ]
+  },
+  options: {
+    responsive:true,
+    interaction:{mode:'nearest', intersect:false},
+    scales:{
+      x:{title:{display:true,text:'年份'}, ticks:{callback:tickCb, color:'#c9d1d9'}, grid:{color:'#21262d'}},
+      y:{title:{display:true,text:'月金額 (NT$)'}, ticks:{color:'#c9d1d9'}, grid:{color:'#21262d'}}
+    },
+    plugins:{ legend:{labels:{color:'#c9d1d9'}} }
+  }
+});
+
+// ====== 第二張：資產圖（三條路徑） ======
+// 以「每年盈餘」投入 + 年化 6% 複利做示意
+const r = 0.06; // 年化報酬
+function growAsset(expenseMonthly){
+  const A = [3_000_000]; // 初始資產
+  for(let y=1;y<=YEARS;y++){
+    const savingYear = Math.max(0, (totalIncome[y]-expenseMonthly) * 12);
+    const next = A[y-1]*(1+r) + savingYear;
+    A.push(next);
+  }
+  return A;
+}
+const assetSurvival = growAsset(survivalMonthly);
+const assetLife     = growAsset(lifeMonthly);
+const assetMid      = growAsset((lifeMonthly+survivalMonthly)/2);
+
+// FIRE 資產門檻
+const fireTarget = lifeMonthly*12/withdrawRate;
+const fatTarget  = fatLife*12/withdrawRate;
+
+// 單次門檻標示（畫在橫線中央）
+const thresholdLabelPlugin = {
+  id:'thresholdLabel',
+  afterDatasetsDraw(chart, args, pluginOptions){
+    const {ctx, chartArea, scales} = chart;
+    const midX = (chartArea.left + chartArea.right)/2;
+    ctx.save();
+    ctx.font = '12px system-ui';
+    ctx.fillStyle = '#c9d1d9';
+    // FIRE 標示
+    const yFire = scales.y.getPixelForValue(fireTarget);
+    ctx.fillText('FIRE 達標', midX-28, yFire-6);
+    // FAT 標示
+    const yFat = scales.y.getPixelForValue(fatTarget);
+    ctx.fillText('FAT FIRE 達標', midX-40, yFat-6);
+    ctx.restore();
+  }
+};
+
+const assetCtx = document.getElementById('assetChart');
+const assetChart = new Chart(assetCtx, {
+  type:'line',
+  data:{
+    labels: years,
+    datasets:[
+      {label:'資產（生存支出路徑）', data: assetSurvival, borderColor:'#2ea043', tension:0.15, borderWidth:2},
+      {label:'資產（中間支出路徑）', data: assetMid, borderColor:'#7aa2ff', tension:0.15, borderWidth:2},
+      {label:'資產（生活支出路徑）', data: assetLife, borderColor:'#58a6ff', tension:0.15, borderWidth:2},
+      {label:'FIRE 資產門檻', data: years.map(_=>fireTarget), borderColor:getComputedStyle(document.documentElement).getPropertyValue('--vio').trim(), borderDash:[6,6], borderWidth:2},
+      {label:'FAT FIRE 資產門檻', data: years.map(_=>fatTarget), borderColor:getComputedStyle(document.documentElement).getPropertyValue('--lav').trim(), borderDash:[6,6], borderWidth:2}
+    ]
+  },
+  options:{
+    responsive:true,
+    interaction:{mode:'nearest', intersect:false},
+    scales:{
+      x:{title:{display:true,text:'年份'}, ticks:{callback:tickCb, color:'#c9d1d9'}, grid:{color:'#21262d'}},
+      y:{title:{display:true,text:'資產 (NT$)'}, ticks:{color:'#c9d1d9'}, grid:{color:'#21262d'}}
+    },
+    plugins:{ legend:{labels:{color:'#c9d1d9'}} }
+  },
+  plugins:[thresholdLabelPlugin]
+});
+
+// ====== 分享連結 ======
+document.getElementById('shareLink').addEventListener('click', () => {
+  const url = new URL(window.location.href);
+  navigator.clipboard.writeText(url.toString());
+  alert('分享連結已複製到剪貼簿！');
+});
+
+// ====== 下載 PNG：兩圖合併 ======
+document.getElementById('savePng').addEventListener('click', () => {
+  const c1 = document.getElementById('cashChart');
+  const c2 = document.getElementById('assetChart');
+  const out = document.createElement('canvas');
+  out.width = Math.max(c1.width, c2.width);
+  out.height = c1.height + c2.height + 60;
+  const ctx = out.getContext('2d');
+  ctx.fillStyle = getComputedStyle(document.body).backgroundColor || '#0d1117';
+  ctx.fillRect(0,0,out.width,out.height);
+  ctx.drawImage(c1, 0, 0);
+  ctx.drawImage(c2, 0, c1.height + 60);
+  const a = document.createElement('a');
+  a.download = 'fire_result.png';
+  a.href = out.toDataURL('image/png');
+  a.click();
+});
+</script>
+</body>
+</html>
