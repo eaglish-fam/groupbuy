@@ -738,20 +738,3 @@ header.header-compact #bannerSlot {
     display: none;
   }
 }
-/* Sticky Header 強制修復 */
-header[data-compact="true"] {
-  min-height: 60px !important;
-  max-height: 60px !important;
-  overflow: hidden !important;
-  padding-top: 0.25rem !important;
-  padding-bottom: 0.25rem !important;
-  transition: all 0.3s ease-in-out;
-}
-
-/* 手機版 */
-@media (max-width: 767px) {
-  header[data-compact="true"] {
-    min-height: 50px !important;
-    max-height: 50px !important;
-  }
-}
