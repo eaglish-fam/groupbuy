@@ -862,8 +862,8 @@ function drawLine(ctx, points, color, width=2, dash=null){
   ctx.stroke(); ctx.setLineDash([]); ctx.restore();
 }
 
-// Tooltip state
-let currentTooltip = {canvas: null, tooltip: null, data: null};
+// Tooltip state - 改為 Map 結構，每個 canvas 單獨存儲
+const tooltipDataMap = new Map();
 
 function drawChart(canvas, tooltipEl, series, opts){
   // Get actual container width
@@ -998,18 +998,19 @@ function drawChart(canvas, tooltipEl, series, opts){
   });
   ctx.restore();
 
-  // Store data for tooltip
-  currentTooltip = {
+  // Store data for tooltip - 使用 Map 為每個 canvas 單獨存儲
+  tooltipDataMap.set(canvas, {
     canvas: canvas,
     tooltip: tooltipEl,
     data: {series, plot, xPos, yPos, N, yearsTotal, yMax, baseWidth, baseHeight}
-  };
+  });
 }
 
 // Tooltip handler
 function setupTooltip(canvas, tooltipEl){
   function handleMove(e){
-    if(!currentTooltip.data || currentTooltip.canvas !== canvas) return;
+    const tooltipData = tooltipDataMap.get(canvas);
+    if(!tooltipData || !tooltipData.data) return;
     
     const rect = canvas.getBoundingClientRect();
     const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
@@ -1017,7 +1018,7 @@ function setupTooltip(canvas, tooltipEl){
     
     const x = clientX - rect.left;
     const y = clientY - rect.top;
-    const {series, plot, xPos, N, yearsTotal} = currentTooltip.data;
+    const {series, plot, xPos, N, yearsTotal} = tooltipData.data;
     
     // Check if inside plot area
     if(x < plot.x || x > plot.x + plot.w || y < plot.y || y > plot.y + plot.h){
@@ -1040,9 +1041,8 @@ function setupTooltip(canvas, tooltipEl){
     const year = Math.floor(nearestIdx / 12);
     let html = `<div class="tooltip-row"><span class="tooltip-label">年份：</span>${year}年</div>`;
     series.forEach(s => {
-      if(!s.dash){ // Only show non-dashed lines in tooltip
-        html += `<div class="tooltip-row"><span class="tooltip-label" style="color:${s.color}">${s.name}：</span>${fmt(s.data[nearestIdx])}</div>`;
-      }
+      // 顯示所有數據（包括虛線的支出）
+      html += `<div class="tooltip-row"><span class="tooltip-label" style="color:${s.color}">${s.name}：</span>${fmt(s.data[nearestIdx])}</div>`;
     });
     
     tooltipEl.innerHTML = html;
