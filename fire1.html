@@ -32,11 +32,22 @@
   .k h3{margin:0 0 6px 0;font-size:13px}
   .k p{margin:2px 0;font-size:12px;color:#cbd5e1}
   .charts{display:grid;grid-template-columns:1fr;gap:12px;padding:10px}
-  .chartbox{border:1px solid var(--line);border-radius:12px;padding:10px}
+  .chartbox{border:1px solid var(--line);border-radius:12px;padding:10px;position:relative}
   .chartbox h3{margin:0 0 6px 0;font-size:13px;color:#cbd5e1}
-  canvas{display:block;width:100%;height:380px}
+  .chart-wrapper{position:relative;overflow-x:auto;overflow-y:hidden}
+  canvas{display:block;width:100%;height:380px;min-width:600px}
   footer{max-width:1200px;margin:8px auto 20px;color:#9ca3af;text-align:center;font-size:12px}
-  @media(max-width:900px){ main{grid-template-columns:1fr} }
+  .back-home{text-align:center;margin:20px auto;max-width:1200px}
+  .back-home a{display:inline-block;padding:12px 24px;background:#0ea5e9;color:white;text-decoration:none;border-radius:10px;font-size:14px;border:1px solid #0284c7}
+  .back-home a:hover{background:#0284c7}
+  .tooltip{position:absolute;background:rgba(17,24,39,0.95);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:11px;pointer-events:none;display:none;z-index:1000;color:var(--ink);white-space:nowrap}
+  .tooltip-row{margin:2px 0}
+  .tooltip-label{color:var(--muted);margin-right:8px}
+  @media(max-width:900px){ 
+    main{grid-template-columns:1fr}
+    .chart-wrapper{overflow-x:scroll}
+    canvas{min-width:800px}
+  }
 </style>
 </head>
 <body>
@@ -79,15 +90,25 @@
     <div class="charts">
       <div class="chartbox">
         <h3>現金流趨勢（主業 / 副業 / 總收入 vs 生存/生活）</h3>
-        <canvas id="cvCash"></canvas>
+        <div class="chart-wrapper">
+          <canvas id="cvCash"></canvas>
+        </div>
+        <div class="tooltip" id="tooltipCash"></div>
       </div>
       <div class="chartbox">
         <h3>資產增長模擬（三條支出路徑）</h3>
-        <canvas id="cvAsset"></canvas>
+        <div class="chart-wrapper">
+          <canvas id="cvAsset"></canvas>
+        </div>
+        <div class="tooltip" id="tooltipAsset"></div>
       </div>
     </div>
   </section>
 </main>
+
+<div class="back-home">
+  <a href="https://www.eaglish.store">回團購首頁</a>
+</div>
 
 <footer>⚠️ 本工具僅供教育與財務規劃參考，非投資建議。所有金額以新台幣計算，採「月」為週期、年化率折算為月複利。</footer>
 
@@ -98,7 +119,27 @@ const C = {
   blue:css('--blue'), teal:css('--teal'), orange:css('--orange'), green:css('--green'), asset:css('--asset'),
   sur:css('--sur'), life:css('--life'), fire:css('--fire'), fat:css('--fat')
 };
-const fmt = n=>'NT$'+Math.round(n).toLocaleString('zh-TW');
+
+// 改進的格式化函數：使用萬、百萬、千萬、億
+function fmt(n){
+  n = Math.round(n);
+  if(n >= 100000000) return 'NT$' + (n/100000000).toFixed(1) + '億';
+  if(n >= 10000000) return 'NT$' + (n/10000000).toFixed(1) + '千萬';
+  if(n >= 1000000) return 'NT$' + (n/1000000).toFixed(1) + '百萬';
+  if(n >= 10000) return 'NT$' + (n/10000).toFixed(1) + '萬';
+  return 'NT$' + n.toLocaleString('zh-TW');
+}
+
+// Y軸標籤格式化
+function fmtAxis(n){
+  n = Math.round(n);
+  if(n >= 100000000) return (n/100000000).toFixed(0) + '億';
+  if(n >= 10000000) return (n/10000000).toFixed(0) + '千萬';
+  if(n >= 1000000) return (n/1000000).toFixed(0) + '百萬';
+  if(n >= 10000) return (n/10000).toFixed(0) + '萬';
+  return n.toLocaleString('zh-TW');
+}
+
 const monthsToText = m => m===Infinity ? '尚未達成（模擬期內）' : (Math.floor(m/12)+' 年 '+(m%12? m%12+' 個月':''));
 
 const defaults = {survival:60000,lifestyle:120000,fat:216000,assets:3000000,mainIncome:200000,sideIncome:40000,mainGrowth:3,sideGrowth:10,returnRate:6,wr:4,years:30,reinvest:'yes'};
@@ -222,7 +263,11 @@ function drawLine(ctx, points, color, width=2, dash=null){
   points.forEach(([x,y],i)=>{ if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); });
   ctx.stroke(); ctx.setLineDash([]); ctx.restore();
 }
-function drawChart(canvas, series, opts){
+
+// Tooltip state
+let currentTooltip = {canvas: null, tooltip: null, data: null};
+
+function drawChart(canvas, tooltipEl, series, opts){
   const dpr = Math.max(1, window.devicePixelRatio||1);
   const W = canvas.clientWidth, H = canvas.clientHeight;
   canvas.width = W*dpr; canvas.height = H*dpr;
@@ -252,12 +297,12 @@ function drawChart(canvas, series, opts){
     const y=plot.y+plot.h*(1-i/5);
     ctx.beginPath(); ctx.moveTo(plot.x,y); ctx.lineTo(plot.x+plot.w,y); ctx.stroke();
     const val = yMax*i/5;
-    ctx.fillText('NT$'+Math.round(val).toLocaleString('zh-TW'), 6, y+4);
+    ctx.fillText(fmtAxis(val), 6, y+4);
   }
   for(let y=0;y<=yearsTotal;y+=step){
     const i = Math.round(N*y/yearsTotal);
     const x = xPos(i);
-    ctx.fillText(String(y), x-3, H-12);
+    ctx.fillText(String(y) + '年', x-8, H-12);
   }
 
   // series lines
@@ -266,14 +311,14 @@ function drawChart(canvas, series, opts){
     drawLine(ctx, pts, s.color, s.w||2, s.dash||null);
   });
 
-  // horizontal thresholds labels (single)
+  // horizontal thresholds labels - 移到左邊，保留1-2px邊距
   if(opts.hLines){
     ctx.save(); ctx.font='12px system-ui'; ctx.fillStyle='#cbd5e1';
-    const midX = plot.x + plot.w/2 - 20;
     opts.hLines.forEach(h=>{
       const y = yPos(h.y);
       drawLine(ctx, [[plot.x,y],[plot.x+plot.w,y]], h.color, 1.5, [6,6]);
-      ctx.fillText(h.label, midX, y-6);
+      // 移到左側，保留2px邊距
+      ctx.fillText(h.label, plot.x + 2, y-6);
     });
     ctx.restore();
   }
@@ -286,6 +331,68 @@ function drawChart(canvas, series, opts){
     ctx.fillStyle='#cbd5e1'; ctx.fillText(' '+s.name, lx+16, ly);
     lx += ctx.measureText(' '+s.name).width + 40;
   });
+
+  // Store data for tooltip
+  currentTooltip = {
+    canvas: canvas,
+    tooltip: tooltipEl,
+    data: {series, plot, xPos, yPos, N, yearsTotal, yMax}
+  };
+}
+
+// Tooltip handler
+function setupTooltip(canvas, tooltipEl){
+  function handleMove(e){
+    if(!currentTooltip.data || currentTooltip.canvas !== canvas) return;
+    
+    const rect = canvas.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    const {series, plot, xPos, N, yearsTotal} = currentTooltip.data;
+    
+    // Check if inside plot area
+    if(x < plot.x || x > plot.x + plot.w || y < plot.y || y > plot.y + plot.h){
+      tooltipEl.style.display = 'none';
+      return;
+    }
+    
+    // Find nearest data point
+    let nearestIdx = 0;
+    let minDist = Infinity;
+    for(let i=0; i<N; i++){
+      const dist = Math.abs(xPos(i) - x);
+      if(dist < minDist){
+        minDist = dist;
+        nearestIdx = i;
+      }
+    }
+    
+    // Build tooltip content
+    const year = Math.floor(nearestIdx / 12);
+    let html = `<div class="tooltip-row"><span class="tooltip-label">年份：</span>${year}年</div>`;
+    series.forEach(s => {
+      if(!s.dash){ // Only show non-dashed lines in tooltip
+        html += `<div class="tooltip-row"><span class="tooltip-label" style="color:${s.color}">${s.name}：</span>${fmt(s.data[nearestIdx])}</div>`;
+      }
+    });
+    
+    tooltipEl.innerHTML = html;
+    tooltipEl.style.display = 'block';
+    tooltipEl.style.left = (e.clientX + 15) + 'px';
+    tooltipEl.style.top = (e.clientY - 10) + 'px';
+  }
+  
+  function handleLeave(){
+    tooltipEl.style.display = 'none';
+  }
+  
+  canvas.addEventListener('mousemove', handleMove);
+  canvas.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+    handleMove(e.touches[0]);
+  });
+  canvas.addEventListener('mouseleave', handleLeave);
+  canvas.addEventListener('touchend', handleLeave);
 }
 
 // ---- 主流程 ----
@@ -301,7 +408,7 @@ function run(){
     {name:'生存支出', color:C.sur, data:Array(S.L.length).fill(S.p.survival), dash:[6,6], w:1.5},
     {name:'生活支出', color:C.life, data:Array(S.L.length).fill(S.p.lifestyle), dash:[6,6], w:1.5},
   ];
-  drawChart($('#cvCash'), cashSeries, {years:S.p.years});
+  drawChart($('#cvCash'), $('#tooltipCash'), cashSeries, {years:S.p.years});
 
   // 資產圖（三條路徑）
   const assetSeries = [
@@ -309,12 +416,12 @@ function run(){
     {name:'資產（中間支出路徑）', color:'#7aa2ff', data:S.A_mid},
     {name:'資產（生活支出路徑）', color:C.blue, data:S.A_life},
   ];
-  drawChart($('#cvAsset'), assetSeries, {
+  drawChart($('#cvAsset'), $('#tooltipAsset'), assetSeries, {
     years:S.p.years,
     extraMax:[S.fireTarget,S.fatTarget],
     hLines:[
-      {y:S.fireTarget, label:'FIRE 達成', color:C.fire},
-      {y:S.fatTarget,  label:'FAT FIRE 達成', color:C.fat}
+      {y:S.fireTarget, label:'FIRE', color:C.fire},
+      {y:S.fatTarget,  label:'FAT FIRE', color:C.fat}
     ]
   });
 }
@@ -341,6 +448,10 @@ $('#share').addEventListener('click', shareLink);
 $('#savepng').addEventListener('click', savePNG);
 $('#reset').addEventListener('click', ()=>{ for(const k in defaults){ const el=document.getElementById(k); if(el) el.value=defaults[k]; } run(); });
 window.addEventListener('resize', run, {passive:true});
+
+// Setup tooltips
+setupTooltip($('#cvCash'), $('#tooltipCash'));
+setupTooltip($('#cvAsset'), $('#tooltipAsset'));
 
 applyQuery();
 run();
