@@ -34,8 +34,8 @@
   .charts{display:grid;grid-template-columns:1fr;gap:12px;padding:10px}
   .chartbox{border:1px solid var(--line);border-radius:12px;padding:10px;position:relative}
   .chartbox h3{margin:0 0 6px 0;font-size:13px;color:#cbd5e1}
-  .chart-wrapper{position:relative;overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;width:100%}
-  canvas{display:block;height:380px}
+  .chart-wrapper{position:relative;width:100%;overflow:hidden}
+  canvas{display:block;width:100%;height:380px;touch-action:pan-y}
   footer{max-width:1200px;margin:8px auto 20px;color:#9ca3af;text-align:center;font-size:12px}
   .back-home{text-align:center;margin:20px auto;max-width:1200px}
   .back-home a{display:inline-block;padding:12px 24px;background:#0ea5e9;color:white;text-decoration:none;border-radius:10px;font-size:14px;border:1px solid #0284c7}
@@ -45,9 +45,11 @@
   .tooltip-label{color:var(--muted);margin-right:8px}
   @media(max-width:900px){ 
     main{grid-template-columns:1fr}
-    canvas{width:800px;height:340px}
+    canvas{height:320px}
     .chartbox{padding:8px}
     .chartbox h3{font-size:12px}
+    header h1{font-size:18px}
+    header p{font-size:11px}
   }
 </style>
 </head>
@@ -269,16 +271,20 @@ function drawLine(ctx, points, color, width=2, dash=null){
 let currentTooltip = {canvas: null, tooltip: null, data: null};
 
 function drawChart(canvas, tooltipEl, series, opts){
+  // Get actual container width
+  const container = canvas.parentElement;
   const isMobile = window.innerWidth <= 900;
-  const baseWidth = isMobile ? 800 : canvas.parentElement.clientWidth;
-  const baseHeight = isMobile ? 340 : 380;
   
-  // Set canvas display size
-  canvas.style.width = baseWidth + 'px';
+  // Use container's actual width
+  const baseWidth = container.clientWidth;
+  const baseHeight = isMobile ? 320 : 380;
+  
+  // Set canvas size to match container
+  canvas.style.width = '100%';
   canvas.style.height = baseHeight + 'px';
   
-  // Set canvas internal resolution
-  const dpr = Math.max(1, window.devicePixelRatio || 1);
+  // Set internal resolution for sharp rendering
+  const dpr = Math.min(2, window.devicePixelRatio || 1); // Cap at 2 for performance
   canvas.width = baseWidth * dpr;
   canvas.height = baseHeight * dpr;
   
@@ -286,19 +292,25 @@ function drawChart(canvas, tooltipEl, series, opts){
   ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   ctx.clearRect(0, 0, baseWidth, baseHeight);
   
-  const padL = isMobile ? 60 : 80;
-  const padR = isMobile ? 40 : 80;
-  const padT = isMobile ? 38 : 24;
-  const padB = 40;
+  // Adaptive padding based on screen size
+  const padL = isMobile ? 50 : 70;
+  const padR = isMobile ? 20 : 40;
+  const padT = isMobile ? 45 : 30;
+  const padB = isMobile ? 35 : 40;
   const plot = {x: padL, y: padT, w: baseWidth - padL - padR, h: baseHeight - padT - padB};
 
   // X scale
   const N = series[0].data.length;
   const xPos = i => plot.x + plot.w * (i / (N - 1));
 
-  // auto sparse ticks
+  // X-axis ticks - adaptive based on available width
   const yearsTotal = opts.years;
-  const step = yearsTotal <= 10 ? 1 : (yearsTotal <= 20 ? 2 : 5);
+  let step;
+  if(isMobile){
+    step = yearsTotal <= 10 ? 2 : (yearsTotal <= 20 ? 5 : 10);
+  } else {
+    step = yearsTotal <= 10 ? 1 : (yearsTotal <= 20 ? 2 : 5);
+  }
 
   // Y scale
   let yMax = 0;
@@ -307,12 +319,15 @@ function drawChart(canvas, tooltipEl, series, opts){
   yMax = niceMax(yMax);
   const yPos = v => plot.y + plot.h * (1 - v / yMax);
 
-  // grid
+  // Grid and axes
   ctx.strokeStyle = '#1f2937';
   ctx.lineWidth = 1;
-  ctx.font = isMobile ? '10px system-ui' : '11px system-ui';
+  ctx.font = isMobile ? '9px system-ui' : '11px system-ui';
   ctx.fillStyle = '#9ca3af';
+  ctx.textAlign = 'right';
+  ctx.textBaseline = 'middle';
   
+  // Y-axis grid and labels
   for(let i = 0; i <= 5; i++){
     const y = plot.y + plot.h * (1 - i / 5);
     ctx.beginPath();
@@ -320,60 +335,73 @@ function drawChart(canvas, tooltipEl, series, opts){
     ctx.lineTo(plot.x + plot.w, y);
     ctx.stroke();
     const val = yMax * i / 5;
-    ctx.fillText(fmtAxis(val), 6, y + 4);
+    ctx.fillText(fmtAxis(val), padL - 5, y);
   }
   
+  // X-axis labels
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'top';
   for(let y = 0; y <= yearsTotal; y += step){
     const i = Math.round(N * y / yearsTotal);
     const x = xPos(i);
-    ctx.fillText(String(y) + '年', x - 8, baseHeight - 12);
+    if(x >= plot.x && x <= plot.x + plot.w){
+      ctx.fillText(y + '年', x, baseHeight - padB + 5);
+    }
   }
 
-  // series lines
+  // Draw series lines
   series.forEach(s => {
     const pts = s.data.map((v, i) => [xPos(i), yPos(v)]);
     drawLine(ctx, pts, s.color, s.w || 2, s.dash || null);
   });
 
-  // horizontal thresholds labels
+  // Horizontal threshold labels
   if(opts.hLines){
     ctx.save();
-    ctx.font = isMobile ? '11px system-ui' : '12px system-ui';
+    ctx.font = isMobile ? '10px system-ui' : '12px system-ui';
     ctx.fillStyle = '#cbd5e1';
+    ctx.textAlign = 'left';
+    ctx.textBaseline = 'bottom';
+    
     opts.hLines.forEach(h => {
       const y = yPos(h.y);
       drawLine(ctx, [[plot.x, y], [plot.x + plot.w, y]], h.color, 1.5, [6, 6]);
-      ctx.fillText(h.label, plot.x + 2, y - 6);
+      ctx.fillText(h.label, plot.x + 3, y - 4);
     });
     ctx.restore();
   }
 
-  // legend - wrap to multiple rows on mobile if needed
-  let lx = plot.x;
-  let ly = plot.y - 6;
-  const maxWidth = plot.w;
-  const lineHeight = 14;
+  // Legend - adaptive layout
+  ctx.save();
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'top';
+  ctx.font = isMobile ? '9px system-ui' : '10px system-ui';
   
-  ctx.textBaseline = 'bottom';
-  ctx.fillStyle = '#cbd5e1';
-  ctx.font = isMobile ? '9px system-ui' : '11px system-ui';
+  let lx = plot.x;
+  let ly = plot.y - (isMobile ? 38 : 24);
+  const legendItemSpacing = isMobile ? 4 : 8;
+  const legendLineHeight = isMobile ? 12 : 14;
   
   series.forEach((s, idx) => {
-    const text = ' ' + s.name;
-    const textWidth = ctx.measureText(text).width + 16 + (isMobile ? 20 : 40);
+    const text = s.name;
+    const textWidth = ctx.measureText(text).width;
+    const itemWidth = 14 + legendItemSpacing + textWidth + 12; // box + spacing + text + gap
     
-    // Wrap to next line if exceeds width (mobile only)
-    if(isMobile && lx + textWidth > plot.x + maxWidth && idx > 0){
+    // Wrap to next line if needed (mobile only)
+    if(isMobile && idx > 0 && lx + itemWidth > plot.x + plot.w){
       lx = plot.x;
-      ly += lineHeight;
+      ly += legendLineHeight;
     }
     
+    // Draw legend item
     ctx.fillStyle = s.color;
-    ctx.fillRect(lx, ly - 8, 12, 3);
+    ctx.fillRect(lx, ly + 3, 12, 2);
     ctx.fillStyle = '#cbd5e1';
-    ctx.fillText(text, lx + 14, ly);
-    lx += textWidth;
+    ctx.fillText(text, lx + 14 + legendItemSpacing, ly);
+    
+    lx += itemWidth;
   });
+  ctx.restore();
 
   // Store data for tooltip
   currentTooltip = {
@@ -508,7 +536,13 @@ $('#fatfill').addEventListener('click', ()=>{$('#fat').value=Math.round((+$('#li
 $('#share').addEventListener('click', shareLink);
 $('#savepng').addEventListener('click', savePNG);
 $('#reset').addEventListener('click', ()=>{ for(const k in defaults){ const el=document.getElementById(k); if(el) el.value=defaults[k]; } run(); });
-window.addEventListener('resize', run, {passive:true});
+
+// Debounced resize handler for better performance
+let resizeTimer;
+window.addEventListener('resize', () => {
+  clearTimeout(resizeTimer);
+  resizeTimer = setTimeout(run, 150);
+}, {passive: true});
 
 // Setup tooltips
 setupTooltip($('#cvCash'), $('#tooltipCash'));
