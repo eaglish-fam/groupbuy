@@ -570,7 +570,15 @@ const helpTexts={
   sideGrowth:'副業收入的預期年成長率，新創副業成長通常較快。',
   inflation:'年通膨率，台灣近年約 1.5-2.5%。',
   expenseGrowth:'生活費用的年成長率，通常接近通膨率。',
-  fat:'FAT FIRE 是理想生活費的倍數，代表更寬裕的退休生活。建議 1.5-2 倍。'
+  fat:'FAT FIRE 是理想生活費的倍數，代表更寬裕的退休生活。建議 1.5-2 倍。',
+  survivalFreedom:'【生存自由】當被動收入（資產 × 4%）≥ 基本生活費時達成。此時即使失業，也能維持基本生存，不必擔心餓死。這是財務安全的第一道防線。',
+  lifestyleFreedom:'【生活自由】當被動收入（資產 × 4%）≥ 理想生活費時達成。此時完全不工作也能過上理想生活，實現真正的財務自由。這就是傳統意義的 FIRE。',
+  workFreedom:'【工作自由】當副業收入 + 被動收入 ≥ 理想生活費時達成。此時可以辭去主業工作，靠副業和投資收入維持生活。雖然仍需工作，但有選擇工作的自由，不被主業綁死。',
+  fire:'【FIRE = Financial Independence, Retire Early】財務獨立、提前退休。當被動收入足以支付理想生活費時，可選擇提前退休。核心理念：透過高儲蓄率和投資，在 40-50 歲達成財務自由。',
+  leanFire:'【Lean FIRE】精簡版 FIRE，以較低的生活費（通常是基本生活費）提前退休。優點是較快達成，缺點是生活較為節儉。適合極簡主義者。',
+  fatFire:'【FAT FIRE】富裕版 FIRE，以 1.5-2 倍的理想生活費退休。可享受更寬裕的生活品質，有足夠預算應對意外開銷、旅遊、奢侈品等。適合追求高品質退休生活者。',
+  baristaFire:'【Barista FIRE】半退休狀態，被動收入 + 輕鬆兼職（如咖啡師）= 理想生活費。不完全退休，保持社交和輕度工作，同時享受財務自由。適合喜歡保持工作感但不想全職的人。',
+  coastFire:'【Coast FIRE】海岸 FIRE，已累積足夠資產，未來靠複利增長就能在退休年齡達成 FIRE，當下只需賺取生活費即可。不必再為退休儲蓄，可選擇壓力較小的工作。'
 };
 
 // ==========================================
@@ -927,12 +935,12 @@ function renderKPI(S){
   const yFire=findYear(S.A_life,S.fireTarget);
   const yFat=findYear(S.A_life,S.fatTarget);
   
-  const makeCard=(title,target,years,ok,isWorkFree=false)=>{
+  const makeCard=(title,target,years,ok,helpKey,isWorkFree=false)=>{
     // 工作自由特殊處理：目標為0表示副業收入已足夠
     if(isWorkFree && target===0){
       return `
         <div class="k ok">
-          <h3>${title}</h3>
+          <h3>${title}<span class="help-icon" data-help="${helpKey}">?</span></h3>
           <p>目標資產：<strong>NT$ 0</strong></p>
           <p>狀態：<strong>✅ 已達成！副業收入已足夠支付理想生活費</strong></p>
         </div>
@@ -943,7 +951,7 @@ function renderKPI(S){
     if(years===0){
       return `
         <div class="k ok">
-          <h3>${title}</h3>
+          <h3>${title}<span class="help-icon" data-help="${helpKey}">?</span></h3>
           <p>目標資產：<strong>${fmt(target)}</strong></p>
           <p>狀態：<strong>✅ 已達成！</strong></p>
         </div>
@@ -952,7 +960,7 @@ function renderKPI(S){
     
     return `
       <div class="k ${ok?'ok':'warn'}">
-        <h3>${title}</h3>
+        <h3>${title}<span class="help-icon" data-help="${helpKey}">?</span></h3>
         <p>目標資產：<strong>${fmt(target)}</strong></p>
         <p>預計時間：<strong>${years===-1?'超過模擬年數':`${years}年後達成`}</strong></p>
       </div>
@@ -960,11 +968,11 @@ function renderKPI(S){
   };
   
   $('#kpi').innerHTML=[
-    makeCard('生存自由',S.survivalTarget,ySurv,ySurv!==-1 && ySurv<=10),
-    makeCard('生活自由',S.lifestyleTarget,yLife,yLife!==-1 && yLife<=20),
-    makeCard('工作自由',S.workFreeTarget,yWork,yWork!==-1 && yWork<=15,true),
-    makeCard('FIRE',S.fireTarget,yFire,yFire!==-1 && yFire<=25),
-    makeCard('FAT FIRE',S.fatTarget,yFat,yFat!==-1 && yFat<=30)
+    makeCard('生存自由',S.survivalTarget,ySurv,ySurv!==-1 && ySurv<=10,'survivalFreedom'),
+    makeCard('生活自由',S.lifestyleTarget,yLife,yLife!==-1 && yLife<=20,'lifestyleFreedom'),
+    makeCard('工作自由',S.workFreeTarget,yWork,yWork!==-1 && yWork<=15,'workFreedom',true),
+    makeCard('FIRE',S.fireTarget,yFire,yFire!==-1 && yFire<=25,'fire'),
+    makeCard('FAT FIRE',S.fatTarget,yFat,yFat!==-1 && yFat<=30,'fatFire')
   ].join('');
 }
 
@@ -1073,6 +1081,22 @@ function renderSuggestions(S){
       content:'目前設定的報酬率較低，可考慮學習投資或尋求專業理財建議。'
     });
   }
+  
+  // 加入 FIRE 類型補充資訊
+  suggestions.push({
+    type:'info',
+    icon:'🔥',
+    title:'認識不同類型的 FIRE',
+    content:`
+      <div style="margin-top:8px;font-size:11px;line-height:1.6">
+        <div style="margin-bottom:6px"><strong>Lean FIRE：</strong>精簡退休，以基本生活費提前退休</div>
+        <div style="margin-bottom:6px"><strong>FIRE：</strong>標準財務自由，被動收入 ≥ 理想生活費</div>
+        <div style="margin-bottom:6px"><strong>FAT FIRE：</strong>富裕退休，1.5-2倍理想生活費</div>
+        <div style="margin-bottom:6px"><strong>Barista FIRE：</strong>半退休 + 輕鬆兼職</div>
+        <div><strong>Coast FIRE：</strong>資產已足夠，只需賺取當前生活費</div>
+      </div>
+    `
+  });
   
   const html=suggestions.map(s=>`
     <div class="suggestion-card ${s.type}">
@@ -1315,6 +1339,9 @@ function run(){
       {y:S.fatTarget,label:'FAT FIRE',color:C.fat}
     ]
   });
+  
+  // 重新綁定動態生成的幫助圖標
+  setupHelpIcons();
 }
 
 // ==========================================
