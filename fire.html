@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="zh-Hant-TW">
 <head>
 <meta charset="utf-8">
@@ -14,189 +13,160 @@
     --blue:#60a5fa;--teal:#22d3ee;--orange:#fb923c;--green:#34d399;--asset:#cbd5e1;
     --sur:#8b5cf6;--life:#a78bfa;--fire:#ef4444;--fat:#f59e0b;
     --need:#10b981;--want:#f59e0b;--save:#3b82f6;
-    --font-scale:1;
   }
-
-/* 字體大小等級 */
-html[data-font-size=“default”]{–font-scale:1}
-html[data-font-size=“large”]{–font-scale:1.1}
-html[data-font-size=“larger”]{–font-scale:1.2}
-html[data-font-size=“largest”]{–font-scale:1.3}
-
-*{box-sizing:border-box}
-html,body{margin:0;background:var(–bg);color:var(–ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans TC;line-height:1.5;font-size:calc(16px * var(–font-scale))}
-header{padding:16px 12px 8px;border-bottom:1px solid var(–line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap}
-header .header-content{flex:1}
-header h1{margin:0 0 6px 0;font-size:calc(20px * var(–font-scale));text-align:center}
-header p{margin:0;color:var(–muted);font-size:calc(12px * var(–font-scale));text-align:center}
-
-/* 字體控制按鈕區 */
-.font-controls{display:flex;gap:6px;align-items:center;padding:8px;background:rgba(15,23,42,0.6);border-radius:8px;margin-left:auto}
-.font-controls span{font-size:calc(11px * var(–font-scale));color:var(–muted);margin-right:4px}
-.font-btn{cursor:pointer;border:1px solid var(–line);background:#0b1220;color:#e5e7eb;padding:6px 10px;border-radius:6px;font-size:calc(12px * var(–font-scale));transition:all 0.2s}
-.font-btn:hover{background:#1e293b}
-.font-btn.active{background:#0ea5e9;border-color:#0284c7;color:white}
-
-main{max-width:1200px;margin:0 auto;padding:12px;display:grid;gap:12px;grid-template-columns:360px 1fr}
-.panel{background:var(–panel);border:1px solid var(–line);border-radius:12px;overflow:hidden}
-.panel h2{margin:0;padding:10px 12px;border-bottom:1px solid var(–line);font-size:calc(14px * var(–font-scale));color:#cbd5e1}
-.grid{display:grid;grid-template-columns:1fr;gap:8px;padding:10px}
-.row{display:grid;grid-template-columns:1.2fr 1fr;gap:8px;align-items:center}
-label{font-size:calc(12px * var(–font-scale));color:var(–muted)}
-input[type=“number”],select{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #2b3443;background:#0b1220;color:var(–ink);font-size:calc(14px * var(–font-scale))}
-.actions{display:flex;gap:8px;flex-wrap:wrap;padding:0 10px 10px}
-button{cursor:pointer;border:1px solid var(–line);background:#0b1220;color:#e5e7eb;padding:8px 12px;border-radius:10px;font-size:calc(12px * var(–font-scale))}
-button.primary{background:#0ea5e9;border-color:#0284c7}
-button.success{background:#10b981;border-color:#059669}
-button.warning{background:#f59e0b;border-color:#d97706}
-.kpi{display:grid;grid-template-columns:1fr;gap:8px;padding:10px}
-.k{border:1px dashed #334155;border-radius:10px;padding:10px}
-.k.ok{border-color:#14532d;background:rgba(34,197,94,0.08)}
-.k.warn{border-color:#7f1d1d;background:rgba(239,68,68,0.06)}
-.k h3{margin:0 0 6px 0;font-size:calc(13px * var(–font-scale))}
-.k p{margin:2px 0;font-size:calc(12px * var(–font-scale));color:#cbd5e1}
-.charts{display:grid;grid-template-columns:1fr;gap:12px;padding:10px}
-.chartbox{border:1px solid var(–line);border-radius:12px;padding:10px;position:relative}
-.chartbox h3{margin:0 0 6px 0;font-size:calc(13px * var(–font-scale));color:#cbd5e1}
-.chart-wrapper{position:relative;width:100%;overflow:hidden}
-canvas{display:block;width:100%;height:380px;touch-action:pan-y}
-footer{max-width:1200px;margin:8px auto 20px;color:#9ca3af;text-align:center;font-size:calc(12px * var(–font-scale))}
-.back-home{text-align:center;margin:20px auto;max-width:1200px}
-.back-home a{display:inline-block;padding:12px 24px;background:#0ea5e9;color:white;text-decoration:none;border-radius:10px;font-size:calc(14px * var(–font-scale));border:1px solid #0284c7}
-.back-home a:hover{background:#0284c7}
-.tooltip{position:fixed;background:rgba(17,24,39,0.95);border:1px solid var(–line);border-radius:8px;padding:8px 12px;font-size:calc(11px * var(–font-scale));pointer-events:none;display:none;z-index:1000;color:var(–ink);white-space:nowrap;max-width:90vw}
-.tooltip-row{margin:2px 0}
-.tooltip-label{color:var(–muted);margin-right:8px}
-
-/* ==========================================
-SECTION 2: ACCORDION COMPONENTS
-========================================== */
-.accordion{margin-top:12px}
-.accordion-item{border:1px solid var(–line);border-radius:10px;margin-bottom:8px;overflow:hidden}
-.accordion-header{padding:10px 12px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;background:rgba(15,23,42,0.5);transition:background 0.2s}
-.accordion-header:hover{background:rgba(15,23,42,0.8)}
-.accordion-header h3{margin:0;font-size:calc(13px * var(–font-scale));display:flex;align-items:center;gap:6px}
-.accordion-icon{font-size:calc(12px * var(–font-scale));transition:transform 0.2s}
-.accordion-item.open .accordion-icon{transform:rotate(90deg)}
-.accordion-content{max-height:0;overflow:hidden;transition:max-height 0.3s ease-out}
-.accordion-item.open .accordion-content{max-height:3000px;transition:max-height 0.5s ease-in}
-.accordion-body{padding:10px}
-
-/* ==========================================
-SECTION 3: EXPENSE CALCULATOR STYLES
-========================================== */
-.expense-calculator{font-size:calc(12px * var(–font-scale))}
-.expense-category{border:1px solid var(–line);border-radius:8px;margin-bottom:10px;overflow:hidden}
-.expense-category-header{padding:8px 10px;background:rgba(15,23,42,0.6);display:flex;align-items:center;justify-content:space-between;cursor:pointer}
-.expense-category-header:hover{background:rgba(15,23,42,0.8)}
-.expense-category-title{display:flex;align-items:center;gap:6px;font-weight:600;font-size:calc(13px * var(–font-scale))}
-.expense-category.need .expense-category-title{color:var(–need)}
-.expense-category.want .expense-category-title{color:var(–want)}
-.expense-category-total{font-size:calc(12px * var(–font-scale));color:var(–muted)}
-.expense-category-body{padding:10px;display:none}
-.expense-category.open .expense-category-body{display:block}
-.expense-category.open .category-arrow{transform:rotate(90deg)}
-.category-arrow{font-size:calc(10px * var(–font-scale));transition:transform 0.2s}
-
-.expense-item{display:grid;grid-template-columns:1.2fr 1fr;gap:8px;align-items:center;margin-bottom:6px}
-.expense-item:last-child{margin-bottom:0}
-.expense-item label{font-size:calc(11px * var(–font-scale));color:var(–muted)}
-.expense-item input{padding:6px 8px;font-size:calc(11px * var(–font-scale))}
-
-.expense-summary{background:rgba(15,23,42,0.4);border:1px solid var(–line);border-radius:8px;padding:12px;margin:12px 0}
-.expense-summary-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:calc(12px * var(–font-scale))}
-.expense-summary-row:last-child{margin-bottom:0;padding-top:8px;border-top:1px dashed var(–line);font-weight:600;font-size:calc(13px * var(–font-scale))}
-.expense-summary-label{color:var(–muted)}
-.expense-summary-value{font-weight:600}
-
-.expense-progress{margin-top:12px}
-.expense-progress-item{margin-bottom:10px}
-.expense-progress-label{display:flex;justify-content:space-between;font-size:calc(11px * var(–font-scale));margin-bottom:4px}
-.expense-progress-bar{height:6px;background:var(–line);border-radius:3px;overflow:hidden}
-.expense-progress-fill{height:100%;border-radius:3px;transition:width 0.3s}
-.expense-progress-fill.need{background:var(–need)}
-.expense-progress-fill.want{background:var(–want)}
-
-.scenario-buttons{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
-.scenario-buttons button{font-size:calc(11px * var(–font-scale));padding:6px 10px}
-
-.expense-actions{display:flex;gap:8px;margin-top:12px}
-.expense-actions button{flex:1;font-size:calc(12px * var(–font-scale));padding:8px}
-
-/* ==========================================
-SECTION 4: SUGGESTION CARDS
-========================================== */
-.suggestions{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
-.suggestion-card{border:1px solid var(–line);border-radius:10px;padding:12px;background:rgba(15,23,42,0.3)}
-.suggestion-card.info{border-left:3px solid #3b82f6}
-.suggestion-card.warning{border-left:3px solid #f59e0b}
-.suggestion-card.success{border-left:3px solid #10b981}
-.suggestion-card h4{margin:0 0 8px 0;font-size:calc(13px * var(–font-scale));display:flex;align-items:center;gap:6px}
-.suggestion-card p{margin:6px 0;font-size:calc(12px * var(–font-scale));line-height:1.6;color:var(–muted)}
-.suggestion-card ul{margin:8px 0;padding-left:20px;font-size:calc(12px * var(–font-scale));color:var(–muted)}
-.suggestion-card button{margin-top:8px;font-size:calc(11px * var(–font-scale));padding:6px 12px}
-
-/* ==========================================
-SECTION 5: HELP & TOOLTIP COMPONENTS
-========================================== */
-.help-icon{display:inline-block;width:16px;height:16px;border-radius:50%;background:#3b82f6;color:white;text-align:center;line-height:16px;font-size:calc(11px * var(–font-scale));cursor:help;margin-left:4px}
-.help-icon:hover{background:#2563eb}
-.help-popup{position:absolute;background:rgba(17,24,39,0.98);border:1px solid var(–line);border-radius:8px;padding:10px;font-size:calc(11px * var(–font-scale));line-height:1.5;max-width:250px;z-index:100;display:none;box-shadow:0 4px 6px rgba(0,0,0,0.3)}
-.help-popup.show{display:block}
-
-/* ==========================================
-SECTION 6: SUMMARY & TIMELINE
-========================================== */
-.summary-card{background:linear-gradient(135deg, #1e293b 0%, #0f172a 100%);border:1px solid var(–line);border-radius:12px;padding:16px;margin-bottom:12px;text-align:center}
-.summary-card .main-result{font-size:calc(16px * var(–font-scale));font-weight:600;margin-bottom:8px;line-height:1.6}
-.summary-card .main-result .emoji{font-size:calc(20px * var(–font-scale));margin-right:6px}
-.summary-card .sub-text{font-size:calc(12px * var(–font-scale));color:var(–muted)}
-
-.timeline{padding:16px 0;margin:12px 0}
-.timeline-track{position:relative;height:3px;background:var(–line);border-radius:2px;margin:20px 0}
-.timeline-points{position:relative;display:flex;justify-content:space-between;margin-top:-12px}
-.timeline-point{text-align:center;flex:1;position:relative}
-.timeline-point .dot{width:12px;height:12px;border-radius:50%;background:var(–muted);margin:0 auto 6px;border:2px solid var(–bg)}
-.timeline-point.achieved .dot{background:var(–green);box-shadow:0 0 8px var(–green)}
-.timeline-point.current .dot{background:var(–blue);box-shadow:0 0 8px var(–blue)}
-.timeline-point .label{font-size:calc(10px * var(–font-scale));color:var(–muted);margin-top:4px}
-.timeline-point .year{font-size:calc(11px * var(–font-scale));font-weight:600;margin-top:2px}
-
-/* ==========================================
-SECTION 7: RESPONSIVE DESIGN
-========================================== */
-@media(max-width:900px){
-main{grid-template-columns:1fr}
-canvas{height:320px}
-.chartbox{padding:8px}
-.chartbox h3{font-size:calc(12px * var(–font-scale))}
-header h1{font-size:calc(18px * var(–font-scale))}
-header p{font-size:calc(11px * var(–font-scale))}
-header{flex-direction:column}
-.font-controls{margin:8px 0 0 0;width:100%;justify-content:center}
-.suggestions{grid-template-columns:1fr}
-.suggestion-card{padding:10px}
-.suggestion-card h4{font-size:calc(12px * var(–font-scale))}
-.help-popup{max-width:200px;font-size:calc(10px * var(–font-scale))}
-.expense-actions{flex-direction:column}
-.expense-actions button{width:100%}
-}
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans TC;line-height:1.5}
+  header{padding:16px 12px 8px;border-bottom:1px solid var(--line)}
+  header h1{margin:0 0 6px 0;font-size:20px;text-align:center}
+  header p{margin:0;color:var(--muted);font-size:12px;text-align:center}
+  main{max-width:1200px;margin:0 auto;padding:12px;display:grid;gap:12px;grid-template-columns:360px 1fr}
+  .panel{background:var(--panel);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+  .panel h2{margin:0;padding:10px 12px;border-bottom:1px solid var(--line);font-size:14px;color:#cbd5e1}
+  .grid{display:grid;grid-template-columns:1fr;gap:8px;padding:10px}
+  .row{display:grid;grid-template-columns:1.2fr 1fr;gap:8px;align-items:center}
+  label{font-size:12px;color:var(--muted)}
+  input[type="number"],select{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #2b3443;background:#0b1220;color:var(--ink)}
+  .actions{display:flex;gap:8px;flex-wrap:wrap;padding:0 10px 10px}
+  button{cursor:pointer;border:1px solid var(--line);background:#0b1220;color:#e5e7eb;padding:8px 12px;border-radius:10px;font-size:12px}
+  button.primary{background:#0ea5e9;border-color:#0284c7}
+  button.success{background:#10b981;border-color:#059669}
+  button.warning{background:#f59e0b;border-color:#d97706}
+  .kpi{display:grid;grid-template-columns:1fr;gap:8px;padding:10px}
+  .k{border:1px dashed #334155;border-radius:10px;padding:10px}
+  .k.ok{border-color:#14532d;background:rgba(34,197,94,0.08)}
+  .k.warn{border-color:#7f1d1d;background:rgba(239,68,68,0.06)}
+  .k h3{margin:0 0 6px 0;font-size:13px}
+  .k p{margin:2px 0;font-size:12px;color:#cbd5e1}
+  .charts{display:grid;grid-template-columns:1fr;gap:12px;padding:10px}
+  .chartbox{border:1px solid var(--line);border-radius:12px;padding:10px;position:relative}
+  .chartbox h3{margin:0 0 6px 0;font-size:13px;color:#cbd5e1}
+  .chart-wrapper{position:relative;width:100%;overflow:hidden}
+  canvas{display:block;width:100%;height:380px;touch-action:pan-y}
+  footer{max-width:1200px;margin:8px auto 20px;color:#9ca3af;text-align:center;font-size:12px}
+  .back-home{text-align:center;margin:20px auto;max-width:1200px}
+  .back-home a{display:inline-block;padding:12px 24px;background:#0ea5e9;color:white;text-decoration:none;border-radius:10px;font-size:14px;border:1px solid #0284c7}
+  .back-home a:hover{background:#0284c7}
+  .tooltip{position:fixed;background:rgba(17,24,39,0.95);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:11px;pointer-events:none;display:none;z-index:1000;color:var(--ink);white-space:nowrap;max-width:90vw}
+  .tooltip-row{margin:2px 0}
+  .tooltip-label{color:var(--muted);margin-right:8px}
+  
+  /* ==========================================
+     SECTION 2: ACCORDION COMPONENTS
+     ========================================== */
+  .accordion{margin-top:12px}
+  .accordion-item{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;overflow:hidden}
+  .accordion-header{padding:10px 12px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;background:rgba(15,23,42,0.5);transition:background 0.2s}
+  .accordion-header:hover{background:rgba(15,23,42,0.8)}
+  .accordion-header h3{margin:0;font-size:13px;display:flex;align-items:center;gap:6px}
+  .accordion-icon{font-size:12px;transition:transform 0.2s}
+  .accordion-item.open .accordion-icon{transform:rotate(90deg)}
+  .accordion-content{max-height:0;overflow:hidden;transition:max-height 0.3s ease-out}
+  .accordion-item.open .accordion-content{max-height:3000px;transition:max-height 0.5s ease-in}
+  .accordion-body{padding:10px}
+  
+  /* ==========================================
+     SECTION 3: EXPENSE CALCULATOR STYLES
+     ========================================== */
+  .expense-calculator{font-size:12px}
+  .expense-category{border:1px solid var(--line);border-radius:8px;margin-bottom:10px;overflow:hidden}
+  .expense-category-header{padding:8px 10px;background:rgba(15,23,42,0.6);display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+  .expense-category-header:hover{background:rgba(15,23,42,0.8)}
+  .expense-category-title{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px}
+  .expense-category.need .expense-category-title{color:var(--need)}
+  .expense-category.want .expense-category-title{color:var(--want)}
+  .expense-category-total{font-size:12px;color:var(--muted)}
+  .expense-category-body{padding:10px;display:none}
+  .expense-category.open .expense-category-body{display:block}
+  .expense-category.open .category-arrow{transform:rotate(90deg)}
+  .category-arrow{font-size:10px;transition:transform 0.2s}
+  
+  .expense-item{display:grid;grid-template-columns:1.2fr 1fr;gap:8px;align-items:center;margin-bottom:6px}
+  .expense-item:last-child{margin-bottom:0}
+  .expense-item label{font-size:11px;color:var(--muted)}
+  .expense-item input{padding:6px 8px;font-size:11px}
+  
+  .expense-summary{background:rgba(15,23,42,0.4);border:1px solid var(--line);border-radius:8px;padding:12px;margin:12px 0}
+  .expense-summary-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:12px}
+  .expense-summary-row:last-child{margin-bottom:0;padding-top:8px;border-top:1px dashed var(--line);font-weight:600;font-size:13px}
+  .expense-summary-label{color:var(--muted)}
+  .expense-summary-value{font-weight:600}
+  
+  .expense-progress{margin-top:12px}
+  .expense-progress-item{margin-bottom:10px}
+  .expense-progress-label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+  .expense-progress-bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+  .expense-progress-fill{height:100%;border-radius:3px;transition:width 0.3s}
+  .expense-progress-fill.need{background:var(--need)}
+  .expense-progress-fill.want{background:var(--want)}
+  
+  .scenario-buttons{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .scenario-buttons button{font-size:11px;padding:6px 10px}
+  
+  .expense-actions{display:flex;gap:8px;margin-top:12px}
+  .expense-actions button{flex:1;font-size:12px;padding:8px}
+  
+  /* ==========================================
+     SECTION 4: SUGGESTION CARDS
+     ========================================== */
+  .suggestions{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
+  .suggestion-card{border:1px solid var(--line);border-radius:10px;padding:12px;background:rgba(15,23,42,0.3)}
+  .suggestion-card.info{border-left:3px solid #3b82f6}
+  .suggestion-card.warning{border-left:3px solid #f59e0b}
+  .suggestion-card.success{border-left:3px solid #10b981}
+  .suggestion-card h4{margin:0 0 8px 0;font-size:13px;display:flex;align-items:center;gap:6px}
+  .suggestion-card p{margin:6px 0;font-size:12px;line-height:1.6;color:var(--muted)}
+  .suggestion-card ul{margin:8px 0;padding-left:20px;font-size:12px;color:var(--muted)}
+  .suggestion-card button{margin-top:8px;font-size:11px;padding:6px 12px}
+  
+  /* ==========================================
+     SECTION 5: HELP & TOOLTIP COMPONENTS
+     ========================================== */
+  .help-icon{display:inline-block;width:16px;height:16px;border-radius:50%;background:#3b82f6;color:white;text-align:center;line-height:16px;font-size:11px;cursor:help;margin-left:4px}
+  .help-icon:hover{background:#2563eb}
+  .help-popup{position:absolute;background:rgba(17,24,39,0.98);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11px;line-height:1.5;max-width:250px;z-index:100;display:none;box-shadow:0 4px 6px rgba(0,0,0,0.3)}
+  .help-popup.show{display:block}
+  
+  /* ==========================================
+     SECTION 6: SUMMARY & TIMELINE
+     ========================================== */
+  .summary-card{background:linear-gradient(135deg, #1e293b 0%, #0f172a 100%);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;text-align:center}
+  .summary-card .main-result{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.6}
+  .summary-card .main-result .emoji{font-size:20px;margin-right:6px}
+  .summary-card .sub-text{font-size:12px;color:var(--muted)}
+  
+  .timeline{padding:16px 0;margin:12px 0}
+  .timeline-track{position:relative;height:3px;background:var(--line);border-radius:2px;margin:20px 0}
+  .timeline-points{position:relative;display:flex;justify-content:space-between;margin-top:-12px}
+  .timeline-point{text-align:center;flex:1;position:relative}
+  .timeline-point .dot{width:12px;height:12px;border-radius:50%;background:var(--muted);margin:0 auto 6px;border:2px solid var(--bg)}
+  .timeline-point.achieved .dot{background:var(--green);box-shadow:0 0 8px var(--green)}
+  .timeline-point.current .dot{background:var(--blue);box-shadow:0 0 8px var(--blue)}
+  .timeline-point .label{font-size:10px;color:var(--muted);margin-top:4px}
+  .timeline-point .year{font-size:11px;font-weight:600;margin-top:2px}
+  
+  /* ==========================================
+     SECTION 7: RESPONSIVE DESIGN
+     ========================================== */
+  @media(max-width:900px){ 
+    main{grid-template-columns:1fr}
+    canvas{height:320px}
+    .chartbox{padding:8px}
+    .chartbox h3{font-size:12px}
+    header h1{font-size:18px}
+    header p{font-size:11px}
+    .suggestions{grid-template-columns:1fr}
+    .suggestion-card{padding:10px}
+    .suggestion-card h4{font-size:12px}
+    .help-popup{max-width:200px;font-size:10px}
+    .expense-actions{flex-direction:column}
+    .expense-actions button{width:100%}
+  }
 </style>
-
 </head>
 <body>
 <header>
-  <div class="header-content">
-    <h1>財務自由路徑試算｜FIRE Playground</h1>
-    <p>輸入台幣金額與參數,系統即時計算：「生存/生活/工作自由」與 FIRE / FAT FIRE 的達成門檻與趨勢。</p>
-  </div>
-  <div class="font-controls">
-    <span>👁️ 字體大小：</span>
-    <button class="font-btn active" data-size="default">標準</button>
-    <button class="font-btn" data-size="large">大</button>
-    <button class="font-btn" data-size="larger">較大</button>
-    <button class="font-btn" data-size="largest">最大</button>
-  </div>
+  <h1>財務自由路徑試算｜FIRE Playground</h1>
+  <p>輸入台幣金額與參數，系統即時計算：「生存/生活/工作自由」與 FIRE / FAT FIRE 的達成門檻與趨勢。</p>
 </header>
 
 <main>
@@ -222,7 +192,7 @@ header{flex-direction:column}
         <label>理想生活費（月）<span class="help-icon" data-help="lifestyle">?</span></label>
         <div style="display:flex;gap:6px;align-items:center">
           <input id="lifestyle" type="number" step="1000" value="50000" style="flex:1"/>
-          <button id="openExpenseCalc" style="padding:6px 10px;font-size:calc(11px * var(--font-scale))" title="打開支出規劃">📋</button>
+          <button id="openExpenseCalc" style="padding:6px 10px;font-size:11px" title="打開支出規劃">📋</button>
         </div>
       </div>
       <div class="row">
@@ -234,334 +204,327 @@ header{flex-direction:column}
         <input id="years" type="number" min="1" max="60" value="30"/>
       </div>
     </div>
-
-```
-<!-- ==========================================
-     ACCORDION: EXPENSE CALCULATOR
-     ========================================== -->
-<div class="accordion">
-  <div class="accordion-item" id="expenseAccordion">
-    <div class="accordion-header">
-      <h3><span class="accordion-icon">▶</span> 💳 支出詳細規劃（50/30/20法則）</h3>
-    </div>
-    <div class="accordion-content">
-      <div class="accordion-body">
-        <div class="expense-calculator">
-          <p style="font-size:calc(11px * var(--font-scale));color:var(--muted);margin:0 0 12px 0">
-            基於財務規劃黃金法則：50% 必要支出、30% 想要支出、20% 儲蓄投資。填寫完成後可套用至上方「理想生活費」。
-          </p>
-          
-          <!-- 當前狀態聲明 -->
-          <div style="margin-bottom:12px;padding:10px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px">
-            <div style="font-size:calc(12px * var(--font-scale));font-weight:600;margin-bottom:6px">📍 我目前的生活狀態</div>
-            <div class="scenario-buttons" style="margin-bottom:0">
-              <button onclick="ExpenseCalc.setCurrentState('single')" id="state-single">🙍 單身</button>
-              <button onclick="ExpenseCalc.setCurrentState('couple')" id="state-couple">👫 已婚</button>
-              <button onclick="ExpenseCalc.setCurrentState('family')" id="state-family" class="primary">👨‍👩‍👧 育兒中</button>
-              <button onclick="ExpenseCalc.setCurrentState('empty')" id="state-empty">👫 空巢期</button>
-              <button onclick="ExpenseCalc.setCurrentState('retire')" id="state-retire">🏖️ 退休</button>
-            </div>
-            <p style="font-size:calc(10px * var(--font-scale));color:var(--muted);margin:6px 0 0 0">
-              💡 先選擇您目前的狀態，下方填入的數值就是此狀態的實際支出
-            </p>
-          </div>
-          
-          <!-- 必要支出 (Needs) -->
-          <div class="expense-category need open">
-            <div class="expense-category-header" onclick="ExpenseCalc.toggleCategory(this)">
-              <div class="expense-category-title">
-                <span class="category-arrow">▶</span>
-                <span>🏠 必要支出 (Needs)</span>
-              </div>
-              <div class="expense-category-total" id="needTotal">NT$ 0</div>
-            </div>
-            <div class="expense-category-body">
-              <div class="expense-item">
-                <label>房租/房貸</label>
-                <input type="number" id="exp_rent" value="15000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>管理費</label>
-                <input type="number" id="exp_management" value="2000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>水電瓦斯</label>
-                <input type="number" id="exp_utilities" value="2000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>三餐食材</label>
-                <input type="number" id="exp_groceries" value="6000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>通勤交通</label>
-                <input type="number" id="exp_transport" value="2000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>油資/停車</label>
-                <input type="number" id="exp_fuel" value="3000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>勞健保</label>
-                <input type="number" id="exp_health" value="1000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>商業保險</label>
-                <input type="number" id="exp_insurance" value="3000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>貸款償還</label>
-                <input type="number" id="exp_loan" value="0" oninput="ExpenseCalc.calculate()">
-              </div>
-            </div>
-          </div>
-          
-          <!-- 想要支出 (Wants) -->
-          <div class="expense-category want open">
-            <div class="expense-category-header" onclick="ExpenseCalc.toggleCategory(this)">
-              <div class="expense-category-title">
-                <span class="category-arrow">▶</span>
-                <span>🎭 想要支出 (Wants)</span>
-              </div>
-              <div class="expense-category-total" id="wantTotal">NT$ 0</div>
-            </div>
-            <div class="expense-category-body">
-              <div class="expense-item">
-                <label>外食餐廳</label>
-                <input type="number" id="exp_dining" value="4000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>旅遊休閒</label>
-                <input type="number" id="exp_travel" value="5000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>聚餐看電影</label>
-                <input type="number" id="exp_entertainment" value="3000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>治裝費</label>
-                <input type="number" id="exp_clothing" value="2000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>3C/興趣</label>
-                <input type="number" id="exp_hobbies" value="2000" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>串流影音</label>
-                <input type="number" id="exp_streaming" value="500" oninput="ExpenseCalc.calculate()">
-              </div>
-              <div class="expense-item">
-                <label>健身房/其他訂閱</label>
-                <input type="number" id="exp_subscriptions" value="500" oninput="ExpenseCalc.calculate()">
-              </div>
-            </div>
-          </div>
-          
-          <!-- 情境預測功能區 -->
-          <div style="margin:16px 0;padding:12px;background:rgba(139,92,246,0.05);border:1px solid rgba(139,92,246,0.2);border-radius:8px">
-            <div style="font-size:calc(12px * var(--font-scale));font-weight:600;margin-bottom:8px">🔮 未來情境預測</div>
-            <p style="font-size:calc(10px * var(--font-scale));color:var(--muted);margin:0 0 8px 0">
-              根據您目前的支出，預測未來不同生活階段的可能花費
-            </p>
-            <div class="scenario-buttons">
-              <button onclick="ExpenseCalc.predictScenario('single')">🙍 單身</button>
-              <button onclick="ExpenseCalc.predictScenario('couple')">👫 已婚</button>
-              <button onclick="ExpenseCalc.predictScenario('family')">👨‍👩‍👧 育兒中</button>
-              <button onclick="ExpenseCalc.predictScenario('empty')">👫 空巢期</button>
-              <button onclick="ExpenseCalc.predictScenario('retire')">🏖️ 退休</button>
-            </div>
-            <!-- 預測結果顯示區 -->
-            <div id="predictionResult" style="margin-top:8px"></div>
-          </div>
-          
-          <!-- 支出總結 -->
-          <div class="expense-summary">
-            <div class="expense-summary-row">
-              <span class="expense-summary-label">必要支出</span>
-              <span class="expense-summary-value" id="summaryNeed" style="color:var(--need)">NT$ 0</span>
-            </div>
-            <div class="expense-summary-row">
-              <span class="expense-summary-label">想要支出</span>
-              <span class="expense-summary-value" id="summaryWant" style="color:var(--want)">NT$ 0</span>
-            </div>
-            <div class="expense-summary-row">
-              <span class="expense-summary-label">月總支出</span>
-              <span class="expense-summary-value" id="summaryTotal">NT$ 0</span>
-            </div>
-          </div>
-          
-          <!-- 支出比例進度條 -->
-          <div class="expense-progress">
-            <div class="expense-progress-item">
-              <div class="expense-progress-label">
-                <span style="color:var(--need)">必要支出比例</span>
-                <span id="needPercent">0%</span>
-              </div>
-              <div class="expense-progress-bar">
-                <div class="expense-progress-fill need" id="needBar" style="width:0%"></div>
-              </div>
-            </div>
-            <div class="expense-progress-item">
-              <div class="expense-progress-label">
-                <span style="color:var(--want)">想要支出比例</span>
-                <span id="wantPercent">0%</span>
-              </div>
-              <div class="expense-progress-bar">
-                <div class="expense-progress-fill want" id="wantBar" style="width:0%"></div>
-              </div>
-            </div>
-          </div>
-          
-          <!-- 操作按鈕 -->
-          <div class="expense-actions">
-            <button class="success" onclick="ExpenseCalc.applyToLifestyle()">
-              ✓ 套用到理想生活費
-            </button>
-            <button class="primary" onclick="ExpenseCalc.applyToSurvival()">
-              ⚡ 僅套用必要支出到基本生活費
-            </button>
-          </div>
-          
-          <!-- 智能建議 -->
-          <div id="expenseAdvice" style="margin-top:12px"></div>
+    
+    <!-- ==========================================
+         ACCORDION: EXPENSE CALCULATOR
+         ========================================== -->
+    <div class="accordion">
+      <div class="accordion-item" id="expenseAccordion">
+        <div class="accordion-header">
+          <h3><span class="accordion-icon">▶</span> 💳 支出詳細規劃（50/30/20法則）</h3>
         </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- ==========================================
-       ACCORDION: INCOME DETAILS
-       ========================================== -->
-  <div class="accordion-item">
-    <div class="accordion-header">
-      <h3><span class="accordion-icon">▶</span> 💰 收入細節（選填）</h3>
-    </div>
-    <div class="accordion-content">
-      <div class="accordion-body">
-        <p style="font-size:calc(11px * var(--font-scale));color:var(--muted);margin:0 0 10px 0">分開設定主業和副業可以更準確預測未來收入成長。留空則使用總收入。</p>
-        <div class="grid">
-          <div class="row">
-            <label>主業月收入<span class="help-icon" data-help="mainIncome">?</span></label>
-            <input id="mainIncome" type="number" step="1000" value="90000"/>
-          </div>
-          <div class="row">
-            <label>副業月收入<span class="help-icon" data-help="sideIncome">?</span></label>
-            <input id="sideIncome" type="number" step="1000" value="15000"/>
-          </div>
-          <div class="row">
-            <label>主業年成長率 %<span class="help-icon" data-help="mainGrowth">?</span></label>
-            <input id="mainGrowth" type="number" step="0.1" value="3"/>
-          </div>
-          <div class="row">
-            <label>副業年成長率 %<span class="help-icon" data-help="sideGrowth">?</span></label>
-            <input id="sideGrowth" type="number" step="0.1" value="10"/>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="expense-calculator">
+              <p style="font-size:11px;color:var(--muted);margin:0 0 12px 0">
+                基於財務規劃黃金法則：50% 必要支出、30% 想要支出、20% 儲蓄投資。填寫完成後可套用至上方「理想生活費」。
+              </p>
+              
+              <!-- 當前狀態聲明 -->
+              <div style="margin-bottom:12px;padding:10px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px">
+                <div style="font-size:12px;font-weight:600;margin-bottom:6px">📍 我目前的生活狀態</div>
+                <div class="scenario-buttons" style="margin-bottom:0">
+                  <button onclick="ExpenseCalc.setCurrentState('single')" id="state-single">🙍 單身</button>
+                  <button onclick="ExpenseCalc.setCurrentState('couple')" id="state-couple">👫 已婚</button>
+                  <button onclick="ExpenseCalc.setCurrentState('family')" id="state-family" class="primary">👨‍👩‍👧 育兒中</button>
+                  <button onclick="ExpenseCalc.setCurrentState('empty')" id="state-empty">👫 空巢期</button>
+                  <button onclick="ExpenseCalc.setCurrentState('retire')" id="state-retire">🏖️ 退休</button>
+                </div>
+                <p style="font-size:10px;color:var(--muted);margin:6px 0 0 0">
+                  💡 先選擇您目前的狀態，下方填入的數值就是此狀態的實際支出
+                </p>
+              </div>
+              
+              <!-- 必要支出 (Needs) -->
+              <div class="expense-category need open">
+                <div class="expense-category-header" onclick="ExpenseCalc.toggleCategory(this)">
+                  <div class="expense-category-title">
+                    <span class="category-arrow">▶</span>
+                    <span>🏠 必要支出 (Needs)</span>
+                  </div>
+                  <div class="expense-category-total" id="needTotal">NT$ 0</div>
+                </div>
+                <div class="expense-category-body">
+                  <div class="expense-item">
+                    <label>房租/房貸</label>
+                    <input type="number" id="exp_rent" value="15000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>管理費</label>
+                    <input type="number" id="exp_management" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>水電瓦斯</label>
+                    <input type="number" id="exp_utilities" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>三餐食材</label>
+                    <input type="number" id="exp_groceries" value="6000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>通勤交通</label>
+                    <input type="number" id="exp_transport" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>油資/停車</label>
+                    <input type="number" id="exp_fuel" value="3000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>勞健保</label>
+                    <input type="number" id="exp_health" value="1000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>商業保險</label>
+                    <input type="number" id="exp_insurance" value="3000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>貸款償還</label>
+                    <input type="number" id="exp_loan" value="0" oninput="ExpenseCalc.calculate()">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 想要支出 (Wants) -->
+              <div class="expense-category want open">
+                <div class="expense-category-header" onclick="ExpenseCalc.toggleCategory(this)">
+                  <div class="expense-category-title">
+                    <span class="category-arrow">▶</span>
+                    <span>🎭 想要支出 (Wants)</span>
+                  </div>
+                  <div class="expense-category-total" id="wantTotal">NT$ 0</div>
+                </div>
+                <div class="expense-category-body">
+                  <div class="expense-item">
+                    <label>外食餐廳</label>
+                    <input type="number" id="exp_dining" value="4000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>旅遊休閒</label>
+                    <input type="number" id="exp_travel" value="5000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>聚餐看電影</label>
+                    <input type="number" id="exp_entertainment" value="3000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>治裝費</label>
+                    <input type="number" id="exp_clothing" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>3C/興趣</label>
+                    <input type="number" id="exp_hobbies" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>串流影音</label>
+                    <input type="number" id="exp_streaming" value="500" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>健身房/其他訂閱</label>
+                    <input type="number" id="exp_subscriptions" value="500" oninput="ExpenseCalc.calculate()">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 情境預測功能區 -->
+              <div style="margin:16px 0;padding:12px;background:rgba(139,92,246,0.05);border:1px solid rgba(139,92,246,0.2);border-radius:8px">
+                <div style="font-size:12px;font-weight:600;margin-bottom:8px">🔮 未來情境預測</div>
+                <p style="font-size:10px;color:var(--muted);margin:0 0 8px 0">
+                  根據您目前的支出，預測未來不同生活階段的可能花費
+                </p>
+                <div class="scenario-buttons">
+                  <button onclick="ExpenseCalc.predictScenario('single')">🙍 單身</button>
+                  <button onclick="ExpenseCalc.predictScenario('couple')">👫 已婚</button>
+                  <button onclick="ExpenseCalc.predictScenario('family')">👨‍👩‍👧 育兒中</button>
+                  <button onclick="ExpenseCalc.predictScenario('empty')">👫 空巢期</button>
+                  <button onclick="ExpenseCalc.predictScenario('retire')">🏖️ 退休</button>
+                </div>
+                <!-- 預測結果顯示區 -->
+                <div id="predictionResult" style="margin-top:8px"></div>
+              </div>
+              
+              <!-- 支出總結 -->
+              <div class="expense-summary">
+                <div class="expense-summary-row">
+                  <span class="expense-summary-label">必要支出</span>
+                  <span class="expense-summary-value" id="summaryNeed" style="color:var(--need)">NT$ 0</span>
+                </div>
+                <div class="expense-summary-row">
+                  <span class="expense-summary-label">想要支出</span>
+                  <span class="expense-summary-value" id="summaryWant" style="color:var(--want)">NT$ 0</span>
+                </div>
+                <div class="expense-summary-row">
+                  <span class="expense-summary-label">月總支出</span>
+                  <span class="expense-summary-value" id="summaryTotal">NT$ 0</span>
+                </div>
+              </div>
+              
+              <!-- 支出比例進度條 -->
+              <div class="expense-progress">
+                <div class="expense-progress-item">
+                  <div class="expense-progress-label">
+                    <span style="color:var(--need)">必要支出比例</span>
+                    <span id="needPercent">0%</span>
+                  </div>
+                  <div class="expense-progress-bar">
+                    <div class="expense-progress-fill need" id="needBar" style="width:0%"></div>
+                  </div>
+                </div>
+                <div class="expense-progress-item">
+                  <div class="expense-progress-label">
+                    <span style="color:var(--want)">想要支出比例</span>
+                    <span id="wantPercent">0%</span>
+                  </div>
+                  <div class="expense-progress-bar">
+                    <div class="expense-progress-fill want" id="wantBar" style="width:0%"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 操作按鈕 -->
+              <div class="expense-actions">
+                <button class="success" onclick="ExpenseCalc.applyToLifestyle()">
+                  ✓ 套用到理想生活費
+                </button>
+                <button class="primary" onclick="ExpenseCalc.applyToSurvival()">
+                  ⚡ 僅套用必要支出到基本生活費
+                </button>
+              </div>
+              
+              <!-- 智能建議 -->
+              <div id="expenseAdvice" style="margin-top:12px"></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
-  </div>
-  
-  <!-- ==========================================
-       ACCORDION: INFLATION & EXPENSES
-       ========================================== -->
-  <div class="accordion-item">
-    <div class="accordion-header">
-      <h3><span class="accordion-icon">▶</span> 🌡️ 通膨與支出</h3>
-    </div>
-    <div class="accordion-content">
-      <div class="accordion-body">
-        <p style="font-size:calc(11px * var(--font-scale));color:var(--muted);margin:0 0 10px 0">通膨會讓未來的錢變薄，建議設定 2-3% 的年通膨率讓計算更貼近現實。</p>
-        <div class="grid">
-          <div class="row">
-            <label>年通膨率 %<span class="help-icon" data-help="inflation">?</span></label>
-            <input id="inflation" type="number" step="0.1" value="2"/>
+      
+      <!-- ==========================================
+           ACCORDION: INCOME DETAILS
+           ========================================== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3><span class="accordion-icon">▶</span> 💰 收入細節（選填）</h3>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <p style="font-size:11px;color:var(--muted);margin:0 0 10px 0">分開設定主業和副業可以更準確預測未來收入成長。留空則使用總收入。</p>
+            <div class="grid">
+              <div class="row">
+                <label>主業月收入<span class="help-icon" data-help="mainIncome">?</span></label>
+                <input id="mainIncome" type="number" step="1000" value="90000"/>
+              </div>
+              <div class="row">
+                <label>副業月收入<span class="help-icon" data-help="sideIncome">?</span></label>
+                <input id="sideIncome" type="number" step="1000" value="15000"/>
+              </div>
+              <div class="row">
+                <label>主業年成長率 %<span class="help-icon" data-help="mainGrowth">?</span></label>
+                <input id="mainGrowth" type="number" step="0.1" value="3"/>
+              </div>
+              <div class="row">
+                <label>副業年成長率 %<span class="help-icon" data-help="sideGrowth">?</span></label>
+                <input id="sideGrowth" type="number" step="0.1" value="10"/>
+              </div>
+            </div>
           </div>
-          <div class="row">
-            <label>生活費年成長 %<span class="help-icon" data-help="expenseGrowth">?</span></label>
-            <input id="expenseGrowth" type="number" step="0.1" value="2"/>
+        </div>
+      </div>
+      
+      <!-- ==========================================
+           ACCORDION: INFLATION & EXPENSES
+           ========================================== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3><span class="accordion-icon">▶</span> 🌡️ 通膨與支出</h3>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <p style="font-size:11px;color:var(--muted);margin:0 0 10px 0">通膨會讓未來的錢變薄，建議設定 2-3% 的年通膨率讓計算更貼近現實。</p>
+            <div class="grid">
+              <div class="row">
+                <label>年通膨率 %<span class="help-icon" data-help="inflation">?</span></label>
+                <input id="inflation" type="number" step="0.1" value="2"/>
+              </div>
+              <div class="row">
+                <label>生活費年成長 %<span class="help-icon" data-help="expenseGrowth">?</span></label>
+                <input id="expenseGrowth" type="number" step="0.1" value="2"/>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ==========================================
+           ACCORDION: RISK LEVEL
+           ========================================== -->
+      <div class="accordion-item">
+        <div class="accordion-header">
+          <h3><span class="accordion-icon">▶</span> 🎯 風險偏好</h3>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <p style="font-size:11px;color:var(--muted);margin:0 0 10px 0">選擇投資風險等級，系統會自動調整報酬率與 FAT FIRE 倍數。</p>
+            <div class="grid">
+              <div class="row">
+                <label>風險等級</label>
+                <select id="riskLevel">
+                  <option value="conservative">保守型（低風險）</option>
+                  <option value="moderate" selected>穩健型（中風險）</option>
+                  <option value="aggressive">積極型（高風險）</option>
+                </select>
+              </div>
+              <div class="row">
+                <label>FAT FIRE 倍數<span class="help-icon" data-help="fat">?</span></label>
+                <input id="fat" type="number" step="0.1" value="1.8"/>
+              </div>
+            </div>
+            <button id="fatfill" style="width:100%;margin-top:8px">自動填入建議 FAT 倍數</button>
           </div>
         </div>
       </div>
     </div>
-  </div>
-  
-  <!-- ==========================================
-       ACCORDION: RISK LEVEL
-       ========================================== -->
-  <div class="accordion-item">
-    <div class="accordion-header">
-      <h3><span class="accordion-icon">▶</span> 🎯 風險偏好</h3>
+    
+    <!-- 操作按鈕 -->
+    <div class="actions">
+      <button id="calc" class="primary">重新計算</button>
+      <button id="share">分享結果</button>
+      <button id="savepng">下載圖表</button>
+      <button id="reset">重設</button>
     </div>
-    <div class="accordion-content">
-      <div class="accordion-body">
-        <p style="font-size:calc(11px * var(--font-scale));color:var(--muted);margin:0 0 10px 0">選擇投資風險等級，系統會自動調整報酬率與 FAT FIRE 倍數。</p>
-        <div class="grid">
-          <div class="row">
-            <label>風險等級</label>
-            <select id="riskLevel">
-              <option value="conservative">保守型（低風險）</option>
-              <option value="moderate" selected>穩健型（中風險）</option>
-              <option value="aggressive">積極型（高風險）</option>
-            </select>
-          </div>
-          <div class="row">
-            <label>FAT FIRE 倍數<span class="help-icon" data-help="fat">?</span></label>
-            <input id="fat" type="number" step="0.1" value="1.8"/>
-          </div>
-        </div>
-        <button id="fatfill" style="width:100%;margin-top:8px">自動填入建議 FAT 倍數</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- 操作按鈕 -->
-<div class="actions">
-  <button id="calc" class="primary">重新計算</button>
-  <button id="share">分享結果</button>
-  <button id="savepng">下載圖表</button>
-  <button id="reset">重設</button>
-</div>
-```
-
   </section>
-
+  
   <!-- ==========================================
        RESULT PANEL
        ========================================== -->
-
   <section class="panel">
     <h2>試算結果</h2>
-
-```
-<!-- 總結卡片 -->
-<div id="summaryCard" style="padding:10px"></div>
-
-<!-- 時間軸 -->
-<div id="timeline" style="padding:10px"></div>
-
-<!-- KPI 區 -->
-<div class="kpi" id="kpi"></div>
-
-<!-- 智能建議 -->
-<div id="suggestions" style="padding:10px"></div>
-
-<!-- 圖表區 -->
-<div class="charts">
-  <div class="chartbox">
-    <h3>現金流趨勢</h3>
-    <div class="chart-wrapper">
-      <canvas id="cvCash"></canvas>
+    
+    <!-- 總結卡片 -->
+    <div id="summaryCard" style="padding:10px"></div>
+    
+    <!-- 時間軸 -->
+    <div id="timeline" style="padding:10px"></div>
+    
+    <!-- KPI 區 -->
+    <div class="kpi" id="kpi"></div>
+    
+    <!-- 智能建議 -->
+    <div id="suggestions" style="padding:10px"></div>
+    
+    <!-- 圖表區 -->
+    <div class="charts">
+      <div class="chartbox">
+        <h3>現金流趨勢</h3>
+        <div class="chart-wrapper">
+          <canvas id="cvCash"></canvas>
+        </div>
+      </div>
+      <div class="chartbox">
+        <h3>資產累積路徑（三種情境）</h3>
+        <div class="chart-wrapper">
+          <canvas id="cvAsset"></canvas>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="chartbox">
-    <h3>資產累積路徑（三種情境）</h3>
-    <div class="chart-wrapper">
-      <canvas id="cvAsset"></canvas>
-    </div>
-  </div>
-</div>
-```
-
   </section>
 </main>
 
@@ -574,7 +537,6 @@ header{flex-direction:column}
 </div>
 
 <!-- Tooltips -->
-
 <div id="tooltipCash" class="tooltip"></div>
 <div id="tooltipAsset" class="tooltip"></div>
 
@@ -618,42 +580,6 @@ const helpTexts={
   baristaFire:'【Barista FIRE】半退休狀態，被動收入 + 輕鬆兼職（如咖啡師）= 理想生活費。不完全退休，保持社交和輕度工作，同時享受財務自由。適合喜歡保持工作感但不想全職的人。',
   coastFire:'【Coast FIRE】海岸 FIRE，已累積足夠資產，未來靠複利增長就能在退休年齡達成 FIRE，當下只需賺取生活費即可。不必再為退休儲蓄，可選擇壓力較小的工作。'
 };
-
-// ==========================================
-// SECTION 1.5: FONT SIZE CONTROL
-// ==========================================
-function setupFontControls(){
-  const fontBtns=$$('.font-btn');
-  const html=document.documentElement;
-  
-  // 從 localStorage 讀取上次設定
-  const savedSize=localStorage.getItem('fireFontSize')||'default';
-  html.setAttribute('data-font-size',savedSize);
-  
-  // 更新按鈕狀態
-  fontBtns.forEach(btn=>{
-    if(btn.dataset.size===savedSize){
-      btn.classList.add('active');
-    }else{
-      btn.classList.remove('active');
-    }
-  });
-  
-  // 綁定點擊事件
-  fontBtns.forEach(btn=>{
-    btn.addEventListener('click',()=>{
-      const size=btn.dataset.size;
-      html.setAttribute('data-font-size',size);
-      localStorage.setItem('fireFontSize',size);
-      
-      fontBtns.forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      
-      // 重新繪製圖表以適應新字體大小
-      setTimeout(()=>run(),100);
-    });
-  });
-}
 
 // ==========================================
 // SECTION 2: EXPENSE CALCULATOR MODULE
@@ -749,10 +675,10 @@ const ExpenseCalc = {
     if (resultEl) {
       resultEl.innerHTML = `
         <div style="margin-top:10px;padding:10px;background:rgba(15,23,42,0.6);border:1px solid var(--line);border-radius:8px">
-          <div style="font-size:calc(11px * var(--font-scale));color:var(--muted);margin-bottom:6px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px">
             從「${stateNames[this.currentState]}」→「${stateNames[targetState]}」預測
           </div>
-          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:calc(11px * var(--font-scale))">
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px">
             <div>
               <div style="color:var(--muted)">必要支出</div>
               <div style="font-weight:600;color:var(--need)">NT$ ${fmt(predictedNeed)}</div>
@@ -767,10 +693,10 @@ const ExpenseCalc = {
             </div>
           </div>
           <div style="margin-top:8px;display:flex;gap:6px">
-            <button onclick="ExpenseCalc.applyPrediction(${predictedNeed}, ${predictedWant})" style="flex:1;font-size:calc(10px * var(--font-scale));padding:6px;background:#10b981;border-color:#059669">
+            <button onclick="ExpenseCalc.applyPrediction(${predictedNeed}, ${predictedWant})" style="flex:1;font-size:10px;padding:6px;background:#10b981;border-color:#059669">
               套用到理想生活費
             </button>
-            <button onclick="ExpenseCalc.applyPredictionToSurvival(${predictedNeed})" style="flex:1;font-size:calc(10px * var(--font-scale));padding:6px">
+            <button onclick="ExpenseCalc.applyPredictionToSurvival(${predictedNeed})" style="flex:1;font-size:10px;padding:6px">
               套用必要支出
             </button>
           </div>
@@ -1162,7 +1088,7 @@ function renderSuggestions(S){
     icon:'🔥',
     title:'認識不同類型的 FIRE',
     content:`
-      <div style="margin-top:8px;font-size:calc(11px * var(--font-scale));line-height:1.6">
+      <div style="margin-top:8px;font-size:11px;line-height:1.6">
         <div style="margin-bottom:6px"><strong>Lean FIRE：</strong>精簡退休，以基本生活費提前退休</div>
         <div style="margin-bottom:6px"><strong>FIRE：</strong>標準財務自由，被動收入 ≥ 理想生活費</div>
         <div style="margin-bottom:6px"><strong>FAT FIRE：</strong>富裕退休，1.5-2倍理想生活費</div>
@@ -1571,7 +1497,6 @@ setupHelpIcons();
 setupAccordion();
 setupRiskLevel();
 setupIncomeSync();
-setupFontControls(); // 初始化字體控制
 
 // 初始化支出計算器
 ExpenseCalc.calculate();
@@ -1579,6 +1504,5 @@ ExpenseCalc.calculate();
 applyQuery();
 run();
 </script>
-
 </body>
 </html>
