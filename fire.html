@@ -5,10 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>財務自由路徑試算｜FIRE Playground</title>
 <style>
+  /* ==========================================
+     SECTION 1: BASE STYLES & VARIABLES
+     ========================================== */
   :root{
     --bg:#0f172a;--panel:#111827;--ink:#e5e7eb;--muted:#9ca3af;--line:#1f2937;
     --blue:#60a5fa;--teal:#22d3ee;--orange:#fb923c;--green:#34d399;--asset:#cbd5e1;
     --sur:#8b5cf6;--life:#a78bfa;--fire:#ef4444;--fat:#f59e0b;
+    --need:#10b981;--want:#f59e0b;--save:#3b82f6;
   }
   *{box-sizing:border-box}
   html,body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans TC;line-height:1.5}
@@ -23,8 +27,10 @@
   label{font-size:12px;color:var(--muted)}
   input[type="number"],select{width:100%;padding:8px 10px;border-radius:10px;border:1px solid #2b3443;background:#0b1220;color:var(--ink)}
   .actions{display:flex;gap:8px;flex-wrap:wrap;padding:0 10px 10px}
-  button{cursor:pointer;border:1px solid var(--line);background:#0b1220;color:#e5e7eb;padding:8px 12px;border-radius:10px}
+  button{cursor:pointer;border:1px solid var(--line);background:#0b1220;color:#e5e7eb;padding:8px 12px;border-radius:10px;font-size:12px}
   button.primary{background:#0ea5e9;border-color:#0284c7}
+  button.success{background:#10b981;border-color:#059669}
+  button.warning{background:#f59e0b;border-color:#d97706}
   .kpi{display:grid;grid-template-columns:1fr;gap:8px;padding:10px}
   .k{border:1px dashed #334155;border-radius:10px;padding:10px}
   .k.ok{border-color:#14532d;background:rgba(34,197,94,0.08)}
@@ -43,16 +49,10 @@
   .tooltip{position:fixed;background:rgba(17,24,39,0.95);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:11px;pointer-events:none;display:none;z-index:1000;color:var(--ink);white-space:nowrap;max-width:90vw}
   .tooltip-row{margin:2px 0}
   .tooltip-label{color:var(--muted);margin-right:8px}
-  @media(max-width:900px){ 
-    main{grid-template-columns:1fr}
-    canvas{height:320px}
-    .chartbox{padding:8px}
-    .chartbox h3{font-size:12px}
-    header h1{font-size:18px}
-    header p{font-size:11px}
-  }
   
-  /* 新增：手風琴式折疊區塊 */
+  /* ==========================================
+     SECTION 2: ACCORDION COMPONENTS
+     ========================================== */
   .accordion{margin-top:12px}
   .accordion-item{border:1px solid var(--line);border-radius:10px;margin-bottom:8px;overflow:hidden}
   .accordion-header{padding:10px 12px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;background:rgba(15,23,42,0.5);transition:background 0.2s}
@@ -61,10 +61,53 @@
   .accordion-icon{font-size:12px;transition:transform 0.2s}
   .accordion-item.open .accordion-icon{transform:rotate(90deg)}
   .accordion-content{max-height:0;overflow:hidden;transition:max-height 0.3s ease-out}
-  .accordion-item.open .accordion-content{max-height:2000px;transition:max-height 0.5s ease-in}
+  .accordion-item.open .accordion-content{max-height:3000px;transition:max-height 0.5s ease-in}
   .accordion-body{padding:10px}
   
-  /* 新增：智能建議卡片 */
+  /* ==========================================
+     SECTION 3: EXPENSE CALCULATOR STYLES
+     ========================================== */
+  .expense-calculator{font-size:12px}
+  .expense-category{border:1px solid var(--line);border-radius:8px;margin-bottom:10px;overflow:hidden}
+  .expense-category-header{padding:8px 10px;background:rgba(15,23,42,0.6);display:flex;align-items:center;justify-content:space-between;cursor:pointer}
+  .expense-category-header:hover{background:rgba(15,23,42,0.8)}
+  .expense-category-title{display:flex;align-items:center;gap:6px;font-weight:600;font-size:13px}
+  .expense-category.need .expense-category-title{color:var(--need)}
+  .expense-category.want .expense-category-title{color:var(--want)}
+  .expense-category-total{font-size:12px;color:var(--muted)}
+  .expense-category-body{padding:10px;display:none}
+  .expense-category.open .expense-category-body{display:block}
+  .expense-category.open .category-arrow{transform:rotate(90deg)}
+  .category-arrow{font-size:10px;transition:transform 0.2s}
+  
+  .expense-item{display:grid;grid-template-columns:1.2fr 1fr;gap:8px;align-items:center;margin-bottom:6px}
+  .expense-item:last-child{margin-bottom:0}
+  .expense-item label{font-size:11px;color:var(--muted)}
+  .expense-item input{padding:6px 8px;font-size:11px}
+  
+  .expense-summary{background:rgba(15,23,42,0.4);border:1px solid var(--line);border-radius:8px;padding:12px;margin:12px 0}
+  .expense-summary-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px;font-size:12px}
+  .expense-summary-row:last-child{margin-bottom:0;padding-top:8px;border-top:1px dashed var(--line);font-weight:600;font-size:13px}
+  .expense-summary-label{color:var(--muted)}
+  .expense-summary-value{font-weight:600}
+  
+  .expense-progress{margin-top:12px}
+  .expense-progress-item{margin-bottom:10px}
+  .expense-progress-label{display:flex;justify-content:space-between;font-size:11px;margin-bottom:4px}
+  .expense-progress-bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden}
+  .expense-progress-fill{height:100%;border-radius:3px;transition:width 0.3s}
+  .expense-progress-fill.need{background:var(--need)}
+  .expense-progress-fill.want{background:var(--want)}
+  
+  .scenario-buttons{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+  .scenario-buttons button{font-size:11px;padding:6px 10px}
+  
+  .expense-actions{display:flex;gap:8px;margin-top:12px}
+  .expense-actions button{flex:1;font-size:12px;padding:8px}
+  
+  /* ==========================================
+     SECTION 4: SUGGESTION CARDS
+     ========================================== */
   .suggestions{display:grid;grid-template-columns:1fr;gap:10px;padding:10px 0}
   .suggestion-card{border:1px solid var(--line);border-radius:10px;padding:12px;background:rgba(15,23,42,0.3)}
   .suggestion-card.info{border-left:3px solid #3b82f6}
@@ -75,21 +118,22 @@
   .suggestion-card ul{margin:8px 0;padding-left:20px;font-size:12px;color:var(--muted)}
   .suggestion-card button{margin-top:8px;font-size:11px;padding:6px 12px}
   
-  /* 新增：提示圖標 */
+  /* ==========================================
+     SECTION 5: HELP & TOOLTIP COMPONENTS
+     ========================================== */
   .help-icon{display:inline-block;width:16px;height:16px;border-radius:50%;background:#3b82f6;color:white;text-align:center;line-height:16px;font-size:11px;cursor:help;margin-left:4px}
   .help-icon:hover{background:#2563eb}
-  
-  /* 新增：提示泡泡 */
   .help-popup{position:absolute;background:rgba(17,24,39,0.98);border:1px solid var(--line);border-radius:8px;padding:10px;font-size:11px;line-height:1.5;max-width:250px;z-index:100;display:none;box-shadow:0 4px 6px rgba(0,0,0,0.3)}
   .help-popup.show{display:block}
   
-  /* 新增：總結卡片 */
+  /* ==========================================
+     SECTION 6: SUMMARY & TIMELINE
+     ========================================== */
   .summary-card{background:linear-gradient(135deg, #1e293b 0%, #0f172a 100%);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;text-align:center}
   .summary-card .main-result{font-size:16px;font-weight:600;margin-bottom:8px;line-height:1.6}
   .summary-card .main-result .emoji{font-size:20px;margin-right:6px}
   .summary-card .sub-text{font-size:12px;color:var(--muted)}
   
-  /* 新增：時間軸 */
   .timeline{padding:16px 0;margin:12px 0}
   .timeline-track{position:relative;height:3px;background:var(--line);border-radius:2px;margin:20px 0}
   .timeline-points{position:relative;display:flex;justify-content:space-between;margin-top:-12px}
@@ -100,11 +144,22 @@
   .timeline-point .label{font-size:10px;color:var(--muted);margin-top:4px}
   .timeline-point .year{font-size:11px;font-weight:600;margin-top:2px}
   
-  @media(max-width:900px){
+  /* ==========================================
+     SECTION 7: RESPONSIVE DESIGN
+     ========================================== */
+  @media(max-width:900px){ 
+    main{grid-template-columns:1fr}
+    canvas{height:320px}
+    .chartbox{padding:8px}
+    .chartbox h3{font-size:12px}
+    header h1{font-size:18px}
+    header p{font-size:11px}
     .suggestions{grid-template-columns:1fr}
     .suggestion-card{padding:10px}
     .suggestion-card h4{font-size:12px}
     .help-popup{max-width:200px;font-size:10px}
+    .expense-actions{flex-direction:column}
+    .expense-actions button{width:100%}
   }
 </style>
 </head>
@@ -115,6 +170,9 @@
 </header>
 
 <main>
+  <!-- ==========================================
+       INPUT PANEL
+       ========================================== -->
   <section class="panel">
     <h2>基本參數</h2>
     <div class="grid">
@@ -132,7 +190,10 @@
       </div>
       <div class="row">
         <label>理想生活費（月）<span class="help-icon" data-help="lifestyle">?</span></label>
-        <input id="lifestyle" type="number" step="1000" value="50000"/>
+        <div style="display:flex;gap:6px;align-items:center">
+          <input id="lifestyle" type="number" step="1000" value="50000" style="flex:1"/>
+          <button id="openExpenseCalc" style="padding:6px 10px;font-size:11px" title="打開支出規劃">📋</button>
+        </div>
       </div>
       <div class="row">
         <label>投資年化報酬 %<span class="help-icon" data-help="returnRate">?</span></label>
@@ -144,8 +205,201 @@
       </div>
     </div>
     
-    <!-- 手風琴式進階設定 -->
+    <!-- ==========================================
+         ACCORDION: EXPENSE CALCULATOR
+         ========================================== -->
     <div class="accordion">
+      <div class="accordion-item" id="expenseAccordion">
+        <div class="accordion-header">
+          <h3><span class="accordion-icon">▶</span> 💳 支出詳細規劃（50/30/20法則）</h3>
+        </div>
+        <div class="accordion-content">
+          <div class="accordion-body">
+            <div class="expense-calculator">
+              <p style="font-size:11px;color:var(--muted);margin:0 0 12px 0">
+                基於財務規劃黃金法則：50% 必要支出、30% 想要支出、20% 儲蓄投資。填寫完成後可套用至上方「理想生活費」。
+              </p>
+              
+              <!-- 當前狀態聲明 -->
+              <div style="margin-bottom:12px;padding:10px;background:rgba(59,130,246,0.1);border:1px solid rgba(59,130,246,0.3);border-radius:8px">
+                <div style="font-size:12px;font-weight:600;margin-bottom:6px">📍 我目前的生活狀態</div>
+                <div class="scenario-buttons" style="margin-bottom:0">
+                  <button onclick="ExpenseCalc.setCurrentState('single')" id="state-single">🙍 單身</button>
+                  <button onclick="ExpenseCalc.setCurrentState('couple')" id="state-couple">👫 已婚</button>
+                  <button onclick="ExpenseCalc.setCurrentState('family')" id="state-family" class="primary">👨‍👩‍👧 育兒中</button>
+                  <button onclick="ExpenseCalc.setCurrentState('empty')" id="state-empty">👫 空巢期</button>
+                  <button onclick="ExpenseCalc.setCurrentState('retire')" id="state-retire">🏖️ 退休</button>
+                </div>
+                <p style="font-size:10px;color:var(--muted);margin:6px 0 0 0">
+                  💡 先選擇您目前的狀態，下方填入的數值就是此狀態的實際支出
+                </p>
+              </div>
+              
+              <!-- 必要支出 (Needs) -->
+              <div class="expense-category need open">
+                <div class="expense-category-header" onclick="ExpenseCalc.toggleCategory(this)">
+                  <div class="expense-category-title">
+                    <span class="category-arrow">▶</span>
+                    <span>🏠 必要支出 (Needs)</span>
+                  </div>
+                  <div class="expense-category-total" id="needTotal">NT$ 0</div>
+                </div>
+                <div class="expense-category-body">
+                  <div class="expense-item">
+                    <label>房租/房貸</label>
+                    <input type="number" id="exp_rent" value="15000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>管理費</label>
+                    <input type="number" id="exp_management" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>水電瓦斯</label>
+                    <input type="number" id="exp_utilities" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>三餐食材</label>
+                    <input type="number" id="exp_groceries" value="6000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>通勤交通</label>
+                    <input type="number" id="exp_transport" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>油資/停車</label>
+                    <input type="number" id="exp_fuel" value="3000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>健保</label>
+                    <input type="number" id="exp_health" value="1000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>商業保險</label>
+                    <input type="number" id="exp_insurance" value="3000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>貸款償還</label>
+                    <input type="number" id="exp_loan" value="0" oninput="ExpenseCalc.calculate()">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 想要支出 (Wants) -->
+              <div class="expense-category want open">
+                <div class="expense-category-header" onclick="ExpenseCalc.toggleCategory(this)">
+                  <div class="expense-category-title">
+                    <span class="category-arrow">▶</span>
+                    <span>🎭 想要支出 (Wants)</span>
+                  </div>
+                  <div class="expense-category-total" id="wantTotal">NT$ 0</div>
+                </div>
+                <div class="expense-category-body">
+                  <div class="expense-item">
+                    <label>外食餐廳</label>
+                    <input type="number" id="exp_dining" value="4000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>旅遊休閒</label>
+                    <input type="number" id="exp_travel" value="5000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>聚餐看電影</label>
+                    <input type="number" id="exp_entertainment" value="3000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>治裝費</label>
+                    <input type="number" id="exp_clothing" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>3C/興趣</label>
+                    <input type="number" id="exp_hobbies" value="2000" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>串流影音</label>
+                    <input type="number" id="exp_streaming" value="500" oninput="ExpenseCalc.calculate()">
+                  </div>
+                  <div class="expense-item">
+                    <label>健身房/其他訂閱</label>
+                    <input type="number" id="exp_subscriptions" value="500" oninput="ExpenseCalc.calculate()">
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 情境預測功能區 -->
+              <div style="margin:16px 0;padding:12px;background:rgba(139,92,246,0.05);border:1px solid rgba(139,92,246,0.2);border-radius:8px">
+                <div style="font-size:12px;font-weight:600;margin-bottom:8px">🔮 未來情境預測</div>
+                <p style="font-size:10px;color:var(--muted);margin:0 0 8px 0">
+                  根據您目前的支出，預測未來不同生活階段的可能花費（不會改動上方輸入）
+                </p>
+                <div class="scenario-buttons">
+                  <button onclick="ExpenseCalc.predictScenario('single')">🙍 單身</button>
+                  <button onclick="ExpenseCalc.predictScenario('couple')">👫 已婚</button>
+                  <button onclick="ExpenseCalc.predictScenario('family')">👨‍👩‍👧 育兒中</button>
+                  <button onclick="ExpenseCalc.predictScenario('empty')">👫 空巢期</button>
+                  <button onclick="ExpenseCalc.predictScenario('retire')">🏖️ 退休</button>
+                </div>
+                <!-- 預測結果顯示區 -->
+                <div id="predictionResult" style="margin-top:8px"></div>
+              </div>
+              
+              <!-- 支出總結 -->
+              <div class="expense-summary">
+                <div class="expense-summary-row">
+                  <span class="expense-summary-label">必要支出</span>
+                  <span class="expense-summary-value" id="summaryNeed" style="color:var(--need)">NT$ 0</span>
+                </div>
+                <div class="expense-summary-row">
+                  <span class="expense-summary-label">想要支出</span>
+                  <span class="expense-summary-value" id="summaryWant" style="color:var(--want)">NT$ 0</span>
+                </div>
+                <div class="expense-summary-row">
+                  <span class="expense-summary-label">月總支出</span>
+                  <span class="expense-summary-value" id="summaryTotal">NT$ 0</span>
+                </div>
+              </div>
+              
+              <!-- 支出比例進度條 -->
+              <div class="expense-progress">
+                <div class="expense-progress-item">
+                  <div class="expense-progress-label">
+                    <span style="color:var(--need)">必要支出比例</span>
+                    <span id="needPercent">0%</span>
+                  </div>
+                  <div class="expense-progress-bar">
+                    <div class="expense-progress-fill need" id="needBar" style="width:0%"></div>
+                  </div>
+                </div>
+                <div class="expense-progress-item">
+                  <div class="expense-progress-label">
+                    <span style="color:var(--want)">想要支出比例</span>
+                    <span id="wantPercent">0%</span>
+                  </div>
+                  <div class="expense-progress-bar">
+                    <div class="expense-progress-fill want" id="wantBar" style="width:0%"></div>
+                  </div>
+                </div>
+              </div>
+              
+              <!-- 操作按鈕 -->
+              <div class="expense-actions">
+                <button class="success" onclick="ExpenseCalc.applyToLifestyle()">
+                  ✓ 套用到理想生活費
+                </button>
+                <button class="primary" onclick="ExpenseCalc.applyToSurvival()">
+                  ⚡ 僅套用必要支出到基本生活費
+                </button>
+              </div>
+              
+              <!-- 智能建議 -->
+              <div id="expenseAdvice" style="margin-top:12px"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- ==========================================
+           ACCORDION: INCOME DETAILS
+           ========================================== -->
       <div class="accordion-item">
         <div class="accordion-header">
           <h3><span class="accordion-icon">▶</span> 💰 收入細節（選填）</h3>
@@ -175,6 +429,9 @@
         </div>
       </div>
       
+      <!-- ==========================================
+           ACCORDION: INFLATION & EXPENSES
+           ========================================== -->
       <div class="accordion-item">
         <div class="accordion-header">
           <h3><span class="accordion-icon">▶</span> 🌡️ 通膨與支出</h3>
@@ -185,976 +442,1037 @@
             <div class="grid">
               <div class="row">
                 <label>年通膨率 %<span class="help-icon" data-help="inflation">?</span></label>
-                <input id="inflation" type="number" step="0.1" value="0" min="0" max="10"/>
+                <input id="inflation" type="number" step="0.1" value="2"/>
               </div>
               <div class="row">
-                <label>FAT FIRE 支出（月）<span class="help-icon" data-help="fat">?</span></label>
-                <input id="fat" type="number" step="1000" value="90000"/>
-              </div>
-              <div class="row">
-                <label>支出隨通膨調整？</label>
-                <select id="inflationAdjust">
-                  <option value="yes" selected>是</option>
-                  <option value="no">否</option>
-                </select>
+                <label>生活費年成長 %<span class="help-icon" data-help="expenseGrowth">?</span></label>
+                <input id="expenseGrowth" type="number" step="0.1" value="2"/>
               </div>
             </div>
           </div>
         </div>
       </div>
       
+      <!-- ==========================================
+           ACCORDION: RISK LEVEL
+           ========================================== -->
       <div class="accordion-item">
         <div class="accordion-header">
-          <h3><span class="accordion-icon">▶</span> 📊 投資策略</h3>
+          <h3><span class="accordion-icon">▶</span> 🎯 風險偏好</h3>
         </div>
         <div class="accordion-content">
           <div class="accordion-body">
-            <p style="font-size:11px;color:var(--muted);margin:0 0 10px 0">選擇適合你的風險等級，報酬率會自動調整。</p>
+            <p style="font-size:11px;color:var(--muted);margin:0 0 10px 0">選擇投資風險等級，系統會自動調整報酬率與 FAT FIRE 倍數。</p>
             <div class="grid">
               <div class="row">
                 <label>風險等級</label>
                 <select id="riskLevel">
-                  <option value="conservative">保守型 (4%)</option>
-                  <option value="moderate" selected>穩健型 (6%)</option>
-                  <option value="aggressive">積極型 (8%)</option>
-                  <option value="custom">自訂</option>
+                  <option value="conservative">保守型（低風險）</option>
+                  <option value="moderate" selected>穩健型（中風險）</option>
+                  <option value="aggressive">積極型（高風險）</option>
                 </select>
               </div>
-              <div class="row" id="customReturnRow" style="display:none">
-                <label>自訂報酬率 %</label>
-                <input id="customReturn" type="number" step="0.1" value="6"/>
-              </div>
               <div class="row">
-                <label>提領率 % / 年<span class="help-icon" data-help="wr">?</span></label>
-                <input id="wr" type="number" step="0.1" value="4"/>
-              </div>
-              <div class="row">
-                <label>盈餘全部投入？</label>
-                <select id="reinvest">
-                  <option value="yes" selected>是</option>
-                  <option value="no">否</option>
-                </select>
+                <label>FAT FIRE 倍數<span class="help-icon" data-help="fat">?</span></label>
+                <input id="fat" type="number" step="0.1" value="1.8"/>
               </div>
             </div>
-            <div style="margin-top:10px;padding:10px;background:rgba(59,130,246,0.1);border-radius:8px;font-size:11px;line-height:1.6">
-              <strong>💡 風險等級說明：</strong><br>
-              • 保守型：以債券、定存為主<br>
-              • 穩健型：股債平衡配置<br>
-              • 積極型：高比例股票
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="accordion-item">
-        <div class="accordion-header">
-          <h3><span class="accordion-icon">▶</span> 🎓 FIRE 知識補給站</h3>
-        </div>
-        <div class="accordion-content">
-          <div class="accordion-body">
-            <div style="font-size:12px;line-height:1.8">
-              <h4 style="margin:0 0 8px 0;font-size:13px;color:var(--green)">💰 FIRE 是什麼？</h4>
-              <p style="color:var(--muted);margin:0 0 12px 0">
-                FIRE = Financial Independence, Retire Early（財務獨立，提早退休）<br>
-                核心概念是透過儲蓄和投資，累積足夠資產，讓被動收入覆蓋生活支出。
-              </p>
-              
-              <h4 style="margin:12px 0 8px 0;font-size:13px;color:var(--blue)">🎯 FIRE 的類型</h4>
-              <ul style="margin:0;padding-left:20px;color:var(--muted)">
-                <li><strong>Lean FIRE</strong>：極簡生活，降低支出到最低</li>
-                <li><strong>Regular FIRE</strong>：維持舒適生活水準</li>
-                <li><strong>Fat FIRE</strong>：富裕退休，高品質生活</li>
-                <li><strong>Barista FIRE</strong>：半退休，做輕鬆兼職</li>
-                <li><strong>Coast FIRE</strong>：停止投入，讓資產自然成長</li>
-              </ul>
-              
-              <h4 style="margin:12px 0 8px 0;font-size:13px;color:var(--orange)">📐 4% 法則</h4>
-              <p style="color:var(--muted);margin:0">
-                來自 Trinity Study 研究，建議每年從投資組合提領 4%，有 95% 的機率可以維持 30 年不會把錢花光。<br>
-                例如：年支出 120 萬，則需要 3000 萬資產（120萬 ÷ 4% = 3000萬）
-              </p>
-            </div>
+            <button id="fatfill" style="width:100%;margin-top:8px">自動填入建議 FAT 倍數</button>
           </div>
         </div>
       </div>
     </div>
     
-    <!-- 計算按鈕區 -->
-    <div class="actions" style="margin-top:16px">
-      <button class="primary" id="calc" style="width:100%;font-size:15px;padding:12px;font-weight:600">🚀 開始計算我的 FIRE 路徑</button>
+    <!-- 操作按鈕 -->
+    <div class="actions">
+      <button id="calc" class="primary">重新計算</button>
+      <button id="share">分享結果</button>
+      <button id="savepng">下載圖表</button>
+      <button id="reset">重設</button>
     </div>
-    
-    <div class="actions" style="margin-top:8px">
-      <button id="fatfill">用生活費 × 1.8 填入 FAT</button>
-      <button id="share">分享參數連結</button>
-      <button id="savepng">下載結果 PNG</button>
-      <button id="reset">重設為預設值</button>
-    </div>
-    
-    <!-- 智能建議卡片區（移到這裡） -->
-    <div id="suggestions" class="suggestions" style="display:none"></div>
-    
-    <!-- KPI 詳細結果 -->
-    <div class="kpi" id="kpi"></div>
   </section>
-
+  
+  <!-- ==========================================
+       RESULT PANEL
+       ========================================== -->
   <section class="panel">
-    <h2>分析結果</h2>
+    <h2>試算結果</h2>
     
-    <!-- 一句話總結 -->
-    <div id="summaryCard" class="summary-card"></div>
+    <!-- 總結卡片 -->
+    <div id="summaryCard" style="padding:10px"></div>
     
     <!-- 時間軸 -->
-    <div id="timeline" class="timeline" style="display:none"></div>
+    <div id="timeline" style="padding:10px"></div>
     
-    <h2 style="margin-top:16px;padding:10px 12px 0;font-size:14px;color:#cbd5e1;border:none">圖表分析</h2>
+    <!-- KPI 區 -->
+    <div class="kpi" id="kpi"></div>
+    
+    <!-- 智能建議 -->
+    <div id="suggestions" style="padding:10px"></div>
+    
+    <!-- 圖表區 -->
     <div class="charts">
       <div class="chartbox">
-        <h3>現金流趨勢（主業 / 副業 / 總收入 vs 生存/生活）</h3>
+        <h3>現金流趨勢</h3>
         <div class="chart-wrapper">
           <canvas id="cvCash"></canvas>
         </div>
-        <div class="tooltip" id="tooltipCash"></div>
       </div>
       <div class="chartbox">
-        <h3>資產增長模擬（三條支出路徑）</h3>
+        <h3>資產累積路徑（三種情境）</h3>
         <div class="chart-wrapper">
           <canvas id="cvAsset"></canvas>
         </div>
-        <div class="tooltip" id="tooltipAsset"></div>
       </div>
     </div>
   </section>
 </main>
 
+<footer>
+  © 2025 FIRE Playground. 本工具僅供參考，實際財務規劃請諮詢專業顧問。
+</footer>
+
 <div class="back-home">
-  <a href="https://www.eaglish.store">回團購首頁</a>
+  <a href="https://www.buytogetherlike.com">← 回到 BTL 首頁</a>
 </div>
 
-<footer>⚠️ 本工具僅供教育與財務規劃參考，非投資建議。所有金額以新台幣計算，採「月」為週期、年化率折算為月複利。</footer>
+<!-- Tooltips -->
+<div id="tooltipCash" class="tooltip"></div>
+<div id="tooltipAsset" class="tooltip"></div>
 
 <script>
-const $ = s=>document.querySelector(s);
-const $$ = s=>document.querySelectorAll(s);
-const css = n=>getComputedStyle(document.documentElement).getPropertyValue(n).trim();
-const C = {
-  blue:css('--blue'), teal:css('--teal'), orange:css('--orange'), green:css('--green'), asset:css('--asset'),
-  sur:css('--sur'), life:css('--life'), fire:css('--fire'), fat:css('--fat')
+// ==========================================
+// SECTION 1: CONFIGURATION & HELPERS
+// ==========================================
+const $=(s)=>document.querySelector(s), $$=(s)=>document.querySelectorAll(s);
+const fmt=(n)=>Math.round(n).toLocaleString('zh-TW');
+const C={
+  blue:'#60a5fa',teal:'#22d3ee',orange:'#fb923c',green:'#34d399',
+  sur:'#8b5cf6',life:'#a78bfa',fire:'#ef4444',fat:'#f59e0b',asset:'#cbd5e1'
 };
 
-// ==== 新增：幫助提示系統 ====
-const helpTexts = {
-  survival: '能活下去的最低開銷，包括房租、食物、水電等基本需求。',
-  lifestyle: '舒適生活的每月開銷，包括娛樂、旅遊、外食等。',
-  fat: 'FAT FIRE 是更豪華的退休生活，通常是生活支出的 1.5-2 倍。',
-  assets: '你目前擁有的資產總額，包括存款、股票、基金等（不含自住房產）。',
-  totalIncome: '你的每月總收入，包括主業、副業、兼職等所有收入來源。',
-  mainIncome: '你的主要工作收入，通常是薪資或營業收入。',
-  sideIncome: '副業、兼職、接案等額外收入來源。',
-  mainGrowth: '預期主業收入每年成長的百分比，一般為 3-5%。',
-  sideGrowth: '預期副業收入每年成長的百分比，通常高於主業。',
-  returnRate: '投資組合的預期年化報酬率。保守 4%、穩健 6%、積極 8%。',
-  wr: '每年從資產中提領的百分比。4% 法則建議不超過 4%。',
-  inflation: '物價上漲的速度，台灣近年平均約 2%。通膨會讓未來的錢變薄。'
+const defaults={
+  assets:1500000,totalIncome:105000,survival:25000,lifestyle:50000,
+  returnRate:6,years:30,mainIncome:90000,sideIncome:15000,
+  mainGrowth:3,sideGrowth:10,inflation:2,expenseGrowth:2,
+  riskLevel:'moderate',fat:1.8
 };
 
-let currentHelpPopup = null;
+const helpTexts={
+  assets:'目前擁有的總資產（包含存款、投資、不動產等）扣除負債後的淨值。',
+  totalIncome:'每月稅後總收入，包含薪資、獎金、被動收入等所有收入來源。',
+  survival:'維持基本生存所需的最低月支出，包含房租、基本飲食、交通、保險等必要開銷。',
+  lifestyle:'理想生活品質所需的月支出，包含娛樂、旅遊、外食等想要的開銷。',
+  returnRate:'預期的年化投資報酬率。保守型建議 4-5%，穩健型 6-7%，積極型 8-10%。',
+  mainIncome:'主要工作的月收入（薪資）。',
+  sideIncome:'副業或其他額外收入（如接案、投資收益等）。',
+  mainGrowth:'主業收入的預期年成長率，通常與調薪、升遷有關。',
+  sideGrowth:'副業收入的預期年成長率，新創副業成長通常較快。',
+  inflation:'年通膨率，台灣近年約 1.5-2.5%。',
+  expenseGrowth:'生活費用的年成長率，通常接近通膨率。',
+  fat:'FAT FIRE 是理想生活費的倍數，代表更寬裕的退休生活。建議 1.5-2 倍。'
+};
+
+// ==========================================
+// SECTION 2: EXPENSE CALCULATOR MODULE
+// ==========================================
+const ExpenseCalc = {
+  // 當前用戶所處的生活狀態
+  currentState: 'family', // 預設育兒中
+  
+  // 情境轉換比例（從一個狀態到另一個狀態）
+  stateTransitions: {
+    single: { single: 1.0, couple: 1.2, family: 1.8, empty: 1.15, retire: 0.95 },
+    couple: { single: 0.83, couple: 1.0, family: 1.5, empty: 0.96, retire: 0.8 },
+    family: { single: 0.56, couple: 0.67, family: 1.0, empty: 0.64, retire: 0.53 },
+    empty: { single: 0.87, couple: 1.04, family: 1.56, empty: 1.0, retire: 0.83 },
+    retire: { single: 1.05, couple: 1.25, family: 1.89, empty: 1.2, retire: 1.0 }
+  },
+  
+  // 設定當前狀態
+  setCurrentState: function(state) {
+    this.currentState = state;
+    
+    // 更新按鈕視覺狀態
+    ['single', 'couple', 'family', 'empty', 'retire'].forEach(s => {
+      const btn = document.getElementById(`state-${s}`);
+      if (btn) {
+        if (s === state) {
+          btn.classList.add('primary');
+        } else {
+          btn.classList.remove('primary');
+        }
+      }
+    });
+    
+    const stateNames = {
+      single: '單身',
+      couple: '已婚（雙薪無小孩）',
+      family: '育兒中',
+      empty: '空巢期（小孩獨立）',
+      retire: '退休'
+    };
+    
+    // 清空預測結果
+    const resultEl = document.getElementById('predictionResult');
+    if (resultEl) resultEl.innerHTML = '';
+  },
+  
+  // 預測其他情境（不改動輸入欄位）
+  predictScenario: function(targetState) {
+    if (!this.currentState) {
+      alert('⚠️ 請先在上方選擇您目前的生活狀態');
+      return;
+    }
+    
+    if (this.currentState === targetState) {
+      alert('💡 這就是您當前的狀態，下方顯示的就是當前支出。');
+      return;
+    }
+    
+    // 獲取當前輸入的支出
+    const current = this.getCurrentExpenses();
+    const currentNeed = this.calculateNeedTotal(current);
+    const currentWant = this.calculateWantTotal(current);
+    const currentTotal = currentNeed + currentWant;
+    
+    if (currentTotal === 0) {
+      alert('⚠️ 請先填入您目前的支出數據');
+      return;
+    }
+    
+    // 計算轉換比例
+    const ratio = this.stateTransitions[this.currentState][targetState];
+    
+    // 預測未來支出
+    const predictedTotal = Math.round(currentTotal * ratio);
+    const predictedNeed = Math.round(currentNeed * ratio);
+    const predictedWant = Math.round(currentWant * ratio);
+    
+    const stateNames = {
+      single: '單身',
+      couple: '已婚',
+      family: '育兒中',
+      empty: '空巢期',
+      retire: '退休'
+    };
+    
+    const percentChange = ((ratio - 1) * 100).toFixed(0);
+    const changeText = ratio > 1 
+      ? `<span style="color:#f59e0b">+${percentChange}%</span>`
+      : `<span style="color:#10b981">${percentChange}%</span>`;
+    
+    // 顯示預測結果
+    const resultEl = document.getElementById('predictionResult');
+    if (resultEl) {
+      resultEl.innerHTML = `
+        <div style="margin-top:10px;padding:10px;background:rgba(15,23,42,0.6);border:1px solid var(--line);border-radius:8px">
+          <div style="font-size:11px;color:var(--muted);margin-bottom:6px">
+            從「${stateNames[this.currentState]}」→「${stateNames[targetState]}」預測
+          </div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;font-size:11px">
+            <div>
+              <div style="color:var(--muted)">必要支出</div>
+              <div style="font-weight:600;color:var(--need)">NT$ ${fmt(predictedNeed)}</div>
+            </div>
+            <div>
+              <div style="color:var(--muted)">想要支出</div>
+              <div style="font-weight:600;color:var(--want)">NT$ ${fmt(predictedWant)}</div>
+            </div>
+            <div>
+              <div style="color:var(--muted)">總支出 ${changeText}</div>
+              <div style="font-weight:600">NT$ ${fmt(predictedTotal)}</div>
+            </div>
+          </div>
+          <div style="margin-top:8px;display:flex;gap:6px">
+            <button onclick="ExpenseCalc.applyPrediction(${predictedNeed}, ${predictedWant})" style="flex:1;font-size:10px;padding:6px;background:#10b981;border-color:#059669">
+              套用到理想生活費
+            </button>
+            <button onclick="ExpenseCalc.applyPredictionToSurvival(${predictedNeed})" style="flex:1;font-size:10px;padding:6px">
+              套用必要支出
+            </button>
+          </div>
+        </div>
+      `;
+    }
+  },
+  
+  // 套用預測結果到理想生活費
+  applyPrediction: function(need, want) {
+    const total = need + want;
+    $('#lifestyle').value = Math.round(total);
+    run();
+    alert(`✓ 已套用預測結果！\n理想生活費已更新為 NT$ ${fmt(total)}`);
+  },
+  
+  // 套用預測必要支出到基本生活費
+  applyPredictionToSurvival: function(need) {
+    $('#survival').value = Math.round(need);
+    run();
+    alert(`✓ 已套用預測必要支出！\n基本生活費已更新為 NT$ ${fmt(need)}`);
+  },
+  
+  // 獲取當前所有支出項目
+  getCurrentExpenses: function() {
+    const expenses = {};
+    const allIds = [
+      'exp_rent', 'exp_management', 'exp_utilities', 'exp_groceries',
+      'exp_transport', 'exp_fuel', 'exp_health', 'exp_insurance', 'exp_loan',
+      'exp_dining', 'exp_travel', 'exp_entertainment', 'exp_clothing',
+      'exp_hobbies', 'exp_streaming', 'exp_subscriptions'
+    ];
+    
+    allIds.forEach(id => {
+      expenses[id] = parseFloat(document.getElementById(id)?.value || 0);
+    });
+    
+    return expenses;
+  },
+  
+  // 計算必要支出總和
+  calculateNeedTotal: function(expenses) {
+    const needItems = [
+      'exp_rent', 'exp_management', 'exp_utilities', 'exp_groceries',
+      'exp_transport', 'exp_fuel', 'exp_health', 'exp_insurance', 'exp_loan'
+    ];
+    return needItems.reduce((sum, id) => sum + (expenses[id] || 0), 0);
+  },
+  
+  // 計算想要支出總和
+  calculateWantTotal: function(expenses) {
+    const wantItems = [
+      'exp_dining', 'exp_travel', 'exp_entertainment', 'exp_clothing',
+      'exp_hobbies', 'exp_streaming', 'exp_subscriptions'
+    ];
+    return wantItems.reduce((sum, id) => sum + (expenses[id] || 0), 0);
+  },
+  
+  // 切換分類展開/收合
+  toggleCategory: function(header) {
+    const category = header.parentElement;
+    category.classList.toggle('open');
+  },
+  
+  // 計算支出
+  calculate: function() {
+    const expenses = this.getCurrentExpenses();
+    const needTotal = this.calculateNeedTotal(expenses);
+    const wantTotal = this.calculateWantTotal(expenses);
+    const total = needTotal + wantTotal;
+    
+    $('#needTotal').textContent = `NT$ ${fmt(needTotal)}`;
+    $('#wantTotal').textContent = `NT$ ${fmt(wantTotal)}`;
+    $('#summaryNeed').textContent = `NT$ ${fmt(needTotal)}`;
+    $('#summaryWant').textContent = `NT$ ${fmt(wantTotal)}`;
+    $('#summaryTotal').textContent = `NT$ ${fmt(total)}`;
+    
+    const needPercent = total > 0 ? (needTotal / total * 100) : 0;
+    const wantPercent = total > 0 ? (wantTotal / total * 100) : 0;
+    
+    $('#needPercent').textContent = `${needPercent.toFixed(1)}%`;
+    $('#wantPercent').textContent = `${wantPercent.toFixed(1)}%`;
+    $('#needBar').style.width = `${needPercent}%`;
+    $('#wantBar').style.width = `${wantPercent}%`;
+    
+    this.showAdvice(needPercent, wantPercent, total);
+    
+    return { needTotal, wantTotal, total };
+  },
+  
+  // 智能建議
+  showAdvice: function(needPercent, wantPercent, total) {
+    const advice = $('#expenseAdvice');
+    let html = '';
+    
+    if (needPercent > 60) {
+      html += `
+        <div class="suggestion-card warning">
+          <h4>⚠️ 必要支出比例偏高</h4>
+          <p>您的必要支出佔總支出 ${needPercent.toFixed(1)}%，建議控制在 50-60% 以內。可考慮：</p>
+          <ul>
+            <li>尋找更經濟的居住選擇</li>
+            <li>優化交通成本（共乘、大眾運輸）</li>
+            <li>檢視保險是否有重複或過度投保</li>
+          </ul>
+        </div>
+      `;
+    }
+    
+    if (wantPercent > 40) {
+      html += `
+        <div class="suggestion-card warning">
+          <h4>💸 想要支出比例較高</h4>
+          <p>您的想要支出佔總支出 ${wantPercent.toFixed(1)}%，建議控制在 30% 左右。可考慮：</p>
+          <ul>
+            <li>減少外食頻率，增加在家料理</li>
+            <li>檢視訂閱服務是否真的都有在使用</li>
+            <li>設定每月娛樂預算上限</li>
+          </ul>
+        </div>
+      `;
+    }
+    
+    if (needPercent <= 60 && wantPercent <= 40) {
+      html += `
+        <div class="suggestion-card success">
+          <h4>✅ 支出結構健康</h4>
+          <p>您的支出分配符合 50/30/20 法則！繼續保持，並將省下的錢用於儲蓄和投資。</p>
+        </div>
+      `;
+    }
+    
+    advice.innerHTML = html;
+  },
+  
+  // 套用到理想生活費
+  applyToLifestyle: function() {
+    const { total } = this.calculate();
+    $('#lifestyle').value = Math.round(total);
+    run();
+    alert(`✓ 已套用！理想生活費已更新為 NT$ ${fmt(total)}`);
+  },
+  
+  // 僅套用必要支出到基本生活費
+  applyToSurvival: function() {
+    const { needTotal } = this.calculate();
+    $('#survival').value = Math.round(needTotal);
+    run();
+    alert(`✓ 已套用！基本生活費已更新為 NT$ ${fmt(needTotal)}`);
+  }
+};
+
+// ==========================================
+// SECTION 3: SIMULATION ENGINE
+// ==========================================
+function simulate(){
+  const p={
+    assets:+$('#assets').value||0,
+    totalIncome:+$('#totalIncome').value||0,
+    survival:+$('#survival').value||0,
+    lifestyle:+$('#lifestyle').value||0,
+    returnRate:(+$('#returnRate').value||0)/100,
+    years:+$('#years').value||30,
+    mainIncome:+$('#mainIncome').value||0,
+    sideIncome:+$('#sideIncome').value||0,
+    mainGrowth:(+$('#mainGrowth').value||0)/100,
+    sideGrowth:(+$('#sideGrowth').value||0)/100,
+    inflation:(+$('#inflation').value||0)/100,
+    expenseGrowth:(+$('#expenseGrowth').value||0)/100,
+    fat:+$('#fat').value||1.8
+  };
+  
+  const N=p.years*12;
+  const mr=p.returnRate/12;
+  
+  // 將年成長率轉換為月成長率，實現平滑曲線
+  const mainMonthlyGrowth=Math.pow(1+p.mainGrowth,1/12)-1;
+  const sideMonthlyGrowth=Math.pow(1+p.sideGrowth,1/12)-1;
+  
+  const main=[], side=[], total=[];
+  const A_surv=[], A_mid=[], A_life=[];
+  
+  let currMain=p.mainIncome||p.totalIncome*0.8;
+  let currSide=p.sideIncome||p.totalIncome*0.2;
+  let asset_surv=p.assets, asset_mid=p.assets, asset_life=p.assets;
+  
+  for(let i=0;i<N;i++){
+    // 每月平滑增長，避免階梯效果
+    if(i>0){
+      currMain*=(1+mainMonthlyGrowth);
+      currSide*=(1+sideMonthlyGrowth);
+    }
+    
+    const m=currMain, s=currSide, t=m+s;
+    main.push(m); side.push(s); total.push(t);
+    
+    const midExpense=(p.survival+p.lifestyle)/2;
+    asset_surv=asset_surv*(1+mr)+(t-p.survival);
+    asset_mid=asset_mid*(1+mr)+(t-midExpense);
+    asset_life=asset_life*(1+mr)+(t-p.lifestyle);
+    
+    A_surv.push(asset_surv);
+    A_mid.push(asset_mid);
+    A_life.push(asset_life);
+  }
+  
+  const survivalTarget=p.survival*12/0.04;
+  const lifestyleTarget=p.lifestyle*12/0.04;
+  // 工作自由：副業收入能支付理想生活費時，可以自由選擇是否繼續主業
+  // 需要的資產 = (理想生活費 - 副業收入) × 25倍
+  const workFreeGap=Math.max(0,p.lifestyle-(p.sideIncome||p.totalIncome*0.2));
+  const workFreeTarget=workFreeGap*12/0.04;
+  const fireTarget=lifestyleTarget;
+  const fatTarget=p.lifestyle*p.fat*12/0.04;
+  
+  return {p,N,main,side,total,A_surv,A_mid,A_life,
+    survivalTarget,lifestyleTarget,workFreeTarget,fireTarget,fatTarget};
+}
+
+// ==========================================
+// SECTION 4: RENDER FUNCTIONS
+// ==========================================
+function renderKPI(S){
+  const findYear=(arr,target)=>{
+    // 如果目標為0，表示已達成（副業收入已足夠）
+    if(target<=0) return 0;
+    // 如果當前資產已經達成目標
+    if(arr[0]>=target) return 0;
+    const idx=arr.findIndex(v=>v>=target);
+    return idx===-1?-1:Math.floor(idx/12);
+  };
+  
+  const ySurv=findYear(S.A_surv,S.survivalTarget);
+  const yLife=findYear(S.A_life,S.lifestyleTarget);
+  const yWork=findYear(S.A_mid,S.workFreeTarget);
+  const yFire=findYear(S.A_life,S.fireTarget);
+  const yFat=findYear(S.A_life,S.fatTarget);
+  
+  const makeCard=(title,target,years,ok,isWorkFree=false)=>{
+    // 工作自由特殊處理：目標為0表示副業收入已足夠
+    if(isWorkFree && target===0){
+      return `
+        <div class="k ok">
+          <h3>${title}</h3>
+          <p>目標資產：<strong>NT$ 0</strong></p>
+          <p>狀態：<strong>✅ 已達成！副業收入已足夠支付理想生活費</strong></p>
+        </div>
+      `;
+    }
+    
+    // 0年表示當前資產已達成
+    if(years===0){
+      return `
+        <div class="k ok">
+          <h3>${title}</h3>
+          <p>目標資產：<strong>${fmt(target)}</strong></p>
+          <p>狀態：<strong>✅ 已達成！</strong></p>
+        </div>
+      `;
+    }
+    
+    return `
+      <div class="k ${ok?'ok':'warn'}">
+        <h3>${title}</h3>
+        <p>目標資產：<strong>${fmt(target)}</strong></p>
+        <p>預計時間：<strong>${years===-1?'超過模擬年數':`${years}年後達成`}</strong></p>
+      </div>
+    `;
+  };
+  
+  $('#kpi').innerHTML=[
+    makeCard('生存自由',S.survivalTarget,ySurv,ySurv!==-1 && ySurv<=10),
+    makeCard('生活自由',S.lifestyleTarget,yLife,yLife!==-1 && yLife<=20),
+    makeCard('工作自由',S.workFreeTarget,yWork,yWork!==-1 && yWork<=15,true),
+    makeCard('FIRE',S.fireTarget,yFire,yFire!==-1 && yFire<=25),
+    makeCard('FAT FIRE',S.fatTarget,yFat,yFat!==-1 && yFat<=30)
+  ].join('');
+}
+
+function renderSummary(S){
+  const finalAsset=S.A_life[S.A_life.length-1];
+  const canFire=finalAsset>=S.fireTarget;
+  const canFat=finalAsset>=S.fatTarget;
+  
+  let emoji='🎯', text='', level='';
+  if(canFat){
+    emoji='🎉'; text='恭喜！您有機會達成 FAT FIRE，享受富裕退休生活！';
+    level='FAT FIRE';
+  }else if(canFire){
+    emoji='🔥'; text='太好了！您有機會達成 FIRE，實現財務自由！';
+    level='FIRE';
+  }else{
+    emoji='💪'; text='繼續努力！調整策略可加速達成目標。';
+    level='努力中';
+  }
+  
+  $('#summaryCard').innerHTML=`
+    <div class="summary-card">
+      <div class="main-result">
+        <span class="emoji">${emoji}</span>
+        ${text}
+      </div>
+      <div class="sub-text">
+        ${S.p.years}年後預估資產：<strong>${fmt(finalAsset)}</strong> | 
+        目標等級：<strong>${level}</strong>
+      </div>
+    </div>
+  `;
+}
+
+function renderTimeline(S){
+  const findYear=(arr,target)=>{
+    const idx=arr.findIndex(v=>v>=target);
+    return idx===-1?-1:Math.floor(idx/12);
+  };
+  
+  const milestones=[
+    {label:'生存自由',year:findYear(S.A_surv,S.survivalTarget)},
+    {label:'生活自由',year:findYear(S.A_life,S.lifestyleTarget)},
+    {label:'工作自由',year:findYear(S.A_mid,S.workFreeTarget)},
+    {label:'FIRE',year:findYear(S.A_life,S.fireTarget)},
+    {label:'FAT FIRE',year:findYear(S.A_life,S.fatTarget)}
+  ];
+  
+  const html=milestones.map((m,i)=>{
+    const achieved=m.year!==-1 && m.year===0;
+    const current=m.year!==-1 && m.year>0 && m.year<=S.p.years;
+    const future=m.year===-1 || m.year>S.p.years;
+    
+    return`
+      <div class="timeline-point ${achieved?'achieved':current?'current':''}">
+        <div class="dot"></div>
+        <div class="label">${m.label}</div>
+        <div class="year">${m.year===-1?'—':`${m.year}年`}</div>
+      </div>
+    `;
+  }).join('');
+  
+  $('#timeline').innerHTML=`
+    <div class="timeline">
+      <div class="timeline-track"></div>
+      <div class="timeline-points">${html}</div>
+    </div>
+  `;
+}
+
+function renderSuggestions(S){
+  const suggestions=[];
+  const savingsRate=S.p.totalIncome>0?(S.p.totalIncome-S.p.lifestyle)/S.p.totalIncome*100:0;
+  
+  if(savingsRate<20){
+    suggestions.push({
+      type:'warning',
+      icon:'💡',
+      title:'建議提高儲蓄率',
+      content:`目前儲蓄率約 ${savingsRate.toFixed(1)}%，建議提升至 20% 以上可加速達成目標。`
+    });
+  }else if(savingsRate>=50){
+    suggestions.push({
+      type:'success',
+      icon:'🌟',
+      title:'優秀的儲蓄率',
+      content:`您的儲蓄率達 ${savingsRate.toFixed(1)}%，非常棒！繼續保持這個習慣。`
+    });
+  }
+  
+  const expenseRatio=S.p.totalIncome>0?S.p.lifestyle/S.p.totalIncome:0;
+  if(expenseRatio>0.7){
+    suggestions.push({
+      type:'warning',
+      icon:'⚠️',
+      title:'生活費佔比偏高',
+      content:'理想生活費佔收入 70% 以上，建議使用「支出詳細規劃」功能檢視各項支出。'
+    });
+  }
+  
+  if(S.p.returnRate<0.05){
+    suggestions.push({
+      type:'info',
+      icon:'📈',
+      title:'考慮提高投資報酬',
+      content:'目前設定的報酬率較低，可考慮學習投資或尋求專業理財建議。'
+    });
+  }
+  
+  const html=suggestions.map(s=>`
+    <div class="suggestion-card ${s.type}">
+      <h4>${s.icon} ${s.title}</h4>
+      <p>${s.content}</p>
+    </div>
+  `).join('');
+  
+  $('#suggestions').innerHTML=html?`<div class="suggestions">${html}</div>`:'';
+}
+
+// ==========================================
+// SECTION 5: CHART RENDERING
+// ==========================================
+const tooltipDataMap=new Map();
+
+function drawChart(canvas,tooltipEl,series,opts={}){
+  const ctx=canvas.getContext('2d');
+  const dpr=window.devicePixelRatio||1;
+  const rect=canvas.getBoundingClientRect();
+  const baseWidth=rect.width, baseHeight=rect.height;
+  
+  canvas.width=baseWidth*dpr;
+  canvas.height=baseHeight*dpr;
+  ctx.setTransform(dpr,0,0,dpr,0,0);
+  
+  const isMobile=baseWidth<500;
+  const yearsTotal=opts.years||30;
+  const N=series[0].data.length;
+  
+  const pad={t:isMobile?35:40,r:isMobile?15:20,b:isMobile?40:45,l:isMobile?50:60};
+  const plot={
+    x:pad.l,
+    y:pad.t,
+    w:baseWidth-pad.l-pad.r,
+    h:baseHeight-pad.t-pad.b
+  };
+  
+  const allVals=series.flatMap(s=>s.data);
+  let yMax=Math.max(...allVals);
+  if(opts.extraMax) yMax=Math.max(yMax,...opts.extraMax);
+  
+  const xPos=i=>plot.x+(plot.w/(N-1))*i;
+  const yPos=v=>plot.y+plot.h-(v/yMax)*plot.h;
+  
+  ctx.fillStyle='#0f172a';
+  ctx.fillRect(0,0,baseWidth,baseHeight);
+  
+  ctx.strokeStyle='#1f2937';
+  ctx.lineWidth=1;
+  for(let i=0;i<=5;i++){
+    const y=plot.y+(plot.h/5)*i;
+    ctx.beginPath();
+    ctx.moveTo(plot.x,y);
+    ctx.lineTo(plot.x+plot.w,y);
+    ctx.stroke();
+  }
+  
+  if(opts.hLines){
+    opts.hLines.forEach(hl=>{
+      const y=yPos(hl.y);
+      if(y>=plot.y && y<=plot.y+plot.h){
+        ctx.save();
+        ctx.strokeStyle=hl.color||'#fff';
+        ctx.lineWidth=2;
+        ctx.setLineDash([6,6]);
+        ctx.beginPath();
+        ctx.moveTo(plot.x,y);
+        ctx.lineTo(plot.x+plot.w,y);
+        ctx.stroke();
+        ctx.restore();
+        
+        ctx.fillStyle=hl.color||'#fff';
+        ctx.font='11px sans-serif';
+        ctx.textAlign='right';
+        ctx.fillText(hl.label,plot.x+plot.w-5,y-5);
+      }
+    });
+  }
+  
+  series.forEach(s=>{
+    ctx.save();
+    ctx.strokeStyle=s.color;
+    ctx.lineWidth=s.w||2;
+    if(s.dash) ctx.setLineDash(s.dash);
+    ctx.beginPath();
+    s.data.forEach((v,i)=>{
+      const x=xPos(i), y=yPos(v);
+      if(i===0) ctx.moveTo(x,y);
+      else ctx.lineTo(x,y);
+    });
+    ctx.stroke();
+    ctx.restore();
+  });
+  
+  ctx.fillStyle='#9ca3af';
+  ctx.font=isMobile?'10px sans-serif':'11px sans-serif';
+  ctx.textAlign='center';
+  for(let y=0;y<=yearsTotal;y+=isMobile?10:5){
+    const x=xPos((y/yearsTotal)*N);
+    ctx.fillText(y+'年',x,plot.y+plot.h+20);
+  }
+  
+  ctx.textAlign='right';
+  for(let i=0;i<=5;i++){
+    const val=(yMax/5)*(5-i);
+    const y=plot.y+(plot.h/5)*i;
+    ctx.fillText(fmt(val),plot.x-8,y+4);
+  }
+  
+  ctx.save();
+  ctx.fillStyle='#cbd5e1';
+  ctx.font=isMobile?'10px sans-serif':'11px sans-serif';
+  ctx.textAlign='left';
+  const legendSpacing=isMobile?8:12;
+  const legendItemSpacing=4;
+  const legendLineHeight=16;
+  let lx=plot.x, ly=isMobile?15:20;
+  
+  series.forEach((s,idx)=>{
+    const text=s.name;
+    const textWidth=ctx.measureText(text).width;
+    const itemWidth=14+legendItemSpacing+textWidth+12;
+    
+    if(isMobile && idx>0 && lx+itemWidth>plot.x+plot.w){
+      lx=plot.x;
+      ly+=legendLineHeight;
+    }
+    
+    ctx.fillStyle=s.color;
+    ctx.fillRect(lx,ly+3,12,2);
+    ctx.fillStyle='#cbd5e1';
+    ctx.fillText(text,lx+14+legendItemSpacing,ly);
+    
+    lx+=itemWidth;
+  });
+  ctx.restore();
+  
+  tooltipDataMap.set(canvas,{
+    canvas:canvas,
+    tooltip:tooltipEl,
+    data:{series,plot,xPos,yPos,N,yearsTotal,yMax,baseWidth,baseHeight}
+  });
+}
+
+function setupTooltip(canvas,tooltipEl){
+  function handleMove(e){
+    const tooltipData=tooltipDataMap.get(canvas);
+    if(!tooltipData || !tooltipData.data) return;
+    
+    const rect=canvas.getBoundingClientRect();
+    const clientX=e.clientX||(e.touches && e.touches[0]?e.touches[0].clientX:0);
+    const clientY=e.clientY||(e.touches && e.touches[0]?e.touches[0].clientY:0);
+    
+    const x=clientX-rect.left;
+    const y=clientY-rect.top;
+    const {series,plot,xPos,N}=tooltipData.data;
+    
+    if(x<plot.x || x>plot.x+plot.w || y<plot.y || y>plot.y+plot.h){
+      tooltipEl.style.display='none';
+      return;
+    }
+    
+    let nearestIdx=0;
+    let minDist=Infinity;
+    for(let i=0;i<N;i++){
+      const dist=Math.abs(xPos(i)-x);
+      if(dist<minDist){
+        minDist=dist;
+        nearestIdx=i;
+      }
+    }
+    
+    const year=Math.floor(nearestIdx/12);
+    let html=`<div class="tooltip-row"><span class="tooltip-label">年份：</span>${year}年</div>`;
+    series.forEach(s=>{
+      html+=`<div class="tooltip-row"><span class="tooltip-label" style="color:${s.color}">${s.name}：</span>${fmt(s.data[nearestIdx])}</div>`;
+    });
+    
+    tooltipEl.innerHTML=html;
+    tooltipEl.style.display='block';
+    
+    let tooltipX=clientX+15;
+    let tooltipY=clientY-10;
+    
+    const tooltipRect=tooltipEl.getBoundingClientRect();
+    if(tooltipX+tooltipRect.width>window.innerWidth){
+      tooltipX=clientX-tooltipRect.width-15;
+    }
+    if(tooltipY+tooltipRect.height>window.innerHeight){
+      tooltipY=clientY-tooltipRect.height-10;
+    }
+    if(tooltipY<0) tooltipY=clientY+20;
+    
+    tooltipEl.style.left=tooltipX+'px';
+    tooltipEl.style.top=tooltipY+'px';
+  }
+  
+  function handleLeave(){
+    tooltipEl.style.display='none';
+  }
+  
+  canvas.addEventListener('mousemove',handleMove);
+  canvas.addEventListener('touchmove',handleMove,{passive:true});
+  canvas.addEventListener('mouseleave',handleLeave);
+  canvas.addEventListener('touchend',handleLeave);
+  canvas.addEventListener('touchcancel',handleLeave);
+}
+
+// ==========================================
+// SECTION 6: MAIN EXECUTION
+// ==========================================
+function run(){
+  const S=simulate();
+  
+  renderSummary(S);
+  renderTimeline(S);
+  renderSuggestions(S);
+  renderKPI(S);
+  
+  const cashSeries=[
+    {name:'主業收入',color:C.blue,data:S.main},
+    {name:'副業收入',color:C.teal,data:S.side},
+    {name:'總收入',color:C.orange,data:S.total},
+    {name:'生存支出',color:C.sur,data:Array(S.N).fill(S.p.survival),dash:[6,6],w:1.5},
+    {name:'生活支出',color:C.life,data:Array(S.N).fill(S.p.lifestyle),dash:[6,6],w:1.5},
+  ];
+  drawChart($('#cvCash'),$('#tooltipCash'),cashSeries,{years:S.p.years});
+  
+  const assetSeries=[
+    {name:'資產（生存支出路徑）',color:C.green,data:S.A_surv},
+    {name:'資產（中間支出路徑）',color:'#7aa2ff',data:S.A_mid},
+    {name:'資產（生活支出路徑）',color:C.blue,data:S.A_life},
+  ];
+  drawChart($('#cvAsset'),$('#tooltipAsset'),assetSeries,{
+    years:S.p.years,
+    extraMax:[S.fireTarget,S.fatTarget],
+    hLines:[
+      {y:S.fireTarget,label:'FIRE',color:C.fire},
+      {y:S.fatTarget,label:'FAT FIRE',color:C.fat}
+    ]
+  });
+}
+
+// ==========================================
+// SECTION 7: UI INTERACTIONS
+// ==========================================
+function savePNG(){
+  const c1=$('#cvCash'),c2=$('#cvAsset');
+  const out=document.createElement('canvas');
+  const W=Math.max(c1.width,c2.width)/(window.devicePixelRatio||1);
+  const H=(c1.height+c2.height)/(window.devicePixelRatio||1)+60;
+  out.width=W*(window.devicePixelRatio||1);
+  out.height=H*(window.devicePixelRatio||1);
+  const ctx=out.getContext('2d');
+  ctx.setTransform(window.devicePixelRatio||1,0,0,window.devicePixelRatio||1,0,0);
+  ctx.fillStyle=getComputedStyle(document.body).backgroundColor||'#0f172a';
+  ctx.fillRect(0,0,W,H);
+  ctx.drawImage(c1,0,0,c1.width/(window.devicePixelRatio||1),c1.height/(window.devicePixelRatio||1));
+  ctx.drawImage(c2,0,c1.height/(window.devicePixelRatio||1)+60,c2.width/(window.devicePixelRatio||1),c2.height/(window.devicePixelRatio||1));
+  const a=document.createElement('a');
+  a.download='fire_result.png';
+  a.href=out.toDataURL('image/png');
+  a.click();
+}
+
+function shareLink(){
+  const params=new URLSearchParams();
+  Object.keys(defaults).forEach(k=>{
+    const el=document.getElementById(k);
+    if(el) params.set(k,el.value);
+  });
+  const url=window.location.origin+window.location.pathname+'?'+params.toString();
+  
+  if(navigator.clipboard){
+    navigator.clipboard.writeText(url).then(()=>{
+      alert('✓ 分享連結已複製到剪貼簿！');
+    });
+  }else{
+    prompt('複製此連結分享：',url);
+  }
+}
+
+function applyQuery(){
+  const params=new URLSearchParams(window.location.search);
+  params.forEach((val,key)=>{
+    const el=document.getElementById(key);
+    if(el) el.value=val;
+  });
+}
 
 function setupHelpIcons(){
-  $$('.help-icon').forEach(icon => {
-    icon.addEventListener('click', (e) => {
+  $$('.help-icon').forEach(icon=>{
+    const key=icon.dataset.help;
+    const text=helpTexts[key]||'';
+    
+    icon.addEventListener('click',(e)=>{
       e.stopPropagation();
-      const key = icon.dataset.help;
-      const text = helpTexts[key];
-      if(!text) return;
+      const existing=$('.help-popup.show');
+      if(existing) existing.classList.remove('show');
       
-      // 移除舊的 popup
-      if(currentHelpPopup){
-        currentHelpPopup.remove();
-        currentHelpPopup = null;
+      let popup=icon.nextElementSibling;
+      if(!popup || !popup.classList.contains('help-popup')){
+        popup=document.createElement('div');
+        popup.className='help-popup';
+        popup.textContent=text;
+        icon.parentElement.style.position='relative';
+        icon.parentElement.appendChild(popup);
       }
+      popup.classList.add('show');
       
-      // 創建新的 popup
-      const popup = document.createElement('div');
-      popup.className = 'help-popup show';
-      popup.innerHTML = text;
-      document.body.appendChild(popup);
-      
-      // 定位
-      const rect = icon.getBoundingClientRect();
-      popup.style.left = (rect.left - popup.offsetWidth / 2 + 8) + 'px';
-      popup.style.top = (rect.bottom + 8) + 'px';
-      
-      currentHelpPopup = popup;
+      const closePopup=()=>{
+        popup.classList.remove('show');
+        document.removeEventListener('click',closePopup);
+      };
+      setTimeout(()=>document.addEventListener('click',closePopup),100);
     });
-  });
-  
-  // 點擊其他地方關閉 popup
-  document.addEventListener('click', () => {
-    if(currentHelpPopup){
-      currentHelpPopup.remove();
-      currentHelpPopup = null;
-    }
   });
 }
 
-// ==== 新增：手風琴功能 ====
 function setupAccordion(){
-  $$('.accordion-header').forEach(header => {
-    header.addEventListener('click', () => {
-      const item = header.parentElement;
-      const isOpen = item.classList.contains('open');
-      
-      // 切換當前項目
-      if(isOpen){
-        item.classList.remove('open');
-      } else {
-        item.classList.add('open');
-      }
+  $$('.accordion-header').forEach(header=>{
+    header.addEventListener('click',()=>{
+      const item=header.parentElement;
+      item.classList.toggle('open');
     });
   });
 }
 
-// ==== 新增：風險等級選擇器 ====
 function setupRiskLevel(){
-  const riskSelect = $('#riskLevel');
-  const returnInput = $('#returnRate');
-  const customRow = $('#customReturnRow');
-  const customInput = $('#customReturn');
+  const riskMap={
+    conservative:{returnRate:4,fat:1.5},
+    moderate:{returnRate:6,fat:1.8},
+    aggressive:{returnRate:9,fat:2.2}
+  };
   
-  riskSelect.addEventListener('change', () => {
-    const val = riskSelect.value;
-    if(val === 'conservative'){
-      returnInput.value = 4;
-      customRow.style.display = 'none';
-    } else if(val === 'moderate'){
-      returnInput.value = 6;
-      customRow.style.display = 'none';
-    } else if(val === 'aggressive'){
-      returnInput.value = 8;
-      customRow.style.display = 'none';
-    } else if(val === 'custom'){
-      customRow.style.display = '';
-      returnInput.value = customInput.value;
-    }
-    run(); // 重新計算
-  });
-  
-  customInput.addEventListener('input', () => {
-    if(riskSelect.value === 'custom'){
-      returnInput.value = customInput.value;
+  $('#riskLevel').addEventListener('change',(e)=>{
+    const risk=riskMap[e.target.value];
+    if(risk){
+      $('#returnRate').value=risk.returnRate;
+      $('#fat').value=risk.fat;
       run();
     }
   });
 }
 
-// 改進的格式化函數：使用萬、百萬、千萬、億
-function fmt(n){
-  n = Math.round(n);
-  if(n >= 100000000) return 'NT$' + (n/100000000).toFixed(1) + '億';
-  if(n >= 10000000) return 'NT$' + (n/10000000).toFixed(1) + '千萬';
-  if(n >= 1000000) return 'NT$' + (n/1000000).toFixed(1) + '百萬';
-  if(n >= 10000) return 'NT$' + (n/10000).toFixed(1) + '萬';
-  return 'NT$' + n.toLocaleString('zh-TW');
-}
-
-// Y軸標籤格式化
-function fmtAxis(n){
-  n = Math.round(n);
-  if(n >= 100000000) return (n/100000000).toFixed(0) + '億';
-  if(n >= 10000000) return (n/10000000).toFixed(0) + '千萬';
-  if(n >= 1000000) return (n/1000000).toFixed(0) + '百萬';
-  if(n >= 10000) return (n/10000).toFixed(0) + '萬';
-  return n.toLocaleString('zh-TW');
-}
-
-const monthsToText = m => m===Infinity ? '尚未達成（模擬期內）' : (Math.floor(m/12)+' 年 '+(m%12? m%12+' 個月':''));
-
-const defaults = {
-  survival:25000,        // 基本生活費：2.5萬（單身最低開銷）
-  lifestyle:50000,       // 理想生活費：5萬（舒適生活）
-  fat:90000,            // FAT FIRE：9萬（1.8倍）
-  assets:1500000,       // 目前資產：150萬（中階主管合理存款）
-  totalIncome:105000,   // 每月總收入：10.5萬
-  mainIncome:90000,     // 主業收入：9萬（中階主管月薪）
-  sideIncome:15000,     // 副業收入：1.5萬（接案/投資）
-  mainGrowth:3,         // 主業成長：3%（合理調薪）
-  sideGrowth:10,        // 副業成長：10%（努力發展）
-  returnRate:6,         // 投資報酬：6%（穩健型）
-  wr:4,                 // 提領率：4%
-  years:30,             // 模擬30年
-  reinvest:'yes',       // 盈餘投入
-  inflation:0,          // 通膨預設0（讓用戶自己開啟）
-  inflationAdjust:'yes'
-};
-
-// ==== 新增：收入欄位同步功能 ====
 function setupIncomeSync(){
-  const totalIncomeInput = $('#totalIncome');
-  const mainIncomeInput = $('#mainIncome');
-  const sideIncomeInput = $('#sideIncome');
-  
-  // 當總收入改變時，更新主業+副業
-  totalIncomeInput.addEventListener('input', () => {
-    const total = parseFloat(totalIncomeInput.value) || 0;
-    const currentMain = parseFloat(mainIncomeInput.value) || 0;
-    const currentSide = parseFloat(sideIncomeInput.value) || 0;
-    const currentTotal = currentMain + currentSide;
-    
-    if(currentTotal > 0){
-      // 按比例分配
-      const ratio = total / currentTotal;
-      mainIncomeInput.value = Math.round(currentMain * ratio);
-      sideIncomeInput.value = Math.round(currentSide * ratio);
-    } else {
-      // 預設 80/20 分配
-      mainIncomeInput.value = Math.round(total * 0.8);
-      sideIncomeInput.value = Math.round(total * 0.2);
-    }
-  });
-  
-  // 當主業或副業改變時，更新總收入
-  const updateTotal = () => {
-    const main = parseFloat(mainIncomeInput.value) || 0;
-    const side = parseFloat(sideIncomeInput.value) || 0;
-    totalIncomeInput.value = main + side;
+  const syncIncome=()=>{
+    const main=parseFloat($('#mainIncome').value)||0;
+    const side=parseFloat($('#sideIncome').value)||0;
+    const total=main+side;
+    if(total>0) $('#totalIncome').value=total;
   };
   
-  mainIncomeInput.addEventListener('input', updateTotal);
-  sideIncomeInput.addEventListener('input', updateTotal);
+  $('#mainIncome').addEventListener('input',syncIncome);
+  $('#sideIncome').addEventListener('input',syncIncome);
 }
 
-// ---- URL 參數讀寫 ----
-function readFromUI(){
-  // 讀取收入（優先使用主業+副業，如果沒有則使用總收入）
-  const mainIncome = parseFloat($('#mainIncome').value) || 0;
-  const sideIncome = parseFloat($('#sideIncome').value) || 0;
-  const totalIncome = parseFloat($('#totalIncome').value) || 0;
-  
-  let main0, side0;
-  if(mainIncome > 0 || sideIncome > 0){
-    // 使用詳細輸入
-    main0 = mainIncome;
-    side0 = sideIncome;
-  } else if(totalIncome > 0){
-    // 使用總收入，預設 80/20 分配
-    main0 = totalIncome * 0.8;
-    side0 = totalIncome * 0.2;
-  } else {
-    main0 = 0;
-    side0 = 0;
-  }
-  
-  return {
-    survival: parseFloat($('#survival').value) || 0,
-    lifestyle: parseFloat($('#lifestyle').value) || 0,
-    fat: parseFloat($('#fat').value) || 0,
-    assets0: parseFloat($('#assets').value) || 0,
-    main0: main0,
-    side0: side0,
-    gMain: (parseFloat($('#mainGrowth').value) || 0) / 100,
-    gSide: (parseFloat($('#sideGrowth').value) || 0) / 100,
-    r: (parseFloat($('#returnRate').value) || 0) / 100,
-    wr: (parseFloat($('#wr').value) || 0) / 100,
-    years: Math.max(1, Math.min(60, parseInt($('#years').value) || 30)),
-    reinvest: $('#reinvest').value === 'yes',
-    inflation: (parseFloat($('#inflation').value) || 0) / 100,
-    inflationAdjust: $('#inflationAdjust').value === 'yes'
-  };
-}
-function applyQuery(){
-  const url = new URL(location.href);
-  const q = url.searchParams;
+// ==========================================
+// SECTION 8: INITIALIZATION
+// ==========================================
+$('#calc').addEventListener('click',run);
+$('#fatfill').addEventListener('click',()=>{
+  $('#fat').value=Math.round((+$('#lifestyle').value||0)*1.8);
+  run();
+});
+$('#share').addEventListener('click',shareLink);
+$('#savepng').addEventListener('click',savePNG);
+$('#reset').addEventListener('click',()=>{
   for(const k in defaults){
-    if(q.has(k)){
-      const el = document.getElementById(k);
-      if(el) el.value = q.get(k);
-    }
+    const el=document.getElementById(k);
+    if(el) el.value=defaults[k];
   }
-}
-function shareLink(){
-  const url = new URL(location.href);
-  const p = readFromUI();
-  for(const k in defaults){ url.searchParams.set(k, p[k]); }
-  navigator.clipboard.writeText(url.toString());
-  alert('參數連結已複製到剪貼簿！');
-}
+  run();
+});
 
-// ---- 數據模擬 ----
-function simulate(){
-  const p = readFromUI();
-  const months = p.years*12|0;
-  const mG = Math.pow(1+p.gMain,1/12)-1;
-  const sG = Math.pow(1+p.gSide,1/12)-1;
-  const rM = Math.pow(1+p.r,1/12)-1;
-  const iM = p.inflationAdjust ? Math.pow(1+p.inflation,1/12)-1 : 0; // 月通膨率
-
-  const L=[], main=[], side=[], total=[],  // 現金流（不含被動）
-        A_surv=[], A_life=[], A_mid=[];    // 三條資產路徑
-  const t = {survival:Infinity, life:Infinity, work:Infinity, fire:Infinity, fat:Infinity};
-
-  let A1=p.assets0, A2=p.assets0, A3=p.assets0;
-
-  for(let m=0;m<=months;m++){
-    const ma = p.main0*Math.pow(1+mG,m);
-    const si = p.side0*Math.pow(1+sG,m);
-    const tot = ma+si;
-
-    L.push((m/12)); main.push(ma); side.push(si); total.push(tot);
-
-    // 支出隨通膨調整
-    const inflationFactor = Math.pow(1+iM, m);
-    const survival_adjusted = p.survival * inflationFactor;
-    const lifestyle_adjusted = p.lifestyle * inflationFactor;
-    const mid_adjusted = (p.survival + p.lifestyle) / 2 * inflationFactor;
-
-    // 里程碑（以現金流定義，使用調整後的支出）
-    if(t.survival===Infinity && si>=survival_adjusted) t.survival=m;
-    if(t.life===Infinity && tot>=lifestyle_adjusted) t.life=m;
-    if(t.work===Infinity && si>=ma) t.work=m;
-
-    // 三種支出下的盈餘（僅投資盈餘；不計被動現金流）
-    const c1 = p.reinvest ? Math.max(0, tot - survival_adjusted) : 0;
-    const c2 = p.reinvest ? Math.max(0, tot - lifestyle_adjusted) : 0;
-    const c3 = p.reinvest ? Math.max(0, tot - mid_adjusted) : 0;
-
-    if(m===0){ A_surv.push(A1); A_life.push(A2); A_mid.push(A3); }
-    else{
-      A1 = A1*(1+rM) + c1;
-      A2 = A2*(1+rM) + c2;
-      A3 = A3*(1+rM) + c3;
-      A_surv.push(A1); A_life.push(A2); A_mid.push(A3);
-    }
+// 打開支出計算器按鈕
+$('#openExpenseCalc').addEventListener('click',()=>{
+  const accordion=$('#expenseAccordion');
+  if(!accordion.classList.contains('open')){
+    accordion.classList.add('open');
+    accordion.scrollIntoView({behavior:'smooth',block:'nearest'});
   }
-  
-  // FIRE 目標（考慮通膨影響，使用當前的支出金額）
-  const fireTarget = p.lifestyle*12/p.wr;
-  const fatTarget  = p.fat*12/p.wr;
-  
-  // FIRE 達成時間：以「生活支出路徑」資產為準
-  t.fire = A_life.findIndex(v=>v>=fireTarget); if(t.fire<0) t.fire=Infinity;
-  t.fat  = A_life.findIndex(v=>v>=fatTarget); if(t.fat<0) t.fat=Infinity;
+});
 
-  return {p, L, main, side, total, A_surv, A_life, A_mid, t, fireTarget, fatTarget};
-}
-
-// ---- KPI ----
-function renderKPI(S){
-  const el = $('#kpi');
-  const K = [
-    ['生存自由（副業 ≥ 生存）', S.t.survival, [['達成時間', monthsToText(S.t.survival)], ['達成時副業', S.t.survival<Infinity? fmt(S.side[S.t.survival]):'—']]],
-    ['生活自由（總收入 ≥ 生活）', S.t.life, [['達成時間', monthsToText(S.t.life)], ['達成時總收入', S.t.life<Infinity? fmt(S.total[S.t.life]):'—']]],
-    ['工作自由（副業 ≥ 主業）', S.t.work, [['達成時間', monthsToText(S.t.work)], ['副業', S.t.work<Infinity? fmt(S.side[S.t.work]):'—'], ['主業', S.t.work<Infinity? fmt(S.main[S.t.work]):'—']]],
-    ['財富自由 FIRE（資產 ≥ 生活/提領率）', S.t.fire, [['達成時間', monthsToText(S.t.fire)], ['資產門檻', fmt(S.fireTarget)], ['達成時資產', S.t.fire<Infinity? fmt(S.A_life[S.t.fire]):'—']]],
-    ['財富豐盛 FAT FIRE（資產 ≥ FAT/提領率）', S.t.fat, [['達成時間', monthsToText(S.t.fat)], ['資產門檻', fmt(S.fatTarget)], ['達成時資產', S.t.fat<Infinity? fmt(S.A_life[S.t.fat]):'—']]],
-  ];
-  el.innerHTML = K.map(([title,t,rows])=>{
-    const cls = 'k ' + (t<Infinity? 'ok':'warn');
-    const rs = rows.map(([k,v])=>`<p><span style="color:#9ca3af">${k}</span>　${v}</p>`).join('');
-    return `<div class="${cls}"><h3>${title}</h3>${rs}</div>`;
-  }).join('');
-}
-
-// ==== 新增：渲染總結卡片 ====
-function renderSummary(S){
-  const el = $('#summaryCard');
-  const fireYears = S.t.fire < Infinity ? Math.floor(S.t.fire / 12) : null;
-  const currentYear = new Date().getFullYear();
-  
-  let html = '';
-  if(fireYears && fireYears <= S.p.years){
-    const targetYear = currentYear + fireYears;
-    html = `
-      <div class="main-result">
-        <span class="emoji">🎯</span>
-        好消息！按照目前的情況，你在 ${targetYear} 年（${fireYears} 年後）就能達成 FIRE！
-      </div>
-      <div class="sub-text">屆時你的資產將達到 ${fmt(S.fireTarget)}，足以支撐理想生活</div>
-    `;
-  } else if(fireYears && fireYears > S.p.years){
-    html = `
-      <div class="main-result">
-        <span class="emoji">⏰</span>
-        以目前的狀況，需要約 ${fireYears} 年才能達成 FIRE
-      </div>
-      <div class="sub-text">別擔心，讓我們看看如何優化你的計畫...</div>
-    `;
-  } else {
-    html = `
-      <div class="main-result">
-        <span class="emoji">💪</span>
-        在模擬的 ${S.p.years} 年內尚未達成 FIRE
-      </div>
-      <div class="sub-text">調整參數或延長模擬時間，找出最適合你的路徑</div>
-    `;
-  }
-  
-  el.innerHTML = html;
-}
-
-// ==== 新增：渲染時間軸 ====
-function renderTimeline(S){
-  const el = $('#timeline');
-  const currentYear = new Date().getFullYear();
-  
-  // 定義里程碑
-  const milestones = [
-    {key: 'current', label: '現在', year: currentYear, achieved: true, current: true},
-    {key: 'survival', label: '生存自由', months: S.t.survival, achieved: S.t.survival < Infinity},
-    {key: 'life', label: '生活自由', months: S.t.life, achieved: S.t.life < Infinity},
-    {key: 'fire', label: 'FIRE', months: S.t.fire, achieved: S.t.fire < Infinity},
-    {key: 'fat', label: 'FAT FIRE', months: S.t.fat, achieved: S.t.fat < Infinity}
-  ];
-  
-  // 計算年份
-  milestones.forEach(m => {
-    if(m.months !== undefined && m.months < Infinity){
-      m.year = currentYear + Math.floor(m.months / 12);
-    }
-  });
-  
-  // 只顯示已達成或即將達成的里程碑
-  const visibleMilestones = milestones.filter(m => m.achieved || m.current);
-  
-  if(visibleMilestones.length <= 1){
-    el.style.display = 'none';
-    return;
-  }
-  
-  el.style.display = 'block';
-  
-  let html = '<div class="timeline-track"></div><div class="timeline-points">';
-  visibleMilestones.forEach(m => {
-    const cls = m.current ? 'current' : (m.achieved ? 'achieved' : '');
-    html += `
-      <div class="timeline-point ${cls}">
-        <div class="dot"></div>
-        <div class="label">${m.label}</div>
-        ${m.year ? `<div class="year">${m.year}</div>` : ''}
-      </div>
-    `;
-  });
-  html += '</div>';
-  
-  el.innerHTML = html;
-}
-
-// ==== 新增：智能建議系統 ====
-function renderSuggestions(S){
-  const el = $('#suggestions');
-  const suggestions = [];
-  
-  const fireYears = S.t.fire < Infinity ? Math.floor(S.t.fire / 12) : Infinity;
-  const savingsRate = S.p.reinvest ? ((S.total[0] - S.p.lifestyle) / S.total[0] * 100).toFixed(0) : 0;
-  
-  // 建議 1: 如果達成時間太久
-  if(fireYears > 25 || fireYears === Infinity){
-    suggestions.push({
-      type: 'warning',
-      title: '💡 想要提早退休？',
-      content: `
-        <p>以目前規劃，FIRE 時間較長。試試這些方法：</p>
-        <ul>
-          <li>提高儲蓄率到 50% 以上</li>
-          <li>發展副業增加收入</li>
-          <li>考慮降低生活支出 10-20%</li>
-        </ul>
-      `,
-      action: null
-    });
-  }
-  
-  // 建議 2: 檢查通膨
-  const inflationRate = parseFloat($('#inflation').value) || 0;
-  if(inflationRate < 1){
-    suggestions.push({
-      type: 'warning',
-      title: '⚠️ 別忘記通膨！',
-      content: `
-        <p>通膨會讓你的 ${fmt(S.p.lifestyle * 12)} 年支出在 20 年後需要更多錢才能維持相同生活品質。</p>
-        <p>建議設定 2-3% 的年通膨率，讓計算更貼近現實。</p>
-      `,
-      action: {text: '設定通膨', fn: () => {
-        $('#inflation').value = 2;
-        $$('.accordion-item')[1].classList.add('open');
-        run();
-      }}
-    });
-  }
-  
-  // 建議 3: Coast FIRE 檢查
-  const coastTarget = S.fireTarget;
-  const yearsToRetire = 30; // 假設 30 年後退休
-  const requiredNow = coastTarget / Math.pow(1 + S.p.r, yearsToRetire);
-  
-  if(S.p.assets0 >= requiredNow && S.t.fire > 12){
-    suggestions.push({
-      type: 'success',
-      title: '🎉 你已達成 Coast FIRE！',
-      content: `
-        <p>好消息！你現在的資產 ${fmt(S.p.assets0)} 已經足夠，即使停止存錢，在 ${yearsToRetire} 年後也能達成 FIRE！</p>
-        <p>這表示你可以：</p>
-        <ul>
-          <li>降低工作強度</li>
-          <li>追求更有意義但薪水較低的工作</li>
-          <li>把收入用在當下的生活品質</li>
-        </ul>
-      `,
-      action: null
-    });
-  }
-  
-  // 建議 4: 副業發展
-  const sideIncomeRatio = S.p.side0 / (S.p.main0 + S.p.side0);
-  if(sideIncomeRatio < 0.2 && S.t.survival > 36){
-    suggestions.push({
-      type: 'info',
-      title: '💼 考慮發展副業',
-      content: `
-        <p>副業不只是額外收入，還能：</p>
-        <ul>
-          <li>分散收入風險</li>
-          <li>加速達成財務自由</li>
-          <li>培養退休後的技能</li>
-        </ul>
-        <p>即使每月只增加 2-3 萬元副業收入，也能大幅縮短 FIRE 時間！</p>
-      `,
-      action: null
-    });
-  }
-  
-  // 顯示建議
-  if(suggestions.length > 0){
-    el.style.display = 'grid';
-    el.innerHTML = suggestions.map(s => `
-      <div class="suggestion-card ${s.type}">
-        <h4>${s.title}</h4>
-        <div>${s.content}</div>
-        ${s.action ? `<button onclick="${s.action.fn}">${s.action.text}</button>` : ''}
-      </div>
-    `).join('');
-    
-    // 綁定按鈕事件
-    suggestions.forEach((s, idx) => {
-      if(s.action){
-        const btn = el.querySelectorAll('button')[idx];
-        if(btn) btn.onclick = s.action.fn;
-      }
-    });
-  } else {
-    el.style.display = 'none';
-  }
-}
-
-// ---- 繪圖工具 ----
-function niceMax(max){
-  if(max<=0) return 1;
-  const pow = Math.pow(10, Math.floor(Math.log10(max)));
-  const n = max/pow;
-  const base = n<=1?1:n<=2?2:n<=5?5:10;
-  return base*pow;
-}
-function drawLine(ctx, points, color, width=2, dash=null){
-  ctx.save();
-  ctx.lineWidth=width; ctx.strokeStyle=color; ctx.beginPath();
-  if(dash) ctx.setLineDash(dash);
-  points.forEach(([x,y],i)=>{ if(i===0) ctx.moveTo(x,y); else ctx.lineTo(x,y); });
-  ctx.stroke(); ctx.setLineDash([]); ctx.restore();
-}
-
-// Tooltip state - 改為 Map 結構，每個 canvas 單獨存儲
-const tooltipDataMap = new Map();
-
-function drawChart(canvas, tooltipEl, series, opts){
-  // Get actual container width
-  const container = canvas.parentElement;
-  const isMobile = window.innerWidth <= 900;
-  
-  // Use container's actual width
-  const baseWidth = container.clientWidth;
-  const baseHeight = isMobile ? 320 : 380;
-  
-  // Set canvas size to match container
-  canvas.style.width = '100%';
-  canvas.style.height = baseHeight + 'px';
-  
-  // Set internal resolution for sharp rendering
-  const dpr = Math.min(2, window.devicePixelRatio || 1); // Cap at 2 for performance
-  canvas.width = baseWidth * dpr;
-  canvas.height = baseHeight * dpr;
-  
-  const ctx = canvas.getContext('2d');
-  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-  ctx.clearRect(0, 0, baseWidth, baseHeight);
-  
-  // Adaptive padding based on screen size
-  const padL = isMobile ? 50 : 70;
-  const padR = isMobile ? 20 : 40;
-  const padT = isMobile ? 45 : 30;
-  const padB = isMobile ? 35 : 40;
-  const plot = {x: padL, y: padT, w: baseWidth - padL - padR, h: baseHeight - padT - padB};
-
-  // X scale
-  const N = series[0].data.length;
-  const xPos = i => plot.x + plot.w * (i / (N - 1));
-
-  // X-axis ticks - adaptive based on available width
-  const yearsTotal = opts.years;
-  let step;
-  if(isMobile){
-    step = yearsTotal <= 10 ? 2 : (yearsTotal <= 20 ? 5 : 10);
-  } else {
-    step = yearsTotal <= 10 ? 1 : (yearsTotal <= 20 ? 2 : 5);
-  }
-
-  // Y scale
-  let yMax = 0;
-  series.forEach(s => s.data.forEach(v => { if(v > yMax) yMax = v; }));
-  if(opts.extraMax) yMax = Math.max(yMax, ...opts.extraMax);
-  yMax = niceMax(yMax);
-  const yPos = v => plot.y + plot.h * (1 - v / yMax);
-
-  // Grid and axes
-  ctx.strokeStyle = '#1f2937';
-  ctx.lineWidth = 1;
-  ctx.font = isMobile ? '9px system-ui' : '11px system-ui';
-  ctx.fillStyle = '#9ca3af';
-  ctx.textAlign = 'right';
-  ctx.textBaseline = 'middle';
-  
-  // Y-axis grid and labels
-  for(let i = 0; i <= 5; i++){
-    const y = plot.y + plot.h * (1 - i / 5);
-    ctx.beginPath();
-    ctx.moveTo(plot.x, y);
-    ctx.lineTo(plot.x + plot.w, y);
-    ctx.stroke();
-    const val = yMax * i / 5;
-    ctx.fillText(fmtAxis(val), padL - 5, y);
-  }
-  
-  // X-axis labels
-  ctx.textAlign = 'center';
-  ctx.textBaseline = 'top';
-  for(let y = 0; y <= yearsTotal; y += step){
-    const i = Math.round(N * y / yearsTotal);
-    const x = xPos(i);
-    if(x >= plot.x && x <= plot.x + plot.w){
-      ctx.fillText(y + '年', x, baseHeight - padB + 5);
-    }
-  }
-
-  // Draw series lines
-  series.forEach(s => {
-    const pts = s.data.map((v, i) => [xPos(i), yPos(v)]);
-    drawLine(ctx, pts, s.color, s.w || 2, s.dash || null);
-  });
-
-  // Horizontal threshold labels
-  if(opts.hLines){
-    ctx.save();
-    ctx.font = isMobile ? '10px system-ui' : '12px system-ui';
-    ctx.fillStyle = '#cbd5e1';
-    ctx.textAlign = 'left';
-    ctx.textBaseline = 'bottom';
-    
-    opts.hLines.forEach(h => {
-      const y = yPos(h.y);
-      drawLine(ctx, [[plot.x, y], [plot.x + plot.w, y]], h.color, 1.5, [6, 6]);
-      ctx.fillText(h.label, plot.x + 3, y - 4);
-    });
-    ctx.restore();
-  }
-
-  // Legend - adaptive layout
-  ctx.save();
-  ctx.textAlign = 'left';
-  ctx.textBaseline = 'top';
-  ctx.font = isMobile ? '9px system-ui' : '10px system-ui';
-  
-  let lx = plot.x;
-  let ly = plot.y - (isMobile ? 38 : 24);
-  const legendItemSpacing = isMobile ? 4 : 8;
-  const legendLineHeight = isMobile ? 12 : 14;
-  
-  series.forEach((s, idx) => {
-    const text = s.name;
-    const textWidth = ctx.measureText(text).width;
-    const itemWidth = 14 + legendItemSpacing + textWidth + 12; // box + spacing + text + gap
-    
-    // Wrap to next line if needed (mobile only)
-    if(isMobile && idx > 0 && lx + itemWidth > plot.x + plot.w){
-      lx = plot.x;
-      ly += legendLineHeight;
-    }
-    
-    // Draw legend item
-    ctx.fillStyle = s.color;
-    ctx.fillRect(lx, ly + 3, 12, 2);
-    ctx.fillStyle = '#cbd5e1';
-    ctx.fillText(text, lx + 14 + legendItemSpacing, ly);
-    
-    lx += itemWidth;
-  });
-  ctx.restore();
-
-  // Store data for tooltip - 使用 Map 為每個 canvas 單獨存儲
-  tooltipDataMap.set(canvas, {
-    canvas: canvas,
-    tooltip: tooltipEl,
-    data: {series, plot, xPos, yPos, N, yearsTotal, yMax, baseWidth, baseHeight}
-  });
-}
-
-// Tooltip handler
-function setupTooltip(canvas, tooltipEl){
-  function handleMove(e){
-    const tooltipData = tooltipDataMap.get(canvas);
-    if(!tooltipData || !tooltipData.data) return;
-    
-    const rect = canvas.getBoundingClientRect();
-    const clientX = e.clientX || (e.touches && e.touches[0] ? e.touches[0].clientX : 0);
-    const clientY = e.clientY || (e.touches && e.touches[0] ? e.touches[0].clientY : 0);
-    
-    const x = clientX - rect.left;
-    const y = clientY - rect.top;
-    const {series, plot, xPos, N, yearsTotal} = tooltipData.data;
-    
-    // Check if inside plot area
-    if(x < plot.x || x > plot.x + plot.w || y < plot.y || y > plot.y + plot.h){
-      tooltipEl.style.display = 'none';
-      return;
-    }
-    
-    // Find nearest data point
-    let nearestIdx = 0;
-    let minDist = Infinity;
-    for(let i = 0; i < N; i++){
-      const dist = Math.abs(xPos(i) - x);
-      if(dist < minDist){
-        minDist = dist;
-        nearestIdx = i;
-      }
-    }
-    
-    // Build tooltip content
-    const year = Math.floor(nearestIdx / 12);
-    let html = `<div class="tooltip-row"><span class="tooltip-label">年份：</span>${year}年</div>`;
-    series.forEach(s => {
-      // 顯示所有數據（包括虛線的支出）
-      html += `<div class="tooltip-row"><span class="tooltip-label" style="color:${s.color}">${s.name}：</span>${fmt(s.data[nearestIdx])}</div>`;
-    });
-    
-    tooltipEl.innerHTML = html;
-    tooltipEl.style.display = 'block';
-    
-    // Position tooltip - adjust for screen edges
-    let tooltipX = clientX + 15;
-    let tooltipY = clientY - 10;
-    
-    // Prevent tooltip from going off screen
-    const tooltipRect = tooltipEl.getBoundingClientRect();
-    if(tooltipX + tooltipRect.width > window.innerWidth){
-      tooltipX = clientX - tooltipRect.width - 15;
-    }
-    if(tooltipY + tooltipRect.height > window.innerHeight){
-      tooltipY = clientY - tooltipRect.height - 10;
-    }
-    if(tooltipY < 0) tooltipY = clientY + 20;
-    
-    tooltipEl.style.left = tooltipX + 'px';
-    tooltipEl.style.top = tooltipY + 'px';
-  }
-  
-  function handleLeave(){
-    tooltipEl.style.display = 'none';
-  }
-  
-  canvas.addEventListener('mousemove', handleMove);
-  canvas.addEventListener('touchmove', (e) => {
-    handleMove(e);
-  }, {passive: true});
-  canvas.addEventListener('mouseleave', handleLeave);
-  canvas.addEventListener('touchend', handleLeave);
-  canvas.addEventListener('touchcancel', handleLeave);
-}
-
-// ---- 主流程 ----
-function run(){
-  const S = simulate();
-  
-  // 新增：渲染新功能
-  renderSummary(S);
-  renderTimeline(S);
-  renderSuggestions(S);
-  
-  // 原有功能
-  renderKPI(S);
-
-  // 現金流圖
-  const cashSeries = [
-    {name:'主業收入', color:C.blue, data:S.main},
-    {name:'副業收入', color:C.teal, data:S.side},
-    {name:'總收入',   color:C.orange, data:S.total},
-    {name:'生存支出', color:C.sur, data:Array(S.L.length).fill(S.p.survival), dash:[6,6], w:1.5},
-    {name:'生活支出', color:C.life, data:Array(S.L.length).fill(S.p.lifestyle), dash:[6,6], w:1.5},
-  ];
-  drawChart($('#cvCash'), $('#tooltipCash'), cashSeries, {years:S.p.years});
-
-  // 資產圖（三條路徑）
-  const assetSeries = [
-    {name:'資產（生存支出路徑）', color:C.green, data:S.A_surv},
-    {name:'資產（中間支出路徑）', color:'#7aa2ff', data:S.A_mid},
-    {name:'資產（生活支出路徑）', color:C.blue, data:S.A_life},
-  ];
-  drawChart($('#cvAsset'), $('#tooltipAsset'), assetSeries, {
-    years:S.p.years,
-    extraMax:[S.fireTarget,S.fatTarget],
-    hLines:[
-      {y:S.fireTarget, label:'FIRE', color:C.fire},
-      {y:S.fatTarget,  label:'FAT FIRE', color:C.fat}
-    ]
-  });
-}
-
-// PNG 合併下載
-function savePNG(){
-  const c1=$('#cvCash'), c2=$('#cvAsset');
-  const out = document.createElement('canvas');
-  const W = Math.max(c1.width, c2.width)/ (window.devicePixelRatio||1);
-  const H = (c1.height + c2.height)/ (window.devicePixelRatio||1) + 60;
-  out.width = W*(window.devicePixelRatio||1); out.height = H*(window.devicePixelRatio||1);
-  const ctx = out.getContext('2d'); ctx.setTransform(window.devicePixelRatio||1,0,0,window.devicePixelRatio||1,0,0);
-  ctx.fillStyle = getComputedStyle(document.body).backgroundColor || '#0f172a';
-  ctx.fillRect(0,0,W,H);
-  ctx.drawImage(c1,0,0,c1.width/(window.devicePixelRatio||1),c1.height/(window.devicePixelRatio||1));
-  ctx.drawImage(c2,0,c1.height/(window.devicePixelRatio||1)+60,c2.width/(window.devicePixelRatio||1),c2.height/(window.devicePixelRatio||1));
-  const a=document.createElement('a'); a.download='fire_result.png'; a.href=out.toDataURL('image/png'); a.click();
-}
-
-// 事件
-$('#calc').addEventListener('click', run);
-$('#fatfill').addEventListener('click', ()=>{$('#fat').value=Math.round((+$('#lifestyle').value||0)*1.8); run();});
-$('#share').addEventListener('click', shareLink);
-$('#savepng').addEventListener('click', savePNG);
-$('#reset').addEventListener('click', ()=>{ for(const k in defaults){ const el=document.getElementById(k); if(el) el.value=defaults[k]; } run(); });
-
-// Debounced resize handler for better performance
 let resizeTimer;
-window.addEventListener('resize', () => {
+window.addEventListener('resize',()=>{
   clearTimeout(resizeTimer);
-  resizeTimer = setTimeout(run, 150);
-}, {passive: true});
+  resizeTimer=setTimeout(run,150);
+},{passive:true});
 
-// Setup tooltips
-setupTooltip($('#cvCash'), $('#tooltipCash'));
-setupTooltip($('#cvAsset'), $('#tooltipAsset'));
-
-// 新增：初始化新功能
+setupTooltip($('#cvCash'),$('#tooltipCash'));
+setupTooltip($('#cvAsset'),$('#tooltipAsset'));
 setupHelpIcons();
 setupAccordion();
 setupRiskLevel();
 setupIncomeSync();
+
+// 初始化支出計算器
+ExpenseCalc.calculate();
 
 applyQuery();
 run();
