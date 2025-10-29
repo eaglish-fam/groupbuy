@@ -120,19 +120,19 @@
     <div class="grid">
       <div class="row">
         <label>目前資產淨值<span class="help-icon" data-help="assets">?</span></label>
-        <input id="assets" type="number" step="10000" value="3000000"/>
+        <input id="assets" type="number" step="10000" value="1500000"/>
       </div>
       <div class="row">
         <label>每月總收入<span class="help-icon" data-help="totalIncome">?</span></label>
-        <input id="totalIncome" type="number" step="1000" value="240000"/>
+        <input id="totalIncome" type="number" step="1000" value="105000"/>
       </div>
       <div class="row">
         <label>基本生活費（月）<span class="help-icon" data-help="survival">?</span></label>
-        <input id="survival" type="number" step="1000" value="60000"/>
+        <input id="survival" type="number" step="1000" value="25000"/>
       </div>
       <div class="row">
         <label>理想生活費（月）<span class="help-icon" data-help="lifestyle">?</span></label>
-        <input id="lifestyle" type="number" step="1000" value="120000"/>
+        <input id="lifestyle" type="number" step="1000" value="50000"/>
       </div>
       <div class="row">
         <label>投資年化報酬 %<span class="help-icon" data-help="returnRate">?</span></label>
@@ -156,11 +156,11 @@
             <div class="grid">
               <div class="row">
                 <label>主業月收入<span class="help-icon" data-help="mainIncome">?</span></label>
-                <input id="mainIncome" type="number" step="1000" value="200000"/>
+                <input id="mainIncome" type="number" step="1000" value="90000"/>
               </div>
               <div class="row">
                 <label>副業月收入<span class="help-icon" data-help="sideIncome">?</span></label>
-                <input id="sideIncome" type="number" step="1000" value="40000"/>
+                <input id="sideIncome" type="number" step="1000" value="15000"/>
               </div>
               <div class="row">
                 <label>主業年成長率 %<span class="help-icon" data-help="mainGrowth">?</span></label>
@@ -189,7 +189,7 @@
               </div>
               <div class="row">
                 <label>FAT FIRE 支出（月）<span class="help-icon" data-help="fat">?</span></label>
-                <input id="fat" type="number" step="1000" value="216000"/>
+                <input id="fat" type="number" step="1000" value="90000"/>
               </div>
               <div class="row">
                 <label>支出隨通膨調整？</label>
@@ -471,20 +471,20 @@ function fmtAxis(n){
 const monthsToText = m => m===Infinity ? '尚未達成（模擬期內）' : (Math.floor(m/12)+' 年 '+(m%12? m%12+' 個月':''));
 
 const defaults = {
-  survival:60000,
-  lifestyle:120000,
-  fat:216000,
-  assets:3000000,
-  totalIncome:240000,
-  mainIncome:200000,
-  sideIncome:40000,
-  mainGrowth:3,
-  sideGrowth:10,
-  returnRate:6,
-  wr:4,
-  years:30,
-  reinvest:'yes',
-  inflation:0,
+  survival:25000,        // 基本生活費：2.5萬（單身最低開銷）
+  lifestyle:50000,       // 理想生活費：5萬（舒適生活）
+  fat:90000,            // FAT FIRE：9萬（1.8倍）
+  assets:1500000,       // 目前資產：150萬（中階主管合理存款）
+  totalIncome:105000,   // 每月總收入：10.5萬
+  mainIncome:90000,     // 主業收入：9萬（中階主管月薪）
+  sideIncome:15000,     // 副業收入：1.5萬（接案/投資）
+  mainGrowth:3,         // 主業成長：3%（合理調薪）
+  sideGrowth:10,        // 副業成長：10%（努力發展）
+  returnRate:6,         // 投資報酬：6%（穩健型）
+  wr:4,                 // 提領率：4%
+  years:30,             // 模擬30年
+  reinvest:'yes',       // 盈餘投入
+  inflation:0,          // 通膨預設0（讓用戶自己開啟）
   inflationAdjust:'yes'
 };
 
