@@ -1,273 +1,7 @@
 /* ===================================================
-   鷹家買物社 - 完整圖片修復版本
-   修復：圖片載入中問題 + 輪播功能缺失
-   日期：2025/10/25
+   鷹家Fun生買物社 - 合併佈局樣式
+   來源: hybrid-layout.css + masonry-layout.css
    =================================================== */
-
-/* ============================================
-   🔧 核心修復：輪播圖片樣式（之前缺少）
-   ============================================ */
-
-/* 輪播容器 */
-.image-carousel {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-/* 輪播圖片基礎樣式 */
-.carousel-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-}
-
-/* 當前顯示的圖片 */
-.carousel-image.active {
-  opacity: 1;
-  z-index: 1;
-}
-
-/* 輪播控制按鈕 */
-.carousel-controls {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 8px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.masonry-card-image-wrapper:hover .carousel-controls {
-  opacity: 1;
-  pointer-events: auto;
-}
-
-.carousel-btn {
-  background: rgba(0, 0, 0, 0.5);
-  border: none;
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  pointer-events: auto;
-}
-
-.carousel-btn:hover {
-  background: rgba(0, 0, 0, 0.8);
-  transform: scale(1.1);
-}
-
-.carousel-btn:active {
-  transform: scale(0.95);
-}
-
-/* 輪播指示點 */
-.carousel-dots {
-  position: absolute;
-  bottom: 8px;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 6px;
-  z-index: 11;
-  padding: 4px 8px;
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 12px;
-  backdrop-filter: blur(4px);
-}
-
-.carousel-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.5);
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  padding: 0;
-}
-
-.carousel-dot.active {
-  background: white;
-  width: 20px;
-  border-radius: 4px;
-}
-
-.carousel-dot:hover {
-  background: rgba(255, 255, 255, 0.8);
-}
-
-/* 手機版輪播調整 */
-@media (max-width: 767px) {
-  .carousel-controls {
-    opacity: 1; /* 手機版永久顯示 */
-  }
-  
-  .carousel-btn {
-    width: 28px;
-    height: 28px;
-  }
-  
-  .carousel-dots {
-    bottom: 4px;
-  }
-}
-
-/* ============================================
-   圖片容器基礎樣式
-   ============================================ */
-.masonry-card-image-wrapper {
-  position: relative;
-  width: 100%;
-  background: linear-gradient(135deg, #f9fafb 0%, #e5e7eb 100%);
-  overflow: hidden;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* 載入動畫（顯示 "圖片載入中" 的原因）*/
-.masonry-card-image-wrapper.loading::before {
-  content: '圖片載入中';
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #9ca3af;
-  font-size: 14px;
-  z-index: 5;
-  white-space: nowrap;
-}
-
-/* 載入旋轉動畫 */
-.masonry-card-image-wrapper.loading::after {
-  content: '';
-  position: absolute;
-  top: calc(50% - 40px);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 30px;
-  height: 30px;
-  border: 3px solid #e5e7eb;
-  border-top-color: #9ca3af;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-  z-index: 5;
-}
-
-@keyframes spin {
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
-
-/* 圖片載入完成後移除 loading 狀態 */
-.masonry-card-image-wrapper.loaded::before,
-.masonry-card-image-wrapper.loaded::after {
-  display: none;
-}
-
-/* 單張圖片樣式 */
-.masonry-card-image {
-  display: block;
-  width: 100%;
-  object-fit: cover;
-  user-select: none;
-  -webkit-user-select: none;
-  transition: all 0.3s ease;
-}
-
-/* ============================================
-   手機端（< 768px）：自適應高度
-   ============================================ */
-@media (max-width: 767px) {
-  .masonry-card-image-wrapper {
-    min-height: 150px;
-    max-height: 300px;
-  }
-  
-  .masonry-card-image,
-  .carousel-image {
-    position: relative;
-    height: auto;
-    max-height: 300px;
-  }
-  
-  /* 輪播容器在手機版也需要自適應 */
-  .image-carousel {
-    min-height: 150px;
-  }
-  
-  .masonry-card-image-wrapper:active {
-    opacity: 0.9;
-  }
-}
-
-/* ============================================
-   平板端（768px - 1023px）：固定比例 4:3
-   ============================================ */
-@media (min-width: 768px) and (max-width: 1023px) {
-  .masonry-card-image-wrapper {
-    padding-top: 75%; /* 4:3 */
-  }
-  
-  .masonry-card-image,
-  .carousel-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-  }
-  
-  .masonry-card-image-wrapper:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  }
-}
-
-/* ============================================
-   桌面端（>= 1024px）：固定比例 4:3
-   ============================================ */
-@media (min-width: 1024px) {
-  .masonry-card-image-wrapper {
-    padding-top: 75%; /* 4:3 */
-  }
-  
-  .masonry-card-image,
-  .carousel-image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-  }
-  
-  .masonry-card-image-wrapper:hover {
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-  }
-  
-  .masonry-card-image-wrapper:hover .masonry-card-image,
-  .masonry-card-image-wrapper:hover .carousel-image.active {
-    opacity: 0.92;
-    transform: scale(1.03);
-  }
-}
 
 /* ============================================
    手機端：團購雙排瀑布流 + 折扣碼單排
@@ -307,6 +41,32 @@
   .masonry-card:active {
     transform: scale(0.98);
     opacity: 0.95;
+  }
+  
+  /* 圖片容器 */
+  .masonry-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    background: #f9fafb;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .masonry-card-image-wrapper:active .masonry-card-image {
+    opacity: 0.85;
+    transform: scale(0.98);
+  }
+  
+  .masonry-card-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-select: none;
   }
   
   /* 內容區 */
@@ -480,6 +240,36 @@
     border-color: #f59e0b;
   }
   
+  .masonry-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    background: #f5f5f5;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .masonry-card-image-wrapper:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .masonry-card-image-wrapper:hover .masonry-card-image {
+    opacity: 0.92;
+    transform: scale(1.03);
+  }
+  
+  .masonry-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
   .masonry-card-content {
     padding: 16px;
   }
@@ -536,6 +326,36 @@
     transform: translateY(-6px);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     border-color: #f59e0b;
+  }
+  
+  .masonry-card-image-wrapper {
+    position: relative;
+    width: 100%;
+    padding-top: 75%;
+    background: #f5f5f5;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .masonry-card-image-wrapper:hover {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .masonry-card-image-wrapper:hover .masonry-card-image {
+    opacity: 0.92;
+    transform: scale(1.03);
+  }
+  
+  .masonry-card-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    user-select: none;
+    -webkit-user-select: none;
   }
   
   .masonry-card-content {
@@ -609,8 +429,7 @@
 }
 
 /* 圖片載入中的佔位 */
-.masonry-card-image[loading="lazy"],
-.carousel-image[loading="lazy"] {
+.masonry-card-image[loading="lazy"] {
   background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 50%, #fef3c7 100%);
 }
 
@@ -671,7 +490,6 @@ html {
   .masonry-card,
   .coupon-card,
   .masonry-card-image,
-  .carousel-image,
   button,
   a {
     transition: none !important;
@@ -712,4 +530,152 @@ html {
   clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border-width: 0;
+}
+
+
+/* ============================================
+   倒數計時樣式
+   ============================================ */
+
+/* 倒數計時脈動動畫 */
+@keyframes pulse-subtle {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* 倒數計時數字樣式 */
+#countdownTime {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+/* ============================================
+   清除篩選按鈕動畫
+   ============================================ */
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.filter-clear-btn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* ============================================
+   響應式優化
+   ============================================ */
+
+/* 平板和手機適配 */
+@media (max-width: 1023px) {
+  header.header-compact {
+    padding-top: 0.375rem !important;
+    padding-bottom: 0.375rem !important;
+  }
+
+  /* 倒數計時手機版優化 */
+  #todayCountdown .flex-wrap {
+    justify-content: center;
+  }
+
+  #todayCountdown .text-sm {
+    font-size: 0.75rem;
+  }
+}
+
+/* 手機版 */
+@media (max-width: 767px) {
+
+  /* 倒數計時更緊湊 */
+  #todayCountdown {
+    padding: 0.5rem;
+  }
+
+  #countdownTime {
+    font-size: 1.125rem;
+    /* 手機版時間字體稍小，更緊湊 */
+  }
+
+  #todayCountdown .text-2xl {
+    font-size: 1.5rem;
+  }
+  
+  /* 確保手機版時間在第一排 */
+  #todayCountdown .flex.flex-col {
+    gap: 0.5rem;
+  }
+}
+
+/* ============================================
+   無障礙優化
+   ============================================ */
+
+/* 動畫優化 - 尊重用戶偏好 */
+@media (prefers-reduced-motion: reduce) {
+
+  header,
+  header.header-compact,
+  header.header-compact .hidden.lg\\:flex,
+  header.header-compact .lg\\:hidden.text-center,
+  header.header-compact #bannerSlot,
+  .filter-clear-btn {
+    transition: none !important;
+    animation: none !important;
+  }
+
+  .animate-pulse-subtle {
+    animation: none !important;
+  }
+}
+
+/* 高對比模式 */
+@media (prefers-contrast: high) {
+  #todayCountdown {
+    border-width: 3px;
+  }
+
+  .filter-clear-btn {
+    border: 2px solid currentColor;
+  }
+}
+
+/* ============================================
+   列印樣式
+   ============================================ */
+
+@media print {
+  header.header-compact {
+    padding: 1rem !important;
+  }
+
+  header.header-compact .hidden.lg\\:flex,
+  header.header-compact .lg\\:hidden.text-center {
+    max-height: none;
+    opacity: 1;
+  }
+
+  #todayCountdown,
+  .filter-clear-btn {
+    display: none;
+  }
 }
