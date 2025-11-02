@@ -824,22 +824,25 @@ function renderTodayCountdown() {
   
   return `
     <div id="todayCountdown" class="bg-gradient-to-r from-red-50 via-orange-50 to-red-50 border-2 border-red-300 rounded-lg px-4 py-3 mb-4">
-      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-2 md:gap-3">
-        <!-- 第一排：圖標 + 標題 + 倒數時間 (手機版) -->
-        <div class="flex items-center justify-between gap-3">
-          <div class="flex items-center gap-2">
-            <span class="text-2xl animate-pulse-subtle">⏰</span>
-            <span class="font-bold text-red-700">今日截止倒數</span>
-          </div>
-          <!-- 手機版：時間顯示在標題旁 -->
-          <span id="countdownTime" class="font-mono text-xl font-bold text-red-600 md:hidden">${timeLeft}</span>
+      <!-- 手機版：垂直置中排列 -->
+      <div class="md:hidden flex flex-col items-center gap-2 text-center">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl animate-pulse-subtle">⏰</span>
+          <span class="font-bold text-red-700">今日截止倒數</span>
         </div>
-        
-        <!-- 第二排：品牌資訊 + 倒數時間 (桌面版) -->
-        <div class="flex items-center gap-3 text-sm flex-wrap">
+        <span class="countdown-time font-mono text-2xl font-bold text-red-600">${timeLeft}</span>
+        <span class="text-sm text-gray-700">${brandsText}${moreText ? ' ' + moreText : ''}</span>
+      </div>
+      
+      <!-- 桌面版：水平排列 -->
+      <div class="hidden md:flex md:items-center md:justify-between gap-3">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl animate-pulse-subtle">⏰</span>
+          <span class="font-bold text-red-700">今日截止倒數</span>
+        </div>
+        <div class="flex items-center gap-3 text-sm">
           <span class="text-gray-700">${brandsText}${moreText ? ' ' + moreText : ''}</span>
-          <!-- 桌面版：時間顯示在右側 -->
-          <span class="font-mono text-xl font-bold text-red-600 hidden md:inline">${timeLeft}</span>
+          <span class="countdown-time font-mono text-xl font-bold text-red-600">${timeLeft}</span>
         </div>
       </div>
     </div>
@@ -857,10 +860,11 @@ function startCountdownTimer() {
     const countdownEl = document.getElementById('todayCountdown');
     if (countdownEl && getTodayDeadlines().length > 0) {
       const timeLeft = formatTimeRemaining();
-      const timeEl = countdownEl.querySelector('#countdownTime');
-      if (timeEl) {
-        timeEl.textContent = timeLeft;
-      }
+      // 更新所有的時間元素（手機版 + 桌面版）
+      const timeElements = countdownEl.querySelectorAll('.countdown-time');
+      timeElements.forEach(el => {
+        el.textContent = timeLeft;
+      });
     } else if (countdownEl) {
       countdownEl.remove();
       clearInterval(countdownInterval);
