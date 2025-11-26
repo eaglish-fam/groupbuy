@@ -1403,8 +1403,14 @@
       intensitySelect.addEventListener("change", renderRecommendations);
       saveWorkoutBtn.addEventListener("click", handleSaveWorkout);
       resetFormBtn.addEventListener("click", resetForm);
-      addCustomExerciseBtn.addEventListener("click", () => createExerciseRow(""));
-
+      addCustomExerciseBtn.addEventListener("click", () => {
+        const newRow = createExerciseRow("");
+        if (newRow) {
+          // 自動捲到新增的動作
+          newRow.scrollIntoView({ behavior: "smooth", block: "end" });
+        }
+      });
+      
       exportBtn.addEventListener("click", handleExportCSV);
       importBtn.addEventListener("click", handleImportClick);
       importFileInput.addEventListener("change", handleImportChange);
