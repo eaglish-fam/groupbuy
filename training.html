@@ -257,51 +257,6 @@
       margin-left: 2px;
     }
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.85rem;
-    }
-
-    th, td {
-      padding: 8px 6px;
-      border-bottom: 1px solid #e5e7eb;
-      text-align: left;
-    }
-
-    th {
-      background: #f3f4f6;
-      font-weight: 600;
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-
-    tr:hover td {
-      background: #f9fafb;
-    }
-
-    .log-table-wrapper {
-      max-height: 340px;
-      overflow-y: auto;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-    }
-
-    .detail-row {
-      background: #f9fafb;
-    }
-
-    .detail-content {
-      font-size: 0.85rem;
-      color: var(--text-main);
-    }
-
-    .detail-title {
-      font-weight: 600;
-      margin-bottom: 4px;
-    }
-
     .pill {
       display: inline-flex;
       padding: 2px 8px;
@@ -319,6 +274,129 @@
     .pill-full {
       background: #dcfce7;
       color: #166534;
+    }
+
+    /* Calendar */
+    .calendar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .calendar-title {
+      font-weight: 600;
+    }
+
+    .calendar-nav {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .calendar-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+      table-layout: fixed;
+    }
+
+    .calendar-table th,
+    .calendar-table td {
+      border: 1px solid #e5e7eb;
+      text-align: center;
+      padding: 4px;
+    }
+
+    .calendar-table th {
+      background: #f3f4f6;
+      font-weight: 600;
+      font-size: 0.8rem;
+    }
+
+    .calendar-day {
+      height: 52px;
+      vertical-align: top;
+      cursor: pointer;
+      position: relative;
+      background: #ffffff;
+    }
+
+    .calendar-day.empty {
+      background: #f9fafb;
+      cursor: default;
+    }
+
+    .calendar-day .date-number {
+      font-size: 0.8rem;
+      text-align: right;
+    }
+
+    .calendar-day .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: var(--accent);
+      position: absolute;
+      left: 50%;
+      bottom: 4px;
+      transform: translateX(-50%);
+    }
+
+    .calendar-day.has-workout {
+      background: #eff6ff;
+    }
+
+    .calendar-day.selected {
+      outline: 2px solid var(--accent);
+      outline-offset: -2px;
+      background: #dbeafe;
+    }
+
+    .selected-date-panel {
+      margin-top: 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      padding: 10px;
+      background: #f9fafb;
+    }
+
+    .selected-date-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+      font-size: 0.9rem;
+    }
+
+    .detail-workout {
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .detail-workout:last-child {
+      border-bottom: none;
+    }
+
+    .detail-workout-header {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.85rem;
+      margin-bottom: 4px;
+    }
+
+    .detail-exercise-list {
+      margin: 0 0 0 16px;
+      padding: 0;
+      font-size: 0.85rem;
+    }
+
+    .detail-exercise-list li {
+      margin-bottom: 2px;
     }
 
     footer {
@@ -347,6 +425,9 @@
       }
       .exercise-meta {
         padding-left: 20px;
+      }
+      .calendar-day {
+        height: 46px;
       }
     }
   </style>
@@ -414,7 +495,7 @@
           <button type="button" class="btn-secondary btn-sm" id="addCustomExerciseBtn">
             新增自訂動作
           </button>
-          <span class="muted">提示：只會儲存勾選「完成」的動作（或有填寫資料者）。</span>
+          <span class="muted">提示：只會儲存勾選「完成」的動作，或有填重量 / 組數 / 次數 / 徒手者。</span>
         </div>
       </div>
 
@@ -429,7 +510,7 @@
       </div>
     </section>
 
-    <!-- 訓練紀錄列表 -->
+    <!-- 訓練行事曆 -->
     <section class="card">
       <div class="section-header">
         <div class="card-title">
@@ -440,31 +521,46 @@
           <button type="button" class="btn-secondary btn-sm" id="exportBtn">
             匯出紀錄（CSV）
           </button>
+          <button type="button" class="btn-secondary btn-sm" id="importBtn">
+            匯入紀錄
+          </button>
           <button type="button" class="btn-link btn-sm" id="clearAllBtn">
             清空本機紀錄
           </button>
         </div>
       </div>
 
-      <div class="log-table-wrapper">
-        <table>
-          <thead>
-            <tr>
-              <th style="min-width: 90px;">日期</th>
-              <th style="min-width: 70px;">時間</th>
-              <th style="min-width: 80px;">部位</th>
-              <th style="min-width: 100px;">模式</th>
-              <th style="min-width: 80px;">動作數</th>
-              <th style="min-width: 80px;">操作</th>
-            </tr>
-          </thead>
-          <tbody id="logTableBody">
-            <!-- JS 產生 -->
-          </tbody>
-        </table>
+      <input type="file" id="importFileInput" accept=".csv,.json" style="display:none">
+
+      <div class="calendar-header">
+        <div class="calendar-title" id="monthLabel"></div>
+        <div class="calendar-nav">
+          <button type="button" class="btn-secondary btn-sm" id="prevMonthBtn">上一個月</button>
+          <button type="button" class="btn-secondary btn-sm" id="todayBtn">回到本月</button>
+          <button type="button" class="btn-secondary btn-sm" id="nextMonthBtn">下一個月</button>
+        </div>
       </div>
-      <div class="muted" style="margin-top: 6px;">
-        提示：點「展開」可以查看當日各動作的重量、組數、次數與備註。
+
+      <table class="calendar-table">
+        <thead>
+          <tr>
+            <th>日</th>
+            <th>一</th>
+            <th>二</th>
+            <th>三</th>
+            <th>四</th>
+            <th>五</th>
+            <th>六</th>
+          </tr>
+        </thead>
+        <tbody id="calendarBody">
+          <!-- JS 產生 -->
+        </tbody>
+      </table>
+
+      <div class="selected-date-panel">
+        <div class="selected-date-title" id="selectedDateTitle">尚未選擇日期</div>
+        <div id="selectedDateContent" class="muted">點選上方行事曆中的日期即可查看當天訓練內容。</div>
       </div>
     </section>
 
@@ -481,7 +577,7 @@
   </div>
 
   <script>
-    // 訓練建議資料（可之後再擴充）
+    // 訓練建議資料
     const PLANS = {
       chest: {
         label: "胸",
@@ -578,7 +674,7 @@
       }
     };
 
-    const STORAGE_KEY = "hiram_training_log_v2";
+    const STORAGE_KEY = "hiram_training_log_v3";
 
     let workouts = [];
 
@@ -593,10 +689,23 @@
     const notesInput = document.getElementById("notesInput");
     const saveWorkoutBtn = document.getElementById("saveWorkoutBtn");
     const resetFormBtn = document.getElementById("resetFormBtn");
-    const logTableBody = document.getElementById("logTableBody");
+
     const exportBtn = document.getElementById("exportBtn");
+    const importBtn = document.getElementById("importBtn");
+    const importFileInput = document.getElementById("importFileInput");
     const clearAllBtn = document.getElementById("clearAllBtn");
     const summaryText = document.getElementById("summaryText");
+
+    const monthLabel = document.getElementById("monthLabel");
+    const calendarBody = document.getElementById("calendarBody");
+    const prevMonthBtn = document.getElementById("prevMonthBtn");
+    const nextMonthBtn = document.getElementById("nextMonthBtn");
+    const todayBtn = document.getElementById("todayBtn");
+    const selectedDateTitle = document.getElementById("selectedDateTitle");
+    const selectedDateContent = document.getElementById("selectedDateContent");
+
+    let currentYear, currentMonth; // month: 0-11
+    let selectedDateStr = null; // 'YYYY-MM-DD'
 
     function initDateTime() {
       const now = new Date();
@@ -612,6 +721,10 @@
       if (!timeInput.value) {
         timeInput.value = `${hh}:${mi}`;
       }
+
+      currentYear = yyyy;
+      currentMonth = now.getMonth();
+      selectedDateStr = `${yyyy}-${mm}-${dd}`;
     }
 
     function loadFromStorage() {
@@ -675,7 +788,6 @@
       bodyweightLabel.appendChild(bodyweightCheckbox);
       bodyweightLabel.appendChild(document.createTextNode("徒手"));
 
-      // 切換徒手時，順便清空 / 鎖定重量欄位
       bodyweightCheckbox.addEventListener("change", () => {
         if (bodyweightCheckbox.checked) {
           weightInput.value = "";
@@ -731,7 +843,6 @@
 
       recommendationList.innerHTML = "";
 
-      // 建議動作
       plan.exercises.forEach(exName => {
         createExerciseRow(exName);
       });
@@ -747,151 +858,188 @@
       notesInput.value = "";
     }
 
-    function createDetailRow(workout, colSpan) {
-      const tr = document.createElement("tr");
-      tr.className = "detail-row";
-      const td = document.createElement("td");
-      td.colSpan = colSpan;
-
-      const container = document.createElement("div");
-      container.className = "detail-content";
-
-      const title = document.createElement("div");
-      title.className = "detail-title";
-      title.textContent = "詳細內容";
-      container.appendChild(title);
-
-      const exTitle = document.createElement("div");
-      exTitle.style.marginBottom = "4px";
-      exTitle.textContent = "完成動作：";
-      container.appendChild(exTitle);
-
-      if (workout.exercises && workout.exercises.length > 0) {
-        const ul = document.createElement("ul");
-        ul.style.margin = "0 0 4px 16px";
-        ul.style.padding = "0";
-        workout.exercises.forEach(ex => {
-          const li = document.createElement("li");
-          let line = ex.name || "未命名動作";
-          const parts = [];
-
-          if (ex.isBodyweight) {
-            parts.push("徒手");
-          } else if (ex.weight != null && ex.weight !== "") {
-            parts.push(`${ex.weight} kg`);
-          }
-
-          if (ex.sets != null && ex.sets !== "") {
-            parts.push(`${ex.sets} 組`);
-          }
-          if (ex.reps != null && ex.reps !== "") {
-            parts.push(`${ex.reps} 次`);
-          }
-
-          if (parts.length > 0) {
-            line += "｜" + parts.join(" × ").replace("× 徒手", "＋徒手");
-          }
-
-          li.textContent = line;
-          ul.appendChild(li);
-        });
-        container.appendChild(ul);
-      } else {
-        const none = document.createElement("div");
-        none.textContent = "（未勾選任何動作）";
-        none.style.marginBottom = "4px";
-        container.appendChild(none);
-      }
-
-      const notesTitle = document.createElement("div");
-      notesTitle.style.marginTop = "4px";
-      notesTitle.textContent = "備註：";
-      container.appendChild(notesTitle);
-
-      const notesText = document.createElement("div");
-      notesText.textContent = workout.notes ? workout.notes : "（無備註）";
-      container.appendChild(notesText);
-
-      td.appendChild(container);
-      tr.appendChild(td);
-      return tr;
+    function buildWorkoutsByDate() {
+      const map = {};
+      workouts.forEach(w => {
+        if (!w.date) return;
+        if (!map[w.date]) map[w.date] = [];
+        map[w.date].push(w);
+      });
+      return map;
     }
 
-    function renderLogTable() {
-      logTableBody.innerHTML = "";
-
-      if (!workouts || workouts.length === 0) {
-        const tr = document.createElement("tr");
-        const td = document.createElement("td");
-        td.colSpan = 6;
-        td.className = "muted";
-        td.textContent = "目前尚無訓練紀錄，從上方新增一筆吧。";
-        tr.appendChild(td);
-        logTableBody.appendChild(tr);
-        summaryText.textContent = "";
+    function renderSelectedDateDetails(dateStr, map) {
+      if (!dateStr) {
+        selectedDateTitle.textContent = "尚未選擇日期";
+        selectedDateContent.className = "muted";
+        selectedDateContent.textContent = "點選上方行事曆中的日期即可查看當天訓練內容。";
         return;
       }
 
-      const sorted = [...workouts].sort((a, b) => b.timestamp - a.timestamp);
+      const list = map[dateStr] || [];
+      selectedDateTitle.textContent = dateStr;
 
-      // 統計摘要
-      const total = sorted.length;
-      const bodyPartCount = sorted.reduce((acc, w) => {
-        acc[w.bodyPart] = (acc[w.bodyPart] || 0) + 1;
-        return acc;
-      }, {});
-      const partsLabel = Object.entries(bodyPartCount)
-        .map(([bp, count]) => `${(PLANS[bp] && PLANS[bp].label) || bp}×${count}`)
-        .join("，");
-      summaryText.textContent = `共 ${total} 筆訓練紀錄｜${partsLabel}`;
+      if (list.length === 0) {
+        selectedDateContent.className = "muted";
+        selectedDateContent.textContent = "當天尚無訓練紀錄。";
+        return;
+      }
 
-      sorted.forEach(workout => {
-        const mainRow = document.createElement("tr");
+      selectedDateContent.className = "";
+      selectedDateContent.innerHTML = "";
 
-        const dateTd = document.createElement("td");
-        dateTd.textContent = workout.date;
+      list.sort((a, b) => (a.time || "").localeCompare(b.time || ""));
 
-        const timeTd = document.createElement("td");
-        timeTd.textContent = workout.time || "";
+      list.forEach(w => {
+        const wrap = document.createElement("div");
+        wrap.className = "detail-workout";
 
-        const bodyTd = document.createElement("td");
-        bodyTd.textContent = (PLANS[workout.bodyPart] && PLANS[workout.bodyPart].label) || workout.bodyPart;
+        const header = document.createElement("div");
+        header.className = "detail-workout-header";
 
-        const modeTd = document.createElement("td");
-        const pill = document.createElement("span");
-        pill.className = "pill " + (workout.intensity === "busy" ? "pill-busy" : "pill-full");
-        pill.textContent = workout.intensity === "busy" ? "忙碌日" : "認真日";
-        modeTd.appendChild(pill);
+        const timeSpan = document.createElement("span");
+        timeSpan.textContent = w.time || "--:--";
 
-        const countTd = document.createElement("td");
-        countTd.textContent = workout.exercises ? workout.exercises.length : 0;
+        const partSpan = document.createElement("span");
+        partSpan.textContent = (PLANS[w.bodyPart] && PLANS[w.bodyPart].label) || w.bodyPart;
 
-        const actionTd = document.createElement("td");
-        const toggleBtn = document.createElement("button");
-        toggleBtn.type = "button";
-        toggleBtn.className = "btn-secondary btn-sm";
-        toggleBtn.textContent = "展開";
-        actionTd.appendChild(toggleBtn);
+        const modeSpan = document.createElement("span");
+        modeSpan.className = "pill " + (w.intensity === "busy" ? "pill-busy" : "pill-full");
+        modeSpan.textContent = w.intensity === "busy" ? "忙碌日" : "認真日";
 
-        mainRow.appendChild(dateTd);
-        mainRow.appendChild(timeTd);
-        mainRow.appendChild(bodyTd);
-        mainRow.appendChild(modeTd);
-        mainRow.appendChild(countTd);
-        mainRow.appendChild(actionTd);
+        header.appendChild(timeSpan);
+        header.appendChild(partSpan);
+        header.appendChild(modeSpan);
 
-        const detailRow = createDetailRow(workout, 6);
-        detailRow.style.display = "none";
+        wrap.appendChild(header);
 
-        toggleBtn.addEventListener("click", () => {
-          const visible = detailRow.style.display === "table-row";
-          detailRow.style.display = visible ? "none" : "table-row";
-          toggleBtn.textContent = visible ? "展開" : "收合";
-        });
+        const exTitle = document.createElement("div");
+        exTitle.textContent = "動作：";
+        exTitle.style.fontSize = "0.85rem";
+        wrap.appendChild(exTitle);
 
-        logTableBody.appendChild(mainRow);
-        logTableBody.appendChild(detailRow);
+        const ul = document.createElement("ul");
+        ul.className = "detail-exercise-list";
+
+        if (w.exercises && w.exercises.length > 0) {
+          w.exercises.forEach(ex => {
+            const li = document.createElement("li");
+            let line = ex.name || "未命名動作";
+            const parts = [];
+
+            if (ex.isBodyweight) {
+              parts.push("徒手");
+            } else if (ex.weight !== "" && ex.weight != null) {
+              parts.push(ex.weight + " kg");
+            }
+            if (ex.sets !== "" && ex.sets != null) {
+              parts.push(ex.sets + " 組");
+            }
+            if (ex.reps !== "" && ex.reps != null) {
+              parts.push(ex.reps + " 次");
+            }
+
+            if (parts.length > 0) {
+              line += "｜" + parts.join(" × ");
+            }
+
+            li.textContent = line;
+            ul.appendChild(li);
+          });
+        } else {
+          const li = document.createElement("li");
+          li.textContent = "（未記錄動作細節）";
+          ul.appendChild(li);
+        }
+
+        wrap.appendChild(ul);
+
+        const notesTitle = document.createElement("div");
+        notesTitle.textContent = "備註：";
+        notesTitle.style.fontSize = "0.85rem";
+        notesTitle.style.marginTop = "4px";
+        wrap.appendChild(notesTitle);
+
+        const notesText = document.createElement("div");
+        notesText.textContent = w.notes ? w.notes : "（無備註）";
+        notesText.style.fontSize = "0.85rem";
+        wrap.appendChild(notesText);
+
+        selectedDateContent.appendChild(wrap);
       });
+    }
+
+    function renderCalendar() {
+      const map = buildWorkoutsByDate();
+
+      // summary
+      if (!workouts || workouts.length === 0) {
+        summaryText.textContent = "";
+      } else {
+        const total = workouts.length;
+        const bodyPartCount = workouts.reduce((acc, w) => {
+          acc[w.bodyPart] = (acc[w.bodyPart] || 0) + 1;
+          return acc;
+        }, {});
+        const partsLabel = Object.entries(bodyPartCount)
+          .map(([bp, count]) => `${(PLANS[bp] && PLANS[bp].label) || bp}×${count}`)
+          .join("，");
+        summaryText.textContent = `共 ${total} 筆訓練紀錄｜${partsLabel}`;
+      }
+
+      const firstDay = new Date(currentYear, currentMonth, 1);
+      const firstWeekday = firstDay.getDay(); // 0=Sun
+      const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+
+      monthLabel.textContent = `${currentYear} 年 ${currentMonth + 1} 月`;
+
+      let html = "";
+      let dayNum = 1;
+
+      for (let week = 0; week < 6; week++) {
+        let row = "<tr>";
+        for (let dow = 0; dow < 7; dow++) {
+          const cellIndex = week * 7 + dow;
+          if (cellIndex < firstWeekday || dayNum > daysInMonth) {
+            row += '<td class="calendar-day empty"></td>';
+          } else {
+            const yyyy = currentYear;
+            const mm = String(currentMonth + 1).padStart(2, "0");
+            const dd = String(dayNum).padStart(2, "0");
+            const dateStr = `${yyyy}-${mm}-${dd}`;
+
+            const hasWorkout = !!map[dateStr];
+            let cls = "calendar-day";
+            if (hasWorkout) cls += " has-workout";
+            if (dateStr === selectedDateStr) cls += " selected";
+
+            row += `<td class="${cls}" data-date="${dateStr}">
+                      <div class="date-number">${dayNum}</div>
+                      ${hasWorkout ? '<div class="dot"></div>' : ""}
+                    </td>`;
+            dayNum++;
+          }
+        }
+        row += "</tr>";
+        html += row;
+        if (dayNum > daysInMonth) break;
+      }
+
+      calendarBody.innerHTML = html;
+
+      // click handlers
+      const cells = calendarBody.querySelectorAll(".calendar-day[data-date]");
+      cells.forEach(cell => {
+        cell.addEventListener("click", () => {
+          const dateStr = cell.dataset.date;
+          selectedDateStr = dateStr;
+          renderCalendar(); // 重新渲染以更新選取樣式
+          renderSelectedDateDetails(dateStr, map);
+        });
+      });
+
+      // 初始顯示選取日期內容
+      renderSelectedDateDetails(selectedDateStr, map);
     }
 
     function handleSaveWorkout() {
@@ -923,18 +1071,17 @@
         const repsVal = repsInput.value.trim();
         const isBodyweight = bodyweightCheckbox.checked;
 
-        const hasAnyData = name || weightVal || setsVal || repsVal || isBodyweight;
+        // 只記錄：有勾完成 或 有填重量/組數/次數/徒手
+        const hasAnyData = weightVal || setsVal || repsVal || isBodyweight;
+        if (!done && !hasAnyData) return;
 
-        // 只存「有勾完成」或有填任何資料的動作
-        if (done || hasAnyData) {
-          exercises.push({
-            name: name || "未命名動作",
-            isBodyweight: isBodyweight,
-            weight: weightVal !== "" ? parseFloat(weightVal) : "",
-            sets: setsVal !== "" ? parseInt(setsVal, 10) : "",
-            reps: repsVal !== "" ? parseInt(repsVal, 10) : ""
-          });
-        }
+        exercises.push({
+          name: name || "未命名動作",
+          isBodyweight: isBodyweight,
+          weight: weightVal !== "" ? parseFloat(weightVal) : "",
+          sets: setsVal !== "" ? parseInt(setsVal, 10) : "",
+          reps: repsVal !== "" ? parseInt(repsVal, 10) : ""
+        });
       });
 
       const timestamp = new Date(`${date}T${time || "00:00"}`).getTime();
@@ -952,7 +1099,8 @@
 
       workouts.push(workout);
       saveToStorage();
-      renderLogTable();
+      selectedDateStr = date; // 切到當天
+      renderCalendar();
       alert("已儲存訓練紀錄！");
     }
 
@@ -962,7 +1110,6 @@
         return;
       }
 
-      // CSV 標題列
       const header = [
         "日期",
         "時間",
@@ -1006,7 +1153,6 @@
             rows.push(row);
           });
         } else {
-          // 沒有動作詳細資料，也輸出一行方便看那天有訓練
           const row = [
             ...base,
             "",
@@ -1024,7 +1170,6 @@
           cols
             .map(col => {
               const text = col == null ? "" : String(col);
-              // 如果內含逗號或引號，用雙引號包起來並轉義
               if (text.includes(",") || text.includes("\"") || text.includes("\n")) {
                 return `"${text.replace(/"/g, '""')}"`;
               }
@@ -1054,6 +1199,187 @@
       URL.revokeObjectURL(url);
     }
 
+    function parseCSVLine(line) {
+      const result = [];
+      let cur = "";
+      let inQuotes = false;
+
+      for (let i = 0; i < line.length; i++) {
+        const c = line[i];
+        if (inQuotes) {
+          if (c === '"') {
+            if (i + 1 < line.length && line[i + 1] === '"') {
+              cur += '"';
+              i++;
+            } else {
+              inQuotes = false;
+            }
+          } else {
+            cur += c;
+          }
+        } else {
+          if (c === '"') {
+            inQuotes = true;
+          } else if (c === ",") {
+            result.push(cur);
+            cur = "";
+          } else {
+            cur += c;
+          }
+        }
+      }
+      result.push(cur);
+      return result;
+    }
+
+    function handleImportFile(text) {
+      text = text.trim();
+      let importedWorkouts = [];
+
+      // 先試 JSON
+      try {
+        const data = JSON.parse(text);
+        if (Array.isArray(data)) {
+          importedWorkouts = data;
+        }
+      } catch (e) {
+        // 不是 JSON，改用 CSV 解析
+      }
+
+      if (importedWorkouts.length === 0) {
+        // CSV 解析
+        const lines = text.split(/\r?\n/);
+        if (lines.length <= 1) {
+          alert("匯入失敗：檔案內容不正確。");
+          return;
+        }
+
+        const header = parseCSVLine(lines[0]);
+        const idxDate = header.indexOf("日期");
+        const idxTime = header.indexOf("時間");
+        const idxPart = header.indexOf("部位");
+        const idxMode = header.indexOf("模式");
+        const idxName = header.indexOf("動作名稱");
+        const idxWeight = header.indexOf("重量");
+        const idxSets = header.indexOf("組數");
+        const idxReps = header.indexOf("次數");
+        const idxNotes = header.indexOf("備註");
+
+        if (idxDate === -1 || idxPart === -1 || idxMode === -1) {
+          alert("匯入失敗：CSV 欄位名稱不符合預期。");
+          return;
+        }
+
+        const grouped = {};
+
+        for (let i = 1; i < lines.length; i++) {
+          const line = lines[i].trim();
+          if (!line) continue;
+          const cols = parseCSVLine(line);
+          const date = cols[idxDate] || "";
+          if (!date) continue;
+
+          const time = idxTime >= 0 ? cols[idxTime] || "" : "";
+          const partText = idxPart >= 0 ? cols[idxPart] || "" : "";
+          const modeText = idxMode >= 0 ? cols[idxMode] || "" : "";
+          const exName = idxName >= 0 ? cols[idxName] || "" : "";
+          const weightText = idxWeight >= 0 ? cols[idxWeight] || "" : "";
+          const setsText = idxSets >= 0 ? cols[idxSets] || "" : "";
+          const repsText = idxReps >= 0 ? cols[idxReps] || "" : "";
+          const notes = idxNotes >= 0 ? cols[idxNotes] || "" : "";
+
+          let bodyPart = Object.keys(PLANS).find(k => PLANS[k].label === partText) || "chest";
+          let intensity = modeText.includes("忙碌") ? "busy" : "serious";
+
+          const key = `${date}|${time}|${bodyPart}|${intensity}|${notes}`;
+          if (!grouped[key]) {
+            grouped[key] = {
+              date,
+              time,
+              bodyPart,
+              intensity,
+              notes,
+              exercises: []
+            };
+          }
+
+          // 若該列沒有動作名稱就只當作「沒有詳細動作」的紀錄
+          if (exName || weightText || setsText || repsText) {
+            let isBodyweight = weightText.includes("徒手");
+            let weight = "";
+            if (!isBodyweight && weightText) {
+              const num = parseFloat(weightText.replace("kg", "").trim());
+              if (!isNaN(num)) weight = num;
+            }
+            const sets = setsText ? parseInt(setsText, 10) : "";
+            const reps = repsText ? parseInt(repsText, 10) : "";
+
+            grouped[key].exercises.push({
+              name: exName || "未命名動作",
+              isBodyweight,
+              weight,
+              sets: isNaN(sets) ? "" : sets,
+              reps: isNaN(reps) ? "" : reps
+            });
+          }
+        }
+
+        importedWorkouts = Object.values(grouped).map(w => {
+          const timestamp = new Date(`${w.date}T${w.time || "00:00"}`).getTime();
+          return {
+            id: timestamp + Math.random(),
+            date: w.date,
+            time: w.time,
+            bodyPart: w.bodyPart,
+            intensity: w.intensity,
+            exercises: w.exercises || [],
+            notes: w.notes || "",
+            timestamp
+          };
+        });
+      }
+
+      if (!importedWorkouts || importedWorkouts.length === 0) {
+        alert("匯入失敗：沒有讀到任何有效紀錄。");
+        return;
+      }
+
+      const ok = confirm(`即將以匯入的 ${importedWorkouts.length} 筆紀錄覆蓋目前本機資料，確定嗎？`);
+      if (!ok) return;
+
+      workouts = importedWorkouts;
+      saveToStorage();
+
+      // 把選取日期設成有紀錄的最近一天，或今天
+      const todayStr = dateInput.value;
+      const hasToday = workouts.some(w => w.date === todayStr);
+      if (hasToday) {
+        selectedDateStr = todayStr;
+      } else if (workouts.length > 0) {
+        selectedDateStr = workouts[0].date;
+      }
+
+      renderCalendar();
+      alert("匯入完成！");
+    }
+
+    function handleImportClick() {
+      importFileInput.value = "";
+      importFileInput.click();
+    }
+
+    function handleImportChange(evt) {
+      const file = evt.target.files && evt.target.files[0];
+      if (!file) return;
+
+      const reader = new FileReader();
+      reader.onload = e => {
+        const text = e.target.result;
+        handleImportFile(text);
+      };
+      reader.readAsText(file, "utf-8");
+    }
+
     function handleClearAll() {
       if (!workouts || workouts.length === 0) {
         alert("目前沒有紀錄。");
@@ -1064,21 +1390,54 @@
 
       workouts = [];
       saveToStorage();
-      renderLogTable();
+      renderCalendar();
     }
 
     document.addEventListener("DOMContentLoaded", () => {
       initDateTime();
       loadFromStorage();
-      renderLogTable();
+      renderCalendar();
 
       bodyPartSelect.addEventListener("change", renderRecommendations);
       intensitySelect.addEventListener("change", renderRecommendations);
       saveWorkoutBtn.addEventListener("click", handleSaveWorkout);
       resetFormBtn.addEventListener("click", resetForm);
-      exportBtn.addEventListener("click", handleExportCSV);
-      clearAllBtn.addEventListener("click", handleClearAll);
       addCustomExerciseBtn.addEventListener("click", () => createExerciseRow(""));
+
+      exportBtn.addEventListener("click", handleExportCSV);
+      importBtn.addEventListener("click", handleImportClick);
+      importFileInput.addEventListener("change", handleImportChange);
+      clearAllBtn.addEventListener("click", handleClearAll);
+
+      prevMonthBtn.addEventListener("click", () => {
+        if (currentMonth === 0) {
+          currentMonth = 11;
+          currentYear -= 1;
+        } else {
+          currentMonth -= 1;
+        }
+        renderCalendar();
+      });
+
+      nextMonthBtn.addEventListener("click", () => {
+        if (currentMonth === 11) {
+          currentMonth = 0;
+          currentYear += 1;
+        } else {
+          currentMonth += 1;
+        }
+        renderCalendar();
+      });
+
+      todayBtn.addEventListener("click", () => {
+        const now = new Date();
+        currentYear = now.getFullYear();
+        currentMonth = now.getMonth();
+        const mm = String(currentMonth + 1).padStart(2, "0");
+        const dd = String(now.getDate()).padStart(2, "0");
+        selectedDateStr = `${currentYear}-${mm}-${dd}`;
+        renderCalendar();
+      });
     });
   </script>
 </body>
