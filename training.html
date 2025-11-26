@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <title>訓練紀錄小助手</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --card-bg: #ffffff;
+      --accent: #2563eb;
+      --accent-soft: #dbeafe;
+      --text-main: #111827;
+      --text-sub: #6b7280;
+      --border: #e5e7eb;
+      --danger: #b91c1c;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text-main);
+    }
+
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 16px;
+    }
+
+    header {
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 1.6rem;
+      margin: 0 0 4px;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-sub);
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.08);
+      margin-bottom: 16px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .card-title small {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+
+    label {
+      font-size: 0.9rem;
+      display: block;
+      margin: 8px 0 4px;
+      color: var(--text-main);
+    }
+
+    input[type="date"],
+    input[type="time"],
+    select,
+    textarea {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 0.9rem;
+      outline: none;
+      background: #fff;
+    }
+
+    input[type="date"]:focus,
+    input[type="time"]:focus,
+    select:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 2px var(--accent-soft);
+    }
+
+    textarea {
+      min-height: 70px;
+      resize: vertical;
+    }
+
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .row > .col {
+      flex: 1 1 160px;
+    }
+
+    button {
+      border: none;
+      border-radius: 999px;
+      padding: 8px 16px;
+      font-size: 0.9rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #e5e7eb;
+      color: #111827;
+    }
+
+    .btn-link {
+      background: transparent;
+      color: var(--accent);
+      padding: 0;
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .btn-sm {
+      font-size: 0.8rem;
+      padding: 4px 10px;
+    }
+
+    .btn-primary:hover {
+      background: #1d4ed8;
+    }
+
+    .btn-secondary:hover {
+      background: #d1d5db;
+    }
+
+    .btn-danger:hover {
+      background: #991b1b;
+    }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+      gap: 8px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: #1d4ed8;
+      font-size: 0.75rem;
+    }
+
+    .muted {
+      font-size: 0.8rem;
+      color: var(--text-sub);
+    }
+
+    .recommendation-list {
+      border-radius: 8px;
+      background: #f9fafb;
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      margin-top: 8px;
+      max-height: 200px;
+      overflow-y: auto;
+    }
+
+    .recommendation-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9rem;
+      padding: 2px 0;
+    }
+
+    .recommendation-item input[type="checkbox"] {
+      flex-shrink: 0;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.85rem;
+    }
+
+    th, td {
+      padding: 8px 6px;
+      border-bottom: 1px solid #e5e7eb;
+      text-align: left;
+    }
+
+    th {
+      background: #f3f4f6;
+      font-weight: 600;
+      position: sticky;
+      top: 0;
+      z-index: 1;
+    }
+
+    tr:hover td {
+      background: #f9fafb;
+    }
+
+    .log-table-wrapper {
+      max-height: 340px;
+      overflow-y: auto;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+    }
+
+    .detail-row {
+      background: #f9fafb;
+    }
+
+    .detail-content {
+      font-size: 0.85rem;
+      color: var(--text-main);
+    }
+
+    .detail-title {
+      font-weight: 600;
+      margin-bottom: 4px;
+    }
+
+    .pill {
+      display: inline-flex;
+      padding: 2px 8px;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      background: #e5e7eb;
+      color: #374151;
+    }
+
+    .pill-busy {
+      background: #fef3c7;
+      color: #92400e;
+    }
+
+    .pill-full {
+      background: #dcfce7;
+      color: #166534;
+    }
+
+    footer {
+      margin-top: 24px;
+      padding-top: 16px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+      color: var(--text-sub);
+      text-align: center;
+    }
+
+    .footer-buttons {
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    @media (max-width: 600px) {
+      .card {
+        padding: 12px;
+      }
+      .row {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>訓練紀錄小助手</h1>
+      <div class="subtitle">先選日期、部位和忙碌 / 認真，再勾選今天做了什麼，就能記錄下來。</div>
+    </header>
+
+    <!-- 建立新訓練紀錄 -->
+    <section class="card">
+      <div class="section-header">
+        <div class="card-title">
+          新增訓練紀錄
+        </div>
+        <button type="button" class="btn-secondary btn-sm" id="resetFormBtn">
+          重設表單
+        </button>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="dateInput">日期</label>
+          <input type="date" id="dateInput">
+        </div>
+        <div class="col">
+          <label for="timeInput">時間</label>
+          <input type="time" id="timeInput">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <label for="bodyPartSelect">訓練部位</label>
+          <select id="bodyPartSelect">
+            <option value="">請選擇</option>
+            <option value="chest">胸</option>
+            <option value="back">背</option>
+            <option value="legs">腿</option>
+            <option value="full">全身</option>
+          </select>
+        </div>
+        <div class="col">
+          <label for="intensitySelect">今日模式</label>
+          <select id="intensitySelect">
+            <option value="">請選擇</option>
+            <option value="busy">忙碌日（在家快訓）</option>
+            <option value="serious">認真日（健身房完整版）</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="recommendationBlock" style="margin-top: 12px; display: none;">
+        <div class="section-header">
+          <div>
+            <span class="card-title" style="margin-bottom: 0;">建議動作</span>
+            <div class="muted">勾選今天實際有完成的動作，可作為訓練紀錄。</div>
+          </div>
+          <span class="tag" id="recommendationTag"></span>
+        </div>
+        <div id="recommendationList" class="recommendation-list"></div>
+      </div>
+
+      <label for="notesInput" style="margin-top: 12px;">備註（今天的重量、次數或感受）</label>
+      <textarea id="notesInput" placeholder="例如：臥推 60kg 4x6，今天睡眠普通，腿有點累…"></textarea>
+
+      <div style="margin-top: 12px; display: flex; justify-content: space-between; align-items: center; gap: 8px; flex-wrap: wrap;">
+        <button type="button" class="btn-primary" id="saveWorkoutBtn">
+          儲存訓練紀錄
+        </button>
+        <span class="muted">提示：日期、部位與模式為必填，建議動作不勾選也可以儲存。</span>
+      </div>
+    </section>
+
+    <!-- 訓練紀錄列表 -->
+    <section class="card">
+      <div class="section-header">
+        <div class="card-title">
+          訓練行事曆
+          <small id="summaryText"></small>
+        </div>
+        <div class="btn-group">
+          <button type="button" class="btn-secondary btn-sm" id="exportBtn">
+            匯出紀錄（JSON）
+          </button>
+          <button type="button" class="btn-link btn-sm" id="clearAllBtn">
+            清空本機紀錄
+          </button>
+        </div>
+      </div>
+
+      <div class="log-table-wrapper">
+        <table>
+          <thead>
+            <tr>
+              <th style="min-width: 90px;">日期</th>
+              <th style="min-width: 70px;">時間</th>
+              <th style="min-width: 80px;">部位</th>
+              <th style="min-width: 100px;">模式</th>
+              <th style="min-width: 80px;">動作數</th>
+              <th style="min-width: 80px;">操作</th>
+            </tr>
+          </thead>
+          <tbody id="logTableBody">
+            <!-- JS 產生 -->
+          </tbody>
+        </table>
+      </div>
+      <div class="muted" style="margin-top: 6px;">
+        提示：點「展開」可以查看當日詳細訓練內容與備註。
+      </div>
+    </section>
+
+    <footer>
+      <div class="footer-buttons">
+        <button type="button" class="btn-secondary" onclick="window.location.href='https://www.eaglish.store'">
+          回團購首頁
+        </button>
+      </div>
+      <div>
+        本頁面僅提供一般性運動建議，實際訓練請依個人身體狀況調整，如有疾病或任何不適請先諮詢專業醫師或醫療人員。
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // 訓練建議資料
+    const PLANS = {
+      chest: {
+        label: "胸",
+        busy: {
+          label: "忙碌日（在家快訓）",
+          exercises: [
+            "伏地挺身",
+            "寬距伏地挺身",
+            "Pike 伏地（模擬肩推）"
+          ]
+        },
+        serious: {
+          label: "認真日（健身房）",
+          exercises: [
+            "槓鈴平板臥推",
+            "上斜啞鈴臥推",
+            "坐姿啞鈴肩推 / 史密斯肩推",
+            "器械飛鳥 / 夾胸",
+            "繩索下壓（三頭肌）"
+          ]
+        }
+      },
+      back: {
+        label: "背",
+        busy: {
+          label: "忙碌日（在家快訓）",
+          exercises: [
+            "單邊啞鈴划船 / 彈力帶划船",
+            "彈力帶下拉 / 反向划船",
+            "俯身反向飛鳥（後三角）",
+            "啞鈴彎舉（二頭肌）"
+          ]
+        },
+        serious: {
+          label: "認真日（健身房）",
+          exercises: [
+            "引體向上 / 高位下拉",
+            "俯身槓鈴划船",
+            "坐姿划船（器械）",
+            "面拉（Face pull）",
+            "槓鈴 / 啞鈴彎舉"
+          ]
+        }
+      },
+      legs: {
+        label: "腿",
+        busy: {
+          label: "忙碌日（在家快訓）",
+          exercises: [
+            "杯式深蹲 / 徒手深蹲",
+            "弓箭步（原地 / 行走）",
+            "臀橋（Glute bridge）",
+            "站姿提踵"
+          ]
+        },
+        serious: {
+          label: "認真日（健身房）",
+          exercises: [
+            "深蹲（槓鈴 / 史密斯）",
+            "腿推機",
+            "羅馬尼亞硬舉（RDL）",
+            "臀推（Hip thrust）",
+            "腿屈曲（腿後側）",
+            "腿伸展（腿前側）",
+            "提踵"
+          ]
+        }
+      },
+      full: {
+        label: "全身",
+        busy: {
+          label: "忙碌日（在家快訓）",
+          exercises: [
+            "杯式深蹲 / 徒手深蹲",
+            "伏地挺身",
+            "單邊啞鈴划船 / 彈力帶划船",
+            "臀橋",
+            "啞鈴側平舉",
+            "平板撐體"
+          ]
+        },
+        serious: {
+          label: "認真日（健身房）",
+          exercises: [
+            "前蹲 / 杯式深蹲",
+            "啞鈴肩推",
+            "槓鈴 / 啞鈴划船",
+            "輕量硬舉（動作練習）",
+            "啞鈴側平舉",
+            "核心訓練（抬腿＋平板）"
+          ]
+        }
+      }
+    };
+
+    const STORAGE_KEY = "hiram_training_log_v1";
+
+    let workouts = [];
+
+    const dateInput = document.getElementById("dateInput");
+    const timeInput = document.getElementById("timeInput");
+    const bodyPartSelect = document.getElementById("bodyPartSelect");
+    const intensitySelect = document.getElementById("intensitySelect");
+    const recommendationBlock = document.getElementById("recommendationBlock");
+    const recommendationTag = document.getElementById("recommendationTag");
+    const recommendationList = document.getElementById("recommendationList");
+    const notesInput = document.getElementById("notesInput");
+    const saveWorkoutBtn = document.getElementById("saveWorkoutBtn");
+    const resetFormBtn = document.getElementById("resetFormBtn");
+    const logTableBody = document.getElementById("logTableBody");
+    const exportBtn = document.getElementById("exportBtn");
+    const clearAllBtn = document.getElementById("clearAllBtn");
+    const summaryText = document.getElementById("summaryText");
+
+    function initDateTime() {
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      const hh = String(now.getHours()).padStart(2, "0");
+      const mi = String(now.getMinutes()).padStart(2, "0");
+
+      if (!dateInput.value) {
+        dateInput.value = `${yyyy}-${mm}-${dd}`;
+      }
+      if (!timeInput.value) {
+        timeInput.value = `${hh}:${mi}`;
+      }
+    }
+
+    function loadFromStorage() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (raw) {
+          workouts = JSON.parse(raw);
+        } else {
+          workouts = [];
+        }
+      } catch (e) {
+        console.error("讀取 localStorage 發生錯誤：", e);
+        workouts = [];
+      }
+    }
+
+    function saveToStorage() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(workouts));
+      } catch (e) {
+        console.error("寫入 localStorage 發生錯誤：", e);
+      }
+    }
+
+    function renderRecommendations() {
+      const bodyPart = bodyPartSelect.value;
+      const intensity = intensitySelect.value;
+
+      if (!bodyPart || !intensity || !PLANS[bodyPart]) {
+        recommendationBlock.style.display = "none";
+        recommendationList.innerHTML = "";
+        recommendationTag.textContent = "";
+        return;
+      }
+
+      const plan = PLANS[bodyPart][intensity];
+      recommendationBlock.style.display = "block";
+      recommendationTag.textContent = `${PLANS[bodyPart].label}｜${plan.label}`;
+
+      recommendationList.innerHTML = "";
+
+      plan.exercises.forEach((ex, idx) => {
+        const id = `ex-${idx}-${bodyPart}-${intensity}`;
+        const wrapper = document.createElement("div");
+        wrapper.className = "recommendation-item";
+
+        const checkbox = document.createElement("input");
+        checkbox.type = "checkbox";
+        checkbox.id = id;
+        checkbox.dataset.exerciseName = ex;
+
+        const label = document.createElement("label");
+        label.setAttribute("for", id);
+        label.textContent = ex;
+
+        wrapper.appendChild(checkbox);
+        wrapper.appendChild(label);
+        recommendationList.appendChild(wrapper);
+      });
+    }
+
+    function resetForm() {
+      initDateTime();
+      bodyPartSelect.value = "";
+      intensitySelect.value = "";
+      recommendationBlock.style.display = "none";
+      recommendationList.innerHTML = "";
+      recommendationTag.textContent = "";
+      notesInput.value = "";
+    }
+
+    function createDetailRow(workout, colSpan) {
+      const tr = document.createElement("tr");
+      tr.className = "detail-row";
+      const td = document.createElement("td");
+      td.colSpan = colSpan;
+
+      const container = document.createElement("div");
+      container.className = "detail-content";
+
+      const title = document.createElement("div");
+      title.className = "detail-title";
+      title.textContent = "詳細內容";
+      container.appendChild(title);
+
+      const exTitle = document.createElement("div");
+      exTitle.style.marginBottom = "4px";
+      exTitle.textContent = "完成動作：";
+      container.appendChild(exTitle);
+
+      if (workout.exercises && workout.exercises.length > 0) {
+        const ul = document.createElement("ul");
+        ul.style.margin = "0 0 4px 16px";
+        ul.style.padding = "0";
+        workout.exercises.forEach(ex => {
+          const li = document.createElement("li");
+          li.textContent = ex;
+          ul.appendChild(li);
+        });
+        container.appendChild(ul);
+      } else {
+        const none = document.createElement("div");
+        none.textContent = "（未勾選任何動作）";
+        none.style.marginBottom = "4px";
+        container.appendChild(none);
+      }
+
+      const notesTitle = document.createElement("div");
+      notesTitle.style.marginTop = "4px";
+      notesTitle.textContent = "備註：";
+      container.appendChild(notesTitle);
+
+      const notesText = document.createElement("div");
+      notesText.textContent = workout.notes ? workout.notes : "（無備註）";
+      container.appendChild(notesText);
+
+      td.appendChild(container);
+      tr.appendChild(td);
+      return tr;
+    }
+
+    function renderLogTable() {
+      logTableBody.innerHTML = "";
+
+      if (!workouts || workouts.length === 0) {
+        const tr = document.createElement("tr");
+        const td = document.createElement("td");
+        td.colSpan = 6;
+        td.className = "muted";
+        td.textContent = "目前尚無訓練紀錄，從上方新增一筆吧。";
+        tr.appendChild(td);
+        logTableBody.appendChild(tr);
+        summaryText.textContent = "";
+        return;
+      }
+
+      // 按時間排序（最新在上）
+      const sorted = [...workouts].sort((a, b) => b.timestamp - a.timestamp);
+
+      // 統計摘要
+      const total = sorted.length;
+      const bodyPartCount = sorted.reduce((acc, w) => {
+        acc[w.bodyPart] = (acc[w.bodyPart] || 0) + 1;
+        return acc;
+      }, {});
+      const partsLabel = Object.entries(bodyPartCount)
+        .map(([bp, count]) => `${(PLANS[bp] && PLANS[bp].label) || bp}×${count}`)
+        .join("，");
+      summaryText.textContent = `共 ${total} 筆訓練紀錄｜${partsLabel}`;
+
+      sorted.forEach(workout => {
+        const mainRow = document.createElement("tr");
+
+        const dateTd = document.createElement("td");
+        dateTd.textContent = workout.date;
+
+        const timeTd = document.createElement("td");
+        timeTd.textContent = workout.time || "";
+
+        const bodyTd = document.createElement("td");
+        bodyTd.textContent = (PLANS[workout.bodyPart] && PLANS[workout.bodyPart].label) || workout.bodyPart;
+
+        const modeTd = document.createElement("td");
+        const pill = document.createElement("span");
+        pill.className = "pill " + (workout.intensity === "busy" ? "pill-busy" : "pill-full");
+        pill.textContent = workout.intensity === "busy" ? "忙碌日" : "認真日";
+        modeTd.appendChild(pill);
+
+        const countTd = document.createElement("td");
+        countTd.textContent = workout.exercises ? workout.exercises.length : 0;
+
+        const actionTd = document.createElement("td");
+        const toggleBtn = document.createElement("button");
+        toggleBtn.type = "button";
+        toggleBtn.className = "btn-secondary btn-sm";
+        toggleBtn.textContent = "展開";
+        actionTd.appendChild(toggleBtn);
+
+        mainRow.appendChild(dateTd);
+        mainRow.appendChild(timeTd);
+        mainRow.appendChild(bodyTd);
+        mainRow.appendChild(modeTd);
+        mainRow.appendChild(countTd);
+        mainRow.appendChild(actionTd);
+
+        const detailRow = createDetailRow(workout, 6);
+        detailRow.style.display = "none";
+
+        toggleBtn.addEventListener("click", () => {
+          const visible = detailRow.style.display === "table-row";
+          detailRow.style.display = visible ? "none" : "table-row";
+          toggleBtn.textContent = visible ? "展開" : "收合";
+        });
+
+        logTableBody.appendChild(mainRow);
+        logTableBody.appendChild(detailRow);
+      });
+    }
+
+    function handleSaveWorkout() {
+      const date = dateInput.value;
+      const time = timeInput.value;
+      const bodyPart = bodyPartSelect.value;
+      const intensity = intensitySelect.value;
+      const notes = notesInput.value.trim();
+
+      if (!date || !bodyPart || !intensity) {
+        alert("請至少填寫日期、訓練部位與今日模式。");
+        return;
+      }
+
+      const exCheckboxes = recommendationList.querySelectorAll("input[type='checkbox']");
+      const chosenExercises = [];
+      exCheckboxes.forEach(cb => {
+        if (cb.checked && cb.dataset.exerciseName) {
+          chosenExercises.push(cb.dataset.exerciseName);
+        }
+      });
+
+      const timestamp = new Date(`${date}T${time || "00:00"}`).getTime();
+
+      const workout = {
+        id: Date.now(),
+        date,
+        time,
+        bodyPart,
+        intensity,
+        exercises: chosenExercises,
+        notes,
+        timestamp
+      };
+
+      workouts.push(workout);
+      saveToStorage();
+      renderLogTable();
+      alert("已儲存訓練紀錄！");
+    }
+
+    function handleExport() {
+      if (!workouts || workouts.length === 0) {
+        alert("目前沒有任何訓練紀錄可匯出。");
+        return;
+      }
+      const now = new Date();
+      const yyyy = now.getFullYear();
+      const mm = String(now.getMonth() + 1).padStart(2, "0");
+      const dd = String(now.getDate()).padStart(2, "0");
+      const hh = String(now.getHours()).padStart(2, "0");
+      const mi = String(now.getMinutes()).padStart(2, "0");
+      const fileName = `training_log_${yyyy}${mm}${dd}_${hh}${mi}.json`;
+
+      const dataStr = JSON.stringify(workouts, null, 2);
+      const blob = new Blob([dataStr], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = fileName;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    function handleClearAll() {
+      if (!workouts || workouts.length === 0) {
+        alert("目前沒有紀錄。");
+        return;
+      }
+      const ok = confirm("確定要清空本機所有訓練紀錄嗎？此動作無法復原。");
+      if (!ok) return;
+
+      workouts = [];
+      saveToStorage();
+      renderLogTable();
+    }
+
+    document.addEventListener("DOMContentLoaded", () => {
+      initDateTime();
+      loadFromStorage();
+      renderLogTable();
+
+      bodyPartSelect.addEventListener("change", renderRecommendations);
+      intensitySelect.addEventListener("change", renderRecommendations);
+      saveWorkoutBtn.addEventListener("click", handleSaveWorkout);
+      resetFormBtn.addEventListener("click", () => {
+        resetForm();
+      });
+      exportBtn.addEventListener("click", handleExport);
+      clearAllBtn.addEventListener("click", handleClearAll);
+    });
+  </script>
+</body>
+</html>
