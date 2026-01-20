@@ -612,11 +612,17 @@ html {
   }
 
   #countdownTime {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
+    /* 手機版時間字體稍小，更緊湊 */
   }
 
   #todayCountdown .text-2xl {
     font-size: 1.5rem;
+  }
+  
+  /* 確保手機版時間在第一排 */
+  #todayCountdown .flex.flex-col {
+    gap: 0.5rem;
   }
 }
 
@@ -671,5 +677,135 @@ html {
   #todayCountdown,
   .filter-clear-btn {
     display: none;
+  }
+}
+
+/* ============================================
+   Blog Modal (Google Docs 介紹彈窗)
+   ============================================ */
+
+/* Modal 淡入動畫 */
+#blogModal {
+  animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal 容器動畫 */
+#blogModal .blog-modal-container {
+  animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Header */
+.blog-modal-header {
+  flex-shrink: 0;
+}
+
+/* Modal Content - iframe 容器 */
+.blog-modal-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-modal-content iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: white;
+}
+
+/* Modal Footer */
+.blog-modal-footer {
+  flex-shrink: 0;
+}
+
+/* 手機版優化 */
+@media (max-width: 767px) {
+  #blogModal .blog-modal-container {
+    max-width: 100%;
+    max-height: 95vh;
+    margin: 0;
+    border-radius: 16px 16px 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  #blogModal .blog-modal-content {
+    min-height: 50vh;
+  }
+
+  #blogModal .blog-modal-content iframe {
+    min-height: 50vh;
+  }
+
+  /* 手機版動畫改為從下往上滑入 */
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* 平板和桌面版 */
+@media (min-width: 768px) {
+  #blogModal .blog-modal-container {
+    max-height: 85vh;
+    border-radius: 16px;
+  }
+
+  #blogModal .blog-modal-content iframe {
+    min-height: 60vh;
+  }
+}
+
+/* Loading spinner */
+#blogLoadingSpinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 10;
+}
+
+/* 減少動畫（尊重用戶偏好） */
+@media (prefers-reduced-motion: reduce) {
+  #blogModal,
+  #blogModal .blog-modal-container {
+    animation: none !important;
+  }
+}
+
+/* 列印時隱藏 Modal */
+@media print {
+  #blogModal {
+    display: none !important;
   }
 }
