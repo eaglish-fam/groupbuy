@@ -809,8 +809,9 @@ function formatTimeRemaining() {
   const diff = endOfDay - now;
   const hours = Math.floor(diff / (1000 * 60 * 60));
   const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((diff % (1000 * 60)) / 1000);
   
-  return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}`;
+  return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
 function renderTodayCountdown() {
@@ -823,14 +824,25 @@ function renderTodayCountdown() {
   
   return `
     <div id="todayCountdown" class="bg-gradient-to-r from-red-50 via-orange-50 to-red-50 border-2 border-red-300 rounded-lg px-4 py-3 mb-4">
-      <div class="flex items-center justify-between gap-3 flex-wrap">
+      <!-- 手機版：垂直置中排列 -->
+      <div class="md:hidden flex flex-col items-center gap-2 text-center">
+        <div class="flex items-center gap-2">
+          <span class="text-2xl animate-pulse-subtle">⏰</span>
+          <span class="font-bold text-red-700">今日截止倒數</span>
+        </div>
+        <span class="countdown-time font-mono text-2xl font-bold text-red-600">${timeLeft}</span>
+        <span class="text-sm text-gray-700">${brandsText}${moreText ? ' ' + moreText : ''}</span>
+      </div>
+      
+      <!-- 桌面版：水平排列 -->
+      <div class="hidden md:flex md:items-center md:justify-between gap-3">
         <div class="flex items-center gap-2">
           <span class="text-2xl animate-pulse-subtle">⏰</span>
           <span class="font-bold text-red-700">今日截止倒數</span>
         </div>
         <div class="flex items-center gap-3 text-sm">
-          <span id="countdownTime" class="font-mono text-xl font-bold text-red-600">${timeLeft}</span>
           <span class="text-gray-700">${brandsText}${moreText ? ' ' + moreText : ''}</span>
+          <span class="countdown-time font-mono text-xl font-bold text-red-600">${timeLeft}</span>
         </div>
       </div>
     </div>
@@ -848,15 +860,16 @@ function startCountdownTimer() {
     const countdownEl = document.getElementById('todayCountdown');
     if (countdownEl && getTodayDeadlines().length > 0) {
       const timeLeft = formatTimeRemaining();
-      const timeEl = countdownEl.querySelector('#countdownTime');
-      if (timeEl) {
-        timeEl.textContent = timeLeft;
-      }
+      // 更新所有的時間元素（手機版 + 桌面版）
+      const timeElements = countdownEl.querySelectorAll('.countdown-time');
+      timeElements.forEach(el => {
+        el.textContent = timeLeft;
+      });
     } else if (countdownEl) {
       countdownEl.remove();
       clearInterval(countdownInterval);
     }
-  }, 60000); // 每分鐘更新
+  }, 1000); // 每秒更新
 }
 
 
@@ -1054,6 +1067,105 @@ function closeVideoModal() {
   elements.videoModal.classList.remove('flex');
   elements.videoContainer.innerHTML = '';
 }
+
+// ============ Blog Modal (Google Docs 介紹彈窗) ============
+function openBlogModal(event, googleDocUrl, brand, groupUrl) {
+  if (event) event.stopPropagation();
+
+  const modal = document.getElementById('blogModal');
+  const iframe = document.getElementById('blogIframe');
+  const spinner = document.getElementById('blogLoadingSpinner');
+  const title = document.getElementById('blogModalTitle');
+  const ctaBtn = document.getElementById('blogModalCTA');
+
+  if (!modal || !iframe) return;
+
+  // 設定標題和購買連結
+  title.textContent = brand ? `${brand} - 產品介紹` : '產品介紹';
+  if (ctaBtn && groupUrl) {
+    ctaBtn.href = groupUrl;
+    ctaBtn.onclick = function() {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click_group_from_blog', {
+          group_name: brand || '',
+          event_category: 'conversion',
+          event_label: brand || ''
+        });
+      }
+    };
+  }
+
+  // 處理 Google Docs URL，加上 ?embedded=true 讓顯示更乾淨
+  let embedUrl = googleDocUrl;
+  if (googleDocUrl.includes('docs.google.com/document')) {
+    // 確保 URL 結尾是 /pub 格式，並加上 embedded=true
+    if (!googleDocUrl.includes('/pub')) {
+      // 如果是編輯連結，轉換為發布連結格式
+      const match = googleDocUrl.match(/\/d\/([^\/]+)/);
+      if (match) {
+        embedUrl = `https://docs.google.com/document/d/${match[1]}/pub?embedded=true`;
+      }
+    } else {
+      embedUrl = googleDocUrl + (googleDocUrl.includes('?') ? '&' : '?') + 'embedded=true';
+    }
+  }
+
+  // 顯示 loading，隱藏 iframe
+  spinner.classList.remove('hidden');
+  iframe.classList.add('hidden');
+
+  // 設定 iframe src
+  iframe.src = embedUrl;
+
+  // iframe 載入完成後隱藏 spinner
+  iframe.onload = function() {
+    spinner.classList.add('hidden');
+    iframe.classList.remove('hidden');
+  };
+
+  // 顯示 modal
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+
+  // 禁止背景滾動
+  document.body.style.overflow = 'hidden';
+
+  // GA4 追蹤
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'open_blog_modal', {
+      group_name: brand || '',
+      event_category: 'engagement',
+      event_label: brand || ''
+    });
+  }
+}
+
+function closeBlogModal() {
+  const modal = document.getElementById('blogModal');
+  const iframe = document.getElementById('blogIframe');
+
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  if (iframe) {
+    iframe.src = '';
+  }
+
+  // 恢復背景滾動
+  document.body.style.overflow = '';
+}
+
+// ESC 鍵關閉 Blog Modal
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const blogModal = document.getElementById('blogModal');
+    if (blogModal && !blogModal.classList.contains('hidden')) {
+      closeBlogModal();
+    }
+  }
+});
 
 function copyCoupon(ev, txt) {
   ev.stopPropagation();
@@ -1767,8 +1879,9 @@ async function loadData() {
             tag: row['標籤'] || row['Tag'] || '',
             coupon: row['折扣碼'] || row['Coupon'] || row['DiscountCode'] || '',
             note: row['備註'] || row['Note'] || row['Remark'] || '', // 純文字備註
-            blogUrl: row['網誌網址'] || row['BlogURL'] || row['blog_url'] || '', // 新增
-            qa: row['QA'] || row['Q&A'] || '', // 新增
+            blogUrl: row['網誌網址'] || row['BlogURL'] || row['blog_url'] || '',
+            googleDoc: row['Google文件'] || row['GoogleDoc'] || row['文件介紹'] || '',
+            qa: row['QA'] || row['Q&A'] || '',
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
             itemCountry: row['國家'] || row['Country'] || ''
@@ -1929,9 +2042,12 @@ function renderGroupCard(g) {
         <!-- 純文字備註 -->
         ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
         
-        <!-- 網誌連結 (獨立欄位) -->
-        ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</a></div>` : ''}
-        
+        <!-- 網誌連結 (獨立欄位，新分頁開啟) -->
+        ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
+
+        <!-- Google 文件介紹 (Modal 彈窗) -->
+        ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${g.url.replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
+
         <!-- QA (獨立欄位) -->
         ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
           <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
@@ -1983,6 +2099,7 @@ function renderCouponCard(g) {
         <div class="flex flex-wrap gap-2 mb-3">${categoryTags}${countryTags}</div>
         ${g.note && !noteIsURL && !noteIsQA ? `<p class="text-sm text-gray-700 mb-3 leading-relaxed">${g.note}</p>` : ''}
         ${noteIsURL ? `<div class="mb-3"><a href="${g.note}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看詳細說明</a></div>` : ''}
+        ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${g.url.replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
         ${noteIsQA ? `<div class="space-y-2 mb-3">${qaList.map((qa, i) => `<details class="bg-white rounded-lg border border-purple-200 p-3"><summary class="cursor-pointer font-semibold text-purple-900 text-sm">${qa.q}</summary><div class="mt-2 text-sm text-gray-700">${qa.a}</div></details>`).join('')}</div>` : ''}
         ${g.video ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
         ${g.endDate && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
