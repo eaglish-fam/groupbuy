@@ -375,15 +375,17 @@
         <button onclick="closeBlogModal()" class="flex-shrink-0 bg-gray-200 hover:bg-gray-300 text-gray-700 w-9 h-9 rounded-full text-xl font-bold transition-colors">×</button>
       </div>
 
-      <!-- Content -->
-      <div class="blog-modal-content flex-1 overflow-y-auto bg-white">
-        <div id="blogLoadingSpinner" class="flex items-center justify-center h-64">
+      <!-- Content (iframe with header cropped) -->
+      <div class="blog-modal-content flex-1 overflow-hidden bg-white">
+        <div id="blogLoadingSpinner" class="absolute inset-0 flex items-center justify-center bg-white z-10">
           <div class="text-center">
             <div class="inline-block animate-spin rounded-full h-10 w-10 border-b-2 border-amber-600 mb-3"></div>
             <p class="text-amber-800 text-sm">載入中...</p>
           </div>
         </div>
-        <div id="blogContent" class="blog-content-wrapper hidden"></div>
+        <div class="blog-iframe-wrapper">
+          <iframe id="blogIframe" class="blog-iframe" allowfullscreen></iframe>
+        </div>
       </div>
 
       <!-- Footer -->
