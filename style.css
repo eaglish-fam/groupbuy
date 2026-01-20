@@ -722,131 +722,31 @@ html {
 /* Modal Content */
 .blog-modal-content {
   flex: 1;
-  overflow-y: auto;
+  overflow: hidden;
   position: relative;
+}
+
+/* iframe 外層容器 - 用於裁切頂部 Google 標頭 */
+.blog-iframe-wrapper {
+  width: 100%;
+  height: calc(100% + 50px); /* 多給高度補償裁切 */
+  margin-top: -50px; /* 向上移動，裁切掉頂部標頭 */
+  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+/* iframe 本身 */
+.blog-iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 60vh;
+  border: none;
+  background: white;
 }
 
 /* Modal Footer */
 .blog-modal-footer {
   flex-shrink: 0;
-}
-
-/* ============================================
-   Blog 內容樣式（Google Docs 內容）
-   ============================================ */
-
-.blog-content-wrapper {
-  padding: 20px;
-  line-height: 1.8;
-  color: #333;
-  font-size: 16px;
-}
-
-/* 標題樣式 */
-.blog-content-wrapper h1,
-.blog-content-wrapper h2,
-.blog-content-wrapper h3,
-.blog-content-wrapper h4,
-.blog-content-wrapper h5,
-.blog-content-wrapper h6 {
-  color: #1f2937;
-  font-weight: 700;
-  margin: 1.5em 0 0.8em 0;
-  line-height: 1.4;
-}
-
-.blog-content-wrapper h1 { font-size: 1.75em; }
-.blog-content-wrapper h2 { font-size: 1.5em; }
-.blog-content-wrapper h3 { font-size: 1.25em; }
-.blog-content-wrapper h4 { font-size: 1.1em; }
-
-/* 段落 */
-.blog-content-wrapper p {
-  margin: 0.8em 0;
-  line-height: 1.8;
-}
-
-/* 圖片樣式 - 關鍵！ */
-.blog-content-wrapper img {
-  max-width: 100% !important;
-  width: auto !important;
-  height: auto !important;
-  display: block;
-  margin: 1em auto;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* 列表 */
-.blog-content-wrapper ul,
-.blog-content-wrapper ol {
-  margin: 1em 0;
-  padding-left: 1.5em;
-}
-
-.blog-content-wrapper li {
-  margin: 0.5em 0;
-  line-height: 1.6;
-}
-
-/* 連結 */
-.blog-content-wrapper a {
-  color: #d97706;
-  text-decoration: underline;
-  text-underline-offset: 2px;
-}
-
-.blog-content-wrapper a:hover {
-  color: #b45309;
-}
-
-/* 表格 */
-.blog-content-wrapper table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1em 0;
-  font-size: 14px;
-}
-
-.blog-content-wrapper th,
-.blog-content-wrapper td {
-  border: 1px solid #e5e7eb;
-  padding: 8px 12px;
-  text-align: left;
-}
-
-.blog-content-wrapper th {
-  background: #f9fafb;
-  font-weight: 600;
-}
-
-/* 引用區塊 */
-.blog-content-wrapper blockquote {
-  border-left: 4px solid #fcd34d;
-  background: #fffbeb;
-  margin: 1em 0;
-  padding: 12px 16px;
-  border-radius: 0 8px 8px 0;
-}
-
-/* 分隔線 */
-.blog-content-wrapper hr {
-  border: none;
-  border-top: 2px solid #f3f4f6;
-  margin: 2em 0;
-}
-
-/* 粗體和斜體 */
-.blog-content-wrapper strong,
-.blog-content-wrapper b {
-  font-weight: 700;
-  color: #1f2937;
-}
-
-.blog-content-wrapper em,
-.blog-content-wrapper i {
-  font-style: italic;
 }
 
 /* 手機版優化 */
@@ -866,19 +766,8 @@ html {
     min-height: 50vh;
   }
 
-  .blog-content-wrapper {
-    padding: 16px;
-    font-size: 15px;
-  }
-
-  .blog-content-wrapper h1 { font-size: 1.5em; }
-  .blog-content-wrapper h2 { font-size: 1.3em; }
-  .blog-content-wrapper h3 { font-size: 1.15em; }
-
-  /* 手機版圖片 */
-  .blog-content-wrapper img {
-    max-width: 100% !important;
-    border-radius: 6px;
+  .blog-iframe {
+    min-height: 55vh;
   }
 
   /* 手機版動畫改為從下往上滑入 */
@@ -901,15 +790,8 @@ html {
     border-radius: 16px;
   }
 
-  .blog-content-wrapper {
-    padding: 24px 32px;
-  }
-
-  /* 桌面版圖片限制最大寬度 */
-  .blog-content-wrapper img {
-    max-width: 90% !important;
-    max-height: 400px;
-    object-fit: contain;
+  .blog-iframe {
+    min-height: 60vh;
   }
 }
 
@@ -922,14 +804,6 @@ html {
   bottom: 0;
   background: white;
   z-index: 10;
-}
-
-/* Fallback iframe 樣式 */
-.blog-content-wrapper iframe {
-  width: 100%;
-  min-height: 50vh;
-  border: none;
-  border-radius: 8px;
 }
 
 /* 減少動畫（尊重用戶偏好） */
