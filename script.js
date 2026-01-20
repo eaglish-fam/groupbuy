@@ -1,7 +1,3 @@
-// ============================================
-// 鷹家買物社 - 圖片優化模組
-// 功能：Google Drive 轉換、錯誤處理、lazy loading
-// ============================================
 
 const ImageOptimizer = {
   // Google Drive 圖片 URL 正規化
@@ -1145,6 +1141,19 @@ async function openBlogModal(event, googleDocUrl, brand, groupUrl) {
     if (body) {
       // 移除 Google Docs 的腳本和不需要的元素
       body.querySelectorAll('script, style, link, meta').forEach(el => el.remove());
+
+      // 移除 Google Docs 發布頁面的標頭/頁尾（Published using Google Docs, Report abuse 等）
+      body.querySelectorAll('#banners, #header, #footer, .banner, .tooltip, [id^="cmnt"], #contents > div:first-child').forEach(el => el.remove());
+
+      // 移除包含 "Published using" 或 "Report abuse" 的元素
+      body.querySelectorAll('a, div, p, span').forEach(el => {
+        const text = el.textContent || '';
+        if (text.includes('Published using Google Docs') ||
+            text.includes('Report abuse') ||
+            text.includes('Updated automatically every')) {
+          el.remove();
+        }
+      });
 
       // 處理圖片 URL（Google Docs 圖片需要特殊處理）
       body.querySelectorAll('img').forEach(img => {
