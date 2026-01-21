@@ -765,18 +765,15 @@ html {
   }
 
   #blogModal .blog-modal-content {
-    flex: 1;
+    min-height: 50vh;
     overflow: hidden;
-    position: relative;
   }
 
   /* 手機版 iframe 縮放 - 讓寬內容適合螢幕 */
   .blog-iframe-wrapper {
-    position: absolute;
-    top: -35px; /* 裁切頂部標頭 */
-    left: 0;
     width: 140%;
-    height: calc(100% + 35px);
+    height: calc(140% + 70px); /* 放大高度補償縮放 */
+    margin-top: -50px;
     transform: scale(0.714);
     transform-origin: top left;
     overflow-y: auto;
@@ -785,10 +782,8 @@ html {
   }
 
   .blog-iframe {
-    width: 100%;
-    height: 140%; /* 補償縮放 */
-    min-height: 100vh;
-    border: none;
+    min-height: 100%;
+    height: 100%;
   }
 
   /* 手機版動畫改為從下往上滑入 */
