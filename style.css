@@ -216,6 +216,7 @@
    平板端：3 欄網格
    ============================================ */
 @media (min-width: 768px) and (max-width: 1023px) {
+
   .masonry-grid,
   .coupon-grid {
     display: grid;
@@ -304,6 +305,7 @@
    桌面端：3-4 欄網格
    ============================================ */
 @media (min-width: 1024px) {
+
   .masonry-grid,
   .coupon-grid {
     display: grid;
@@ -389,6 +391,7 @@
 }
 
 @media (min-width: 1280px) {
+
   .masonry-grid,
   .coupon-grid {
     grid-template-columns: repeat(4, 1fr);
@@ -410,12 +413,10 @@
 .masonry-card.loading,
 .coupon-card.loading {
   animation: shimmer 1.5s infinite;
-  background: linear-gradient(
-    90deg,
-    #f0f0f0 25%,
-    #e0e0e0 50%,
-    #f0f0f0 75%
-  );
+  background: linear-gradient(90deg,
+      #f0f0f0 25%,
+      #e0e0e0 50%,
+      #f0f0f0 75%);
   background-size: 200% 100%;
 }
 
@@ -423,6 +424,7 @@
   0% {
     background-position: -200% 0;
   }
+
   100% {
     background-position: 200% 0;
   }
@@ -455,6 +457,7 @@ html {
 
 /* 觸控回饋（僅手機） */
 @media (max-width: 767px) {
+
   button:active,
   a:active {
     transform: scale(0.95);
@@ -474,6 +477,7 @@ html {
 
 /* 高對比模式支援 */
 @media (prefers-contrast: high) {
+
   .masonry-card,
   .coupon-card {
     border-width: 2px;
@@ -487,6 +491,7 @@ html {
 
 /* 減少動畫（尊重用戶偏好） */
 @media (prefers-reduced-motion: reduce) {
+
   .masonry-card,
   .coupon-card,
   .masonry-card-image,
@@ -501,6 +506,7 @@ html {
    列印樣式
    ============================================ */
 @media print {
+
   .masonry-grid,
   .coupon-grid {
     display: block;
@@ -691,8 +697,13 @@ html {
 }
 
 @keyframes blogModalFadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 /* Modal 容器動畫 */
@@ -705,6 +716,7 @@ html {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -723,11 +735,13 @@ html {
   position: relative;
 }
 
-/* iframe 外層容器 */
+/* iframe 外層容器 (✅ 已修正：使用負邊距隱藏 Google 工具列) */
 #blogModal .blog-iframe-wrapper {
   width: 100%;
-  height: calc(100% + 50px);
-  margin-top: -50px;
+  height: calc(100% + 65px);
+  /* 增加高度以補償裁切 */
+  margin-top: -65px;
+  /* 關鍵：上移以隱藏工具列 */
   overflow-y: auto;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
@@ -740,6 +754,7 @@ html {
   min-height: 60vh;
   border: none;
   background: white;
+  /* 避免載入時閃爍 */
 }
 
 /* Modal Footer */
@@ -762,7 +777,8 @@ html {
 @media (max-width: 767px) {
   #blogModal .blog-modal-container {
     max-width: 100%;
-    max-height: 95vh;
+    max-height: 90vh;
+    /* ✅ 已修正：增加高度提升閱讀體驗 */
     margin: 0;
     border-radius: 16px 16px 0 0;
     position: fixed;
@@ -776,7 +792,8 @@ html {
   }
 
   #blogModal .blog-iframe-wrapper {
-    margin-top: -50px;
+    margin-top: -65px;
+    /* ✅ 確保手機版也隱藏工具列 */
     overflow-x: hidden;
   }
 
@@ -790,6 +807,7 @@ html {
       opacity: 0;
       transform: translateY(100%);
     }
+
     to {
       opacity: 1;
       transform: translateY(0);
@@ -811,6 +829,7 @@ html {
 
 /* 減少動畫（尊重用戶偏好） */
 @media (prefers-reduced-motion: reduce) {
+
   #blogModal,
   #blogModal .blog-modal-container {
     animation: none !important;
