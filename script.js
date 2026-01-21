@@ -1094,17 +1094,14 @@ function openBlogModal(event, googleDocUrl, brand, groupUrl) {
       }
     };
   }
-
-  // 處理 Google Docs URL，確保是發布格式並加上 embedded=true
+  // 處理 Google Docs URL，改用 /preview 模式以支援手機圖片自適應
   let embedUrl = googleDocUrl;
   if (googleDocUrl.includes('docs.google.com/document')) {
-    if (!googleDocUrl.includes('/pub')) {
-      const match = googleDocUrl.match(/\/d\/([^\/]+)/);
-      if (match) {
-        embedUrl = `https://docs.google.com/document/d/${match[1]}/pub?embedded=true`;
-      }
-    } else {
-      embedUrl = googleDocUrl + (googleDocUrl.includes('?') ? '&' : '?') + 'embedded=true';
+    // 提取 File ID
+    const match = googleDocUrl.match(/\/d\/([^\/]+)/);
+    if (match) {
+      // ✅ 強制轉換為 preview 模式，解決手機版圖片被裁切的問題
+      embedUrl = `https://docs.google.com/document/d/${match[1]}/preview`;
     }
   }
 
@@ -1873,8 +1870,9 @@ async function loadData() {
             tag: row['標籤'] || row['Tag'] || '',
             coupon: row['折扣碼'] || row['Coupon'] || row['DiscountCode'] || '',
             note: row['備註'] || row['Note'] || row['Remark'] || '', // 純文字備註
-            blogUrl: row['網誌網址'] || row['BlogURL'] || row['blog_url'] || '', // 新增
-            qa: row['QA'] || row['Q&A'] || '', // 新增
+            blogUrl: row['網誌網址'] || row['BlogURL'] || row['blog_url'] || '',
+            googleDoc: row['Google文件'] || row['GoogleDoc'] || row['文件介紹'] || '',
+            qa: row['QA'] || row['Q&A'] || '',
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
             itemCountry: row['國家'] || row['Country'] || ''
@@ -2035,9 +2033,12 @@ function renderGroupCard(g) {
         <!-- 純文字備註 -->
         ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
         
-        <!-- 網誌連結 (獨立欄位) -->
-        ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</a></div>` : ''}
-        
+        <!-- 網誌連結 (獨立欄位，新分頁開啟) -->
+        ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
+
+        <!-- Google 文件介紹 (Modal 彈窗) -->
+        ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${g.url.replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
+
         <!-- QA (獨立欄位) -->
         ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
           <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
