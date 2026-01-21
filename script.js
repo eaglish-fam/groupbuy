@@ -1068,6 +1068,99 @@ function closeVideoModal() {
   elements.videoContainer.innerHTML = '';
 }
 
+// ============ Blog Modal (Google Docs 介紹彈窗) ============
+function openBlogModal(event, googleDocUrl, brand, groupUrl) {
+  if (event) event.stopPropagation();
+
+  const modal = document.getElementById('blogModal');
+  const iframe = document.getElementById('blogIframe');
+  const spinner = document.getElementById('blogLoadingSpinner');
+  const title = document.getElementById('blogModalTitle');
+  const ctaBtn = document.getElementById('blogModalCTA');
+
+  if (!modal || !iframe) return;
+
+  // 設定標題和購買連結
+  title.textContent = brand ? `${brand} - 產品介紹` : '產品介紹';
+  if (ctaBtn && groupUrl) {
+    ctaBtn.href = groupUrl;
+    ctaBtn.onclick = function() {
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click_group_from_blog', {
+          group_name: brand || '',
+          event_category: 'conversion',
+          event_label: brand || ''
+        });
+      }
+    };
+  }
+
+  // 處理 Google Docs URL，確保是發布格式並加上 embedded=true
+  let embedUrl = googleDocUrl;
+  if (googleDocUrl.includes('docs.google.com/document')) {
+    if (!googleDocUrl.includes('/pub')) {
+      const match = googleDocUrl.match(/\/d\/([^\/]+)/);
+      if (match) {
+        embedUrl = `https://docs.google.com/document/d/${match[1]}/pub?embedded=true`;
+      }
+    } else {
+      embedUrl = googleDocUrl + (googleDocUrl.includes('?') ? '&' : '?') + 'embedded=true';
+    }
+  }
+
+  // 顯示 loading
+  spinner.classList.remove('hidden');
+
+  // 設定 iframe
+  iframe.src = embedUrl;
+  iframe.onload = function() {
+    spinner.classList.add('hidden');
+  };
+
+  // 顯示 modal
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+
+  // 禁止背景滾動
+  document.body.style.overflow = 'hidden';
+
+  // GA4 追蹤
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'open_blog_modal', {
+      group_name: brand || '',
+      event_category: 'engagement',
+      event_label: brand || ''
+    });
+  }
+}
+
+function closeBlogModal() {
+  const modal = document.getElementById('blogModal');
+  const iframe = document.getElementById('blogIframe');
+
+  if (modal) {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }
+
+  if (iframe) {
+    iframe.src = '';
+  }
+
+  // 恢復背景滾動
+  document.body.style.overflow = '';
+}
+
+// ESC 鍵關閉 Blog Modal
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    const blogModal = document.getElementById('blogModal');
+    if (blogModal && !blogModal.classList.contains('hidden')) {
+      closeBlogModal();
+    }
+  }
+});
+
 function copyCoupon(ev, txt) {
   ev.stopPropagation();
   
@@ -1996,6 +2089,7 @@ function renderCouponCard(g) {
         <div class="flex flex-wrap gap-2 mb-3">${categoryTags}${countryTags}</div>
         ${g.note && !noteIsURL && !noteIsQA ? `<p class="text-sm text-gray-700 mb-3 leading-relaxed">${g.note}</p>` : ''}
         ${noteIsURL ? `<div class="mb-3"><a href="${g.note}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看詳細說明</a></div>` : ''}
+        ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${g.url.replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
         ${noteIsQA ? `<div class="space-y-2 mb-3">${qaList.map((qa, i) => `<details class="bg-white rounded-lg border border-purple-200 p-3"><summary class="cursor-pointer font-semibold text-purple-900 text-sm">${qa.q}</summary><div class="mt-2 text-sm text-gray-700">${qa.a}</div></details>`).join('')}</div>` : ''}
         ${g.video ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
         ${g.endDate && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
