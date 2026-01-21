@@ -84,7 +84,7 @@
     line-height: 1.3;
     margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     word-break: break-word;
@@ -109,7 +109,7 @@
     line-height: 1.4;
     margin: 0;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
     color: #6b7280;
@@ -438,7 +438,7 @@
 /* 文字行數限制 */
 .line-clamp-2 {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -625,7 +625,7 @@ html {
   #todayCountdown .text-2xl {
     font-size: 1.5rem;
   }
-  
+
   /* 確保手機版時間在第一排 */
   #todayCountdown .flex.flex-col {
     gap: 0.5rem;
@@ -641,8 +641,8 @@ html {
 
   header,
   header.header-compact,
-  header.header-compact .hidden.lg\\:flex,
-  header.header-compact .lg\\:hidden.text-center,
+  header.header-compact .hidden.lg\:flex,
+  header.header-compact .lg\:hidden.text-center,
   header.header-compact #bannerSlot,
   .filter-clear-btn {
     transition: none !important;
@@ -674,8 +674,8 @@ html {
     padding: 1rem !important;
   }
 
-  header.header-compact .hidden.lg\\:flex,
-  header.header-compact .lg\\:hidden.text-center {
+  header.header-compact .hidden.lg\:flex,
+  header.header-compact .lg\:hidden.text-center {
     max-height: none;
     opacity: 1;
   }
@@ -683,5 +683,162 @@ html {
   #todayCountdown,
   .filter-clear-btn {
     display: none;
+  }
+}
+
+/* ============================================
+   Blog Modal (Google Docs 介紹彈窗)
+   所有選擇器都限定在 #blogModal 內，不影響其他元素
+   ============================================ */
+
+/* Modal 淡入動畫 */
+#blogModal {
+  animation: blogModalFadeIn 0.2s ease-out;
+}
+
+@keyframes blogModalFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+/* Modal 容器動畫 */
+#blogModal .blog-modal-container {
+  animation: blogModalSlideUp 0.3s ease-out;
+}
+
+@keyframes blogModalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Modal Header */
+#blogModal .blog-modal-header {
+  flex-shrink: 0;
+}
+
+/* Modal Content */
+#blogModal .blog-modal-content {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+/* iframe 外層容器 (✅ 已修正：使用負邊距隱藏 Google 工具列) */
+#blogModal .blog-iframe-wrapper {
+  width: 100%;
+  height: calc(100% + 65px);
+  /* 增加高度以補償裁切 */
+  margin-top: -65px;
+  /* 關鍵：上移以隱藏工具列 */
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* iframe 本身 */
+#blogModal .blog-iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 60vh;
+  border: none;
+  background: white;
+  /* 避免載入時閃爍 */
+}
+
+/* Modal Footer */
+#blogModal .blog-modal-footer {
+  flex-shrink: 0;
+}
+
+/* Loading spinner */
+#blogModal #blogLoadingSpinner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+  z-index: 10;
+}
+
+/* 手機版 Blog Modal */
+@media (max-width: 767px) {
+  #blogModal .blog-modal-container {
+    max-width: 100%;
+    max-height: 90vh;
+    /* ✅ 已修正：增加高度提升閱讀體驗 */
+    margin: 0;
+    border-radius: 16px 16px 0 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  #blogModal .blog-modal-content {
+    min-height: 50vh;
+  }
+
+  #blogModal .blog-iframe-wrapper {
+    margin-top: -65px;
+    /* ✅ 確保手機版也隱藏工具列 */
+    overflow-x: hidden;
+  }
+
+  #blogModal .blog-iframe {
+    min-height: 55vh;
+  }
+
+  /* 手機版動畫 */
+  @keyframes blogModalSlideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
+
+/* 平板和桌面版 Blog Modal */
+@media (min-width: 768px) {
+  #blogModal .blog-modal-container {
+    max-height: 85vh;
+    border-radius: 16px;
+  }
+
+  #blogModal .blog-iframe {
+    min-height: 60vh;
+  }
+}
+
+/* 減少動畫（尊重用戶偏好） */
+@media (prefers-reduced-motion: reduce) {
+
+  #blogModal,
+  #blogModal .blog-modal-container {
+    animation: none !important;
+  }
+}
+
+/* 列印時隱藏 Modal */
+@media print {
+  #blogModal {
+    display: none !important;
   }
 }
