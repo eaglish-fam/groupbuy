@@ -765,23 +765,30 @@ html {
   }
 
   #blogModal .blog-modal-content {
-    min-height: 50vh;
+    flex: 1;
     overflow: hidden;
+    position: relative;
   }
 
   /* 手機版 iframe 縮放 - 讓寬內容適合螢幕 */
   .blog-iframe-wrapper {
-    width: 140%; /* 放大容器 */
-    height: calc(100% + 50px);
-    margin-top: -50px;
-    transform: scale(0.714); /* 縮回 100%/140% ≈ 0.714 */
+    position: absolute;
+    top: -35px; /* 裁切頂部標頭 */
+    left: 0;
+    width: 140%;
+    height: calc(100% + 35px);
+    transform: scale(0.714);
     transform-origin: top left;
     overflow-y: auto;
     overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
   }
 
   .blog-iframe {
-    min-height: 75vh; /* 補償縮放後的高度 */
+    width: 100%;
+    height: 140%; /* 補償縮放 */
+    min-height: 100vh;
+    border: none;
   }
 
   /* 手機版動畫改為從下往上滑入 */
