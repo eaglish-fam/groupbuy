@@ -732,6 +732,7 @@ html {
   height: calc(100% + 50px); /* 多給高度補償裁切 */
   margin-top: -50px; /* 向上移動，裁切掉頂部標頭 */
   overflow-y: auto;
+  overflow-x: hidden; /* 防止水平滾動 */
   -webkit-overflow-scrolling: touch;
 }
 
@@ -743,6 +744,7 @@ html {
   border: none;
   background: white;
 }
+
 
 /* Modal Footer */
 .blog-modal-footer {
@@ -764,10 +766,22 @@ html {
 
   #blogModal .blog-modal-content {
     min-height: 50vh;
+    overflow: hidden;
+  }
+
+  /* 手機版 iframe 縮放 - 讓寬內容適合螢幕 */
+  .blog-iframe-wrapper {
+    width: 140%; /* 放大容器 */
+    height: calc(100% + 50px);
+    margin-top: -50px;
+    transform: scale(0.714); /* 縮回 100%/140% ≈ 0.714 */
+    transform-origin: top left;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
 
   .blog-iframe {
-    min-height: 55vh;
+    min-height: 75vh; /* 補償縮放後的高度 */
   }
 
   /* 手機版動畫改為從下往上滑入 */
