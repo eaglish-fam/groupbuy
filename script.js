@@ -1094,17 +1094,14 @@ function openBlogModal(event, googleDocUrl, brand, groupUrl) {
       }
     };
   }
-
-  // 處理 Google Docs URL，確保是發布格式並加上 embedded=true
+  // 處理 Google Docs URL，改用 /preview 模式以支援手機圖片自適應
   let embedUrl = googleDocUrl;
   if (googleDocUrl.includes('docs.google.com/document')) {
-    if (!googleDocUrl.includes('/pub')) {
-      const match = googleDocUrl.match(/\/d\/([^\/]+)/);
-      if (match) {
-        embedUrl = `https://docs.google.com/document/d/${match[1]}/pub?embedded=true`;
-      }
-    } else {
-      embedUrl = googleDocUrl + (googleDocUrl.includes('?') ? '&' : '?') + 'embedded=true';
+    // 提取 File ID
+    const match = googleDocUrl.match(/\/d\/([^\/]+)/);
+    if (match) {
+      // ✅ 強制轉換為 preview 模式，解決手機版圖片被裁切的問題
+      embedUrl = `https://docs.google.com/document/d/${match[1]}/preview`;
     }
   }
 
