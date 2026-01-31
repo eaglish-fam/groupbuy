@@ -2190,8 +2190,8 @@ function renderContent() {
   const btn = (id, txt, cls) => `<button onclick="scrollToSection('${id}')" class="px-4 py-2 ${cls} rounded-lg font-medium whitespace-nowrap hover:opacity-90 text-sm">${txt}</button>`;
   elements.sectionButtons.innerHTML = (shortTerm.length ? btn('short-term', '限時團購', 'bg-orange-100 text-orange-700') : '') +
     (longTerm.length ? btn('long-term', '常駐團購', 'bg-green-100 text-green-700') : '') +
-    (coupon.length ? btn('coupon', '折扣碼優惠', 'bg-purple-100 text-purple-700') : '') +
     (edu.length ? btn('edu', '教育／公益', 'bg-teal-100 text-teal-700') : '') +
+    (coupon.length ? btn('coupon', '折扣碼優惠', 'bg-purple-100 text-purple-700') : '') +
     btn('calendar', '團購行事曆', 'bg-blue-100 text-blue-700');
 
   const m1 = today.getMonth() + 1;
@@ -2230,7 +2230,11 @@ function renderContent() {
        <div class="masonry-grid">${longTerm.map(renderGroupCard).join('')}</div>
      </section>` : '') +
 
-    
+    (edu.length ? `<section id="edu" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+      <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">📚 教育／公益資源</h2>
+      <div class="masonry-grid">${edu.map(renderGroupCard).join('')}</div>
+    </section>` : '') +
+
     (coupon.length ? `<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🎟️ 折扣碼優惠</h2>
        <div class="coupon-grid">${coupon.map(renderCouponCard).join('')}</div>
@@ -2255,11 +2259,6 @@ function renderContent() {
        </div>
      </section>` +
 
-    (edu.length ? `<section id="edu" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-      <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">📚 教育／公益資源</h2>
-      <div class="masonry-grid">${edu.map(renderGroupCard).join('')}</div>
-    </section>` : '') + 
-    
     (filtered.length === 0 && state.searchTerm ? `<div class="bg-yellow-50 border-2 border-yellow-200 rounded-xl p-6 text-center"><p class="text-lg text-yellow-900 font-medium">找不到「${state.searchTerm}」相關的團購</p><p class="text-sm text-yellow-700 mt-2">試試其他關鍵字，或清空搜尋</p></div>` : '') +
     (filtered.length === 0 && !state.searchTerm ? `<div class="text-center py-12 text-amber-700"><p class="text-lg">目前沒有團購項目</p></div>` : '');
   // 啟動倒數計時器
