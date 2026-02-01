@@ -91,9 +91,9 @@
 
   /* 標題 */
   .masonry-card-title {
-    font-size: 15px;
-    font-weight: 600;
-    line-height: 1.4;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -117,7 +117,7 @@
 
   /* 描述文字 */
   .masonry-card-content p {
-    font-size: 13px;
+    font-size: 14px;
     line-height: 1.5;
     margin: 0;
     display: -webkit-box;
@@ -318,7 +318,7 @@
   }
 
   .masonry-card-title {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     line-height: 1.4;
     margin-bottom: 8px;
