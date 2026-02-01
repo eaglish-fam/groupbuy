@@ -24,7 +24,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 6px;
-    padding: 6px;
+    padding: 4px;
     grid-auto-flow: dense;
   }
 
