@@ -8,12 +8,23 @@
    ============================================ */
 @media (max-width: 767px) {
 
+  /* 主內容區增加間距 */
+  #content {
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+  /* Section 標題增加間距 */
+  section h2 {
+    margin-bottom: 16px !important;
+  }
+
   /* 團購卡片容器 - 雙排瀑布流 */
   .masonry-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-    padding: 2px;
+    gap: 12px;
+    padding: 8px;
     grid-auto-flow: dense;
   }
 
@@ -21,8 +32,8 @@
   .coupon-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 6px;
-    padding: 4px;
+    gap: 12px;
+    padding: 8px;
     grid-auto-flow: dense;
   }
 
@@ -33,7 +44,7 @@
     display: flex;
     flex-direction: column;
     background: white;
-    border-radius: 8px;
+    border-radius: 12px;
     overflow: hidden;
     border: 1px solid #e5e7eb;
     transition: all 0.2s ease;
@@ -72,17 +83,17 @@
 
   /* 內容區 */
   .masonry-card-content {
-    padding: 6px;
+    padding: 12px;
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
   }
 
   /* 標題 */
   .masonry-card-title {
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 600;
-    line-height: 1.3;
+    line-height: 1.4;
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -94,20 +105,20 @@
 
   /* 標籤容器 */
   .masonry-card-content .flex.flex-wrap {
-    gap: 3px;
+    gap: 6px;
   }
 
   .masonry-card-content .flex.flex-wrap span {
-    font-size: 10px;
-    padding: 2px 5px;
+    font-size: 11px;
+    padding: 4px 8px;
     white-space: nowrap;
-    border-radius: 2px;
+    border-radius: 4px;
   }
 
   /* 描述文字 */
   .masonry-card-content p {
-    font-size: 11px;
-    line-height: 1.4;
+    font-size: 13px;
+    line-height: 1.5;
     margin: 0;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -119,16 +130,16 @@
   /* 按鈕 */
   .masonry-card-content button,
   .masonry-card-content a.block {
-    font-size: 12px;
-    padding: 6px 8px;
-    border-radius: 3px;
+    font-size: 14px;
+    padding: 10px 12px;
+    border-radius: 6px;
     font-weight: 600;
     white-space: nowrap;
   }
 
   /* 倒數計時 */
   .masonry-card-content .flex.items-center.gap-2 {
-    font-size: 11px;
+    font-size: 13px;
   }
 
   /* 折扣碼卡片 - 雙排 */
@@ -160,21 +171,21 @@
 
   /* 折扣碼內容區 - 覆蓋 p-6 */
   .coupon-grid > div > div:last-child {
-    padding: 10px !important;
+    padding: 16px !important;
   }
 
   /* 折扣碼標題 */
   .coupon-grid h3 {
     font-size: 18px !important;
     font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 4px !important;
+    line-height: 1.4;
+    margin-bottom: 8px !important;
   }
 
   /* 折扣碼副標題/描述 */
   .coupon-grid > div p {
-    font-size: 12px !important;
-    line-height: 1.4;
+    font-size: 14px !important;
+    line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
@@ -183,63 +194,63 @@
 
   /* 折扣碼標籤 */
   .coupon-grid .flex.flex-wrap span {
-    font-size: 10px !important;
-    padding: 2px 6px !important;
-    border-radius: 3px;
+    font-size: 11px !important;
+    padding: 4px 8px !important;
+    border-radius: 4px;
   }
 
   /* 折扣碼區間距 */
   .coupon-grid .mb-3 {
-    margin-bottom: 8px !important;
+    margin-bottom: 12px !important;
   }
 
   .coupon-grid .mb-4 {
-    margin-bottom: 8px !important;
+    margin-bottom: 12px !important;
   }
 
   .coupon-grid .gap-3 {
-    gap: 6px !important;
+    gap: 8px !important;
   }
 
   .coupon-grid .gap-2 {
-    gap: 4px !important;
+    gap: 6px !important;
   }
 
   /* 折扣碼顯示區 */
   .coupon-grid .border-green-200 {
-    padding: 8px !important;
-    border-radius: 6px !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
   }
 
   .coupon-grid code {
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
 
   .coupon-grid .border-green-200 button {
-    padding: 5px 10px !important;
-    font-size: 11px !important;
-    border-radius: 5px !important;
+    padding: 8px 12px !important;
+    font-size: 13px !important;
+    border-radius: 6px !important;
   }
 
   /* 折扣碼功能按鈕 */
   .coupon-grid button,
   .coupon-grid a.block {
-    font-size: 12px !important;
-    padding: 8px 10px !important;
-    border-radius: 6px !important;
+    font-size: 14px !important;
+    padding: 10px 12px !important;
+    border-radius: 8px !important;
     font-weight: 600;
   }
 
   /* CTA 按鈕 */
   .coupon-grid > div > div > a {
-    font-size: 13px !important;
-    padding: 8px 10px !important;
-    border-radius: 8px !important;
+    font-size: 15px !important;
+    padding: 12px 16px !important;
+    border-radius: 10px !important;
   }
 
   /* 倒數計時 */
   .coupon-grid .flex.items-center.gap-2 {
-    font-size: 11px !important;
+    font-size: 13px !important;
   }
 }
 
