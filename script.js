@@ -49,11 +49,9 @@ const ImageOptimizer = {
         // 清除可能的尾部參數
         fileId = fileId.split('?')[0].split('#')[0];
         const optimizedUrl = `https://lh3.googleusercontent.com/d/${fileId}=w1200`;
-        console.log('🔄 Google Drive URL 轉換:', url.substring(0, 50) + '... → lh3 格式');
         return optimizedUrl;
       }
     } catch (error) {
-      console.warn('❌ Google Drive URL 解析失敗:', url, error);
     }
 
     return url;
@@ -71,7 +69,6 @@ const ImageOptimizer = {
       });
       return true; // no-cors 模式下只要不報錯就算成功
     } catch (error) {
-      console.warn('⚠️ 圖片驗證失敗:', url);
       return false;
     }
   },
@@ -162,7 +159,6 @@ const ImageOptimizer = {
     const alt = imgElement.getAttribute('alt') || '無圖片';
 
     if (fallback && imgElement.src !== fallback) {
-      console.warn('⚠️ 圖片載入失敗，使用 fallback:', imgElement.src);
       imgElement.src = fallback;
     } else {
       // 最終 fallback
@@ -215,13 +211,10 @@ const ImageOptimizer = {
       });
     }
 
-    console.log('✅ 圖片優化系統已初始化');
   },
 
   // 批次檢查圖片 URL（用於資料載入後）
   async validateAllImages(groups) {
-    console.log('🔍 開始驗證圖片 URL...');
-    
     const results = {
       total: 0,
       valid: 0,
@@ -242,7 +235,6 @@ const ImageOptimizer = {
         // 正規化 URL
         const normalized = this.normalizeGoogleDriveUrl(group.image);
         if (normalized !== group.image) {
-          console.log('🔄 正規化 Google Drive URL:', group.brand);
           group.image = normalized;
           results.normalized++;
         }
@@ -251,7 +243,6 @@ const ImageOptimizer = {
       results.valid++;
     }
 
-    console.log('📊 圖片驗證完成:', results);
     return results;
   }
 };
@@ -347,7 +338,6 @@ function preloadCriticalImages(groups) {
     .map(g => g.image);
   
   criticalImages.forEach(img => preloadImage(img));
-  console.log('🚀 預載關鍵圖片:', criticalImages.length, '張');
 }
 
 // ============ 側邊欄和篩選器控制 ============
@@ -1819,29 +1809,22 @@ async function loadUpcomingFromTab() {
 }
 
 async function loadData() {
-  console.log('🔄 開始載入資料...');
   try {
     const MAIN_CSV = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/export?format=csv`;
-    console.log('📡 請求 Google Sheets:', MAIN_CSV);
-    
+
     const res = await fetch(MAIN_CSV, { credentials: 'omit' });
-    console.log('✅ 收到回應:', res.status, res.statusText);
-    
+
     if (!res.ok) {
       throw new Error(`HTTP ${res.status}: ${res.statusText}`);
     }
     
     const csv = await res.text();
-    console.log('📝 CSV 資料長度:', csv.length, '字元');
 
     if (utils.isProbablyHTML(csv)) {
-      console.error('❌ 回傳內容是 HTML，非 CSV');
       showError('Google Sheet 無法公開讀取。請將權限改為「知道連結的任何人可檢視」，或使用「檔案 → 發佈到網路上」。');
       return;
     }
     
-    console.log('✅ CSV 格式正確，開始解析...');
-
     const all = [];
     Papa.parse(csv, {
       header: true,
@@ -1884,9 +1867,7 @@ async function loadData() {
       }
     });
 
-    console.log('✅ 解析完成，共', all.length, '筆資料');
     state.groups = all.filter(g => g.category !== 'upcoming' && !!g.url);
-    console.log('✅ 過濾後有效團購:', state.groups.length, '筆');
 
     // 提取所有不重複的分類和國家
     const categoriesSet = new Set();
@@ -1937,10 +1918,7 @@ async function loadData() {
     });
 
     state.loading = false;
-    console.log('✅ 資料載入完成，開始渲染...');
-    console.log('📊 可用分類:', state.availableCategories);
-    console.log('📊 可用國家:', state.availableCountries);
-    
+
     // 🎨 圖片優化：驗證和正規化所有圖片 URL
     await ImageOptimizer.validateAllImages(state.groups);
     
@@ -1949,11 +1927,7 @@ async function loadData() {
     
     renderFilters();
     renderContent();
-    console.log('✅ 渲染完成！');
   } catch (error) {
-    console.error('❌ 載入資料時發生錯誤:', error);
-    console.error('❌ 錯誤訊息:', error.message);
-    console.error('❌ 錯誤堆疊:', error.stack);
     showError('無法連接資料來源（網路或權限問題）');
   }
 }
@@ -2283,15 +2257,12 @@ function init() {
   initStickyHeader();
 }
 
-console.log('🚀 鷹家買物社初始化開始');
-
 // 🎨 圖片優化：初始化圖片處理系統
 ImageOptimizer.initImageOptimization();
 
 initSearch();
 renderBanner();
 init();
-console.log('🔄 開始載入團購資料...');
 loadData();
 setInterval(loadData, CONFIG.REFRESH_INTERVAL);
 

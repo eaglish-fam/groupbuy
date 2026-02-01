@@ -32,19 +32,25 @@
   <meta property="og:image" content="https://www.eaglish.store/logo-horizontal.jpg">
   <meta property="og:locale" content="zh_TW">
   
-  <!-- 字型 -->
+  <!-- Resource Hints -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//fonts.gstatic.com">
+  <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+  <link rel="dns-prefetch" href="//www.googletagmanager.com">
+  <link rel="dns-prefetch" href="//lh3.googleusercontent.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+
+  <!-- 字型 -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet">
-  
+
   <!-- 樣式 -->
+  <link rel="stylesheet" href="tailwind.css">
   <link rel="stylesheet" href="theme-fresh-comfortable.css">
-  <!-- ✅ 新增混合佈局樣式 -->
   <link rel="stylesheet" href="style.css">
-  <!-- 🎨 圖片優化樣式 -->
   <link rel="stylesheet" href="image-optimized.css">
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha384-D/t0ZMqQW31H3az8ktEiNb39wyKnS82iFY52QPACM+IjKW3jDUhyIgh2PApRqJZs" crossorigin="anonymous"></script>
   
   <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SW2X9B19H"></script>
@@ -404,13 +410,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
-        navigator.serviceWorker.register('/sw.js')
-          .then(registration => {
-            console.log('✅ PWA 已啟用！');
-          })
-          .catch(error => {
-            console.log('❌ PWA 啟用失敗:', error);
-          });
+        navigator.serviceWorker.register('/sw.js').catch(() => {});
       });
     }
   </script>	
