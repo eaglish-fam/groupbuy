@@ -830,7 +830,7 @@ html {
   }
 
   #blogModal .blog-modal-content {
-    min-height: 50vh;
+    min-height: 70vh;
   }
 
   #blogModal .blog-iframe-wrapper {
@@ -840,7 +840,7 @@ html {
   }
 
   #blogModal .blog-iframe {
-    min-height: 55vh;
+    min-height: 75vh;
   }
 
   /* 手機版動畫 */
