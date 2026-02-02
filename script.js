@@ -1062,6 +1062,37 @@ function closeVideoModal() {
 function openBlogModal(event, googleDocUrl, brand, groupUrl) {
   if (event) event.stopPropagation();
 
+  // 偵測 iOS PWA 獨立模式（從主畫面開啟）
+  // iOS standalone 模式下，跨域 iframe（如 Google Docs）會被阻擋
+  const isStandalone = window.navigator.standalone === true ||
+    window.matchMedia('(display-mode: standalone)').matches;
+
+  // 處理 Google Docs URL，確保是發布格式
+  let embedUrl = googleDocUrl;
+  if (googleDocUrl.includes('docs.google.com/document')) {
+    if (!googleDocUrl.includes('/pub')) {
+      const match = googleDocUrl.match(/\/d\/([^\/]+)/);
+      if (match) {
+        embedUrl = `https://docs.google.com/document/d/${match[1]}/pub`;
+      }
+    }
+  }
+
+  // GA4 追蹤
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'open_blog_modal', {
+      group_name: brand || '',
+      event_category: 'engagement',
+      event_label: brand || ''
+    });
+  }
+
+  // PWA 獨立模式：直接用 Safari 開啟，避免 iframe 跨域限制
+  if (isStandalone) {
+    window.open(embedUrl, '_blank');
+    return;
+  }
+
   const modal = document.getElementById('blogModal');
   const iframe = document.getElementById('blogIframe');
   const spinner = document.getElementById('blogLoadingSpinner');
@@ -1084,24 +1115,15 @@ function openBlogModal(event, googleDocUrl, brand, groupUrl) {
       }
     };
   }
-  // 處理 Google Docs URL，確保是發布格式並加上 embedded=true
-  let embedUrl = googleDocUrl;
-  if (googleDocUrl.includes('docs.google.com/document')) {
-    if (!googleDocUrl.includes('/pub')) {
-      const match = googleDocUrl.match(/\/d\/([^\/]+)/);
-      if (match) {
-        embedUrl = `https://docs.google.com/document/d/${match[1]}/pub?embedded=true`;
-      }
-    } else {
-      embedUrl = googleDocUrl + (googleDocUrl.includes('?') ? '&' : '?') + 'embedded=true';
-    }
-  }
+
+  // 加上 embedded=true 給 iframe 用
+  let iframeUrl = embedUrl + (embedUrl.includes('?') ? '&' : '?') + 'embedded=true';
 
   // 顯示 loading
   spinner.classList.remove('hidden');
 
   // 設定 iframe
-  iframe.src = embedUrl;
+  iframe.src = iframeUrl;
   iframe.onload = function() {
     spinner.classList.add('hidden');
   };
@@ -1112,15 +1134,6 @@ function openBlogModal(event, googleDocUrl, brand, groupUrl) {
 
   // 禁止背景滾動
   document.body.style.overflow = 'hidden';
-
-  // GA4 追蹤
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'open_blog_modal', {
-      group_name: brand || '',
-      event_category: 'engagement',
-      event_label: brand || ''
-    });
-  }
 }
 
 function closeBlogModal() {
