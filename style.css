@@ -10,8 +10,8 @@
 
   /* 主內容區增加間距 */
   #content {
-    padding-left: 8px;
-    padding-right: 8px;
+    padding-left: 1px;
+    padding-right: 1px;
   }
 
   /* Section 標題增加間距 */
@@ -23,8 +23,8 @@
   .masonry-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 12px;
-    padding: 8px;
+    gap: 4px;
+    padding: 4px;
     grid-auto-flow: dense;
   }
 
@@ -44,7 +44,7 @@
     display: flex;
     flex-direction: column;
     background: white;
-    border-radius: 12px;
+    border-radius: 8px;
     overflow: hidden;
     border: 1px solid #e5e7eb;
     transition: all 0.2s ease;
