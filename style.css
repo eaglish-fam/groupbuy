@@ -860,12 +860,12 @@ html {
 /* 平板和桌面版 Blog Modal */
 @media (min-width: 768px) {
   #blogModal .blog-modal-container {
-    max-height: 85vh;
+    max-height: 95vh;
     border-radius: 16px;
   }
 
   #blogModal .blog-iframe {
-    min-height: 60vh;
+    min-height: 70vh;
   }
 }
 
