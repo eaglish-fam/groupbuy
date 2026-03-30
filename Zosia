@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZOSIA — 大地是底色，山嶺是恩典，晨星是盼望，方舟是智慧。</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Noto+Serif+TC:wght@200;300;400;500;600;700&family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --brown: #9a7b5b;
+    --green: #5e8c52;
+    --orange: #d98e0a;
+    --blue: #3a7abf;
+    --bg: #faf9f6;
+    --bg-warm: #f5f0e8;
+    --text: #2d2a26;
+    --text-light: #6b6560;
+    --text-muted: #9a948d;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Noto Serif TC', serif;
+    background: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAV ===== */
+  nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(250, 249, 246, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    transition: all 0.4s ease;
+  }
+
+  nav.scrolled {
+    padding: 16px 48px;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+  }
+
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.2em;
+    color: var(--text);
+    text-decoration: none;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    color: var(--text-light);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 48px 80px;
+    position: relative;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 20% 80%, rgba(154,123,91,0.04), transparent),
+      radial-gradient(ellipse 60% 50% at 80% 20%, rgba(58,122,191,0.03), transparent);
+    pointer-events: none;
+  }
+
+  .hero-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(64px, 10vw, 120px);
+    font-weight: 400;
+    letter-spacing: 0.3em;
+    color: var(--text);
+    margin-bottom: 40px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease forwards;
+  }
+
+  .hero-bars {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 56px;
+    opacity: 0;
+    animation: fadeUp 1.2s ease 0.3s forwards;
+  }
+
+  .hero-bar {
+    height: 5px;
+    border-radius: 3px;
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+
+  .hero-bar:nth-child(1) {
+    width: 160px;
+    background: var(--brown);
+    animation: barGrow 0.8s ease 0.6s forwards;
+  }
+  .hero-bar:nth-child(2) {
+    width: 90px;
+    background: var(--green);
+    animation: barGrow 0.8s ease 0.75s forwards;
+  }
+  .hero-bar:nth-child(3) {
+    width: 72px;
+    background: var(--orange);
+    animation: barGrow 0.8s ease 0.9s forwards;
+  }
+  .hero-bar:nth-child(4) {
+    width: 28px;
+    background: var(--blue);
+    animation: barGrow 0.8s ease 1.05s forwards;
+  }
+
+  .hero-poem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .hero-poem .line {
+    font-size: clamp(22px, 3.5vw, 34px);
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    color: var(--text);
+    opacity: 0;
+    animation: fadeUp 1s ease forwards;
+  }
+
+  .hero-poem .line:nth-child(1) { animation-delay: 1.2s; }
+  .hero-poem .line:nth-child(2) { animation-delay: 1.5s; }
+  .hero-poem .line:nth-child(3) { animation-delay: 1.8s; }
+  .hero-poem .line:nth-child(4) { animation-delay: 2.1s; }
+
+  .c-brown { color: var(--brown); }
+  .c-green { color: var(--green); }
+  .c-orange { color: var(--orange); }
+  .c-blue { color: var(--blue); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    opacity: 0;
+    animation: fadeIn 1s ease 3s forwards;
+  }
+
+  .hero-scroll span {
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: var(--text-muted);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+
+  /* ===== PHILOSOPHY ===== */
+  .philosophy {
+    padding: 140px 48px;
+    display: flex;
+    justify-content: center;
+  }
+
+  .philosophy-inner {
+    max-width: 900px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 80px;
+    align-items: start;
+  }
+
+  .section-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    padding-top: 8px;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+
+  .philosophy-text h2 {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.8;
+    margin-bottom: 32px;
+    color: var(--text);
+  }
+
+  .philosophy-text p {
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 2;
+    color: var(--text-light);
+    max-width: 520px;
+  }
+
+  /* ===== COLORS SECTION ===== */
+  .colors-section {
+    padding: 120px 48px;
+    background: var(--bg-warm);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .colors-section::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: rgba(0,0,0,0.06);
+  }
+
+  .colors-header {
+    text-align: center;
+    margin-bottom: 80px;
+  }
+
+  .colors-header h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 42px;
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    margin-bottom: 16px;
+  }
+
+  .colors-header p {
+    font-size: 15px;
+    font-weight: 300;
+    color: var(--text-light);
+    letter-spacing: 0.05em;
+  }
+
+  .colors-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .color-card {
+    background: #fff;
+    padding: 40px 28px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .color-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.06);
+  }
+
+  .color-swatch {
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+  }
+
+  .color-card-title {
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+  }
+
+  .color-card-en {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+    text-transform: uppercase;
+  }
+
+  .color-card-desc {
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 1.9;
+    color: var(--text-light);
+    text-align: center;
+  }
+
+  .color-card-verse {
+    font-size: 12px;
+    font-weight: 300;
+    font-style: italic;
+    color: var(--text-muted);
+    text-align: center;
+    line-height: 1.7;
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 20px;
+    width: 100%;
+  }
+
+  /* ===== PRODUCTS ===== */
+  .products {
+    padding: 140px 48px;
+  }
+
+  .products-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .products-header {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+    align-items: start;
+  }
+
+  .products-header h2 {
+    font-size: 28px;
+    font-weight: 400;
+    line-height: 1.8;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .product-card {
+    aspect-ratio: 3/4;
+    background: var(--bg-warm);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease;
+  }
+
+  .product-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+
+  .product-card:nth-child(1)::before {
+    background: linear-gradient(160deg, rgba(154,123,91,0.08), rgba(154,123,91,0.02));
+  }
+  .product-card:nth-child(2)::before {
+    background: linear-gradient(160deg, rgba(94,140,82,0.08), rgba(94,140,82,0.02));
+  }
+  .product-card:nth-child(3)::before {
+    background: linear-gradient(160deg, rgba(58,122,191,0.08), rgba(58,122,191,0.02));
+  }
+
+  .product-card:hover::before { opacity: 1; }
+  .product-card:hover { transform: translateY(-2px); }
+
+  .product-icon {
+    font-size: 48px;
+    position: absolute;
+    top: 32px;
+    left: 32px;
+    opacity: 0.15;
+    transition: opacity 0.4s;
+  }
+
+  .product-card:hover .product-icon { opacity: 0.3; }
+
+  .product-name {
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+    position: relative;
+  }
+
+  .product-desc {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--text-light);
+    line-height: 1.8;
+    position: relative;
+  }
+
+  .product-bar {
+    width: 32px;
+    height: 3px;
+    border-radius: 2px;
+    margin-bottom: 20px;
+    position: relative;
+  }
+
+  /* ===== BRAND STATEMENT ===== */
+  .statement {
+    padding: 160px 48px;
+    background: var(--text);
+    color: var(--bg);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .statement::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 40% 40% at 15% 85%, rgba(154,123,91,0.1), transparent),
+      radial-gradient(ellipse 30% 30% at 85% 15%, rgba(58,122,191,0.08), transparent);
+    pointer-events: none;
+  }
+
+  .statement-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    letter-spacing: 0.4em;
+    color: rgba(250,249,246,0.3);
+    margin-bottom: 48px;
+    position: relative;
+  }
+
+  .statement-text {
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 300;
+    line-height: 2.2;
+    max-width: 600px;
+    letter-spacing: 0.06em;
+    position: relative;
+  }
+
+  .statement-bars {
+    display: flex;
+    gap: 8px;
+    margin-top: 56px;
+    position: relative;
+  }
+
+  .statement-bars .bar {
+    height: 3px;
+    border-radius: 2px;
+    opacity: 0.5;
+  }
+
+  .statement-bars .bar:nth-child(1) { width: 60px; background: var(--brown); }
+  .statement-bars .bar:nth-child(2) { width: 36px; background: var(--green); }
+  .statement-bars .bar:nth-child(3) { width: 28px; background: var(--orange); }
+  .statement-bars .bar:nth-child(4) { width: 12px; background: var(--blue); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 60px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(0,0,0,0.06);
+  }
+
+  .footer-logo {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    letter-spacing: 0.2em;
+    color: var(--text);
+  }
+
+  .footer-right {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+  }
+
+  .footer-right a {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s;
+  }
+
+  .footer-right a:hover { color: var(--text); }
+
+  .footer-copy {
+    font-size: 11px;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+
+  @keyframes barGrow {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  @keyframes scrollPulse {
+    0%, 100% { opacity: 0.3; transform: scaleY(1); }
+    50% { opacity: 0.7; transform: scaleY(1.15); }
+  }
+
+  /* scroll reveal */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    nav { padding: 16px 24px; }
+    .nav-links { display: none; }
+
+    .hero { padding: 100px 24px 60px; }
+    .hero-bars { gap: 10px; }
+    .hero-bar:nth-child(1) { width: 100px; }
+    .hero-bar:nth-child(2) { width: 56px; }
+    .hero-bar:nth-child(3) { width: 44px; }
+    .hero-bar:nth-child(4) { width: 18px; }
+
+    .philosophy { padding: 80px 24px; }
+    .philosophy-inner {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    .colors-section { padding: 80px 24px; }
+    .colors-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+
+    .products { padding: 80px 24px; }
+    .products-header {
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+    .product-grid {
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+    .product-card { aspect-ratio: auto; padding: 28px; }
+
+    .statement { padding: 100px 24px; }
+    footer {
+      padding: 40px 24px;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .footer-right { gap: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">ZOSIA</a>
+  <ul class="nav-links">
+    <li><a href="#philosophy">品牌理念</a></li>
+    <li><a href="#colors">四色家譜</a></li>
+    <li><a href="#products">產品系列</a></li>
+    <li><a href="#statement">關於我們</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-logo">ZOSIA</div>
+  <div class="hero-bars">
+    <div class="hero-bar"></div>
+    <div class="hero-bar"></div>
+    <div class="hero-bar"></div>
+    <div class="hero-bar"></div>
+  </div>
+  <div class="hero-poem">
+    <div class="line"><span class="c-brown">大地</span>是底色，</div>
+    <div class="line"><span class="c-green">山嶺</span>是恩典，</div>
+    <div class="line"><span class="c-orange">晨星</span>是盼望，</div>
+    <div class="line"><span class="c-blue">方舟</span>是智慧。</div>
+  </div>
+  <div class="hero-scroll">
+    <span>SCROLL</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy" id="philosophy">
+  <div class="philosophy-inner reveal">
+    <div class="section-label">Philosophy</div>
+    <div class="philosophy-text">
+      <h2>每一個家，<br>都值得被好好整理。</h2>
+      <p>ZOSIA 相信：秩序不是束縛，而是自由的起點。當生活有了結構，愛才有空間展開。我們為家庭設計工具，讓日常的混亂變成可以被擁抱的節奏。</p>
+    </div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section class="colors-section" id="colors">
+  <div class="colors-header reveal">
+    <h2>四色家譜</h2>
+    <p>一個家庭的四種底色，一個品牌的基因密碼</p>
+  </div>
+  <div class="colors-grid">
+    <div class="color-card reveal">
+      <div class="color-swatch" style="background: var(--brown);"></div>
+      <div class="color-card-en">Earth</div>
+      <div class="color-card-title c-brown">大地</div>
+      <div class="color-card-desc">底色。<br>在一切被畫上去之前，<br>先有這一層。</div>
+      <div class="color-card-verse">國王與王后，<br>根基與起點。</div>
+    </div>
+    <div class="color-card reveal">
+      <div class="color-swatch" style="background: var(--green);"></div>
+      <div class="color-card-en">Zion</div>
+      <div class="color-card-title c-green">山嶺</div>
+      <div class="color-card-desc">恩典。<br>安靜地矗立在那裡，<br>不搖動。</div>
+      <div class="color-card-verse">活在恩典之中，<br>錫安・至高之處。</div>
+    </div>
+    <div class="color-card reveal">
+      <div class="color-swatch" style="background: var(--orange);"></div>
+      <div class="color-card-en">Zenith</div>
+      <div class="color-card-title c-orange">晨星</div>
+      <div class="color-card-desc">盼望。<br>在至高之處照亮眾人，<br>引領方向。</div>
+      <div class="color-card-verse">在至高之處，<br>榮耀歸與上帝。</div>
+    </div>
+    <div class="color-card reveal">
+      <div class="color-swatch" style="background: var(--blue);"></div>
+      <div class="color-card-en">Zosia</div>
+      <div class="color-card-title c-blue">方舟</div>
+      <div class="color-card-desc">智慧。<br>承載信心，<br>跨越風浪。</div>
+      <div class="color-card-verse">使波浪的響聲，<br>都平靜了。</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="products">
+  <div class="products-inner">
+    <div class="products-header reveal">
+      <div class="section-label">Products</div>
+      <h2>為家庭而生的工具</h2>
+    </div>
+    <div class="product-grid">
+      <div class="product-card reveal">
+        <div class="product-icon">📋</div>
+        <div class="product-bar" style="background: var(--brown);"></div>
+        <div class="product-name">家庭計畫本</div>
+        <div class="product-desc">週計畫、月目標、年度回顧——一本讓全家人對齊節奏的手帳。</div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-icon">📦</div>
+        <div class="product-bar" style="background: var(--green);"></div>
+        <div class="product-name">收納標籤系統</div>
+        <div class="product-desc">可重複書寫的磁吸標籤，讓每一個空間都有名字。</div>
+      </div>
+      <div class="product-card reveal">
+        <div class="product-icon">⚓</div>
+        <div class="product-bar" style="background: var(--blue);"></div>
+        <div class="product-name">成長紀錄卡</div>
+        <div class="product-desc">每一張卡片記錄一個里程碑，孩子的成長不只是照片。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATEMENT -->
+<section class="statement" id="statement">
+  <div class="statement-logo">ZOSIA</div>
+  <div class="statement-text">
+    我們不是幸運湊在一起的名字，<br>
+    而是被呼召走同一條道路的家人。<br><br>
+    我們有國王、王后、山城、晨星、方舟——<br>
+    在恩典裡，朝著盼望前行。
+  </div>
+  <div class="statement-bars">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">ZOSIA</div>
+  <div class="footer-right">
+    <a href="#">Instagram</a>
+    <a href="#">Facebook</a>
+    <a href="#">鷹家買物社</a>
+    <span class="footer-copy">© 2026 ZOSIA. 鷹式一家</span>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  });
+
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
