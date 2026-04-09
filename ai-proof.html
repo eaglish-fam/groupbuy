@@ -250,6 +250,64 @@ footer{text-align:center;padding:40px 0;font-size:.78rem;color:var(--text3);bord
 }
 .back-btn:hover{background:#2563eb;transform:translateY(-2px);box-shadow:0 4px 16px rgba(59,130,246,.3)}
 
+/* ===== MCKINSEY ARCHETYPE ===== */
+.mckinsey-box{
+  margin-top:24px;padding:20px 24px;border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(16,185,129,.06));
+  border:1px solid rgba(59,130,246,.15);position:relative;overflow:hidden;
+}
+.mckinsey-box::before{
+  content:'';position:absolute;top:0;right:0;width:120px;height:120px;
+  background:radial-gradient(circle,rgba(59,130,246,.08),transparent 70%);pointer-events:none;
+}
+.mckinsey-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:.78rem;color:var(--text3);font-weight:500}
+.mckinsey-body{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.mckinsey-emoji{font-size:2rem;flex-shrink:0}
+.mckinsey-info{flex:1;min-width:200px}
+.mckinsey-name{font-size:1.05rem;font-weight:700;margin-bottom:2px}
+.mckinsey-sub{font-size:.82rem;color:var(--text2);line-height:1.5}
+.mckinsey-stats{display:flex;gap:16px;flex-shrink:0}
+.mckinsey-stat{text-align:center;padding:8px 14px;background:rgba(255,255,255,.04);border-radius:var(--radius-sm)}
+.mckinsey-stat .ms-val{font-size:1rem;font-weight:700;font-family:'Inter',sans-serif;color:var(--text)}
+.mckinsey-stat .ms-label{font-size:.68rem;color:var(--text3);margin-top:2px}
+
+/* ===== AMPLIFY BANNER ===== */
+.amplify-banner{
+  text-align:center;padding:14px 20px;margin-bottom:28px;
+  background:rgba(59,130,246,.06);border:1px solid rgba(59,130,246,.12);
+  border-radius:var(--radius-sm);font-size:.82rem;color:var(--text2);line-height:1.6;
+}
+.amplify-banner strong{color:var(--text)}
+
+/* ===== AMPLIFY ===== */
+.amplify-section{margin-top:56px}
+.amplify-title{font-size:1.3rem;font-weight:700;text-align:center;margin-bottom:6px}
+.amplify-subtitle{text-align:center;color:var(--text2);font-size:.88rem;margin-bottom:32px}
+.amplify-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.amplify-card{
+  background:var(--bg);border-radius:var(--radius);padding:24px;
+  border:1.5px solid var(--bg3);transition:all .4s ease;position:relative;overflow:hidden;
+}
+.amplify-card::before{
+  content:'';position:absolute;inset:0;opacity:.04;border-radius:inherit;transition:opacity .3s;
+}
+.amplify-card:hover::before{opacity:.08}
+.amplify-card.ac-physical{border-color:rgba(249,115,22,.25)}.amplify-card.ac-physical::before{background:var(--physical)}
+.amplify-card.ac-regulated{border-color:rgba(59,130,246,.25)}.amplify-card.ac-regulated::before{background:var(--regulated)}
+.amplify-card.ac-human{border-color:rgba(236,72,153,.25)}.amplify-card.ac-human::before{background:var(--human)}
+.amplify-card.ac-accountable{border-color:rgba(16,185,129,.25)}.amplify-card.ac-accountable::before{background:var(--accountable)}
+.amplify-card.ac-warn{border-left:3px solid #fbbf24}
+.amplify-card .ac-head{display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.amplify-card .ac-icon{font-size:1.3rem}
+.amplify-card .ac-dim{font-weight:700;font-size:.95rem}
+.amplify-card .ac-score{margin-left:auto;font-family:'Inter',sans-serif;font-weight:700;font-size:.85rem;opacity:.6}
+.amplify-card .ac-pain{font-size:.82rem;color:var(--text2);margin-bottom:10px;font-weight:600;line-height:1.5}
+.amplify-card .ac-strategy{font-size:.82rem;font-weight:600;margin-bottom:10px;line-height:1.5}
+.amplify-card .ac-body{font-size:.82rem;color:var(--text2);line-height:1.7;animation:acFadeIn .4s ease}
+.amplify-card .ac-body p{margin-bottom:0}
+.amplify-card .ac-warn-tag{display:inline-block;font-size:.72rem;font-weight:600;color:#fbbf24;background:rgba(251,191,36,.1);padding:2px 10px;border-radius:10px;margin-bottom:8px}
+@keyframes acFadeIn{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}
+
 /* ===== RESPONSIVE ===== */
 @media(max-width:640px){
   section{padding:60px 0}
@@ -260,6 +318,9 @@ footer{text-align:center;padding:40px 0;font-size:.78rem;color:var(--text3);bord
   .radar-canvas-wrap{width:300px;height:300px}
   #radarCanvas{width:300px;height:300px}
   .score-number{font-size:2.5rem}
+  .amplify-grid{grid-template-columns:1fr}
+  .mckinsey-box{flex-direction:column;text-align:center}
+  .mckinsey-stats{flex-wrap:wrap;justify-content:center}
 }
 </style>
 </head>
@@ -408,6 +469,17 @@ footer{text-align:center;padding:40px 0;font-size:.78rem;color:var(--text3);bord
 
       <!-- Analysis -->
       <div class="analysis-box" id="analysisBox"></div>
+
+      <!-- McKinsey Archetype -->
+      <div class="mckinsey-box" id="mckinseyBox"></div>
+
+      <!-- Amplify -->
+      <div class="amplify-section">
+        <div class="amplify-banner" id="amplifyBanner">📊 <strong>麥肯錫研究（2025）</strong>：分析 800 種職業後發現，年薪最高的不是 AI 碰不到的職業，而是跟 AI 協作最好的職業（People-Agent 型，USD $74K）。<br>防守護城河 + 進攻放大 = 真正的 AI-proof。</div>
+        <div class="amplify-title">🚀 AI 放大策略</div>
+        <div class="amplify-subtitle">你的護城河已經量化了 — 接下來，用 AI 讓它更深</div>
+        <div class="amplify-grid" id="amplifyGrid"></div>
+      </div>
     </div>
   </div>
 </section>
@@ -574,6 +646,8 @@ function update(){
   updateScore();
   drawRadar();
   updateAnalysis();
+  updateMcKinsey();
+  updateAmplify();
   updateTimeline();
 }
 
@@ -697,6 +771,161 @@ function updateAnalysis(){
     html += `</div>`;
   }
   box.innerHTML = html;
+}
+
+/* ===== MCKINSEY ARCHETYPE ===== */
+const MCKINSEY_TYPES = [
+  {
+    id:'people-centric',emoji:'👥',name:'人力中心型',en:'People-Centric',
+    pct:'34%',salary:'$71K',risk:'最低',
+    desc:'工作主要由人完成。高度依賴實體操作與社交情感能力，是機器最難複製的領域。',
+    examples:'註冊護理師、心理師、消防員'
+  },
+  {
+    id:'people-agent',emoji:'🤝',name:'人力＋智能體型',en:'People-Agent',
+    pct:'21%',salary:'$74K',risk:'中低',
+    desc:'人與 AI 智能體協作。AI 協助資料分析與草稿生成，人負責判斷、決策與關係維護。年薪七類最高。',
+    examples:'業務代表、中學教師、人資專員'
+  },
+  {
+    id:'people-robot',emoji:'🔧',name:'人力＋機器人型',en:'People-Robot',
+    pct:'<1%',salary:'$54K',risk:'中',
+    desc:'人與機器人協作。體力佔 81%，機器提供力量與精準度來輔助人。',
+    examples:'隔熱工、石膏板安裝工'
+  },
+  {
+    id:'people-agent-robot',emoji:'🏭',name:'人力＋智能體＋機器人型',en:'People-Agent-Robot',
+    pct:'5%',salary:'$60K',risk:'中',
+    desc:'三者同時協作。體力與非體力各約一半，需要三種力量均衡配合。',
+    examples:'接待員、醫療助理、矯正官'
+  },
+  {
+    id:'agent-centric',emoji:'🤖',name:'智能體中心型',en:'Agent-Centric',
+    pct:'30%',salary:'$70K',risk:'中高',
+    desc:'大量認知型任務技術上可由 AI 執行，但仍需人類監督與把關。',
+    examples:'會計師、軟體開發者、律師'
+  },
+  {
+    id:'robot-centric',emoji:'🦾',name:'機器人中心型',en:'Robot-Centric',
+    pct:'8%',salary:'$42K',risk:'高',
+    desc:'高度體力密集，理論上幾乎可完全自動化，但成本與現實限制使人仍留在流程中。',
+    examples:'倉儲理貨員、焊工、廚師'
+  },
+  {
+    id:'agent-robot',emoji:'⚙️',name:'智能體＋機器人型',en:'Agent-Robot',
+    pct:'2%',salary:'$49K',risk:'最高',
+    desc:'AI 智能體與機器人共同完成工作，幾乎不需要人。人類角色僅限監督與例外處理。',
+    examples:'機器設定操作員、烘焙師傅、圖書館助理'
+  }
+];
+
+function getMcKinseyType(v){
+  const total = v.physical + v.regulated + v.human + v.accountable;
+  const p = v.physical, r = v.regulated, h = v.human, a = v.accountable;
+
+  if(p >= 4 && h >= 4) return MCKINSEY_TYPES[0];
+  if(p <= 3 && h >= 3 && a >= 3 && total >= 11) return MCKINSEY_TYPES[1];
+  if(p >= 3 && h <= 2 && a <= 2 && r <= 2) return MCKINSEY_TYPES[5];
+  if(p >= 3 && h >= 3 && total <= 14 && total >= 10) return MCKINSEY_TYPES[3];
+  if(p <= 2 && r >= 3) return MCKINSEY_TYPES[4];
+  if(p >= 5 && h <= 2 && r <= 2) return MCKINSEY_TYPES[2];
+  if(total <= 8 && h <= 2) return MCKINSEY_TYPES[6];
+  if(total >= 14) return MCKINSEY_TYPES[1];
+  if(total >= 10) return MCKINSEY_TYPES[4];
+  return MCKINSEY_TYPES[6];
+}
+
+function updateMcKinsey(){
+  const type = getMcKinseyType(values);
+  const box = document.getElementById('mckinseyBox');
+  const riskColors = {'最低':'#22c55e','中低':'#86efac','中':'#eab308','中高':'#f97316','高':'#ef4444','最高':'#ef4444'};
+  const riskColor = riskColors[type.risk] || '#94a3b8';
+
+  box.innerHTML = `
+    <div class="mckinsey-header">📋 McKinsey 2025 · 你最接近的職業原型</div>
+    <div class="mckinsey-body">
+      <div class="mckinsey-emoji">${type.emoji}</div>
+      <div class="mckinsey-info">
+        <div class="mckinsey-name">${type.name} <span style="font-weight:400;font-size:.82rem;color:var(--text3)">${type.en}</span></div>
+        <div class="mckinsey-sub">${type.desc}</div>
+        <div class="mckinsey-sub" style="margin-top:4px;font-size:.78rem;color:var(--text3)">代表職業：${type.examples}</div>
+      </div>
+      <div class="mckinsey-stats">
+        <div class="mckinsey-stat">
+          <div class="ms-val">${type.pct}</div>
+          <div class="ms-label">勞動力佔比</div>
+        </div>
+        <div class="mckinsey-stat">
+          <div class="ms-val">${type.salary}</div>
+          <div class="ms-label">平均年薪（USD）</div>
+        </div>
+        <div class="mckinsey-stat">
+          <div class="ms-val" style="color:${riskColor}">${type.risk}</div>
+          <div class="ms-label">自動化風險</div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+/* ===== AMPLIFY ===== */
+const AMPLIFY_DATA = {
+  physical:{
+    icon:'🏗️',label:'Physical 實體性',
+    pain:'你被身體綁住了 — 時間和產出受限於你能到場的次數和雙手的速度。',
+    strategy:'從「用手做」升級到「用手 + 腦做」',
+    high:'你的身體是資產，不是限制。讓 AI 接管診斷、排程、品質檢測，你專注在只有人手才能完成的核心動作。一雙手 + AI 大腦 = 過去需要三個人的產出。',
+    low:'你的工作不依賴實體，這代表 AI 很容易直接接手。考慮往「管理實體操作的人」升維 — 用 AI 指揮實體世界的資源，替自己補上這一圈。'
+  },
+  regulated:{
+    icon:'📜',label:'Regulated 受監管',
+    pain:'執照保護你，但也限制你的規模 — 一個人只有一張照，能服務的人有上限。',
+    strategy:'一張照 + AI = 五個人的產出',
+    high:'你的執照是護城河，AI 是城裡的加速器。把報告生成、法規比對、文件審查交給 AI，你的一天從處理 5 個案子變成處理 15 個。門檻保護你不被取代，AI 讓你在門檻內碾壓同行。',
+    low:'你沒有制度壁壘保護。AI 可以幫你建立替代門檻 — 用 AI 打造個人品牌、累積公開作品集、建立獨特方法論。沒有執照，就用不可複製的經驗和聲譽當護城河。'
+  },
+  human:{
+    icon:'💗',label:'Human Touch 人的溫度',
+    pain:'你的時間是有限的 — 行政雜事侵蝕了你能「陪人」的時間。',
+    strategy:'把不是「人」的事全部交給 AI，把自己還給人',
+    high:'你的價值在「人」身上，不要讓雜事稀釋它。AI 寫紀錄、整理資訊、處理排程，你把省下的每一分鐘都還給面前的人。當別人花 50% 時間在行政，你花 100% 在人身上 — 這就是碾壓級的差距。',
+    low:'你的工作不太需要人際互動，這是最容易被 AI 正面取代的區域。開始在工作中加入「人的成分」— 用 AI 處理標準化的部分，把自己的精力放在建立關係、理解需求、提供個人化服務上。'
+  },
+  accountable:{
+    icon:'✍️',label:'Accountable 決策與責任',
+    pain:'決策品質取決於資訊品質 — 你不可能看完所有資料、考慮所有變數。',
+    strategy:'讓 AI 當參謀，不是替身',
+    high:'你的價值在「拍板」，讓 AI 幫你拍得更準。AI 跑模擬、整理數據、列出風險，你做的每個決策都有更完整的情報支撐。別人靠直覺拍板，你靠直覺 + AI 情報拍板 — 錯誤率直接砍半。',
+    low:'你目前處於執行層，不承擔重大決策。這是最容易被 AI 自動化的位置。主動爭取決策權 — 哪怕是小範圍的。用 AI 準備更好的方案呈給上級，展示你的判斷力。從「被告知做什麼」升級到「建議應該做什麼」。'
+  }
+};
+
+function updateAmplify(){
+  const grid = document.getElementById('amplifyGrid');
+  grid.innerHTML = DIMS.map(dim=>{
+    const d = AMPLIFY_DATA[dim];
+    const v = values[dim];
+    const isWeak = v <= 2;
+    const warnClass = isWeak ? ' ac-warn' : '';
+    const warnTag = isWeak ? '<div class="ac-warn-tag">⚠️ 弱點區域</div>' : '';
+
+    let advice = '';
+    if(v >= 4) advice = d.high;
+    else if(v <= 2) advice = d.low;
+    else advice = d.high + '<br><br>' + d.low;
+
+    return `<div class="amplify-card ac-${dim}${warnClass}">
+      <div class="ac-head">
+        <span class="ac-icon">${d.icon}</span>
+        <span class="ac-dim" style="color:${COLORS[dim]}">${d.label}</span>
+        <span class="ac-score">${v}/5</span>
+      </div>
+      ${warnTag}
+      <div class="ac-pain">${d.pain}</div>
+      <div class="ac-strategy" style="color:${COLORS[dim]}">AI 放大 → ${d.strategy}</div>
+      <div class="ac-body"><p>${advice}</p></div>
+    </div>`;
+  }).join('');
 }
 
 /* ===== TIMELINE ===== */
