@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 防護四圈模型 — 你的職業有幾層護城河？</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+TC:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0f172a;--bg2:#1e293b;--bg3:#334155;--card:#1e293b;
+  --text:#e2e8f0;--text2:#94a3b8;--text3:#64748b;
+  --physical:#f97316;--regulated:#3b82f6;--human:#ec4899;--accountable:#10b981;
+  --physical-bg:rgba(249,115,22,.12);--regulated-bg:rgba(59,130,246,.12);
+  --human-bg:rgba(236,72,153,.12);--accountable-bg:rgba(16,185,129,.12);
+  --radius:16px;--radius-sm:10px;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Noto Sans TC','Inter',system-ui,sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.7;
+  -webkit-font-smoothing:antialiased;
+}
+.container{max-width:960px;margin:0 auto;padding:0 24px}
+section{padding:80px 0}
+h1,h2,h3{font-weight:700;line-height:1.3}
+a{color:var(--regulated);text-decoration:none}
+
+/* ===== HERO ===== */
+.hero{text-align:center;padding:100px 0 60px;position:relative;overflow:hidden}
+.hero::before{
+  content:'';position:absolute;top:-200px;left:50%;transform:translateX(-50%);
+  width:800px;height:800px;
+  background:radial-gradient(circle,rgba(59,130,246,.08) 0%,transparent 70%);
+  pointer-events:none;
+}
+.hero h1{
+  font-size:clamp(2.2rem,5vw,3.6rem);font-weight:900;
+  background:linear-gradient(135deg,#f97316,#ec4899,#3b82f6,#10b981);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;margin-bottom:12px;
+}
+.hero .subtitle{font-size:clamp(1.1rem,2.5vw,1.5rem);color:var(--text2);margin-bottom:24px;font-weight:500}
+.hero .desc{max-width:620px;margin:0 auto 20px;color:var(--text3);font-size:.95rem}
+.hero .credit{font-size:.8rem;color:var(--text3);opacity:.7}
+.hero .credit span{color:var(--text2)}
+
+/* ===== SECTION TITLES ===== */
+.section-title{
+  text-align:center;font-size:clamp(1.5rem,3vw,2rem);margin-bottom:12px;
+}
+.section-subtitle{text-align:center;color:var(--text2);margin-bottom:48px;font-size:.95rem}
+
+/* ===== FOUR CIRCLES VIS ===== */
+.circles-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:6px;
+  max-width:640px;margin:0 auto;position:relative;
+}
+.circle-card{
+  position:relative;padding:28px 24px;border-radius:var(--radius);
+  cursor:pointer;transition:all .3s ease;overflow:hidden;
+  border:1.5px solid transparent;
+}
+.circle-card::before{
+  content:'';position:absolute;inset:0;opacity:.06;transition:opacity .3s;
+  border-radius:inherit;
+}
+.circle-card:hover{transform:translateY(-3px);border-color:currentColor}
+.circle-card:hover::before{opacity:.12}
+.cc-physical{color:var(--physical);background:var(--physical-bg)}
+.cc-physical::before{background:var(--physical)}
+.cc-regulated{color:var(--regulated);background:var(--regulated-bg)}
+.cc-regulated::before{background:var(--regulated)}
+.cc-human{color:var(--human);background:var(--human-bg)}
+.cc-human::before{background:var(--human)}
+.cc-accountable{color:var(--accountable);background:var(--accountable-bg)}
+.cc-accountable::before{background:var(--accountable)}
+
+.circle-card .cc-icon{font-size:1.8rem;margin-bottom:8px}
+.circle-card .cc-name{font-size:1.1rem;font-weight:700;margin-bottom:2px}
+.circle-card .cc-zh{font-size:.85rem;opacity:.7;margin-bottom:8px}
+.circle-card .cc-desc{font-size:.82rem;color:var(--text2);line-height:1.6;
+  max-height:0;overflow:hidden;transition:max-height .4s ease,opacity .3s;opacity:0}
+.circle-card:hover .cc-desc,.circle-card.active .cc-desc{max-height:200px;opacity:1}
+
+/* Intersection labels */
+.intersect-label{
+  position:absolute;padding:6px 14px;border-radius:20px;font-size:.75rem;
+  font-weight:600;background:var(--bg2);border:1px solid var(--bg3);
+  white-space:nowrap;z-index:5;opacity:0;transform:scale(.9);
+  transition:all .3s ease;pointer-events:none;
+}
+.circles-grid:hover .intersect-label{opacity:1;transform:scale(1)}
+.int-top{top:50%;left:50%;transform:translate(-50%,-180%)}
+.int-left{top:50%;left:0;transform:translate(-10%,-50%)}
+.int-right{top:50%;right:0;transform:translate(10%,-50%)}
+.int-bottom{top:50%;left:50%;transform:translate(-50%,80%)}
+.circles-grid:hover .int-top{transform:translate(-50%,-180%) scale(1)}
+.circles-grid:hover .int-left{transform:translate(-10%,-50%) scale(1)}
+.circles-grid:hover .int-right{transform:translate(10%,-50%) scale(1)}
+.circles-grid:hover .int-bottom{transform:translate(-50%,80%) scale(1)}
+
+/* Center badge */
+.center-badge{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  z-index:6;background:linear-gradient(135deg,rgba(249,115,22,.2),rgba(59,130,246,.2),rgba(236,72,153,.2),rgba(16,185,129,.2));
+  border:1.5px solid rgba(255,255,255,.15);border-radius:50%;
+  width:90px;height:90px;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  cursor:pointer;transition:all .3s;backdrop-filter:blur(8px);
+}
+.center-badge:hover{transform:translate(-50%,-50%) scale(1.08);border-color:rgba(255,255,255,.3)}
+.center-badge .cb-icon{font-size:1.3rem}
+.center-badge .cb-text{font-size:.6rem;font-weight:700;color:var(--text);margin-top:2px;text-align:center;line-height:1.2}
+
+/* Center tooltip */
+.center-tooltip{
+  position:absolute;top:50%;left:50%;transform:translate(-50%,calc(-50% + 60px));
+  background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);
+  padding:16px 20px;z-index:10;width:280px;
+  opacity:0;pointer-events:none;transition:all .3s;
+  box-shadow:0 12px 40px rgba(0,0,0,.4);
+}
+.center-tooltip.show{opacity:1;pointer-events:auto;transform:translate(-50%,calc(-50% + 70px))}
+.center-tooltip h4{font-size:.9rem;margin-bottom:8px;color:#fbbf24}
+.center-tooltip p{font-size:.78rem;color:var(--text2);line-height:1.5}
+
+/* ===== DIAGNOSTIC ===== */
+.diag-wrap{max-width:720px;margin:0 auto}
+.diag-input-wrap{margin-bottom:36px;text-align:center}
+.diag-input{
+  background:var(--bg2);border:1.5px solid var(--bg3);border-radius:var(--radius-sm);
+  padding:14px 20px;font-size:1rem;color:var(--text);width:100%;max-width:400px;
+  font-family:inherit;outline:none;transition:border-color .3s;text-align:center;
+}
+.diag-input:focus{border-color:var(--regulated)}
+.diag-input::placeholder{color:var(--text3)}
+
+.slider-group{margin-bottom:28px}
+.slider-header{display:flex;align-items:center;gap:10px;margin-bottom:6px}
+.slider-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0}
+.slider-label{font-weight:600;font-size:.95rem}
+.slider-value{margin-left:auto;font-weight:700;font-size:1.1rem;font-family:'Inter',sans-serif}
+.slider-desc{font-size:.78rem;color:var(--text3);margin-bottom:10px;min-height:20px;transition:color .3s}
+.slider-track{position:relative;height:6px;background:var(--bg3);border-radius:3px;cursor:pointer}
+.slider-fill{position:absolute;left:0;top:0;height:100%;border-radius:3px;transition:width .15s}
+.slider-thumb{
+  position:absolute;top:50%;width:22px;height:22px;border-radius:50%;
+  transform:translate(-50%,-50%);cursor:grab;transition:box-shadow .2s;
+  border:3px solid var(--bg);
+}
+.slider-thumb:hover{box-shadow:0 0 0 6px rgba(255,255,255,.1)}
+.slider-thumb:active{cursor:grabbing}
+input[type=range]{
+  -webkit-appearance:none;appearance:none;width:100%;height:6px;
+  background:transparent;position:absolute;top:0;left:0;z-index:2;
+  cursor:pointer;opacity:0;height:30px;top:-12px;
+}
+
+/* Score display */
+.score-display{
+  text-align:center;margin:40px 0;padding:32px;
+  background:var(--bg2);border-radius:var(--radius);
+  border:1px solid var(--bg3);
+}
+.score-number{font-size:3.5rem;font-weight:800;font-family:'Inter',sans-serif;line-height:1}
+.score-max{font-size:1.2rem;color:var(--text3);font-weight:400}
+.score-level{
+  display:inline-block;margin-top:12px;padding:6px 18px;border-radius:20px;
+  font-size:.9rem;font-weight:600;
+}
+.score-advice{margin-top:12px;font-size:.85rem;color:var(--text2)}
+
+/* Radar chart */
+.radar-wrap{display:flex;flex-direction:column;align-items:center;margin:40px 0}
+.radar-canvas-wrap{position:relative;width:360px;height:360px}
+#radarCanvas{width:360px;height:360px}
+
+/* Analysis */
+.analysis-box{
+  background:var(--bg2);border-radius:var(--radius);padding:24px;
+  border:1px solid var(--bg3);margin-top:24px;
+}
+.analysis-box h3{font-size:1rem;margin-bottom:12px}
+.analysis-item{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:.88rem}
+.analysis-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.analysis-weak{color:#fbbf24;font-weight:600}
+
+/* ===== TIMELINE ===== */
+.timeline-section{max-width:720px;margin:0 auto}
+.timeline-periods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px}
+.timeline-card{
+  background:var(--bg2);border-radius:var(--radius-sm);padding:20px;
+  border:1px solid var(--bg3);
+}
+.timeline-card h4{font-size:1rem;margin-bottom:16px;text-align:center}
+.timeline-check{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:.82rem;cursor:pointer}
+.timeline-check input{accent-color:var(--regulated);width:16px;height:16px;cursor:pointer}
+.timeline-result{
+  text-align:center;padding:24px;background:var(--bg2);border-radius:var(--radius);
+  border:1px solid var(--bg3);
+}
+.timeline-bar{display:flex;gap:4px;justify-content:center;margin:20px 0}
+.tbar-segment{height:40px;border-radius:6px;transition:all .5s;min-width:8px;position:relative}
+.tbar-segment .tbar-label{
+  position:absolute;bottom:-22px;left:50%;transform:translateX(-50%);
+  font-size:.7rem;color:var(--text3);white-space:nowrap;
+}
+.timeline-verdict{font-size:.9rem;font-weight:600;margin-top:32px}
+
+/* ===== PRESETS ===== */
+.presets-section{max-width:720px;margin:0 auto}
+.presets-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:10px}
+.preset-btn{
+  background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);
+  padding:14px 12px;cursor:pointer;transition:all .3s;text-align:center;
+  color:var(--text);font-family:inherit;font-size:.88rem;font-weight:500;
+}
+.preset-btn:hover{border-color:var(--regulated);transform:translateY(-2px);background:rgba(59,130,246,.08)}
+.preset-btn .preset-score{font-size:.75rem;color:var(--text3);margin-top:4px;font-family:'Inter',sans-serif}
+
+/* ===== MODEL INFO ===== */
+.model-info{max-width:720px;margin:0 auto}
+.collapse-btn{
+  width:100%;background:var(--bg2);border:1px solid var(--bg3);border-radius:var(--radius-sm);
+  padding:16px 24px;cursor:pointer;color:var(--text);font-family:inherit;
+  font-size:1rem;font-weight:600;display:flex;justify-content:space-between;align-items:center;
+  transition:all .3s;
+}
+.collapse-btn:hover{border-color:var(--text3)}
+.collapse-arrow{transition:transform .3s;font-size:.8rem}
+.collapse-btn.open .collapse-arrow{transform:rotate(180deg)}
+.collapse-content{
+  max-height:0;overflow:hidden;transition:max-height .5s ease;
+  background:var(--bg2);border:1px solid var(--bg3);border-top:0;
+  border-radius:0 0 var(--radius-sm) var(--radius-sm);
+}
+.collapse-content.open{max-height:2000px}
+.collapse-inner{padding:24px;font-size:.88rem;color:var(--text2);line-height:1.8}
+.collapse-inner h4{color:var(--text);margin:16px 0 8px;font-size:.95rem}
+.collapse-inner p{margin-bottom:12px}
+
+/* Footer */
+footer{text-align:center;padding:40px 0;font-size:.78rem;color:var(--text3);border-top:1px solid var(--bg3)}
+.back-btn{
+  display:inline-block;padding:12px 28px;border-radius:var(--radius-sm);
+  background:var(--regulated);color:#fff;font-size:.95rem;font-weight:600;
+  font-family:inherit;transition:all .3s;text-decoration:none;
+}
+.back-btn:hover{background:#2563eb;transform:translateY(-2px);box-shadow:0 4px 16px rgba(59,130,246,.3)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:640px){
+  section{padding:60px 0}
+  .circles-grid{grid-template-columns:1fr;gap:10px;max-width:100%}
+  .intersect-label,.center-badge{display:none}
+  .timeline-periods{grid-template-columns:1fr}
+  .presets-grid{grid-template-columns:repeat(auto-fill,minmax(120px,1fr))}
+  .radar-canvas-wrap{width:300px;height:300px}
+  #radarCanvas{width:300px;height:300px}
+  .score-number{font-size:2.5rem}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1>AI 防護四圈模型</h1>
+    <p class="subtitle">你的職業有幾層護城河？</p>
+    <p class="desc">四個獨立維度評估你的職業在 AI 時代的防護力：實體性、受監管、人的溫度、決策與責任。每多一層護城河，AI 就更難取代你。</p>
+    <p class="credit">原始三圈模型 — <span>Codie Sanchez</span> ／ 第四圈擴充 — <span>Hiram</span></p>
+  </div>
+</section>
+
+<!-- FOUR CIRCLES VISUALIZATION -->
+<section id="circles">
+  <div class="container">
+    <h2 class="section-title">四個防護維度</h2>
+    <p class="section-subtitle">AI 的能力邊界，就是你的護城河</p>
+    <div class="circles-grid" id="circlesGrid">
+      <div class="circle-card cc-physical" onclick="this.classList.toggle('active')">
+        <div class="cc-icon">🏗️</div>
+        <div class="cc-name">Physical</div>
+        <div class="cc-zh">實體性</div>
+        <div class="cc-desc">需要到場、動手操作，無法遠端完成。AI 再強也沒有身體。水管不會自己修、手術刀不會自己動。</div>
+      </div>
+      <div class="circle-card cc-regulated" onclick="this.classList.toggle('active')">
+        <div class="cc-icon">📜</div>
+        <div class="cc-name">Regulated</div>
+        <div class="cc-zh">受監管</div>
+        <div class="cc-desc">法規門檻、執照要求。AI 沒有資格考試，也拿不到執照。這是制度為人類設下的進入障礙。</div>
+      </div>
+      <div class="circle-card cc-human" onclick="this.classList.toggle('active')">
+        <div class="cc-icon">💗</div>
+        <div class="cc-name">Human Touch</div>
+        <div class="cc-zh">人的溫度</div>
+        <div class="cc-desc">信任、同理心、人際連結。人在脆弱的時候需要的是另一個人，而不是一個精準但冰冷的回答。</div>
+      </div>
+      <div class="circle-card cc-accountable" onclick="this.classList.toggle('active')">
+        <div class="cc-icon">✍️</div>
+        <div class="cc-name">Accountable</div>
+        <div class="cc-zh">決策與責任</div>
+        <div class="cc-desc">拍板簽字、承擔後果。AI 可以建議，但不能簽字，也無法被追究。前三圈回答「AI 做不到什麼」，這圈回答「AI 做得到但人類不讓它做什麼」。</div>
+      </div>
+
+      <!-- Intersection labels -->
+      <div class="intersect-label int-top">🔧 合規實體業<br><span style="font-weight:400;font-size:.7rem;color:var(--text3)">電工、水管工</span></div>
+      <div class="intersect-label int-left">🤝 暖心現場<br><span style="font-weight:400;font-size:.7rem;color:var(--text3)">健身教練、寵物美容師</span></div>
+      <div class="intersect-label int-right">📋 專業簽核<br><span style="font-weight:400;font-size:.7rem;color:var(--text3)">簽證會計師、結構技師</span></div>
+      <div class="intersect-label int-bottom">🫂 負責的關懷<br><span style="font-weight:400;font-size:.7rem;color:var(--text3)">團隊主管、調解委員</span></div>
+
+      <!-- Center badge -->
+      <div class="center-badge" id="centerBadge" onclick="toggleCenterTooltip()">
+        <div class="cb-icon">🛡️</div>
+        <div class="cb-text">四圈全滿</div>
+      </div>
+      <div class="center-tooltip" id="centerTooltip">
+        <h4>🛡️ 四圈全滿 — 最高防護</h4>
+        <p>外科醫師、法官、主治醫師、社工師、助產師、牙醫師。這些職業同時需要到場操作、持有執照、建立人際信任、並為決策負責。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIAGNOSTIC TOOL -->
+<section id="diagnostic" style="background:rgba(30,41,59,.5)">
+  <div class="container">
+    <h2 class="section-title">診斷你的職業</h2>
+    <p class="section-subtitle">拖動滑桿，看看你的護城河有多深</p>
+    <div class="diag-wrap">
+      <div class="diag-input-wrap">
+        <input type="text" class="diag-input" id="jobInput" placeholder="輸入你的職業名稱（例如：護理師）">
+      </div>
+
+      <!-- Sliders -->
+      <div class="slider-group" id="sg-physical">
+        <div class="slider-header">
+          <div class="slider-dot" style="background:var(--physical)"></div>
+          <div class="slider-label">Physical 實體性</div>
+          <div class="slider-value" id="val-physical" style="color:var(--physical)">3</div>
+        </div>
+        <div class="slider-desc" id="desc-physical"></div>
+        <div class="slider-track">
+          <div class="slider-fill" id="fill-physical" style="background:var(--physical)"></div>
+          <div class="slider-thumb" id="thumb-physical" style="background:var(--physical)"></div>
+          <input type="range" min="1" max="5" value="3" data-dim="physical">
+        </div>
+      </div>
+
+      <div class="slider-group" id="sg-regulated">
+        <div class="slider-header">
+          <div class="slider-dot" style="background:var(--regulated)"></div>
+          <div class="slider-label">Regulated 受監管</div>
+          <div class="slider-value" id="val-regulated" style="color:var(--regulated)">3</div>
+        </div>
+        <div class="slider-desc" id="desc-regulated"></div>
+        <div class="slider-track">
+          <div class="slider-fill" id="fill-regulated" style="background:var(--regulated)"></div>
+          <div class="slider-thumb" id="thumb-regulated" style="background:var(--regulated)"></div>
+          <input type="range" min="1" max="5" value="3" data-dim="regulated">
+        </div>
+      </div>
+
+      <div class="slider-group" id="sg-human">
+        <div class="slider-header">
+          <div class="slider-dot" style="background:var(--human)"></div>
+          <div class="slider-label">Human Touch 人的溫度</div>
+          <div class="slider-value" id="val-human" style="color:var(--human)">3</div>
+        </div>
+        <div class="slider-desc" id="desc-human"></div>
+        <div class="slider-track">
+          <div class="slider-fill" id="fill-human" style="background:var(--human)"></div>
+          <div class="slider-thumb" id="thumb-human" style="background:var(--human)"></div>
+          <input type="range" min="1" max="5" value="3" data-dim="human">
+        </div>
+      </div>
+
+      <div class="slider-group" id="sg-accountable">
+        <div class="slider-header">
+          <div class="slider-dot" style="background:var(--accountable)"></div>
+          <div class="slider-label">Accountable 決策與責任</div>
+          <div class="slider-value" id="val-accountable" style="color:var(--accountable)">3</div>
+        </div>
+        <div class="slider-desc" id="desc-accountable"></div>
+        <div class="slider-track">
+          <div class="slider-fill" id="fill-accountable" style="background:var(--accountable)"></div>
+          <div class="slider-thumb" id="thumb-accountable" style="background:var(--accountable)"></div>
+          <input type="range" min="1" max="5" value="3" data-dim="accountable">
+        </div>
+      </div>
+
+      <!-- Score -->
+      <div class="score-display">
+        <div><span class="score-number" id="scoreNumber">12</span><span class="score-max"> / 20</span></div>
+        <div class="score-level" id="scoreLevel"></div>
+        <div class="score-advice" id="scoreAdvice"></div>
+      </div>
+
+      <!-- Radar Chart -->
+      <div class="radar-wrap">
+        <div class="radar-canvas-wrap">
+          <canvas id="radarCanvas" width="300" height="300"></canvas>
+        </div>
+      </div>
+
+      <!-- Analysis -->
+      <div class="analysis-box" id="analysisBox"></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section id="timeline">
+  <div class="container">
+    <h2 class="section-title">護城河時間軸</h2>
+    <p class="section-subtitle">勾選你認為未來可能被侵蝕的維度</p>
+    <div class="timeline-section">
+      <div class="timeline-periods" id="timelinePeriods">
+        <div class="timeline-card" data-years="3">
+          <h4>3 年後</h4>
+          <label class="timeline-check"><input type="checkbox" data-dim="physical" data-years="3"><span style="color:var(--physical)">實體性</span>被侵蝕</label>
+          <label class="timeline-check"><input type="checkbox" data-dim="regulated" data-years="3"><span style="color:var(--regulated)">受監管</span>被侵蝕</label>
+          <label class="timeline-check"><input type="checkbox" data-dim="human" data-years="3"><span style="color:var(--human)">人的溫度</span>被侵蝕</label>
+          <label class="timeline-check"><input type="checkbox" data-dim="accountable" data-years="3"><span style="color:var(--accountable)">決策責任</span>被侵蝕</label>
+        </div>
+        <div class="timeline-card" data-years="5">
+          <h4>5 年後</h4>
+          <label class="timeline-check"><input type="checkbox" data-dim="physical" data-years="5"><span style="color:var(--physical)">實體性</span>被侵蝕</label>
+          <label class="timeline-check"><input type="checkbox" data-dim="regulated" data-years="5"><span style="color:var(--regulated)">受監管</span>被侵蝕</label>
+          <label class="timeline-check"><input type="checkbox" data-dim="human" data-years="5"><span style="color:var(--human)">人的溫度</span>被侵蝕</label>
+          <label class="timeline-check"><input type="checkbox" data-dim="accountable" data-years="5"><span style="color:var(--accountable)">決策責任</span>被侵蝕</label>
+        </div>
+        <div class="timeline-card" data-years="10">
+          <h4>10 年後</h4>
+          <label class="timeline-check"><input type="checkbox" data-dim="physical" data-years="10"><span style="color:var(--physical)">實體性</span>被侵蝕</label>
+          <label class="timeline-check"><input type="checkbox" data-dim="regulated" data-years="10"><span style="color:var(--regulated)">受監管</span>被侵蝕</label>
+          <label class="timeline-check"><input type="checkbox" data-dim="human" data-years="10"><span style="color:var(--human)">人的溫度</span>被侵蝕</label>
+          <label class="timeline-check"><input type="checkbox" data-dim="accountable" data-years="10"><span style="color:var(--accountable)">決策責任</span>被侵蝕</label>
+        </div>
+      </div>
+      <div class="timeline-result" id="timelineResult">
+        <div style="font-size:.85rem;color:var(--text3);margin-bottom:12px">護城河預測走勢</div>
+        <div class="timeline-bar" id="timelineBar"></div>
+        <div class="timeline-verdict" id="timelineVerdict"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESETS -->
+<section id="presets" style="background:rgba(30,41,59,.5)">
+  <div class="container">
+    <h2 class="section-title">預設職業範例</h2>
+    <p class="section-subtitle">點擊即可自動填入，看看不同職業的護城河長什麼樣</p>
+    <div class="presets-section">
+      <div class="presets-grid" id="presetsGrid"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODEL INFO -->
+<section id="about">
+  <div class="container">
+    <div class="model-info">
+      <button class="collapse-btn" id="collapseBtn" onclick="toggleCollapse()">
+        <span>關於這個模型</span>
+        <span class="collapse-arrow">▼</span>
+      </button>
+      <div class="collapse-content" id="collapseContent">
+        <div class="collapse-inner">
+          <h4>原始框架</h4>
+          <p>Codie Sanchez 提出的三圈模型（Physical、Regulated、Human Touch）指出 AI 的三個天然弱點：沒有身體、沒有執照、沒有溫度。一份工作觸碰越多圈，就越不容易被自動化取代。</p>
+
+          <h4>第四圈：Accountable（決策與責任）</h4>
+          <p>Hiram 擴充了第四個維度。核心洞察是：前三圈回答「AI 做不到什麼」，但有一類護城河的本質不同 — AI 技術上做得到，但人類不讓它做。拍板簽字、承擔後果、接受法律追訴，這些不是能力問題，是責任歸屬問題。</p>
+          <p>Regulated 是「進入門檻」（permission to enter），Accountable 是「決策後果」（ownership of outcome）。兩者獨立但常有交集。</p>
+
+          <h4>護城河的動態性 — 機長案例</h4>
+          <p>機長目前看起來四圈全滿：需要在場操作（Physical）、國際證照（Regulated）、乘客信任（Human Touch）、對機上人命負責（Accountable）。但自動駕駛技術其實已經到位，擋住全面取代的只剩信任慣性和法規慣性。這說明護城河不是靜態的，它會隨技術進步、社會信任變化、法規演進而消長。</p>
+          <p>這就是為什麼診斷工具加入了時間軸 — 今天的安全不代表明天的安全。</p>
+
+          <p style="margin-top:24px;padding-top:16px;border-top:1px solid var(--bg3);font-size:.8rem;color:var(--text3)">
+            Adapted from Codie Sanchez's AI-proof framework · 4th circle added by Hiram
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <a href="https://www.eaglish.store/" class="back-btn">← 回團購頁面</a>
+    <div style="margin-top:16px">AI 防護四圈模型 · Adapted from Codie Sanchez · 4th circle by Hiram</div>
+  </div>
+</footer>
+
+<script>
+/* ===== DATA ===== */
+const DIMS = ['physical','regulated','human','accountable'];
+const COLORS = {physical:'#f97316',regulated:'#3b82f6',human:'#ec4899',accountable:'#10b981'};
+const DIM_LABELS = {physical:'Physical 實體性',regulated:'Regulated 受監管',human:'Human Touch 人的溫度',accountable:'Accountable 決策與責任'};
+
+const DESC = {
+  physical:['','純線上作業','偶爾需要到場','經常需要到場','必須到場執行','必須親手操作'],
+  regulated:['','無任何門檻','基本認證即可','需要專業證照','國家考試資格','多年訓練＋國考＋執照'],
+  human:['','不需要人際互動','基本溝通即可','需要建立信任','需要深度同理心','核心就是人際連結'],
+  accountable:['','執行指令即可','小範圍決策','部門級決策','重大決策權','拍板簽字扛全責']
+};
+
+const PRESETS = [
+  {name:'外科醫師',p:4,r:5,h:4,a:5},
+  {name:'牙醫師',p:5,r:5,h:4,a:5},
+  {name:'法官',p:2,r:5,h:3,a:5},
+  {name:'護理師',p:4,r:4,h:5,a:2},
+  {name:'消防員',p:5,r:2,h:4,a:4},
+  {name:'機長',p:3,r:4,h:2,a:4},
+  {name:'理財規劃師',p:1,r:4,h:4,a:4},
+  {name:'健身教練',p:5,r:2,h:4,a:2},
+  {name:'團隊主管',p:2,r:1,h:4,a:4},
+  {name:'軟體工程師',p:1,r:1,h:2,a:3},
+  {name:'社群小編',p:1,r:1,h:2,a:1},
+  {name:'翻譯員',p:1,r:1,h:1,a:1},
+];
+
+const LEVELS = [
+  {min:16,emoji:'🟢',label:'高度安全',color:'#22c55e',advice:'持續深耕，定期檢查護城河深度'},
+  {min:11,emoji:'🟡',label:'中度安全',color:'#eab308',advice:'找出最弱的圈，補強或轉型'},
+  {min:6,emoji:'🟠',label:'風險區',color:'#f97316',advice:'開始規劃 B 計畫，學習 AI 協作'},
+  {min:1,emoji:'🔴',label:'高度危險',color:'#ef4444',advice:'你的工作在 AI 射程內，盡快轉型'},
+];
+
+let values = {physical:3,regulated:3,human:3,accountable:3};
+
+/* ===== INIT ===== */
+document.addEventListener('DOMContentLoaded',()=>{
+  initSliders();
+  initPresets();
+  initTimeline();
+  update();
+});
+
+/* ===== SLIDERS ===== */
+function initSliders(){
+  document.querySelectorAll('input[type=range]').forEach(inp=>{
+    inp.addEventListener('input',e=>{
+      const dim = e.target.dataset.dim;
+      values[dim] = parseInt(e.target.value);
+      update();
+    });
+  });
+}
+
+function updateSliderVisuals(){
+  DIMS.forEach(dim=>{
+    const v = values[dim];
+    const pct = (v - 1) / 4 * 100;
+    document.getElementById('val-'+dim).textContent = v;
+    document.getElementById('desc-'+dim).textContent = DESC[dim][v];
+    document.getElementById('fill-'+dim).style.width = pct+'%';
+    document.getElementById('thumb-'+dim).style.left = pct+'%';
+    // sync range input
+    const inp = document.querySelector(`input[data-dim="${dim}"]`);
+    if(inp) inp.value = v;
+  });
+}
+
+/* ===== MAIN UPDATE ===== */
+function update(){
+  updateSliderVisuals();
+  updateScore();
+  drawRadar();
+  updateAnalysis();
+  updateTimeline();
+}
+
+/* ===== SCORE ===== */
+function updateScore(){
+  const total = DIMS.reduce((s,d)=>s+values[d],0);
+  document.getElementById('scoreNumber').textContent = total;
+  const level = LEVELS.find(l=>total>=l.min);
+  const el = document.getElementById('scoreLevel');
+  el.textContent = level.emoji+' '+level.label;
+  el.style.background = level.color+'22';
+  el.style.color = level.color;
+  document.getElementById('scoreAdvice').textContent = level.advice;
+}
+
+/* ===== RADAR ===== */
+function drawRadar(){
+  const canvas = document.getElementById('radarCanvas');
+  const dpr = window.devicePixelRatio || 1;
+  const size = canvas.clientWidth;
+  canvas.width = size * dpr;
+  canvas.height = size * dpr;
+  const ctx = canvas.getContext('2d');
+  ctx.scale(dpr, dpr);
+  ctx.clearRect(0,0,size,size);
+
+  const cx = size/2, cy = size/2, maxR = size*0.3;
+  const labels = ['實體性','受監管','人的溫度','決策與責任'];
+  const angles = DIMS.map((_,i)=> -Math.PI/2 + (i*2*Math.PI/4));
+
+  // Grid
+  for(let ring=1;ring<=5;ring++){
+    const r = maxR*ring/5;
+    ctx.beginPath();
+    angles.forEach((a,i)=>{
+      const x = cx+Math.cos(a)*r, y = cy+Math.sin(a)*r;
+      i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+    });
+    ctx.closePath();
+    ctx.strokeStyle = 'rgba(148,163,184,'+(ring===5?.15:.08)+')';
+    ctx.lineWidth = 1;
+    ctx.stroke();
+  }
+
+  // Axes
+  angles.forEach(a=>{
+    ctx.beginPath();
+    ctx.moveTo(cx,cy);
+    ctx.lineTo(cx+Math.cos(a)*maxR,cy+Math.sin(a)*maxR);
+    ctx.strokeStyle='rgba(148,163,184,.1)';
+    ctx.stroke();
+  });
+
+  // Data polygon
+  ctx.beginPath();
+  DIMS.forEach((dim,i)=>{
+    const r = maxR*values[dim]/5;
+    const x = cx+Math.cos(angles[i])*r, y = cy+Math.sin(angles[i])*r;
+    i===0?ctx.moveTo(x,y):ctx.lineTo(x,y);
+  });
+  ctx.closePath();
+  const grad = ctx.createLinearGradient(cx-maxR,cy-maxR,cx+maxR,cy+maxR);
+  grad.addColorStop(0,'rgba(249,115,22,.25)');
+  grad.addColorStop(.33,'rgba(59,130,246,.25)');
+  grad.addColorStop(.66,'rgba(236,72,153,.25)');
+  grad.addColorStop(1,'rgba(16,185,129,.25)');
+  ctx.fillStyle = grad;
+  ctx.fill();
+  ctx.strokeStyle='rgba(255,255,255,.4)';
+  ctx.lineWidth=2;
+  ctx.stroke();
+
+  // Data points
+  DIMS.forEach((dim,i)=>{
+    const r = maxR*values[dim]/5;
+    const x = cx+Math.cos(angles[i])*r, y = cy+Math.sin(angles[i])*r;
+    ctx.beginPath();
+    ctx.arc(x,y,5,0,Math.PI*2);
+    ctx.fillStyle=COLORS[dim];
+    ctx.fill();
+    ctx.strokeStyle='#0f172a';
+    ctx.lineWidth=2;
+    ctx.stroke();
+  });
+
+  // Labels
+  ctx.textAlign='center';ctx.textBaseline='middle';
+  DIMS.forEach((dim,i)=>{
+    const r = maxR+36;
+    const x = cx+Math.cos(angles[i])*r;
+    const y = cy+Math.sin(angles[i])*r;
+    ctx.font='600 13px Noto Sans TC,Inter,sans-serif';
+    ctx.fillStyle=COLORS[dim];
+    ctx.fillText(labels[i],x,y);
+    ctx.font='400 11px Inter,Noto Sans TC,sans-serif';
+    ctx.fillStyle='#94a3b8';
+    ctx.fillText(values[dim]+'/5',x,y+16);
+  });
+}
+
+/* ===== ANALYSIS ===== */
+function updateAnalysis(){
+  const box = document.getElementById('analysisBox');
+  const sorted = [...DIMS].sort((a,b)=>values[b]-values[a]);
+  const strongest = sorted[0];
+  const weakest = sorted[sorted.length-1];
+  const weakDims = DIMS.filter(d=>values[d]<=2);
+
+  const jobName = document.getElementById('jobInput').value.trim();
+  const title = jobName ? `「${jobName}」的職業輪廓` : '你的職業輪廓';
+
+  let html = `<h3>${title}</h3>`;
+  html += `<div class="analysis-item"><div class="analysis-dot" style="background:${COLORS[strongest]}"></div>最強維度：${DIM_LABELS[strongest]}（${values[strongest]} 分）</div>`;
+  html += `<div class="analysis-item"><div class="analysis-dot" style="background:${COLORS[weakest]}"></div>最弱維度：${DIM_LABELS[weakest]}（${values[weakest]} 分）</div>`;
+
+  if(weakDims.length > 0){
+    html += `<div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--bg3)">`;
+    weakDims.forEach(d=>{
+      html += `<div class="analysis-item analysis-weak">⚠️ ${DIM_LABELS[d]} 僅 ${values[d]} 分 — 此維度防護薄弱，AI 可能從這裡突破</div>`;
+    });
+    html += `</div>`;
+  }
+  box.innerHTML = html;
+}
+
+/* ===== TIMELINE ===== */
+function initTimeline(){
+  document.querySelectorAll('#timelinePeriods input[type=checkbox]').forEach(cb=>{
+    cb.addEventListener('change',()=>{
+      // Auto-check earlier periods for the same dim
+      const dim = cb.dataset.dim;
+      const yr = parseInt(cb.dataset.years);
+      if(cb.checked){
+        // if you check 3yr, auto-check is not needed
+        // if you check 5yr, also check 3yr
+        // if you check 10yr, also check 3yr and 5yr
+        // Actually, if erosion happens by year X, it's also eroded at year X+
+        // Let's do the opposite: if checked at 3yr, auto-check 5yr and 10yr
+        [3,5,10].forEach(y=>{
+          if(y>=yr){
+            const el = document.querySelector(`input[data-dim="${dim}"][data-years="${y}"]`);
+            if(el) el.checked = true;
+          }
+        });
+      } else {
+        // if unchecked at 5yr, also uncheck 3yr
+        [3,5,10].forEach(y=>{
+          if(y<=yr){
+            const el = document.querySelector(`input[data-dim="${dim}"][data-years="${y}"]`);
+            if(el) el.checked = false;
+          }
+        });
+      }
+      updateTimeline();
+    });
+  });
+}
+
+function updateTimeline(){
+  const total = DIMS.reduce((s,d)=>s+values[d],0);
+  const periods = [
+    {label:'現在',years:0},
+    {label:'3 年後',years:3},
+    {label:'5 年後',years:5},
+    {label:'10 年後',years:10}
+  ];
+
+  const scores = periods.map(p=>{
+    if(p.years===0) return total;
+    let s = total;
+    DIMS.forEach(dim=>{
+      const cb = document.querySelector(`input[data-dim="${dim}"][data-years="${p.years}"]`);
+      if(cb && cb.checked){
+        // Eroded dims lose points: reduce to max 1
+        s -= (values[dim] - 1);
+      }
+    });
+    return Math.max(s, DIMS.length);
+  });
+
+  // Bar visualization
+  const bar = document.getElementById('timelineBar');
+  const maxW = 200;
+  bar.innerHTML = periods.map((p,i)=>{
+    const w = Math.max(scores[i]/20*maxW, 20);
+    const level = LEVELS.find(l=>scores[i]>=l.min);
+    return `<div class="tbar-segment" style="width:${w}px;background:${level.color}33;border:1.5px solid ${level.color}">
+      <div class="tbar-label">${p.label}<br><b style="color:${level.color}">${scores[i]}</b></div>
+    </div>`;
+  }).join('');
+
+  // Verdict
+  const verdict = document.getElementById('timelineVerdict');
+  const lastScore = scores[scores.length-1];
+  const diff = total - lastScore;
+  if(diff === 0){
+    verdict.innerHTML = '<span style="color:#22c55e">🛡️ 你的護城河在未來十年保持穩固</span>';
+  } else if(diff <= 4){
+    verdict.innerHTML = '<span style="color:#eab308">⚡ 護城河有輕微侵蝕，留意變化</span>';
+  } else if(diff <= 8){
+    verdict.innerHTML = '<span style="color:#f97316">⚠️ 護城河正在明顯縮小，建議提前準備</span>';
+  } else {
+    verdict.innerHTML = '<span style="color:#ef4444">🚨 護城河將大幅瓦解，需要認真規劃轉型</span>';
+  }
+}
+
+/* ===== PRESETS ===== */
+function initPresets(){
+  const grid = document.getElementById('presetsGrid');
+  grid.innerHTML = PRESETS.map((p,i)=>{
+    const total = p.p+p.r+p.h+p.a;
+    const level = LEVELS.find(l=>total>=l.min);
+    return `<button class="preset-btn" onclick="applyPreset(${i})">
+      ${p.name}
+      <div class="preset-score">${level.emoji} ${total}/20</div>
+    </button>`;
+  }).join('');
+}
+
+function applyPreset(i){
+  const p = PRESETS[i];
+  values.physical = p.p;
+  values.regulated = p.r;
+  values.human = p.h;
+  values.accountable = p.a;
+  document.getElementById('jobInput').value = p.name;
+  // Reset timeline checkboxes
+  document.querySelectorAll('#timelinePeriods input[type=checkbox]').forEach(cb=>cb.checked=false);
+  update();
+  document.getElementById('diagnostic').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+/* ===== COLLAPSE ===== */
+function toggleCollapse(){
+  document.getElementById('collapseBtn').classList.toggle('open');
+  document.getElementById('collapseContent').classList.toggle('open');
+}
+
+/* ===== CENTER TOOLTIP ===== */
+function toggleCenterTooltip(){
+  document.getElementById('centerTooltip').classList.toggle('show');
+}
+document.addEventListener('click',e=>{
+  if(!e.target.closest('#centerBadge') && !e.target.closest('#centerTooltip')){
+    document.getElementById('centerTooltip').classList.remove('show');
+  }
+});
+
+/* ===== RESIZE HANDLER ===== */
+window.addEventListener('resize',()=>drawRadar());
+</script>
+
+</body>
+</html>
