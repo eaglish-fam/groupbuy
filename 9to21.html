@@ -1,52 +1,53 @@
 <!DOCTYPE html>
+
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>9:21 — 品牌進化提案</title>
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Sans+TC:wght@100;300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=Noto+Sans+TC:wght@100;300;400;500;700&family=Noto+Serif+TC:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,400&display=swap');
 
 :root {
-  --am: #EDE8E2;
-  --am-light: #FAF9F7;
-  --am-deep: #C4B8AC;
-  --pm: #D4C8BC;
-  --pm-deep: #8C7B6B;
-  --pm-glow: #A89888;
-  --ink: #2C2824;
-  --ink-soft: #5C5550;
-  --ink-mute: #9C9590;
-  --silk: #FDFCFA;
-  --linen: #F7F5F2;
-  --accent: #B8A898;
+–am: #EDE8E2;
+–am-light: #FAF9F7;
+–am-deep: #C4B8AC;
+–pm: #D4C8BC;
+–pm-deep: #8C7B6B;
+–pm-glow: #A89888;
+–ink: #2C2824;
+–ink-soft: #5C5550;
+–ink-mute: #9C9590;
+–silk: #FDFCFA;
+–linen: #F7F5F2;
+–accent: #B8A898;
 }
 
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 html {
-  scroll-behavior: smooth;
-  font-size: 16px;
-  overflow-x: hidden;
+scroll-behavior: smooth;
+font-size: 16px;
+overflow-x: hidden;
 }
 
 body {
-  font-family: 'DM Sans', 'Noto Sans TC', sans-serif;
-  color: var(--ink);
-  background: var(--silk);
-  -webkit-font-smoothing: antialiased;
+font-family: ‘DM Sans’, ‘Noto Sans TC’, sans-serif;
+color: var(–ink);
+background: var(–silk);
+-webkit-font-smoothing: antialiased;
 }
 
 /* ─── Scroll-triggered reveal system ─── */
 .reveal {
-  opacity: 0;
-  transform: translateY(60px);
-  transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+opacity: 0;
+transform: translateY(60px);
+transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+opacity: 1;
+transform: translateY(0);
 }
 .reveal-delay-1 { transition-delay: 0.12s; }
 .reveal-delay-2 { transition-delay: 0.24s; }
@@ -56,1381 +57,1383 @@ body {
 
 /* ─── Section spacing ─── */
 section {
-  position: relative;
-  overflow: hidden;
+position: relative;
+overflow: hidden;
 }
 
 .section-inner {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 140px 40px;
+max-width: 1120px;
+margin: 0 auto;
+padding: 140px 40px;
 }
 
 /* ═══════════════════════════════════════
-   S0 — HERO / COVER
-   ═══════════════════════════════════════ */
+S0 — HERO / COVER
+═══════════════════════════════════════ */
 #hero {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(170deg, var(--am-light) 0%, var(--am) 35%, var(--pm) 70%, var(--pm-deep) 100%);
-  position: relative;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+background: linear-gradient(170deg, var(–am-light) 0%, var(–am) 35%, var(–pm) 70%, var(–pm-deep) 100%);
+position: relative;
 }
 
 #hero::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,255,255,0.25), transparent);
-  pointer-events: none;
+content: ‘’;
+position: absolute;
+inset: 0;
+background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(255,255,255,0.25), transparent);
+pointer-events: none;
 }
 
 .hero-content { position: relative; z-index: 1; }
 
 .hero-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(80px, 15vw, 180px);
-  font-weight: 400;
-  letter-spacing: 0.06em;
-  color: var(--ink);
-  line-height: 1;
-  opacity: 0;
-  animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: clamp(80px, 15vw, 180px);
+font-weight: 400;
+letter-spacing: 0.06em;
+color: var(–ink);
+line-height: 1;
+opacity: 0;
+animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.3s forwards;
 }
 
 .hero-tagline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(16px, 2.5vw, 24px);
-  font-weight: 300;
-  letter-spacing: 0.3em;
-  color: var(--ink-soft);
-  margin-top: 20px;
-  opacity: 0;
-  animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: clamp(16px, 2.5vw, 24px);
+font-weight: 300;
+letter-spacing: 0.3em;
+color: var(–ink-soft);
+margin-top: 20px;
+opacity: 0;
+animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
 }
 
 .hero-sub {
-  font-size: 14px;
-  font-weight: 300;
-  color: var(--ink-mute);
-  letter-spacing: 0.15em;
-  margin-top: 60px;
-  opacity: 0;
-  animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
+font-size: 14px;
+font-weight: 300;
+color: var(–ink-mute);
+letter-spacing: 0.15em;
+margin-top: 60px;
+opacity: 0;
+animation: heroFadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards;
 }
 
 .hero-scroll {
-  position: absolute;
-  bottom: 40px;
-  left: 50%;
-  transform: translateX(-50%);
-  opacity: 0;
-  animation: heroFadeUp 1s ease 1.5s forwards;
+position: absolute;
+bottom: 40px;
+left: 50%;
+transform: translateX(-50%);
+opacity: 0;
+animation: heroFadeUp 1s ease 1.5s forwards;
 }
 .hero-scroll span {
-  display: block;
-  width: 1px;
-  height: 48px;
-  background: var(--ink-mute);
-  margin: 0 auto 8px;
-  animation: scrollPulse 2s ease-in-out infinite;
+display: block;
+width: 1px;
+height: 48px;
+background: var(–ink-mute);
+margin: 0 auto 8px;
+animation: scrollPulse 2s ease-in-out infinite;
 }
 .hero-scroll small {
-  font-size: 10px;
-  letter-spacing: 0.2em;
-  color: var(--ink-mute);
-  text-transform: uppercase;
+font-size: 10px;
+letter-spacing: 0.2em;
+color: var(–ink-mute);
+text-transform: uppercase;
 }
 
 @keyframes heroFadeUp {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+from { opacity: 0; transform: translateY(40px); }
+to { opacity: 1; transform: translateY(0); }
 }
 @keyframes scrollPulse {
-  0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
-  50% { opacity: 1; transform: scaleY(1); }
+0%, 100% { opacity: 0.3; transform: scaleY(0.6); transform-origin: top; }
+50% { opacity: 1; transform: scaleY(1); }
 }
 
 /* ═══════════════════════════════════════
-   S1 — 我們走過的路
-   ═══════════════════════════════════════ */
+S1 — 我們走過的路
+═══════════════════════════════════════ */
 #journey {
-  background: var(--silk);
+background: var(–silk);
 }
 
 .section-label {
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--pm);
-  margin-bottom: 24px;
+font-size: 11px;
+font-weight: 500;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–pm);
+margin-bottom: 24px;
 }
 
 .section-headline {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(32px, 5vw, 56px);
-  font-weight: 400;
-  line-height: 1.3;
-  color: var(--ink);
-  max-width: 720px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: clamp(32px, 5vw, 56px);
+font-weight: 400;
+line-height: 1.3;
+color: var(–ink);
+max-width: 720px;
 }
 
 .section-body {
-  font-size: 17px;
-  font-weight: 300;
-  line-height: 1.9;
-  color: var(--ink-soft);
-  max-width: 600px;
-  margin-top: 32px;
+font-size: 17px;
+font-weight: 300;
+line-height: 1.9;
+color: var(–ink-soft);
+max-width: 600px;
+margin-top: 32px;
 }
 
 .journey-stats {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 80px;
-  padding-top: 60px;
-  border-top: 1px solid rgba(0,0,0,0.06);
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 40px;
+margin-top: 80px;
+padding-top: 60px;
+border-top: 1px solid rgba(0,0,0,0.06);
 }
 
 .stat-item { text-align: center; }
 .stat-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 48px;
-  font-weight: 400;
-  color: var(--pm-deep);
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 48px;
+font-weight: 400;
+color: var(–pm-deep);
 }
 .stat-label {
-  font-size: 13px;
-  color: var(--ink-mute);
-  margin-top: 8px;
-  letter-spacing: 0.05em;
+font-size: 13px;
+color: var(–ink-mute);
+margin-top: 8px;
+letter-spacing: 0.05em;
 }
 
 /* ═══════════════════════════════════════
-   S2 — 市場在改變 (dark section)
-   ═══════════════════════════════════════ */
+S2 — 市場在改變 (dark section)
+═══════════════════════════════════════ */
 #market {
-  background: var(--ink);
-  color: #fff;
+background: var(–ink);
+color: #fff;
 }
 
-#market .section-label { color: var(--pm); }
+#market .section-label { color: var(–pm); }
 #market .section-headline { color: #fff; }
 #market .section-body { color: rgba(255,255,255,0.6); }
 
 .market-cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-  margin-top: 80px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+margin-top: 80px;
 }
 
 .market-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 40px 32px;
-  transition: background 0.3s, border-color 0.3s;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 16px;
+padding: 40px 32px;
+transition: background 0.3s, border-color 0.3s;
 }
 .market-card:hover {
-  background: rgba(255,255,255,0.08);
-  border-color: rgba(255,255,255,0.15);
+background: rgba(255,255,255,0.08);
+border-color: rgba(255,255,255,0.15);
 }
 .market-card-icon {
-  font-size: 32px;
-  margin-bottom: 20px;
+font-size: 32px;
+margin-bottom: 20px;
 }
 .market-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 400;
-  margin-bottom: 12px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 20px;
+font-weight: 400;
+margin-bottom: 12px;
 }
 .market-card p {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.7;
+font-size: 14px;
+color: rgba(255,255,255,0.5);
+line-height: 1.7;
 }
 
 /* ═══════════════════════════════════════
-   S3 — 信仰錨點
-   ═══════════════════════════════════════ */
+S3 — 信仰錨點
+═══════════════════════════════════════ */
 #faith {
-  background: var(--linen);
-  text-align: center;
+background: var(–linen);
+text-align: center;
 }
 
 .faith-verse {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(24px, 4vw, 42px);
-  font-weight: 300;
-  line-height: 1.6;
-  color: var(--ink);
-  max-width: 700px;
-  margin: 0 auto;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: clamp(24px, 4vw, 42px);
+font-weight: 300;
+line-height: 1.6;
+color: var(–ink);
+max-width: 700px;
+margin: 0 auto;
 }
 
 .faith-ref {
-  font-size: 14px;
-  color: var(--ink-mute);
-  margin-top: 32px;
-  letter-spacing: 0.1em;
+font-size: 14px;
+color: var(–ink-mute);
+margin-top: 32px;
+letter-spacing: 0.1em;
 }
 
 /* ═══════════════════════════════════════
-   S4 — 痛點
-   ═══════════════════════════════════════ */
+S4 — 痛點
+═══════════════════════════════════════ */
 #pain {
-  background: var(--silk);
+background: var(–silk);
 }
 
 .pain-quote {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(36px, 6vw, 72px);
-  font-weight: 300;
-  line-height: 1.25;
-  color: var(--ink);
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: clamp(36px, 6vw, 72px);
+font-weight: 300;
+line-height: 1.25;
+color: var(–ink);
+text-align: center;
+max-width: 800px;
+margin: 0 auto;
 }
 
 .pain-quote em {
-  font-style: normal;
-  color: var(--pm-deep);
+font-style: normal;
+color: var(–pm-deep);
 }
 
 .pain-sub {
-  text-align: center;
-  font-size: 16px;
-  font-weight: 300;
-  color: var(--ink-mute);
-  margin-top: 40px;
-  letter-spacing: 0.05em;
+text-align: center;
+font-size: 16px;
+font-weight: 300;
+color: var(–ink-mute);
+margin-top: 40px;
+letter-spacing: 0.05em;
 }
 
 /* ═══════════════════════════════════════
-   S5 — 9:21 概念 (the big reveal)
-   ═══════════════════════════════════════ */
+S5 — 9:21 概念 (the big reveal)
+═══════════════════════════════════════ */
 #concept {
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  background: linear-gradient(135deg, var(--am-light) 0%, var(--silk) 50%, var(--pm) 100%);
-  position: relative;
+min-height: 100vh;
+display: flex;
+align-items: center;
+background: linear-gradient(135deg, var(–am-light) 0%, var(–silk) 50%, var(–pm) 100%);
+position: relative;
 }
 
 .concept-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 80px;
-  align-items: center;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 80px;
+align-items: center;
 }
 
 .concept-left .section-headline {
-  font-size: clamp(28px, 4vw, 44px);
+font-size: clamp(28px, 4vw, 44px);
 }
 
 .timeline-bar {
-  display: flex;
-  align-items: center;
-  margin-top: 48px;
-  gap: 0;
-  position: relative;
+display: flex;
+align-items: center;
+margin-top: 48px;
+gap: 0;
+position: relative;
 }
 
 .tl-dot {
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 700;
-  flex-shrink: 0;
-  position: relative;
-  z-index: 2;
+width: 56px;
+height: 56px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 18px;
+font-weight: 700;
+flex-shrink: 0;
+position: relative;
+z-index: 2;
 }
-.tl-dot.am { background: var(--am); color: var(--ink); }
-.tl-dot.pm { background: var(--pm-deep); color: #fff; }
+.tl-dot.am { background: var(–am); color: var(–ink); }
+.tl-dot.pm { background: var(–pm-deep); color: #fff; }
 
 .tl-line {
-  flex: 1;
-  height: 2px;
-  background: linear-gradient(90deg, var(--am-deep), var(--pm));
-  position: relative;
+flex: 1;
+height: 2px;
+background: linear-gradient(90deg, var(–am-deep), var(–pm));
+position: relative;
 }
 .tl-line::after {
-  content: '一衣多穿';
-  position: absolute;
-  top: -28px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 12px;
-  color: var(--ink-mute);
-  letter-spacing: 0.1em;
-  white-space: nowrap;
+content: ‘一衣多穿’;
+position: absolute;
+top: -28px;
+left: 50%;
+transform: translateX(-50%);
+font-size: 12px;
+color: var(–ink-mute);
+letter-spacing: 0.1em;
+white-space: nowrap;
 }
 
 .concept-right {
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
+display: flex;
+flex-direction: column;
+gap: 28px;
 }
 
 .meaning-card {
-  background: rgba(255,255,255,0.7);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(0,0,0,0.05);
-  border-radius: 16px;
-  padding: 28px 32px;
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-  transition: transform 0.3s, box-shadow 0.3s;
+background: rgba(255,255,255,0.7);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(0,0,0,0.05);
+border-radius: 16px;
+padding: 28px 32px;
+display: flex;
+align-items: flex-start;
+gap: 20px;
+transition: transform 0.3s, box-shadow 0.3s;
 }
 .meaning-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+transform: translateY(-4px);
+box-shadow: 0 12px 40px rgba(0,0,0,0.06);
 }
 
 .mc-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  font-weight: 700;
-  color: var(--pm-deep);
-  line-height: 1;
-  flex-shrink: 0;
-  width: 48px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 36px;
+font-weight: 700;
+color: var(–pm-deep);
+line-height: 1;
+flex-shrink: 0;
+width: 48px;
 }
 .mc-text h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 500;
-  margin-bottom: 6px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 17px;
+font-weight: 500;
+margin-bottom: 6px;
 }
 .mc-text p {
-  font-size: 14px;
-  color: var(--ink-mute);
-  line-height: 1.6;
+font-size: 14px;
+color: var(–ink-mute);
+line-height: 1.6;
 }
 
 /* ═══════════════════════════════════════
-   S6 — Slogan 展示
-   ═══════════════════════════════════════ */
+S6 — Slogan 展示
+═══════════════════════════════════════ */
 #slogan {
-  background: var(--ink);
-  color: #fff;
-  text-align: center;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+background: var(–ink);
+color: #fff;
+text-align: center;
+min-height: 80vh;
+display: flex;
+align-items: center;
+justify-content: center;
 }
 
 .slogan-main {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(28px, 5vw, 52px);
-  font-weight: 300;
-  line-height: 1.5;
-  letter-spacing: 0.08em;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: clamp(28px, 5vw, 52px);
+font-weight: 300;
+line-height: 1.5;
+letter-spacing: 0.08em;
 }
 
 .slogan-main .hl {
-  color: var(--pm);
-  font-weight: 500;
+color: var(–pm);
+font-weight: 500;
 }
 
 .slogan-variants {
-  display: flex;
-  justify-content: center;
-  gap: 48px;
-  margin-top: 64px;
-  flex-wrap: wrap;
+display: flex;
+justify-content: center;
+gap: 48px;
+margin-top: 64px;
+flex-wrap: wrap;
 }
 
 .sv-item {
-  font-size: 15px;
-  color: rgba(255,255,255,0.4);
-  letter-spacing: 0.06em;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  transition: color 0.3s;
+font-size: 15px;
+color: rgba(255,255,255,0.4);
+letter-spacing: 0.06em;
+padding: 12px 0;
+border-bottom: 1px solid rgba(255,255,255,0.08);
+transition: color 0.3s;
 }
-.sv-item:hover { color: var(--pm); }
+.sv-item:hover { color: var(–pm); }
 
 /* ═══════════════════════════════════════
-   S7 — 場景矩陣 (new concept)
-   ═══════════════════════════════════════ */
+S7 — 場景矩陣 (new concept)
+═══════════════════════════════════════ */
 #scenes {
-  background: var(--linen);
+background: var(–linen);
 }
 
 .scene-intro {
-  text-align: center;
-  max-width: 640px;
-  margin: 0 auto 80px;
+text-align: center;
+max-width: 640px;
+margin: 0 auto 80px;
 }
 
 .scene-timeline {
-  position: relative;
+position: relative;
 }
 
 .scene-row {
-  display: grid;
-  grid-template-columns: 80px 1fr;
-  gap: 32px;
-  margin-bottom: 40px;
-  align-items: start;
+display: grid;
+grid-template-columns: 80px 1fr;
+gap: 32px;
+margin-bottom: 40px;
+align-items: start;
 }
 
 .scene-time {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 700;
-  color: var(--pm-deep);
-  text-align: right;
-  padding-top: 20px;
-  position: relative;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 20px;
+font-weight: 700;
+color: var(–pm-deep);
+text-align: right;
+padding-top: 20px;
+position: relative;
 }
 .scene-time::after {
-  content: '';
-  position: absolute;
-  right: -17px;
-  top: 28px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--pm);
+content: ‘’;
+position: absolute;
+right: -17px;
+top: 28px;
+width: 8px;
+height: 8px;
+border-radius: 50%;
+background: var(–pm);
 }
 
 .scene-content {
-  background: rgba(255,255,255,0.8);
-  border-radius: 16px;
-  padding: 28px 32px;
-  border-left: 3px solid;
-  position: relative;
+background: rgba(255,255,255,0.8);
+border-radius: 16px;
+padding: 28px 32px;
+border-left: 3px solid;
+position: relative;
 }
-.scene-content.am-tone { border-color: var(--am-deep); }
-.scene-content.pm-tone { border-color: var(--pm-deep); }
+.scene-content.am-tone { border-color: var(–am-deep); }
+.scene-content.pm-tone { border-color: var(–pm-deep); }
 
 .scene-content h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 12px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 18px;
+font-weight: 500;
+margin-bottom: 12px;
 }
 
 .scene-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
 }
 
 .tag {
-  font-size: 12px;
-  padding: 5px 14px;
-  border-radius: 100px;
-  letter-spacing: 0.03em;
+font-size: 12px;
+padding: 5px 14px;
+border-radius: 100px;
+letter-spacing: 0.03em;
 }
-.tag.wear { background: var(--am); color: var(--ink); }
-.tag.acc { background: var(--pm); color: #fff; }
-.tag.life { background: var(--pm-deep); color: #fff; }
+.tag.wear { background: var(–am); color: var(–ink); }
+.tag.acc { background: var(–pm); color: #fff; }
+.tag.life { background: var(–pm-deep); color: #fff; }
 
 .scene-track {
-  position: absolute;
-  left: 95px;
-  top: 0;
-  bottom: 0;
-  width: 1px;
-  background: linear-gradient(180deg, var(--am-deep), var(--pm-deep));
-  opacity: 0.2;
+position: absolute;
+left: 95px;
+top: 0;
+bottom: 0;
+width: 1px;
+background: linear-gradient(180deg, var(–am-deep), var(–pm-deep));
+opacity: 0.2;
 }
 
 /* ═══════════════════════════════════════
-   S8 — 三條產品線
-   ═══════════════════════════════════════ */
+S8 — 三條產品線
+═══════════════════════════════════════ */
 #products {
-  background: var(--silk);
+background: var(–silk);
 }
 
 .product-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 80px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 32px;
+margin-top: 80px;
 }
 
 .product-card {
-  border-radius: 20px;
-  padding: 48px 36px;
-  text-align: center;
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  position: relative;
-  overflow: hidden;
+border-radius: 20px;
+padding: 48px 36px;
+text-align: center;
+transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+position: relative;
+overflow: hidden;
 }
 .product-card:hover { transform: translateY(-8px); }
 
 .product-card.card-am {
-  background: linear-gradient(160deg, var(--am-light), var(--am));
+background: linear-gradient(160deg, var(–am-light), var(–am));
 }
 .product-card.card-921 {
-  background: linear-gradient(160deg, var(--am), var(--pm));
+background: linear-gradient(160deg, var(–am), var(–pm));
 }
 .product-card.card-pm {
-  background: linear-gradient(160deg, var(--pm), var(--pm-deep));
-  color: #fff;
+background: linear-gradient(160deg, var(–pm), var(–pm-deep));
+color: #fff;
 }
 .product-card.card-pm .pc-desc { color: rgba(255,255,255,0.7); }
 
 .pc-icon {
-  font-size: 48px;
-  margin-bottom: 20px;
+font-size: 48px;
+margin-bottom: 20px;
 }
 .pc-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 4px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 32px;
+font-weight: 700;
+margin-bottom: 4px;
 }
 .pc-sub {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  font-weight: 300;
-  letter-spacing: 0.1em;
-  margin-bottom: 24px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 15px;
+font-weight: 300;
+letter-spacing: 0.1em;
+margin-bottom: 24px;
 }
 .pc-desc {
-  font-size: 14px;
-  line-height: 1.8;
-  color: var(--ink-soft);
+font-size: 14px;
+line-height: 1.8;
+color: var(–ink-soft);
 }
 
 /* ═══════════════════════════════════════
-   S9 — 產品線架構（穿/配/用）
-   ═══════════════════════════════════════ */
+S9 — 產品線架構（穿/配/用）
+═══════════════════════════════════════ */
 #architecture {
-  background: var(--ink);
-  color: #fff;
+background: var(–ink);
+color: #fff;
 }
 
-#architecture .section-label { color: var(--pm); }
+#architecture .section-label { color: var(–pm); }
 #architecture .section-headline { color: #fff; max-width: 100%; }
 
 .arch-tree {
-  margin-top: 80px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+margin-top: 80px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 32px;
 }
 
 .arch-branch {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 40px 32px;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 20px;
+padding: 40px 32px;
 }
 
 .ab-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 28px;
-  padding-bottom: 20px;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 28px;
+padding-bottom: 20px;
+border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 .ab-badge {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px;
-  font-weight: 700;
-  flex-shrink: 0;
+width: 44px;
+height: 44px;
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 20px;
+font-weight: 700;
+flex-shrink: 0;
 }
-.ab-badge.b-wear { background: var(--am); color: var(--ink); }
-.ab-badge.b-acc { background: var(--pm); color: #fff; }
-.ab-badge.b-life { background: var(--pm-deep); color: #fff; }
+.ab-badge.b-wear { background: var(–am); color: var(–ink); }
+.ab-badge.b-acc { background: var(–pm); color: #fff; }
+.ab-badge.b-life { background: var(–pm-deep); color: #fff; }
 
 .ab-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 400;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 22px;
+font-weight: 400;
 }
 .ab-sub {
-  font-size: 12px;
-  color: rgba(255,255,255,0.4);
-  margin-top: 2px;
+font-size: 12px;
+color: rgba(255,255,255,0.4);
+margin-top: 2px;
 }
 
 .ab-items { list-style: none; }
 .ab-items li {
-  font-size: 14px;
-  color: rgba(255,255,255,0.55);
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255,255,255,0.04);
-  display: flex;
-  align-items: center;
-  gap: 10px;
+font-size: 14px;
+color: rgba(255,255,255,0.55);
+padding: 10px 0;
+border-bottom: 1px solid rgba(255,255,255,0.04);
+display: flex;
+align-items: center;
+gap: 10px;
 }
 .ab-items li::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--pm);
-  flex-shrink: 0;
+content: ‘’;
+width: 4px;
+height: 4px;
+border-radius: 50%;
+background: var(–pm);
+flex-shrink: 0;
 }
 
 /* ═══════════════════════════════════════
-   S10 — 進化，不是改變
-   ═══════════════════════════════════════ */
+S10 — 進化，不是改變
+═══════════════════════════════════════ */
 #evolution {
-  background: var(--linen);
+background: var(–linen);
 }
 
 .evo-grid {
-  display: grid;
-  grid-template-columns: 1fr 60px 1fr;
-  gap: 24px;
-  align-items: start;
-  margin-top: 80px;
+display: grid;
+grid-template-columns: 1fr 60px 1fr;
+gap: 24px;
+align-items: start;
+margin-top: 80px;
 }
 
 .evo-col { }
 .evo-col h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  text-align: center;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 20px;
+font-weight: 500;
+margin-bottom: 24px;
+text-align: center;
 }
 
 .evo-item {
-  padding: 20px 24px;
-  border-radius: 12px;
-  margin-bottom: 12px;
-  font-size: 15px;
-  line-height: 1.6;
+padding: 20px 24px;
+border-radius: 12px;
+margin-bottom: 12px;
+font-size: 15px;
+line-height: 1.6;
 }
 .evo-old .evo-item {
-  background: rgba(0,0,0,0.03);
-  color: var(--ink-mute);
-  text-decoration: line-through;
-  text-decoration-color: rgba(0,0,0,0.15);
+background: rgba(0,0,0,0.03);
+color: var(–ink-mute);
+text-decoration: line-through;
+text-decoration-color: rgba(0,0,0,0.15);
 }
 .evo-new .evo-item {
-  background: rgba(140,123,107,0.08);
-  color: var(--pm-deep);
-  font-weight: 400;
+background: rgba(140,123,107,0.08);
+color: var(–pm-deep);
+font-weight: 400;
 }
 
 .evo-arrow {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding-top: 56px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+height: 100%;
+padding-top: 56px;
 }
 .evo-arrow span {
-  font-size: 28px;
-  color: var(--pm);
+font-size: 28px;
+color: var(–pm);
 }
 
 /* ═══════════════════════════════════════
-   S11 — 執行步驟
-   ═══════════════════════════════════════ */
+S11 — 執行步驟
+═══════════════════════════════════════ */
 #steps {
-  background: var(--silk);
+background: var(–silk);
 }
 
 .steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 80px;
-  counter-reset: step;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 24px;
+margin-top: 80px;
+counter-reset: step;
 }
 
 .step-card {
-  background: #fff;
-  border-radius: 20px;
-  padding: 40px 28px;
-  box-shadow: 0 2px 20px rgba(0,0,0,0.03);
-  counter-increment: step;
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.3s, box-shadow 0.3s;
+background: #fff;
+border-radius: 20px;
+padding: 40px 28px;
+box-shadow: 0 2px 20px rgba(0,0,0,0.03);
+counter-increment: step;
+position: relative;
+overflow: hidden;
+transition: transform 0.3s, box-shadow 0.3s;
 }
 .step-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+transform: translateY(-4px);
+box-shadow: 0 12px 40px rgba(0,0,0,0.06);
 }
 .step-card::before {
-  content: counter(step, decimal-leading-zero);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 64px;
-  font-weight: 700;
-  color: rgba(140,123,107,0.06);
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  line-height: 1;
+content: counter(step, decimal-leading-zero);
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 64px;
+font-weight: 700;
+color: rgba(140,123,107,0.06);
+position: absolute;
+top: 12px;
+right: 16px;
+line-height: 1;
 }
 
 .step-card h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 500;
-  margin-bottom: 12px;
-  position: relative;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 18px;
+font-weight: 500;
+margin-bottom: 12px;
+position: relative;
 }
 .step-card p {
-  font-size: 14px;
-  color: var(--ink-mute);
-  line-height: 1.7;
-  position: relative;
+font-size: 14px;
+color: var(–ink-mute);
+line-height: 1.7;
+position: relative;
 }
 
 /* ═══════════════════════════════════════
-   S — 行銷核心策略
-   ═══════════════════════════════════════ */
+S — 行銷核心策略
+═══════════════════════════════════════ */
 #mkt-core {
-  background: var(--linen);
+background: var(–linen);
 }
 
 .mkt-principle {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 60px;
-  margin-top: 80px;
-  align-items: start;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 60px;
+margin-top: 80px;
+align-items: start;
 }
 
 .mkt-left {}
 .mkt-left .section-body { max-width: 100%; }
 
 .mkt-right {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+display: flex;
+flex-direction: column;
+gap: 20px;
 }
 
 .mkt-pill {
-  background: #fff;
-  border-radius: 16px;
-  padding: 28px 32px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.03);
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  transition: transform 0.3s, box-shadow 0.3s;
+background: #fff;
+border-radius: 16px;
+padding: 28px 32px;
+box-shadow: 0 2px 16px rgba(0,0,0,0.03);
+display: flex;
+align-items: flex-start;
+gap: 16px;
+transition: transform 0.3s, box-shadow 0.3s;
 }
 .mkt-pill:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+transform: translateY(-3px);
+box-shadow: 0 8px 32px rgba(0,0,0,0.06);
 }
 .mkt-pill-icon {
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 18px;
-  flex-shrink: 0;
-  background: rgba(140,123,107,0.08);
+width: 40px;
+height: 40px;
+border-radius: 10px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 18px;
+flex-shrink: 0;
+background: rgba(140,123,107,0.08);
 }
 .mkt-pill h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 4px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 16px;
+font-weight: 500;
+margin-bottom: 4px;
 }
 .mkt-pill p {
-  font-size: 13px;
-  color: var(--ink-mute);
-  line-height: 1.6;
+font-size: 13px;
+color: var(–ink-mute);
+line-height: 1.6;
 }
 
 /* ═══════════════════════════════════════
-   S — 內容引擎
-   ═══════════════════════════════════════ */
+S — 內容引擎
+═══════════════════════════════════════ */
 #content-engine {
-  background: var(--ink);
-  color: #fff;
+background: var(–ink);
+color: #fff;
 }
-#content-engine .section-label { color: var(--pm); }
+#content-engine .section-label { color: var(–pm); }
 #content-engine .section-headline { color: #fff; }
 
 .engine-phases {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 80px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 28px;
+margin-top: 80px;
 }
 
 .engine-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 20px;
-  padding: 40px 28px;
-  position: relative;
-  overflow: hidden;
-  transition: background 0.3s, border-color 0.3s;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 20px;
+padding: 40px 28px;
+position: relative;
+overflow: hidden;
+transition: background 0.3s, border-color 0.3s;
 }
 .engine-card:hover {
-  background: rgba(255,255,255,0.07);
-  border-color: rgba(255,255,255,0.15);
+background: rgba(255,255,255,0.07);
+border-color: rgba(255,255,255,0.15);
 }
 
 .ec-freq {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.1em;
-  padding: 4px 12px;
-  border-radius: 100px;
-  background: rgba(184,168,152,0.2);
-  color: var(--pm);
-  margin-bottom: 20px;
+display: inline-block;
+font-size: 11px;
+letter-spacing: 0.1em;
+padding: 4px 12px;
+border-radius: 100px;
+background: rgba(184,168,152,0.2);
+color: var(–pm);
+margin-bottom: 20px;
 }
 
 .engine-card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 400;
-  margin-bottom: 16px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 22px;
+font-weight: 400;
+margin-bottom: 16px;
 }
 .engine-card .ec-desc {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.8;
-  margin-bottom: 24px;
+font-size: 14px;
+color: rgba(255,255,255,0.5);
+line-height: 1.8;
+margin-bottom: 24px;
 }
 .engine-card .ec-example {
-  font-size: 13px;
-  color: rgba(255,255,255,0.35);
-  font-style: italic;
-  padding-top: 20px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  line-height: 1.7;
+font-size: 13px;
+color: rgba(255,255,255,0.35);
+font-style: italic;
+padding-top: 20px;
+border-top: 1px solid rgba(255,255,255,0.06);
+line-height: 1.7;
 }
 
 /* ═══════════════════════════════════════
-   S — 故事行銷
-   ═══════════════════════════════════════ */
+S — 故事行銷
+═══════════════════════════════════════ */
 #story {
-  background: var(--silk);
+background: var(–silk);
 }
 
 .story-intro {
-  max-width: 680px;
+max-width: 680px;
 }
 
 .story-layers {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 28px;
-  margin-top: 80px;
-  counter-reset: layer;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 28px;
+margin-top: 80px;
+counter-reset: layer;
 }
 
 .story-layer {
-  border-radius: 20px;
-  padding: 44px 32px;
-  counter-increment: layer;
-  position: relative;
-  overflow: hidden;
+border-radius: 20px;
+padding: 44px 32px;
+counter-increment: layer;
+position: relative;
+overflow: hidden;
 }
 .story-layer::before {
-  content: 'Layer ' counter(layer);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 12px;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 20px;
+content: ’Layer ’ counter(layer);
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 12px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+display: block;
+margin-bottom: 20px;
 }
 
 .story-layer.sl-1 {
-  background: var(--am-light);
-  border: 1px solid rgba(0,0,0,0.04);
+background: var(–am-light);
+border: 1px solid rgba(0,0,0,0.04);
 }
-.story-layer.sl-1::before { color: var(--am-deep); }
+.story-layer.sl-1::before { color: var(–am-deep); }
 
 .story-layer.sl-2 {
-  background: linear-gradient(160deg, var(--am), var(--pm));
+background: linear-gradient(160deg, var(–am), var(–pm));
 }
-.story-layer.sl-2::before { color: var(--ink-soft); }
+.story-layer.sl-2::before { color: var(–ink-soft); }
 
 .story-layer.sl-3 {
-  background: var(--pm-deep);
-  color: #fff;
+background: var(–pm-deep);
+color: #fff;
 }
 .story-layer.sl-3::before { color: rgba(255,255,255,0.5); }
 .story-layer.sl-3 .sl-desc { color: rgba(255,255,255,0.65); }
 .story-layer.sl-3 .sl-example { color: rgba(255,255,255,0.4); border-color: rgba(255,255,255,0.15); }
 
 .sl-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 22px;
-  font-weight: 500;
-  margin-bottom: 12px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 22px;
+font-weight: 500;
+margin-bottom: 12px;
 }
 .sl-desc {
-  font-size: 14px;
-  color: var(--ink-soft);
-  line-height: 1.8;
-  margin-bottom: 24px;
+font-size: 14px;
+color: var(–ink-soft);
+line-height: 1.8;
+margin-bottom: 24px;
 }
 .sl-example {
-  font-size: 13px;
-  color: var(--ink-mute);
-  line-height: 1.7;
-  padding-top: 20px;
-  border-top: 1px solid rgba(0,0,0,0.06);
-  font-style: italic;
+font-size: 13px;
+color: var(–ink-mute);
+line-height: 1.7;
+padding-top: 20px;
+border-top: 1px solid rgba(0,0,0,0.06);
+font-style: italic;
 }
 
 /* ═══════════════════════════════════════
-   S — 組合與加購
-   ═══════════════════════════════════════ */
+S — 組合與加購
+═══════════════════════════════════════ */
 #combos {
-  background: var(--ink);
-  color: #fff;
+background: var(–ink);
+color: #fff;
 }
 #combos .section-headline { color: #fff; }
 #combos .section-body { color: rgba(255,255,255,0.6); }
 
 .combo-split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  margin-top: 80px;
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 32px;
+margin-top: 80px;
 }
 
 .combo-col {
-  border-radius: 20px;
-  padding: 44px 36px;
+border-radius: 20px;
+padding: 44px 36px;
 }
 .combo-col.col-bundle {
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.1);
+background: rgba(255,255,255,0.06);
+border: 1px solid rgba(255,255,255,0.1);
 }
 .combo-col.col-addon {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.08);
+background: rgba(255,255,255,0.03);
+border: 1px solid rgba(255,255,255,0.08);
 }
 
 .combo-col-badge {
-  display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  padding: 5px 14px;
-  border-radius: 100px;
-  margin-bottom: 20px;
-  font-weight: 500;
+display: inline-block;
+font-size: 11px;
+letter-spacing: 0.12em;
+padding: 5px 14px;
+border-radius: 100px;
+margin-bottom: 20px;
+font-weight: 500;
 }
-.col-bundle .combo-col-badge { background: rgba(184,168,152,0.25); color: var(--pm); }
-.col-addon .combo-col-badge { background: rgba(140,123,107,0.3); color: var(--accent); }
+.col-bundle .combo-col-badge { background: rgba(184,168,152,0.25); color: var(–pm); }
+.col-addon .combo-col-badge { background: rgba(140,123,107,0.3); color: var(–accent); }
 
 .combo-col h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
-  font-weight: 500;
-  margin-bottom: 8px;
-  color: #fff;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 24px;
+font-weight: 500;
+margin-bottom: 8px;
+color: #fff;
 }
 .combo-col .cc-rule {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  margin-bottom: 24px;
-  line-height: 1.6;
+font-size: 14px;
+color: rgba(255,255,255,0.5);
+margin-bottom: 24px;
+line-height: 1.6;
 }
 
 .combo-example {
-  background: rgba(255,255,255,0.04);
-  border-radius: 12px;
-  padding: 20px 24px;
-  margin-bottom: 12px;
+background: rgba(255,255,255,0.04);
+border-radius: 12px;
+padding: 20px 24px;
+margin-bottom: 12px;
 }
 .col-addon .combo-example {
-  background: rgba(255,255,255,0.06);
+background: rgba(255,255,255,0.06);
 }
 .combo-example-name {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 6px;
-  color: #fff;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 15px;
+font-weight: 600;
+margin-bottom: 6px;
+color: #fff;
 }
 .combo-example-items {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.6;
+font-size: 13px;
+color: rgba(255,255,255,0.5);
+line-height: 1.6;
 }
 .combo-example-price {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--pm);
-  margin-top: 8px;
+font-size: 13px;
+font-weight: 500;
+color: var(–pm);
+margin-top: 8px;
 }
 
 .combo-insight {
-  margin-top: 80px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+margin-top: 80px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 24px;
 }
 
 .ci-card {
-  background: rgba(255,255,255,0.05);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 32px 28px;
-  transition: transform 0.3s, background 0.3s;
+background: rgba(255,255,255,0.05);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 16px;
+padding: 32px 28px;
+transition: transform 0.3s, background 0.3s;
 }
 .ci-card:hover { transform: translateY(-3px); background: rgba(255,255,255,0.08); }
 .ci-card h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 600;
-  margin-bottom: 8px;
-  color: #fff;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 17px;
+font-weight: 600;
+margin-bottom: 8px;
+color: #fff;
 }
 .ci-card p {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  line-height: 1.7;
+font-size: 13px;
+color: rgba(255,255,255,0.5);
+line-height: 1.7;
 }
 
 @media (max-width: 768px) {
-  .combo-split { grid-template-columns: 1fr; }
-  .combo-insight { grid-template-columns: 1fr; }
+.combo-split { grid-template-columns: 1fr; }
+.combo-insight { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════
-   S — 廣告轉型
-   ═══════════════════════════════════════ */
+S — 廣告轉型
+═══════════════════════════════════════ */
 #ads {
-  background: var(--linen);
+background: var(–linen);
 }
 
 .ads-comparison {
-  display: grid;
-  grid-template-columns: 1fr 60px 1fr;
-  gap: 24px;
-  margin-top: 80px;
-  align-items: start;
+display: grid;
+grid-template-columns: 1fr 60px 1fr;
+gap: 24px;
+margin-top: 80px;
+align-items: start;
 }
 
 .ads-col {
-  border-radius: 20px;
-  padding: 40px 32px;
+border-radius: 20px;
+padding: 40px 32px;
 }
 .ads-col.ads-old {
-  background: rgba(0,0,0,0.03);
+background: rgba(0,0,0,0.03);
 }
 .ads-col.ads-new {
-  background: rgba(140,123,107,0.06);
-  border: 1px solid rgba(140,123,107,0.1);
+background: rgba(140,123,107,0.06);
+border: 1px solid rgba(140,123,107,0.1);
 }
 .ads-col h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 20px;
-  font-weight: 500;
-  margin-bottom: 24px;
-  text-align: center;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 20px;
+font-weight: 500;
+margin-bottom: 24px;
+text-align: center;
 }
 .ads-col ul {
-  list-style: none;
+list-style: none;
 }
 .ads-col ul li {
-  font-size: 15px;
-  line-height: 1.7;
-  padding: 12px 0;
-  border-bottom: 1px solid rgba(0,0,0,0.04);
-  color: var(--ink-soft);
+font-size: 15px;
+line-height: 1.7;
+padding: 12px 0;
+border-bottom: 1px solid rgba(0,0,0,0.04);
+color: var(–ink-soft);
 }
-.ads-old ul li { color: var(--ink-mute); }
-.ads-new ul li { color: var(--pm-deep); }
+.ads-old ul li { color: var(–ink-mute); }
+.ads-new ul li { color: var(–pm-deep); }
 
 .ads-arrow {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding-top: 60px;
+display: flex;
+align-items: center;
+justify-content: center;
+height: 100%;
+padding-top: 60px;
 }
 .ads-arrow span {
-  font-size: 28px;
-  color: var(--pm);
+font-size: 28px;
+color: var(–pm);
 }
 
 /* ═══════════════════════════════════════
-   S — 行動計畫
-   ═══════════════════════════════════════ */
+S — 行動計畫
+═══════════════════════════════════════ */
 #action-plan {
-  background: var(--ink);
-  color: #fff;
+background: var(–ink);
+color: #fff;
 }
-#action-plan .section-label { color: var(--pm); }
+#action-plan .section-label { color: var(–pm); }
 #action-plan .section-headline { color: #fff; }
 
 .week-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 24px;
-  margin-top: 80px;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 24px;
+margin-top: 80px;
 }
 
 .week-card {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
-  border-radius: 16px;
-  padding: 32px 24px;
-  transition: background 0.3s;
+background: rgba(255,255,255,0.04);
+border: 1px solid rgba(255,255,255,0.08);
+border-radius: 16px;
+padding: 32px 24px;
+transition: background 0.3s;
 }
 .week-card:hover {
-  background: rgba(255,255,255,0.07);
+background: rgba(255,255,255,0.07);
 }
 
 .wc-week {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 14px;
-  color: var(--pm);
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 14px;
+color: var(–pm);
+letter-spacing: 0.1em;
+margin-bottom: 16px;
 }
 .week-card h4 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 17px;
-  font-weight: 400;
-  margin-bottom: 16px;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 17px;
+font-weight: 400;
+margin-bottom: 16px;
 }
 .week-card ul {
-  list-style: none;
+list-style: none;
 }
 .week-card ul li {
-  font-size: 13px;
-  color: rgba(255,255,255,0.5);
-  padding: 6px 0;
-  line-height: 1.6;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+font-size: 13px;
+color: rgba(255,255,255,0.5);
+padding: 6px 0;
+line-height: 1.6;
+display: flex;
+align-items: flex-start;
+gap: 8px;
 }
 .week-card ul li::before {
-  content: '→';
-  color: var(--pm);
-  flex-shrink: 0;
+content: ‘→’;
+color: var(–pm);
+flex-shrink: 0;
 }
 
 /* ─── Responsive additions ─── */
 @media (max-width: 768px) {
-  .mkt-principle { grid-template-columns: 1fr; }
-  .engine-phases { grid-template-columns: 1fr; }
-  .story-layers { grid-template-columns: 1fr; }
-  .ads-comparison { grid-template-columns: 1fr; gap: 16px; }
-  .ads-arrow { flex-direction: row; padding: 0; }
-  .ads-arrow span { transform: rotate(90deg); }
-  .week-grid { grid-template-columns: 1fr 1fr; }
+.mkt-principle { grid-template-columns: 1fr; }
+.engine-phases { grid-template-columns: 1fr; }
+.story-layers { grid-template-columns: 1fr; }
+.ads-comparison { grid-template-columns: 1fr; gap: 16px; }
+.ads-arrow { flex-direction: row; padding: 0; }
+.ads-arrow span { transform: rotate(90deg); }
+.week-grid { grid-template-columns: 1fr 1fr; }
 }
 
 /* ═══════════════════════════════════════
-   S — AI 工具棧
-   ═══════════════════════════════════════ */
+S — AI 工具棧
+═══════════════════════════════════════ */
 #ai-tools {
-  background: var(--linen);
+background: var(–linen);
 }
 
 .tools-phase {
-  margin-top: 60px;
+margin-top: 60px;
 }
 .tools-phase + .tools-phase { margin-top: 48px; }
 
 .tp-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
+display: flex;
+align-items: center;
+gap: 12px;
+margin-bottom: 24px;
 }
 .tp-badge {
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  padding: 5px 14px;
-  border-radius: 100px;
+font-size: 11px;
+font-weight: 600;
+letter-spacing: 0.1em;
+padding: 5px 14px;
+border-radius: 100px;
 }
-.tp-badge.phase-1 { background: var(--pm-deep); color: #fff; }
-.tp-badge.phase-2 { background: var(--pm); color: var(--ink); }
-.tp-badge.phase-3 { background: var(--am); color: var(--ink); }
+.tp-badge.phase-1 { background: var(–pm-deep); color: #fff; }
+.tp-badge.phase-2 { background: var(–pm); color: var(–ink); }
+.tp-badge.phase-3 { background: var(–am); color: var(–ink); }
 .tp-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 18px;
-  font-weight: 500;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 18px;
+font-weight: 500;
 }
 
 .tools-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 20px;
 }
 
 .tool-card {
-  background: #fff;
-  border-radius: 16px;
-  padding: 28px 24px;
-  display: flex;
-  align-items: flex-start;
-  gap: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
-  transition: transform 0.3s, box-shadow 0.3s;
+background: #fff;
+border-radius: 16px;
+padding: 28px 24px;
+display: flex;
+align-items: flex-start;
+gap: 16px;
+box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+transition: transform 0.3s, box-shadow 0.3s;
 }
 .tool-card:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 28px rgba(0,0,0,0.06);
+transform: translateY(-3px);
+box-shadow: 0 8px 28px rgba(0,0,0,0.06);
 }
 
 .tool-logo {
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  overflow: hidden;
-  flex-shrink: 0;
-  background: var(--am-light);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+width: 44px;
+height: 44px;
+border-radius: 12px;
+overflow: hidden;
+flex-shrink: 0;
+background: var(–am-light);
+display: flex;
+align-items: center;
+justify-content: center;
 }
 .tool-logo img {
-  width: 32px;
-  height: 32px;
-  object-fit: contain;
+width: 32px;
+height: 32px;
+object-fit: contain;
 }
 .tool-logo .tl-fallback {
-  font-size: 16px;
-  font-weight: 700;
-  color: var(--pm-deep);
+font-size: 16px;
+font-weight: 700;
+color: var(–pm-deep);
 }
 
 .tool-info h4 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-bottom: 2px;
+font-size: 15px;
+font-weight: 600;
+margin-bottom: 2px;
 }
 .tool-info .tool-role {
-  font-size: 12px;
-  color: var(--pm-deep);
-  font-weight: 500;
-  margin-bottom: 6px;
+font-size: 12px;
+color: var(–pm-deep);
+font-weight: 500;
+margin-bottom: 6px;
 }
 .tool-info p {
-  font-size: 12px;
-  color: var(--ink-mute);
-  line-height: 1.5;
+font-size: 12px;
+color: var(–ink-mute);
+line-height: 1.5;
 }
 .tool-api {
-  display: inline-block;
-  font-size: 10px;
-  padding: 2px 8px;
-  border-radius: 100px;
-  background: rgba(140,123,107,0.1);
-  color: var(--pm-deep);
-  margin-top: 6px;
-  letter-spacing: 0.05em;
+display: inline-block;
+font-size: 10px;
+padding: 2px 8px;
+border-radius: 100px;
+background: rgba(140,123,107,0.1);
+color: var(–pm-deep);
+margin-top: 6px;
+letter-spacing: 0.05em;
 }
 
 .tools-cost {
-  margin-top: 48px;
-  background: #fff;
-  border-radius: 16px;
-  padding: 32px;
-  text-align: center;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.03);
+margin-top: 48px;
+background: #fff;
+border-radius: 16px;
+padding: 32px;
+text-align: center;
+box-shadow: 0 2px 12px rgba(0,0,0,0.03);
 }
 .tools-cost .tc-amount {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 36px;
-  font-weight: 600;
-  color: var(--pm-deep);
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 36px;
+font-weight: 600;
+color: var(–pm-deep);
 }
 .tools-cost .tc-note {
-  font-size: 14px;
-  color: var(--ink-mute);
-  margin-top: 8px;
+font-size: 14px;
+color: var(–ink-mute);
+margin-top: 8px;
 }
 
 @media (max-width: 768px) {
-  .tools-grid { grid-template-columns: 1fr; }
+.tools-grid { grid-template-columns: 1fr; }
 }
 
 /* ═══════════════════════════════════════
-   S — 結語
-   ═══════════════════════════════════════ */
+S — 結語
+═══════════════════════════════════════ */
 #closing {
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  background: linear-gradient(170deg, var(--pm) 0%, var(--pm-deep) 100%);
-  color: #fff;
+min-height: 80vh;
+display: flex;
+align-items: center;
+justify-content: center;
+text-align: center;
+background: linear-gradient(170deg, var(–pm) 0%, var(–pm-deep) 100%);
+color: #fff;
 }
 
 .closing-text {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(24px, 4vw, 40px);
-  font-weight: 300;
-  line-height: 1.7;
-  max-width: 640px;
-  letter-spacing: 0.04em;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: clamp(24px, 4vw, 40px);
+font-weight: 300;
+line-height: 1.7;
+max-width: 640px;
+letter-spacing: 0.04em;
 }
 
 .closing-ref {
-  font-size: 14px;
-  color: rgba(255,255,255,0.5);
-  margin-top: 40px;
-  letter-spacing: 0.1em;
+font-size: 14px;
+color: rgba(255,255,255,0.5);
+margin-top: 40px;
+letter-spacing: 0.1em;
 }
 
 .closing-brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 80px;
-  font-weight: 400;
-  color: rgba(255,255,255,0.15);
-  margin-top: 60px;
-  letter-spacing: 0.06em;
+font-family: ‘Cormorant Garamond’, ‘Noto Serif TC’, serif;
+font-size: 80px;
+font-weight: 400;
+color: rgba(255,255,255,0.15);
+margin-top: 60px;
+letter-spacing: 0.06em;
 }
 
 /* ─── Responsive ─── */
 @media (max-width: 768px) {
-  .section-inner { padding: 100px 24px; }
-  .journey-stats { grid-template-columns: 1fr; gap: 24px; }
-  .market-cards { grid-template-columns: 1fr; }
-  .concept-grid { grid-template-columns: 1fr; gap: 48px; }
-  .product-grid { grid-template-columns: 1fr; }
-  .arch-tree { grid-template-columns: 1fr; }
-  .steps-grid { grid-template-columns: 1fr 1fr; }
-  .slogan-variants { flex-direction: column; align-items: center; }
-  .scene-row { grid-template-columns: 60px 1fr; gap: 20px; }
-  .scene-track { left: 73px; }
+.section-inner { padding: 100px 24px; }
+.journey-stats { grid-template-columns: 1fr; gap: 24px; }
+.market-cards { grid-template-columns: 1fr; }
+.concept-grid { grid-template-columns: 1fr; gap: 48px; }
+.product-grid { grid-template-columns: 1fr; }
+.arch-tree { grid-template-columns: 1fr; }
+.steps-grid { grid-template-columns: 1fr 1fr; }
+.slogan-variants { flex-direction: column; align-items: center; }
+.scene-row { grid-template-columns: 60px 1fr; gap: 20px; }
+.scene-track { left: 73px; }
 }
 </style>
+
 </head>
 <body>
 
 <!-- ═══ S0: HERO ═══ -->
+
 <section id="hero">
   <div class="hero-content">
     <div class="hero-brand">9:21</div>
@@ -1444,6 +1447,7 @@ section {
 </section>
 
 <!-- ═══ S1: 走過的路 ═══ -->
+
 <section id="journey">
   <div class="section-inner">
     <div class="section-label reveal">Our Foundation</div>
@@ -1469,6 +1473,7 @@ section {
 </section>
 
 <!-- ═══ S2: 市場在改變 ═══ -->
+
 <section id="market">
   <div class="section-inner">
     <div class="section-label reveal">Market Shift</div>
@@ -1497,6 +1502,7 @@ section {
 </section>
 
 <!-- ═══ S3: 痛點 ═══ -->
+
 <section id="pain">
   <div class="section-inner">
     <div class="section-label reveal" style="text-align:center;">The Insight</div>
@@ -1510,6 +1516,7 @@ section {
 </section>
 
 <!-- ═══ S5: 9:21 概念 ═══ -->
+
 <section id="concept">
   <div class="section-inner">
     <div class="concept-grid">
@@ -1553,6 +1560,7 @@ section {
 </section>
 
 <!-- ═══ S6: Slogan ═══ -->
+
 <section id="slogan">
   <div class="section-inner">
     <div class="slogan-main reveal">
@@ -1569,6 +1577,7 @@ section {
 </section>
 
 <!-- ═══ S7: 場景矩陣 ═══ -->
+
 <section id="scenes">
   <div class="section-inner">
     <div class="scene-intro">
@@ -1581,96 +1590,100 @@ section {
       </p>
     </div>
 
-    <div class="scene-timeline" style="position:relative;">
-      <div class="scene-track"></div>
+```
+<div class="scene-timeline" style="position:relative;">
+  <div class="scene-track"></div>
 
-      <div class="scene-row reveal">
-        <div class="scene-time">9 AM</div>
-        <div class="scene-content am-tone">
-          <h4>出門通勤</h4>
-          <div class="scene-tags">
-            <span class="tag wear">防曬外套</span>
-            <span class="tag wear">OL 襯衫</span>
-            <span class="tag acc">通勤包</span>
-            <span class="tag acc">墨鏡</span>
-            <span class="tag acc">防曬袖套</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scene-row reveal reveal-delay-1">
-        <div class="scene-time">10 AM</div>
-        <div class="scene-content am-tone">
-          <h4>辦公室上午</h4>
-          <div class="scene-tags">
-            <span class="tag wear">西裝褲</span>
-            <span class="tag wear">針織外套</span>
-            <span class="tag life">保溫杯</span>
-            <span class="tag life">護手霜</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scene-row reveal reveal-delay-2">
-        <div class="scene-time">12 PM</div>
-        <div class="scene-content am-tone">
-          <h4>午休充電</h4>
-          <div class="scene-tags">
-            <span class="tag life">午休毯</span>
-            <span class="tag life">眼罩</span>
-            <span class="tag life">頸枕</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scene-row reveal reveal-delay-3">
-        <div class="scene-time">3 PM</div>
-        <div class="scene-content pm-tone">
-          <h4>下午續航</h4>
-          <div class="scene-tags">
-            <span class="tag wear">冷氣房針織</span>
-            <span class="tag life">暖宮貼</span>
-            <span class="tag life">肩頸按摩器</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scene-row reveal reveal-delay-4">
-        <div class="scene-time">6 PM</div>
-        <div class="scene-content pm-tone">
-          <h4>下班約會</h4>
-          <div class="scene-tags">
-            <span class="tag wear">約會洋裝</span>
-            <span class="tag wear">運動內衣</span>
-            <span class="tag acc">化妝包</span>
-            <span class="tag acc">香氛小物</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="scene-row reveal reveal-delay-5">
-        <div class="scene-time">9 PM</div>
-        <div class="scene-content pm-tone">
-          <h4>回家放鬆</h4>
-          <div class="scene-tags">
-            <span class="tag wear">居家服</span>
-            <span class="tag wear">睡衣</span>
-            <span class="tag life">蒸氣眼罩</span>
-            <span class="tag life">香氛蠟燭</span>
-          </div>
-        </div>
+  <div class="scene-row reveal">
+    <div class="scene-time">9 AM</div>
+    <div class="scene-content am-tone">
+      <h4>出門通勤</h4>
+      <div class="scene-tags">
+        <span class="tag wear">防曬外套</span>
+        <span class="tag wear">OL 襯衫</span>
+        <span class="tag acc">通勤包</span>
+        <span class="tag acc">墨鏡</span>
+        <span class="tag acc">防曬袖套</span>
       </div>
     </div>
+  </div>
 
-    <div style="display:flex;justify-content:center;gap:24px;margin-top:48px;" class="reveal">
-      <span class="tag wear" style="font-size:13px;padding:8px 18px;">穿</span>
-      <span class="tag acc" style="font-size:13px;padding:8px 18px;">配</span>
-      <span class="tag life" style="font-size:13px;padding:8px 18px;">用</span>
+  <div class="scene-row reveal reveal-delay-1">
+    <div class="scene-time">10 AM</div>
+    <div class="scene-content am-tone">
+      <h4>辦公室上午</h4>
+      <div class="scene-tags">
+        <span class="tag wear">西裝褲</span>
+        <span class="tag wear">針織外套</span>
+        <span class="tag life">保溫杯</span>
+        <span class="tag life">護手霜</span>
+      </div>
     </div>
+  </div>
+
+  <div class="scene-row reveal reveal-delay-2">
+    <div class="scene-time">12 PM</div>
+    <div class="scene-content am-tone">
+      <h4>午休充電</h4>
+      <div class="scene-tags">
+        <span class="tag life">午休毯</span>
+        <span class="tag life">眼罩</span>
+        <span class="tag life">頸枕</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene-row reveal reveal-delay-3">
+    <div class="scene-time">3 PM</div>
+    <div class="scene-content pm-tone">
+      <h4>下午續航</h4>
+      <div class="scene-tags">
+        <span class="tag wear">冷氣房針織</span>
+        <span class="tag life">暖宮貼</span>
+        <span class="tag life">肩頸按摩器</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene-row reveal reveal-delay-4">
+    <div class="scene-time">6 PM</div>
+    <div class="scene-content pm-tone">
+      <h4>下班約會</h4>
+      <div class="scene-tags">
+        <span class="tag wear">約會洋裝</span>
+        <span class="tag wear">運動內衣</span>
+        <span class="tag acc">化妝包</span>
+        <span class="tag acc">香氛小物</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="scene-row reveal reveal-delay-5">
+    <div class="scene-time">9 PM</div>
+    <div class="scene-content pm-tone">
+      <h4>回家放鬆</h4>
+      <div class="scene-tags">
+        <span class="tag wear">居家服</span>
+        <span class="tag wear">睡衣</span>
+        <span class="tag life">蒸氣眼罩</span>
+        <span class="tag life">香氛蠟燭</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div style="display:flex;justify-content:center;gap:24px;margin-top:48px;" class="reveal">
+  <span class="tag wear" style="font-size:13px;padding:8px 18px;">穿</span>
+  <span class="tag acc" style="font-size:13px;padding:8px 18px;">配</span>
+  <span class="tag life" style="font-size:13px;padding:8px 18px;">用</span>
+</div>
+```
+
   </div>
 </section>
 
 <!-- ═══ S8: 三條產品線 ═══ -->
+
 <section id="products">
   <div class="section-inner">
     <div style="text-align:center;margin-bottom:20px;">
@@ -1712,6 +1725,7 @@ section {
 </section>
 
 <!-- ═══ S9: 產品線架構 ═══ -->
+
 <section id="architecture">
   <div class="section-inner">
     <div class="section-label reveal">Architecture</div>
@@ -1764,6 +1778,7 @@ section {
 </section>
 
 <!-- ═══ PART 2 過渡 ═══ -->
+
 <section style="background:linear-gradient(170deg, var(--linen) 0%, var(--pm-deep) 100%);color:#fff;min-height:50vh;display:flex;align-items:center;justify-content:center;text-align:center;">
   <div class="section-inner">
     <p class="reveal" style="font-size:13px;letter-spacing:0.2em;color:var(--pm);margin-bottom:24px;">PART 2</p>
@@ -1774,6 +1789,7 @@ section {
 </section>
 
 <!-- ═══ 行銷核心策略 ═══ -->
+
 <section id="mkt-core">
   <div class="section-inner">
     <div class="mkt-principle">
@@ -1817,6 +1833,7 @@ section {
 </section>
 
 <!-- ═══ 內容引擎 ═══ -->
+
 <section id="content-engine">
   <div class="section-inner">
     <div class="section-label reveal">Content Engine</div>
@@ -1861,6 +1878,7 @@ section {
 </section>
 
 <!-- ═══ 故事行銷三層 ═══ -->
+
 <section id="story">
   <div class="section-inner">
     <div class="story-intro">
@@ -1907,6 +1925,7 @@ section {
 </section>
 
 <!-- ═══ 組合與加購策略 ═══ -->
+
 <section id="combos">
   <div class="section-inner">
     <div style="text-align:center;margin-bottom:20px;">
@@ -1920,72 +1939,76 @@ section {
       </p>
     </div>
 
-    <div class="combo-split">
-      <!-- 固定組合 -->
-      <div class="combo-col col-bundle reveal reveal-delay-2">
-        <div class="combo-col-badge">固定組合</div>
-        <h3>無尺寸 × 無尺寸</h3>
-        <p class="cc-rule">配件和生活用品直接綁成一個 SKU，倉庫出一個盒子就好。三條業務線的庫存都能放進來。</p>
+```
+<div class="combo-split">
+  <!-- 固定組合 -->
+  <div class="combo-col col-bundle reveal reveal-delay-2">
+    <div class="combo-col-badge">固定組合</div>
+    <h3>無尺寸 × 無尺寸</h3>
+    <p class="cc-rule">配件和生活用品直接綁成一個 SKU，倉庫出一個盒子就好。三條業務線的庫存都能放進來。</p>
 
-        <div class="combo-example">
-          <div class="combo-example-name">☀️ 通勤不曬黑組</div>
-          <div class="combo-example-items">防曬袖套 + 遮陽帽 + 墨鏡</div>
-          <div class="combo-example-price">NT$599（原價 NT$780）— 小鳳供貨</div>
-        </div>
-        <div class="combo-example">
-          <div class="combo-example-name">😴 午休充電組</div>
-          <div class="combo-example-items">午休毯 + 眼罩 + 頸枕</div>
-          <div class="combo-example-price">NT$599（原價 NT$850）— 佳玲供貨</div>
-        </div>
-        <div class="combo-example">
-          <div class="combo-example-name">🌙 回家放鬆組</div>
-          <div class="combo-example-items">蒸氣眼罩 + 香氛蠟燭 + 居家拖鞋</div>
-          <div class="combo-example-price">NT$699（原價 NT$950）— 佳玲供貨</div>
-        </div>
-      </div>
-
-      <!-- 加購機制 -->
-      <div class="combo-col col-addon reveal reveal-delay-3">
-        <div class="combo-col-badge">加購機制</div>
-        <h3>有尺寸主品 + 無尺寸加購</h3>
-        <p class="cc-rule">客人選好衣服和尺寸後，結帳頁跳出加購。主品決定客人進不進來，加購品決定客單價高不高。</p>
-
-        <div class="combo-example">
-          <div class="combo-example-name">滿額解鎖</div>
-          <div class="combo-example-items">「滿 NT$1,000，加 NT$199 帶走午休三件組」</div>
-          <div class="combo-example-price">用百元成本推高 NT$350 的湊單營收</div>
-        </div>
-        <div class="combo-example">
-          <div class="combo-example-name">主品搭配</div>
-          <div class="combo-example-items">「買西裝褲的人，加 NT$149 帶走防曬袖套」</div>
-          <div class="combo-example-price">場景自然搭配，加購率最高</div>
-        </div>
-        <div class="combo-example">
-          <div class="combo-example-name">直播限定</div>
-          <div class="combo-example-items">「今天下單的姐妹，送午休眼罩一個」</div>
-          <div class="combo-example-price">低成本庫存當贈品，製造直播緊迫感</div>
-        </div>
-      </div>
+    <div class="combo-example">
+      <div class="combo-example-name">☀️ 通勤不曬黑組</div>
+      <div class="combo-example-items">防曬袖套 + 遮陽帽 + 墨鏡</div>
+      <div class="combo-example-price">NT$599（原價 NT$780）— 小鳳供貨</div>
     </div>
-
-    <div class="combo-insight">
-      <div class="ci-card reveal reveal-delay-3">
-        <h4>清庫存的最佳武器</h4>
-        <p>換季時把滯銷品跟新品綁在一起。客人覺得買到新品還送兩樣，你其實在清兩條業務線的庫存。</p>
-      </div>
-      <div class="ci-card reveal reveal-delay-4">
-        <h4>測試新品類零風險</h4>
-        <p>想試按摩小物能不能賣？先塞進組合當贈品。有人問「這個哪裡可以單買」，就代表可以正式上線。</p>
-      </div>
-      <div class="ci-card reveal reveal-delay-5">
-        <h4>三線協同的介面</h4>
-        <p>業務出主品（穿），小鳳出配件（配），佳玲出用品（用）。同一個組合，三個人的庫存都在動。</p>
-      </div>
+    <div class="combo-example">
+      <div class="combo-example-name">😴 午休充電組</div>
+      <div class="combo-example-items">午休毯 + 眼罩 + 頸枕</div>
+      <div class="combo-example-price">NT$599（原價 NT$850）— 佳玲供貨</div>
     </div>
+    <div class="combo-example">
+      <div class="combo-example-name">🌙 回家放鬆組</div>
+      <div class="combo-example-items">蒸氣眼罩 + 香氛蠟燭 + 居家拖鞋</div>
+      <div class="combo-example-price">NT$699（原價 NT$950）— 佳玲供貨</div>
+    </div>
+  </div>
+
+  <!-- 加購機制 -->
+  <div class="combo-col col-addon reveal reveal-delay-3">
+    <div class="combo-col-badge">加購機制</div>
+    <h3>有尺寸主品 + 無尺寸加購</h3>
+    <p class="cc-rule">客人選好衣服和尺寸後，結帳頁跳出加購。主品決定客人進不進來，加購品決定客單價高不高。</p>
+
+    <div class="combo-example">
+      <div class="combo-example-name">滿額解鎖</div>
+      <div class="combo-example-items">「滿 NT$1,000，加 NT$199 帶走午休三件組」</div>
+      <div class="combo-example-price">用百元成本推高 NT$350 的湊單營收</div>
+    </div>
+    <div class="combo-example">
+      <div class="combo-example-name">主品搭配</div>
+      <div class="combo-example-items">「買西裝褲的人，加 NT$149 帶走防曬袖套」</div>
+      <div class="combo-example-price">場景自然搭配，加購率最高</div>
+    </div>
+    <div class="combo-example">
+      <div class="combo-example-name">直播限定</div>
+      <div class="combo-example-items">「今天下單的姐妹，送午休眼罩一個」</div>
+      <div class="combo-example-price">低成本庫存當贈品，製造直播緊迫感</div>
+    </div>
+  </div>
+</div>
+
+<div class="combo-insight">
+  <div class="ci-card reveal reveal-delay-3">
+    <h4>清庫存的最佳武器</h4>
+    <p>換季時把滯銷品跟新品綁在一起。客人覺得買到新品還送兩樣，你其實在清兩條業務線的庫存。</p>
+  </div>
+  <div class="ci-card reveal reveal-delay-4">
+    <h4>測試新品類零風險</h4>
+    <p>想試按摩小物能不能賣？先塞進組合當贈品。有人問「這個哪裡可以單買」，就代表可以正式上線。</p>
+  </div>
+  <div class="ci-card reveal reveal-delay-5">
+    <h4>三線協同的介面</h4>
+    <p>業務出主品（穿），小鳳出配件（配），佳玲出用品（用）。同一個組合，三個人的庫存都在動。</p>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
 <!-- ═══ 廣告轉型 ═══ -->
+
 <section id="ads">
   <div class="section-inner">
     <div style="text-align:center;margin-bottom:20px;">
@@ -2023,6 +2046,7 @@ section {
 </section>
 
 <!-- ═══ 回購客 = 內容資產 ═══ -->
+
 <section id="loyalty" style="background:var(--ink);color:#fff;">
   <div class="section-inner">
     <div style="max-width:680px;">
@@ -2041,6 +2065,7 @@ section {
 </section>
 
 <!-- ═══ 出貨包裝：小卡 = 品牌內容載體 ═══ -->
+
 <section id="packaging" style="background:var(--linen);">
   <div class="section-inner">
     <div class="mkt-principle">
@@ -2091,6 +2116,7 @@ section {
 </section>
 
 <!-- ═══ 包裝標準化 ═══ -->
+
 <section id="ops" style="background:var(--ink);color:#fff;">
   <div class="section-inner">
     <div style="text-align:center;margin-bottom:20px;">
@@ -2135,6 +2161,7 @@ section {
 </section>
 
 <!-- ═══ 時間重新分配 ═══ -->
+
 <section id="time" style="background:var(--silk);">
   <div class="section-inner">
     <div style="text-align:center;margin-bottom:20px;">
@@ -2171,6 +2198,7 @@ section {
 </section>
 
 <!-- ═══ AI 工具棧 ═══ -->
+
 <section id="ai-tools">
   <div class="section-inner">
     <div style="text-align:center;margin-bottom:20px;">
@@ -2183,126 +2211,130 @@ section {
       </p>
     </div>
 
-    <!-- Phase 1 -->
-    <div class="tools-phase reveal">
-      <div class="tp-header">
-        <span class="tp-badge phase-1">Phase 1</span>
-        <span class="tp-title">必備 — 立即導入</span>
-      </div>
-      <div class="tools-grid">
-        <div class="tool-card reveal reveal-delay-1">
-          <div class="tool-logo"><img src="https://logo.clearbit.com/anthropic.com" alt="Claude" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">C</span></div>
-          <div class="tool-info">
-            <h4>Claude API</h4>
-            <div class="tool-role">文案 · 分析 · 腳本 · 選品</div>
-            <p>全能核心。場景化文案、業績分析、直播 cue 表、故事行銷，一個 API 全搞定。</p>
-            <span class="tool-api">✓ REST API</span>
-          </div>
-        </div>
-        <div class="tool-card reveal reveal-delay-2">
-          <div class="tool-logo"><img src="https://logo.clearbit.com/fashn.ai" alt="FASHN" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">F</span></div>
-          <div class="tool-info">
-            <h4>FASHN.ai</h4>
-            <div class="tool-role">商品穿著圖 · 虛擬模特兒</div>
-            <p>平鋪圖自動穿到 AI 模特兒身上。同一件衣服一鍵生成辦公室和約會兩個場景。</p>
-            <span class="tool-api">✓ REST API + SDK</span>
-          </div>
-        </div>
-        <div class="tool-card reveal reveal-delay-3">
-          <div class="tool-logo"><img src="https://logo.clearbit.com/n8n.io" alt="n8n" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">n8n</span></div>
-          <div class="tool-info">
-            <h4>n8n</h4>
-            <div class="tool-role">自動化引擎</div>
-            <p>串接所有工具的中樞。新品上架自動生圖、生文案、排程發布，一條龍不用人盯。</p>
-            <span class="tool-api">✓ 自架 Docker</span>
-          </div>
-        </div>
+```
+<!-- Phase 1 -->
+<div class="tools-phase reveal">
+  <div class="tp-header">
+    <span class="tp-badge phase-1">Phase 1</span>
+    <span class="tp-title">必備 — 立即導入</span>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-card reveal reveal-delay-1">
+      <div class="tool-logo"><img src="https://logo.clearbit.com/anthropic.com" alt="Claude" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">C</span></div>
+      <div class="tool-info">
+        <h4>Claude API</h4>
+        <div class="tool-role">文案 · 分析 · 腳本 · 選品</div>
+        <p>全能核心。場景化文案、業績分析、直播 cue 表、故事行銷，一個 API 全搞定。</p>
+        <span class="tool-api">✓ REST API</span>
       </div>
     </div>
+    <div class="tool-card reveal reveal-delay-2">
+      <div class="tool-logo"><img src="https://logo.clearbit.com/fashn.ai" alt="FASHN" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">F</span></div>
+      <div class="tool-info">
+        <h4>FASHN.ai</h4>
+        <div class="tool-role">商品穿著圖 · 虛擬模特兒</div>
+        <p>平鋪圖自動穿到 AI 模特兒身上。同一件衣服一鍵生成辦公室和約會兩個場景。</p>
+        <span class="tool-api">✓ REST API + SDK</span>
+      </div>
+    </div>
+    <div class="tool-card reveal reveal-delay-3">
+      <div class="tool-logo"><img src="https://logo.clearbit.com/n8n.io" alt="n8n" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">n8n</span></div>
+      <div class="tool-info">
+        <h4>n8n</h4>
+        <div class="tool-role">自動化引擎</div>
+        <p>串接所有工具的中樞。新品上架自動生圖、生文案、排程發布，一條龍不用人盯。</p>
+        <span class="tool-api">✓ 自架 Docker</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Phase 2 -->
-    <div class="tools-phase reveal">
-      <div class="tp-header">
-        <span class="tp-badge phase-2">Phase 2</span>
-        <span class="tp-title">強化 — 站穩後導入</span>
-      </div>
-      <div class="tools-grid">
-        <div class="tool-card reveal reveal-delay-1">
-          <div class="tool-logo"><img src="https://logo.clearbit.com/lovart.ai" alt="Lovart" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">L</span></div>
-          <div class="tool-info">
-            <h4>Lovart</h4>
-            <div class="tool-role">行銷素材 · 品牌視覺</div>
-            <p>海報、社群圖、品牌卡設計。公司獨立訂閱，API 可串進自動化流程批量生成素材。</p>
-            <span class="tool-api">✓ REST API</span>
-          </div>
-        </div>
-        <div class="tool-card reveal reveal-delay-2">
-          <div class="tool-logo"><img src="https://logo.clearbit.com/ollama.com" alt="Qwen" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">Q</span></div>
-          <div class="tool-info">
-            <h4>Qwen 3 VL 30B</h4>
-            <div class="tool-role">本地視覺 AI · 選品分析</div>
-            <p>Mac Mini 本地運行，免費不限量。看 1688 商品圖比對暢銷款特徵，進貨前先過濾。</p>
-            <span class="tool-api">✓ Ollama 本地 API</span>
-          </div>
-        </div>
-        <div class="tool-card reveal reveal-delay-3">
-          <div class="tool-logo"><img src="https://logo.clearbit.com/line.me" alt="LINE" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">L</span></div>
-          <div class="tool-info">
-            <h4>LINE Messaging API</h4>
-            <div class="tool-role">客服自動化</div>
-            <p>常見問題自動回覆，複雜問題才轉人工。尺寸、到貨、退換貨不再佔用業務時間。</p>
-            <span class="tool-api">✓ REST API</span>
-          </div>
-        </div>
+<!-- Phase 2 -->
+<div class="tools-phase reveal">
+  <div class="tp-header">
+    <span class="tp-badge phase-2">Phase 2</span>
+    <span class="tp-title">強化 — 站穩後導入</span>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-card reveal reveal-delay-1">
+      <div class="tool-logo"><img src="https://logo.clearbit.com/lovart.ai" alt="Lovart" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">L</span></div>
+      <div class="tool-info">
+        <h4>Lovart</h4>
+        <div class="tool-role">行銷素材 · 品牌視覺</div>
+        <p>海報、社群圖、品牌卡設計。公司獨立訂閱，API 可串進自動化流程批量生成素材。</p>
+        <span class="tool-api">✓ REST API</span>
       </div>
     </div>
+    <div class="tool-card reveal reveal-delay-2">
+      <div class="tool-logo"><img src="https://logo.clearbit.com/ollama.com" alt="Qwen" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">Q</span></div>
+      <div class="tool-info">
+        <h4>Qwen 3 VL 30B</h4>
+        <div class="tool-role">本地視覺 AI · 選品分析</div>
+        <p>Mac Mini 本地運行，免費不限量。看 1688 商品圖比對暢銷款特徵，進貨前先過濾。</p>
+        <span class="tool-api">✓ Ollama 本地 API</span>
+      </div>
+    </div>
+    <div class="tool-card reveal reveal-delay-3">
+      <div class="tool-logo"><img src="https://logo.clearbit.com/line.me" alt="LINE" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">L</span></div>
+      <div class="tool-info">
+        <h4>LINE Messaging API</h4>
+        <div class="tool-role">客服自動化</div>
+        <p>常見問題自動回覆，複雜問題才轉人工。尺寸、到貨、退換貨不再佔用業務時間。</p>
+        <span class="tool-api">✓ REST API</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Phase 3 -->
-    <div class="tools-phase reveal">
-      <div class="tp-header">
-        <span class="tp-badge phase-3">Phase 3</span>
-        <span class="tp-title">進階 — 規模化時導入</span>
-      </div>
-      <div class="tools-grid">
-        <div class="tool-card reveal reveal-delay-1">
-          <div class="tool-logo"><img src="https://logo.clearbit.com/instagram.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">IG</span></div>
-          <div class="tool-info">
-            <h4>Meta Graph API</h4>
-            <div class="tool-role">IG 自動發布</div>
-            <p>排程貼文和 Reels 自動上架，不用手動開 IG 發布。</p>
-            <span class="tool-api">✓ REST API</span>
-          </div>
-        </div>
-        <div class="tool-card reveal reveal-delay-2">
-          <div class="tool-logo"><img src="https://logo.clearbit.com/canva.com" alt="Canva" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">C</span></div>
-          <div class="tool-info">
-            <h4>Canva</h4>
-            <div class="tool-role">批次模板生成</div>
-            <p>品牌模板一次設計，商品圖批次套用，維持視覺一致性。</p>
-            <span class="tool-api">✓ API + MCP</span>
-          </div>
-        </div>
-        <div class="tool-card reveal reveal-delay-3">
-          <div class="tool-logo"><img src="https://logo.clearbit.com/elevenlabs.io" alt="ElevenLabs" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">11</span></div>
-          <div class="tool-info">
-            <h4>ElevenLabs</h4>
-            <div class="tool-role">語音內容</div>
-            <p>商品頁語音介紹、Reels 旁白。聲音克隆讓品牌有一致的「聲音」。</p>
-            <span class="tool-api">✓ REST API</span>
-          </div>
-        </div>
+<!-- Phase 3 -->
+<div class="tools-phase reveal">
+  <div class="tp-header">
+    <span class="tp-badge phase-3">Phase 3</span>
+    <span class="tp-title">進階 — 規模化時導入</span>
+  </div>
+  <div class="tools-grid">
+    <div class="tool-card reveal reveal-delay-1">
+      <div class="tool-logo"><img src="https://logo.clearbit.com/instagram.com" alt="Meta" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">IG</span></div>
+      <div class="tool-info">
+        <h4>Meta Graph API</h4>
+        <div class="tool-role">IG 自動發布</div>
+        <p>排程貼文和 Reels 自動上架，不用手動開 IG 發布。</p>
+        <span class="tool-api">✓ REST API</span>
       </div>
     </div>
+    <div class="tool-card reveal reveal-delay-2">
+      <div class="tool-logo"><img src="https://logo.clearbit.com/canva.com" alt="Canva" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">C</span></div>
+      <div class="tool-info">
+        <h4>Canva</h4>
+        <div class="tool-role">批次模板生成</div>
+        <p>品牌模板一次設計，商品圖批次套用，維持視覺一致性。</p>
+        <span class="tool-api">✓ API + MCP</span>
+      </div>
+    </div>
+    <div class="tool-card reveal reveal-delay-3">
+      <div class="tool-logo"><img src="https://logo.clearbit.com/elevenlabs.io" alt="ElevenLabs" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'"><span class="tl-fallback" style="display:none">11</span></div>
+      <div class="tool-info">
+        <h4>ElevenLabs</h4>
+        <div class="tool-role">語音內容</div>
+        <p>商品頁語音介紹、Reels 旁白。聲音克隆讓品牌有一致的「聲音」。</p>
+        <span class="tool-api">✓ REST API</span>
+      </div>
+    </div>
+  </div>
+</div>
 
-    <!-- Cost summary -->
-    <div class="tools-cost reveal">
-      <div class="tc-amount">~NT$5,000-6,500 / 月</div>
-      <div class="tc-note">Claude API + FASHN + Lovart Pro + Canva Pro<br>取代攝影師 + 文案 + 數據分析師的人力成本</div>
-    </div>
+<!-- Cost summary -->
+<div class="tools-cost reveal">
+  <div class="tc-amount">~NT$5,000-6,500 / 月</div>
+  <div class="tc-note">Claude API + FASHN + Lovart Pro + Canva Pro<br>取代攝影師 + 文案 + 數據分析師的人力成本</div>
+</div>
+```
+
   </div>
 </section>
 
 <!-- ═══ 行動計畫 ═══ -->
+
 <section id="action-plan">
   <div class="section-inner">
     <div class="section-label reveal" style="color:var(--pm);">Action Plan</div>
@@ -2351,6 +2383,7 @@ section {
 </section>
 
 <!-- ═══ 結語 ═══ -->
+
 <section id="closing">
   <div class="section-inner">
     <p class="closing-text reveal">
@@ -2376,5 +2409,6 @@ const obs = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 </script>
+
 </body>
 </html>
