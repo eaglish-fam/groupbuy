@@ -3,613 +3,562 @@
 <html lang="zh-TW">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="color-scheme" content="dark">
+<meta name="theme-color" content="#0a1628">
 <title>航空公司違規檢舉系統</title>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --navy: #0a1628;
-    --dark-blue: #0f2240;
-    --accent-blue: #2d7fff;
-    --accent-cyan: #00d4ff;
-    --warm-amber: #ffb74d;
-    --danger-red: #ff4757;
-    --surface: #141e30;
-    --surface-elevated: #1a2a44;
-    --border: rgba(45, 127, 255, 0.15);
-    --text-primary: #e8edf5;
-    --text-secondary: #8899b4;
-    --text-muted: #556a8a;
-    --radius: 14px;
-    --glow: 0 0 30px rgba(45, 127, 255, 0.12);
+  *, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
   }
 
-- { margin: 0; padding: 0; box-sizing: border-box; }
+html {
+background-color: #0a1628 !important;
+color-scheme: dark;
+}
 
 body {
-font-family: ‘Noto Sans TC’, sans-serif;
-background: var(–navy);
-color: var(–text-primary);
+font-family: ‘Noto Sans TC’, -apple-system, BlinkMacSystemFont, ‘Segoe UI’, sans-serif;
+background-color: #0a1628 !important;
+color: #e0e7f1;
 min-height: 100vh;
+min-height: 100dvh;
+line-height: 1.6;
+-webkit-font-smoothing: antialiased;
 overflow-x: hidden;
 }
 
-/* === BACKGROUND ATMOSPHERE === */
-body::before {
-content: ‘’;
-position: fixed;
-top: -40%; left: -20%;
-width: 80vw; height: 80vw;
-background: radial-gradient(circle, rgba(45,127,255,0.06) 0%, transparent 70%);
-pointer-events: none;
-z-index: 0;
-}
-body::after {
-content: ‘’;
-position: fixed;
-bottom: -30%; right: -10%;
-width: 60vw; height: 60vw;
-background: radial-gradient(circle, rgba(0,212,255,0.04) 0%, transparent 70%);
-pointer-events: none;
-z-index: 0;
+/* ==================== HEADER ==================== */
+.site-header {
+background-color: #0d1d35;
+border-bottom: 1px solid rgba(45,127,255,0.12);
+position: sticky;
+top: 0;
+z-index: 100;
+-webkit-backdrop-filter: blur(20px);
+backdrop-filter: blur(20px);
 }
 
-/* === HEADER === */
-.header {
-position: relative;
-z-index: 1;
-padding: 0;
-background: linear-gradient(135deg, var(–dark-blue) 0%, var(–navy) 100%);
-border-bottom: 1px solid var(–border);
-}
-
-.header-top {
+.header-inner {
 display: flex;
 align-items: center;
-justify-content: space-between;
-padding: 18px 40px;
-border-bottom: 1px solid rgba(255,255,255,0.04);
+gap: 14px;
+padding: 16px 20px;
 }
 
-.logo-group {
+.logo-box {
+width: 42px;
+height: 42px;
+border-radius: 11px;
+background: linear-gradient(135deg, #2d7fff 0%, #00c8ff 100%);
 display: flex;
 align-items: center;
-gap: 16px;
-}
-
-.logo-icon {
-width: 46px; height: 46px;
-background: linear-gradient(135deg, var(–accent-blue), var(–accent-cyan));
-border-radius: 12px;
-display: flex; align-items: center; justify-content: center;
-font-size: 22px;
-box-shadow: 0 4px 20px rgba(45,127,255,0.3);
-}
-
-.logo-text {
-display: flex;
-flex-direction: column;
-}
-
-.logo-text h1 {
+justify-content: center;
 font-size: 20px;
+flex-shrink: 0;
+box-shadow: 0 3px 14px rgba(45,127,255,0.35);
+}
+
+.logo-info {
+flex: 1;
+min-width: 0;
+}
+
+.logo-info h1 {
+font-size: 17px;
 font-weight: 700;
-letter-spacing: 1px;
-background: linear-gradient(90deg, var(–text-primary), var(–accent-cyan));
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
+letter-spacing: 0.5px;
+color: #f0f4fa;
+line-height: 1.3;
 }
 
-.logo-text span {
-font-size: 11px;
-color: var(–text-muted);
-letter-spacing: 3px;
+.logo-info small {
+font-size: 10px;
+color: #5a7094;
+letter-spacing: 2px;
 text-transform: uppercase;
-font-family: ‘JetBrains Mono’, monospace;
+font-weight: 500;
 }
 
-.header-badge {
+.live-badge {
+display: flex;
+align-items: center;
+gap: 6px;
+padding: 6px 12px;
+background-color: rgba(255,55,75,0.1);
+border: 1px solid rgba(255,55,75,0.25);
+border-radius: 100px;
+font-size: 11px;
+color: #ff4757;
+font-weight: 600;
+flex-shrink: 0;
+}
+
+.live-dot {
+width: 6px;
+height: 6px;
+background-color: #ff4757;
+border-radius: 50%;
+animation: blink 2s ease-in-out infinite;
+}
+
+@keyframes blink {
+0%,100% { opacity: 1; }
+50% { opacity: 0.35; }
+}
+
+/* Steps Bar */
+.steps-bar {
+display: flex;
+border-top: 1px solid rgba(255,255,255,0.04);
+overflow-x: auto;
+-webkit-overflow-scrolling: touch;
+scrollbar-width: none;
+}
+.steps-bar::-webkit-scrollbar { display: none; }
+
+.step-tab {
+flex: none;
 display: flex;
 align-items: center;
 gap: 8px;
-padding: 8px 16px;
-background: rgba(255, 71, 87, 0.1);
-border: 1px solid rgba(255, 71, 87, 0.25);
-border-radius: 100px;
+padding: 12px 18px;
 font-size: 12px;
-color: var(–danger-red);
 font-weight: 500;
-}
-
-.header-badge .dot {
-width: 7px; height: 7px;
-background: var(–danger-red);
-border-radius: 50%;
-animation: pulse-dot 2s ease-in-out infinite;
-}
-
-@keyframes pulse-dot {
-0%, 100% { opacity: 1; transform: scale(1); }
-50% { opacity: 0.5; transform: scale(0.8); }
-}
-
-.header-nav {
-display: flex;
-align-items: center;
-gap: 0;
-padding: 0 40px;
-}
-
-.nav-step {
-display: flex;
-align-items: center;
-gap: 10px;
-padding: 14px 24px;
-font-size: 13px;
-font-weight: 500;
-color: var(–text-muted);
+color: #4a6080;
 border-bottom: 2px solid transparent;
-transition: all 0.3s;
-cursor: default;
-position: relative;
+white-space: nowrap;
+transition: color 0.3s, border-color 0.3s;
 }
 
-.nav-step.active {
-color: var(–accent-cyan);
-border-bottom-color: var(–accent-cyan);
+.step-tab.active {
+color: #00d4ff;
+border-bottom-color: #00d4ff;
 }
 
-.nav-step .step-num {
-width: 22px; height: 22px;
+.step-num {
+width: 20px;
+height: 20px;
 border-radius: 50%;
-background: var(–surface-elevated);
-display: flex; align-items: center; justify-content: center;
-font-size: 11px;
-font-family: ‘JetBrains Mono’, monospace;
-font-weight: 600;
-border: 1px solid var(–border);
+background-color: #1a2a44;
+border: 1.5px solid #2a3d5c;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 10px;
+font-weight: 700;
+line-height: 1;
 }
 
-.nav-step.active .step-num {
-background: linear-gradient(135deg, var(–accent-blue), var(–accent-cyan));
+.step-tab.active .step-num {
+background: linear-gradient(135deg, #2d7fff, #00d4ff);
 border-color: transparent;
-color: white;
+color: #fff;
 }
 
-.nav-step::after {
-content: ‘›’;
-position: absolute;
-right: -4px;
-color: var(–text-muted);
-opacity: 0.3;
-font-size: 18px;
-}
-
-.nav-step:last-child::after { display: none; }
-
-/* === MAIN === */
-.main {
-position: relative;
-z-index: 1;
-max-width: 960px;
+/* ==================== MAIN ==================== */
+.main-content {
+padding: 20px 16px 100px;
+max-width: 720px;
 margin: 0 auto;
-padding: 48px 24px 80px;
 }
 
-/* === SECTION CARDS === */
+/* ==================== CARD ==================== */
 .card {
-background: var(–surface);
-border: 1px solid var(–border);
-border-radius: var(–radius);
-padding: 32px;
-margin-bottom: 24px;
-box-shadow: var(–glow);
-transition: border-color 0.3s;
-animation: fadeUp 0.6s ease both;
+background-color: #111d30;
+border: 1px solid rgba(45,127,255,0.1);
+border-radius: 16px;
+padding: 24px 20px;
+margin-bottom: 20px;
 }
 
-.card:nth-child(2) { animation-delay: 0.1s; }
-.card:nth-child(3) { animation-delay: 0.2s; }
-.card:nth-child(4) { animation-delay: 0.3s; }
-.card:nth-child(5) { animation-delay: 0.4s; }
-
-@keyframes fadeUp {
-from { opacity: 0; transform: translateY(24px); }
-to { opacity: 1; transform: translateY(0); }
-}
-
-.card:hover { border-color: rgba(45,127,255,0.3); }
-
-.card-label {
+.card-tag {
 display: inline-flex;
 align-items: center;
-gap: 8px;
-font-size: 11px;
-font-weight: 600;
+gap: 7px;
+font-size: 10px;
+font-weight: 700;
 text-transform: uppercase;
-letter-spacing: 2.5px;
-color: var(–accent-cyan);
-margin-bottom: 18px;
-font-family: ‘JetBrains Mono’, monospace;
+letter-spacing: 2px;
+color: #00d4ff;
+margin-bottom: 14px;
 }
 
-.card-label .icon {
-width: 18px; height: 18px;
-background: rgba(0, 212, 255, 0.1);
+.card-tag .tag-icon {
+width: 18px;
+height: 18px;
+background-color: rgba(0,212,255,0.1);
 border-radius: 5px;
-display: flex; align-items: center; justify-content: center;
+display: inline-flex;
+align-items: center;
+justify-content: center;
 font-size: 10px;
+font-style: normal;
 }
 
 .card h2 {
-font-size: 22px;
+font-size: 20px;
 font-weight: 700;
+color: #f0f4fa;
 margin-bottom: 6px;
+line-height: 1.4;
 }
 
-.card p.desc {
-font-size: 14px;
-color: var(–text-secondary);
-margin-bottom: 24px;
+.card .sub {
+font-size: 13px;
+color: #7a8fa8;
+margin-bottom: 22px;
 line-height: 1.7;
 }
 
-/* === REPORT TYPE GRID === */
+/* ==================== TYPE GRID ==================== */
 .type-grid {
 display: grid;
-grid-template-columns: repeat(3, 1fr);
-gap: 14px;
+grid-template-columns: repeat(2, 1fr);
+gap: 12px;
 }
 
-.type-card {
-background: var(–surface-elevated);
-border: 2px solid var(–border);
-border-radius: 12px;
-padding: 22px 18px;
-cursor: pointer;
-transition: all 0.25s;
+.type-item {
+background-color: #162033;
+border: 2px solid rgba(45,127,255,0.08);
+border-radius: 14px;
+padding: 20px 14px 16px;
 text-align: center;
+cursor: pointer;
+transition: border-color 0.2s, background-color 0.2s;
+-webkit-user-select: none;
+user-select: none;
 position: relative;
-overflow: hidden;
 }
 
-.type-card::before {
+.type-item::after {
 content: ‘’;
 position: absolute;
 top: 0; left: 0; right: 0;
 height: 3px;
-background: linear-gradient(90deg, var(–accent-blue), var(–accent-cyan));
+border-radius: 14px 14px 0 0;
+background: linear-gradient(90deg, #2d7fff, #00d4ff);
 opacity: 0;
-transition: opacity 0.25s;
+transition: opacity 0.2s;
 }
 
-.type-card:hover {
-border-color: rgba(45,127,255,0.4);
-transform: translateY(-2px);
-box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+.type-item.on {
+border-color: #2d7fff;
+background-color: rgba(45,127,255,0.07);
 }
 
-.type-card.selected {
-border-color: var(–accent-blue);
-background: rgba(45,127,255,0.08);
-}
+.type-item.on::after { opacity: 1; }
 
-.type-card.selected::before { opacity: 1; }
-
-.type-card .type-icon {
+.type-item .t-icon {
 font-size: 28px;
-margin-bottom: 10px;
 display: block;
+margin-bottom: 8px;
+line-height: 1.2;
 }
 
-.type-card .type-name {
+.type-item .t-name {
 font-size: 14px;
 font-weight: 600;
+color: #e0e7f1;
 margin-bottom: 4px;
 }
 
-.type-card .type-desc {
+.type-item .t-desc {
 font-size: 11px;
-color: var(–text-muted);
+color: #5a7094;
 line-height: 1.5;
 }
 
-/* === DIRECTION CHIPS === */
-.direction-group {
+/* ==================== CHIPS ==================== */
+.chips {
 display: flex;
 flex-wrap: wrap;
 gap: 10px;
-margin-bottom: 24px;
+margin-bottom: 20px;
 }
 
 .chip {
-padding: 10px 20px;
-border-radius: 100px;
-border: 1px solid var(–border);
-background: var(–surface-elevated);
-color: var(–text-secondary);
-font-size: 13px;
-font-weight: 500;
-cursor: pointer;
-transition: all 0.25s;
 display: flex;
 align-items: center;
 gap: 8px;
+padding: 10px 16px;
+border-radius: 100px;
+border: 1px solid rgba(45,127,255,0.12);
+background-color: #162033;
+color: #7a8fa8;
+font-size: 13px;
+font-weight: 500;
+cursor: pointer;
+transition: all 0.2s;
+-webkit-user-select: none;
+user-select: none;
 }
 
-.chip:hover {
-border-color: rgba(45,127,255,0.5);
-color: var(–text-primary);
-}
-
-.chip.selected {
-background: linear-gradient(135deg, rgba(45,127,255,0.2), rgba(0,212,255,0.1));
-border-color: var(–accent-blue);
-color: var(–accent-cyan);
-}
-
-.chip .chip-dot {
-width: 8px; height: 8px;
+.chip .c-dot {
+width: 8px;
+height: 8px;
 border-radius: 50%;
-border: 2px solid var(–text-muted);
-transition: all 0.25s;
+border: 2px solid #4a6080;
+transition: all 0.2s;
+flex-shrink: 0;
 }
 
-.chip.selected .chip-dot {
-background: var(–accent-cyan);
-border-color: var(–accent-cyan);
-box-shadow: 0 0 8px rgba(0,212,255,0.5);
+.chip.on {
+background-color: rgba(45,127,255,0.12);
+border-color: #2d7fff;
+color: #00d4ff;
 }
 
-/* === TEXTAREA === */
-.textarea-wrap {
+.chip.on .c-dot {
+background-color: #00d4ff;
+border-color: #00d4ff;
+box-shadow: 0 0 6px rgba(0,212,255,0.6);
+}
+
+/* ==================== TEXTAREA ==================== */
+.input-wrap {
 position: relative;
 }
 
-textarea {
+.input-wrap textarea {
+display: block;
 width: 100%;
-min-height: 180px;
-background: var(–navy);
-border: 1px solid var(–border);
-border-radius: 12px;
-padding: 20px;
+min-height: 200px;
+padding: 18px;
+background-color: #0a1628;
+border: 1px solid rgba(45,127,255,0.12);
+border-radius: 14px;
+color: #e0e7f1;
 font-family: ‘Noto Sans TC’, sans-serif;
 font-size: 15px;
-color: var(–text-primary);
 line-height: 1.8;
 resize: vertical;
-transition: border-color 0.3s, box-shadow 0.3s;
+-webkit-appearance: none;
+appearance: none;
+transition: border-color 0.3s;
 }
 
-textarea::placeholder { color: var(–text-muted); }
+.input-wrap textarea::placeholder { color: #3d5272; }
 
-textarea:focus {
+.input-wrap textarea:focus {
 outline: none;
-border-color: var(–accent-blue);
-box-shadow: 0 0 0 3px rgba(45,127,255,0.1);
+border-color: #2d7fff;
+box-shadow: 0 0 0 3px rgba(45,127,255,0.08);
 }
 
-.char-count {
+.char-counter {
 position: absolute;
-bottom: 14px;
-right: 18px;
+bottom: 12px;
+right: 16px;
 font-size: 11px;
-color: var(–text-muted);
-font-family: ‘JetBrains Mono’, monospace;
+color: #3d5272;
+font-weight: 500;
+pointer-events: none;
 }
 
-/* === SCREENSHOT SECTION === */
-.screenshot-area {
-background: var(–navy);
-border: 1px dashed rgba(45,127,255,0.25);
-border-radius: 12px;
-padding: 28px;
-display: flex;
-flex-direction: column;
-align-items: center;
-gap: 18px;
-}
-
-.screenshot-preview {
-width: 100%;
-max-width: 560px;
-aspect-ratio: 16/9;
-background: var(–surface-elevated);
-border-radius: 10px;
-overflow: hidden;
-position: relative;
-border: 1px solid var(–border);
-}
-
-.screenshot-preview canvas {
-width: 100%;
-height: 100%;
-}
-
-.screenshot-meta {
-display: flex;
-align-items: center;
-gap: 20px;
-font-size: 12px;
-color: var(–text-muted);
-font-family: ‘JetBrains Mono’, monospace;
-}
-
-.screenshot-meta span {
-display: flex;
-align-items: center;
-gap: 6px;
-}
-
-/* === BUTTONS === */
+/* ==================== BUTTONS ==================== */
 .btn {
 display: inline-flex;
 align-items: center;
 justify-content: center;
-gap: 10px;
-padding: 14px 28px;
-border-radius: 10px;
+gap: 9px;
+padding: 14px 24px;
+border-radius: 12px;
 font-family: ‘Noto Sans TC’, sans-serif;
 font-size: 14px;
 font-weight: 600;
-cursor: pointer;
-transition: all 0.25s;
 border: none;
-position: relative;
-overflow: hidden;
+cursor: pointer;
+transition: transform 0.15s, box-shadow 0.2s;
+-webkit-appearance: none;
+appearance: none;
+-webkit-user-select: none;
+user-select: none;
 }
 
-.btn-primary {
-background: linear-gradient(135deg, var(–accent-blue), #1a6dff);
-color: white;
-box-shadow: 0 4px 20px rgba(45,127,255,0.35);
+.btn:active { transform: scale(0.97); }
+
+.btn-blue {
+background: linear-gradient(135deg, #2d7fff 0%, #1a6aee 100%);
+color: #fff;
+box-shadow: 0 4px 18px rgba(45,127,255,0.35);
 }
 
-.btn-primary:hover {
-transform: translateY(-1px);
-box-shadow: 0 6px 28px rgba(45,127,255,0.5);
-}
-
-.btn-secondary {
-background: var(–surface-elevated);
-color: var(–text-primary);
-border: 1px solid var(–border);
-}
-
-.btn-secondary:hover {
-border-color: rgba(45,127,255,0.4);
-background: rgba(45,127,255,0.08);
+.btn-ghost {
+background-color: #162033;
+color: #b0bfd4;
+border: 1px solid rgba(45,127,255,0.12);
 }
 
 .btn-amber {
-background: linear-gradient(135deg, var(–warm-amber), #ff9100);
-color: var(–navy);
-box-shadow: 0 4px 20px rgba(255,183,77,0.3);
+background: linear-gradient(135deg, #ffb74d 0%, #ff9800 100%);
+color: #1a1200;
+box-shadow: 0 4px 18px rgba(255,183,77,0.3);
 }
 
-.btn-amber:hover {
-transform: translateY(-1px);
-box-shadow: 0 6px 28px rgba(255,183,77,0.45);
-}
-
-.btn-group {
+.btn-row {
 display: flex;
-gap: 12px;
 flex-wrap: wrap;
+gap: 10px;
+margin-top: 18px;
 }
 
-/* === COPY TOAST === */
-.toast {
-position: fixed;
-bottom: 40px;
-left: 50%;
-transform: translateX(-50%) translateY(80px);
-background: var(–accent-blue);
-color: white;
-padding: 14px 32px;
-border-radius: 100px;
-font-size: 14px;
-font-weight: 600;
-box-shadow: 0 8px 40px rgba(45,127,255,0.5);
-z-index: 999;
-opacity: 0;
-transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-pointer-events: none;
+.btn svg {
+width: 16px;
+height: 16px;
+flex-shrink: 0;
 }
 
-.toast.show {
-opacity: 1;
-transform: translateX(-50%) translateY(0);
-}
-
-/* === LINKS SECTION === */
-.link-cards {
-display: grid;
-grid-template-columns: 1fr 1fr;
-gap: 14px;
-}
-
-.link-card {
+/* ==================== SCREENSHOT ==================== */
+.shot-box {
+background-color: #0a1628;
+border: 1px dashed rgba(45,127,255,0.2);
+border-radius: 14px;
+padding: 20px;
 display: flex;
+flex-direction: column;
 align-items: center;
 gap: 16px;
-padding: 20px;
-background: var(–surface-elevated);
-border: 1px solid var(–border);
-border-radius: 12px;
-text-decoration: none;
-color: var(–text-primary);
-transition: all 0.25s;
 }
 
-.link-card:hover {
-border-color: rgba(45,127,255,0.4);
-transform: translateY(-2px);
-box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-}
-
-.link-card .link-icon {
-width: 44px; height: 44px;
+.shot-preview {
+width: 100%;
 border-radius: 10px;
-display: flex; align-items: center; justify-content: center;
+overflow: hidden;
+border: 1px solid rgba(45,127,255,0.1);
+background-color: #111d30;
+}
+
+.shot-preview canvas {
+display: block;
+width: 100%;
+height: auto;
+}
+
+.shot-meta {
+display: flex;
+flex-wrap: wrap;
+gap: 14px;
+font-size: 11px;
+color: #4a6080;
+font-weight: 500;
+}
+
+/* ==================== LINK CARDS ==================== */
+.link-list {
+display: flex;
+flex-direction: column;
+gap: 12px;
+}
+
+.link-item {
+display: flex;
+align-items: center;
+gap: 14px;
+padding: 18px 16px;
+background-color: #162033;
+border: 1px solid rgba(45,127,255,0.08);
+border-radius: 14px;
+text-decoration: none;
+color: #e0e7f1;
+transition: border-color 0.2s, transform 0.15s;
+}
+
+.link-item:active { transform: scale(0.98); }
+
+.link-icon-box {
+width: 44px;
+height: 44px;
+border-radius: 12px;
+display: flex;
+align-items: center;
+justify-content: center;
 font-size: 20px;
 flex-shrink: 0;
 }
 
-.link-card:first-child .link-icon {
-background: rgba(45,127,255,0.12);
+.link-icon-box.blue { background-color: rgba(45,127,255,0.1); }
+.link-icon-box.amber { background-color: rgba(255,183,77,0.1); }
+
+.link-text {
+flex: 1;
+min-width: 0;
 }
 
-.link-card:last-child .link-icon {
-background: rgba(255,183,77,0.12);
-}
-
-.link-card .link-info h3 {
+.link-text h3 {
 font-size: 14px;
 font-weight: 600;
-margin-bottom: 3px;
+color: #e0e7f1;
+line-height: 1.4;
 }
 
-.link-card .link-info p {
+.link-text p {
 font-size: 11px;
-color: var(–text-muted);
-font-family: ‘JetBrains Mono’, monospace;
+color: #4a6080;
+margin-top: 2px;
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
 }
 
-.link-card .arrow {
-margin-left: auto;
-color: var(–text-muted);
-font-size: 18px;
-transition: transform 0.25s;
+.link-arrow {
+color: #4a6080;
+font-size: 20px;
+flex-shrink: 0;
 }
 
-.link-card:hover .arrow { transform: translateX(4px); }
+/* ==================== TOAST ==================== */
+.toast-msg {
+position: fixed;
+bottom: 36px;
+left: 50%;
+transform: translateX(-50%) translateY(70px);
+background-color: #2d7fff;
+color: #fff;
+padding: 13px 28px;
+border-radius: 100px;
+font-size: 14px;
+font-weight: 600;
+box-shadow: 0 6px 30px rgba(45,127,255,0.5);
+z-index: 9999;
+opacity: 0;
+transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+pointer-events: none;
+white-space: nowrap;
+}
 
-/* === FOOTER === */
-.footer {
+.toast-msg.show {
+opacity: 1;
+transform: translateX(-50%) translateY(0);
+}
+
+/* ==================== FOOTER ==================== */
+.site-footer {
 text-align: center;
-padding: 32px 24px;
+padding: 28px 20px;
 font-size: 12px;
-color: var(–text-muted);
-border-top: 1px solid var(–border);
-margin-top: 20px;
+color: #3d5272;
+line-height: 1.7;
+border-top: 1px solid rgba(45,127,255,0.08);
 }
 
-.footer a {
-color: var(–accent-blue);
+.site-footer a {
+color: #2d7fff;
 text-decoration: none;
 }
 
-/* === RESPONSIVE === */
-@media (max-width: 768px) {
-.header-top { padding: 14px 20px; }
-.header-nav { padding: 0 16px; overflow-x: auto; }
-.nav-step { padding: 12px 14px; font-size: 12px; white-space: nowrap; }
-.main { padding: 28px 16px 60px; }
-.card { padding: 24px 20px; }
-.type-grid { grid-template-columns: 1fr; }
-.link-cards { grid-template-columns: 1fr; }
-.header-badge { display: none; }
+/* ==================== DESKTOP ==================== */
+@media (min-width: 640px) {
+.main-content { padding: 32px 24px 100px; }
+.card { padding: 32px 28px; }
+.type-grid { grid-template-columns: repeat(3, 1fr); }
+.link-list { flex-direction: row; }
+.link-item { flex: 1; }
 }
 </style>
 
@@ -618,422 +567,343 @@ text-decoration: none;
 
 <!-- HEADER -->
 
-<header class="header">
-  <div class="header-top">
-    <div class="logo-group">
-      <div class="logo-icon">✈</div>
-      <div class="logo-text">
-        <h1>航空違規檢舉系統</h1>
-        <span>Aviation Report System</span>
-      </div>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-box">✈</div>
+    <div class="logo-info">
+      <h1>航空違規檢舉系統</h1>
+      <small>Aviation Report System</small>
     </div>
-    <div class="header-badge">
-      <div class="dot"></div>
-      受理中
+    <div class="live-badge">
+      <span class="live-dot"></span>受理中
     </div>
   </div>
-  <nav class="header-nav">
-    <div class="nav-step active" data-step="1">
-      <span class="step-num">1</span> 選擇類別
-    </div>
-    <div class="nav-step" data-step="2">
-      <span class="step-num">2</span> 填寫內容
-    </div>
-    <div class="nav-step" data-step="3">
-      <span class="step-num">3</span> 附加截圖
-    </div>
-    <div class="nav-step" data-step="4">
-      <span class="step-num">4</span> 送出管道
-    </div>
-  </nav>
+  <div class="steps-bar">
+    <div class="step-tab active" data-s="1"><span class="step-num">1</span>選擇類別</div>
+    <div class="step-tab" data-s="2"><span class="step-num">2</span>填寫內容</div>
+    <div class="step-tab" data-s="3"><span class="step-num">3</span>附加截圖</div>
+    <div class="step-tab" data-s="4"><span class="step-num">4</span>送出管道</div>
+  </div>
 </header>
 
-<!-- MAIN CONTENT -->
+<!-- MAIN -->
 
-<main class="main">
+<main class="main-content">
 
-  <!-- 1. 檢舉類別 -->
+  <!-- 1: TYPE -->
 
-  <section class="card" id="sec-category">
-    <div class="card-label"><span class="icon">①</span> REPORT CATEGORY</div>
+  <div class="card">
+    <div class="card-tag"><i class="tag-icon">①</i> REPORT CATEGORY</div>
     <h2>選擇檢舉 / 客訴類型</h2>
-    <p class="desc">請先選擇您要反映的事項類別，以便系統為您匹配適當的處理流程。</p>
-    <div class="type-grid">
-      <div class="type-card" onclick="selectType(this)">
-        <span class="type-icon">🛡️</span>
-        <div class="type-name">員工違規行為</div>
-        <div class="type-desc">違反公司規章、SOP 或職業操守</div>
+    <p class="sub">請先選擇您要反映的事項類別，以便系統匹配適當的處理流程。</p>
+    <div class="type-grid" id="typeGrid">
+      <div class="type-item" onclick="pickType(this)">
+        <span class="t-icon">🛡️</span>
+        <div class="t-name">員工違規行為</div>
+        <div class="t-desc">違反公司規章、SOP 或職業操守</div>
       </div>
-      <div class="type-card" onclick="selectType(this)">
-        <span class="type-icon">⚠️</span>
-        <div class="type-name">飛安相關疑慮</div>
-        <div class="type-desc">影響航班安全、可能造成風險之行為</div>
+      <div class="type-item" onclick="pickType(this)">
+        <span class="t-icon">⚠️</span>
+        <div class="t-name">飛安相關疑慮</div>
+        <div class="t-desc">影響航班安全之行為</div>
       </div>
-      <div class="type-card" onclick="selectType(this)">
-        <span class="type-icon">😤</span>
-        <div class="type-name">服務態度不佳</div>
-        <div class="type-desc">空地勤人員服務品質或態度問題</div>
+      <div class="type-item" onclick="pickType(this)">
+        <span class="t-icon">😤</span>
+        <div class="t-name">服務態度不佳</div>
+        <div class="t-desc">空地勤人員服務品質問題</div>
       </div>
-      <div class="type-card" onclick="selectType(this)">
-        <span class="type-icon">📢</span>
-        <div class="type-name">不當社群言論</div>
-        <div class="type-desc">於公開平台發表有損公司形象之內容</div>
+      <div class="type-item" onclick="pickType(this)">
+        <span class="t-icon">📢</span>
+        <div class="t-name">不當社群言論</div>
+        <div class="t-desc">公開發表有損公司形象內容</div>
       </div>
-      <div class="type-card" onclick="selectType(this)">
-        <span class="type-icon">📋</span>
-        <div class="type-name">洩漏內部資訊</div>
-        <div class="type-desc">未經授權對外揭露公司機密或內規</div>
+      <div class="type-item" onclick="pickType(this)">
+        <span class="t-icon">📋</span>
+        <div class="t-name">洩漏內部資訊</div>
+        <div class="t-desc">未授權揭露公司機密或內規</div>
       </div>
-      <div class="type-card" onclick="selectType(this)">
-        <span class="type-icon">🔧</span>
-        <div class="type-name">其他事項</div>
-        <div class="type-desc">不屬於上述類別之其他檢舉或意見</div>
+      <div class="type-item" onclick="pickType(this)">
+        <span class="t-icon">🔧</span>
+        <div class="t-name">其他事項</div>
+        <div class="t-desc">不屬上述類別之檢舉或意見</div>
       </div>
     </div>
-  </section>
+  </div>
 
-  <!-- 2. 內容輸入 -->
+  <!-- 2: CONTENT -->
 
-  <section class="card" id="sec-content">
-    <div class="card-label"><span class="icon">②</span> CONTENT & DIRECTION</div>
+  <div class="card">
+    <div class="card-tag"><i class="tag-icon">②</i> CONTENT</div>
     <h2>填寫檢舉內容</h2>
-    <p class="desc">選擇檢舉方向後，於下方詳細說明事件經過，包含時間、地點與具體情況。</p>
+    <p class="sub">選擇檢舉方向後，詳述事件經過（時間、地點、具體情況）。</p>
 
 ```
-<div class="direction-group">
-  <div class="chip" onclick="toggleChip(this)">
-    <span class="chip-dot"></span>有損公司形象
-  </div>
-  <div class="chip" onclick="toggleChip(this)">
-    <span class="chip-dot"></span>影響飛安疑慮
-  </div>
-  <div class="chip" onclick="toggleChip(this)">
-    <span class="chip-dot"></span>違反職業道德
-  </div>
-  <div class="chip" onclick="toggleChip(this)">
-    <span class="chip-dot"></span>旅客權益受損
-  </div>
-  <div class="chip" onclick="toggleChip(this)">
-    <span class="chip-dot"></span>違反內部規定
-  </div>
+<div class="chips" id="chipGroup">
+  <div class="chip" onclick="toggleChip(this)"><span class="c-dot"></span>有損公司形象</div>
+  <div class="chip" onclick="toggleChip(this)"><span class="c-dot"></span>影響飛安疑慮</div>
+  <div class="chip" onclick="toggleChip(this)"><span class="c-dot"></span>違反職業道德</div>
+  <div class="chip" onclick="toggleChip(this)"><span class="c-dot"></span>旅客權益受損</div>
+  <div class="chip" onclick="toggleChip(this)"><span class="c-dot"></span>違反內部規定</div>
 </div>
 
-<div class="textarea-wrap">
-  <textarea id="reportContent" placeholder="請詳述檢舉事件：&#10;&#10;• 事件發生時間（例：2026/04/10 14:30）&#10;• 事件發生地點（例：CI-123 航班 / 桃園機場第二航廈）&#10;• 涉及對象描述&#10;• 具體事件經過&#10;• 您認為此行為造成的影響" oninput="updateCount()"></textarea>
-  <span class="char-count" id="charCount">0 / 2000</span>
+<div class="input-wrap">
+  <textarea id="reportText" placeholder="請詳述檢舉事件：&#10;&#10;• 事件發生時間（例：2026/04/10 14:30）&#10;• 事件發生地點（例：CI-123 航班）&#10;• 涉及對象描述&#10;• 具體事件經過&#10;• 此行為造成的影響" oninput="countChars()"></textarea>
+  <span class="char-counter" id="cc">0 / 2000</span>
 </div>
 
-<div style="margin-top: 16px;">
-  <button class="btn btn-primary" onclick="copyContent()">
-    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+<div class="btn-row">
+  <button class="btn btn-blue" onclick="doCopy()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
     一鍵複製內容
   </button>
 </div>
 ```
 
-  </section>
+  </div>
 
-  <!-- 3. 截圖下載 -->
+  <!-- 3: SCREENSHOT -->
 
-  <section class="card" id="sec-screenshot">
-    <div class="card-label"><span class="icon">③</span> EVIDENCE SCREENSHOT</div>
+  <div class="card">
+    <div class="card-tag"><i class="tag-icon">③</i> SCREENSHOT</div>
     <h2>佐證截圖下載</h2>
-    <p class="desc">以下為系統產生之固定格式截圖，包含您的檢舉摘要資訊。可下載後附於客訴信件中。</p>
+    <p class="sub">系統依據您填寫的內容產生固定格式截圖，可下載後附於客訴信件中。</p>
 
 ```
-<div class="screenshot-area">
-  <div class="screenshot-preview">
-    <canvas id="screenshotCanvas" width="960" height="540"></canvas>
+<div class="shot-box">
+  <div class="shot-preview">
+    <canvas id="cvs" width="960" height="540"></canvas>
   </div>
-  <div class="screenshot-meta">
-    <span>📐 960 × 540 px</span>
-    <span>📄 PNG 格式</span>
-    <span>🕒 自動產生時間戳</span>
+  <div class="shot-meta">
+    <span>📐 960×540</span>
+    <span>📄 PNG</span>
+    <span>🕒 含時間戳</span>
   </div>
-  <div class="btn-group">
-    <button class="btn btn-amber" onclick="generateAndDownload()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-      下載截圖 (.png)
+  <div class="btn-row" style="justify-content:center;">
+    <button class="btn btn-amber" onclick="dlShot()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+      下載截圖
     </button>
-    <button class="btn btn-secondary" onclick="generateScreenshot()">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
+    <button class="btn btn-ghost" onclick="drawShot()">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 11-2.12-9.36L23 10"/></svg>
       重新產生
     </button>
   </div>
 </div>
 ```
 
-  </section>
+  </div>
 
-  <!-- 4. 官方連結 -->
+  <!-- 4: LINKS -->
 
-  <section class="card" id="sec-links">
-    <div class="card-label"><span class="icon">④</span> OFFICIAL CHANNELS</div>
+  <div class="card">
+    <div class="card-tag"><i class="tag-icon">④</i> OFFICIAL CHANNELS</div>
     <h2>中華航空官方客訴管道</h2>
-    <p class="desc">點擊下方連結前往華航官方平台提交您的檢舉或意見反映。</p>
+    <p class="sub">點擊前往華航官方平台提交檢舉或意見反映。</p>
 
 ```
-<div class="link-cards">
-  <a href="https://calec.china-airlines.com/dot-experience/experience.aspx?lang=zh-TW&country=tw&locale=zh" target="_blank" rel="noopener" class="link-card">
-    <div class="link-icon">✉️</div>
-    <div class="link-info">
+<div class="link-list">
+  <a href="https://calec.china-airlines.com/dot-experience/experience.aspx?lang=zh-TW&country=tw&locale=zh" target="_blank" rel="noopener noreferrer" class="link-item">
+    <div class="link-icon-box blue">✉️</div>
+    <div class="link-text">
       <h3>搭乘經驗 / 意見反映</h3>
       <p>calec.china-airlines.com</p>
     </div>
-    <span class="arrow">→</span>
+    <span class="link-arrow">›</span>
   </a>
-  <a href="https://calec.china-airlines.com/dot-IEQ/PortalPage.aspx" target="_blank" rel="noopener" class="link-card">
-    <div class="link-icon">📧</div>
-    <div class="link-info">
+  <a href="https://calec.china-airlines.com/dot-IEQ/PortalPage.aspx" target="_blank" rel="noopener noreferrer" class="link-item">
+    <div class="link-icon-box amber">📧</div>
+    <div class="link-text">
       <h3>Email 客服中心</h3>
       <p>dot-IEQ Portal</p>
     </div>
-    <span class="arrow">→</span>
+    <span class="link-arrow">›</span>
   </a>
 </div>
 ```
 
-  </section>
+  </div>
 
 </main>
 
 <!-- TOAST -->
 
-<div class="toast" id="toast">✓ 內容已複製到剪貼簿</div>
+<div class="toast-msg" id="toast">✓ 已複製</div>
 
 <!-- FOOTER -->
 
-<footer class="footer">
-  本系統僅為輔助工具，實際檢舉請透過 <a href="https://www.china-airlines.com" target="_blank">中華航空官方網站</a> 正式管道提交。<br>
-  系統產生之截圖與內容僅供參考，不代表任何官方立場。
+<footer class="site-footer">
+  本系統僅為輔助工具，實際檢舉請透過<a href="https://www.china-airlines.com" target="_blank">中華航空官網</a>正式管道提交。<br>
+  系統截圖僅供參考，不代表任何官方立場。
 </footer>
 
 <script>
-  // === TYPE SELECTION ===
-  function selectType(el) {
-    document.querySelectorAll('.type-card').forEach(c => c.classList.remove('selected'));
-    el.classList.add('selected');
-    updateNavStep(2);
-  }
+/* TYPE */
+function pickType(el) {
+  var all = document.querySelectorAll('.type-item');
+  for (var i = 0; i < all.length; i++) all[i].classList.remove('on');
+  el.classList.add('on');
+  goStep(2);
+}
 
-  // === CHIP TOGGLE ===
-  function toggleChip(el) {
-    el.classList.toggle('selected');
-  }
+/* CHIP */
+function toggleChip(el) {
+  el.classList.toggle('on');
+}
 
-  // === CHAR COUNT ===
-  function updateCount() {
-    const textarea = document.getElementById('reportContent');
-    const count = textarea.value.length;
-    document.getElementById('charCount').textContent = count + ' / 2000';
-    if (count > 0) updateNavStep(2);
-  }
+/* COUNT */
+function countChars() {
+  var t = document.getElementById('reportText');
+  document.getElementById('cc').textContent = t.value.length + ' / 2000';
+  if (t.value.length > 0) goStep(2);
+}
 
-  // === NAV STEP ===
-  function updateNavStep(n) {
-    document.querySelectorAll('.nav-step').forEach((step, i) => {
-      if (i < n) step.classList.add('active');
-    });
+/* STEP */
+function goStep(n) {
+  var tabs = document.querySelectorAll('.step-tab');
+  for (var i = 0; i < tabs.length; i++) {
+    if (i < n) tabs[i].classList.add('active');
   }
+}
 
-  // === COPY ===
-  function copyContent() {
-    const textarea = document.getElementById('reportContent');
-    if (!textarea.value.trim()) {
-      showToast('⚠ 請先輸入檢舉內容');
-      return;
+/* COPY */
+function doCopy() {
+  var txt = document.getElementById('reportText');
+  if (!txt.value.trim()) { showToast('⚠ 請先輸入內容'); return; }
+
+  var tn = document.querySelector('.type-item.on .t-name');
+  var cArr = [];
+  var cEls = document.querySelectorAll('.chip.on');
+  for (var i = 0; i < cEls.length; i++) cArr.push(cEls[i].textContent.trim());
+
+  var out = '';
+  if (tn) out += '【檢舉類別】' + tn.textContent + '\n';
+  if (cArr.length) out += '【檢舉方向】' + cArr.join('、') + '\n';
+  out += '【檢舉內容】\n' + txt.value;
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(out).then(function(){ showToast('✓ 已複製到剪貼簿'); });
+  } else {
+    var ta = document.createElement('textarea');
+    ta.value = out;
+    ta.style.cssText = 'position:fixed;opacity:0;left:-9999px';
+    document.body.appendChild(ta);
+    ta.focus(); ta.select();
+    try { document.execCommand('copy'); } catch(e) {}
+    document.body.removeChild(ta);
+    showToast('✓ 已複製到剪貼簿');
+  }
+}
+
+/* TOAST */
+function showToast(msg) {
+  var el = document.getElementById('toast');
+  el.textContent = msg;
+  el.classList.add('show');
+  setTimeout(function(){ el.classList.remove('show'); }, 2400);
+}
+
+/* SCREENSHOT */
+function drawShot() {
+  var c = document.getElementById('cvs');
+  var ctx = c.getContext('2d');
+  var W = 960, H = 540;
+
+  var g = ctx.createLinearGradient(0,0,W,H);
+  g.addColorStop(0,'#0a1628'); g.addColorStop(1,'#0f2240');
+  ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+  ctx.strokeStyle = 'rgba(45,127,255,0.05)'; ctx.lineWidth = 1;
+  for (var x = 0; x < W; x += 40) { ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke(); }
+  for (var y = 0; y < H; y += 40) { ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke(); }
+
+  var tg = ctx.createLinearGradient(0,0,W,0);
+  tg.addColorStop(0,'#2d7fff'); tg.addColorStop(1,'#00d4ff');
+  ctx.fillStyle = tg; ctx.fillRect(0,0,W,4);
+
+  ctx.fillStyle = '#5a7094'; ctx.font = '600 12px sans-serif';
+  ctx.fillText('AVIATION VIOLATION REPORT', 48, 48);
+  ctx.fillStyle = '#e0e7f1'; ctx.font = '700 26px sans-serif';
+  ctx.fillText('航空公司違規檢舉紀錄', 48, 84);
+  ctx.fillStyle = 'rgba(45,127,255,0.15)'; ctx.fillRect(48,104,W-96,1);
+
+  var tn = document.querySelector('.type-item.on .t-name');
+  var cArr = [];
+  var cEls = document.querySelectorAll('.chip.on');
+  for (var i = 0; i < cEls.length; i++) cArr.push(cEls[i].textContent.trim());
+  var content = document.getElementById('reportText').value || '（未填寫）';
+  var now = new Date();
+  var ts = now.getFullYear()+'/'+p(now.getMonth()+1)+'/'+p(now.getDate())+' '+p(now.getHours())+':'+p(now.getMinutes());
+
+  var ry = 136;
+  function row(l,v) {
+    ctx.fillStyle='#4a6080'; ctx.font='500 13px sans-serif'; ctx.fillText(l,48,ry);
+    ctx.fillStyle='#e0e7f1'; ctx.font='400 15px sans-serif'; ctx.fillText(v,160,ry);
+    ry += 32;
+  }
+  row('檢舉類別', tn ? tn.textContent : '（未選擇）');
+  row('檢舉方向', cArr.length ? cArr.join('、') : '（未選擇）');
+  row('產生時間', ts);
+
+  ry += 8;
+  ctx.fillStyle = 'rgba(45,127,255,0.15)'; ctx.fillRect(48,ry,W-96,1);
+  ry += 22;
+  ctx.fillStyle='#4a6080'; ctx.font='500 13px sans-serif'; ctx.fillText('檢舉內容',48,ry);
+  ry += 22;
+
+  ctx.fillStyle='#b0bfd4'; ctx.font='400 14px sans-serif';
+  var lines = wrapL(ctx, content, W-96);
+  for (var i = 0; i < Math.min(lines.length,8); i++) { ctx.fillText(lines[i],48,ry); ry+=22; }
+  if (lines.length > 8) { ctx.fillStyle='#4a6080'; ctx.fillText('⋯（內容過長，已截斷）',48,ry); }
+
+  ctx.fillStyle='rgba(15,34,64,0.95)'; ctx.fillRect(0,H-40,W,40);
+  ctx.fillStyle='rgba(45,127,255,0.12)'; ctx.fillRect(0,H-40,W,1);
+  ctx.fillStyle='#3d5272'; ctx.font='400 11px sans-serif';
+  ctx.fillText('GENERATED BY AVIATION REPORT SYSTEM  •  FOR REFERENCE ONLY',48,H-15);
+  var ref = 'REF #' + mkRef();
+  ctx.fillStyle='#2d7fff'; ctx.font='600 11px sans-serif';
+  ctx.fillText(ref, W-48-ctx.measureText(ref).width, H-15);
+
+  goStep(3);
+}
+
+function wrapL(ctx,t,mw) {
+  var r = [];
+  var ps = t.split('\n');
+  for (var p2 = 0; p2 < ps.length; p2++) {
+    if (!ps[p2].trim()) { r.push(''); continue; }
+    var ln = '';
+    for (var i = 0; i < ps[p2].length; i++) {
+      var tt = ln + ps[p2][i];
+      if (ctx.measureText(tt).width > mw) { r.push(ln); ln = ps[p2][i]; }
+      else ln = tt;
     }
-
-    const selectedType = document.querySelector('.type-card.selected .type-name');
-    const selectedChips = Array.from(document.querySelectorAll('.chip.selected'))
-      .map(c => c.textContent.trim());
-
-    let fullText = '';
-    if (selectedType) fullText += '【檢舉類別】' + selectedType.textContent + '\n';
-    if (selectedChips.length) fullText += '【檢舉方向】' + selectedChips.join('、') + '\n';
-    fullText += '【檢舉內容】\n' + textarea.value;
-
-    navigator.clipboard.writeText(fullText).then(() => {
-      showToast('✓ 內容已複製到剪貼簿');
-    }).catch(() => {
-      // Fallback
-      const tmp = document.createElement('textarea');
-      tmp.value = fullText;
-      document.body.appendChild(tmp);
-      tmp.select();
-      document.execCommand('copy');
-      document.body.removeChild(tmp);
-      showToast('✓ 內容已複製到剪貼簿');
-    });
+    if (ln) r.push(ln);
   }
+  return r;
+}
 
-  // === TOAST ===
-  function showToast(msg) {
-    const toast = document.getElementById('toast');
-    toast.textContent = msg;
-    toast.classList.add('show');
-    setTimeout(() => toast.classList.remove('show'), 2500);
-  }
+function p(n) { return n < 10 ? '0'+n : ''+n; }
 
-  // === SCREENSHOT GENERATION ===
-  function generateScreenshot() {
-    const canvas = document.getElementById('screenshotCanvas');
-    const ctx = canvas.getContext('2d');
-    const W = 960, H = 540;
+function mkRef() {
+  var c = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789', r = '';
+  for (var i = 0; i < 8; i++) r += c[Math.floor(Math.random()*c.length)];
+  return r;
+}
 
-    // Background
-    const bgGrad = ctx.createLinearGradient(0, 0, W, H);
-    bgGrad.addColorStop(0, '#0a1628');
-    bgGrad.addColorStop(1, '#0f2240');
-    ctx.fillStyle = bgGrad;
-    ctx.fillRect(0, 0, W, H);
+function dlShot() {
+  drawShot();
+  setTimeout(function() {
+    var cv = document.getElementById('cvs');
+    var a = document.createElement('a');
+    a.download = 'violation-report-' + Date.now() + '.png';
+    a.href = cv.toDataURL('image/png');
+    a.click();
+    showToast('✓ 截圖已下載');
+    goStep(4);
+  }, 120);
+}
 
-    // Subtle grid
-    ctx.strokeStyle = 'rgba(45,127,255,0.06)';
-    ctx.lineWidth = 1;
-    for (let x = 0; x < W; x += 40) {
-      ctx.beginPath(); ctx.moveTo(x, 0); ctx.lineTo(x, H); ctx.stroke();
-    }
-    for (let y = 0; y < H; y += 40) {
-      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
-    }
-
-    // Top accent line
-    const lineGrad = ctx.createLinearGradient(0, 0, W, 0);
-    lineGrad.addColorStop(0, '#2d7fff');
-    lineGrad.addColorStop(1, '#00d4ff');
-    ctx.fillStyle = lineGrad;
-    ctx.fillRect(0, 0, W, 4);
-
-    // Header
-    ctx.fillStyle = '#8899b4';
-    ctx.font = '600 12px JetBrains Mono, monospace';
-    ctx.fillText('AVIATION VIOLATION REPORT', 48, 50);
-
-    ctx.fillStyle = '#e8edf5';
-    ctx.font = '700 28px Noto Sans TC, sans-serif';
-    ctx.fillText('航空公司違規檢舉紀錄', 48, 90);
-
-    // Divider
-    ctx.fillStyle = 'rgba(45,127,255,0.2)';
-    ctx.fillRect(48, 110, W - 96, 1);
-
-    // Gather data
-    const selectedType = document.querySelector('.type-card.selected .type-name');
-    const selectedChips = Array.from(document.querySelectorAll('.chip.selected'))
-      .map(c => c.textContent.trim());
-    const content = document.getElementById('reportContent').value || '（未填寫）';
-    const now = new Date();
-    const timestamp = now.getFullYear() + '/' +
-      String(now.getMonth() + 1).padStart(2, '0') + '/' +
-      String(now.getDate()).padStart(2, '0') + ' ' +
-      String(now.getHours()).padStart(2, '0') + ':' +
-      String(now.getMinutes()).padStart(2, '0');
-
-    let y = 145;
-
-    // Labels
-    const drawLabel = (label, value) => {
-      ctx.fillStyle = '#556a8a';
-      ctx.font = '500 13px Noto Sans TC, sans-serif';
-      ctx.fillText(label, 48, y);
-      ctx.fillStyle = '#e8edf5';
-      ctx.font = '400 15px Noto Sans TC, sans-serif';
-      ctx.fillText(value, 160, y);
-      y += 34;
-    };
-
-    drawLabel('檢舉類別', selectedType ? selectedType.textContent : '（未選擇）');
-    drawLabel('檢舉方向', selectedChips.length ? selectedChips.join('、') : '（未選擇）');
-    drawLabel('產生時間', timestamp);
-
-    y += 10;
-    ctx.fillStyle = 'rgba(45,127,255,0.2)';
-    ctx.fillRect(48, y, W - 96, 1);
-    y += 24;
-
-    // Content
-    ctx.fillStyle = '#556a8a';
-    ctx.font = '500 13px Noto Sans TC, sans-serif';
-    ctx.fillText('檢舉內容', 48, y);
-    y += 24;
-
-    ctx.fillStyle = '#c8d3e5';
-    ctx.font = '400 14px Noto Sans TC, sans-serif';
-
-    const maxWidth = W - 96;
-    const lines = wrapText(ctx, content, maxWidth);
-    const maxLines = 8;
-    lines.slice(0, maxLines).forEach(line => {
-      ctx.fillText(line, 48, y);
-      y += 24;
-    });
-    if (lines.length > maxLines) {
-      ctx.fillStyle = '#556a8a';
-      ctx.fillText('...（內容過長，已截斷顯示）', 48, y);
-    }
-
-    // Bottom bar
-    ctx.fillStyle = 'rgba(26, 42, 68, 0.9)';
-    ctx.fillRect(0, H - 44, W, 44);
-    ctx.fillStyle = 'rgba(45,127,255,0.15)';
-    ctx.fillRect(0, H - 44, W, 1);
-
-    ctx.fillStyle = '#556a8a';
-    ctx.font = '400 11px JetBrains Mono, monospace';
-    ctx.fillText('GENERATED BY AVIATION REPORT SYSTEM  •  FOR REFERENCE ONLY', 48, H - 18);
-
-    ctx.fillStyle = '#2d7fff';
-    ctx.font = '600 11px JetBrains Mono, monospace';
-    const rightText = 'REF #' + generateRef();
-    ctx.fillText(rightText, W - 48 - ctx.measureText(rightText).width, H - 18);
-
-    updateNavStep(3);
-  }
-
-  function wrapText(ctx, text, maxWidth) {
-    const result = [];
-    const paragraphs = text.split('\n');
-    paragraphs.forEach(para => {
-      if (!para.trim()) { result.push(''); return; }
-      let line = '';
-      for (const char of para) {
-        const test = line + char;
-        if (ctx.measureText(test).width > maxWidth) {
-          result.push(line);
-          line = char;
-        } else {
-          line = test;
-        }
-      }
-      if (line) result.push(line);
-    });
-    return result;
-  }
-
-  function generateRef() {
-    const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
-    let ref = '';
-    for (let i = 0; i < 8; i++) ref += chars[Math.floor(Math.random() * chars.length)];
-    return ref;
-  }
-
-  // === DOWNLOAD ===
-  function generateAndDownload() {
-    generateScreenshot();
-    setTimeout(() => {
-      const canvas = document.getElementById('screenshotCanvas');
-      const link = document.createElement('a');
-      link.download = 'violation-report-' + Date.now() + '.png';
-      link.href = canvas.toDataURL('image/png');
-      link.click();
-      showToast('✓ 截圖已下載');
-      updateNavStep(4);
-    }, 100);
-  }
-
-  // === INIT ===
-  generateScreenshot();
+drawShot();
 </script>
 
 </body>
