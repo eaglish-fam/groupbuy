@@ -3,15 +3,18 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Trading Agent 架構圖 · 2026-04-20</title>
+<title>Trading Agent 架構圖 · v3 · 2026-04-21</title>
 <style>
   :root {
     --bg: #0d1117;
     --panel: #161b22;
     --panel-2: #1f242c;
+    --panel-3: #242a32;
     --border: #30363d;
+    --border-2: #444c56;
     --text: #e6edf3;
     --muted: #8b949e;
+    --dim: #6e7681;
     --accent: #58a6ff;
     --green: #3fb950;
     --yellow: #d29922;
@@ -19,6 +22,7 @@
     --purple: #bc8cff;
     --cyan: #39d0d8;
     --orange: #f78166;
+    --pink: #ff7b72;
   }
   * { box-sizing: border-box; }
   html, body {
@@ -27,29 +31,38 @@
     font-family: -apple-system, "SF Pro", "PingFang TC", "Microsoft JhengHei", sans-serif;
     font-size: 14px; line-height: 1.55;
   }
-  h1 { font-size: 22px; margin: 0 0 4px; }
-  h2 { font-size: 17px; margin: 28px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
+  h1 { font-size: 24px; margin: 0 0 4px; letter-spacing: -.3px; }
+  h2 { font-size: 17px; margin: 32px 0 12px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
   h3 { font-size: 14px; margin: 0 0 8px; color: var(--accent); }
+  h4 { font-size: 12px; margin: 8px 0 4px; color: var(--muted); text-transform: uppercase; letter-spacing: .4px; }
   code { background: #0d1117; padding: 1px 5px; border-radius: 3px; font-family: "SF Mono", Menlo, monospace; font-size: 12px; color: var(--cyan); }
   .wrap { max-width: 1400px; margin: 0 auto; padding: 28px 24px 60px; }
-  .hdr { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+  .hdr { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 24px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
   .hdr .meta { color: var(--muted); font-size: 12px; text-align: right; }
+  .hdr .meta .v { color: var(--accent); font-weight: 600; }
   .sub { color: var(--muted); font-size: 13px; }
 
-  /* LAYER — vertical stack of component bands */
+  /* LAYER */
   .layer { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; margin-bottom: 14px; position: relative; }
   .layer-tag { position: absolute; top: -10px; left: 16px; background: var(--bg); padding: 0 8px; color: var(--muted); font-size: 11px; letter-spacing: .5px; text-transform: uppercase; }
   .layer-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; margin-top: 8px; }
   .card { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; font-size: 13px; }
-  .card .title { font-weight: 600; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; }
+  .card .title { font-weight: 600; margin-bottom: 4px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
   .card .desc { color: var(--muted); font-size: 12px; }
-  .pill { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 10px; margin-left: 4px; vertical-align: middle; }
+  .card.soft { background: var(--panel); border-style: dashed; opacity: .65; }
+
+  .pill { display: inline-block; font-size: 10px; padding: 1px 6px; border-radius: 10px; margin-left: 4px; vertical-align: middle; font-weight: 500; }
   .pill.morning { background: rgba(247, 129, 102, .15); color: var(--orange); }
   .pill.evening { background: rgba(188, 140, 255, .15); color: var(--purple); }
   .pill.active  { background: rgba(63, 185, 80, .15);   color: var(--green); }
   .pill.ref     { background: rgba(210, 153, 34, .15);  color: var(--yellow); }
   .pill.external{ background: rgba(57, 208, 216, .15);  color: var(--cyan); }
   .pill.daemon  { background: rgba(88, 166, 255, .15);  color: var(--accent); }
+  .pill.planned { background: rgba(110, 118, 129, .15); color: var(--dim); }
+  .pill.new     { background: rgba(255, 123, 114, .18); color: var(--pink); }
+  .pill.must    { background: rgba(248, 81, 73, .15);   color: var(--red); }
+  .pill.should  { background: rgba(210, 153, 34, .15);  color: var(--yellow); }
+  .pill.may     { background: rgba(63, 185, 80, .15);   color: var(--green); }
 
   .arrow { text-align: center; color: var(--muted); font-size: 18px; margin: -6px 0 -2px; }
 
@@ -65,7 +78,7 @@
   .tl-event strong { color: var(--text); }
   .tl-event code { font-size: 11px; }
 
-  /* FLOW DIAGRAM */
+  /* FLOW */
   .flow { background: var(--panel); border: 1px solid var(--border); border-radius: 10px; padding: 18px; }
   .flow-step { display: grid; grid-template-columns: 40px 1fr; gap: 14px; align-items: start; margin-bottom: 10px; }
   .flow-num { width: 32px; height: 32px; border-radius: 50%; background: var(--panel-2); border: 1px solid var(--border); color: var(--accent); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 13px; }
@@ -75,17 +88,36 @@
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   @media (max-width: 900px) { .two-col { grid-template-columns: 1fr; } }
 
-  .strat-table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; }
-  .strat-table th, .strat-table td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
-  .strat-table th { background: var(--panel-2); color: var(--muted); font-weight: 500; font-size: 12px; }
-  .strat-table tr:last-child td { border-bottom: none; }
+  table { width: 100%; border-collapse: collapse; margin-top: 8px; font-size: 13px; }
+  th, td { padding: 8px 10px; text-align: left; border-bottom: 1px solid var(--border); vertical-align: top; }
+  th { background: var(--panel-2); color: var(--muted); font-weight: 500; font-size: 12px; }
+  tr:last-child td { border-bottom: 0; }
 
-  .legend { display: flex; gap: 16px; flex-wrap: wrap; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
-  .legend .dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 6px; vertical-align: middle; }
+  .codeblock { background: #0d1117; border: 1px solid var(--border); border-radius: 6px; padding: 10px 12px; font-family: "SF Mono", Menlo, monospace; font-size: 12px; overflow-x: auto; white-space: pre; color: var(--cyan); margin: 8px 0; }
 
-  .note { color: var(--muted); font-size: 12px; font-style: italic; margin-top: 6px; }
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 14px; padding: 10px 14px; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; font-size: 12px; color: var(--muted); }
+  .legend .item { display: flex; align-items: center; gap: 6px; }
 
-  footer { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--border); color: var(--muted); font-size: 11px; text-align: center; }
+  .note { background: rgba(88, 166, 255, .08); border-left: 3px solid var(--accent); padding: 10px 12px; border-radius: 4px; font-size: 13px; margin: 10px 0; }
+  .note.warn { background: rgba(210, 153, 34, .08); border-left-color: var(--yellow); }
+  .note.plan { background: rgba(110, 118, 129, .10); border-left-color: var(--dim); color: var(--muted); }
+
+  .phases { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-top: 10px; }
+  @media (max-width: 1000px) { .phases { grid-template-columns: repeat(2, 1fr); } }
+  .phase { background: var(--panel-2); border: 1px solid var(--border); border-radius: 8px; padding: 12px; position: relative; }
+  .phase .ptag { font-size: 11px; color: var(--muted); font-weight: 600; letter-spacing: .5px; }
+  .phase .ptitle { font-weight: 600; margin: 4px 0 6px; font-size: 13px; }
+  .phase .pdesc { color: var(--muted); font-size: 12px; }
+  .phase.done { border-color: var(--green); }
+  .phase.pending { border-color: var(--yellow); opacity: .9; }
+  .phase.partial { border-color: var(--accent); opacity: .95; }
+  .phase.future { border-color: var(--dim); opacity: .6; }
+  .phase .stat { position: absolute; top: 10px; right: 10px; font-size: 16px; }
+
+  /* Studio dashboard layer — different accent so it reads as cross-cutting viewer/controller */
+  .layer.studio { border-color: var(--purple); }
+  .layer.studio .layer-tag { color: var(--purple); }
+  .layer.studio h3 { color: var(--purple); }
 </style>
 </head>
 <body>
@@ -93,325 +125,775 @@
 
   <div class="hdr">
     <div>
-      <h1>Trading Agent 架構圖</h1>
-      <div class="sub">launchd → wrapper → bridge → claude+MCP → plan JSON → daemon → Shioaji / Telegram / Dashboard</div>
+      <h1>Trading Agent — 系統架構圖</h1>
+      <div class="sub">台股 TAIFEX 期貨自動化交易系統 · 三層策略架構 · 七層執行鏈</div>
     </div>
     <div class="meta">
-      snapshot · 2026-04-20<br/>
-      包含 Phase 0 strategy library (2026-04-20 新加)
+      <div>version <span class="v">v3</span> · 2026-04-21</div>
+      <div>Phase 0 ✅ · Phase 1 ✅ · Phase 2 🟡 ready · Phase 3 🔵 partial</div>
+      <div>TPE timezone</div>
     </div>
   </div>
 
-  <div class="legend">
-    <span><span class="dot" style="background: var(--orange);"></span>Morning（TXF/MXF/TMF · 08:45–13:45 TPE）</span>
-    <span><span class="dot" style="background: var(--purple);"></span>Evening（SXF/TGF/BRF · 20:00–05:00 TPE）</span>
-    <span><span class="dot" style="background: var(--green);"></span>Active 組件</span>
-    <span><span class="dot" style="background: var(--yellow);"></span>Reference-only（未啟用）</span>
-    <span><span class="dot" style="background: var(--cyan);"></span>External service</span>
-  </div>
+  <!-- ─────────────────────────── § 七層執行鏈 ─────────────────────────── -->
+  <h2>§ 1 · 七層執行鏈（launchd → external 世界）</h2>
+  <p class="sub">從作業系統觸發到實際送單的垂直堆疊。每天靠 launchd 排程觸發，不需人工介入。</p>
 
-  <h2>一、分層架構（從觸發到下單）</h2>
-
-  <!-- LAYER 1: SCHEDULER -->
   <div class="layer">
-    <span class="layer-tag">Layer 1 · macOS Scheduler</span>
-    <h3>launchd jobs （~/Library/LaunchAgents/com.hiram.trading-*.plist）</h3>
+    <span class="layer-tag">Layer 1 · 作業系統觸發</span>
+    <h3>launchd（macOS 系統排程器）</h3>
     <div class="layer-row">
-      <div class="card"><div class="title">trading-plan <span class="pill morning">M</span></div><div class="desc">07:00 TPE · 每日跑 morning-plan.sh（v1 plan）</div></div>
-      <div class="card"><div class="title">trading-midsession <span class="pill morning">M</span></div><div class="desc">09:30 / 10:00 / ... / 13:30（30min）· mid-session 仲裁</div></div>
-      <div class="card"><div class="title">trading-intraday-day <span class="pill morning">M</span></div><div class="desc">盤中臨時 check 觸發</div></div>
-      <div class="card"><div class="title">trading-evening <span class="pill evening">E</span></div><div class="desc">20:00 v1 · 21:30 v2 · 21:45 v3（US 開盤後第一根 15m bar）</div></div>
-      <div class="card"><div class="title">trading-evening-midsession <span class="pill evening">E</span></div><div class="desc">22:15 → 03:45（每 30min）· 夜盤仲裁</div></div>
-      <div class="card"><div class="title">trading-intraday-night <span class="pill evening">E</span></div><div class="desc">夜盤 intraday check</div></div>
-      <div class="card"><div class="title">trading-review-day</div><div class="desc">收盤後 review，寫 trade-reviews/</div></div>
-      <div class="card"><div class="title">trading-agent <span class="pill daemon">daemon</span></div><div class="desc">24/7 常駐，啟動 Python engine loop</div></div>
-      <div class="card"><div class="title">trading-watchdog</div><div class="desc">監控 daemon 死了自動重啟</div></div>
-      <div class="card"><div class="title">trading-bridge</div><div class="desc">quote server keep-alive</div></div>
+      <div class="card">
+        <div class="title">com.hiram.trading-plan <span class="pill morning">M</span></div>
+        <div class="desc">07:00 / 08:45 / 09:00 TPE 觸發 → 產 v1/v2/v3 morning plan</div>
+      </div>
+      <div class="card">
+        <div class="title">com.hiram.trading-midsession <span class="pill morning">M</span></div>
+        <div class="desc">09:30 起每 15min 執行 → arbitration 決定 HOLD/TIGHTEN/FLAT/REVERSE</div>
+      </div>
+      <div class="card">
+        <div class="title">com.hiram.trading-intraday-day <span class="pill morning">M</span></div>
+        <div class="desc">13:45 收盤後 intraday check</div>
+      </div>
+      <div class="card">
+        <div class="title">com.hiram.trading-evening <span class="pill evening">E</span></div>
+        <div class="desc">20:00 / 22:30 TPE 觸發 → 產 evening plan + 夜盤 arbitration</div>
+      </div>
+      <div class="card">
+        <div class="title">com.hiram.trading-review <span class="pill daemon">R</span></div>
+        <div class="desc">14:00 TPE 一次 → 全日 review 寫 trade-reviews/&lt;date&gt;.json</div>
+      </div>
     </div>
-    <div class="note">⚠ macOS launchd 不能直接 exec iCloud 路徑 → 每個 plist 都指向 ~/start-trading-*.sh wrapper（Layer 2）</div>
+    <div class="note warn" style="margin-top: 12px;">⚠ launchd 沙盒不能讀 iCloud → trading-bridge 已遷出至 <code>/Users/zosia/dev/trading-bridge/</code>；trading-shared（資料）留在 iCloud 正確。</div>
   </div>
 
-  <div class="arrow">▼</div>
+  <div class="arrow">↓</div>
 
-  <!-- LAYER 2: WRAPPERS -->
   <div class="layer">
-    <span class="layer-tag">Layer 2 · Wrapper scripts（逃出 iCloud sandbox）</span>
-    <h3>~/start-trading-*.sh</h3>
+    <span class="layer-tag">Layer 2 · Wrapper 包裝腳本</span>
+    <h3>~/start-trading-*.sh（薄 exec wrapper — 存在理由：launchd 只能 exec 非-iCloud 路徑）</h3>
+    <p style="color: var(--muted); font-size: 13px; margin: 4px 0 10px;">一對一對應 Layer 3 業務腳本；bridge / agent / watchdog 三個是常駐 daemon 的啟動器。</p>
     <div class="layer-row">
-      <div class="card"><div class="title">start-trading-morning-plan.sh</div><div class="desc"><code>exec /bin/bash ~/dev/trading-bridge/scripts/morning-plan.sh</code></div></div>
-      <div class="card"><div class="title">start-trading-midsession.sh</div><div class="desc">→ mid-session-replan.sh</div></div>
-      <div class="card"><div class="title">start-trading-intraday-check.sh</div><div class="desc">→ intraday-check.sh</div></div>
-      <div class="card"><div class="title">start-trading-evening-plan.sh</div><div class="desc">→ evening-plan.sh</div></div>
-      <div class="card"><div class="title">start-trading-evening-midsession.sh</div><div class="desc">→ evening-midsession.sh</div></div>
-      <div class="card"><div class="title">start-trading-review-day.sh</div><div class="desc">→ review-day.sh</div></div>
+      <div class="card"><div class="title">start-trading-morning-plan.sh</div><div class="desc">exec → bridge morning-plan.sh（07:00 / 08:45 / 09:00 三版）</div></div>
+      <div class="card"><div class="title">start-trading-midsession.sh</div><div class="desc">exec → bridge mid-session-replan.sh（日盤 15min）</div></div>
+      <div class="card"><div class="title">start-trading-intraday-check.sh</div><div class="desc">exec → bridge intraday-check.sh（日盤 + 夜盤都用）</div></div>
+      <div class="card"><div class="title">start-trading-review-day.sh</div><div class="desc">exec → bridge review-day.sh（13:45 日盤收盤）</div></div>
+      <div class="card"><div class="title">start-trading-evening-plan.sh</div><div class="desc">exec → bridge evening-plan.sh（夜盤開盤前 SXF/TGF/BRF）</div></div>
+      <div class="card"><div class="title">start-trading-evening-midsession.sh</div><div class="desc">exec → bridge evening-midsession.sh（夜盤 22:15–03:45 每 30min）</div></div>
+      <div class="card"><div class="title">start-trading-bridge.sh</div><div class="desc">exec → node bridge daemon（MCP server，常駐）</div></div>
+      <div class="card"><div class="title">start-trading-agent.sh</div><div class="desc">exec → python trading-agent state-machine（poll 30s，常駐）</div></div>
+      <div class="card"><div class="title">start-trading-watchdog.sh</div><div class="desc">exec → bridge watchdog.sh（健康檢查，每 5min）</div></div>
     </div>
-    <div class="note">設計原因：bash 是 OS binary 可被 launchd exec，被 exec 的 bash 可讀 iCloud 上的 .sh；wrappers 必須放在 $HOME 外的 iCloud，自己是 local file。</div>
   </div>
 
-  <div class="arrow">▼</div>
+  <div class="arrow">↓</div>
 
-  <!-- LAYER 3: BRIDGE -->
   <div class="layer">
-    <span class="layer-tag">Layer 3 · Bridge orchestration（~/dev/trading-bridge/scripts/）</span>
-    <h3>shell 腳本：跑 claude -p headless，丟 prompt + context，取回 JSON plan</h3>
+    <span class="layer-tag">Layer 3 · Bridge 業務腳本</span>
+    <h3>/Users/zosia/dev/trading-bridge/scripts/</h3>
     <div class="layer-row">
-      <div class="card"><div class="title">morning-plan.sh <span class="pill morning">M</span></div><div class="desc">07:00 跑；讀 morning-plan.md prompt，claude + TradingView MCP 產 <code>trade-plans/YYYY-MM-DD.json</code></div></div>
-      <div class="card"><div class="title">mid-session-replan.sh <span class="pill morning">M</span></div><div class="desc">讀 mid-session-arbitration.md；HOLD / TIGHTEN / FLAT / REVERSE 決策，寫 <code>trade-arbitration/</code></div></div>
-      <div class="card"><div class="title">intraday-check.sh <span class="pill morning">M</span></div><div class="desc">盤中臨時 check</div></div>
-      <div class="card"><div class="title">evening-plan.sh <span class="pill evening">E</span></div><div class="desc">v1/v2/v3 三階段寫 <code>trade-plans-evening/</code></div></div>
-      <div class="card"><div class="title">evening-midsession.sh <span class="pill evening">E</span></div><div class="desc">夜盤仲裁；robust JSON extractor（python regex 抓 ```json fence）</div></div>
-      <div class="card"><div class="title">review-day.sh</div><div class="desc">收盤後整體 review → trade-reviews/</div></div>
-      <div class="card"><div class="title">lib/ensure-quote-server.sh</div><div class="desc">確保 TradingView quote server 在線</div></div>
-      <div class="card"><div class="title">lib/split-narrative-plan.py</div><div class="desc">拆 claude 回來的 narrative + JSON 成兩份檔案</div></div>
+      <div class="card">
+        <div class="title">morning-plan.sh</div>
+        <div class="desc">v1/v2/v3 自動判斷、ensure_quote_server、呼叫 claude -p、split narrative/JSON、archive</div>
+      </div>
+      <div class="card">
+        <div class="title">mid-session-replan.sh</div>
+        <div class="desc">日盤 15min cadence、讀 current plan、arbitration prompt、寫 trade-arbitration/&lt;time&gt;.json</div>
+      </div>
+      <div class="card">
+        <div class="title">intraday-check.sh</div>
+        <div class="desc">日盤 + 夜盤輕量健檢（持倉 vs 當前 plan 一致性、breaker 狀態）</div>
+      </div>
+      <div class="card">
+        <div class="title">review-day.sh</div>
+        <div class="desc">13:45 日盤收盤後：trade-events 聚合、Obsidian daily note、Telegram 摘要</div>
+      </div>
+      <div class="card">
+        <div class="title">evening-plan.sh</div>
+        <div class="desc">夜盤開盤前 SXF / TGF / BRF 的 plan，prompt 走 evening 版本</div>
+      </div>
+      <div class="card">
+        <div class="title">evening-midsession.sh</div>
+        <div class="desc">夜盤 22:15–03:45 每 30min arbitration；prompt 用 mid-session-arbitration-evening.md</div>
+      </div>
+      <div class="card">
+        <div class="title">watchdog.sh</div>
+        <div class="desc">每 5min 健康檢查：bridge / agent daemon alive？quote-server 是否回應？</div>
+      </div>
+      <div class="card">
+        <div class="title">lib/ensure-quote-server.sh</div>
+        <div class="desc">開啟 trading-agent quote-server（Shioaji live quote，無 15min delay）</div>
+      </div>
+      <div class="card">
+        <div class="title">lib/split-narrative-plan.py</div>
+        <div class="desc">把 Claude 輸出拆成 narrative.md + plan.json 雙檔</div>
+      </div>
     </div>
-    <div class="note">每支腳本 <code>cd $SHARED && claude -p --allowed-tools "Read,mcp__tradingview" --add-dir $SHARED &lt; prompt</code>；失敗 → 寫 <code>.invalid-HHMM</code> 供事後 debug。</div>
   </div>
 
-  <div class="arrow">▼</div>
+  <div class="arrow">↓</div>
 
-  <!-- LAYER 4: AI -->
   <div class="layer">
-    <span class="layer-tag">Layer 4 · AI execution（Claude + MCP）</span>
+    <span class="layer-tag">Layer 4 · Claude + MCP（智能層）</span>
+    <h3>claude -p with allowed MCPs</h3>
     <div class="two-col">
-      <div>
-        <h3>Prompts（trading-shared/prompts/）</h3>
-        <div class="layer-row">
-          <div class="card"><div class="title">morning-plan.md</div><div class="desc">TXF / MXF / TMF · 1D/4H 結構 + EMA/RSI/MACD/BB + day-type enum</div></div>
-          <div class="card"><div class="title">evening-plan.md</div><div class="desc">SXF / TGF / BRF · NASDAQ:SOX / COMEX:GC1! / ICEEUR:BRN1! 結構</div></div>
-          <div class="card"><div class="title">mid-session-arbitration.md</div><div class="desc">morning 仲裁（09:30 IB 判定 trend_day upgrade）</div></div>
-          <div class="card"><div class="title">mid-session-arbitration-evening.md</div><div class="desc">evening 仲裁（21:30 IR 判定 trend_session）</div></div>
-          <div class="card"><div class="title">intraday-check.md / review-day.md</div><div class="desc">check + 收盤 review</div></div>
+      <div class="card">
+        <div class="title">mcp__agent-studio <span class="pill active">active</span></div>
+        <div class="desc">
+          <code>taifex_quote</code> · Shioaji live quote<br>
+          <code>polymarket_macro</code> · Fed/利率/衰退 odds<br>
+          <code>macro_calendar</code> · high-impact events<br>
+          <code>portfolio_snapshot</code> · 跨資產持倉<br>
+          <code>recent_briefs</code> / <code>read_session</code> · 昨日 brief
         </div>
       </div>
-      <div>
-        <h3>TradingView MCP（78 tools）</h3>
-        <div class="layer-row">
-          <div class="card"><div class="title">quote_get <span class="pill external">ext</span></div><div class="desc">即時報價（last/OHLC/volume）</div></div>
-          <div class="card"><div class="title">data_get_study_values <span class="pill external">ext</span></div><div class="desc">所有可見指標當前數值</div></div>
-          <div class="card"><div class="title">data_get_ohlcv <span class="pill external">ext</span></div><div class="desc">K 棒 summary（summary=true）</div></div>
-          <div class="card"><div class="title">chart_set_symbol / timeframe <span class="pill external">ext</span></div><div class="desc">切換標的 / 週期</div></div>
+      <div class="card">
+        <div class="title">mcp__tradingview <span class="pill active">active</span></div>
+        <div class="desc">
+          chart_get_state · data_get_ohlcv · data_get_study_values · chart_manage_indicator · quote_get（15min delayed）<br>
+          Pine 系列：pine_check/compile/new · alert_create/list
         </div>
       </div>
     </div>
   </div>
 
-  <div class="arrow">▼</div>
+  <div class="arrow">↓</div>
 
-  <!-- LAYER 5: DATA -->
-  <div class="layer">
-    <span class="layer-tag">Layer 5 · Data store（trading-shared/ · iCloud，資料 SSOT）</span>
+  <!-- ─────────────────────────── § trading-shared ─────────────────────────── -->
+  <div class="layer" style="border-color: var(--accent);">
+    <span class="layer-tag" style="color: var(--accent);">Layer 5 · trading-shared（資料 + 規範 SSOT）</span>
+    <h3 style="color: var(--accent);">iCloud · 資料與配置的唯一真相源</h3>
+
+    <h4 style="margin-top: 14px;">📁 配置（Prompt + 策略架構）</h4>
     <div class="layer-row">
-      <div class="card"><div class="title">prompts/</div><div class="desc">5 個 md · Claude 讀的系統提示</div></div>
-      <div class="card"><div class="title">strategies/ <span class="pill active">Phase 0</span></div><div class="desc">4 策略 + README index（純 reference，尚未被 prompt 調用）</div></div>
-      <div class="card"><div class="title">trade-plans/ <span class="pill morning">M</span></div><div class="desc">morning plan JSON + narrative.md + archive/</div></div>
-      <div class="card"><div class="title">trade-plans-evening/ <span class="pill evening">E</span></div><div class="desc">evening plan v1/v2/v3</div></div>
-      <div class="card"><div class="title">trade-arbitration/</div><div class="desc">mid-session HOLD/TIGHTEN/FLAT/REVERSE JSON</div></div>
-      <div class="card"><div class="title">trade-reviews/</div><div class="desc">收盤 review 報告</div></div>
-      <div class="card"><div class="title">trade-logs/</div><div class="desc">daemon 每筆交易 log</div></div>
-      <div class="card"><div class="title">state/</div><div class="desc">daemon runtime state（last_quote_ts / cumulative_pnl / breaker）</div></div>
-      <div class="card"><div class="title">schemas/</div><div class="desc">plan.schema.json + arbitration.schema.json</div></div>
-      <div class="card"><div class="title">logs/</div><div class="desc">launchd-{morning,midsession,evening}.{out,err}</div></div>
+      <div class="card">
+        <div class="title">prompts/ <span class="pill active">updated</span></div>
+        <div class="desc">morning-plan.md（含 Step -1 讀 DOCTRINE/symbols）· mid-session-arbitration.md（Vol Regime 分類）· evening-plan.md · review-day.md</div>
+      </div>
+      <div class="card">
+        <div class="title">strategies/ <span class="pill new">三層架構</span></div>
+        <div class="desc">
+          <strong>DOCTRINE.md</strong>（憲法）<br>
+          trend_day_breakout · range_bound_fade · event_driven_bias · defensive_flat<br>
+          SCHEMA.md · filter.py · stats.py · preprocess_or_baselines.py
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">symbols/ <span class="pill new">new</span></div>
+        <div class="desc">標的性格檔（instrument-specific profile）<br>TXF · SXF · BRF · TGF（YAML）</div>
+      </div>
+      <div class="card">
+        <div class="title">profiles/ <span class="pill new">new</span></div>
+        <div class="desc">每日 OR baseline 計算結果<br>&lt;code&gt;-baselines.json（preprocess 寫入）</div>
+      </div>
+    </div>
+
+    <h4 style="margin-top: 14px;">📁 資料（Plan / Trade Log / Review）</h4>
+    <div class="layer-row">
+      <div class="card">
+        <div class="title">trade-plans/ <span class="pill morning">M</span></div>
+        <div class="desc">&lt;date&gt;.json + .md（morning 最新版）· archive/&lt;date&gt;/vN-HHMM.json（v1/v2/v3 保全演進）</div>
+      </div>
+      <div class="card">
+        <div class="title">trade-plans-evening/ <span class="pill evening">E</span></div>
+        <div class="desc">夜盤 plan（與 morning 同結構，分開資料夾）</div>
+      </div>
+      <div class="card">
+        <div class="title">trade-arbitration/ <span class="pill daemon">live</span></div>
+        <div class="desc">mid-session 每 15min 一次 JSON，action = HOLD/TIGHTEN/FLAT/REVERSE</div>
+      </div>
+      <div class="card">
+        <div class="title">trade-logs/ <span class="pill daemon">live</span></div>
+        <div class="desc">
+          trade-log-&lt;date&gt;.md（人讀）<br>
+          <strong>trade-events-&lt;date&gt;.jsonl</strong>（機讀；stats.py 吃這個）
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">trade-reviews/ <span class="pill daemon">daily</span></div>
+        <div class="desc">&lt;date&gt;.json — review-day 輸出；lessons[] 陣列是朝 LESSONS.md 提升的候選</div>
+      </div>
+      <div class="card soft">
+        <div class="title">external-trades/ <span class="pill planned">planned · Phase 2</span></div>
+        <div class="desc">朋友對帳單 + 回測資料 · &lt;source&gt;/{SOURCE.md, raw/, parsed/*.jsonl, notes/}</div>
+      </div>
+      <div class="card">
+        <div class="title">LESSONS.md</div>
+        <div class="desc">人工提升的 rule ledger — review → 觀察 pattern → 寫入 prompt 的 bridge</div>
+      </div>
+    </div>
+
+    <h4 style="margin-top: 14px;">📁 狀態（Runtime State · 機器可改）</h4>
+    <div class="layer-row">
+      <div class="card">
+        <div class="title">state/circuit-breaker.json <span class="pill daemon">live</span></div>
+        <div class="desc">cumulative_pnl_twd · tripped · tripped_at — daemon 每筆 event 後 atomic write</div>
+      </div>
+      <div class="card">
+        <div class="title">state/risk-override.json <span class="pill new">new · slider</span></div>
+        <div class="desc">
+          daily_loss_pct · max_total_exposure_pct · total_capital_twd · per_trade_risk_pct<br>
+          Studio slider PUT /api/trading/risk → 寫本檔；daemon cap_provider / preflight risk_provider 每次呼叫再讀（不快取，不重啟）
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">state/tradeable-status.json <span class="pill new">new</span></div>
+        <div class="desc">
+          snapshot: per-symbol {enabled, signing_ok, margin_available, margin_required, state}<br>
+          signing: 快取 per-symbol 7 天 probe 結果<br>
+          dashboard 直接 read-only 讀這份，不打 HTTP
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">state/agent-runtime.json</div>
+        <div class="desc">state machine 位置、last tick、heartbeat — watchdog 檢查新鮮度</div>
+      </div>
+    </div>
+
+    <h4 style="margin-top: 14px;">📁 配置（.env + symbols.yml）</h4>
+    <div class="layer-row">
+      <div class="card">
+        <div class="title">.env <span class="pill new">pct-based</span></div>
+        <div class="desc">
+          <strong>TOTAL_CAPITAL_TWD=200000</strong><br>
+          DAILY_LOSS_PCT=3.0 · PER_TRADE_RISK_PCT=1.5 · MAX_TOTAL_EXPOSURE_PCT=35<br>
+          所有 NT$ cap 從百分比算出，資金變化只改 capital 一處
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">config/symbols.yml <span class="pill new">SSOT</span></div>
+        <div class="desc">
+          per-symbol {enabled, margin_twd, note}<br>
+          TXF 185k · MXF 46k · SXF 48k · TMF 4.6k · TGF · BRF<br>
+          Studio toggle 寫回本檔 + patch cache；preflight gate 1 讀本檔
+        </div>
+      </div>
     </div>
   </div>
 
-  <div class="arrow">▼</div>
+  <div class="arrow">↓</div>
 
-  <!-- LAYER 6: DAEMON -->
   <div class="layer">
-    <span class="layer-tag">Layer 6 · Execution daemon（trading-agent · Python 24/7）</span>
+    <span class="layer-tag">Layer 6 · Daemon（Python, state machine）</span>
+    <h3>trading-agent · 持倉 + 風控 + 送單</h3>
+    <div class="layer-row">
+      <div class="card">
+        <div class="title">state_machine.py</div>
+        <div class="desc">讀 plan → 狀態機執行：AWAIT_ENTRY / OPEN / CLOSED；entry_filled / sl_hit / tp_hit 四大 event 寫 JSONL</div>
+      </div>
+      <div class="card">
+        <div class="title">plan.py <span class="pill new">strategy_used</span></div>
+        <div class="desc">Pydantic 讀 plan JSON；AssetPlan.strategy_used 貫穿到 trade-events</div>
+      </div>
+      <div class="card">
+        <div class="title">risk/circuit_breaker.py <span class="pill must">MUST</span> <span class="pill new">dynamic cap</span></div>
+        <div class="desc">累積 PnL 觸 cap → 當日剩餘全部 no-entry；<strong>cap_provider lambda 每 tick 讀 risk-override.json</strong>，slider UI 調整立即生效，不需重啟</div>
+      </div>
+      <div class="card">
+        <div class="title">risk/risk_override.py <span class="pill new">new</span></div>
+        <div class="desc">RiskSnapshot dataclass；.env defaults（pct-based）+ runtime JSON override 兩層合併；atomic write (tmp+rename)</div>
+      </div>
+      <div class="card">
+        <div class="title">exchanges/preflight.py <span class="pill new">new</span> <span class="pill must">4 gates</span></div>
+        <div class="desc">
+          ① <strong>enabled</strong>（symbols.yml）<br>
+          ② <strong>signing</strong>（LMT 00 probe，7 天快取）<br>
+          ③ <strong>margin</strong>（available ≥ qty × margin_twd）<br>
+          ④ <strong>total exposure</strong>（used + new ≤ capital × max_total_exposure_pct）<br>
+          can_trade(symbol, qty) → 第一個失敗 reason 回傳
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">notifier/events.py <span class="pill new">new</span></div>
+        <div class="desc">EventLogger — 機讀 JSONL sink，keyed by local date</div>
+      </div>
+      <div class="card">
+        <div class="title">notifier/dispatcher.py</div>
+        <div class="desc">NotifierBundle：telegram + obsidian markdown + events JSONL 三 fan-out</div>
+      </div>
+      <div class="card">
+        <div class="title">exchanges/shioaji_client.py</div>
+        <div class="desc">永豐 Shioaji adapter；simulation=True 為沙箱；preprocess_or_baselines 也 lazy import 它</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="arrow">↓</div>
+
+  <div class="layer">
+    <span class="layer-tag">Layer 7 · External 世界</span>
+    <h3>真實市場 · 券商 · 通知</h3>
+    <div class="layer-row">
+      <div class="card"><div class="title">永豐 Shioaji API</div><div class="desc">期貨送單（TXF/MXF/TMF/SXF/TGF/BRF）· kbars 歷史資料源</div></div>
+      <div class="card"><div class="title">TradingView</div><div class="desc">圖表結構 + 指標；MCP 即時 OHLCV</div></div>
+      <div class="card"><div class="title">Telegram</div><div class="desc">即時通知（fill / SL / TP / breaker）</div></div>
+      <div class="card"><div class="title">Obsidian vault</div><div class="desc">trade-logs/*.md 直接供 Obsidian 瀏覽（Brain + Library 雙 vault）</div></div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────── § 三層策略架構 ─────────────────────────── -->
+  <h2>§ 2 · 三層策略架構（憲法 → 法律 → 地方規則）</h2>
+  <p class="sub">本次 v2 的核心升級：從散文策略 + 硬編碼 prompt，演化為可組合、可驗證、可追溯的三層架構。</p>
+
+  <div class="layer" style="border-color: var(--red);">
+    <span class="layer-tag" style="color: var(--red);">Tier 1 · DOCTRINE（憲法）· 全系統共用</span>
+    <h3 style="color: var(--red);">strategies/DOCTRINE.md</h3>
     <div class="two-col">
-      <div>
-        <h3>核心模組（src/trading_agent/）</h3>
-        <div class="layer-row">
-          <div class="card"><div class="title">cli.py</div><div class="desc">entry point · <code>_active_session()</code> 路由 morning / evening / idle</div></div>
-          <div class="card"><div class="title">state_machine.py</div><div class="desc">engine loop · tick 每 30s · <code>_refresh_quotes_idle()</code> idle 六檔輪巡</div></div>
-          <div class="card"><div class="title">plan.py</div><div class="desc">pydantic schema · AssetPlan normalize（scalar entry → nested {type,trigger_price}）</div></div>
-          <div class="card"><div class="title">risk/</div><div class="desc">breaker · 日最大虧損 / 連續虧損 / 槓桿上限</div></div>
-          <div class="card"><div class="title">exchanges/</div><div class="desc">shioaji_client · Contracts.Futures.{TXF,MXF,...}</div></div>
-          <div class="card"><div class="title">notifier/</div><div class="desc">telegram.py · START / TP1 / SL / BREAKER alerts</div></div>
-          <div class="card"><div class="title">quote_server.py</div><div class="desc">本地 quote 快取</div></div>
-          <div class="card"><div class="title">bridge_client.py</div><div class="desc">讀取 trading-shared 內 plan JSON</div></div>
+      <div class="card">
+        <div class="title">§ 1 MUST <span class="pill must">不可違</span></div>
+        <div class="desc">
+          • 硬 SL 必填（invalidation_price）<br>
+          • 不加碼失敗單<br>
+          • Circuit Breaker 神聖<br>
+          • 事件黑名單：FOMC/NFP/CPI/EIA/OPEC 前 15min~後 30min<br>
+          • 單日 SL ≥ 2 次 per symbol 停機
         </div>
       </div>
-      <div>
-        <h3>tick loop 行為（每 30s）</h3>
-        <ol style="padding-left: 18px; font-size: 13px; line-height: 1.8; margin: 0;">
-          <li>判斷 active session（morning / evening / idle）</li>
-          <li>讀對應 plan JSON（morning: trade-plans/，evening: trade-plans-evening/）</li>
-          <li>pull quote（Shioaji sim 或 live）→ 寫 runtime</li>
-          <li>比對 trigger_price / SL / TP1 / TP2</li>
-          <li>觸發 → 下單 + telegram + 寫 trade-logs/</li>
-          <li>breaker 檢查（虧損 > NT$3000 / 連虧 3 次）</li>
-          <li>寫 heartbeat → Dashboard 讀</li>
-        </ol>
-        <div class="note" style="margin-top: 10px;">paper-trading preview 階段：Shioaji 用 simulation layer，plan 寫但不下 live 單；上線只需切 <code>EXCHANGE</code> env。</div>
+      <div class="card">
+        <div class="title">§ 2 SHOULD <span class="pill should">可覆寫</span></div>
+        <div class="desc">
+          • R:R 底線 ≥ 3:1<br>
+          • size_pct ≤ 2.0%<br>
+          • TP 分批預設 50/50<br>
+          • morning ≤ 3 筆 · evening ≤ 4 筆<br>
+          <strong>Override 需同檔寫 override_reason</strong>
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">§ 3 MAY <span class="pill may">建議</span></div>
+        <div class="desc">
+          • Vol Regime 四級公式（下詳）<br>
+          • 第 2 根 K 方向判讀<br>
+          • 「30 點換 400 點」R:R 放大哲學<br>
+          • 標的 × 策略適配指南
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">§ 4 繼承規則</div>
+        <div class="desc">
+          錢走 min（size/leverage 三層取小）<br>
+          時間走 max（event_gate_hours / rr_min 三層取大）<br>
+          <strong>最保守者勝</strong>
+        </div>
       </div>
     </div>
   </div>
 
-  <div class="arrow">▼</div>
+  <div class="arrow">↓</div>
 
-  <!-- LAYER 7: OUTPUTS -->
-  <div class="layer">
-    <span class="layer-tag">Layer 7 · Outputs & external</span>
-    <div class="layer-row">
-      <div class="card"><div class="title">Shioaji <span class="pill external">ext</span></div><div class="desc">元富期貨 broker · simulation 層 + live ready（TAIFEX 所有期貨）</div></div>
-      <div class="card"><div class="title">Telegram Bot <span class="pill external">ext</span></div><div class="desc">daemon START / 成交 / SL 觸發 / breaker 推播</div></div>
-      <div class="card"><div class="title">Agent Studio Dashboard <span class="pill external">ext</span></div><div class="desc">http://localhost:3210/api/trading/snapshot · 可視化 plan + quote + daemon state</div></div>
-      <div class="card"><div class="title">TradingView Desktop <span class="pill external">ext</span></div><div class="desc">Claude 透過 MCP 讀圖表即時狀態（bars / indicators / Pine）</div></div>
-    </div>
-  </div>
-
-  <!-- TIMELINE -->
-  <h2>二、每日執行時間軸（TPE 時區）</h2>
-  <div class="timeline">
-    <div class="tl-grid">
-      <div class="tl-time">07:00</div>
-      <div class="tl-event m"><strong>morning-plan v1</strong> — launchd trading-plan → wrapper → morning-plan.sh → claude 產 TXF/MXF/TMF plan → <code>trade-plans/YYYY-MM-DD.json</code></div>
-
-      <div class="tl-time">08:45</div>
-      <div class="tl-event m"><strong>台指期開盤</strong> — daemon 切 morning session，開始監看 trigger_price</div>
-
-      <div class="tl-time">09:00–13:30</div>
-      <div class="tl-event m"><strong>mid-session 仲裁（每 30min）</strong> — launchd trading-midsession → HOLD / TIGHTEN / FLAT / REVERSE</div>
-
-      <div class="tl-time">13:45</div>
-      <div class="tl-event m"><strong>台指期收盤</strong> — daemon 最後一 tick，所有部位 EOD 平倉（若未觸 TP/SL）</div>
-
-      <div class="tl-time">14:00–20:00</div>
-      <div class="tl-event g"><strong>idle window</strong> — daemon 每 tick 跑 <code>_refresh_quotes_idle()</code>（六檔輪巡，Dashboard 報價不凍）</div>
-
-      <div class="tl-time">20:00</div>
-      <div class="tl-event e"><strong>evening-plan v1</strong> — US/Oil 前瞻，用 1H/4H/1D 結構產 SXF/TGF/BRF plan</div>
-
-      <div class="tl-time">21:30</div>
-      <div class="tl-event e"><strong>evening-plan v2</strong> — 15m/30m reality check（美股即將開盤）</div>
-
-      <div class="tl-time">21:45</div>
-      <div class="tl-event e"><strong>evening-plan v3</strong> — US 第一根 15m bar 完，final tune</div>
-
-      <div class="tl-time">22:15–03:45</div>
-      <div class="tl-event e"><strong>evening mid-session（每 30min）</strong> — 12 slots，22:45 catch 週三 EIA 22:30</div>
-
-      <div class="tl-time">22:30 (週三)</div>
-      <div class="tl-event r"><strong>EIA 週報</strong> — event_driven_bias 觸發 BRF flat（v1 一律不交易）</div>
-
-      <div class="tl-time">05:00</div>
-      <div class="tl-event e"><strong>夜盤 valid_until</strong> — evening plan 失效</div>
-
-      <div class="tl-time">收盤後</div>
-      <div class="tl-event r"><strong>review-day.sh</strong> — 寫 trade-reviews/YYYY-MM-DD.md</div>
-    </div>
-  </div>
-
-  <!-- STRATEGY LIBRARY -->
-  <h2>三、Strategy Library（Phase 0 · 2026-04-20 新加）</h2>
-  <div class="flow">
-    <p style="margin-top: 0; color: var(--muted); font-size: 13px;">
-      <strong style="color: var(--text);">當前狀態：</strong>
-      pure markdown 資產，<strong>prompts 還沒接上來選</strong>。morning-plan.md / evening-plan.md 仍照舊產 plan。Phase 1 實作時主 prompt Step 5 會改成「從此 library 挑一個策略套用」，並在 plan JSON 加 <code>strategy_used</code> 欄。
-    </p>
-    <table class="strat-table">
+  <div class="layer" style="border-color: var(--cyan);">
+    <span class="layer-tag" style="color: var(--cyan);">Tier 2 · Symbol Profile（地方規則）· 標的性格檔</span>
+    <h3 style="color: var(--cyan);">symbols/*.yml</h3>
+    <table>
       <thead>
         <tr>
-          <th>策略檔</th>
-          <th>Status</th>
-          <th>適用 day-type</th>
-          <th>核心邏輯</th>
+          <th style="width: 8%;">代號</th>
+          <th style="width: 14%;">標的</th>
+          <th style="width: 14%;">主要 session</th>
+          <th style="width: 22%;">性格</th>
+          <th style="width: 20%;">關鍵事件</th>
+          <th style="width: 15%;">preferred strategies</th>
+          <th style="width: 7%;">size cap</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><strong>trend_day_breakout.md</strong></td>
-          <td><span class="pill active">active</span></td>
-          <td>trend_day_up/down · breakout_day · gap_and_go</td>
-          <td>Breakout（突破 + 量） 或 Pullback（趨勢回測 EMA）· 結構 SL 1–1.5 ATR · R:R 1:2 起、目標 1:3+</td>
+          <td><code>TXF</code></td>
+          <td>台指期</td>
+          <td><span class="pill morning">morning 08:45–13:45</span></td>
+          <td>中性｜trend/range 都吃</td>
+          <td>TSMC 財報 · 央行 · 夜盤跳空</td>
+          <td>trend_day_breakout · range_bound_fade</td>
+          <td>2.0%</td>
         </tr>
         <tr>
-          <td><strong>range_bound_fade.md</strong></td>
-          <td><span class="pill ref">reference-only</span></td>
-          <td>range_day · reversal_day · failed_breakout · gap_and_fill</td>
-          <td>朋友的第二隻腳法 — 第一次觸及只標記、第二次回測看抗跌/抗漲訊號才進場 · SL 緊貼區間外 0.3–0.5 ATR · TP 對側邊緣 · 天然 1:3+。<strong>待 live log 校準</strong></td>
+          <td><code>SXF</code></td>
+          <td>美股 S&amp;P 期</td>
+          <td><span class="pill evening">evening 22:30–05:00</span></td>
+          <td>IB/OR 研究校準標的</td>
+          <td>FOMC · NFP · CPI · Mag7 earnings</td>
+          <td>trend_day_breakout · event_driven_bias</td>
+          <td>1.8%</td>
         </tr>
         <tr>
-          <td><strong>event_driven_bias.md</strong></td>
-          <td><span class="pill active">active</span></td>
-          <td>any · 盤中有 EIA / FOMC / earnings / CPI</td>
-          <td>凌駕規則 — 事件期間強制 flat · 事件後分 4 路（趨勢型→breakout、震盪→fade、消息反向→fade 反向、反應不明→flat）</td>
+          <td><code>BRF</code></td>
+          <td>布蘭特原油</td>
+          <td><span class="pill evening">evening 15:00–05:00</span></td>
+          <td>爆裂趨勢型｜mean-reversion 會被海扁</td>
+          <td>EIA 週三 · OPEC · 中東地緣</td>
+          <td>trend_day_breakout · event_driven_bias<br><strong>avoid</strong> range_bound_fade</td>
+          <td>1.5%</td>
         </tr>
         <tr>
-          <td><strong>defensive_flat.md</strong></td>
-          <td><span class="pill active">active</span></td>
-          <td>tight_consolidation · inside_day · unclear</td>
-          <td>正式的「今日不交易」決定 · 結構性理由一旦觸發整時段不解除 · 健康占比 20–40% 交易日</td>
+          <td><code>TGF</code></td>
+          <td>黃金期</td>
+          <td><span class="pill evening">evening 21:00–04:45</span></td>
+          <td>宏觀驅動 · 看 DXY / real yields</td>
+          <td>FOMC · CPI · DXY 破位</td>
+          <td>trend_day_breakout · event_driven_bias</td>
+          <td>1.5%</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <!-- DATA FLOW -->
-  <h2>四、端到端資料流（以 morning plan 為例）</h2>
+  <div class="arrow">↓</div>
+
+  <div class="layer" style="border-color: var(--purple);">
+    <span class="layer-tag" style="color: var(--purple);">Tier 3 · Strategy（法律）· 何時觸發</span>
+    <h3 style="color: var(--purple);">strategies/&lt;name&gt;.md</h3>
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 18%;">策略</th>
+          <th style="width: 10%;">狀態</th>
+          <th style="width: 20%;">day_types</th>
+          <th style="width: 10%;">rr_min</th>
+          <th style="width: 25%;">activation_gate</th>
+          <th style="width: 17%;">overridden_by / overrides</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>trend_day_breakout</code></td>
+          <td><span class="pill active">active</span></td>
+          <td>trend_day_up/down · breakout_day · gap_and_go</td>
+          <td>2.0</td>
+          <td>—</td>
+          <td>overridden_by: event_driven_bias</td>
+        </tr>
+        <tr>
+          <td><code>range_bound_fade</code></td>
+          <td><span class="pill ref">reference-only</span></td>
+          <td>range_day · failed_breakout_day · reversal_day · gap_and_fill</td>
+          <td>2.5</td>
+          <td>live_trades ≥ 3<br>backtest_hit_rate ≥ 0.50<br>median_rr ≥ 2.5<br>manual_review: true</td>
+          <td>overridden_by: event_driven_bias</td>
+        </tr>
+        <tr>
+          <td><code>event_driven_bias</code></td>
+          <td><span class="pill active">active</span></td>
+          <td>(requires_event: true)</td>
+          <td>2.0 <small style="color: var(--yellow);">(override)</small></td>
+          <td>—</td>
+          <td>overrides: trend_day_breakout, range_bound_fade</td>
+        </tr>
+        <tr>
+          <td><code>defensive_flat</code></td>
+          <td><span class="pill active">active</span></td>
+          <td>tight_consolidation · inside_day · unclear</td>
+          <td>—</td>
+          <td>—</td>
+          <td>is_fallback: true（survivors=[] 時自動選）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ─────────────────────────── § Vol Regime 公式 ─────────────────────────── -->
+  <h2>§ 3 · Vol Regime 判讀公式（DOCTRINE § 3.1）</h2>
+  <p class="sub">每個 symbol 的 <code>first_bar_tpe</code> 那根 15min K 線的 range vs 20 日 rolling 基準，四級分類。業界 IB 研究：<strong>窄 OR → trend day 機率高（蓄能）；寬 OR → range day 機率高（已動完）</strong>。第二根 K 收在 OR 外 ≈ 70–75% 當日續勢。</p>
+
+  <div class="codeblock">OR_range = today's bar1 (high - low)
+baseline = profiles/&lt;symbol&gt;-baselines.json.or_baseline_points
+ratio    = OR_range / baseline
+
+LOW_VOL   : ratio &lt; 0.7           → 蓄能，trend day 機率高
+NORMAL    : 0.7 ≤ ratio ≤ 1.3     → 無定論，等第 2–3 根
+HIGH_VOL  : 1.3 &lt; ratio ≤ 2.0     → 寬 IB，range day 機率高
+EXTREME   : ratio &gt; 2.0           → 疑似事件，size × 0.5 或空手
+
+方向判讀（第 2 根 K 起）：
+  bar2.close &gt; OR.high  → 多方突破（IB 研究 ~70% 當日續勢）
+  bar2.close &lt; OR.low   → 空方突破
+  bar2.close inside OR  → range bias，等破</div>
+
+  <div class="two-col" style="margin-top: 14px;">
+    <div class="card">
+      <div class="title">資料源 · morning 標的</div>
+      <div class="desc">Shioaji kbars API → preprocess_or_baselines.py 於 08:30 跑過 → 寫 profiles/TXF-baselines.json<br>（目前 stub，Shioaji live 呼叫待測）</div>
+    </div>
+    <div class="card">
+      <div class="title">資料源 · evening 標的</div>
+      <div class="desc">deferred：SXF/BRF/TGF baseline 由 Claude 在 mid-session replan 時用 TradingView MCP <code>data_get_ohlcv</code> 即時算</div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────── § 資料流 ─────────────────────────── -->
+  <h2>§ 4 · 資料流（plan → daemon → stats → review）</h2>
+
   <div class="flow">
     <div class="flow-step">
       <div class="flow-num">1</div>
-      <div class="flow-body"><strong>07:00 launchd 觸發</strong> <code>com.hiram.trading-plan.plist</code>
-        <div class="what">ProgramArguments 指向 <code>/Users/zosia/start-trading-morning-plan.sh</code></div></div>
+      <div class="flow-body">
+        <strong>Claude 產 plan</strong>（07:00 / 08:45 / 09:00 morning；20:00 / 22:30 evening）
+        <div class="what">Read DOCTRINE + symbols/*.yml + profiles/*-baselines.json + strategies/*.md → 寫 narrative.md + plan.json（含 assets.&lt;SYM&gt;.strategy_used）</div>
+      </div>
     </div>
     <div class="flow-step">
       <div class="flow-num">2</div>
-      <div class="flow-body"><strong>wrapper exec bridge script</strong> <code>~/dev/trading-bridge/scripts/morning-plan.sh</code>
-        <div class="what">cd $SHARED · ensure-quote-server 在線 · claude -p --allowed-tools "Read,mcp__tradingview" --add-dir $SHARED &lt; morning-plan.md</div></div>
+      <div class="flow-body">
+        <strong>Daemon 讀 plan</strong> → Pydantic 校驗 → state machine 運作
+        <div class="what">invalidation_price 缺 → 拒絕送單（DOCTRINE § 1.1 MUST）</div>
+      </div>
     </div>
     <div class="flow-step">
       <div class="flow-num">3</div>
-      <div class="flow-body"><strong>Claude 讀 prompt · 調 MCP</strong>
-        <div class="what">quote_get(TXF/MXF/TMF) → data_get_study_values(EMA,RSI,MACD,BB) → data_get_ohlcv(1D/4H summary) → 判斷 day-type → 產 narrative + JSON</div></div>
+      <div class="flow-body">
+        <strong>執行事件</strong>：entry_filled / sl_hit / tp_hit / breaker_tripped
+        <div class="what">→ NotifierBundle 三路 fan-out：Telegram（即時）+ trade-log-&lt;date&gt;.md（Obsidian 人讀）+ <strong>trade-events-&lt;date&gt;.jsonl（機讀，含 strategy_used）</strong></div>
+      </div>
     </div>
     <div class="flow-step">
       <div class="flow-num">4</div>
-      <div class="flow-body"><strong>split-narrative-plan.py 拆檔</strong>
-        <div class="what">寫 <code>trade-plans/2026-04-20.json</code> + <code>trade-plans/2026-04-20-narrative.md</code> + archive 一份到 <code>trade-plans/archive/2026-04-20/v1-0700.{json,md}</code></div></div>
+      <div class="flow-body">
+        <strong>Mid-session arbitration</strong>（每 15min）
+        <div class="what">讀 bar1 → 計算 Vol Regime → 決定 HOLD / TIGHTEN / FLAT / REVERSE → 寫 trade-arbitration/&lt;time&gt;.json</div>
+      </div>
     </div>
     <div class="flow-step">
       <div class="flow-num">5</div>
-      <div class="flow-body"><strong>daemon 下一 tick（最多 30s 延遲）</strong>
-        <div class="what">state_machine <code>provider()</code> 讀新 plan → AssetPlan schema normalize → 寫 runtime · Telegram 推 "plan loaded"</div></div>
+      <div class="flow-body">
+        <strong>Review-day</strong>（14:00 TPE）
+        <div class="what">讀當日所有 event + arbitration + trade-log → 寫 trade-reviews/&lt;date&gt;.json（含 lessons[]）</div>
+      </div>
     </div>
     <div class="flow-step">
       <div class="flow-num">6</div>
-      <div class="flow-body"><strong>08:45 開盤後持續 tick</strong>
-        <div class="what">每 30s pull quote(Shioaji) · 比對 trigger/SL/TP · 觸發則下單 + telegram + trade-logs/ 寫入</div></div>
+      <div class="flow-body">
+        <strong>stats.py 聚合</strong>（手動 / Phase 3 自動）
+        <div class="what">讀 trade-events-*.jsonl → group by strategy_used → trade count / win rate / median R / cum PnL → 供 review-day 引用 + dashboard 顯示</div>
+      </div>
     </div>
     <div class="flow-step">
       <div class="flow-num">7</div>
-      <div class="flow-body"><strong>09:30 / 10:00 / ... 每 30min mid-session 仲裁覆寫</strong>
-        <div class="what">mid-session-replan.sh 產 <code>trade-arbitration/YYYY-MM-DD-HHMM.json</code> → daemon 下一 tick 讀到 HOLD/TIGHTEN/FLAT/REVERSE → 調整當前部位</div></div>
+      <div class="flow-body">
+        <strong>LESSONS.md 人工提升</strong>
+        <div class="what">每週 Hiram 讀 reviews → 相同 pattern ≥ 2–3 次 → 寫進 LESSONS.md → 有把握時提升到 prompts/*.md 內嵌</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────── § Studio Dashboard ─────────────────────────── -->
+  <h2>§ 5 · Agent Studio 儀表板（viewer + controller）</h2>
+  <p class="sub">Docker 容器（<code>agent-studio</code>, port 3210）— 掛載 <code>trading-shared</code> 為 rw volume，<strong>只讀資料 + 寫 risk-override/symbols.yml，沒有送單權限</strong>。單一來源：trading-shared 檔案系統。</p>
+
+  <div class="layer studio">
+    <span class="layer-tag">Layer 8 · Studio Dashboard（cross-cutting · read/override only）</span>
+    <h3>server/routes/trading.js · 所有端點 stdlib JS，不 shell-out 到 Python</h3>
+
+    <h4 style="margin-top: 10px;">📡 HTTP 端點</h4>
+    <div class="layer-row">
+      <div class="card">
+        <div class="title">GET /api/trading/snapshot</div>
+        <div class="desc">plan（morning + evening）+ plan_versions（v1/v2/v3 archive）+ mid_session_versions + runtime + breaker + recent_events</div>
+      </div>
+      <div class="card">
+        <div class="title">GET /api/trading/tradeable <span class="pill new">new</span></div>
+        <div class="desc">per-symbol {enabled, signing_ok, margin_*, state}——讀 tradeable-status.json 快取（無 shioaji 依賴）</div>
+      </div>
+      <div class="card">
+        <div class="title">POST /api/trading/tradeable/toggle <span class="pill new">new</span></div>
+        <div class="desc">flip enabled in symbols.yml + patch cache（state=disabled/needs_preflight/ok 即時重算）</div>
+      </div>
+      <div class="card">
+        <div class="title">GET /api/trading/risk <span class="pill new">new</span></div>
+        <div class="desc">snapshot: capital · daily_loss_pct · cap_twd · today_loss · utilization_pct · remaining · tripped · source(env|override)</div>
+      </div>
+      <div class="card">
+        <div class="title">PUT /api/trading/risk <span class="pill new">slider</span></div>
+        <div class="desc">body: {daily_loss_pct, max_total_exposure_pct, total_capital_twd, per_trade_risk_pct} — validate 範圍、寫 risk-override.json（atomic）</div>
+      </div>
+      <div class="card">
+        <div class="title">GET /api/trading/strategies <span class="pill new">stats_30d</span></div>
+        <div class="desc">
+          strategies[] 含 frontmatter（status/sessions/rr_min/...）<br>
+          <strong>+ stats_30d</strong>（trades / win_rate / median_rr / cum_pnl）<br>
+          stats.py JS 移植版，讀 trade-events-*.jsonl 30 天窗
+        </div>
+      </div>
+    </div>
+
+    <h4 style="margin-top: 14px;">🖥️ UI 組件（src/components/trading/）</h4>
+    <div class="layer-row">
+      <div class="card">
+        <div class="title">TradingDashboard.jsx</div>
+        <div class="desc">Header（日期 + heartbeat + cum PnL）· 以下 tile 垂直堆疊</div>
+      </div>
+      <div class="card">
+        <div class="title">RiskControlPanel <span class="pill new">slider</span></div>
+        <div class="desc">
+          可拖曳條 0.5–10% step 0.5，debounced PUT<br>
+          顏色帶：&lt;5% 綠 · 5–8% 橙 · &gt;8% 紅<br>
+          顯示：cap NT$ · today_loss · utilization bar · tripped 警示
+        </div>
+      </div>
+      <div class="card">
+        <div class="title">TradeableTile <span class="pill new">new</span></div>
+        <div class="desc">per-symbol row：toggle switch + state badge + margin required/available；toggle 立即反映（patch cache）</div>
+      </div>
+      <div class="card">
+        <div class="title">PlanTimeline + MidSessionTimeline</div>
+        <div class="desc">morning v1/v2/v3 + evening + arbitration 時序；可逐版 diff</div>
+      </div>
+      <div class="card">
+        <div class="title">StrategiesLibraryTile <span class="pill new">stats</span></div>
+        <div class="desc">strategies/*.md 卡片式呈現；每卡附 30 天 trades/win_rate/median_rr/cum_pnl mini-stats</div>
+      </div>
+    </div>
+
+    <div class="note" style="margin-top: 12px;">
+      🔑 <strong>Studio 是 viewer 不是 executor</strong>。領域邏輯（preflight / circuit breaker / 送單）全留在 trading-agent。Studio 只改 <code>risk-override.json</code> 和 <code>symbols.yml</code>（intent layer），實際執行照例走 daemon 的 4 gates。
+    </div>
+  </div>
+
+  <!-- ─────────────────────────── § External trades ─────────────────────────── -->
+  <h2>§ 6 · 外部資料接入（Phase 2 · ready to start）</h2>
+  <p class="sub">解鎖 reference-only 策略的 activation_gate — 朋友對帳單、未來回測結果、模擬盤資料，統一透過此 pipeline 進入系統。</p>
+
+  <div class="layer" style="border-style: dashed;">
+    <span class="layer-tag">Planned Pipeline</span>
+    <div class="flow-step">
+      <div class="flow-num">1</div>
+      <div class="flow-body">
+        <strong>raw drop</strong> → <code>external-trades/&lt;source&gt;/raw/&lt;date&gt;.pdf|png|txt</code>
+        <div class="what">Hiram 丟對帳單原檔進去（無需預處理）</div>
+      </div>
     </div>
     <div class="flow-step">
-      <div class="flow-num">8</div>
-      <div class="flow-body"><strong>Dashboard 同步</strong>
-        <div class="what">Agent Studio 每 5s 掃 <code>/api/trading/snapshot</code> → 讀 trade-plans/ + state/ → 顯示 plan + quote age + daemon tick 綠黃紅</div></div>
+      <div class="flow-num">2</div>
+      <div class="flow-body">
+        <strong>claude -p ingest-external-trades.md --source friend-jackson --date 2026-04-19</strong>
+        <div class="what">Claude OCR/解析 → 寫 <code>parsed/&lt;date&gt;.jsonl</code>（schema 對齊 trade-events + source 欄位）+ <code>notes/&lt;date&gt;.md</code>（人讀摘要）</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">3</div>
+      <div class="flow-body">
+        <strong>更新 tracking</strong>：range_bound_fade.md 的 <code>tracking.live_trades</code> counter 自動 +N
+        <div class="what">同 Claude 執行；每批 ingest 完一次</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">4</div>
+      <div class="flow-body">
+        <strong>validate_activation.py</strong>（新 script）
+        <div class="what">讀所有 reference-only 策略的 activation_gate → 對每條規則跑 check（live_trades count / hit_rate / median_rr / backtest / manual review）→ 印 PASS/FAIL → <code>--promote</code> flag 全 pass 時建議升 active，需人工 confirm</div>
+      </div>
+    </div>
+    <div class="flow-step">
+      <div class="flow-num">5</div>
+      <div class="flow-body">
+        <strong>stats.py --include-external</strong>
+        <div class="what">預設 off 避免混吃；Phase 2.5 之後才把外部績效納入 dashboard 分組顯示</div>
+      </div>
     </div>
   </div>
 
-  <!-- KEY INVARIANTS -->
-  <h2>五、關鍵設計不變量（踩過的坑）</h2>
-  <div class="flow" style="padding: 14px 20px;">
-    <ul style="margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.9;">
-      <li><strong>Bridge 在 ~/dev/，不在 iCloud</strong> — launchd 無法 exec iCloud 路徑的 .sh（Operation not permitted）；2026-04-20 把 bridge 全搬出 iCloud。</li>
-      <li><strong>trading-shared 留在 iCloud</strong> — 那是資料層，跨設備同步是對的；只有「被 exec 的 script」需逃離。</li>
-      <li><strong>claude -p 必須白名單 MCP tools</strong> — launchd 環境無法回應 permission prompt，用 <code>--allowed-tools "Read,mcp__tradingview"</code> 明確允許，避開 bypassPermissions（被 sandbox 擋）。</li>
-      <li><strong>daemon plan 路徑每 tick 重算</strong> — 不要在 daemon 啟動時算一次；長 run daemon 會跨日，否則隔天讀錯 plan。</li>
-      <li><strong>idle window 仍需 _refresh_quotes_idle()</strong> — 不跑 tick 會讓 Dashboard 的 last_quote_ts 凍結；順便早期驗證 SXF/TGF/BRF contract 解析。</li>
-      <li><strong>evening JSON extractor 要 robust</strong> — claude 夜盤常 prepend prose，用 python regex 抓 ```json fence 取代 sed strip first/last line。</li>
-      <li><strong>Strategy library Phase 0 零侵入</strong> — markdown only，不改現行 prompt；確保 library 本身穩定後才讓 Phase 1 的 prompt 去選。</li>
-    </ul>
+  <div class="note plan" style="margin-top: 12px;">
+    💡 Phase 2.1–2.3 純 infra 可先做（不需朋友 log 實際到位）；Phase 2.4 需等朋友 ≥ 1 週對帳單外部依賴。
   </div>
 
-  <footer>
-    產出於 2026-04-20 · Trading Agent paper-trading preview phase · 對應 docs/trading-agent-plan.md<br/>
-    打開即讀：<code>/Users/zosia/Desktop/trading-agent-architecture.html</code>
-  </footer>
+  <!-- ─────────────────────────── § Timeline ─────────────────────────── -->
+  <h2>§ 7 · 一日時刻表（TPE）</h2>
+  <div class="timeline">
+    <div class="tl-grid">
+      <div class="tl-time">07:00</div><div class="tl-event m"><strong>morning-plan v1</strong> · 1H/4H/1D 結構讀｜<code>trade-plans/&lt;date&gt;.json</code></div>
+      <div class="tl-time">08:30</div><div class="tl-event m"><strong>preprocess_or_baselines</strong>（Phase 1+）· 更新 <code>profiles/*-baselines.json</code></div>
+      <div class="tl-time">08:45</div><div class="tl-event m"><strong>morning-plan v2</strong> · 一般盤開盤、15m/30m 重新讀｜OR 第一根形成中</div>
+      <div class="tl-time">09:00</div><div class="tl-event m"><strong>morning-plan v3</strong> · OR 收盤、分類 Vol Regime｜LOW/NORMAL/HIGH/EXTREME</div>
+      <div class="tl-time">09:30–13:45</div><div class="tl-event m"><strong>mid-session arbitration</strong> · 每 15min · HOLD/TIGHTEN/FLAT/REVERSE</div>
+      <div class="tl-time">13:45</div><div class="tl-event m"><strong>一般盤收</strong> · intraday-check 寫 summary</div>
+      <div class="tl-time">14:00</div><div class="tl-event g"><strong>review-day</strong> · 寫 <code>trade-reviews/&lt;date&gt;.json</code>；lessons[] 是候選</div>
+      <div class="tl-time">15:00</div><div class="tl-event e"><strong>夜盤開</strong>（BRF 為主場）</div>
+      <div class="tl-time">20:00</div><div class="tl-event e"><strong>evening-plan v1</strong> · 夜盤結構讀</div>
+      <div class="tl-time">21:00</div><div class="tl-event e"><strong>TGF 黃金開</strong></div>
+      <div class="tl-time">22:30</div><div class="tl-event e"><strong>evening-plan v2</strong> · SXF 美股 RTH 開盤｜OR 第一根形成中</div>
+      <div class="tl-time">22:45</div><div class="tl-event e"><strong>SXF OR 分類</strong> · Vol Regime 寫入 arbitration</div>
+      <div class="tl-time">23:00–05:00</div><div class="tl-event e"><strong>evening arbitration</strong> · 每 15min</div>
+      <div class="tl-time">05:00</div><div class="tl-event e"><strong>夜盤收</strong></div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────── § Phases ─────────────────────────── -->
+  <h2>§ 8 · Phase Roadmap</h2>
+  <div class="phases">
+    <div class="phase done">
+      <div class="stat">✅</div>
+      <div class="ptag">PHASE 0</div>
+      <div class="ptitle">Markdown Library</div>
+      <div class="pdesc">4 策略 .md + README。純文件、零 code 改動。</div>
+    </div>
+    <div class="phase done">
+      <div class="stat">✅</div>
+      <div class="ptag">PHASE 1</div>
+      <div class="ptitle">機械化內層</div>
+      <div class="pdesc">SCHEMA + filter.py + stats.py + strategy_used 貫穿 + DOCTRINE + symbols/ + preprocess + prompt 串接。</div>
+    </div>
+    <div class="phase pending">
+      <div class="stat">🟡</div>
+      <div class="ptag">PHASE 2 · ready</div>
+      <div class="ptitle">外部證據接入</div>
+      <div class="pdesc">
+        純 infra 可立刻做（2.1–2.3）——external-trades/ dir shape · ingest-external-trades.md prompt · validate_activation.py · stats.py --include-external。<br>
+        2.4 等朋友對帳單（外部依賴），但可用合成資料先測。<br>
+        <strong>不是 blocker，就是還沒動工</strong>。
+      </div>
+    </div>
+    <div class="phase partial">
+      <div class="stat">🔵</div>
+      <div class="ptag">PHASE 3 · partial</div>
+      <div class="ptitle">回饋 loop 自動化</div>
+      <div class="pdesc">
+        ✅ Dashboard strategy_stats（/api/trading/strategies 附 stats_30d）<br>
+        ✅ review-day 自動建議 promote/keep/demote/retire（已入 prompt）<br>
+        ⏳ 自動改寫 strategies/*.md frontmatter status 欄位的 orchestrator 尚未做
+      </div>
+    </div>
+    <div class="phase future">
+      <div class="stat">⚪</div>
+      <div class="ptag">PHASE 4</div>
+      <div class="ptitle">回測模組</div>
+      <div class="pdesc">Backtest engine 讀歷史 kbars 模擬策略；解 Gate 2 requires_backtest_hit_rate。需要獨立 kbars store + sim runner，最大投入。</div>
+    </div>
+  </div>
+
+  <!-- ─────────────────────────── § 不變量 ─────────────────────────── -->
+  <h2>§ 9 · 不變量（Invariants）</h2>
+  <div class="layer">
+    <ol style="margin: 4px 0 0 18px; padding: 0; color: var(--text);">
+      <li><strong>硬 SL 必填</strong> — plan.py 拒絕缺 invalidation_price 的資產；daemon 不送單。</li>
+      <li><strong>Circuit Breaker 神聖</strong> — 觸 NT$ cap 的當日所有 symbols 停止新 entry，既有倉照 SL/TP 執行。</li>
+      <li><strong>不加碼失敗單</strong> — 同 symbol 未出清前禁止新 entry（state machine 倉位鎖）。</li>
+      <li><strong>事件黑名單</strong> — FOMC/NFP/CPI/EIA/OPEC 前 15min 至後 30min 強制 flat；symbol 檔可加長不可縮短。</li>
+      <li><strong>最保守者勝</strong> — DOCTRINE ∩ Symbol ∩ Strategy 疊加時，錢走 min、時間走 max。</li>
+      <li><strong>Override 留痕</strong> — 覆寫任何 SHOULD 預設值需寫 override_reason；filter.py --validate 檢查。</li>
+      <li><strong>Reference-only 策略不執行</strong> — filter.py 只收 status: active；reference-only 需通過 activation_gate 人工升格。</li>
+      <li><strong>strategy_used 必填</strong>（非 flat bias 時）— 寫入 plan JSON + 流進 trade-events JSONL，供 stats.py 聚合。</li>
+      <li><strong>trading-bridge 不在 iCloud</strong> — launchd 沙盒限制；資料（trading-shared）留 iCloud 正確。</li>
+      <li><strong>內外績效分家</strong> — daemon trade-events 與 external-trades JSONL schema 同但 source 欄位區分；stats.py 預設不混吃。</li>
+      <li><strong>所有風控值走百分比</strong> — NT$ cap 從 TOTAL_CAPITAL_TWD × *_PCT 即算，資金變化改 capital 一處即可；禁止硬編碼 NT$ 常數（v1 CIRCUIT_BREAKER_TWD=6000 已遷移）。</li>
+      <li><strong>Slider 立即生效</strong> — daemon cap_provider / preflight risk_provider 每次 tick / 每次 can_trade 現讀 risk-override.json，不快取、不需重啟。</li>
+      <li><strong>Preflight 4 gates 短路</strong> — enabled → signing → margin → total exposure；先失敗者勝（第一個失敗 reason 即回）。</li>
+      <li><strong>Studio 是 viewer/intent layer 不是 executor</strong> — 只寫 risk-override.json 與 symbols.yml；所有送單檢查仍由 daemon preflight 執行。</li>
+    </ol>
+  </div>
+
+  <div class="legend">
+    <div class="item"><span class="pill morning">M</span> morning session（一般盤 08:45–13:45）</div>
+    <div class="item"><span class="pill evening">E</span> evening session（夜盤 15:00–05:00 次日）</div>
+    <div class="item"><span class="pill active">active</span> 上線中</div>
+    <div class="item"><span class="pill ref">reference</span> reference-only</div>
+    <div class="item"><span class="pill new">new</span> v2 新增</div>
+    <div class="item"><span class="pill planned">planned</span> 規劃中未實作</div>
+    <div class="item"><span class="pill must">MUST</span> 不可違</div>
+    <div class="item"><span class="pill should">SHOULD</span> 預設可覆寫</div>
+    <div class="item"><span class="pill may">MAY</span> 建議</div>
+  </div>
+
+  <div style="margin-top: 24px; color: var(--dim); font-size: 11px; text-align: center; border-top: 1px solid var(--border); padding-top: 16px;">
+    Trading Agent Architecture v3 · Hiram · 2026-04-21 · + 動態風控 slider + Preflight 4 gates + Studio Dashboard API + Phase 3 部分實裝
+  </div>
 
 </div>
 </body>
