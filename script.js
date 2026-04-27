@@ -2066,12 +2066,12 @@ function renderGroupCard(g) {
 
   // 生成分類標籤（可點 → 套上分類篩選）
   const categoryTags = categories.map(cat =>
-    `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${utils.getCategoryIcon(cat)} ${cat}</button>`
+    `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${cat}</button>`
   ).join('');
 
   // 生成國家標籤（可點 → 套上國家篩選）
   const countryTags = countries.map(country =>
-    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${utils.getCountryFlag(country)} ${country}</button>`
+    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${country}</button>`
   ).join('');
 
   const countdown = g.category === 'short' && daysLeft !== null
@@ -2140,12 +2140,12 @@ function renderCouponCard(g) {
 
   // 生成分類標籤（可點 → 套上分類篩選）
   const categoryTags = categories.map(cat =>
-    `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${utils.getCategoryIcon(cat)} ${cat}</button>`
+    `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${cat}</button>`
   ).join('');
 
   // 生成國家標籤（可點 → 套上國家篩選）
   const countryTags = countries.map(country =>
-    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${utils.getCountryFlag(country)} ${country}</button>`
+    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${country}</button>`
   ).join('');
 
   return `
