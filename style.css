@@ -479,6 +479,19 @@
   background: linear-gradient(135deg, #fef3c7 0%, #fcd34d 50%, #fef3c7 100%);
 }
 
+/* CSV 還沒載到時的 skeleton 卡片佔位 */
+.skeleton-card {
+  height: 240px;
+}
+
+@media (min-width: 768px) {
+  .skeleton-card { height: 300px; }
+}
+
+@media (min-width: 1024px) {
+  .skeleton-card { height: 360px; }
+}
+
 /* 文字行數限制 */
 .line-clamp-2 {
   display: -webkit-box;

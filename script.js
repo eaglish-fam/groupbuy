@@ -430,19 +430,23 @@ const CONFIG = {
     '其他': 'bg-gray-100 text-gray-700 border-gray-300'
   },
   
-  // 🌏 國家旗幟對應（可自訂，沒有的會使用預設）
+  // 🌏 國家旗幟對應（沒對到的自動 fallback 🌍；要加新國家直接 push 一筆）
   COUNTRY_FLAGS: {
-    '台灣': '🇹🇼',
+    '臺灣': '🇹🇼',
+    '台灣': '🇹🇼',          // 簡繁通用
     '日本': '🇯🇵',
     '韓國': '🇰🇷',
     '美國': '🇺🇸',
-    '歐洲': '🇪🇺',
     '泰國': '🇹🇭',
-    '東南亞': '🌏',
-    '中國': '🇨🇳',
+    '以色列': '🇮🇱',
     '香港': '🇭🇰',
+    '紐西蘭': '🇳🇿',
+    '中國': '🇨🇳',
+    '歐洲': '🇪🇺',
     '歐盟': '🇪🇺',
-    '歐州': '🇪🇺',  // 常見錯字
+    '歐州': '🇪🇺',          // 常見錯字
+    '東南亞': '🌏',
+    '澳洲': '🇦🇺',
     '其他': '🌍'
   },
   
@@ -742,7 +746,7 @@ function renderMobileFilters(categoryCounts, countryCounts) {
             class="px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${
               state.selectedCountry === country ? 'bg-amber-600 text-white' : 'bg-blue-100 text-blue-700 border-blue-300'
             }">
-      ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
+      ${utils.getCountryFlag(country)} ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
     </button>
   `).join('');
 }
@@ -778,7 +782,7 @@ function renderDesktopFilters(categoryCounts, countryCounts) {
             class="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
               state.selectedCountry === country ? 'bg-amber-600 text-white font-medium' : 'hover:bg-gray-100 text-blue-700'
             }">
-      ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
+      ${utils.getCountryFlag(country)} ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
     </button>
   `).join('');
 }
@@ -978,6 +982,32 @@ const videoHandler = {
     return null;
   }
 };
+
+// ===== Scroll-spy：捲到哪個 section，對應 nav 按鈕加 .active highlight =====
+let scrollSpyObserver = null;
+function initScrollSpy() {
+  if (scrollSpyObserver) scrollSpyObserver.disconnect();
+
+  const sections = document.querySelectorAll('#content section[id]');
+  if (!sections.length) return;
+
+  scrollSpyObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        document.querySelectorAll('.section-nav-btn').forEach(b => {
+          b.classList.toggle('active', b.dataset.target === id);
+        });
+      }
+    });
+  }, {
+    // 只看畫面上方 25%-35% 的「鎖定線」，section 的標題剛好在這條線上時觸發
+    rootMargin: '-25% 0px -65% 0px',
+    threshold: 0
+  });
+
+  sections.forEach(s => scrollSpyObserver.observe(s));
+}
 
 // ===== 區塊導航 toggle（手機版收合）=====
 function initSectionNav() {
@@ -2069,9 +2099,9 @@ function renderGroupCard(g) {
     `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${cat}</button>`
   ).join('');
 
-  // 生成國家標籤（可點 → 套上國家篩選）
+  // 生成國家標籤（可點 → 套上國家篩選；前面加旗幟）
   const countryTags = countries.map(country =>
-    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${country}</button>`
+    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${utils.getCountryFlag(country)} ${country}</button>`
   ).join('');
 
   const countdown = g.category === 'short' && daysLeft !== null
@@ -2143,9 +2173,9 @@ function renderCouponCard(g) {
     `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${cat}</button>`
   ).join('');
 
-  // 生成國家標籤（可點 → 套上國家篩選）
+  // 生成國家標籤（可點 → 套上國家篩選；前面加旗幟）
   const countryTags = countries.map(country =>
-    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${country}</button>`
+    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${utils.getCountryFlag(country)} ${country}</button>`
   ).join('');
 
   return `
@@ -2213,7 +2243,7 @@ function renderKangBooksSection(books) {
           ${coverHtml}
         </div>
         <div class="masonry-card-content">
-          <h3 class="masonry-card-title text-lg font-bold text-center text-amber-900 mb-2">${emoji} ${b.title}</h3>
+          <h3 class="masonry-card-title text-lg font-bold text-center text-amber-900 mb-2">${b.title}</h3>
           ${b.description ? `<p class="kang-sub">${b.description}</p>` : ''}
           <div class="retailer-buttons">
             ${b.retailers.map(renderRetailer).join('')}
@@ -2234,12 +2264,10 @@ function renderKangBooksSection(books) {
 // ============ 內容渲染 ============
 function renderContent() {
   if (state.loading) {
+    // Skeleton：6 張 shimmer 卡片佔位（masonry-card.loading 類別已在 style.css 有 shimmer 動畫）
     elements.content.innerHTML = `
-      <div class="flex items-center justify-center min-h-[40vh]">
-        <div class="text-center">
-          <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-amber-600 mb-4"></div>
-          <p class="text-amber-800 font-medium">載入中...</p>
-        </div>
+      <div class="masonry-grid">
+        ${Array(6).fill('<div class="masonry-card loading skeleton-card"></div>').join('')}
       </div>
     `;
     return;
@@ -2291,6 +2319,7 @@ function renderContent() {
     if (rowWithRetailers) {
       return {
         ...template,
+        title: rowWithRetailers.brand || template.title,  // Sheet 品牌優先
         cover: rowWithRetailers.image || '',
         description: rowWithRetailers.description || '',
         retailers: rowWithRetailers.retailers
@@ -2335,7 +2364,7 @@ function renderContent() {
   const upcomingMatches = Object.values(soonestByBrand);
 
   // 統一風格：所有 tab 同一個 .section-nav-btn class，emoji + 文字，amber hover
-  const btn = (id, txt) => `<button onclick="scrollToSection('${id}')" class="section-nav-btn">${txt}</button>`;
+  const btn = (id, txt) => `<button onclick="scrollToSection('${id}')" data-target="${id}" class="section-nav-btn">${txt}</button>`;
   elements.sectionButtons.innerHTML = (shortTerm.length ? btn('short-term', '⏳ 限時團購') : '') +
     (longTerm.length ? btn('long-term', '☀️ 常駐團購') : '') +
     (kangBooks.length ? btn('kang-books', '📖 康先生的書') : '') +
@@ -2416,6 +2445,8 @@ function renderContent() {
   if (getTodayDeadlines().length > 0) {
     setTimeout(startCountdownTimer, 500);
   }
+  // 重建 scroll-spy（每次 re-render 都要，因為 section DOM 是新的）
+  initScrollSpy();
 }
 
 // ============ 初始化 ============
