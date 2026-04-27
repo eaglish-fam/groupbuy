@@ -615,16 +615,6 @@ html {
   background: linear-gradient(135deg, #f1f5f9, #dbeafe);
 }
 
-/* 副標（書封下方一行小字）*/
-.kang-sub {
-  font-size: 0.8125rem;
-  line-height: 1.4;
-  margin: 0;
-}
-
-.kang-paperback .kang-sub { color: #b45309; }
-.kang-ebook     .kang-sub { color: #475569; }
-
 /* Linktree buttons 區塊 — 通用：書 / 一般卡片都用同一套 */
 .retailer-buttons {
   display: flex;

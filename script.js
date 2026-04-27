@@ -2244,7 +2244,7 @@ function renderKangBooksSection(books) {
         </div>
         <div class="masonry-card-content">
           <h3 class="masonry-card-title text-lg font-bold text-center text-amber-900 mb-2">${b.title}</h3>
-          ${b.description ? `<p class="kang-sub">${b.description}</p>` : ''}
+          ${b.description ? `<p class="text-base text-gray-700 leading-6 mb-3">${b.description}</p>` : ''}
           <div class="retailer-buttons">
             ${b.retailers.map(renderRetailer).join('')}
           </div>
