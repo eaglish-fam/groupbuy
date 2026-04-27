@@ -2266,9 +2266,9 @@ function renderGroupCard(g) {
     <div class="masonry-card ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="masonry-card-content p-5">
-        ${renderCardActions(g.brand)}
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         ${g.description ? `<p class="text-base md:text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-3">${g.description}</p>` : ''}
+        ${renderCardActions(g.brand)}
         <div class="flex flex-wrap gap-2 mb-3">
           ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
           ${categoryTags}
@@ -2308,6 +2308,54 @@ function renderGroupCard(g) {
     </div>`;
 }
 
+// 收藏頁面專用：精簡卡（圖+標題+CTA），其他塞 details 展開
+function renderWishlistCard(g) {
+  const expired = utils.isExpired(g.endDate);
+  const openClass = expired
+    ? 'from-gray-400 to-gray-500'
+    : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
+
+  // CTA：跟原卡片一樣的邏輯（多通路 → Linktree；單一連結 → 立即前往）
+  let cta = '';
+  if (g.retailers && g.retailers.length > 0) {
+    cta = `<div class="retailer-buttons">${g.retailers.map(r =>
+      `<a href="${r.url}" target="_blank" rel="noopener noreferrer" `
+      + `onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_retailer', {retailer: '${(r.name || '').replace(/'/g, "\\'")}', group_name: '${g.brand.replace(/'/g, "\\'")}', source: 'wishlist', event_category: 'conversion'});}">${r.name}</a>`
+    ).join('')}</div>`;
+  } else if (g.url) {
+    cta = `<a href="${g.url}" target="_blank" rel="noopener noreferrer" `
+        + `onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', source: 'wishlist', event_category: 'conversion'});}" `
+        + `class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>`;
+  }
+
+  // 展開區塊塞描述 + tags + 動作按鈕
+  const categories = g.itemCategory ? g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(Boolean) : [];
+  const countries = g.itemCountry ? g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(Boolean) : [];
+  const tagHtml = [
+    ...categories.map(cat =>
+      `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${cat}</button>`),
+    ...countries.map(c =>
+      `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${c.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${c}">${utils.getCountryFlag(c)} ${c}</button>`)
+  ].join('');
+
+  return `
+    <div class="masonry-card wishlist-compact ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
+      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
+      <div class="masonry-card-content">
+        <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
+        ${cta}
+        <details class="wishlist-expand">
+          <summary>查看更多</summary>
+          <div class="wishlist-expand-body">
+            ${g.description ? `<p class="text-sm text-gray-700 leading-6 mb-3">${g.description}</p>` : ''}
+            ${tagHtml ? `<div class="flex flex-wrap gap-2 mb-3">${tagHtml}</div>` : ''}
+            ${renderCardActions(g.brand)}
+          </div>
+        </details>
+      </div>
+    </div>`;
+}
+
 function renderCouponCard(g) {
   const expired = utils.isExpired(g.endDate);
   const daysLeft = utils.getDaysLeft(g.endDate);
@@ -2333,7 +2381,6 @@ function renderCouponCard(g) {
     <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}" data-brand="${g.brand}">
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="p-6">
-        ${renderCardActions(g.brand)}
         <div class="flex items-start justify-between gap-3 mb-3">
           <div class="flex-1">
             <h3 class="text-lg font-bold ${expired ? 'text-gray-600' : 'text-purple-900'} text-center">${g.brand}</h3>
@@ -2341,8 +2388,9 @@ function renderCouponCard(g) {
           </div>
           ${expired ? '<span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">已結束</span>' : ''}
         </div>
-        <div class="flex flex-wrap gap-2 mb-3">${categoryTags}${countryTags}</div>
         ${g.description ? `<p class="text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 mb-3">${g.description}</p>` : ''}
+        ${renderCardActions(g.brand)}
+        <div class="flex flex-wrap gap-2 mb-3">${categoryTags}${countryTags}</div>
         ${g.note && !noteIsURL && !noteIsQA ? `<p class="text-sm text-gray-700 mb-3 leading-relaxed">${g.note}</p>` : ''}
         ${noteIsURL ? `<div class="mb-3"><a href="${g.note}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看詳細說明</a></div>` : ''}
         ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${g.url.replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
@@ -2395,9 +2443,9 @@ function renderKangBooksSection(books) {
           ${coverHtml}
         </div>
         <div class="masonry-card-content">
-          ${renderCardActions(b.title)}
           <h3 class="masonry-card-title text-lg font-bold text-center text-amber-900 mb-2">${b.title}</h3>
           ${b.description ? `<p class="text-base text-gray-700 leading-6 mb-3">${b.description}</p>` : ''}
+          ${renderCardActions(b.title)}
           <div class="retailer-buttons">
             ${b.retailers.map(renderRetailer).join('')}
           </div>
@@ -2556,7 +2604,7 @@ function renderContent() {
     (wishlistItems.length ? `
       <section id="wishlist" class="scroll-mt-24 md:scroll-mt-28 mb-8">
         <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">❤️ 我的收藏（${wishlistItems.length}）</h2>
-        <div class="masonry-grid">${wishlistItems.map(renderGroupCard).join('')}</div>
+        <div class="masonry-grid">${wishlistItems.map(renderWishlistCard).join('')}</div>
       </section>
     ` : '') +
 

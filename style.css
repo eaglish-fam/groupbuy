@@ -497,7 +497,7 @@
   border: none;
   border-radius: 999px;
   padding: 0;
-  background: transparent;
+  background: rgba(0, 0, 0, 0.05);   /* 預設淺灰底，明確看到是按鈕 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -508,7 +508,7 @@
 
 .wishlist-heart:hover,
 .card-share-btn:hover {
-  background: rgba(0, 0, 0, 0.05);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .wishlist-heart:active,
@@ -536,6 +536,67 @@
   0%   { transform: scale(1); }
   45%  { transform: scale(1.28); }
   100% { transform: scale(1); }
+}
+
+/* ============================================
+   收藏頁面專用：精簡卡片 + 展開更多
+   ============================================ */
+
+/* 收藏區的卡片：圖片+標題+CTA，其他塞進 details 展開 */
+.wishlist-compact .masonry-card-content {
+  padding: 12px 14px 14px !important;
+}
+
+.wishlist-compact .masonry-card-title {
+  margin-bottom: 10px !important;
+}
+
+.wishlist-expand {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.08);
+}
+
+.wishlist-expand summary {
+  cursor: pointer;
+  font-size: 0.8125rem;
+  color: #6b7280;
+  text-align: center;
+  padding: 4px 0;
+  list-style: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: color 0.15s ease;
+}
+
+.wishlist-expand summary:hover {
+  color: #374151;
+}
+
+.wishlist-expand summary::-webkit-details-marker {
+  display: none;
+}
+
+.wishlist-expand summary::after {
+  content: ' ▾';
+  font-size: 0.75rem;
+  display: inline-block;
+  transition: transform 0.25s ease;
+  margin-left: 2px;
+}
+
+.wishlist-expand[open] summary::after {
+  transform: rotate(180deg);
+}
+
+.wishlist-expand-body {
+  padding-top: 10px;
+  animation: wishlistExpand 0.28s ease-out;
+}
+
+@keyframes wishlistExpand {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
 }
 
 /* 從外部分享連結進來時，目標卡片高亮 2.5 秒 */
