@@ -465,7 +465,8 @@ const STORAGE_KEYS = {
   month: 'eg_month',
   category: 'eg_category',
   country: 'eg_country',
-  sidebarOpen: 'eg_sidebar_open'
+  sidebarOpen: 'eg_sidebar_open',
+  wishlist: 'eg_wishlist'
 };
 
 // ============ 康先生的書 — 卡片結構模板（內容全部從 Google Sheet 來）============
@@ -489,6 +490,7 @@ const state = {
   selectedCountry: 'all',
   categoryExpanded: false,
   countryExpanded: false,
+  wishlist: new Set(),  // 收藏清單（key = 品牌名）
   availableCategories: [], // 從資料中動態讀取
   availableCountries: [],    // 從資料中動態讀取
   hasActiveFilters: false
@@ -608,6 +610,26 @@ const elements = {
   desktopCategoryFilters: document.getElementById('desktopCategoryFilters'),
   desktopCountryFilters: document.getElementById('desktopCountryFilters')
 };
+
+// ============ 收藏功能（localStorage 持久化）============
+function toggleWishlist(brand) {
+  if (!brand) return;
+  const wasIn = state.wishlist.has(brand);
+  if (wasIn) state.wishlist.delete(brand);
+  else state.wishlist.add(brand);
+
+  try { localStorage.setItem(STORAGE_KEYS.wishlist, JSON.stringify([...state.wishlist])); } catch {}
+
+  if (typeof gtag !== 'undefined') {
+    gtag('event', wasIn ? 'wishlist_remove' : 'wishlist_add', {
+      brand,
+      total_count: state.wishlist.size,
+      event_category: 'engagement'
+    });
+  }
+
+  renderContent();
+}
 
 // ============ 篩選功能 ============
 function setFilter(type, value) {
@@ -1832,6 +1854,14 @@ function initSearch() {
     if (savedMonth != null) state.selectedCalendarMonth = parseInt(savedMonth, 10) || 0;
     if (savedCategory) state.selectedCategory = savedCategory;
     if (savedCountry) state.selectedCountry = savedCountry;
+    // Wishlist
+    const savedWishlist = localStorage.getItem(STORAGE_KEYS.wishlist);
+    if (savedWishlist) {
+      try {
+        const arr = JSON.parse(savedWishlist);
+        if (Array.isArray(arr)) state.wishlist = new Set(arr);
+      } catch {}
+    }
   } catch {}
 
   if (elements.searchInput) {
@@ -2054,6 +2084,19 @@ async function loadData() {
 }
 
 // ============ 卡片渲染 ============
+// 收藏愛心按鈕（卡片右上角，所有卡片共用）
+function renderWishlistHeart(brand) {
+  if (!brand) return '';
+  const safe = brand.replace(/'/g, "\\'");
+  const isSaved = state.wishlist.has(brand);
+  return `<button type="button" class="wishlist-heart ${isSaved ? 'saved' : ''}" `
+       + `onclick="event.stopPropagation(); event.preventDefault(); toggleWishlist('${safe}');" `
+       + `aria-label="${isSaved ? '取消收藏' : '加入收藏'}" aria-pressed="${isSaved}">`
+       + `<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="${isSaved ? 'currentColor' : 'none'}">`
+       + `<path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>`
+       + `</svg></button>`;
+}
+
 function renderUpcomingSearchCard(g) {
   return `
     <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden border-2 border-pink-200 shadow-md transition-all hover:shadow-lg">
@@ -2114,6 +2157,7 @@ function renderGroupCard(g) {
 
   return `
     <div class="masonry-card ${expired ? 'opacity-60' : ''}">
+      ${renderWishlistHeart(g.brand)}
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="masonry-card-content p-5">
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
@@ -2179,7 +2223,8 @@ function renderCouponCard(g) {
   ).join('');
 
   return `
-    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}">
+    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}" style="position: relative;">
+      ${renderWishlistHeart(g.brand)}
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="p-6">
         <div class="flex items-start justify-between gap-3 mb-3">
@@ -2239,6 +2284,7 @@ function renderKangBooksSection(books) {
 
     return `
       <div class="masonry-card ${variant}">
+        ${renderWishlistHeart(b.title)}
         <div class="masonry-card-image-wrapper">
           ${coverHtml}
         </div>
@@ -2305,6 +2351,8 @@ function renderContent() {
   const coupon = filtered.filter(g => g.category === 'coupon');
   const edu = filtered.filter(g => g.category === 'edu');
   const book = filtered.filter(g => g.category === 'book');
+  // 收藏：從 state.groups 抓所有 saved（不受 search/category filter 影響）
+  const wishlistItems = state.groups.filter(g => state.wishlist.has(g.brand));
   // 把 Sheet 上的書籍 row 分組（紙本/電子）；同時看「標籤」跟「品牌」欄裡的關鍵字
   const isPaperback = (b) => /紙本|paperback/i.test(b.tag || '') || /紙本|paperback/i.test(b.brand || '');
   const isEbook     = (b) => /電子|ebook/i.test(b.tag || '')     || /電子|ebook/i.test(b.brand || '');
@@ -2365,7 +2413,9 @@ function renderContent() {
 
   // 統一風格：所有 tab 同一個 .section-nav-btn class，emoji + 文字，amber hover
   const btn = (id, txt) => `<button onclick="scrollToSection('${id}')" data-target="${id}" class="section-nav-btn">${txt}</button>`;
-  elements.sectionButtons.innerHTML = (shortTerm.length ? btn('short-term', '⏳ 限時團購') : '') +
+  elements.sectionButtons.innerHTML =
+    (wishlistItems.length ? btn('wishlist', `❤️ 我的收藏 (${wishlistItems.length})`) : '') +
+    (shortTerm.length ? btn('short-term', '⏳ 限時團購') : '') +
     (longTerm.length ? btn('long-term', '☀️ 常駐團購') : '') +
     (kangBooks.length ? btn('kang-books', '📖 康先生的書') : '') +
     (coupon.length ? btn('coupon', '🎟️ 折扣碼') : '') +
@@ -2393,6 +2443,13 @@ function renderContent() {
         <div class="masonry-grid">
           ${upcomingMatches.map(renderUpcomingSearchCard).join('')}
         </div>
+      </section>
+    ` : '') +
+
+    (wishlistItems.length ? `
+      <section id="wishlist" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">❤️ 我的收藏（${wishlistItems.length}）</h2>
+        <div class="masonry-grid">${wishlistItems.map(renderGroupCard).join('')}</div>
       </section>
     ` : '') +
 
