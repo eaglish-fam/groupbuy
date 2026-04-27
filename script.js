@@ -2084,6 +2084,107 @@ async function loadData() {
 }
 
 // ============ 卡片渲染 ============
+// 卡片動態 OG meta + scroll-to-card via ?p=BRAND_NAME
+function setMeta(prop, value) {
+  let meta = document.querySelector(`meta[property="${prop}"]`);
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.setAttribute('property', prop);
+    document.head.appendChild(meta);
+  }
+  meta.content = value;
+}
+
+const DEFAULT_OG = {
+  title: '鷹式一家 Eaglish Family - 精選團購·優質好物',
+  description: '跟著鷹式一家一起買！精選台日韓歐美優質商品團購，母嬰、居家、美妝通通有。',
+  image: 'https://www.eaglish.store/logo-horizontal.jpg',
+  url: 'https://www.eaglish.store/'
+};
+
+function updateOGMeta(card) {
+  if (!card) {
+    document.title = '鷹式一家團購 | 鷹家買物社 - 精選團購·優質好物';
+    setMeta('og:title', DEFAULT_OG.title);
+    setMeta('og:description', DEFAULT_OG.description);
+    setMeta('og:image', DEFAULT_OG.image);
+    setMeta('og:url', DEFAULT_OG.url);
+    return;
+  }
+  const title = `${card.brand}｜鷹家買物社`;
+  const desc = (card.description || `跟著鷹式一家買！${card.brand}`).slice(0, 200);
+  let image = DEFAULT_OG.image;
+  if (card.image && typeof ImageOptimizer !== 'undefined') {
+    try { image = ImageOptimizer.getOptimizedImageUrl(card.image, card.brand).primary || DEFAULT_OG.image; } catch {}
+  }
+  const url = `${window.location.origin}/?p=${encodeURIComponent(card.brand)}`;
+  document.title = title;
+  setMeta('og:title', title);
+  setMeta('og:description', desc);
+  setMeta('og:image', image);
+  setMeta('og:url', url);
+}
+
+// 載入時讀 ?p=X 參數，scroll 到對應卡片 + 高亮 + 更新 OG
+function applyUrlParams() {
+  const brand = new URLSearchParams(window.location.search).get('p');
+  if (!brand) { updateOGMeta(null); return; }
+
+  // 等 renderContent 跑完，DOM 上才有 [data-brand]
+  setTimeout(() => {
+    const card = state.groups.find(g => g.brand === brand);
+    if (card) updateOGMeta(card);
+    const el = document.querySelector(`[data-brand="${CSS.escape(brand)}"]`);
+    if (!el) return;
+    el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    el.classList.add('card-highlighted');
+    setTimeout(() => el.classList.remove('card-highlighted'), 2500);
+  }, 600);
+}
+
+// 「分享這張卡片」— 產生 ?p=BRAND 的獨立連結
+function shareCard(brand) {
+  if (!brand) return;
+  const card = state.groups.find(g => g.brand === brand);
+  const url = `${window.location.origin}/?p=${encodeURIComponent(brand)}`;
+  const data = {
+    title: `${brand}｜鷹家買物社`,
+    text: card?.description || `跟著鷹式一家買！${brand}`,
+    url
+  };
+  const trackShare = (method) => {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'share_card', { brand, method, event_category: 'engagement' });
+    }
+  };
+  if (navigator.share) {
+    navigator.share(data).then(() => trackShare('Web Share API')).catch(() => {});
+  } else if (navigator.clipboard) {
+    navigator.clipboard.writeText(url).then(() => {
+      trackShare('Copy Link');
+      const toast = document.getElementById('copyToast');
+      if (toast) {
+        toast.textContent = '✓ 連結已複製';
+        toast.classList.remove('opacity-0', 'translate-x-[200%]');
+        setTimeout(() => toast.classList.add('opacity-0', 'translate-x-[200%]'), 1800);
+      }
+    });
+  }
+}
+
+// 卡片右上角的分享按鈕（跟愛心並排）
+function renderShareButton(brand) {
+  if (!brand) return '';
+  const safe = brand.replace(/'/g, "\\'");
+  return `<button type="button" class="card-share-btn" `
+       + `onclick="event.stopPropagation(); event.preventDefault(); shareCard('${safe}');" `
+       + `aria-label="分享這張卡片">`
+       + `<svg viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none">`
+       + `<circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>`
+       + `<line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>`
+       + `</svg></button>`;
+}
+
 // 收藏愛心按鈕（卡片右上角，所有卡片共用）
 function renderWishlistHeart(brand) {
   if (!brand) return '';
@@ -2156,7 +2257,8 @@ function renderGroupCard(g) {
     : '';
 
   return `
-    <div class="masonry-card ${expired ? 'opacity-60' : ''}">
+    <div class="masonry-card ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
+      ${renderShareButton(g.brand)}
       ${renderWishlistHeart(g.brand)}
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="masonry-card-content p-5">
@@ -2223,7 +2325,8 @@ function renderCouponCard(g) {
   ).join('');
 
   return `
-    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}" style="position: relative;">
+    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}" style="position: relative;" data-brand="${g.brand}">
+      ${renderShareButton(g.brand)}
       ${renderWishlistHeart(g.brand)}
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="p-6">
@@ -2283,7 +2386,8 @@ function renderKangBooksSection(books) {
     }
 
     return `
-      <div class="masonry-card ${variant}">
+      <div class="masonry-card ${variant}" data-brand="${b.title}">
+        ${renderShareButton(b.title)}
         ${renderWishlistHeart(b.title)}
         <div class="masonry-card-image-wrapper">
           ${coverHtml}
@@ -2530,7 +2634,7 @@ ImageOptimizer.initImageOptimization();
 initSearch();
 renderBanner();
 init();
-loadData();
+loadData().then(applyUrlParams);
 // 只在分頁可見時 refresh，分頁回到前景立即抓一次（背景分頁不浪費流量）
 setInterval(() => { if (!document.hidden) loadData(); }, CONFIG.REFRESH_INTERVAL);
 document.addEventListener('visibilitychange', () => { if (!document.hidden) loadData(); });
