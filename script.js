@@ -727,7 +727,7 @@ function renderMobileFilters(categoryCounts, countryCounts) {
             class="px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${
               state.selectedCategory === cat ? 'bg-amber-600 text-white' : utils.getCategoryColor(cat)
             }">
-      ${utils.getCategoryIcon(cat)} ${cat} ${categoryCounts[cat] ? `(${categoryCounts[cat]})` : ''}
+      ${cat} ${categoryCounts[cat] ? `(${categoryCounts[cat]})` : ''}
     </button>
   `).join('');
   
@@ -742,7 +742,7 @@ function renderMobileFilters(categoryCounts, countryCounts) {
             class="px-3 py-1.5 rounded-lg text-sm font-medium whitespace-nowrap ${
               state.selectedCountry === country ? 'bg-amber-600 text-white' : 'bg-blue-100 text-blue-700 border-blue-300'
             }">
-      ${utils.getCountryFlag(country)} ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
+      ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
     </button>
   `).join('');
 }
@@ -761,7 +761,7 @@ function renderDesktopFilters(categoryCounts, countryCounts) {
             class="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
               state.selectedCategory === cat ? 'bg-amber-600 text-white font-medium' : 'hover:bg-gray-100'
             }">
-      ${utils.getCategoryIcon(cat)} ${cat} ${categoryCounts[cat] ? `(${categoryCounts[cat]})` : ''}
+      ${cat} ${categoryCounts[cat] ? `(${categoryCounts[cat]})` : ''}
     </button>
   `).join('');
   
@@ -778,7 +778,7 @@ function renderDesktopFilters(categoryCounts, countryCounts) {
             class="w-full text-left px-3 py-2 rounded-lg text-sm transition-colors ${
               state.selectedCountry === country ? 'bg-amber-600 text-white font-medium' : 'hover:bg-gray-100 text-blue-700'
             }">
-      ${utils.getCountryFlag(country)} ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
+      ${country} ${countryCounts[country] ? `(${countryCounts[country]})` : ''}
     </button>
   `).join('');
 }
