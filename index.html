@@ -49,7 +49,6 @@
   <link rel="stylesheet" href="tailwind.css">
   <link rel="stylesheet" href="theme-fresh-comfortable.css">
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="image-optimized.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha384-D/t0ZMqQW31H3az8ktEiNb39wyKnS82iFY52QPACM+IjKW3jDUhyIgh2PApRqJZs" crossorigin="anonymous"></script>
   
   <!-- Google Analytics GA4 -->
@@ -214,6 +213,11 @@
 	  </div>
 	</div>
     
+    <!-- 區塊導航 toggle（手機版用，桌面隱藏）-->
+    <button id="navToggle" class="lg:hidden" aria-expanded="false" aria-controls="sectionButtons" aria-label="展開區塊導航">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+    </button>
+
     <!-- 分類按鈕 -->
     <div id="sectionButtons" class="flex gap-2 justify-center overflow-x-auto pb-2 pt-3 px-4 scrollbar-hide"></div>
   </header>
@@ -405,7 +409,7 @@
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 
   <script>
     if ('serviceWorker' in navigator) {

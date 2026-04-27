@@ -464,6 +464,14 @@ const STORAGE_KEYS = {
   sidebarOpen: 'eg_sidebar_open'
 };
 
+// ============ 康先生的書 — 卡片結構模板（內容全部從 Google Sheet 來）============
+// Sheet 規則：類型=書籍，標籤/品牌=紙本 或 電子，圖片網址、商品描述、通路欄位都在 Sheet 上維護
+// 沒有對應的 Sheet 列 → 該張卡（紙本 OR 電子）就不渲染
+const KANG_BOOKS_TEMPLATE = [
+  { format: 'paperback', title: '紙本書籍' },
+  { format: 'ebook',     title: '電子書' }
+];
+
 // ============ 狀態管理 ============
 const state = {
   searchTerm: '',
@@ -971,6 +979,38 @@ const videoHandler = {
   }
 };
 
+// ===== 區塊導航 toggle（手機版收合）=====
+function initSectionNav() {
+  const toggle = document.getElementById('navToggle');
+  const buttons = document.getElementById('sectionButtons');
+  if (!toggle || !buttons) return;
+
+  const stopHint = () => toggle.classList.remove('hint');
+
+  toggle.addEventListener('click', () => {
+    const expanded = buttons.classList.toggle('expanded');
+    toggle.classList.toggle('expanded', expanded);
+    toggle.setAttribute('aria-expanded', String(expanded));
+    stopHint();
+  });
+
+  // 點 nav 按鈕後 250ms 自動收回（給時間先捲動到位）
+  buttons.addEventListener('click', (e) => {
+    if (!e.target.closest('.section-nav-btn')) return;
+    setTimeout(() => {
+      buttons.classList.remove('expanded');
+      toggle.classList.remove('expanded');
+      toggle.setAttribute('aria-expanded', 'false');
+    }, 250);
+    stopHint();
+  });
+
+  // 載入時 6 秒抖動提示「箭頭可點」
+  toggle.classList.add('hint');
+  setTimeout(stopHint, 6000);
+  window.addEventListener('scroll', stopHint, { once: true, passive: true });
+}
+
 // ===== 新增 Sticky Header 功能 =====
 let lastScrollTop = 0;
 let isHeaderCompact = false;
@@ -978,23 +1018,40 @@ let isHeaderCompact = false;
 function initStickyHeader() {
   const header = document.querySelector('header');
   if (!header) return;
-  
+
+  let scrollPending = false;
+
   window.addEventListener('scroll', () => {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // 向下滾動且超過100px時,壓縮header
-    if (scrollTop > 100 && scrollTop > lastScrollTop && !isHeaderCompact) {
-      header.classList.add('header-compact');
-      isHeaderCompact = true;
-    }
-    // 向上滾動或回到頂部時,展開header
-    else if ((scrollTop < lastScrollTop || scrollTop < 50) && isHeaderCompact) {
-      header.classList.remove('header-compact');
-      isHeaderCompact = false;
-    }
-    
-    lastScrollTop = scrollTop;
-  });
+    if (scrollPending) return;       // rAF 節流：每 frame 最多跑一次
+    scrollPending = true;
+    requestAnimationFrame(() => {
+      scrollPending = false;
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+      // 網格展開時不切 compact，避免 header 高度動態變化跟 scroll 互踢造成抖動
+      const navExpanded = document.getElementById('sectionButtons')?.classList.contains('expanded');
+      if (navExpanded) {
+        lastScrollTop = scrollTop;
+        return;
+      }
+
+      // 5px 閾值：忽略 layout reflow 導致的微小 scroll 變化
+      if (Math.abs(scrollTop - lastScrollTop) < 5) return;
+
+      // 向下滾動且超過100px時,壓縮header
+      if (scrollTop > 100 && scrollTop > lastScrollTop && !isHeaderCompact) {
+        header.classList.add('header-compact');
+        isHeaderCompact = true;
+      }
+      // 向上滾動或回到頂部時,展開header
+      else if ((scrollTop < lastScrollTop || scrollTop < 50) && isHeaderCompact) {
+        header.classList.remove('header-compact');
+        isHeaderCompact = false;
+      }
+
+      lastScrollTop = scrollTop;
+    });
+  }, { passive: true });
 }
 
 // ============ 全局函數（供 HTML 調用）============
@@ -1855,6 +1912,7 @@ async function loadData() {
           else if (/折扣|coupon|affiliate/.test(typeRaw)) category = 'coupon';
           else if (/即將|upcoming/.test(typeRaw)) category = 'upcoming';
           else if (/教育|公益|edu|charity/.test(typeRaw)) category = 'edu';
+          else if (/書籍|書|book/.test(typeRaw)) category = 'book';
           all.push({
             id: i + 1,
             brand,
@@ -1874,13 +1932,33 @@ async function loadData() {
             qa: row['QA'] || row['Q&A'] || '',
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
-            itemCountry: row['國家'] || row['Country'] || ''
+            itemCountry: row['國家'] || row['Country'] || '',
+            // 「通路」欄位：支援多通路 Linktree 模式
+            // 格式：每行一個通路，name=url（也吃全形 ＝ 跟冒號 :／：）
+            //   博客來=https://...
+            //   金石堂=https://...
+            retailers: String(row['通路'] || row['Channels'] || '').split(/\r?\n/).map(line => {
+              const trimmed = line.trim();
+              if (!trimmed) return null;
+              const eq = trimmed.search(/[=＝:：]/);
+              if (eq < 0) {
+                // 沒分隔符：整列若是 URL → 自動用 domain 當名稱
+                if (/^https?:\/\//i.test(trimmed)) {
+                  try { return { name: new URL(trimmed).hostname.replace(/^www\./, ''), url: trimmed }; } catch { return null; }
+                }
+                return null;
+              }
+              const name = trimmed.slice(0, eq).trim();
+              const url = trimmed.slice(eq + 1).trim();
+              return name && url ? { name, url } : null;
+            }).filter(Boolean)
           });
         });
       }
     });
 
-    state.groups = all.filter(g => g.category !== 'upcoming' && !!g.url);
+    // 保留條件：非 upcoming + (有「連結」或有「通路」多連結)
+    state.groups = all.filter(g => g.category !== 'upcoming' && (!!g.url || (g.retailers && g.retailers.length > 0)));
 
     // 提取所有不重複的分類和國家
     const categoriesSet = new Set();
@@ -1985,15 +2063,15 @@ function renderGroupCard(g) {
   // 處理複選的分類和國家
   const categories = g.itemCategory ? g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
   const countries = g.itemCountry ? g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
-  
-  // 生成分類標籤
-  const categoryTags = categories.map(cat => 
-    `<span class="text-xs ${utils.getCategoryColor(cat)} px-2 py-1 rounded-full border font-medium">${utils.getCategoryIcon(cat)} ${cat}</span>`
+
+  // 生成分類標籤（可點 → 套上分類篩選）
+  const categoryTags = categories.map(cat =>
+    `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${utils.getCategoryIcon(cat)} ${cat}</button>`
   ).join('');
-  
-  // 生成國家標籤
-  const countryTags = countries.map(country => 
-    `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${utils.getCountryFlag(country)} ${country}</span>`
+
+  // 生成國家標籤（可點 → 套上國家篩選）
+  const countryTags = countries.map(country =>
+    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${utils.getCountryFlag(country)} ${country}</button>`
   ).join('');
 
   const countdown = g.category === 'short' && daysLeft !== null
@@ -2038,9 +2116,13 @@ function renderGroupCard(g) {
         ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
         ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
         ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天!記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
-        <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
+        ${g.retailers && g.retailers.length > 0 ? `
+        <div class="retailer-buttons">
+          ${g.retailers.map(r => `<a href="${r.url}" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_retailer', {retailer: '${(r.name || '').replace(/'/g, "\\'")}', group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'conversion'});}">${r.name}</a>`).join('')}
+        </div>
+        ` : `<a href="${g.url}" target="_blank" rel="noopener noreferrer"
            onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', group_category: '${g.category}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
-           class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>
+           class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>`}
       </div>
     </div>`;
 }
@@ -2055,15 +2137,15 @@ function renderCouponCard(g) {
   // 處理複選的分類和國家
   const categories = g.itemCategory ? g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
   const countries = g.itemCountry ? g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
-  
-  // 生成分類標籤
-  const categoryTags = categories.map(cat => 
-    `<span class="text-xs ${utils.getCategoryColor(cat)} px-2 py-1 rounded-full border font-medium">${utils.getCategoryIcon(cat)} ${cat}</span>`
+
+  // 生成分類標籤（可點 → 套上分類篩選）
+  const categoryTags = categories.map(cat =>
+    `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${utils.getCategoryIcon(cat)} ${cat}</button>`
   ).join('');
-  
-  // 生成國家標籤
-  const countryTags = countries.map(country => 
-    `<span class="text-xs bg-blue-100 text-blue-700 border-blue-300 px-2 py-1 rounded-full border font-medium">${utils.getCountryFlag(country)} ${country}</span>`
+
+  // 生成國家標籤（可點 → 套上國家篩選）
+  const countryTags = countries.map(country =>
+    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${utils.getCountryFlag(country)} ${country}</button>`
   ).join('');
 
   return `
@@ -2102,6 +2184,51 @@ function renderCouponCard(g) {
            class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 ${expired ? 'opacity-80' : ''}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>
       </div>
     </div>`;
+}
+
+// ============ 康先生的書 — 套 .masonry-card 外觀，內部 Linktree buttons ============
+function renderKangBooksSection(books) {
+  if (!books.length) return '';
+
+  const renderRetailer = (r) => `
+    <a href="${r.url}" target="_blank" rel="noopener noreferrer"
+       onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_book', {retailer: '${(r.name || '').replace(/'/g, "\\'")}', event_category: 'kang_books'});}">${r.name}</a>`;
+
+  const renderBookCard = (b) => {
+    const emoji = b.format === 'paperback' ? '📚' : '📱';
+    const variant = b.format === 'paperback' ? 'kang-paperback' : 'kang-ebook';
+
+    let coverHtml;
+    if (b.cover) {
+      // 走 ImageOptimizer：自動把 Drive 分享連結轉成 lh3.googleusercontent.com 格式
+      const { primary, fallback } = ImageOptimizer.getOptimizedImageUrl(b.cover, b.title);
+      coverHtml = `<img class="masonry-card-image" src="${primary}" data-fallback="${fallback}" alt="${b.title}書封" loading="lazy" decoding="async" onerror="ImageOptimizer.handleImageError(this)">`;
+    } else {
+      coverHtml = `<div class="kang-cover-empty" aria-hidden="true">${emoji}</div>`;
+    }
+
+    return `
+      <div class="masonry-card ${variant}">
+        <div class="masonry-card-image-wrapper">
+          ${coverHtml}
+        </div>
+        <div class="masonry-card-content">
+          <h3 class="masonry-card-title text-lg font-bold text-center text-amber-900 mb-2">${emoji} ${b.title}</h3>
+          ${b.description ? `<p class="kang-sub">${b.description}</p>` : ''}
+          <div class="retailer-buttons">
+            ${b.retailers.map(renderRetailer).join('')}
+          </div>
+        </div>
+      </div>`;
+  };
+
+  return `
+    <section id="kang-books" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+      <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">📖 康先生的書</h2>
+      <div class="masonry-grid">
+        ${books.map(renderBookCard).join('')}
+      </div>
+    </section>`;
 }
 
 // ============ 內容渲染 ============
@@ -2149,6 +2276,38 @@ function renderContent() {
   });
   const coupon = filtered.filter(g => g.category === 'coupon');
   const edu = filtered.filter(g => g.category === 'edu');
+  const book = filtered.filter(g => g.category === 'book');
+  // 把 Sheet 上的書籍 row 分組（紙本/電子）；同時看「標籤」跟「品牌」欄裡的關鍵字
+  const isPaperback = (b) => /紙本|paperback/i.test(b.tag || '') || /紙本|paperback/i.test(b.brand || '');
+  const isEbook     = (b) => /電子|ebook/i.test(b.tag || '')     || /電子|ebook/i.test(b.brand || '');
+  const sheetPaperback = book.filter(isPaperback);
+  const sheetEbook     = book.filter(isEbook);
+
+  const buildFromSheet = (rows, template) => {
+    if (!rows.length) return null;  // Sheet 沒對應的列 → 不渲染這張卡
+
+    // 優先：第一筆有「通路」欄位（多通路單列）→ 整張卡的 retailers 直接用
+    const rowWithRetailers = rows.find(r => r.retailers && r.retailers.length > 0);
+    if (rowWithRetailers) {
+      return {
+        ...template,
+        cover: rowWithRetailers.image || '',
+        description: rowWithRetailers.description || '',
+        retailers: rowWithRetailers.retailers
+      };
+    }
+    // Legacy 相容：每列代表一個通路
+    return {
+      ...template,
+      cover: (rows.find(r => r.image) || {}).image || '',
+      description: (rows.find(r => r.description) || {}).description || '',
+      retailers: rows.map(r => ({ name: r.brand, url: r.url })).filter(r => r.url)
+    };
+  };
+  const kangBooks = [
+    buildFromSheet(sheetPaperback, KANG_BOOKS_TEMPLATE[0]),
+    buildFromSheet(sheetEbook,     KANG_BOOKS_TEMPLATE[1])
+  ].filter(Boolean);
   const expiredCount = state.groups.filter(g => utils.isExpired(g.endDate)).length;
 
   const term = (state.searchTerm || '').trim().toLowerCase();
@@ -2175,12 +2334,14 @@ function renderContent() {
   }
   const upcomingMatches = Object.values(soonestByBrand);
 
-  const btn = (id, txt, cls) => `<button onclick="scrollToSection('${id}')" class="px-4 py-2 ${cls} rounded-lg font-medium whitespace-nowrap hover:opacity-90 text-sm">${txt}</button>`;
-  elements.sectionButtons.innerHTML = (shortTerm.length ? btn('short-term', '限時團購', 'bg-orange-100 text-orange-700') : '') +
-    (longTerm.length ? btn('long-term', '常駐團購', 'bg-green-100 text-green-700') : '') +
-    (edu.length ? btn('edu', '教育／公益', 'bg-teal-100 text-teal-700') : '') +
-    (coupon.length ? btn('coupon', '折扣碼優惠', 'bg-purple-100 text-purple-700') : '') +
-    btn('calendar', '團購行事曆', 'bg-blue-100 text-blue-700');
+  // 統一風格：所有 tab 同一個 .section-nav-btn class，emoji + 文字，amber hover
+  const btn = (id, txt) => `<button onclick="scrollToSection('${id}')" class="section-nav-btn">${txt}</button>`;
+  elements.sectionButtons.innerHTML = (shortTerm.length ? btn('short-term', '⏳ 限時團購') : '') +
+    (longTerm.length ? btn('long-term', '☀️ 常駐團購') : '') +
+    (kangBooks.length ? btn('kang-books', '📖 康先生的書') : '') +
+    (coupon.length ? btn('coupon', '🎟️ 折扣碼') : '') +
+    (edu.length ? btn('edu', '📚 教育公益') : '') +
+    btn('calendar', '🗓️ 行事曆');
 
   const m1 = today.getMonth() + 1;
   const m2 = (today.getMonth() + 1) % 12 + 1;
@@ -2218,15 +2379,17 @@ function renderContent() {
        <div class="masonry-grid">${longTerm.map(renderGroupCard).join('')}</div>
      </section>` : '') +
 
-    (edu.length ? `<section id="edu" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-      <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">📚 教育／公益資源</h2>
-      <div class="masonry-grid">${edu.map(renderGroupCard).join('')}</div>
-    </section>` : '') +
+    renderKangBooksSection(kangBooks) +
 
     (coupon.length ? `<section id="coupon" class="scroll-mt-24 md:scroll-mt-28 mb-8">
        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🎟️ 折扣碼優惠</h2>
        <div class="coupon-grid">${coupon.map(renderCouponCard).join('')}</div>
      </section>` : '') +
+
+    (edu.length ? `<section id="edu" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+      <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">📚 教育／公益資源</h2>
+      <div class="masonry-grid">${edu.map(renderGroupCard).join('')}</div>
+    </section>` : '') +
 
     `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-6">
        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🗓️ 團購行事曆</h2>
@@ -2269,6 +2432,8 @@ function init() {
   }
   // 初始化 Sticky Header
   initStickyHeader();
+  // 初始化區塊導航 toggle
+  initSectionNav();
 }
 
 // 🎨 圖片優化：初始化圖片處理系統
@@ -2278,7 +2443,9 @@ initSearch();
 renderBanner();
 init();
 loadData();
-setInterval(loadData, CONFIG.REFRESH_INTERVAL);
+// 只在分頁可見時 refresh，分頁回到前景立即抓一次（背景分頁不浪費流量）
+setInterval(() => { if (!document.hidden) loadData(); }, CONFIG.REFRESH_INTERVAL);
+document.addEventListener('visibilitychange', () => { if (!document.hidden) loadData(); });
 
 // 分享功能
 function shareWebsite() {
