@@ -2172,6 +2172,12 @@ function shareCard(brand) {
   }
 }
 
+// 卡片動作列（分享 + 收藏 一組，放在內容區頂部右側）
+function renderCardActions(brand) {
+  if (!brand) return '';
+  return `<div class="card-actions-row">${renderShareButton(brand)}${renderWishlistHeart(brand)}</div>`;
+}
+
 // 卡片右上角的分享按鈕（跟愛心並排）
 function renderShareButton(brand) {
   if (!brand) return '';
@@ -2258,10 +2264,9 @@ function renderGroupCard(g) {
 
   return `
     <div class="masonry-card ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
-      ${renderShareButton(g.brand)}
-      ${renderWishlistHeart(g.brand)}
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="masonry-card-content p-5">
+        ${renderCardActions(g.brand)}
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         ${g.description ? `<p class="text-base md:text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-3">${g.description}</p>` : ''}
         <div class="flex flex-wrap gap-2 mb-3">
@@ -2325,11 +2330,10 @@ function renderCouponCard(g) {
   ).join('');
 
   return `
-    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}" style="position: relative;" data-brand="${g.brand}">
-      ${renderShareButton(g.brand)}
-      ${renderWishlistHeart(g.brand)}
+    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}" data-brand="${g.brand}">
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="p-6">
+        ${renderCardActions(g.brand)}
         <div class="flex items-start justify-between gap-3 mb-3">
           <div class="flex-1">
             <h3 class="text-lg font-bold ${expired ? 'text-gray-600' : 'text-purple-900'} text-center">${g.brand}</h3>
@@ -2387,12 +2391,11 @@ function renderKangBooksSection(books) {
 
     return `
       <div class="masonry-card ${variant}" data-brand="${b.title}">
-        ${renderShareButton(b.title)}
-        ${renderWishlistHeart(b.title)}
         <div class="masonry-card-image-wrapper">
           ${coverHtml}
         </div>
         <div class="masonry-card-content">
+          ${renderCardActions(b.title)}
           <h3 class="masonry-card-title text-lg font-bold text-center text-amber-900 mb-2">${b.title}</h3>
           ${b.description ? `<p class="text-base text-gray-700 leading-6 mb-3">${b.description}</p>` : ''}
           <div class="retailer-buttons">
