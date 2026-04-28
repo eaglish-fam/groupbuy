@@ -497,7 +497,7 @@
   background: #fafaf9;                   /* stone-50 — 冷調米白 */
   border: 1px solid #e7e5e4;             /* stone-200 — 細邊幾乎透明 */
   border-radius: 14px;
-  padding: 14px 18px;
+  padding: 16px 18px;
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;
@@ -515,41 +515,58 @@
   }
 }
 
+/* 手機版 head：垂直堆疊置中（label 在上、時間在下大字置中）
+   桌面版：水平排列（label 跟時間並排） */
 .countdown-head {
   display: flex;
+  flex-direction: column;
   align-items: center;
   gap: 10px;
-  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .countdown-head {
+    flex-direction: row;
+    gap: 14px;
+    flex-shrink: 0;
+  }
+}
+
+/* meta = icon + label 一組 */
+.countdown-meta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .countdown-icon {
-  font-size: 17px;
-  opacity: 0.7;          /* 不再 pulse、不搶戲 */
+  font-size: 16px;
+  opacity: 0.65;
 }
 
 .countdown-label {
   font-weight: 600;
-  color: #44403c;        /* stone-700 */
-  font-size: 14px;
-  letter-spacing: 0.02em;
+  color: #57534e;        /* stone-600 — 比之前 700 再淡一階，當 caption 更合適 */
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  text-transform: none;
 }
 
 .countdown-time {
   font-family: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
   font-weight: 600;
   color: #6b4226;        /* coffee 棕，唯一暖色焦點 */
-  font-size: 22px;
+  font-size: 30px;        /* 手機版放大，當主角 */
   font-variant-numeric: tabular-nums;
   font-feature-settings: "tnum" 1;
-  letter-spacing: 0.06em;
-  margin-left: auto;
+  letter-spacing: 0.05em;
   display: inline-flex;
   align-items: center;
   line-height: 1;
 }
 
 @media (min-width: 768px) {
-  .countdown-time { margin-left: 0; font-size: 26px; }
+  .countdown-time { font-size: 26px; }
 }
 
 /* 數字旋轉容器：每個位數一個 cell，內含 0-9 stack，靠 transform 切換 */
@@ -589,6 +606,11 @@
   flex-wrap: wrap;
   gap: 6px;
   align-items: center;
+  justify-content: center;          /* 手機版置中 */
+}
+
+@media (min-width: 768px) {
+  .countdown-chips { justify-content: flex-start; }
 }
 
 .countdown-chip {

@@ -955,8 +955,10 @@ function renderTodayCountdown() {
   return `
     <div id="todayCountdown" class="countdown-banner">
       <div class="countdown-head">
-        <span class="countdown-icon">⏰</span>
-        <span class="countdown-label">今日截止</span>
+        <div class="countdown-meta">
+          <span class="countdown-icon">⏰</span>
+          <span class="countdown-label">今日截止</span>
+        </div>
         <span class="countdown-time" id="countdownDigits" aria-label="剩餘時間">${buildCountdownDigits(timeLeft)}</span>
       </div>
       <div class="countdown-chips">${chips}${more}</div>
