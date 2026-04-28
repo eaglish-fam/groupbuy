@@ -552,56 +552,42 @@
   align-items: center;
 }
 
-/* 國家 pill：mobile 圓鈕對齊 share/wishlist（32x32、無框、灰底）；
-   ≥768px 補中文時擴成圓角 pill */
+/* 國家鈕：固定 22x22 真圓形，emoji 12px，永遠不露中文（aria-label 已涵蓋無障礙） */
 .card-country-pill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 32px;
-  height: 32px;
+  width: 22px;
+  height: 22px;
   border: none;
   border-radius: 999px;
   padding: 0;
-  background: rgba(0, 0, 0, 0.05);   /* 對齊 wishlist-heart / card-share-btn 底色 */
+  background: rgba(0, 0, 0, 0.05);
   color: #57534e;                    /* stone-600 */
   font-family: inherit;
   font-size: 10px;
-  font-weight: 600;
   line-height: 1;
   cursor: pointer;
-  white-space: nowrap;
-  transition: background-color 0.15s ease, color 0.15s ease, transform 0.12s ease;
+  transition: background-color 0.15s ease, transform 0.12s ease;
   -webkit-tap-highlight-color: transparent;
+  flex-shrink: 0;                    /* 不被左區壓扁 */
 }
 
 .card-country-pill:hover {
-  background: rgba(0, 0, 0, 0.1);    /* 對齊 share/wishlist hover */
-  color: #78350f;                    /* amber-900 */
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .card-country-pill:active {
-  transform: scale(0.9);             /* 對齊 share/wishlist active 縮放 */
+  transform: scale(0.9);
 }
 
 .card-country-flag {
-  font-size: 16px;
+  font-size: 12px;
   line-height: 1;
 }
 
 .card-country-name {
-  display: none;                     /* 預設手機：只露國旗 */
-}
-
-@media (min-width: 768px) {
-  .card-country-pill {
-    width: auto;                      /* 桌面/平板：擴成 pill 容納中文 */
-    gap: 4px;
-    padding: 0 12px;
-  }
-  .card-country-name {
-    display: inline;
-  }
+  display: none;                     /* 永不顯示，aria-label 仍提供無障礙文字 */
 }
 
 .wishlist-heart,
