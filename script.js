@@ -914,12 +914,38 @@ function formatTimeRemaining() {
   return `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 }
 
+// 把單一數字渲染成可旋轉的 digit-cell（包 0-9 stack，初始 transform 直接帶到位）
+function buildDigitStack(digit) {
+  const digits = '0123456789'.split('').map(d => `<span>${d}</span>`).join('');
+  return `<span class="digit-cell"><span class="digit-stack" style="transform:translateY(-${digit}em);">${digits}</span></span>`;
+}
+
+// 把 "05:03:32" 這種字串轉成 digit-cell 結構（: 用 .cd-sep）
+function buildCountdownDigits(timeStr) {
+  return [...timeStr].map(ch =>
+    (ch >= '0' && ch <= '9') ? buildDigitStack(parseInt(ch, 10)) : `<span class="cd-sep">${ch}</span>`
+  ).join('');
+}
+
+// 每秒更新時，只動 transform 不重建 DOM → 觸發 CSS spring 動畫
+function setCountdownDigits(timeStr) {
+  const root = document.getElementById('countdownDigits');
+  if (!root) return;
+  const cells = root.querySelectorAll('.digit-cell .digit-stack');
+  let idx = 0;
+  for (const ch of timeStr) {
+    if (ch >= '0' && ch <= '9' && idx < cells.length) {
+      cells[idx].style.transform = `translateY(-${parseInt(ch, 10)}em)`;
+      idx++;
+    }
+  }
+}
+
 function renderTodayCountdown() {
   const deadlines = getTodayDeadlines();
   if (deadlines.length === 0) return '';
 
   const timeLeft = formatTimeRemaining();
-  // 品牌名做成可點 chip → 點下去 scroll 到該卡片
   const chips = deadlines.slice(0, 4).map(b => {
     const safe = b.replace(/'/g, "\\'");
     return `<button class="countdown-chip" onclick="scrollToCard('${safe}')">${b}</button>`;
@@ -931,7 +957,7 @@ function renderTodayCountdown() {
       <div class="countdown-head">
         <span class="countdown-icon">⏰</span>
         <span class="countdown-label">今日截止</span>
-        <span class="countdown-time" aria-label="剩餘時間">${timeLeft}</span>
+        <span class="countdown-time" id="countdownDigits" aria-label="剩餘時間">${buildCountdownDigits(timeLeft)}</span>
       </div>
       <div class="countdown-chips">${chips}${more}</div>
     </div>
@@ -958,12 +984,8 @@ function startCountdownTimer() {
   countdownInterval = setInterval(() => {
     const countdownEl = document.getElementById('todayCountdown');
     if (countdownEl && getTodayDeadlines().length > 0) {
-      const timeLeft = formatTimeRemaining();
-      // 更新所有的時間元素（手機版 + 桌面版）
-      const timeElements = countdownEl.querySelectorAll('.countdown-time');
-      timeElements.forEach(el => {
-        el.textContent = timeLeft;
-      });
+      // 用 transform 動畫更新數字（CSS spring 自動產生旋轉感），不再重建 DOM
+      setCountdownDigits(formatTimeRemaining());
     } else if (countdownEl) {
       countdownEl.remove();
       clearInterval(countdownInterval);

@@ -491,17 +491,18 @@
 }
 
 /* ============================================
-   今日截止倒數 — refined（amber 為主，只有時間數字紅色當焦點）
+   今日截止倒數 — Apple Coffee 風（冷調 stone 底 + 咖啡棕焦點 + 旋轉數字）
    ============================================ */
 .countdown-banner {
-  background: linear-gradient(to right, #fef3c7, #fff7ed);   /* 柔和 amber-100 → orange-50 */
-  border: 1px solid rgba(180, 83, 9, 0.3);                    /* amber-700 半透明細邊 */
-  border-radius: 12px;
-  padding: 12px 16px;
+  background: #fafaf9;                   /* stone-50 — 冷調米白 */
+  border: 1px solid #e7e5e4;             /* stone-200 — 細邊幾乎透明 */
+  border-radius: 14px;
+  padding: 14px 18px;
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 @media (min-width: 768px) {
@@ -509,43 +510,80 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
-    padding: 14px 20px;
+    gap: 20px;
+    padding: 16px 22px;
   }
 }
 
 .countdown-head {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   flex-shrink: 0;
 }
 
 .countdown-icon {
-  font-size: 20px;
-  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  font-size: 17px;
+  opacity: 0.7;          /* 不再 pulse、不搶戲 */
 }
 
 .countdown-label {
-  font-weight: 700;
-  color: #78350f;        /* amber-900 */
+  font-weight: 600;
+  color: #44403c;        /* stone-700 */
   font-size: 14px;
+  letter-spacing: 0.02em;
 }
 
 .countdown-time {
-  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
-  font-weight: 700;
-  color: #b91c1c;        /* red-700 — 唯一紅色，凸顯緊迫感 */
-  font-size: 18px;
+  font-family: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
+  font-weight: 600;
+  color: #6b4226;        /* coffee 棕，唯一暖色焦點 */
+  font-size: 22px;
   font-variant-numeric: tabular-nums;
-  letter-spacing: 0.04em;
+  font-feature-settings: "tnum" 1;
+  letter-spacing: 0.06em;
   margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  line-height: 1;
 }
 
 @media (min-width: 768px) {
-  .countdown-time { margin-left: 0; }
+  .countdown-time { margin-left: 0; font-size: 26px; }
 }
 
+/* 數字旋轉容器：每個位數一個 cell，內含 0-9 stack，靠 transform 切換 */
+.digit-cell {
+  display: inline-block;
+  height: 1em;
+  width: 0.62em;
+  line-height: 1;
+  overflow: hidden;
+  vertical-align: -0.1em;
+}
+
+.digit-stack {
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1);   /* spring overshoot */
+  will-change: transform;
+}
+
+.digit-stack > span {
+  display: block;
+  height: 1em;
+  text-align: center;
+}
+
+.cd-sep {
+  display: inline-block;
+  width: 0.42em;
+  text-align: center;
+  opacity: 0.4;
+  font-weight: 400;
+}
+
+/* 品牌 chip — refined */
 .countdown-chips {
   display: flex;
   flex-wrap: wrap;
@@ -554,33 +592,34 @@
 }
 
 .countdown-chip {
-  background: rgba(255, 255, 255, 0.85);
-  border: 1px solid rgba(146, 64, 14, 0.2);
-  color: #78350f;
+  background: #ffffff;
+  border: 1px solid #e7e5e4;       /* stone-200 */
+  color: #57534e;                   /* stone-600 */
   font-size: 12px;
-  font-weight: 600;
-  padding: 4px 10px;
+  font-weight: 500;
+  padding: 5px 11px;
   border-radius: 999px;
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+  transition: background-color 0.15s ease, border-color 0.15s ease, color 0.15s ease, transform 0.12s ease;
   font-family: inherit;
   -webkit-tap-highlight-color: transparent;
 }
 
 .countdown-chip:hover {
-  background: white;
-  border-color: rgba(146, 64, 14, 0.4);
+  background: #fafaf9;
+  border-color: #d6d3d1;            /* stone-300 */
+  color: #6b4226;                    /* hover 變咖啡色，跟時間呼應 */
 }
 
 .countdown-chip:active {
-  transform: scale(0.95);
+  transform: scale(0.96);
 }
 
 .countdown-more {
-  color: #b45309;
+  color: #78716c;                   /* stone-500 */
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
   padding: 0 4px;
 }
 
