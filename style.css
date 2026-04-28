@@ -519,29 +519,29 @@
 }
 
 .countdown-time {
-  /* Apple 系統字體棧：iOS/macOS 走 SF Pro Display */
-  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
-  font-weight: 300;        /* Light：細長精緻，跟 Apple Stopwatch / Watch 同等級 */
-  color: #6b4226;           /* coffee 棕，唯一暖色焦點 */
-  font-size: 36px;          /* 大字級配 Light 才撐得起 — Apple 風關鍵 */
-  font-variant-numeric: tabular-nums lining-nums;
-  font-feature-settings: "tnum" 1, "lnum" 1, "ss01" 1;
-  letter-spacing: 0.05em;   /* 寬字距 → elongated 感 */
+  /* Cormorant Garamond — 跟 9to21 同一支字體，襯線復古優雅 */
+  font-family: "Cormorant Garamond", "Noto Serif TC", "Times New Roman", serif;
+  font-weight: 400;        /* Regular，serif 字身已有重量感不用拉太重 */
+  color: #6b4226;           /* coffee 棕 */
+  font-size: 40px;          /* serif 顯得比 sans 小，所以再放大一點 */
+  font-variant-numeric: tabular-nums lining-nums;   /* 強制等寬 + 一致基線（解決 serif 數字寬度不一） */
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  letter-spacing: 0.04em;
   display: inline-flex;
   align-items: center;
   line-height: 1;
 }
 
 @media (min-width: 768px) {
-  .countdown-time { font-size: 32px; letter-spacing: 0.06em; }
+  .countdown-time { font-size: 36px; letter-spacing: 0.05em; }
 }
 
-/* SF Pro Display Light 字身較窄、加 letter-spacing 後 cell 略放寬 */
-.digit-cell { width: 0.6em; }
+/* Cormorant 字身較寬，cell 跟著放寬 */
+.digit-cell { width: 0.62em; }
 .cd-sep {
-  width: 0.34em;
-  opacity: 0.3;             /* 進一步淡化 separator，digits 更主導 */
-  font-weight: 200;          /* : 用 Thin 比 digits 還細，視覺呼吸感 */
+  width: 0.32em;
+  opacity: 0.35;             /* 淡化 separator，digits 更主導 */
+  font-weight: 300;
 }
 
 /* 數字旋轉容器：每個位數一個 cell，內含 0-9 stack，靠 transform 切換 */
