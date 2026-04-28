@@ -960,14 +960,17 @@ function renderTodayCountdown() {
   `;
 }
 
-// 點品牌 chip → scroll 到該卡片並高亮
+// 點品牌 chip / hero → scroll 到該卡片並高亮
+// 注意：hero card 自己也帶 data-brand（同一個品牌），querySelectorAll 後跳過 .hero-card
+//      不然會 match 到 hero 自己（已在 viewport 頂端，看起來沒動）
 function scrollToCard(brand) {
   if (!brand) return;
-  const el = document.querySelector(`[data-brand="${CSS.escape(brand)}"]`);
-  if (!el) return;
-  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  el.classList.add('card-highlighted');
-  setTimeout(() => el.classList.remove('card-highlighted'), 2500);
+  const els = document.querySelectorAll(`[data-brand="${CSS.escape(brand)}"]`);
+  const target = Array.from(els).find(el => !el.classList.contains('hero-card'));
+  if (!target) return;
+  target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  target.classList.add('card-highlighted');
+  setTimeout(() => target.classList.remove('card-highlighted'), 2500);
 }
 
 let countdownInterval = null;
@@ -2353,7 +2356,9 @@ function applyUrlParams() {
   setTimeout(() => {
     const card = state.groups.find(g => g.brand === brand);
     if (card) updateOGMeta(card);
-    const el = document.querySelector(`[data-brand="${CSS.escape(brand)}"]`);
+    // 跳過 hero card（hero 也帶 data-brand），找實際的 masonry / book card
+    const els = document.querySelectorAll(`[data-brand="${CSS.escape(brand)}"]`);
+    const el = Array.from(els).find(e => !e.classList.contains('hero-card'));
     if (!el) return;
     el.scrollIntoView({ behavior: 'smooth', block: 'center' });
     el.classList.add('card-highlighted');
