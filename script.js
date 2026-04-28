@@ -2177,7 +2177,16 @@ async function loadData() {
             itemCategory: row['分類'] || row['Category'] || '',
             itemCountry: row['國家'] || row['Country'] || '',
             // 主推（任何非空值都算）
+            // 「主推」欄一欄兩用：
+            //   - 有值 = 上 hero
+            //   - 值是 URL → 拿來當 hero banner 圖（21:9）
+            //   - 值不是 URL（例如 Y、TRUE、1）→ hero 圖 fallback 用「圖片網址」
             featured: !!String(row['主推'] || row['Featured'] || row['Hero'] || '').trim(),
+            heroImage: (function(){
+              const m = String(row['主推'] || row['Featured'] || row['Hero'] || '').trim();
+              if (/^https?:\/\//i.test(m)) return m;       // 主推欄填 URL → hero 圖
+              return row['圖片網址'] || row['image'] || ''; // 主推欄是 Y/TRUE → 用商品圖
+            })(),
             // 保固 / 官網（單一 URL）
             warrantyUrl: row['官網保固'] || row['官網'] || row['保固網站'] || row['Warranty'] || row['OfficialSite'] || '',
             // 客服管道（多行）。兩種寫法都吃：
@@ -2471,27 +2480,39 @@ function renderHeroBanner(items) {
 
   const buildCard = (item, isFirst) => {
     // hero 用大圖，eager load，不 lazy（above the fold）
-    let imgSrc = item.image || '';
+    // 優先用 heroImage（主推欄填的 URL），fallback 圖片網址
+    const rawSrc = item.heroImage || item.image || '';
+    let imgSrc = rawSrc;
     if (imgSrc && typeof ImageOptimizer !== 'undefined') {
       try {
-        // 取較大尺寸版本
-        imgSrc = ImageOptimizer.getOptimizedImageUrl(item.image, item.brand).primary;
-        // 把 lh3.googleusercontent.com/d/ID=w1200 改成 =w1600
+        imgSrc = ImageOptimizer.getOptimizedImageUrl(rawSrc, item.brand).primary;
         imgSrc = imgSrc.replace(/=w\d+(-h\d+)?$/i, '=w1600');
       } catch {}
     }
-    const linkHref = item.url || (item.retailers && item.retailers[0]?.url) || '#';
-    return `<a href="${linkHref}" target="_blank" rel="noopener noreferrer"
-       class="hero-card" data-brand="${item.brand}"
-       onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_hero', {brand: '${item.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">
-      ${imgSrc ? `<img src="${imgSrc}" alt="${item.brand}" ${isFirst ? 'fetchpriority="high"' : ''} loading="${isFirst ? 'eager' : 'lazy'}">` : `<div class="hero-card-placeholder">📌</div>`}
+
+    // 點擊行為：多通路 → scroll 到該卡讓 user 選；單連結 → 直接跳
+    const isMultiLink = item.retailers && item.retailers.length > 1;
+    const safeBrand = item.brand.replace(/'/g, "\\'");
+    const gaTrack = `if(typeof gtag !== 'undefined'){gtag('event', 'click_hero', {brand: '${safeBrand}', mode: '${isMultiLink ? 'scroll' : 'link'}', event_category: 'engagement'});}`;
+
+    const inner = `${imgSrc ? `<img src="${imgSrc}" alt="${item.brand}" ${isFirst ? 'fetchpriority="high"' : ''} loading="${isFirst ? 'eager' : 'lazy'}">` : `<div class="hero-card-placeholder">📌</div>`}
       <div class="hero-overlay">
         <span class="hero-badge">📌 編輯精選</span>
         <h2 class="hero-title">${item.brand}</h2>
         ${item.description ? `<p class="hero-desc">${item.description}</p>` : ''}
-        <span class="hero-cta">立即查看 →</span>
-      </div>
-    </a>`;
+        <span class="hero-cta">${isMultiLink ? '看詳情 →' : '立即查看 →'}</span>
+      </div>`;
+
+    if (isMultiLink) {
+      // <button> for scroll-to-card 行為
+      return `<button type="button" class="hero-card" data-brand="${item.brand}"
+         onclick="${gaTrack} scrollToCard('${safeBrand}');">${inner}</button>`;
+    }
+    // <a> for direct link
+    const linkHref = item.url || (item.retailers && item.retailers[0]?.url) || '#';
+    return `<a href="${linkHref}" target="_blank" rel="noopener noreferrer"
+       class="hero-card" data-brand="${item.brand}"
+       onclick="${gaTrack}">${inner}</a>`;
   };
 
   if (items.length === 1) {

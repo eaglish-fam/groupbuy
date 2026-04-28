@@ -633,7 +633,7 @@
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 21 / 9;       /* 統一 21:9，純縮放不裁切 banner */
   border-radius: 16px;
   overflow: hidden;
   text-decoration: none;
@@ -644,6 +644,15 @@
     0 1px 2px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
               box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  /* button reset — multi-link 模式時 .hero-card 會渲染成 <button> */
+  border: 0;
+  padding: 0;
+  margin: 0;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
 .hero-card:hover {
@@ -744,7 +753,7 @@
 
 @media (min-width: 768px) {
   .hero-banner { padding: 0 16px; margin-bottom: 32px; }
-  .hero-card { aspect-ratio: 21 / 9; max-height: 480px; }
+  /* aspect-ratio 21:9 已在 .hero-card 統一設定，這裡只調 padding / 字級 */
   .hero-overlay { padding: 32px 40px; }
   .hero-title { font-size: 32px; }
   .hero-desc { font-size: 16px; max-width: 60%; }
