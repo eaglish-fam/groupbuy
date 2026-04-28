@@ -1096,17 +1096,29 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 從外部分享連結進來時，目標卡片高亮 2.5 秒 */
+/* 從外部分享連結 / hero 點擊進來時，目標卡片懸浮 + 發光 2.5 秒 */
 .card-highlighted {
-  animation: cardHighlight 2.5s ease-out;
-  outline: 3px solid rgba(217, 119, 6, 0.6);  /* amber-600 透明 */
-  outline-offset: 4px;
+  animation: cardFloatGlow 2.5s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  z-index: 1;        /* 蓋過鄰卡，避免光暈被裁切 */
 }
 
-@keyframes cardHighlight {
-  0%   { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.6); }
-  20%  { box-shadow: 0 0 0 12px rgba(217, 119, 6, 0.3); }
-  100% { box-shadow: 0 0 0 0 rgba(217, 119, 6, 0); }
+@keyframes cardFloatGlow {
+  0% {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+  18%, 82% {
+    transform: translateY(-6px);
+    box-shadow:
+      0 0 28px 8px rgba(255, 255, 255, 0.75),    /* 白色光暈外擴 */
+      0 18px 40px rgba(140, 100, 50, 0.18),       /* 暖色懸浮陰影 */
+      0 6px 16px rgba(140, 100, 50, 0.10);
+  }
+  100% {
+    transform: translateY(0);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
 }
 
 /* CSV 還沒載到時的 skeleton 卡片佔位 */
