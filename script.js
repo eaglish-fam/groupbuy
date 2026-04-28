@@ -632,6 +632,46 @@ function toggleWishlist(brand) {
   refreshWishlistModal();   // modal 開著就同步刷新
 }
 
+// 客服管道 modal（多管道時點按鈕觸發）
+function openContactModal(brand) {
+  const group = state.groups.find(g => g.brand === brand);
+  if (!group || !group.contacts || group.contacts.length === 0) return;
+  const modal = document.getElementById('contactModal');
+  const title = document.getElementById('contactModalTitle');
+  const body  = document.getElementById('contactModalBody');
+  if (!modal || !body) return;
+
+  if (title) title.textContent = `📞 ${brand} 客服管道`;
+  body.innerHTML = group.contacts.map(c => `
+    <a href="${smartContactHref(c.value)}" target="_blank" rel="noopener noreferrer"
+       onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_contact', {group_name: '${brand.replace(/'/g, "\\'")}', channel: '${c.name.replace(/'/g, "\\'")}', source: 'modal', event_category: 'engagement'});} closeContactModal();"
+       class="block w-full px-4 py-3 bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 text-emerald-800 rounded-lg font-medium hover:from-emerald-100 hover:to-teal-100 transition-all">
+      <div class="flex items-center gap-3">
+        <span style="font-size: 24px;">${contactIcon(c.value)}</span>
+        <div class="flex-1 min-w-0">
+          <div class="font-bold">${c.name}</div>
+          <div class="text-xs text-emerald-700/70 break-all">${c.value}</div>
+        </div>
+      </div>
+    </a>
+  `).join('');
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'open_contact_modal', { group_name: brand, count: group.contacts.length, event_category: 'engagement' });
+  }
+}
+
+function closeContactModal() {
+  const modal = document.getElementById('contactModal');
+  if (!modal) return;
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+
 function refreshWishlistModal() {
   const modal = document.getElementById('wishlistModal');
   const content = document.getElementById('wishlistModalContent');
@@ -2354,7 +2394,19 @@ function renderGroupCardBody(g) {
     ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
     ${g.warrantyUrl && !expired ? `<div class="mb-3"><a href="${g.warrantyUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-slate-50 to-gray-50 border-2 border-slate-300 text-slate-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-slate-100 hover:to-gray-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_warranty', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">🛡️ 保固網站</a></div>` : ''}
     ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${(g.url || '').replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
-    ${g.contacts && g.contacts.length > 0 && !expired ? `<div class="mb-3"><p class="text-xs text-gray-600 font-semibold mb-2">📞 客服管道</p><div class="contact-row">${g.contacts.map(c => `<a href="${smartContactHref(c.value)}" target="_blank" rel="noopener noreferrer" class="contact-btn" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_contact', {group_name: '${g.brand.replace(/'/g, "\\'")}', channel: '${c.name.replace(/'/g, "\\'")}', event_category: 'engagement'});}">${contactIcon(c.value)} <span>${c.name}</span></a>`).join('')}</div></div>` : ''}
+    ${(() => {
+      if (!g.contacts || g.contacts.length === 0 || expired) return '';
+      // 只有 1 個管道：全寬按鈕直接跳
+      if (g.contacts.length === 1) {
+        const c = g.contacts[0];
+        return `<div class="mb-3"><a href="${smartContactHref(c.value)}" target="_blank" rel="noopener noreferrer" `
+             + `onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_contact', {group_name: '${g.brand.replace(/'/g, "\\'")}', channel: '${c.name.replace(/'/g, "\\'")}', event_category: 'engagement'});}" `
+             + `class="w-full bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-300 text-emerald-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-emerald-100 hover:to-teal-100 transition-colors flex items-center justify-center gap-2">${contactIcon(c.value)} ${c.name} 客服</a></div>`;
+      }
+      // 2+ 個管道：點開 modal
+      return `<div class="mb-3"><button onclick="openContactModal('${g.brand.replace(/'/g, "\\'")}')" `
+           + `class="w-full bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-300 text-emerald-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-emerald-100 hover:to-teal-100 transition-colors flex items-center justify-center gap-2">📞 客服管道 (${g.contacts.length})</button></div>`;
+    })()}
     ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
       <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
       ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
@@ -2781,6 +2833,8 @@ window.showDayGroups = showDayGroups;
 window.toggleExpired = toggleExpired;
 window.openWishlistModal = openWishlistModal;
 window.closeWishlistModal = closeWishlistModal;
+window.openContactModal = openContactModal;
+window.closeContactModal = closeContactModal;
 window.switchCalendarMonth = switchCalendarMonth;
 window.addToGoogleCalendar = addToGoogleCalendar;
 window.addToAppleCalendar = addToAppleCalendar;
