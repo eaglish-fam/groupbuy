@@ -552,7 +552,7 @@
   align-items: center;
 }
 
-/* 國家鈕：22x22 真圓形（白底 + drop shadow，跟原型 share/wishlist 同視覺語言）。
+/* 國家鈕：22x22 真圓形，灰底對齊 share/wishlist。
    iOS Safari button UA style 會把 border-radius 蓋成圓角矩形，必須 appearance:none */
 .card-country-pill {
   display: inline-flex;
@@ -568,21 +568,19 @@
   padding: 0;
   -webkit-appearance: none;
   appearance: none;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.05);
   color: #57534e;                    /* stone-600 */
   font-family: inherit;
   font-size: 10px;
   line-height: 1;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+  transition: background-color 0.15s ease, transform 0.12s ease;
   -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
 }
 
 .card-country-pill:hover {
-  background: #ffffff;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .card-country-pill:active {
@@ -608,21 +606,19 @@
   padding: 0;
   -webkit-appearance: none;
   appearance: none;
-  background: rgba(255, 255, 255, 0.92);   /* 對齊原型：白底 + drop shadow，視覺明確圓鈕 */
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  background: rgba(0, 0, 0, 0.05);   /* 維持原本灰底 */
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.15s ease, transform 0.12s ease, box-shadow 0.15s ease;
+  transition: background-color 0.15s ease, transform 0.12s ease;
   -webkit-tap-highlight-color: transparent;
   flex-shrink: 0;
 }
 
 .wishlist-heart:hover,
 .card-share-btn:hover {
-  background: #ffffff;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.16);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 .wishlist-heart:active,
