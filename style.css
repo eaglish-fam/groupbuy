@@ -553,21 +553,26 @@
 }
 
 .countdown-time {
-  font-family: "SF Mono", ui-monospace, "JetBrains Mono", Menlo, Consolas, monospace;
-  font-weight: 600;
-  color: #6b4226;        /* coffee 棕，唯一暖色焦點 */
-  font-size: 30px;        /* 手機版放大，當主角 */
-  font-variant-numeric: tabular-nums;
-  font-feature-settings: "tnum" 1;
-  letter-spacing: 0.05em;
+  /* Apple 系統字體棧：iOS/macOS 走 SF Pro Display，其他系統 fallback 到對應 sans-serif */
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  font-weight: 500;       /* Medium：精緻不肥，跟 Apple Clock app 同等級 */
+  color: #6b4226;          /* coffee 棕，唯一暖色焦點 */
+  font-size: 32px;         /* 手機版主角 */
+  font-variant-numeric: tabular-nums lining-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1, "ss01" 1;   /* tabular + lining + 開 SF 替代字 */
+  letter-spacing: 0.02em;
   display: inline-flex;
   align-items: center;
   line-height: 1;
 }
 
 @media (min-width: 768px) {
-  .countdown-time { font-size: 26px; }
+  .countdown-time { font-size: 28px; letter-spacing: 0.03em; }
 }
+
+/* SF Pro Display 是 proportional font，數字位數寬度比 mono 略小，cell 也跟著調 */
+.digit-cell { width: 0.58em; }
+.cd-sep { width: 0.36em; }
 
 /* 數字旋轉容器：每個位數一個 cell，內含 0-9 stack，靠 transform 切換 */
 .digit-cell {
