@@ -2013,7 +2013,7 @@ async function loadData() {
             itemCategory: row['分類'] || row['Category'] || '',
             itemCountry: row['國家'] || row['Country'] || '',
             // 保固 / 官網（單一 URL）
-            warrantyUrl: row['官網'] || row['保固網站'] || row['Warranty'] || row['OfficialSite'] || '',
+            warrantyUrl: row['官網保固'] || row['官網'] || row['保固網站'] || row['Warranty'] || row['OfficialSite'] || '',
             // 客服管道（多行，name=value 一行一個，name 可以是 Email/LINE/電話/etc，value 系統會智慧判斷套對的 protocol）
             contacts: String(row['客服'] || row['Contact'] || row['Support'] || '').split(/\r?\n/).map(line => {
               const trimmed = line.trim();
