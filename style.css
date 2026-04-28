@@ -491,6 +491,40 @@
 }
 
 /* ============================================
+   客服管道按鈕列（Email / LINE / 電話 等）
+   ============================================ */
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.contact-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.04);
+  color: #374151;
+  font-size: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, transform 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.contact-btn:hover {
+  background: rgba(0, 0, 0, 0.08);
+  color: #111827;
+}
+
+.contact-btn:active {
+  transform: scale(0.95);
+}
+
+/* ============================================
    卡片動作列（分享 + 收藏，放在圖片下方的內容區頂部右側）
    ============================================ */
 .card-actions-row {

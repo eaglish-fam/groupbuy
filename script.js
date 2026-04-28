@@ -2012,6 +2012,18 @@ async function loadData() {
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
             itemCountry: row['國家'] || row['Country'] || '',
+            // 保固 / 官網（單一 URL）
+            warrantyUrl: row['官網'] || row['保固網站'] || row['Warranty'] || row['OfficialSite'] || '',
+            // 客服管道（多行，name=value 一行一個，name 可以是 Email/LINE/電話/etc，value 系統會智慧判斷套對的 protocol）
+            contacts: String(row['客服'] || row['Contact'] || row['Support'] || '').split(/\r?\n/).map(line => {
+              const trimmed = line.trim();
+              if (!trimmed) return null;
+              const eq = trimmed.search(/[=＝:：]/);
+              if (eq < 0) return null;
+              const name = trimmed.slice(0, eq).trim();
+              const value = trimmed.slice(eq + 1).trim();
+              return name && value ? { name, value } : null;
+            }).filter(Boolean),
             // 「通路」欄位：支援多通路 Linktree 模式
             // 格式：每行一個通路，name=url（也吃全形 ＝ 跟冒號 :／：）
             //   博客來=https://...
@@ -2191,6 +2203,39 @@ function shareCard(brand) {
   }
 }
 
+// 把純文字裡的 URL 轉成可點的超連結（用於「貼心說明」這類 free-form 欄位）
+function linkify(text) {
+  if (!text) return '';
+  // 先跳脫 HTML，避免使用者輸入的 <script> 等被執行
+  const escaped = String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  // 再把 http(s) URL 包成 <a>
+  return escaped.replace(
+    /(https?:\/\/[^\s<>"']+)/g,
+    '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;text-decoration:underline;word-break:break-all;">$1</a>'
+  );
+}
+
+// 客服欄位智慧 href：判斷是 email / phone / LINE OA / 一般 URL，自動套對的 protocol
+function smartContactHref(value) {
+  const v = String(value || '').trim();
+  if (!v) return '';
+  if (/^(https?|mailto|tel|line):/i.test(v)) return v;            // 已經是完整 URL
+  if (/^@/.test(v))                          return `https://line.me/R/ti/p/${encodeURIComponent(v)}`;  // LINE OA @xxx
+  if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(v))  return `mailto:${v}`;                                       // Email
+  if (/^[+\d][\d\-\s()]+$/.test(v))          return `tel:${v.replace(/[\s\-()]/g, '')}`;                 // 電話
+  if (/\./i.test(v))                         return v.startsWith('http') ? v : `https://${v}`;          // 看起來像 domain
+  return v;
+}
+
+// 客服按鈕的 emoji（純視覺輔助，不靠 SVG/外部 icon）
+function contactIcon(value) {
+  const href = smartContactHref(value);
+  if (href.startsWith('mailto:')) return '✉️';
+  if (href.startsWith('tel:'))    return '📞';
+  if (/line\.me/i.test(href))     return '💬';
+  return '🔗';
+}
+
 // 卡片動作列（分享 + 收藏 一組，放在內容區頂部右側）
 function renderCardActions(brand) {
   if (!brand) return '';
@@ -2292,9 +2337,11 @@ function renderGroupCardBody(g) {
       ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
     </div>
     ${countdown}
-    ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
+    ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900" style="white-space: pre-wrap;">${linkify(g.note)}</p></div>` : ''}
     ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
+    ${g.warrantyUrl && !expired ? `<div class="mb-3"><a href="${g.warrantyUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-slate-50 to-gray-50 border-2 border-slate-300 text-slate-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-slate-100 hover:to-gray-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_warranty', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">🌐 官網</a></div>` : ''}
     ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${(g.url || '').replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
+    ${g.contacts && g.contacts.length > 0 && !expired ? `<div class="mb-3"><p class="text-xs text-gray-600 font-semibold mb-2">📞 客服管道</p><div class="contact-row">${g.contacts.map(c => `<a href="${smartContactHref(c.value)}" target="_blank" rel="noopener noreferrer" class="contact-btn" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_contact', {group_name: '${g.brand.replace(/'/g, "\\'")}', channel: '${c.name.replace(/'/g, "\\'")}', event_category: 'engagement'});}">${contactIcon(c.value)} <span>${c.name}</span></a>`).join('')}</div></div>` : ''}
     ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
       <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
       ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
