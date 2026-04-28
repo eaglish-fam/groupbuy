@@ -1523,17 +1523,14 @@ function addBothToGoogleCalendar(brand, startDate, endDate, url) {
   }, 500);
 }
 
-// 把全部仍未截止的短期團購打包成一份 .ics（每團 開團+截止 各一筆 VEVENT）
-function addAllToAppleCalendar() {
+// 把全部仍未截止的短期團購打包成 ics 字串 + Blob，回傳 { blob, count } 或 null
+function _buildAllGroupsIcs() {
   const today = new Date(); today.setHours(0, 0, 0, 0);
   const upcoming = (state.groups || []).filter(g =>
     g && g.category !== '長期' && g.endDate && !utils.isExpired(g.endDate)
   );
 
-  if (upcoming.length === 0) {
-    alert('目前沒有未截止的限時團購可訂閱');
-    return;
-  }
+  if (upcoming.length === 0) return null;
 
   const events = [];
   upcoming.forEach((g, idx) => {
@@ -1585,10 +1582,7 @@ function addAllToAppleCalendar() {
     }
   });
 
-  if (events.length === 0) {
-    alert('目前沒有未截止的限時團購可訂閱');
-    return;
-  }
+  if (events.length === 0) return null;
 
   const ics = [
     'BEGIN:VCALENDAR',
@@ -1602,16 +1596,37 @@ function addAllToAppleCalendar() {
   ].join('\r\n');
 
   const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+  return { blob, count: events.length };
+}
+
+function _downloadIcsBlob(blob, filename) {
   const link = document.createElement('a');
   link.href = URL.createObjectURL(blob);
-  link.download = 'eaglish_全部開團.ics';
+  link.download = filename;
   document.body.appendChild(link);
   link.click();
   document.body.removeChild(link);
   setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+}
 
+// 只在 Apple Safari（iOS / macOS）露出「訂閱全部開團」按鈕：.ics 在這兩個環境直通 Apple Calendar，
+// 其他瀏覽器沒有乾淨的 batch 路徑，留按鈕只會讓人困惑
+function _isAppleSafari() {
+  const ua = navigator.userAgent;
+  const isIOS = /iPad|iPhone|iPod/.test(ua);
+  const isSafari = /^((?!chrome|android).)*safari/i.test(ua);
+  return isSafari && (isIOS || /Macintosh/.test(ua));
+}
+
+function subscribeAllGroups() {
+  const built = _buildAllGroupsIcs();
+  if (!built) {
+    alert('目前沒有未截止的限時團購可訂閱');
+    return;
+  }
+  _downloadIcsBlob(built.blob, 'eaglish_全部開團.ics');
   if (typeof gtag !== 'undefined') {
-    gtag('event', 'subscribe_all_calendar', { event_category: 'engagement', value: events.length });
+    gtag('event', 'subscribe_all_calendar', { event_category: 'engagement', value: built.count });
   }
 }
 
@@ -2818,11 +2833,11 @@ function renderContent() {
     `<section id="calendar" class="scroll-mt-24 md:scroll-mt-28 mb-6">
        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🗓️ 團購行事曆</h2>
        <div class="bg-white rounded-xl p-4 border-2 border-amber-200">
-         <div class="mb-4 flex justify-center">
-           <button onclick="addAllToAppleCalendar()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-amber-600 text-white font-semibold hover:bg-amber-700 active:scale-95 transition shadow-sm">
+         ${_isAppleSafari() ? `<div class="mb-4 flex justify-center">
+           <button onclick="subscribeAllGroups()" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-amber-600 text-white font-semibold hover:bg-amber-700 active:scale-95 transition shadow-sm">
              <span>📅</span><span>訂閱全部開團</span>
            </button>
-         </div>
+         </div>` : ''}
          <div class="flex gap-2 mb-4 justify-center">
            <button onclick="switchCalendarMonth(0)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 0 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m1}月</button>
            <button onclick="switchCalendarMonth(1)" class="px-4 py-2 rounded-lg font-medium ${state.selectedCalendarMonth === 1 ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200'}">${m2}月</button>
@@ -2938,6 +2953,7 @@ window.addToAppleCalendar = addToAppleCalendar;
 window.addBothToGoogleCalendar = addBothToGoogleCalendar;
 window.addBothToAppleCalendar = addBothToAppleCalendar;
 window.showCalendarChoice = showCalendarChoice;
+window.subscribeAllGroups = subscribeAllGroups;
 window.setFilter = setFilter;
 
 window.shareWebsite = shareWebsite;
