@@ -491,6 +491,59 @@
 }
 
 /* ============================================
+   客服按鈕 — 霧面墨綠（refined sage，不刺眼）
+   ============================================ */
+.contact-button {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  background: linear-gradient(to right, #f1f5ec, #e6ede0);
+  border: 1.5px solid #a3b89c;
+  color: #2e4a32;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+  font-family: inherit;
+}
+
+.contact-button:hover {
+  background: linear-gradient(to right, #e6ede0, #d8e2cf);
+  border-color: #7d9876;
+}
+
+.contact-button:active {
+  transform: scale(0.98);
+}
+
+/* Modal 內 — 大 row 樣式 */
+.contact-modal-row {
+  display: block;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: linear-gradient(to right, #f1f5ec, #e6ede0);
+  border: 1.5px solid #a3b89c;
+  color: #2e4a32;
+  text-decoration: none;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.contact-modal-row:hover {
+  background: linear-gradient(to right, #e6ede0, #d8e2cf);
+  border-color: #7d9876;
+}
+
+.contact-modal-row .row-icon { font-size: 24px; }
+.contact-modal-row .row-name { font-weight: 700; font-size: 15px; }
+.contact-modal-row .row-value { font-size: 12px; color: #587158; word-break: break-all; }
+
+/* ============================================
    客服管道按鈕列（Email / LINE / 電話 等）
    ============================================ */
 .contact-row {
