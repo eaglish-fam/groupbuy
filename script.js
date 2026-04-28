@@ -2014,15 +2014,28 @@ async function loadData() {
             itemCountry: row['國家'] || row['Country'] || '',
             // 保固 / 官網（單一 URL）
             warrantyUrl: row['官網保固'] || row['官網'] || row['保固網站'] || row['Warranty'] || row['OfficialSite'] || '',
-            // 客服管道（多行，name=value 一行一個，name 可以是 Email/LINE/電話/etc，value 系統會智慧判斷套對的 protocol）
+            // 客服管道（多行）。兩種寫法都吃：
+            //   1. name=value（明確命名，例 LINE=@kidsread）
+            //   2. 純值（系統自動判斷類型）：
+            //      @kidsread       → LINE
+            //      x@y.com         → Email
+            //      02-1234-5678    → 電話
+            //      https://...     → 官方網站
             contacts: String(row['客服'] || row['Contact'] || row['Support'] || '').split(/\r?\n/).map(line => {
               const trimmed = line.trim();
               if (!trimmed) return null;
               const eq = trimmed.search(/[=＝:：]/);
-              if (eq < 0) return null;
-              const name = trimmed.slice(0, eq).trim();
-              const value = trimmed.slice(eq + 1).trim();
-              return name && value ? { name, value } : null;
+              if (eq >= 0) {
+                const name = trimmed.slice(0, eq).trim();
+                const value = trimmed.slice(eq + 1).trim();
+                return name && value ? { name, value } : null;
+              }
+              // 沒分隔符 → 自動判斷類型 + 自動取名
+              if (/^@/.test(trimmed))                              return { name: 'LINE', value: trimmed };
+              if (/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(trimmed))      return { name: 'Email', value: trimmed };
+              if (/^[+\d][\d\-\s()]+$/.test(trimmed))              return { name: '電話', value: trimmed };
+              if (/^https?:\/\//i.test(trimmed))                   return { name: '官方網站', value: trimmed };
+              return null;
             }).filter(Boolean),
             // 「通路」欄位：支援多通路 Linktree 模式
             // 格式：每行一個通路，name=url（也吃全形 ＝ 跟冒號 :／：）
