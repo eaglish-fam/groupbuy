@@ -493,63 +493,27 @@
 /* ============================================
    今日截止倒數 — Apple Coffee 風（冷調 stone 底 + 咖啡棕焦點 + 旋轉數字）
    ============================================ */
+/* 狹長帶：純時間 + 品牌 chip，沒 label 沒 emoji，self-evident */
 .countdown-banner {
   background: #fafaf9;                   /* stone-50 — 冷調米白 */
   border: 1px solid #e7e5e4;             /* stone-200 — 細邊幾乎透明 */
-  border-radius: 14px;
-  padding: 16px 18px;
+  border-radius: 12px;
+  padding: 10px 18px;                    /* 收薄上下 padding 變狹長帶 */
   margin-bottom: 16px;
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  align-items: center;
+  gap: 8px;
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 @media (min-width: 768px) {
   .countdown-banner {
     flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 16px 22px;
+    justify-content: center;             /* 整列置中 */
+    gap: 24px;
+    padding: 12px 24px;
   }
-}
-
-/* 手機版 head：垂直堆疊置中（label 在上、時間在下大字置中）
-   桌面版：水平排列（label 跟時間並排） */
-.countdown-head {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-}
-
-@media (min-width: 768px) {
-  .countdown-head {
-    flex-direction: row;
-    gap: 14px;
-    flex-shrink: 0;
-  }
-}
-
-/* meta = icon + label 一組 */
-.countdown-meta {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.countdown-icon {
-  font-size: 16px;
-  opacity: 0.65;
-}
-
-.countdown-label {
-  font-weight: 600;
-  color: #57534e;        /* stone-600 — 比之前 700 再淡一階，當 caption 更合適 */
-  font-size: 13px;
-  letter-spacing: 0.04em;
-  text-transform: none;
 }
 
 .countdown-time {
@@ -557,7 +521,7 @@
   font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
   font-weight: 500;       /* Medium：精緻不肥，跟 Apple Clock app 同等級 */
   color: #6b4226;          /* coffee 棕，唯一暖色焦點 */
-  font-size: 32px;         /* 手機版主角 */
+  font-size: 28px;         /* 收薄帶後微縮 */
   font-variant-numeric: tabular-nums lining-nums;
   font-feature-settings: "tnum" 1, "lnum" 1, "ss01" 1;   /* tabular + lining + 開 SF 替代字 */
   letter-spacing: 0.02em;
@@ -567,7 +531,7 @@
 }
 
 @media (min-width: 768px) {
-  .countdown-time { font-size: 28px; letter-spacing: 0.03em; }
+  .countdown-time { font-size: 24px; letter-spacing: 0.03em; }
 }
 
 /* SF Pro Display 是 proportional font，數字位數寬度比 mono 略小，cell 也跟著調 */

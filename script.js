@@ -953,14 +953,8 @@ function renderTodayCountdown() {
   const more = deadlines.length > 4 ? `<span class="countdown-more">+${deadlines.length - 4}</span>` : '';
 
   return `
-    <div id="todayCountdown" class="countdown-banner">
-      <div class="countdown-head">
-        <div class="countdown-meta">
-          <span class="countdown-icon">⏰</span>
-          <span class="countdown-label">今日截止</span>
-        </div>
-        <span class="countdown-time" id="countdownDigits" aria-label="剩餘時間">${buildCountdownDigits(timeLeft)}</span>
-      </div>
+    <div id="todayCountdown" class="countdown-banner" role="region" aria-label="今日截止倒數">
+      <span class="countdown-time" id="countdownDigits" aria-label="剩餘 ${timeLeft}">${buildCountdownDigits(timeLeft)}</span>
       <div class="countdown-chips">${chips}${more}</div>
     </div>
   `;
