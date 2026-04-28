@@ -964,9 +964,8 @@ function renderTodayCountdown() {
 // 設計：
 // 1. hero card 自己也帶 data-brand，querySelectorAll 後跳過 .hero-card（不然原地不動）
 // 2. 錨點優先用 section h2（視覺上「標題在上、內容在下」最直觀），fallback section / card
-// 3. 用 window.scrollTo + 固定 px offset（手機 100、桌機 130）算落點
-//    比 scrollIntoView({ block: 'start' }) + scroll-mt 穩，因為 header 展開狀態可能 200px+
-//    而 scroll-mt 是寫死的，無法適配 expand vs collapsed
+// 3. offset 動態抓 header.getBoundingClientRect().height + 8（同 scrollToSection 邏輯）
+//    這樣 header 展開 / 收折狀態都會自動適配，不用寫死 px 在不同場景失準
 function scrollToCard(brand) {
   if (!brand) return;
   const els = document.querySelectorAll(`[data-brand="${CSS.escape(brand)}"]`);
@@ -975,8 +974,9 @@ function scrollToCard(brand) {
 
   const section = card.closest('section[id]');
   const anchor = section?.querySelector('h2, h3') || section || card;
-  const headerOffset = window.matchMedia('(max-width: 767px)').matches ? 130 : 160;
-  const targetY = anchor.getBoundingClientRect().top + window.scrollY - headerOffset;
+  const header = document.querySelector('header');
+  const headerH = header ? header.getBoundingClientRect().height : 0;
+  const targetY = anchor.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
   window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
 
   card.classList.add('card-highlighted');
@@ -2391,11 +2391,12 @@ function applyUrlParams() {
     const els = document.querySelectorAll(`[data-brand="${CSS.escape(brand)}"]`);
     const el = Array.from(els).find(e => !e.classList.contains('hero-card'));
     if (!el) return;
-    // 同 scrollToCard 邏輯：抓 section h2 當錨點 + 固定 px offset，避免 header 遮
+    // 同 scrollToCard 邏輯：抓 section h2 當錨點 + 動態 header 高度
     const section = el.closest('section[id]');
     const anchor = section?.querySelector('h2, h3') || section || el;
-    const headerOffset = window.matchMedia('(max-width: 767px)').matches ? 130 : 160;
-    const targetY = anchor.getBoundingClientRect().top + window.scrollY - headerOffset;
+    const header = document.querySelector('header');
+    const headerH = header ? header.getBoundingClientRect().height : 0;
+    const targetY = anchor.getBoundingClientRect().top + window.pageYOffset - headerH - 8;
     window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
     el.classList.add('card-highlighted');
     setTimeout(() => el.classList.remove('card-highlighted'), 2500);
