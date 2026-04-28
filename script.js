@@ -1393,60 +1393,54 @@ function showCalendarChoice(title, date, url, description, isBoth, brand, startD
   document.body.insertAdjacentHTML('beforeend', modal);
 }
 
-function addToGoogleCalendar(title, date, url, description) {
-  const formatDate = (dateStr) => {
-    if (!dateStr) return '';
-    const d = utils.parseDateSafe(dateStr);
-    if (!d) return '';
-    
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    
-    return `${year}${month}${day}T235900`;
+// 行事曆事件預設時間：早上 08:00，持續 1 小時（最容易讓使用者實際打開購物的時段）
+function formatCalendarTimes(dateStr, hour = 8, durationHours = 1) {
+  if (!dateStr) return null;
+  const d = utils.parseDateSafe(dateStr);
+  if (!d) return null;
+  const year = d.getFullYear();
+  const month = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  const sh = String(hour).padStart(2, '0');
+  const eh = String(hour + durationHours).padStart(2, '0');
+  return {
+    start: `${year}${month}${day}T${sh}0000`,
+    end:   `${year}${month}${day}T${eh}0000`
   };
-  
-  const dateFormatted = formatDate(date);
-  
+}
+
+function addToGoogleCalendar(title, date, url, description) {
+  const t = formatCalendarTimes(date);
+  if (!t) return;
+
   let desc = description || '🛒 鷹家Fun生買物社團購';
   if (url) {
     desc += `\n\n🔗 團購連結：${url}`;
   }
-  
-  const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${dateFormatted}/${dateFormatted}&details=${encodeURIComponent(desc)}&trp=false`;
-  
+
+  const calendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(title)}&dates=${t.start}/${t.end}&details=${encodeURIComponent(desc)}&trp=false`;
+
   window.open(calendarUrl, '_blank', 'noopener,noreferrer');
 }
 
 function addToAppleCalendar(title, date, url, description) {
-  const formatDate = (dateStr) => {
-    if (!dateStr) return '';
-    const d = utils.parseDateSafe(dateStr);
-    if (!d) return '';
-    
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    
-    return `${year}${month}${day}T235900`;
-  };
-  
-  const dateFormatted = formatDate(date);
-  
+  const t = formatCalendarTimes(date);
+  if (!t) return;
+
   let desc = description || '🛒 鷹家Fun生買物社團購';
   if (url) {
     desc += '\\n\\n🔗 團購連結：' + url;
   }
-  
+
   const icalContent = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
     'PRODID:-//鷹家Fun生買物社//NONSGML Event//EN',
     'BEGIN:VEVENT',
     `UID:${Date.now()}-${Math.random().toString(36).substr(2, 9)}@eaglish.store`,
-    `DTSTAMP:${dateFormatted}`,
-    `DTSTART:${dateFormatted}`,
-    `DTEND:${dateFormatted}`,
+    `DTSTAMP:${t.start}`,
+    `DTSTART:${t.start}`,
+    `DTEND:${t.end}`,
     `SUMMARY:${title}`,
     `DESCRIPTION:${desc}`,
     'STATUS:CONFIRMED',
@@ -1490,39 +1484,28 @@ function addBothToGoogleCalendar(brand, startDate, endDate, url) {
 }
 
 function addBothToAppleCalendar(brand, startDate, endDate, url) {
-  const formatDate = (dateStr) => {
-    if (!dateStr) return '';
-    const d = utils.parseDateSafe(dateStr);
-    if (!d) return '';
-    
-    const year = d.getFullYear();
-    const month = String(d.getMonth() + 1).padStart(2, '0');
-    const day = String(d.getDate()).padStart(2, '0');
-    
-    return `${year}${month}${day}T235900`;
-  };
-  
-  const startFormatted = formatDate(startDate);
-  const endFormatted = formatDate(endDate);
-  
+  const startT = formatCalendarTimes(startDate);
+  const endT   = formatCalendarTimes(endDate);
+  if (!startT || !endT) return;
+
   const icalContent = [
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
     'PRODID:-//鷹家Fun生買物社//NONSGML Event//EN',
     'BEGIN:VEVENT',
     `UID:${Date.now()}-start@eaglish.store`,
-    `DTSTAMP:${startFormatted}`,
-    `DTSTART:${startFormatted}`,
-    `DTEND:${startFormatted}`,
+    `DTSTAMP:${startT.start}`,
+    `DTSTART:${startT.start}`,
+    `DTEND:${startT.end}`,
     `SUMMARY:${brand} - 開團`,
     `DESCRIPTION:🎉 團購開始！\\n\\n🔗 團購連結：${url || ''}`,
     'STATUS:CONFIRMED',
     'END:VEVENT',
     'BEGIN:VEVENT',
     `UID:${Date.now()}-end@eaglish.store`,
-    `DTSTAMP:${endFormatted}`,
-    `DTSTART:${endFormatted}`,
-    `DTEND:${endFormatted}`,
+    `DTSTAMP:${endT.start}`,
+    `DTSTART:${endT.start}`,
+    `DTEND:${endT.end}`,
     `SUMMARY:${brand} - 截止`,
     `DESCRIPTION:⏰ 今天是最後一天！記得下單\\n\\n🔗 團購連結：${url || ''}`,
     'STATUS:CONFIRMED',
@@ -2585,6 +2568,7 @@ function renderContent() {
 
   elements.content.innerHTML =
     `<div class="mb-6 flex gap-3 items-center flex-wrap">
+       ${state.searchTerm ? `<span class="text-sm text-gray-700 bg-gray-100 px-3 py-1.5 rounded-lg">找到 <strong class="text-amber-700">${filtered.length}</strong> 筆「${state.searchTerm}」</span>` : ''}
        ${wishlistItems.length ? `<button onclick="openWishlistModal()" class="px-4 py-2 rounded-lg font-medium bg-white text-gray-700 border-2 border-gray-200 hover:bg-gray-50 transition-colors inline-flex items-center" style="gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>我的收藏 (${wishlistItems.length})</span></button>` : ''}
        ${state.hasActiveFilters ? `<button onclick="clearAllFilters()" class="filter-clear-btn px-4 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors flex items-center gap-2">
          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
