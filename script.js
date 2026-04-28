@@ -1167,6 +1167,9 @@ function initStickyHeader() {
   const header = document.querySelector('header');
   if (!header) return;
 
+  // 只在手機（<768px）跑收折；桌面/平板強制展開（避免 logo 收掉造成 layout 抖動）
+  const isMobile = () => window.matchMedia('(max-width: 767px)').matches;
+
   let scrollPending = false;
 
   window.addEventListener('scroll', () => {
@@ -1174,6 +1177,16 @@ function initStickyHeader() {
     scrollPending = true;
     requestAnimationFrame(() => {
       scrollPending = false;
+
+      // 桌面/平板不收折；如果先前是 mobile 切換過來、殘留 compact，主動清掉
+      if (!isMobile()) {
+        if (isHeaderCompact) {
+          header.classList.remove('header-compact');
+          isHeaderCompact = false;
+        }
+        return;
+      }
+
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 
       // 網格展開時不切 compact，避免 header 高度動態變化跟 scroll 互踢造成抖動
@@ -1199,6 +1212,14 @@ function initStickyHeader() {
 
       lastScrollTop = scrollTop;
     });
+  }, { passive: true });
+
+  // 視窗 resize 從手機 → 桌面/平板時，主動清掉 compact，避免狀態殘留
+  window.addEventListener('resize', () => {
+    if (!isMobile() && isHeaderCompact) {
+      header.classList.remove('header-compact');
+      isHeaderCompact = false;
+    }
   }, { passive: true });
 }
 
