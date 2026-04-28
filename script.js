@@ -2523,7 +2523,7 @@ function renderHeroBanner(items) {
 
     const inner = `${imgSrc ? `<img src="${imgSrc}" alt="${item.brand}" ${isFirst ? 'fetchpriority="high"' : ''} loading="${isFirst ? 'eager' : 'lazy'}">` : `<div class="hero-card-placeholder">📌</div>`}
       <div class="hero-overlay">
-        <span class="hero-badge">📌 編輯精選</span>
+        <span class="hero-badge">📌 精選</span>
         <div class="hero-info">
           <h2 class="hero-title">${item.brand}</h2>
           ${item.description ? `<p class="hero-desc">${item.description}</p>` : ''}
