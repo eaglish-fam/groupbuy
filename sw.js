@@ -1,11 +1,10 @@
-const CACHE_NAME = 'eaglish-v7.4';
+const CACHE_NAME = 'eaglish-v7.5';
 const urlsToCache = [
   '/',
   '/index.html',
   '/toolbox.html',
   '/style.css',
   '/tailwind.css',
-  '/theme-fresh-comfortable.css',
   '/script.js',
   '/logo-horizontal.jpg',
   '/icons/web-app-manifest-192x192.png',

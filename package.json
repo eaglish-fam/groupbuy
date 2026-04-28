@@ -1,0 +1,13 @@
+{
+  "name": "groupbuy",
+  "private": true,
+  "version": "1.0.0",
+  "description": "鷹家 Fun 生買物社 - 團購頁",
+  "scripts": {
+    "build:css": "tailwindcss -i src/tailwind-input.css -o tailwind.css --minify",
+    "watch:css": "tailwindcss -i src/tailwind-input.css -o tailwind.css --watch"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
+  }
+}
