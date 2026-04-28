@@ -645,12 +645,12 @@ function openContactModal(brand) {
   body.innerHTML = group.contacts.map(c => `
     <a href="${smartContactHref(c.value)}" target="_blank" rel="noopener noreferrer"
        onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_contact', {group_name: '${brand.replace(/'/g, "\\'")}', channel: '${c.name.replace(/'/g, "\\'")}', source: 'modal', event_category: 'engagement'});} closeContactModal();"
-       class="block w-full px-4 py-3 bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-200 text-emerald-800 rounded-lg font-medium hover:from-emerald-100 hover:to-teal-100 transition-all">
-      <div class="flex items-center gap-3">
-        <span style="font-size: 24px;">${contactIcon(c.value)}</span>
-        <div class="flex-1 min-w-0">
-          <div class="font-bold">${c.name}</div>
-          <div class="text-xs text-emerald-700/70 break-all">${c.value}</div>
+       class="contact-modal-row">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <span class="row-icon">${contactIcon(c.value)}</span>
+        <div style="flex:1;min-width:0;">
+          <div class="row-name">${c.name}</div>
+          <div class="row-value">${c.value}</div>
         </div>
       </div>
     </a>
@@ -2521,11 +2521,11 @@ function renderGroupCardBody(g) {
         const c = g.contacts[0];
         return `<div class="mb-3"><a href="${smartContactHref(c.value)}" target="_blank" rel="noopener noreferrer" `
              + `onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_contact', {group_name: '${g.brand.replace(/'/g, "\\'")}', channel: '${c.name.replace(/'/g, "\\'")}', event_category: 'engagement'});}" `
-             + `class="w-full bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-300 text-emerald-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-emerald-100 hover:to-teal-100 transition-colors flex items-center justify-center gap-2">${contactIcon(c.value)} ${c.name} 客服</a></div>`;
+             + `class="contact-button">${contactIcon(c.value)} ${c.name} 客服</a></div>`;
       }
       // 2+ 個管道：點開 modal
       return `<div class="mb-3"><button onclick="openContactModal('${g.brand.replace(/'/g, "\\'")}')" `
-           + `class="w-full bg-gradient-to-r from-emerald-50 to-teal-50 border-2 border-emerald-300 text-emerald-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-emerald-100 hover:to-teal-100 transition-colors flex items-center justify-center gap-2">📞 客服管道 (${g.contacts.length})</button></div>`;
+           + `class="contact-button">📞 客服管道 (${g.contacts.length})</button></div>`;
     })()}
     ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
       <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
