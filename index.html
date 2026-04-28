@@ -47,7 +47,6 @@
 
   <!-- 樣式 -->
   <link rel="stylesheet" href="tailwind.css">
-  <link rel="stylesheet" href="theme-fresh-comfortable.css">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha384-D/t0ZMqQW31H3az8ktEiNb39wyKnS82iFY52QPACM+IjKW3jDUhyIgh2PApRqJZs" crossorigin="anonymous"></script>
   
@@ -79,58 +78,7 @@
     ]
   }
   </script>
-  
-  <style>
-    /* 隱藏滾動條但保持可滾動 */
-    .scrollbar-hide {
-      -ms-overflow-style: none;
-      scrollbar-width: none;
-    }
-    
-    .scrollbar-hide::-webkit-scrollbar {
-      display: none;
-    }
-    
-    /* 側邊欄樣式 */
-    #desktopSidebar {
-      scrollbar-width: thin;
-      scrollbar-color: #d4a88f #f1f1f1;
-    }
-    
-    #desktopSidebar::-webkit-scrollbar {
-      width: 6px;
-    }
-    
-    #desktopSidebar::-webkit-scrollbar-track {
-      background: #f1f1f1;
-    }
-    
-    #desktopSidebar::-webkit-scrollbar-thumb {
-      background: #d4a88f;
-      border-radius: 3px;
-    }
-    
-    /* 側邊欄展開狀態 */
-    #desktopSidebar.open {
-      transform: translateX(0);
-    }
-    
-    #sidebarOverlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-	  
-    /* 按鈕展開動畫 */
-    .filter-expand {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.3s ease-out;
-    }
-    
-    .filter-expand.active {
-      max-height: 500px;
-    }
-  </style>
+
 </head>
 <body class="bg-white min-h-screen">
   <header class="bg-white/80 backdrop-blur-sm border-b border-amber-200 sticky top-0 z-30">
