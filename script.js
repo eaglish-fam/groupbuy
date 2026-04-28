@@ -611,7 +611,7 @@ const elements = {
   desktopCountryFilters: document.getElementById('desktopCountryFilters')
 };
 
-// ============ 收藏功能（localStorage 持久化）============
+// ============ 收藏功能（localStorage 持久化 + Modal）============
 function toggleWishlist(brand) {
   if (!brand) return;
   const wasIn = state.wishlist.has(brand);
@@ -629,6 +629,42 @@ function toggleWishlist(brand) {
   }
 
   renderContent();
+  refreshWishlistModal();   // modal 開著就同步刷新
+}
+
+function refreshWishlistModal() {
+  const modal = document.getElementById('wishlistModal');
+  const content = document.getElementById('wishlistModalContent');
+  if (!modal || !content || modal.classList.contains('hidden')) return;
+  const items = state.groups.filter(g => state.wishlist.has(g.brand));
+  if (items.length === 0) {
+    content.innerHTML = `<div class="text-center py-12 px-6 text-gray-500">
+      <p class="text-base">還沒收藏任何商品</p>
+      <p class="text-sm text-gray-400 mt-2">在卡片上點 ❤️ 加入收藏</p>
+    </div>`;
+  } else {
+    content.innerHTML = `<div class="masonry-grid">${items.map(renderWishlistCard).join('')}</div>`;
+  }
+}
+
+function openWishlistModal() {
+  const modal = document.getElementById('wishlistModal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+  refreshWishlistModal();
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'open_wishlist_modal', { count: state.wishlist.size, event_category: 'engagement' });
+  }
+}
+
+function closeWishlistModal() {
+  const modal = document.getElementById('wishlistModal');
+  if (!modal) return;
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = '';
 }
 
 // ============ 篩選功能 ============
@@ -2234,22 +2270,21 @@ function renderUpcomingSearchCard(g) {
     </div>`;
 }
 
-function renderGroupCard(g) {
+// 卡片本體（標題以下：描述、動作、tags、倒數、備註、網誌、文件、QA、影片、折扣碼、行事曆）+ CTA
+// 抽出成 helper，renderGroupCard 跟 renderWishlistCard（展開區）共用
+function renderGroupCardBody(g) {
   const daysLeft = utils.getDaysLeft(g.endDate);
   const expired = utils.isExpired(g.endDate);
   const qaList = g.qa && utils.isQA(g.qa) ? utils.parseQA(g.qa) : [];
   const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
 
-  // 處理複選的分類和國家
   const categories = g.itemCategory ? g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
   const countries = g.itemCountry ? g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(c => c) : [];
 
-  // 生成分類標籤（可點 → 套上分類篩選）
   const categoryTags = categories.map(cat =>
     `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${cat}</button>`
   ).join('');
 
-  // 生成國家標籤（可點 → 套上國家篩選；前面加旗幟）
   const countryTags = countries.map(country =>
     `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${utils.getCountryFlag(country)} ${country}</button>`
   ).join('');
@@ -2262,82 +2297,53 @@ function renderGroupCard(g) {
        </div>`
     : '';
 
+  const body = `
+    ${g.description ? `<p class="text-base md:text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-3">${g.description}</p>` : ''}
+    ${renderCardActions(g.brand)}
+    <div class="flex flex-wrap gap-2 mb-3">
+      ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
+      ${categoryTags}
+      ${countryTags}
+      ${g.tag ? `<span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">${g.tag}</span>` : ''}
+      ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
+      ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
+    </div>
+    ${countdown}
+    ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
+    ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
+    ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${(g.url || '').replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
+    ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
+      <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
+      ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
+    </details>` : ''}
+    ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
+    ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
+    ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url || ''}', '⏰ 今天是最後一天!記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
+  `;
+
+  const cta = (g.retailers && g.retailers.length > 0)
+    ? `<div class="retailer-buttons">${g.retailers.map(r => `<a href="${r.url}" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_retailer', {retailer: '${(r.name || '').replace(/'/g, "\\'")}', group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'conversion'});}">${r.name}</a>`).join('')}</div>`
+    : (g.url ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', group_category: '${g.category}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}" class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>` : '');
+
+  return { body, cta, expired };
+}
+
+function renderGroupCard(g) {
+  const { body, cta, expired } = renderGroupCardBody(g);
   return `
     <div class="masonry-card ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="masonry-card-content p-5">
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
-        ${g.description ? `<p class="text-base md:text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-3">${g.description}</p>` : ''}
-        ${renderCardActions(g.brand)}
-        <div class="flex flex-wrap gap-2 mb-3">
-          ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
-          ${categoryTags}
-          ${countryTags}
-          ${g.tag ? `<span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">${g.tag}</span>` : ''}
-          ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
-          ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
-        </div>
-        ${countdown}
-        
-        <!-- 純文字備註 -->
-        ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900">${g.note}</p></div>` : ''}
-        
-        <!-- 網誌連結 (獨立欄位，新分頁開啟) -->
-        ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
-
-        <!-- Google 文件介紹 (Modal 彈窗) -->
-        ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${g.url.replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
-
-        <!-- QA (獨立欄位) -->
-        ${qaList.length > 0 && !expired ? `<details class="mb-3 bg-indigo-50 border-2 border-indigo-200 rounded-lg p-3">
-          <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
-          ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
-        </details>` : ''}
-
-        ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
-        ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
-        ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天!記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
-        ${g.retailers && g.retailers.length > 0 ? `
-        <div class="retailer-buttons">
-          ${g.retailers.map(r => `<a href="${r.url}" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_retailer', {retailer: '${(r.name || '').replace(/'/g, "\\'")}', group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'conversion'});}">${r.name}</a>`).join('')}
-        </div>
-        ` : `<a href="${g.url}" target="_blank" rel="noopener noreferrer"
-           onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', group_category: '${g.category}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
-           class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>`}
+        ${body}
+        ${cta}
       </div>
     </div>`;
 }
 
-// 收藏頁面專用：精簡卡（圖+標題+CTA），其他塞 details 展開
+// 收藏頁面專用：精簡卡（圖+標題+CTA）+ 展開後是「跟一般卡片一樣的完整內容」
 function renderWishlistCard(g) {
-  const expired = utils.isExpired(g.endDate);
-  const openClass = expired
-    ? 'from-gray-400 to-gray-500'
-    : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
-
-  // CTA：跟原卡片一樣的邏輯（多通路 → Linktree；單一連結 → 立即前往）
-  let cta = '';
-  if (g.retailers && g.retailers.length > 0) {
-    cta = `<div class="retailer-buttons">${g.retailers.map(r =>
-      `<a href="${r.url}" target="_blank" rel="noopener noreferrer" `
-      + `onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_retailer', {retailer: '${(r.name || '').replace(/'/g, "\\'")}', group_name: '${g.brand.replace(/'/g, "\\'")}', source: 'wishlist', event_category: 'conversion'});}">${r.name}</a>`
-    ).join('')}</div>`;
-  } else if (g.url) {
-    cta = `<a href="${g.url}" target="_blank" rel="noopener noreferrer" `
-        + `onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', source: 'wishlist', event_category: 'conversion'});}" `
-        + `class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>`;
-  }
-
-  // 展開區塊塞描述 + tags + 動作按鈕
-  const categories = g.itemCategory ? g.itemCategory.split(/[,，]/).map(c => c.trim()).filter(Boolean) : [];
-  const countries = g.itemCountry ? g.itemCountry.split(/[,，]/).map(c => c.trim()).filter(Boolean) : [];
-  const tagHtml = [
-    ...categories.map(cat =>
-      `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${cat}</button>`),
-    ...countries.map(c =>
-      `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${c.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${c}">${utils.getCountryFlag(c)} ${c}</button>`)
-  ].join('');
-
+  const { body, cta, expired } = renderGroupCardBody(g);
   return `
     <div class="masonry-card wishlist-compact ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
@@ -2346,11 +2352,7 @@ function renderWishlistCard(g) {
         ${cta}
         <details class="wishlist-expand">
           <summary>查看更多</summary>
-          <div class="wishlist-expand-body">
-            ${g.description ? `<p class="text-sm text-gray-700 leading-6 mb-3">${g.description}</p>` : ''}
-            ${tagHtml ? `<div class="flex flex-wrap gap-2 mb-3">${tagHtml}</div>` : ''}
-            ${renderCardActions(g.brand)}
-          </div>
+          <div class="wishlist-expand-body">${body}</div>
         </details>
       </div>
     </div>`;
@@ -2568,8 +2570,8 @@ function renderContent() {
 
   // 統一風格：所有 tab 同一個 .section-nav-btn class，emoji + 文字，amber hover
   const btn = (id, txt) => `<button onclick="scrollToSection('${id}')" data-target="${id}" class="section-nav-btn">${txt}</button>`;
+  // 滑軌 nav 不放收藏按鈕（收藏改用 modal，從工具列點開）
   elements.sectionButtons.innerHTML =
-    (wishlistItems.length ? btn('wishlist', `❤️ 我的收藏 (${wishlistItems.length})`) : '') +
     (shortTerm.length ? btn('short-term', '⏳ 限時團購') : '') +
     (longTerm.length ? btn('long-term', '☀️ 常駐團購') : '') +
     (kangBooks.length ? btn('kang-books', '📖 康先生的書') : '') +
@@ -2583,7 +2585,7 @@ function renderContent() {
 
   elements.content.innerHTML =
     `<div class="mb-6 flex gap-3 items-center flex-wrap">
-       ${expiredCount ? `<button onclick="toggleExpired()" class="px-4 py-2 rounded-lg font-medium ${state.showExpired ? 'bg-gray-600 text-white' : 'bg-white text-gray-700 border-2 border-gray-300'}">${state.showExpired ? '隱藏' : '顯示'}已結束（${expiredCount}）</button>` : ''}
+       ${wishlistItems.length ? `<button onclick="openWishlistModal()" class="px-4 py-2 rounded-lg font-medium bg-white text-rose-700 border-2 border-rose-200 hover:bg-rose-50 transition-colors flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>我的收藏 (${wishlistItems.length})</button>` : ''}
        ${state.hasActiveFilters ? `<button onclick="clearAllFilters()" class="filter-clear-btn px-4 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors flex items-center gap-2">
          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -2598,13 +2600,6 @@ function renderContent() {
         <div class="masonry-grid">
           ${upcomingMatches.map(renderUpcomingSearchCard).join('')}
         </div>
-      </section>
-    ` : '') +
-
-    (wishlistItems.length ? `
-      <section id="wishlist" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">❤️ 我的收藏（${wishlistItems.length}）</h2>
-        <div class="masonry-grid">${wishlistItems.map(renderWishlistCard).join('')}</div>
       </section>
     ` : '') +
 
@@ -2740,6 +2735,8 @@ window.addToCalendar = addToCalendar;
 window.addBothToCalendar = addBothToCalendar;
 window.showDayGroups = showDayGroups;
 window.toggleExpired = toggleExpired;
+window.openWishlistModal = openWishlistModal;
+window.closeWishlistModal = closeWishlistModal;
 window.switchCalendarMonth = switchCalendarMonth;
 window.addToGoogleCalendar = addToGoogleCalendar;
 window.addToAppleCalendar = addToAppleCalendar;
