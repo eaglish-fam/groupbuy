@@ -2396,10 +2396,28 @@ function contactIcon(value) {
   return '🔗';
 }
 
-// 卡片動作列（分享 + 收藏 一組，放在內容區頂部右側）
-function renderCardActions(brand) {
+// 卡片動作列（左：國家 pill；右：分享 + 收藏）
+// mobile 上 pill 只露國旗 emoji，≥768px 才補中文，避免擠壓 row
+function renderCardActions(brand, countries) {
   if (!brand) return '';
-  return `<div class="card-actions-row">${renderShareButton(brand)}${renderWishlistHeart(brand)}</div>`;
+  return `<div class="card-actions-row">`
+       + `<div class="card-actions-left">${renderCountryFlagPills(countries)}</div>`
+       + `<div class="card-actions-right">${renderShareButton(brand)}${renderWishlistHeart(brand)}</div>`
+       + `</div>`;
+}
+
+function renderCountryFlagPills(countries) {
+  if (!countries || countries.length === 0) return '';
+  return countries.map(country => {
+    const safe = country.replace(/'/g, "\\'");
+    const flag = utils.getCountryFlag(country);
+    return `<button type="button" class="card-country-pill" `
+         + `onclick="event.stopPropagation(); event.preventDefault(); setFilter('country', '${safe}');" `
+         + `aria-label="篩選 ${country}">`
+         + `<span class="card-country-flag">${flag}</span>`
+         + `<span class="card-country-name">${country}</span>`
+         + `</button>`;
+  }).join('');
 }
 
 // 卡片右上角的分享按鈕（跟愛心並排）
@@ -2473,10 +2491,6 @@ function renderGroupCardBody(g) {
     `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${cat}</button>`
   ).join('');
 
-  const countryTags = countries.map(country =>
-    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${utils.getCountryFlag(country)} ${country}</button>`
-  ).join('');
-
   const countdown = g.category === 'short' && daysLeft !== null
     ? `<div class="flex items-center gap-2 text-sm mb-3">
          <span class="${daysLeft < 0 ? 'text-gray-500' : daysLeft <= 3 ? 'text-red-600 font-semibold' : 'text-amber-700'}">
@@ -2487,10 +2501,9 @@ function renderGroupCardBody(g) {
 
   const body = `
     ${g.description ? `<p class="text-base md:text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 md:leading-6 mb-3">${g.description}</p>` : ''}
-    ${renderCardActions(g.brand)}
+    ${renderCardActions(g.brand, countries)}
     <div class="flex flex-wrap gap-2 mb-3">
       ${expired ? '<span class="text-xs bg-red-100 text-red-700 px-2 py-1 rounded-full font-medium">已結束</span>' : ''}
-      ${countryTags}
       ${categoryTags}
       ${g.tag ? `<span class="text-xs bg-pink-100 text-pink-700 px-2 py-1 rounded-full font-medium">${g.tag}</span>` : ''}
       ${g.stock === '售完' ? '<span class="text-xs bg-gray-200 text-gray-700 px-2 py-1 rounded-full">已售完</span>' : ''}
@@ -2576,11 +2589,6 @@ function renderCouponCard(g) {
     `<button type="button" onclick="event.stopPropagation(); setFilter('category', '${cat.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${cat}">${cat}</button>`
   ).join('');
 
-  // 生成國家標籤（可點 → 套上國家篩選；前面加旗幟）
-  const countryTags = countries.map(country =>
-    `<button type="button" onclick="event.stopPropagation(); setFilter('country', '${country.replace(/'/g, "\\'")}')" class="card-filter-tag" aria-label="篩選 ${country}">${utils.getCountryFlag(country)} ${country}</button>`
-  ).join('');
-
   return `
     <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
@@ -2593,8 +2601,8 @@ function renderCouponCard(g) {
           ${expired ? '<span class="text-xs bg-gray-200 text-gray-600 px-2 py-1 rounded-full">已結束</span>' : ''}
         </div>
         ${g.description ? `<p class="text-base ${expired ? 'text-gray-600' : 'text-gray-700'} leading-6 mb-3">${g.description}</p>` : ''}
-        ${renderCardActions(g.brand)}
-        <div class="flex flex-wrap gap-2 mb-3">${countryTags}${categoryTags}</div>
+        ${renderCardActions(g.brand, countries)}
+        ${categoryTags ? `<div class="flex flex-wrap gap-2 mb-3">${categoryTags}</div>` : ''}
         ${g.note && !noteIsURL && !noteIsQA ? `<p class="text-sm text-gray-700 mb-3 leading-relaxed">${g.note}</p>` : ''}
         ${noteIsURL ? `<div class="mb-3"><a href="${g.note}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看詳細說明</a></div>` : ''}
         ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${g.url.replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
