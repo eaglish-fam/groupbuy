@@ -975,7 +975,7 @@ function scrollToCard(brand) {
 
   const section = card.closest('section[id]');
   const anchor = section?.querySelector('h2, h3') || section || card;
-  const headerOffset = window.matchMedia('(max-width: 767px)').matches ? 100 : 130;
+  const headerOffset = window.matchMedia('(max-width: 767px)').matches ? 130 : 160;
   const targetY = anchor.getBoundingClientRect().top + window.scrollY - headerOffset;
   window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
 
@@ -2394,7 +2394,7 @@ function applyUrlParams() {
     // 同 scrollToCard 邏輯：抓 section h2 當錨點 + 固定 px offset，避免 header 遮
     const section = el.closest('section[id]');
     const anchor = section?.querySelector('h2, h3') || section || el;
-    const headerOffset = window.matchMedia('(max-width: 767px)').matches ? 100 : 130;
+    const headerOffset = window.matchMedia('(max-width: 767px)').matches ? 130 : 160;
     const targetY = anchor.getBoundingClientRect().top + window.scrollY - headerOffset;
     window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
     el.classList.add('card-highlighted');
