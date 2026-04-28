@@ -513,6 +513,8 @@
     justify-content: center;             /* 整列置中 */
     gap: 24px;
     padding: 12px 24px;
+    max-width: 640px;                    /* 桌面限寬，變焦點 pill 不再跨整個畫面 */
+    margin: 0 auto 16px;                  /* 置中 + 維持下邊距 */
   }
 }
 
