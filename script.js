@@ -2159,6 +2159,8 @@ async function loadData() {
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
             itemCountry: row['國家'] || row['Country'] || '',
+            // 主推（任何非空值都算）
+            featured: !!String(row['主推'] || row['Featured'] || row['Hero'] || '').trim(),
             // 保固 / 官網（單一 URL）
             warrantyUrl: row['官網保固'] || row['官網'] || row['保固網站'] || row['Warranty'] || row['OfficialSite'] || '',
             // 客服管道（多行）。兩種寫法都吃：
@@ -2446,6 +2448,49 @@ function renderWishlistHeart(brand) {
        + `</svg></button>`;
 }
 
+// Hero Banner — 大圖主推（Sheet 主推欄填值就會在這出現）
+function renderHeroBanner(items) {
+  if (!items || !items.length) return '';
+
+  const buildCard = (item, isFirst) => {
+    // hero 用大圖，eager load，不 lazy（above the fold）
+    let imgSrc = item.image || '';
+    if (imgSrc && typeof ImageOptimizer !== 'undefined') {
+      try {
+        // 取較大尺寸版本
+        imgSrc = ImageOptimizer.getOptimizedImageUrl(item.image, item.brand).primary;
+        // 把 lh3.googleusercontent.com/d/ID=w1200 改成 =w1600
+        imgSrc = imgSrc.replace(/=w\d+(-h\d+)?$/i, '=w1600');
+      } catch {}
+    }
+    const linkHref = item.url || (item.retailers && item.retailers[0]?.url) || '#';
+    return `<a href="${linkHref}" target="_blank" rel="noopener noreferrer"
+       class="hero-card" data-brand="${item.brand}"
+       onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_hero', {brand: '${item.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">
+      ${imgSrc ? `<img src="${imgSrc}" alt="${item.brand}" ${isFirst ? 'fetchpriority="high"' : ''} loading="${isFirst ? 'eager' : 'lazy'}">` : `<div class="hero-card-placeholder">📌</div>`}
+      <div class="hero-overlay">
+        <span class="hero-badge">📌 編輯精選</span>
+        <h2 class="hero-title">${item.brand}</h2>
+        ${item.description ? `<p class="hero-desc">${item.description}</p>` : ''}
+        <span class="hero-cta">立即查看 →</span>
+      </div>
+    </a>`;
+  };
+
+  if (items.length === 1) {
+    return `<section id="featured" class="hero-banner">${buildCard(items[0], true)}</section>`;
+  }
+
+  // 多張 → 水平 carousel + dot indicators
+  const dots = items.map((_, i) =>
+    `<button class="hero-dot${i === 0 ? ' active' : ''}" data-idx="${i}" aria-label="切到第 ${i+1} 張"></button>`
+  ).join('');
+  return `<section id="featured" class="hero-banner">
+    <div class="hero-carousel" id="heroCarousel">${items.map((it, i) => buildCard(it, i === 0)).join('')}</div>
+    <div class="hero-dots">${dots}</div>
+  </section>`;
+}
+
 function renderUpcomingSearchCard(g) {
   return `
     <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden border-2 border-pink-200 shadow-md transition-all hover:shadow-lg">
@@ -2720,6 +2765,8 @@ function renderContent() {
   const book = filtered.filter(g => g.category === 'book');
   // 收藏：從 state.groups 抓所有 saved（不受 search/category filter 影響）
   const wishlistItems = state.groups.filter(g => state.wishlist.has(g.brand));
+  // Hero 主推：從 state.groups 抓 featured（不受 filter 影響，永遠顯示，但過期排除）
+  const heroItems = state.groups.filter(g => g.featured && !utils.isExpired(g.endDate));
   // 把 Sheet 上的書籍 row 分組（紙本/電子）；同時看「標籤」跟「品牌」欄裡的關鍵字
   const isPaperback = (b) => /紙本|paperback/i.test(b.tag || '') || /紙本|paperback/i.test(b.brand || '');
   const isEbook     = (b) => /電子|ebook/i.test(b.tag || '')     || /電子|ebook/i.test(b.brand || '');
@@ -2794,6 +2841,8 @@ function renderContent() {
   const m3 = (today.getMonth() + 2) % 12 + 1;
 
   elements.content.innerHTML =
+    renderHeroBanner(heroItems) +
+
     `<div class="mb-6 flex gap-3 items-center flex-wrap">
        ${state.searchTerm ? `<span class="text-sm text-gray-700 bg-gray-100 px-3 py-1.5 rounded-lg">找到 <strong class="text-amber-700">${filtered.length}</strong> 筆「${state.searchTerm}」</span>` : ''}
        ${wishlistItems.length ? `<button onclick="openWishlistModal()" style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap;padding:8px 16px;border-radius:8px;background:white;color:#374151;border:2px solid #e5e7eb;font-weight:500;font-size:14px;cursor:pointer;transition:background-color 0.15s ease;" onmouseover="this.style.background='#f9fafb'" onmouseout="this.style.background='white'"><svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" stroke-width="2" style="flex-shrink:0;"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>我的收藏 (${wishlistItems.length})</span></button>` : ''}
@@ -2870,6 +2919,29 @@ function renderContent() {
   }
   // 重建 scroll-spy（每次 re-render 都要，因為 section DOM 是新的）
   initScrollSpy();
+  // Hero carousel：scroll 同步 dots + 點 dot 切換
+  initHeroCarousel();
+}
+
+function initHeroCarousel() {
+  const carousel = document.getElementById('heroCarousel');
+  if (!carousel) return;
+  const dots = document.querySelectorAll('.hero-dot');
+  if (!dots.length) return;
+
+  // scroll → 算出當前 index → highlight 對應 dot
+  carousel.addEventListener('scroll', () => {
+    const idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
+    dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+  }, { passive: true });
+
+  // 點 dot → scroll 到對應 card
+  dots.forEach(dot => {
+    dot.addEventListener('click', () => {
+      const idx = parseInt(dot.dataset.idx, 10);
+      carousel.scrollTo({ left: idx * carousel.clientWidth, behavior: 'smooth' });
+    });
+  });
 }
 
 // ============ 初始化 ============
