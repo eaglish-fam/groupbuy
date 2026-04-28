@@ -1096,6 +1096,15 @@
   to   { opacity: 1; transform: translateY(0); }
 }
 
+/* scrollToCard 落地點上方留白 — 避免 sticky header 壓到卡片頂端 */
+/* 主要 scroll 目標是 section（已有 Tailwind scroll-mt-24/28），這是 fallback */
+.masonry-card {
+  scroll-margin-top: 90px;
+}
+@media (min-width: 768px) {
+  .masonry-card { scroll-margin-top: 120px; }
+}
+
 /* 從外部分享連結 / hero 點擊進來時，目標卡片懸浮 + 發光 2.5 秒 */
 .card-highlighted {
   animation: cardFloatGlow 2.5s cubic-bezier(0.4, 0, 0.2, 1);
