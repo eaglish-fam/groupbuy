@@ -2208,10 +2208,10 @@ function linkify(text) {
   if (!text) return '';
   // 先跳脫 HTML，避免使用者輸入的 <script> 等被執行
   const escaped = String(text).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  // 再把 http(s) URL 包成 <a>
+  // 再把 http(s) URL 包成 <a>（跟旁邊文字同色，只用底線當「可點」訊號，不再突兀）
   return escaped.replace(
     /(https?:\/\/[^\s<>"']+)/g,
-    '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:#1d4ed8;text-decoration:underline;word-break:break-all;">$1</a>'
+    '<a href="$1" target="_blank" rel="noopener noreferrer" style="color:inherit;text-decoration:underline;text-decoration-color:rgba(0,0,0,0.3);text-underline-offset:2px;word-break:break-all;">$1</a>'
   );
 }
 
