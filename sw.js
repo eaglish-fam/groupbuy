@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eaglish-v8.8';
+const CACHE_NAME = 'eaglish-v8.9';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -8,6 +8,7 @@ const urlsToCache = [
   '/theme-fresh-comfortable.css',
   '/script.js',
   '/logo-horizontal.jpg',
+  '/logo-eaglish-text.png',
   '/icons/web-app-manifest-192x192.png',
   '/icons/web-app-manifest-512x512.png',
   '/icons/favicon.svg'

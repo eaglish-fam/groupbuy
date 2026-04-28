@@ -1257,6 +1257,43 @@ html {
 .kang-ebook .retailer-buttons a { background: #334155; }
 .kang-ebook .retailer-buttons a:hover { background: #1e293b; }
 
+/* ============================================
+   Header logo（手寫鷹家買物社）— 取代「🦅 + 文字」
+   ============================================ */
+.header-logo-wrap {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+}
+
+.header-logo {
+  height: 42px;          /* 手機版高度 */
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  display: block;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+@media (min-width: 768px) {
+  .header-logo { height: 50px; }
+}
+
+@media (min-width: 1024px) {
+  .header-logo { height: 56px; }
+}
+
+/* SW v8.9 收合時 logo 自動淡出（跟原本標題一樣行為）*/
+header.header-compact .header-logo-wrap {
+  max-height: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden;
+  transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+
 /* 横向 filter 滾動 affordance：右邊淡出暗示「還可以滑」*/
 #categoryFilters,
 #countryFilters {
