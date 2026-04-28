@@ -961,19 +961,24 @@ function renderTodayCountdown() {
 }
 
 // 點品牌 chip / hero → scroll 到該卡片並高亮
-// 注意：
-// 1. hero card 自己也帶 data-brand（同一個品牌），querySelectorAll 後跳過 .hero-card
-//    不然會 match 到 hero 自己（已在 viewport 頂端，看起來沒動）
-// 2. 卡片若在有 id 的 section 裡，scroll 到 section（讓 h2 也露出來），
-//    block: 'start' + section 自帶的 scroll-mt-24/28 → header 不會壓到內容；
-//    block: 'center' 會在手機高卡片把頂端切到 viewport 上方
+// 設計：
+// 1. hero card 自己也帶 data-brand，querySelectorAll 後跳過 .hero-card（不然原地不動）
+// 2. 錨點優先用 section h2（視覺上「標題在上、內容在下」最直觀），fallback section / card
+// 3. 用 window.scrollTo + 固定 px offset（手機 100、桌機 130）算落點
+//    比 scrollIntoView({ block: 'start' }) + scroll-mt 穩，因為 header 展開狀態可能 200px+
+//    而 scroll-mt 是寫死的，無法適配 expand vs collapsed
 function scrollToCard(brand) {
   if (!brand) return;
   const els = document.querySelectorAll(`[data-brand="${CSS.escape(brand)}"]`);
   const card = Array.from(els).find(el => !el.classList.contains('hero-card'));
   if (!card) return;
+
   const section = card.closest('section[id]');
-  (section || card).scrollIntoView({ behavior: 'smooth', block: 'start' });
+  const anchor = section?.querySelector('h2, h3') || section || card;
+  const headerOffset = window.matchMedia('(max-width: 767px)').matches ? 100 : 130;
+  const targetY = anchor.getBoundingClientRect().top + window.scrollY - headerOffset;
+  window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+
   card.classList.add('card-highlighted');
   setTimeout(() => card.classList.remove('card-highlighted'), 2500);
 }
@@ -2386,9 +2391,12 @@ function applyUrlParams() {
     const els = document.querySelectorAll(`[data-brand="${CSS.escape(brand)}"]`);
     const el = Array.from(els).find(e => !e.classList.contains('hero-card'));
     if (!el) return;
-    // 同 scrollToCard 邏輯：scroll 到 parent section 才能讓 h2 露出 + 不被 header 遮
+    // 同 scrollToCard 邏輯：抓 section h2 當錨點 + 固定 px offset，避免 header 遮
     const section = el.closest('section[id]');
-    (section || el).scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const anchor = section?.querySelector('h2, h3') || section || el;
+    const headerOffset = window.matchMedia('(max-width: 767px)').matches ? 100 : 130;
+    const targetY = anchor.getBoundingClientRect().top + window.scrollY - headerOffset;
+    window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
     el.classList.add('card-highlighted');
     setTimeout(() => el.classList.remove('card-highlighted'), 2500);
   }, 600);
