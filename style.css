@@ -1269,21 +1269,22 @@ html {
 }
 
 .header-logo {
-  height: 42px;          /* 手機版高度 */
+  height: 72px;          /* 手機版高度 — 比之前 42px 放大 71%，視覺等於/大於原本字體 */
   width: auto;
   max-width: 100%;
   object-fit: contain;
   display: block;
   user-select: none;
   -webkit-user-select: none;
+  margin: -8px 0;          /* 透明 PNG 上下還是有 padding，用 negative margin 收緊行距 */
 }
 
 @media (min-width: 768px) {
-  .header-logo { height: 50px; }
+  .header-logo { height: 84px; }
 }
 
 @media (min-width: 1024px) {
-  .header-logo { height: 56px; }
+  .header-logo { height: 96px; }
 }
 
 /* SW v8.9 收合時 logo 自動淡出（跟原本標題一樣行為）*/
