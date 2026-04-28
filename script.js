@@ -2380,7 +2380,7 @@ function renderCouponCard(g) {
   ).join('');
 
   return `
-    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden border-2 ${expired ? 'opacity-60 border-gray-300' : 'border-purple-300'}" data-brand="${g.brand}">
+    <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
       <div class="p-6">
         <div class="flex items-start justify-between gap-3 mb-3">
@@ -2585,7 +2585,7 @@ function renderContent() {
 
   elements.content.innerHTML =
     `<div class="mb-6 flex gap-3 items-center flex-wrap">
-       ${wishlistItems.length ? `<button onclick="openWishlistModal()" class="px-4 py-2 rounded-lg font-medium bg-white text-rose-700 border-2 border-rose-200 hover:bg-rose-50 transition-colors flex items-center gap-1.5"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>我的收藏 (${wishlistItems.length})</button>` : ''}
+       ${wishlistItems.length ? `<button onclick="openWishlistModal()" class="px-4 py-2 rounded-lg font-medium bg-white text-gray-700 border-2 border-gray-200 hover:bg-gray-50 transition-colors inline-flex items-center" style="gap: 8px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444" stroke="#ef4444" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg><span>我的收藏 (${wishlistItems.length})</span></button>` : ''}
        ${state.hasActiveFilters ? `<button onclick="clearAllFilters()" class="filter-clear-btn px-4 py-2 rounded-lg font-medium bg-blue-600 text-white hover:bg-blue-700 transition-colors flex items-center gap-2">
          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
