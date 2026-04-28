@@ -491,6 +491,100 @@
 }
 
 /* ============================================
+   今日截止倒數 — refined（amber 為主，只有時間數字紅色當焦點）
+   ============================================ */
+.countdown-banner {
+  background: linear-gradient(to right, #fef3c7, #fff7ed);   /* 柔和 amber-100 → orange-50 */
+  border: 1px solid rgba(180, 83, 9, 0.3);                    /* amber-700 半透明細邊 */
+  border-radius: 12px;
+  padding: 12px 16px;
+  margin-bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+@media (min-width: 768px) {
+  .countdown-banner {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 20px;
+  }
+}
+
+.countdown-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.countdown-icon {
+  font-size: 20px;
+  animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+.countdown-label {
+  font-weight: 700;
+  color: #78350f;        /* amber-900 */
+  font-size: 14px;
+}
+
+.countdown-time {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+  font-weight: 700;
+  color: #b91c1c;        /* red-700 — 唯一紅色，凸顯緊迫感 */
+  font-size: 18px;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .countdown-time { margin-left: 0; }
+}
+
+.countdown-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+}
+
+.countdown-chip {
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(146, 64, 14, 0.2);
+  color: #78350f;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.12s ease;
+  font-family: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.countdown-chip:hover {
+  background: white;
+  border-color: rgba(146, 64, 14, 0.4);
+}
+
+.countdown-chip:active {
+  transform: scale(0.95);
+}
+
+.countdown-more {
+  color: #b45309;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0 4px;
+}
+
+/* ============================================
    Hero Banner — 大圖主推
    ============================================ */
 .hero-banner {

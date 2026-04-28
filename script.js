@@ -917,36 +917,35 @@ function formatTimeRemaining() {
 function renderTodayCountdown() {
   const deadlines = getTodayDeadlines();
   if (deadlines.length === 0) return '';
-  
+
   const timeLeft = formatTimeRemaining();
-  const brandsText = deadlines.slice(0, 3).join('、');
-  const moreText = deadlines.length > 3 ? `等${deadlines.length}個團購` : '';
-  
+  // 品牌名做成可點 chip → 點下去 scroll 到該卡片
+  const chips = deadlines.slice(0, 4).map(b => {
+    const safe = b.replace(/'/g, "\\'");
+    return `<button class="countdown-chip" onclick="scrollToCard('${safe}')">${b}</button>`;
+  }).join('');
+  const more = deadlines.length > 4 ? `<span class="countdown-more">+${deadlines.length - 4}</span>` : '';
+
   return `
-    <div id="todayCountdown" class="bg-gradient-to-r from-red-50 via-orange-50 to-red-50 border-2 border-red-300 rounded-lg px-4 py-3 mb-4">
-      <!-- 手機版：垂直置中排列 -->
-      <div class="md:hidden flex flex-col items-center gap-2 text-center">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl animate-pulse-subtle">⏰</span>
-          <span class="font-bold text-red-700">今日截止倒數</span>
-        </div>
-        <span class="countdown-time font-mono text-2xl font-bold text-red-600">${timeLeft}</span>
-        <span class="text-sm text-gray-700">${brandsText}${moreText ? ' ' + moreText : ''}</span>
+    <div id="todayCountdown" class="countdown-banner">
+      <div class="countdown-head">
+        <span class="countdown-icon">⏰</span>
+        <span class="countdown-label">今日截止</span>
+        <span class="countdown-time" aria-label="剩餘時間">${timeLeft}</span>
       </div>
-      
-      <!-- 桌面版：水平排列 -->
-      <div class="hidden md:flex md:items-center md:justify-between gap-3">
-        <div class="flex items-center gap-2">
-          <span class="text-2xl animate-pulse-subtle">⏰</span>
-          <span class="font-bold text-red-700">今日截止倒數</span>
-        </div>
-        <div class="flex items-center gap-3 text-sm">
-          <span class="text-gray-700">${brandsText}${moreText ? ' ' + moreText : ''}</span>
-          <span class="countdown-time font-mono text-xl font-bold text-red-600">${timeLeft}</span>
-        </div>
-      </div>
+      <div class="countdown-chips">${chips}${more}</div>
     </div>
   `;
+}
+
+// 點品牌 chip → scroll 到該卡片並高亮
+function scrollToCard(brand) {
+  if (!brand) return;
+  const el = document.querySelector(`[data-brand="${CSS.escape(brand)}"]`);
+  if (!el) return;
+  el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  el.classList.add('card-highlighted');
+  setTimeout(() => el.classList.remove('card-highlighted'), 2500);
 }
 
 let countdownInterval = null;
@@ -3027,6 +3026,7 @@ window.openWishlistModal = openWishlistModal;
 window.closeWishlistModal = closeWishlistModal;
 window.openContactModal = openContactModal;
 window.closeContactModal = closeContactModal;
+window.scrollToCard = scrollToCard;
 window.switchCalendarMonth = switchCalendarMonth;
 window.addToGoogleCalendar = addToGoogleCalendar;
 window.addToAppleCalendar = addToAppleCalendar;
