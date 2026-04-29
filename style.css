@@ -1355,6 +1355,51 @@ header.header-compact .header-logo-wrap {
    區塊導航 Tab — 手機 3×2 網格 / 桌面橫排，統一色系
    ============================================ */
 
+/* Toggle 箭頭 — 手機/桌面共用 base */
+#navToggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 26px;
+  padding: 0;
+  background: transparent;
+  border: none;
+  color: #92400e;       /* amber-900 */
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+#navToggle svg {
+  transition: transform 0.3s ease;
+}
+
+#navToggle.expanded svg {
+  transform: rotate(180deg);
+}
+
+#navToggle:hover {
+  background: rgba(120, 53, 15, 0.04);
+}
+
+#navToggle:active {
+  background: rgba(120, 53, 15, 0.08);
+}
+
+/* 載入後抖動提示「這裡可以點」*/
+#navToggle.hint svg {
+  animation: navHintBounce 0.85s ease-in-out 7;
+}
+
+@keyframes navHintBounce {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(5px); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #navToggle.hint svg { animation: none; }
+}
+
 /* 手機：3 欄 2 列網格，預設收合，點箭頭展開 */
 @media (max-width: 767px) {
   #sectionButtons {
@@ -1373,60 +1418,23 @@ header.header-compact .header-logo-wrap {
     max-height: 220px;
     padding: 8px 12px !important;
   }
-
-  /* Toggle 箭頭 */
-  #navToggle {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 26px;
-    padding: 0;
-    background: transparent;
-    border: none;
-    color: #92400e;       /* amber-900 */
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  #navToggle svg {
-    transition: transform 0.3s ease;
-  }
-
-  #navToggle.expanded svg {
-    transform: rotate(180deg);
-  }
-
-  #navToggle:active {
-    background: rgba(120, 53, 15, 0.06);
-  }
-
-  /* 載入後 6 秒抖動提示「這裡可以點」*/
-  #navToggle.hint svg {
-    animation: navHintBounce 0.85s ease-in-out 7;
-  }
-
-  @keyframes navHintBounce {
-    0%, 100% { transform: translateY(0); }
-    50%      { transform: translateY(5px); }
-  }
-
-  /* 尊重使用者偏好 */
-  @media (prefers-reduced-motion: reduce) {
-    #navToggle.hint svg { animation: none; }
-  }
 }
 
-/* 桌面：navToggle 隱藏，sectionButtons 永遠可見（橫排）*/
-@media (min-width: 768px) {
-  #navToggle { display: none; }
-}
-
-/* 桌面/平板：保留橫排，但移除 mask（按鈕少時不需要 affordance）*/
+/* 桌面/平板：橫排但同樣支援收合 */
 @media (min-width: 768px) {
   #sectionButtons {
+    overflow: hidden;
+    max-height: 0;
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+    transition: max-height 0.3s ease, padding 0.3s ease;
     -webkit-mask-image: none;
     mask-image: none;
+  }
+
+  #sectionButtons.expanded {
+    max-height: 80px;
+    padding: 8px 16px !important;
   }
 }
 
@@ -1892,4 +1900,105 @@ header.header-compact .header-logo-wrap {
 }
 .filter-expand.active {
   max-height: 500px;
+}
+
+/* ============================================
+   Header bar — 桌面單行 / 手機兩行
+   桌面：[漢堡 + logo] [搜尋(限寬置中)] [分享]
+   手機：[logo 置中] / [搜尋 + 篩選 + 分享]
+   ============================================ */
+
+.header-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.header-bar-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-bar-search {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+@media (min-width: 1024px) {
+  .header-bar {
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  .header-bar-logo {
+    flex-shrink: 0;
+    justify-content: flex-start;
+  }
+  .header-bar-logo #sidebarToggle {
+    margin-right: 8px;
+  }
+  /* 桌面 logo：single-row 平衡大小（原 96px 為 hero 風格、太大撐爆 header） */
+  .header-bar-logo .header-logo {
+    height: 64px;
+  }
+  .header-bar-search {
+    flex: 1 1 auto;
+    max-width: 560px;
+    margin: 0 auto;
+  }
+  .header-bar-share {
+    flex-shrink: 0;
+  }
+}
+
+/* 手機 compact 折疊：scroll 後收掉 logo 列，只剩搜尋列 + 區塊導航 */
+@media (max-width: 1023px) {
+  header .header-bar-logo {
+    max-height: 100px;
+    overflow: hidden;
+    opacity: 1;
+    transition: max-height 0.25s ease, opacity 0.2s ease, margin 0.25s ease;
+  }
+  header.header-compact .header-bar-logo {
+    max-height: 0 !important;
+    opacity: 0 !important;
+    margin: 0 !important;
+  }
+  header.header-compact .header-bar {
+    gap: 0 !important;
+  }
+}
+
+/* ============================================
+   搜尋框 — Apple 風格細邊框、subtle focus ring
+   ============================================ */
+.search-input {
+  height: 36px;
+  padding-top: 0;
+  padding-bottom: 0;
+  border: 1px solid rgba(120, 53, 15, 0.18);   /* amber-900 alpha — 比 amber-200 細很多 */
+  background: rgba(255, 255, 255, 0.72);
+  color: #1f2937;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.search-input::placeholder {
+  color: rgba(120, 53, 15, 0.42);
+}
+
+.search-input:hover {
+  border-color: rgba(120, 53, 15, 0.32);
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.search-input:focus {
+  border-color: rgba(245, 158, 11, 0.55);      /* amber-500 alpha */
+  background: #ffffff;
+  box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.14);
+}
+
+@media (min-width: 1024px) {
+  .search-input { height: 38px; }
 }

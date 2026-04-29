@@ -84,58 +84,50 @@
 <body class="bg-white min-h-screen">
   <header class="bg-white/80 backdrop-blur-sm border-b border-amber-200 sticky top-0 z-30">
     <div class="max-w-7xl mx-auto px-4 py-3">
-      <!-- 桌面版：漢堡選單 + 標題 + 佔位 -->
-      <div class="hidden lg:flex items-center">
-        <button id="sidebarToggle" class="flex items-center justify-center w-10 h-10 rounded-lg hover:bg-amber-100 transition-colors" onclick="toggleSidebar()">
-          <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-        
-        <div class="flex-1 text-center">
-		  <h1 class="header-logo-wrap"><img src="logo-eaglish-text.png" alt="鷹家買物社" class="header-logo"><span class="sr-only">鷹式一家 Eaglish Family</span></h1>
-		  <p class="text-sm text-amber-700">跟著鷹式一家一起買！</p>
+      <!-- Header bar：桌面單行 [漢堡][logo][搜尋][分享]；手機兩行 [logo] / [搜尋][篩選][分享] -->
+      <div class="header-bar">
+        <!-- A: 漢堡（桌面 only）+ logo（手機置中、桌面靠左） -->
+        <div class="header-bar-logo">
+          <button id="sidebarToggle" class="hidden lg:flex items-center justify-center w-10 h-10 rounded-lg hover:bg-amber-100 transition-colors" onclick="toggleSidebar()">
+            <svg class="w-6 h-6 text-amber-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+          </button>
+          <h1 class="header-logo-wrap"><img src="logo-eaglish-text.png" alt="鷹家買物社" class="header-logo"><span class="sr-only">鷹式一家 Eaglish Family</span></h1>
         </div>
-        
-          <!-- 桌面版分享按鈕 -->
-	    <button id="shareBtn" onclick="shareWebsite()" class="flex items-center gap-2 bg-pink-100 text-pink-700 px-4 py-2 rounded-lg font-medium text-sm hover:bg-pink-200 transition-colors">
-	      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-	        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
-	      </svg>
-	      分享好康給朋友！
-	    </button>
-	  </div>
-      
-      <!-- 手機版：標題置中 -->
-      <div class="lg:hidden text-center">
-        <h1 class="header-logo-wrap"><img src="logo-eaglish-text.png" alt="鷹家買物社" class="header-logo"><span class="sr-only">鷹式一家 Eaglish Family</span></h1>
-        <p class="text-xs text-amber-700">跟著鷹式一家買嚴選好物！</p>
-      </div>
-      
-      <!-- 搜尋框和篩選按鈕 -->
-      <div class="mt-3 flex gap-2 items-center">
-        <div class="relative flex-1">
-          <input id="searchInput" type="search" enterkeyhint="search" autocomplete="off" aria-label="搜尋品牌"
-                 placeholder="搜尋品牌名稱…" class="w-full pl-3 pr-9 py-2.5 rounded-lg border-2 border-amber-200 focus:border-amber-400 focus:outline-none bg-white/80 text-sm">
-          <button id="clearBtn" title="清除"
-                  class="absolute right-2 top-1/2 -translate-y-1/2 hidden w-6 h-6 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300 text-sm">×</button>
+
+        <!-- B: 搜尋（含手機版篩選 + 手機版分享） -->
+        <div class="header-bar-search">
+          <div class="relative flex-1">
+            <input id="searchInput" type="search" enterkeyhint="search" autocomplete="off" aria-label="搜尋品牌"
+                   placeholder="搜尋品牌名稱…" class="search-input w-full pl-3 pr-9 rounded-lg text-sm focus:outline-none">
+            <button id="clearBtn" title="清除"
+                    class="absolute right-2 top-1/2 -translate-y-1/2 hidden w-6 h-6 rounded-full bg-gray-200 text-gray-600 hover:bg-gray-300 text-sm">×</button>
+          </div>
+
+          <!-- 篩選按鈕（僅手機版） -->
+          <button id="mobileFilterToggle" class="lg:hidden flex items-center gap-1 bg-amber-100 text-amber-900 px-3 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap" onclick="toggleMobileFilters()">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+            </svg>
+            <span id="filterBtnText">篩選</span>
+          </button>
+
+          <!-- 手機版分享按鈕 -->
+          <button id="shareBtnMobile" onclick="shareWebsite()" class="lg:hidden flex items-center gap-1 bg-pink-100 text-pink-700 px-3 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
+            </svg>
+          </button>
         </div>
-        
-        <!-- 篩選按鈕（僅手機版） -->
-        <button id="mobileFilterToggle" class="lg:hidden flex items-center gap-1 bg-amber-100 text-amber-900 px-3 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap" onclick="toggleMobileFilters()">
+
+        <!-- C: 桌面分享按鈕 -->
+        <button id="shareBtn" onclick="shareWebsite()" class="header-bar-share hidden lg:flex items-center gap-2 bg-pink-100 text-pink-700 px-4 py-2 rounded-lg font-medium text-sm hover:bg-pink-200 transition-colors">
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
           </svg>
-          <span id="filterBtnText">篩選</span>
+          分享好康給朋友！
         </button>
-		  
-		<!-- 手機版分享按鈕 -->
-		<button id="shareBtnMobile" onclick="shareWebsite()" class="lg:hidden flex items-center gap-1 bg-pink-100 text-pink-700 px-3 py-2.5 rounded-lg font-medium text-sm whitespace-nowrap">
-		  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-		    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"></path>
-		  </svg>
-		   
-		</button>
       </div>
       
       <div id="bannerSlot" class="mt-3 hidden"></div>
@@ -162,8 +154,8 @@
 	  </div>
 	</div>
     
-    <!-- 區塊導航 toggle（手機版用，桌面隱藏）-->
-    <button id="navToggle" class="lg:hidden" aria-expanded="false" aria-controls="sectionButtons" aria-label="展開區塊導航">
+    <!-- 區塊導航 toggle（手機/桌面共用，預設收合，點按展開）-->
+    <button id="navToggle" aria-expanded="false" aria-controls="sectionButtons" aria-label="展開區塊導航">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
     </button>
 
