@@ -3005,7 +3005,16 @@ function renderContent() {
   initHeroCarousel();
 }
 
+let heroAutoPlayTimer = null;
+const HERO_AUTOPLAY_INTERVAL = 4000;
+
 function initHeroCarousel() {
+  // 每次 render 都會重新呼叫 → 先清掉前一輪的 timer 避免疊加
+  if (heroAutoPlayTimer) {
+    clearInterval(heroAutoPlayTimer);
+    heroAutoPlayTimer = null;
+  }
+
   const carousel = document.getElementById('heroCarousel');
   if (!carousel) return;
   const dots = document.querySelectorAll('.hero-dot');
@@ -3024,6 +3033,15 @@ function initHeroCarousel() {
       carousel.scrollTo({ left: idx * carousel.clientWidth, behavior: 'smooth' });
     });
   });
+
+  // 4 秒自動跳下一張，到尾回頭
+  heroAutoPlayTimer = setInterval(() => {
+    if (document.hidden) return; // 背景分頁不動
+    const total = dots.length;
+    const current = Math.round(carousel.scrollLeft / carousel.clientWidth);
+    const next = (current + 1) % total;
+    carousel.scrollTo({ left: next * carousel.clientWidth, behavior: 'smooth' });
+  }, HERO_AUTOPLAY_INTERVAL);
 }
 
 // ============ 初始化 ============
