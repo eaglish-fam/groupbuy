@@ -2497,22 +2497,49 @@ function applyUrlParams() {
 }
 
 // 「分享這張卡片」— 產生 ?p=BRAND 的獨立連結
-function shareCard(brand) {
+// E4: iOS / Android 系統分享 sheet 客製化 — 加倒數資訊、品牌簽名、圖片附件
+async function shareCard(brand) {
   if (!brand) return;
   const card = state.groups.find(g => g.brand === brand);
+  if (!card) return;
   const url = `${window.location.origin}/?p=${encodeURIComponent(brand)}`;
-  const data = {
-    title: `${brand}｜鷹家買物社`,
-    text: card?.description || `跟著鷹式一家買！${brand}`,
-    url
-  };
+
+  const daysLeft = utils.getDaysLeft(card.endDate);
+  const urgency = (daysLeft !== null && daysLeft >= 0 && daysLeft <= 2)
+    ? (daysLeft === 0 ? '⏰ 今天截止！' : `⏰ 剩 ${daysLeft} 天`)
+    : '';
+  const desc = (card.description || '').slice(0, 90).trim();
+  const text = [urgency, `🦅 ${brand}`, desc, '— 鷹式一家精選'].filter(Boolean).join('\n');
+  const title = `${brand}｜鷹家買物社`;
+
   const trackShare = (method) => {
     if (typeof gtag !== 'undefined') {
       gtag('event', 'share_card', { brand, method, event_category: 'engagement' });
     }
   };
+
+  // 嘗試把圖片當 file 一起分享（iOS / Android 會在 share sheet 顯示縮圖預覽）
+  let files = [];
+  if (card.image && typeof ImageOptimizer !== 'undefined' && 'canShare' in navigator) {
+    try {
+      const imgUrl = ImageOptimizer.getOptimizedImageUrl(card.image, brand).primary;
+      if (imgUrl) {
+        const blob = await fetch(imgUrl, { mode: 'cors' }).then(r => r.ok ? r.blob() : null);
+        if (blob) {
+          const file = new File([blob], `${brand}.jpg`, { type: blob.type || 'image/jpeg' });
+          if (navigator.canShare({ files: [file] })) files = [file];
+        }
+      }
+    } catch { /* CORS 或 fetch 失敗就 fallback 到純連結 */ }
+  }
+
+  const data = files.length ? { title, text, url, files } : { title, text, url };
+
   if (navigator.share) {
-    navigator.share(data).then(() => trackShare('Web Share API')).catch(() => {});
+    try {
+      await navigator.share(data);
+      trackShare(files.length ? 'Web Share API + Image' : 'Web Share API');
+    } catch { /* user cancel 或 share 失敗 */ }
   } else if (navigator.clipboard) {
     navigator.clipboard.writeText(url).then(() => {
       trackShare('Copy Link');
@@ -3243,11 +3270,11 @@ document.addEventListener('visibilitychange', () => { if (!document.hidden) load
 // 分享功能
 function shareWebsite() {
   const shareData = {
-    title: '🦅 鷹家Fun生買物社',
-    text: '精選團購 · 優質好物',
-    url: window.location.href
+    title: '🦅 鷹家買物社｜鷹式一家精選團購',
+    text: '🛍️ 跟著鷹式一家一起買！\n精選台日韓歐美優質商品\n母嬰、居家、美妝通通有\n— 鷹式一家精選',
+    url: window.location.origin + '/'
   };
-  
+
   if (navigator.share) {
     navigator.share(shareData).then(() => {
       if (typeof gtag !== 'undefined') {
