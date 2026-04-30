@@ -2417,6 +2417,22 @@ function setMeta(prop, value) {
   meta.content = value;
 }
 
+// D1 防禦：deep link 命中短期/即將開團/過期卡片時注入 noindex，
+// 避免 Google 索引死頁面把整站 ranking 拉下來。預設首頁與 evergreen 卡片不注入。
+function setRobotsNoindex(shouldNoindex) {
+  let meta = document.querySelector('meta[name="robots"]');
+  if (shouldNoindex) {
+    if (!meta) {
+      meta = document.createElement('meta');
+      meta.setAttribute('name', 'robots');
+      document.head.appendChild(meta);
+    }
+    meta.content = 'noindex, follow';
+  } else if (meta) {
+    meta.remove();
+  }
+}
+
 const DEFAULT_OG = {
   title: '鷹式一家 Eaglish Family - 精選團購·優質好物',
   description: '跟著鷹式一家一起買！精選台日韓歐美優質商品團購，母嬰、居家、美妝通通有。',
@@ -2431,6 +2447,7 @@ function updateOGMeta(card) {
     setMeta('og:description', DEFAULT_OG.description);
     setMeta('og:image', DEFAULT_OG.image);
     setMeta('og:url', DEFAULT_OG.url);
+    setRobotsNoindex(false); // 首頁正常 indexable
     return;
   }
   const title = `${card.brand}｜鷹家買物社`;
@@ -2445,6 +2462,12 @@ function updateOGMeta(card) {
   setMeta('og:description', desc);
   setMeta('og:image', image);
   setMeta('og:url', url);
+
+  // 短期 / 即將開團 / 過期 → noindex（避免死頁面累積拖累 SEO）
+  // 常駐 / 書籍 / 教育 / 折扣碼 + 未過期 → 不注入（預設 indexable）
+  const isShortLived = card.category === 'short' || card.category === 'upcoming';
+  const isExpired = utils.isExpired(card.endDate);
+  setRobotsNoindex(isShortLived || isExpired);
 }
 
 // 載入時讀 ?p=X 參數，scroll 到對應卡片 + 高亮 + 更新 OG
