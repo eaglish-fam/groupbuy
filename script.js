@@ -616,16 +616,16 @@ const utils = {
     return d !== null && d < 0;
   },
 
-  // 開團日期落在過去 3 天內 → 視為「新團」，可掛 NEW 標籤
-  // （短期團購多半 7 天，閾值用 7 等於整個團期都掛 NEW，失去新鮮感）
+  // 開團當天 + 後 2 天 = 共 3 個曆日掛 NEW（例：4/30 開 → 4/30、5/1、5/2 顯示 NEW，5/3 起拿掉）
+  // 之前用 <= 3 等於開團第 4 天還在掛，跟「剩 X 天結團」的卡片同框會違和
   isNewlyAdded(g) {
     if (!g || !g.startDate) return false;
     const st = this.parseDateSafe(g.startDate);
     if (!st) return false;
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const daysSinceStart = (today - st) / 86400000;
-    return daysSinceStart >= 0 && daysSinceStart <= 3;
+    const daysSinceStart = Math.floor((today - st) / 86400000);
+    return daysSinceStart >= 0 && daysSinceStart <= 2;
   },
 
   parseQA(qaString) {
