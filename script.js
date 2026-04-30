@@ -2536,6 +2536,40 @@ function setRobotsNoindex(shouldNoindex) {
   }
 }
 
+// GEO 短期 #1：FAQPage schema — AI / 搜尋引擎愛 Q&A 結構，
+// 命中 evergreen 卡片且 Sheet 上有 QA 欄時動態注入 JSON-LD
+function injectFAQSchema(card) {
+  const old = document.getElementById('faqSchema');
+  if (old) old.remove();
+  if (!card) return;
+
+  const isEvergreen = ['long', 'book', 'edu'].includes(card.category);
+  const isExpired = utils.isExpired(card.endDate);
+  if (!isEvergreen || isExpired) return;
+
+  // QA 主要從 card.qa 來，少數卡片寫在 card.note 也支援
+  let qaList = [];
+  if (card.qa && utils.isQA(card.qa)) qaList = utils.parseQA(card.qa);
+  else if (card.note && utils.isQA(card.note)) qaList = utils.parseQA(card.note);
+  if (qaList.length === 0) return;
+
+  const schema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'mainEntity': qaList.map(qa => ({
+      '@type': 'Question',
+      'name': qa.q,
+      'acceptedAnswer': { '@type': 'Answer', 'text': qa.a }
+    }))
+  };
+
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.id = 'faqSchema';
+  script.textContent = JSON.stringify(schema);
+  document.head.appendChild(script);
+}
+
 const DEFAULT_OG = {
   title: '鷹式一家 Eaglish Family - 精選團購·優質好物',
   description: '跟著鷹式一家一起買！精選台日韓歐美優質商品團購，母嬰、居家、美妝通通有。',
@@ -2568,6 +2602,7 @@ function updateOGMeta(card) {
     setMeta('og:image', DEFAULT_OG.image);
     setMeta('og:url', DEFAULT_OG.url);
     setRobotsNoindex(false); // 首頁正常 indexable
+    injectFAQSchema(null);   // 移除任何殘留的 FAQ schema
     return;
   }
   const title = `${card.brand}｜鷹家買物社`;
@@ -2588,6 +2623,9 @@ function updateOGMeta(card) {
   const isShortLived = card.category === 'short' || card.category === 'upcoming';
   const isExpired = utils.isExpired(card.endDate);
   setRobotsNoindex(isShortLived || isExpired);
+
+  // 命中 evergreen 卡片時嘗試注入 FAQPage schema（GEO 加分）
+  injectFAQSchema(card);
 }
 
 // 載入時讀 ?p=X 參數，scroll 到對應卡片 + 高亮 + 更新 OG
