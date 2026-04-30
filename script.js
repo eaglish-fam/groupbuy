@@ -2166,6 +2166,109 @@ function initSearch() {
     applySearch('');
     elements.searchInput?.focus();
   });
+
+  initSearchAutocomplete();
+}
+
+// ============ E3 搜尋自動完成 + 最近搜尋 + 熱門品牌 ============
+const RECENT_SEARCH_KEY = 'eg_recent_searches';
+
+function getRecentSearches() {
+  try {
+    const raw = localStorage.getItem(RECENT_SEARCH_KEY);
+    if (!raw) return [];
+    const arr = JSON.parse(raw);
+    return Array.isArray(arr) ? arr.slice(0, 5) : [];
+  } catch { return []; }
+}
+
+function addRecentSearch(brand) {
+  if (!brand) return;
+  const recent = [brand, ...getRecentSearches().filter(b => b !== brand)].slice(0, 8);
+  try { localStorage.setItem(RECENT_SEARCH_KEY, JSON.stringify(recent)); } catch {}
+}
+
+function getHotBrands() {
+  if (!state.groups || state.groups.length === 0) return [];
+  const featured = state.groups.filter(g => g.featured && !utils.isExpired(g.endDate)).map(g => g.brand);
+  const recent = state.groups
+    .filter(g => utils.isNewlyAdded(g) && !featured.includes(g.brand))
+    .map(g => g.brand);
+  return [...new Set([...featured, ...recent])].slice(0, 6);
+}
+
+function initSearchAutocomplete() {
+  const input = elements.searchInput;
+  if (!input) return;
+  const wrapper = input.parentElement;
+  if (!wrapper) return;
+
+  const dropdown = document.createElement('div');
+  dropdown.id = 'searchAutocomplete';
+  dropdown.className = 'search-autocomplete hidden';
+  wrapper.appendChild(dropdown);
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  }
+
+  function buildSection(label, items) {
+    if (!items.length) return '';
+    const labelHtml = label ? `<div class="search-autocomplete-section">${label}</div>` : '';
+    const itemsHtml = items.map(b =>
+      `<div class="search-autocomplete-item" data-brand="${escapeHtml(b)}">${escapeHtml(b)}</div>`
+    ).join('');
+    return labelHtml + itemsHtml;
+  }
+
+  function render() {
+    const q = (input.value || '').toLowerCase().trim();
+    let html = '';
+
+    if (!q) {
+      const recent = getRecentSearches();
+      const hot = getHotBrands();
+      html += buildSection(recent.length ? '最近搜尋' : '', recent);
+      html += buildSection(hot.length ? '熱門推薦' : '', hot);
+    } else {
+      const seen = new Set();
+      const matches = [];
+      for (const g of (state.groups || [])) {
+        if (matches.length >= 8) break;
+        if (!g.brand || seen.has(g.brand)) continue;
+        if (g.brand.toLowerCase().includes(q) || (g.tag || '').toLowerCase().includes(q)) {
+          seen.add(g.brand);
+          matches.push(g.brand);
+        }
+      }
+      html += buildSection(null, matches);
+    }
+
+    if (!html) {
+      dropdown.classList.add('hidden');
+      return;
+    }
+    dropdown.innerHTML = html;
+    dropdown.classList.remove('hidden');
+  }
+
+  input.addEventListener('focus', render);
+  input.addEventListener('input', render);
+
+  document.addEventListener('mousedown', (e) => {
+    if (!wrapper.contains(e.target)) dropdown.classList.add('hidden');
+  });
+
+  dropdown.addEventListener('click', (e) => {
+    const item = e.target.closest('.search-autocomplete-item');
+    if (!item) return;
+    const brand = item.dataset.brand;
+    input.value = brand;
+    addRecentSearch(brand);
+    applySearch(brand);
+    dropdown.classList.add('hidden');
+    input.blur();
+  });
 }
 
 // ============ 資料載入 ============

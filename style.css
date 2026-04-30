@@ -2004,6 +2004,48 @@ header.header-compact .header-logo-wrap {
 }
 
 /* ============================================
+   E3 搜尋自動完成 dropdown
+   ============================================ */
+.search-autocomplete {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin-top: 4px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(120, 53, 15, 0.12);
+  max-height: 360px;
+  overflow-y: auto;
+  z-index: 100;
+  padding: 6px 0;
+}
+.search-autocomplete.hidden {
+  display: none;
+}
+.search-autocomplete-section {
+  padding: 8px 14px 4px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #92400e;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.search-autocomplete-item {
+  padding: 9px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  color: #1f2937;
+  transition: background 0.1s ease, color 0.1s ease;
+}
+.search-autocomplete-item:hover,
+.search-autocomplete-item:focus {
+  background: #fef3c7;
+  color: #92400e;
+}
+
+/* ============================================
    E5 Pull-to-refresh 指示器（standalone PWA only）
    ============================================ */
 #ptrIndicator {
