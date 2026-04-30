@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /lab/
+Disallow: /docs/
 
 Sitemap: https://www.eaglish.store/sitemap.xml
