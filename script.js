@@ -2688,10 +2688,8 @@ function renderGroupCardBody(g) {
   ).join('');
 
   const countdown = g.category === 'short' && daysLeft !== null
-    ? `<div class="flex items-center gap-2 text-sm mb-3">
-         <span class="${daysLeft < 0 ? 'text-gray-500' : daysLeft <= 3 ? 'text-red-600 font-semibold' : 'text-amber-700'}">
-           ⏱ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : daysLeft === 0 ? '今天截止' : '結束 ' + Math.abs(daysLeft) + ' 天'}
-         </span>
+    ? `<div class="card-countdown ${daysLeft < 0 ? 'is-expired' : daysLeft <= 2 ? 'is-urgent' : ''} flex items-center gap-2 text-sm mb-3">
+         <span>⏱ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : daysLeft === 0 ? '今天截止' : '結束 ' + Math.abs(daysLeft) + ' 天'}</span>
        </div>`
     : '';
 

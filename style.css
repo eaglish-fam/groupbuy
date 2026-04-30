@@ -2004,6 +2004,33 @@ header.header-compact .header-logo-wrap {
 }
 
 /* ============================================
+   卡片倒數（B2 軟版脈衝）
+   - 預設：琥珀色純資訊
+   - is-urgent：剩 2 天內，深琥珀 + 柔和脈衝
+   - is-expired：灰色
+   尊重 prefers-reduced-motion，無障礙友善
+   ============================================ */
+.card-countdown {
+  color: #b45309;            /* amber-700 */
+  transition: color 0.2s ease;
+}
+.card-countdown.is-expired {
+  color: #6b7280;            /* gray-500 */
+}
+.card-countdown.is-urgent {
+  color: #d97706;            /* amber-600，比預設深一階 */
+  font-weight: 600;
+  animation: card-countdown-pulse 1.8s ease-in-out infinite;
+}
+@keyframes card-countdown-pulse {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.55; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card-countdown.is-urgent { animation: none; }
+}
+
+/* ============================================
    NEW 標籤：開團 7 天內的卡片自動掛
    位於 .masonry-card-image-wrapper 左上角
    ============================================ */
