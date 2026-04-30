@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eaglish-v9.26';
+const CACHE_NAME = 'eaglish-v9.27';
 const urlsToCache = [
   '/',
   '/index.html',

@@ -3165,9 +3165,76 @@ function init() {
 // 🎨 圖片優化：初始化圖片處理系統
 ImageOptimizer.initImageOptimization();
 
+// ============ E5 Pull-to-refresh（PWA 用，瀏覽器有原生不需要） ============
+function initPullToRefresh() {
+  if (!('ontouchstart' in window)) return;
+  // 只在 standalone PWA 啟用，瀏覽器分頁有原生下拉重整不要打架
+  const isStandalone = window.matchMedia('(display-mode: standalone)').matches
+                    || window.navigator.standalone === true;
+  if (!isStandalone) return;
+
+  const indicator = document.createElement('div');
+  indicator.id = 'ptrIndicator';
+  indicator.innerHTML = '<span class="ptr-spinner">↓</span>';
+  document.body.appendChild(indicator);
+
+  const THRESHOLD = 70;
+  let startY = 0;
+  let pullDistance = 0;
+  let pulling = false;
+
+  document.addEventListener('touchstart', (e) => {
+    if (window.scrollY === 0 && !state.loading) {
+      startY = e.touches[0].clientY;
+      pullDistance = 0;
+      pulling = true;
+    } else {
+      pulling = false;
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchmove', (e) => {
+    if (!pulling) return;
+    pullDistance = e.touches[0].clientY - startY;
+    if (pullDistance > 0 && window.scrollY === 0) {
+      const visible = Math.min(pullDistance / 2, 90);
+      indicator.style.transform = `translate(-50%, ${visible}px)`;
+      indicator.style.opacity = Math.min(pullDistance / THRESHOLD, 1).toFixed(2);
+      const ready = pullDistance > THRESHOLD;
+      indicator.classList.toggle('ptr-ready', ready);
+      indicator.querySelector('.ptr-spinner').textContent = ready ? '↑' : '↓';
+    }
+  }, { passive: true });
+
+  document.addEventListener('touchend', () => {
+    if (!pulling) return;
+    if (pullDistance > THRESHOLD) {
+      indicator.classList.add('ptr-loading');
+      indicator.querySelector('.ptr-spinner').textContent = '⟳';
+      indicator.style.transform = 'translate(-50%, 50px)';
+      indicator.style.opacity = '1';
+      Promise.resolve(loadData()).finally(() => {
+        setTimeout(() => {
+          indicator.style.transform = '';
+          indicator.style.opacity = '';
+          indicator.classList.remove('ptr-loading', 'ptr-ready');
+          indicator.querySelector('.ptr-spinner').textContent = '↓';
+        }, 350);
+      });
+    } else {
+      indicator.style.transform = '';
+      indicator.style.opacity = '';
+    }
+    pulling = false;
+    startY = 0;
+    pullDistance = 0;
+  });
+}
+
 initSearch();
 renderBanner();
 init();
+initPullToRefresh();
 loadData().then(applyUrlParams);
 // 只在分頁可見時 refresh，分頁回到前景立即抓一次（背景分頁不浪費流量）
 setInterval(() => { if (!document.hidden) loadData(); }, CONFIG.REFRESH_INTERVAL);

@@ -2004,6 +2004,41 @@ header.header-compact .header-logo-wrap {
 }
 
 /* ============================================
+   E5 Pull-to-refresh 指示器（standalone PWA only）
+   ============================================ */
+#ptrIndicator {
+  position: fixed;
+  top: -60px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: 44px;
+  height: 44px;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-size: 22px;
+  color: #b45309;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+}
+#ptrIndicator.ptr-ready {
+  background: #fef3c7;  /* amber-100 */
+  color: #92400e;       /* amber-800 */
+}
+#ptrIndicator.ptr-loading .ptr-spinner {
+  display: inline-block;
+  animation: ptr-spin 0.8s linear infinite;
+}
+@keyframes ptr-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
    卡片倒數（B2 軟版脈衝）
    - 預設：琥珀色純資訊
    - is-urgent：剩 2 天內，深琥珀 + 柔和脈衝
