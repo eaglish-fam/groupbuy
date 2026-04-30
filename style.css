@@ -1907,6 +1907,49 @@ header.header-compact .header-logo-wrap {
   }
 }
 
+/* ============================================
+   關於我們 — IP card
+   ============================================ */
+.about-ip-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 24px 18px;
+  border-radius: 12px;
+  background: #ffffff;
+  border: 1.5px solid var(--color-border-muted);
+  text-decoration: none;
+  color: var(--color-text-title-dark);
+  transition: background 0.18s ease, border-color 0.18s ease, transform 0.12s ease;
+}
+
+.about-ip-card:hover {
+  background: var(--color-bg-surface);
+  border-color: var(--color-text-muted);
+  transform: translateY(-2px);
+}
+
+.about-ip-emoji {
+  font-size: 32px;
+  margin-bottom: 8px;
+  line-height: 1;
+}
+
+.about-ip-title {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: var(--color-text-title-dark);
+}
+
+.about-ip-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
 /* 按鈕展開動畫 */
 .filter-expand {
   max-height: 0;
