@@ -825,8 +825,10 @@
 }
 
 /* ============================================
-   客服按鈕 — 霧面墨綠（refined sage，不刺眼）
+   卡片 Secondary Button — 統一中性樣式
+   讓主要 CTA「立即前往」獨佔重點色，其他 action 全部退到中性
    ============================================ */
+.card-secondary-btn,
 .contact-button {
   width: 100%;
   display: flex;
@@ -835,9 +837,9 @@
   gap: 8px;
   padding: 9px 16px;
   border-radius: 8px;
-  background: linear-gradient(to right, #f1f5ec, #e6ede0);
-  border: 1.5px solid #a3b89c;
-  color: #2e4a32;
+  background: #ffffff;
+  border: 1.5px solid var(--color-border-muted);
+  color: var(--color-text-title-dark);
   font-size: 14px;
   font-weight: 600;
   text-decoration: none;
@@ -846,11 +848,13 @@
   font-family: inherit;
 }
 
+.card-secondary-btn:hover,
 .contact-button:hover {
-  background: linear-gradient(to right, #e6ede0, #d8e2cf);
-  border-color: #7d9876;
+  background: var(--color-bg-surface);
+  border-color: var(--color-text-muted);
 }
 
+.card-secondary-btn:active,
 .contact-button:active {
   transform: scale(0.98);
 }
@@ -1890,6 +1894,17 @@ header.header-compact .header-logo-wrap {
 #sidebarOverlay.active {
   opacity: 1;
   pointer-events: auto;
+}
+
+/* 桌面版持久側邊欄：body padding-left 把所有內容（含 header / footer / hero）一起推右
+   sidebar 用 fixed 不參與 layout，只是在 padding 區域上覆蓋顯示 */
+@media (min-width: 1024px) {
+  body {
+    transition: padding-left 0.3s ease;
+  }
+  body.lg-sidebar-open {
+    padding-left: 256px;
+  }
 }
 
 /* 按鈕展開動畫 */

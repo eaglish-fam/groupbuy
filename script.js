@@ -344,29 +344,23 @@ function preloadCriticalImages(groups) {
 let sidebarOpen = false;
 let mobileFiltersOpen = false;
 
-// 桌面版側邊欄
+// 桌面版側邊欄（持久側邊欄：lg+ 預設展開、body padding-left 推開所有內容、不再用 overlay 遮罩）
 function toggleSidebar() {
   sidebarOpen = !sidebarOpen;
   const sidebar = document.getElementById('desktopSidebar');
-  const overlay = document.getElementById('sidebarOverlay');
-  const content = document.getElementById('content');
-  
+
   if (sidebarOpen) {
     sidebar.classList.add('open');
-    overlay.classList.add('active');
-    content.style.marginLeft = '256px';
+    document.body.classList.add('lg-sidebar-open');
   } else {
     sidebar.classList.remove('open');
-    overlay.classList.remove('active');
-    content.style.marginLeft = '0';
+    document.body.classList.remove('lg-sidebar-open');
   }
-  
-  // 儲存狀態
+
   try {
     localStorage.setItem(STORAGE_KEYS.sidebarOpen, String(sidebarOpen));
   } catch {}
-  
-  // GA4 追蹤
+
   if (typeof gtag !== 'undefined') {
     gtag('event', 'toggle_sidebar', {
       'action': sidebarOpen ? 'open' : 'close',
@@ -2923,9 +2917,9 @@ function renderGroupCardBody(g) {
     </div>
     ${countdown}
     ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900" style="white-space: pre-wrap;">${linkify(g.note)}</p></div>` : ''}
-    ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
-    ${g.warrantyUrl && !expired ? `<div class="mb-3"><a href="${g.warrantyUrl}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-slate-50 to-gray-50 border-2 border-slate-300 text-slate-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-slate-100 hover:to-gray-100 transition-colors flex items-center justify-center gap-2" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_warranty', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">🛡️ 保固網站</a></div>` : ''}
-    ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${(g.url || '').replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
+    ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="card-secondary-btn" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
+    ${g.warrantyUrl && !expired ? `<div class="mb-3"><a href="${g.warrantyUrl}" target="_blank" rel="noopener noreferrer" class="card-secondary-btn" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_warranty', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">🛡️ 保固網站</a></div>` : ''}
+    ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${(g.url || '').replace(/'/g, "\\'")}')" class="card-secondary-btn">📄 查看介紹</button></div>` : ''}
     ${(() => {
       if (!g.contacts || g.contacts.length === 0 || expired) return '';
       // 只有 1 個管道：全寬按鈕直接跳
@@ -2943,9 +2937,9 @@ function renderGroupCardBody(g) {
       <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
       ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
     </details>` : ''}
-    ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
+    ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="card-secondary-btn">🎬 觀看影片</button></div>` : ''}
     ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
-    ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url || ''}', '⏰ 今天是最後一天!記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
+    ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url || ''}', '⏰ 今天是最後一天!記得下單')" class="card-secondary-btn">📅 加入行事曆</button></div>` : ''}
   `;
 
   const cta = (g.retailers && g.retailers.length > 0)
@@ -3348,15 +3342,16 @@ function initHeroCarousel() {
 
 // ============ 初始化 ============
 function init() {
-  // 恢復側邊欄狀態（僅桌面版）
+  // 桌面版：持久側邊欄預設展開，使用者明確收合過才保持收合
   if (window.innerWidth >= 1024) {
+    let shouldOpen = true;
     try {
       const savedSidebarState = localStorage.getItem(STORAGE_KEYS.sidebarOpen);
-      if (savedSidebarState === 'true') {
-        // 延遲打開，避免動畫問題
-        setTimeout(() => toggleSidebar(), 100);
-      }
+      if (savedSidebarState === 'false') shouldOpen = false;
     } catch {}
+    if (shouldOpen) {
+      setTimeout(() => toggleSidebar(), 100);
+    }
   }
   // 初始化 Sticky Header
   initStickyHeader();
