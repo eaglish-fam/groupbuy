@@ -2544,6 +2544,23 @@ const DEFAULT_OG = {
   url: 'https://www.eaglish.store/'
 };
 
+// A5 動態 OG 圖：把卡片圖 resize/crop 成 OG 標準 1200×630
+// lh3.googleusercontent.com 支援 =w1200-h630-c 後綴做 resize + center crop
+function buildOgImage(rawImageUrl) {
+  if (!rawImageUrl || typeof ImageOptimizer === 'undefined') return DEFAULT_OG.image;
+  try {
+    const { primary } = ImageOptimizer.getOptimizedImageUrl(rawImageUrl);
+    if (!primary) return DEFAULT_OG.image;
+    if (/lh3\.googleusercontent\.com/.test(primary)) {
+      // 把既有的 =wXXX(-hYYY...) 後綴換成 1200×630 中央裁切
+      return primary.replace(/=[^?#]*$/, '=w1200-h630-c');
+    }
+    return primary; // 非 Google Drive 來源就維持原樣
+  } catch {
+    return DEFAULT_OG.image;
+  }
+}
+
 function updateOGMeta(card) {
   if (!card) {
     document.title = '鷹式一家團購 | 鷹家買物社 - 精選團購·優質好物';
@@ -2556,16 +2573,16 @@ function updateOGMeta(card) {
   }
   const title = `${card.brand}｜鷹家買物社`;
   const desc = (card.description || `跟著鷹式一家買！${card.brand}`).slice(0, 200);
-  let image = DEFAULT_OG.image;
-  if (card.image && typeof ImageOptimizer !== 'undefined') {
-    try { image = ImageOptimizer.getOptimizedImageUrl(card.image, card.brand).primary || DEFAULT_OG.image; } catch {}
-  }
+  const image = buildOgImage(card.image);
   const url = `${window.location.origin}/?p=${encodeURIComponent(card.brand)}`;
   document.title = title;
   setMeta('og:title', title);
   setMeta('og:description', desc);
   setMeta('og:image', image);
   setMeta('og:url', url);
+  // og:image 尺寸 hint（部分爬蟲會讀，提升解析穩定度）
+  setMeta('og:image:width', '1200');
+  setMeta('og:image:height', '630');
 
   // 短期 / 即將開團 / 過期 → noindex（避免死頁面累積拖累 SEO）
   // 常駐 / 書籍 / 教育 / 折扣碼 + 未過期 → 不注入（預設 indexable）
