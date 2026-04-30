@@ -19,12 +19,12 @@
     margin-bottom: 16px !important;
   }
 
-  /* 團購卡片容器 - 雙排瀑布流（手機版加大左右 padding 對齊 calendar 內縮感）*/
+  /* 團購卡片容器 - 雙排瀑布流（左右對齊 calendar 白框邊緣，吃外層 px-4 即可，不再額外內縮）*/
   .masonry-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    padding: 12px 20px;   /* 上下 12 / 左右 20，視覺跟 calendar 一致 */
+    padding: 12px 0;
     grid-auto-flow: dense;
   }
 
@@ -33,7 +33,7 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
-    padding: 8px 20px;    /* 同步加大左右 */
+    padding: 8px 0;
     grid-auto-flow: dense;
   }
 
