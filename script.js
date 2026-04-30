@@ -2539,7 +2539,7 @@ function setRobotsNoindex(shouldNoindex) {
 const DEFAULT_OG = {
   title: '鷹式一家 Eaglish Family - 精選團購·優質好物',
   description: '跟著鷹式一家一起買！精選台日韓歐美優質商品團購，母嬰、居家、美妝通通有。',
-  image: 'https://www.eaglish.store/logo-horizontal.jpg',
+  image: 'https://www.eaglish.store/logo-eaglish-text.png',
   url: 'https://www.eaglish.store/'
 };
 
