@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eaglish-v9.15';
+const CACHE_NAME = 'eaglish-v9.16';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -17,6 +17,7 @@ const urlsToCache = [
 // 安裝 Service Worker
 self.addEventListener('install', event => {
   console.log('🔧 Service Worker 安裝中...');
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
@@ -41,15 +42,18 @@ self.addEventListener('fetch', event => {
 self.addEventListener('activate', event => {
   console.log('✨ Service Worker 啟動中...');
   event.waitUntil(
-    caches.keys().then(cacheNames => {
-      return Promise.all(
-        cacheNames.map(cacheName => {
-          if (cacheName !== CACHE_NAME) {
-            console.log('🗑️ 清除舊快取:', cacheName);
-            return caches.delete(cacheName);
-          }
-        })
-      );
-    })
+    Promise.all([
+      self.clients.claim(),
+      caches.keys().then(cacheNames => {
+        return Promise.all(
+          cacheNames.map(cacheName => {
+            if (cacheName !== CACHE_NAME) {
+              console.log('🗑️ 清除舊快取:', cacheName);
+              return caches.delete(cacheName);
+            }
+          })
+        );
+      })
+    ])
   );
 });
