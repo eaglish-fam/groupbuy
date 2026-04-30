@@ -2108,20 +2108,20 @@ header.header-compact .header-logo-wrap {
 }
 
 /* ============================================
-   NEW 標籤（v2）：inline pill，跟倒數同行
-   原本擋圖片左上角，改成圓點 + NEW 文字小膠囊放倒數旁
+   NEW 標籤（v3）：Apple Cafe 暖駝色系
+   米白底、espresso 咖啡文字、暖駝邊、金駝漸層小點
    ============================================ */
 .card-badge-new-inline {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 5px;
   padding: 2px 8px 2px 6px;
   font-size: 10px;
   font-weight: 700;
-  letter-spacing: 0.4px;
-  color: #047857;                                 /* emerald-700 */
-  background: rgba(16, 185, 129, 0.10);           /* emerald-500 alpha */
-  border: 1px solid rgba(16, 185, 129, 0.28);
+  letter-spacing: 0.5px;
+  color: #6B4423;                                 /* 深 espresso 咖啡 */
+  background: rgba(243, 239, 221, 0.6);           /* 半透明米白（呼應 --color-bg-surface）*/
+  border: 1px solid rgba(184, 154, 117, 0.4);     /* 暖駝細邊（呼應 --color-price-gold-dark）*/
   border-radius: 999px;
   line-height: 1.4;
 }
@@ -2130,6 +2130,6 @@ header.header-compact .header-logo-wrap {
   width: 5px;
   height: 5px;
   border-radius: 50%;
-  background: #10b981;                            /* emerald-500 圓點 */
+  background: linear-gradient(135deg, #D4A88F 0%, #B89A75 100%);  /* 暖駝→深金駝漸層 */
   flex-shrink: 0;
 }
