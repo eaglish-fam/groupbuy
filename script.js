@@ -794,7 +794,7 @@ function setFilter(type, value) {
   }
   updateFilterStatus();
   renderFilters();
-  renderContent();
+  renderContent({ animate: true });
 }
 
 // ===== 新增篩選狀態管理函數 =====
@@ -830,7 +830,7 @@ function clearAllFilters() {
   
   updateFilterStatus();
   renderFilters();
-  renderContent();
+  renderContent({ animate: true });
 }
 
 function getFilterCounts() {
@@ -1814,7 +1814,7 @@ function toggleExpired() {
     localStorage.setItem(STORAGE_KEYS.showExpired, String(state.showExpired));
   } catch {}
   renderFilters();
-  renderContent();
+  renderContent({ animate: true });
 }
 
 function switchCalendarMonth(m) {
@@ -2105,9 +2105,9 @@ function applySearch(val) {
     localStorage.setItem(STORAGE_KEYS.search, state.searchTerm);
   } catch {}
   elements.clearBtn?.classList.toggle('hidden', state.searchTerm.length === 0);
-  
+
   updateFilterStatus();
-  renderContent();
+  renderContent({ animate: true });
 }
 
 function initSearch() {
@@ -3046,10 +3046,11 @@ function renderKangBooksSection(books) {
 }
 
 // ============ 內容渲染 ============
-// 包一層 View Transitions：篩選切換時瀏覽器幫忙做 cross-fade，
-// 避免 innerHTML 重建造成的閃爍（Chrome/Edge/Safari 18+ 支援，Firefox 退回原行為）
-function renderContent() {
-  if (state.loading || typeof document.startViewTransition !== 'function') {
+// View Transitions 只在篩選切換時用（避免 cross-fade 卡片重建的閃爍）。
+// 初次載入、定時 refresh、tab 切回前景的 reload 都不用 transition，
+// 否則每次 loadData 都會觸發 250ms 動畫拖慢開啟感受。
+function renderContent({ animate = false } = {}) {
+  if (state.loading || !animate || typeof document.startViewTransition !== 'function') {
     return renderContentImpl();
   }
   document.startViewTransition(() => renderContentImpl());
@@ -3390,8 +3391,16 @@ init();
 initPullToRefresh();
 loadData().then(applyUrlParams);
 // 只在分頁可見時 refresh，分頁回到前景立即抓一次（背景分頁不浪費流量）
-setInterval(() => { if (!document.hidden) loadData(); }, CONFIG.REFRESH_INTERVAL);
-document.addEventListener('visibilitychange', () => { if (!document.hidden) loadData(); });
+// 自動 refresh + tab 切回前景：30 秒內不重複 reload，避免高頻切換造成卡頓
+let __lastLoadDataAt = Date.now();
+function maybeReloadData() {
+  if (document.hidden) return;
+  if (Date.now() - __lastLoadDataAt < 30_000) return;
+  __lastLoadDataAt = Date.now();
+  loadData();
+}
+setInterval(maybeReloadData, CONFIG.REFRESH_INTERVAL);
+document.addEventListener('visibilitychange', maybeReloadData);
 
 // 分享功能
 function shareWebsite() {
