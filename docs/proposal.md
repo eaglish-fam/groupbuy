@@ -77,7 +77,7 @@
 - ✅ **E5** Pull-to-refresh — standalone PWA 下拉重整 + 琥珀色 indicator（commit `656a86b`）
 - ✅ **E4** iOS 分享 sheet 客製化 — 圖片 file 附件 + 倒數 + 鷹式品牌簽名（commit `2b5c5da`）
 - ✅ **E3** 搜尋自動完成 — 最近搜尋 + 熱門推薦 dropdown（commit `2ec7922`）
-- ✅ **E6** 暗色模式自動切換 — `prefers-color-scheme: dark` 覆蓋 CSS 變數（commit `a8a549b`）
+- ⏸️ **E6** 暗色模式 — 實作後（commit `a8a549b`）發現視覺效果不理想 + `filter: brightness()` 在卡片圖上拖累渲染速度，2026-04-30 撤回
 - ✅ **A5** 動態 OG 圖 — lh3 server-side crop 到 1200×630（commit `fd93005`）
 
 ---
