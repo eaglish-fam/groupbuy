@@ -2002,3 +2002,34 @@ header.header-compact .header-logo-wrap {
 @media (min-width: 1024px) {
   .search-input { height: 38px; }
 }
+
+/* ============================================
+   NEW 標籤：開團 7 天內的卡片自動掛
+   位於 .masonry-card-image-wrapper 左上角
+   ============================================ */
+.card-badge-new {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  z-index: 2;
+  display: inline-block;
+  padding: 3px 8px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.35);
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+@media (min-width: 768px) {
+  .card-badge-new {
+    top: 10px;
+    left: 10px;
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+}

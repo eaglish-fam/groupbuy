@@ -256,11 +256,13 @@ window.ImageOptimizer = ImageOptimizer;
 // ============================================
 
 // 產生優化的圖片 HTML
-function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable = true, groupUrl = '') {
+function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable = true, groupUrl = '', isNew = false) {
+  const newBadge = isNew ? '<span class="card-badge-new">NEW</span>' : '';
   if (!imageUrl) {
     // 無圖片時顯示 placeholder
     return `
       <div class="masonry-card-image-wrapper">
+        ${newBadge}
         <div class="flex items-center justify-center h-full bg-gradient-to-br from-amber-50 to-orange-50">
           <div class="text-center">
             <div class="text-6xl mb-2">🦅</div>
@@ -290,8 +292,9 @@ function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable =
   if (clickable && groupUrl) {
     return `
       <div class="masonry-card-image-wrapper">
-        <a href="${groupUrl}" 
-           target="_blank" 
+        ${newBadge}
+        <a href="${utils.withUTM(groupUrl, brand)}"
+           target="_blank"
            rel="noopener noreferrer"
            onclick="event.stopPropagation(); try{ if(typeof gtag !== 'undefined'){ gtag('event','image_click',{ event_category:'engagement', event_label:'${brand || ''}' }); } }catch(e){}">
           ${imgTag}
@@ -301,6 +304,7 @@ function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable =
   } else {
     return `
       <div class="masonry-card-image-wrapper">
+        ${newBadge}
         ${imgTag}
       </div>
     `;
@@ -614,6 +618,17 @@ const utils = {
   isExpired(endStr) {
     const d = this.getDaysLeft(endStr);
     return d !== null && d < 0;
+  },
+
+  // 開團日期落在過去 7 天內 → 視為「新團」，可掛 NEW 標籤
+  isNewlyAdded(g) {
+    if (!g || !g.startDate) return false;
+    const st = this.parseDateSafe(g.startDate);
+    if (!st) return false;
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const daysSinceStart = (today - st) / 86400000;
+    return daysSinceStart >= 0 && daysSinceStart <= 7;
   },
 
   parseQA(qaString) {
@@ -2728,7 +2743,7 @@ function renderGroupCard(g) {
   const { body, cta, expired } = renderGroupCardBody(g);
   return `
     <div class="masonry-card ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
-      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
+      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url, utils.isNewlyAdded(g) && !expired)}
       <div class="masonry-card-content p-5">
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         ${body}
@@ -2772,7 +2787,7 @@ function renderCouponCard(g) {
 
   return `
     <div class="bg-gradient-to-br from-purple-50 to-pink-50 rounded-xl overflow-hidden ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
-      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
+      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url, utils.isNewlyAdded(g) && !expired)}
       <div class="p-6">
         <div class="flex items-start justify-between gap-3 mb-3">
           <div class="flex-1">
