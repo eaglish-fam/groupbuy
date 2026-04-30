@@ -795,6 +795,7 @@ function setFilter(type, value) {
   updateFilterStatus();
   renderFilters();
   renderContent({ animate: true });
+  scrollToContentTop();
 }
 
 // ===== 新增篩選狀態管理函數 =====
@@ -831,6 +832,7 @@ function clearAllFilters() {
   updateFilterStatus();
   renderFilters();
   renderContent({ animate: true });
+  scrollToContentTop();
 }
 
 function getFilterCounts() {
@@ -1815,6 +1817,7 @@ function toggleExpired() {
   } catch {}
   renderFilters();
   renderContent({ animate: true });
+  scrollToContentTop();
 }
 
 function switchCalendarMonth(m) {
@@ -3043,6 +3046,13 @@ function renderKangBooksSection(books) {
         ${books.map(renderBookCard).join('')}
       </div>
     </section>`;
+}
+
+// 篩選 / 清除 / 顯示過期切換後滑回頂端，避免使用者卡在空白處迷路
+function scrollToContentTop() {
+  if (typeof window === 'undefined') return;
+  // 用 smooth 但短時間：篩選縮減 + cross-fade 同時 + 平滑滾動，視覺一氣呵成
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 // ============ 內容渲染 ============
