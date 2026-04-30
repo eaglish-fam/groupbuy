@@ -497,6 +497,34 @@ const state = {
 };
 
 // ============ 工具函數 ============
+// 帶 timeout + 指數 backoff retry 的 fetch（解決 Google Sheets 偶發抖動）
+// validateText: 拿到 200 後可再驗證 body（例如非 HTML），不通過視為 retry
+async function fetchWithRetry(url, opts = {}, { timeout = 10000, retries = 2, validateText = null } = {}) {
+  let lastErr;
+  for (let attempt = 0; attempt <= retries; attempt++) {
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeout);
+    try {
+      const res = await fetch(url, { ...opts, signal: ctrl.signal });
+      clearTimeout(timer);
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      if (validateText) {
+        const text = await res.text();
+        if (!validateText(text)) throw new Error('Invalid response body (likely auth redirect)');
+        return { ok: true, text: async () => text };
+      }
+      return res;
+    } catch (err) {
+      clearTimeout(timer);
+      lastErr = err;
+      if (attempt < retries) {
+        await new Promise(r => setTimeout(r, 400 * Math.pow(2, attempt))); // 400ms, 800ms
+      }
+    }
+  }
+  throw lastErr;
+}
+
 const utils = {
   isURL: s => !!s && /^https?:\/\//i.test(s),
   isQA: s => !!s && s.includes('Q:') && s.includes('|A:'),
@@ -2125,8 +2153,11 @@ function showError(msg) {
 async function loadUpcomingFromTab() {
   try {
     const UPCOMING_CSV = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent('即將開團')}`;
-    const res = await fetch(UPCOMING_CSV, { credentials: 'omit' });
-    const text = await res.text();
+    let text = (window.__bootFetch && window.__bootFetch.upcoming) ? await window.__bootFetch.upcoming : null;
+    if (!text || utils.isProbablyHTML(text)) {
+      const res = await fetchWithRetry(UPCOMING_CSV, { credentials: 'omit' }, { timeout: 8000, retries: 2 });
+      text = await res.text();
+    }
     if (utils.isProbablyHTML(text)) return [];
 
     const out = [];
@@ -2159,13 +2190,16 @@ async function loadData() {
   try {
     const MAIN_CSV = `https://docs.google.com/spreadsheets/d/${CONFIG.SHEET_ID}/export?format=csv`;
 
-    const res = await fetch(MAIN_CSV, { credentials: 'omit' });
-
-    if (!res.ok) {
-      throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+    // 先消費 head 裡 boot fetch 的 promise，跟 CSS/JS 並行下載，省 500-800ms
+    let csv = (window.__bootFetch && window.__bootFetch.main) ? await window.__bootFetch.main : null;
+    if (!csv || utils.isProbablyHTML(csv)) {
+      const res = await fetchWithRetry(MAIN_CSV, { credentials: 'omit' }, {
+        timeout: 12000,
+        retries: 2,
+        validateText: t => !utils.isProbablyHTML(t)
+      });
+      csv = await res.text();
     }
-    
-    const csv = await res.text();
 
     if (utils.isProbablyHTML(csv)) {
       showError('Google Sheet 無法公開讀取。請將權限改為「知道連結的任何人可檢視」，或使用「檔案 → 發佈到網路上」。');
@@ -2332,7 +2366,11 @@ async function loadData() {
     renderFilters();
     renderContent();
   } catch (error) {
-    showError('無法連接資料來源（網路或權限問題）');
+    if (error && /auth redirect/i.test(error.message || '')) {
+      showError('Google Sheet 無法公開讀取。請將權限改為「知道連結的任何人可檢視」，或使用「檔案 → 發佈到網路上」。');
+    } else {
+      showError('無法連接資料來源（網路問題，請稍後再試）');
+    }
   }
 }
 

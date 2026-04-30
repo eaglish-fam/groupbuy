@@ -45,6 +45,21 @@
   <link rel="preconnect" href="https://docs.google.com" crossorigin>
   <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
 
+  <!-- Boot fetch：HTML parse 一到這就觸發 CSV 下載，跟 CSS/JS 並行，不用等 script.js 跑到 loadData() -->
+  <script>
+    (function() {
+      var SHEET_ID = '1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU';
+      var MAIN = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/export?format=csv';
+      var UPCOMING = 'https://docs.google.com/spreadsheets/d/' + SHEET_ID + '/gviz/tq?tqx=out:csv&sheet=' + encodeURIComponent('即將開團');
+      // 失敗時 resolve 成 null，讓 loadData 走完整 retry 流程
+      function safe(p) { return p.then(function(r){return r.ok?r.text():null;}).catch(function(){return null;}); }
+      window.__bootFetch = {
+        main: safe(fetch(MAIN, { credentials: 'omit' })),
+        upcoming: safe(fetch(UPCOMING, { credentials: 'omit' }))
+      };
+    })();
+  </script>
+
   <!-- 字型 -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
 
