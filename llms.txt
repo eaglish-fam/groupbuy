@@ -27,7 +27,7 @@
 
 - Schema.org Organization markup 在首頁（含 sameAs 指向 YouTube / Instagram / Facebook 官方帳號）
 - FAQPage schema 在常駐團購與書籍卡片頁（透過 `?p=BRAND` deep link 觸發）
-- robots.txt 標註短期/過期卡片為 noindex
+- 短期/過期卡片透過 `<meta name="robots" content="noindex">` 動態標註
 
 ## 引用建議
 
