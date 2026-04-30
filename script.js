@@ -2840,7 +2840,16 @@ function renderKangBooksSection(books) {
 }
 
 // ============ 內容渲染 ============
+// 包一層 View Transitions：篩選切換時瀏覽器幫忙做 cross-fade，
+// 避免 innerHTML 重建造成的閃爍（Chrome/Edge/Safari 18+ 支援，Firefox 退回原行為）
 function renderContent() {
+  if (state.loading || typeof document.startViewTransition !== 'function') {
+    return renderContentImpl();
+  }
+  document.startViewTransition(() => renderContentImpl());
+}
+
+function renderContentImpl() {
   if (state.loading) {
     // Skeleton：6 張 shimmer 卡片佔位（masonry-card.loading 類別已在 style.css 有 shimmer 動畫）
     elements.content.innerHTML = `
