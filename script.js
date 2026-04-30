@@ -530,6 +530,22 @@ const utils = {
   isQA: s => !!s && s.includes('Q:') && s.includes('|A:'),
   normalizeBrand: s => (s || '').toLowerCase().replace(/\s+/g, '').trim(),
   isProbablyHTML: t => /<\/?html[\s>]/i.test(t) || /accounts\.google\.com/.test(t),
+  // affiliate UTM 自動注入 — 不覆蓋既有 utm_source（保護廠商既有 tracking）
+  withUTM(url, brand, retailerName) {
+    if (!url || typeof url !== 'string' || !/^https?:/i.test(url)) return url || '';
+    try {
+      const u = new URL(url);
+      if (!u.searchParams.has('utm_source')) {
+        u.searchParams.set('utm_source', 'eaglish');
+        u.searchParams.set('utm_medium', 'groupbuy');
+        if (brand) u.searchParams.set('utm_campaign', brand);
+        if (retailerName) u.searchParams.set('utm_content', retailerName);
+      }
+      return u.toString();
+    } catch {
+      return url;
+    }
+  },
   formatCount: n => n > 99 ? '99+' : n > 9 ? '9+' : String(n),
   
   // 正規化分類/國家名稱（用於匹配）
@@ -1763,7 +1779,7 @@ function showDayGroups(day) {
     <div class="bg-amber-50 border-2 border-amber-200 rounded-lg p-3 mb-2">
       <div class="font-bold text-amber-900 text-center">${g.brand || ''}</div>
       ${g.productName ? `<div class="text-sm text-gray-600 text-center mt-1">${g.productName}</div>` : ''}
-      ${g.url ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" class="block w-full mt-2 bg-amber-600 text-white px-3 py-2 rounded text-sm text-center hover:bg-amber-700">前往團購</a>` : ''}
+      ${g.url ? `<a href="${utils.withUTM(g.url, g.brand)}" target="_blank" rel="noopener noreferrer" class="block w-full mt-2 bg-amber-600 text-white px-3 py-2 rounded text-sm text-center hover:bg-amber-700">前往團購</a>` : ''}
     </div>`;
 
   const modal = `
@@ -1985,7 +2001,7 @@ function renderMonthlyGroupList() {
         <div class="py-3 flex items-start gap-3 hover:bg-gray-50 rounded px-2 -mx-2 transition-colors">
           ${g.image ? `
             ${g.url ? `
-              <a href="${g.url}" target="_blank" rel="noopener noreferrer"
+              <a href="${utils.withUTM(g.url, g.brand)}" target="_blank" rel="noopener noreferrer"
                  onclick="event.stopPropagation(); try{ if (typeof gtag !== 'undefined') { gtag('event', 'image_click', { event_category: 'engagement', event_label: '${g.brand || ''}' }); } } catch (e) {}">
                 <img src="${g.image}" alt="${g.brand || ''}" class="w-16 h-16 object-cover rounded-lg flex-shrink-0" loading="lazy">
               </a>
@@ -2011,7 +2027,7 @@ function renderMonthlyGroupList() {
           
           <div class="flex flex-col gap-2 flex-shrink-0">
             ${g.url && !g.isUpcoming ? `
-              <a href="${g.url}" 
+              <a href="${utils.withUTM(g.url, g.brand)}" 
                  target="_blank" 
                  rel="noopener noreferrer" 
                  onclick="event.stopPropagation()"
@@ -2592,7 +2608,7 @@ function renderHeroBanner(items) {
     }
     // <a> for direct link
     const linkHref = item.url || (item.retailers && item.retailers[0]?.url) || '#';
-    return `<a href="${linkHref}" target="_blank" rel="noopener noreferrer"
+    return `<a href="${linkHref === '#' ? '#' : utils.withUTM(linkHref, item.brand)}" target="_blank" rel="noopener noreferrer"
        class="hero-card" data-brand="${item.brand}"
        onclick="${gaTrack}">${inner}</a>`;
   };
@@ -2617,7 +2633,7 @@ function renderUpcomingSearchCard(g) {
       ${g.image ? `
         <div class="w-full h-40 bg-gray-100">
           ${g.url ? `
-            <a href="${g.url}" target="_blank" rel="noopener noreferrer"
+            <a href="${utils.withUTM(g.url, g.brand)}" target="_blank" rel="noopener noreferrer"
                onclick="try{ if(typeof gtag!=='undefined'){ gtag('event','coupon_image_click',{ event_category:'engagement', event_label:'${g.brand || ''}' }); } }catch(e){}">
               <img src="${g.image}" class="w-full h-full object-cover" loading="lazy" alt="${g.brand || ''}">
             </a>
@@ -2702,8 +2718,8 @@ function renderGroupCardBody(g) {
   `;
 
   const cta = (g.retailers && g.retailers.length > 0)
-    ? `<div class="retailer-buttons">${g.retailers.map(r => `<a href="${r.url}" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_retailer', {retailer: '${(r.name || '').replace(/'/g, "\\'")}', group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'conversion'});}">${r.name}</a>`).join('')}</div>`
-    : (g.url ? `<a href="${g.url}" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', group_category: '${g.category}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}" class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>` : '');
+    ? `<div class="retailer-buttons">${g.retailers.map(r => `<a href="${utils.withUTM(r.url, g.brand, r.name)}" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_retailer', {retailer: '${(r.name || '').replace(/'/g, "\\'")}', group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'conversion'});}">${r.name}</a>`).join('')}</div>`
+    : (g.url ? `<a href="${utils.withUTM(g.url, g.brand)}" target="_blank" rel="noopener noreferrer" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_group', {group_name: '${g.brand.replace(/'/g, "\\'")}', group_category: '${g.category}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}" class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r ${openClass}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>` : '');
 
   return { body, cta, expired };
 }
@@ -2786,7 +2802,7 @@ function renderCouponCard(g) {
           </div>
         ` : ''}
         ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url}', '⏰ 今天是最後一天！記得下單')" class="w-full bg-gradient-to-r from-blue-50 to-indigo-50 border-2 border-blue-200 text-blue-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-blue-100 hover:to-indigo-100 transition-colors">📅 加入行事曆</button></div>` : ''}
-        <a href="${g.url}" target="_blank" rel="noopener noreferrer" 
+        <a href="${utils.withUTM(g.url, g.brand)}" target="_blank" rel="noopener noreferrer" 
            onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_coupon', {group_name: '${g.brand.replace(/'/g, "\\'")}', coupon_code: '${g.coupon || ''}', event_category: 'conversion', event_label: '${g.brand.replace(/'/g, "\\'")}', value: 1});}"
            class="block w-full text-center text-white py-3 rounded-xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 ${expired ? 'opacity-80' : ''}">${expired ? '仍可查看 →' : '🛒 立即前往 →'}</a>
       </div>
@@ -2797,8 +2813,8 @@ function renderCouponCard(g) {
 function renderKangBooksSection(books) {
   if (!books.length) return '';
 
-  const renderRetailer = (r) => `
-    <a href="${r.url}" target="_blank" rel="noopener noreferrer"
+  const renderRetailer = (r, brand) => `
+    <a href="${utils.withUTM(r.url, brand, r.name)}" target="_blank" rel="noopener noreferrer"
        onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_book', {retailer: '${(r.name || '').replace(/'/g, "\\'")}', event_category: 'kang_books'});}">${r.name}</a>`;
 
   const renderBookCard = (b) => {
@@ -2824,7 +2840,7 @@ function renderKangBooksSection(books) {
           ${b.description ? `<p class="text-base text-gray-700 leading-6 mb-3">${b.description}</p>` : ''}
           ${renderCardActions(b.title)}
           <div class="retailer-buttons">
-            ${b.retailers.map(renderRetailer).join('')}
+            ${b.retailers.map(r => renderRetailer(r, b.title)).join('')}
           </div>
         </div>
       </div>`;
