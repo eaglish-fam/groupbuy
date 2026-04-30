@@ -38,9 +38,12 @@
   <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
   <link rel="dns-prefetch" href="//www.googletagmanager.com">
   <link rel="dns-prefetch" href="//lh3.googleusercontent.com">
+  <link rel="dns-prefetch" href="//docs.google.com">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preconnect" href="https://docs.google.com" crossorigin>
+  <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin>
 
   <!-- 字型 -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@600;700&family=Cormorant+Garamond:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -49,7 +52,7 @@
   <link rel="stylesheet" href="tailwind.css">
   <link rel="stylesheet" href="theme-fresh-comfortable.css">
   <link rel="stylesheet" href="style.css">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha384-D/t0ZMqQW31H3az8ktEiNb39wyKnS82iFY52QPACM+IjKW3jDUhyIgh2PApRqJZs" crossorigin="anonymous"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js" integrity="sha384-D/t0ZMqQW31H3az8ktEiNb39wyKnS82iFY52QPACM+IjKW3jDUhyIgh2PApRqJZs" crossorigin="anonymous"></script>
   
   <!-- Google Analytics GA4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-7SW2X9B19H"></script>
@@ -93,7 +96,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
             </svg>
           </button>
-          <h1 class="header-logo-wrap"><img src="logo-eaglish-text.png" alt="鷹家買物社" class="header-logo"><span class="sr-only">鷹式一家 Eaglish Family</span></h1>
+          <h1 class="header-logo-wrap"><img src="logo-eaglish-text.png" alt="鷹家買物社" class="header-logo" fetchpriority="high" decoding="async"><span class="sr-only">鷹式一家 Eaglish Family</span></h1>
         </div>
 
         <!-- B: 搜尋（含手機版篩選 + 手機版分享） -->
@@ -220,9 +223,10 @@
   
     <div class="max-w-4xl mx-auto">
       <div class="relative rounded-xl overflow-hidden shadow-lg border-2 border-amber-200" style="padding-top: 56.25%;">
-        <iframe 
+        <iframe
           class="absolute top-0 left-0 w-full h-full"
           src="https://www.youtube-nocookie.com/embed/videoseries?list=UUoiECoSdugZDJltQ8WkNw3w"
+          loading="lazy"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen>
