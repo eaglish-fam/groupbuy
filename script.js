@@ -620,7 +620,8 @@ const utils = {
     return d !== null && d < 0;
   },
 
-  // 開團日期落在過去 7 天內 → 視為「新團」，可掛 NEW 標籤
+  // 開團日期落在過去 3 天內 → 視為「新團」，可掛 NEW 標籤
+  // （短期團購多半 7 天，閾值用 7 等於整個團期都掛 NEW，失去新鮮感）
   isNewlyAdded(g) {
     if (!g || !g.startDate) return false;
     const st = this.parseDateSafe(g.startDate);
@@ -628,7 +629,7 @@ const utils = {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
     const daysSinceStart = (today - st) / 86400000;
-    return daysSinceStart >= 0 && daysSinceStart <= 7;
+    return daysSinceStart >= 0 && daysSinceStart <= 3;
   },
 
   parseQA(qaString) {
