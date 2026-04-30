@@ -28,29 +28,9 @@
 
 ---
 
-## 📋 要做（已決定，按執行順序）
+## 📋 要做（全部完成 — 2026-04-30）
 
-| 順序 | ID | 項目 | 槓桿 | 工程 | 狀態 |
-|---|---|---|---|---|---|
-| 1 | **B4** | affiliate UTM 自動注入 | ⭐⭐⭐ | 極低 | 📋 |
-| 2 | **E2** | 「最近新增」自動掛 NEW 標籤 | ⭐⭐⭐ | 極低 | 📋 |
-| 3 | **B2** | 軟版倒數脈衝（琥珀色、剩 2 天內觸發） | ⭐⭐⭐⭐⭐ | 低 | 📋 |
-| 4 | **D1** | 過期卡片自動 `noindex` | ⭐⭐⭐⭐ | 低 | 📋 |
-| 5 | **A4 + D3** | 動態 sitemap.xml（只列 evergreen） | ⭐⭐⭐ | 低 | 📋 |
-| 6 | **E5** | Pull-to-refresh | ⭐⭐ | 低 | 📋 |
-| 7 | **E4** | iOS 分享 sheet 客製化 | ⭐⭐ | 低 | 📋 |
-| 8 | **E3** | 搜尋自動完成 + 熱門搜尋 | ⭐⭐⭐ | 中 | 📋 |
-| 9 | **E6** | 暗色模式自動切換 | ⭐⭐ | 中 | 📋 |
-| 10 | **A5** | 動態 OG 圖片（每張 evergreen 卡 1200×630） | ⭐⭐⭐ | 中 | 📋 |
-
-### 細節備註
-
-**B2 軟版倒數脈衝設計**：
-- 正常（>2 天）：淡灰小字「剩 X 天」純資訊
-- ≤2 天：琥珀色（amber，呼應品牌）+ 柔和脈衝（scale + opacity 漸變）
-- 已過期：隱藏倒數，保留原 expired 樣式
-
-**A5 動態 OG 圖**：要等 A4 完成後再做，因為 OG URL 會跟著 sitemap 動態結構走。
+> 全部 10 項已實作 + push 到 production，狀態同步移到下方「✅ 已完成」
 
 ---
 
@@ -77,7 +57,7 @@
 
 ## ✅ 已完成
 
-### 2026-04-30 同 session（perf / bug fix）
+### 2026-04-30 perf / bug fix 階段
 
 - ✅ PWA `skipWaiting` + `clients.claim`：手機主畫面不再卡舊版（`sw.js`）
 - ✅ 首屏載入加速：PapaParse defer + YouTube iframe lazy + preconnect
@@ -85,6 +65,20 @@
 - ✅ Fetch retry + timeout：解決「重整才有資料」bug（`fetchWithRetry` in `script.js`）
 - ✅ View Transitions API：篩選切換 cross-fade，不再閃爍
 - ✅ 手機卡片寬度：grid padding 對齊行事曆白框，每張卡 +20px
+
+### 2026-04-30 提案實作階段（10/10 全完成）
+
+- ✅ **B4** affiliate UTM 自動注入 — `utils.withUTM()` wrap 9 處外連 CTA（commit `50808cf`）
+- ✅ **E2** NEW 標籤 — 開團 3 天內自動掛綠色徽章（commit `cbce18a` + `f39cff0` 改閾值 7→3）
+- ✅ **B2** 軟版倒數脈衝 — 琥珀色取代紅色 FOMO，2 天閾值（commit `d8d8563`）
+- ✅ **D1** 過期/短期 noindex — `setRobotsNoindex()` 條件式 meta 注入（commit `2e2d8bd`）
+- ✅ **A4 + D3** 動態 sitemap 腳本 — `scripts/generate-sitemap.mjs` 過濾 evergreen（commit `da110e6`）
+  - 註：`.github/workflows/sitemap.yml` 因 OAuth scope 限制暫留本機，需手動補 push
+- ✅ **E5** Pull-to-refresh — standalone PWA 下拉重整 + 琥珀色 indicator（commit `656a86b`）
+- ✅ **E4** iOS 分享 sheet 客製化 — 圖片 file 附件 + 倒數 + 鷹式品牌簽名（commit `2b5c5da`）
+- ✅ **E3** 搜尋自動完成 — 最近搜尋 + 熱門推薦 dropdown（commit `2ec7922`）
+- ✅ **E6** 暗色模式自動切換 — `prefers-color-scheme: dark` 覆蓋 CSS 變數（commit `a8a549b`）
+- ✅ **A5** 動態 OG 圖 — lh3 server-side crop 到 1200×630（commit `fd93005`）
 
 ---
 
