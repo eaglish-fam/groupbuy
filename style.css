@@ -796,9 +796,25 @@
 
 .hero-carousel::-webkit-scrollbar { display: none; }
 
-.hero-carousel > .hero-card {
+.hero-carousel > .hero-card,
+.hero-carousel > img,
+.hero-carousel > a {
   flex: 0 0 100%;
   scroll-snap-align: start;
+}
+
+/* 卡片內 carousel 的 <a> 包圖：去掉預設樣式，圖片佔滿 */
+.hero-carousel > a > img {
+  width: 100%;
+  display: block;
+}
+
+/* 卡片內的 carousel 不要圓角、不要 gap — 跟單圖視覺對齊
+   hero banner 是獨立 section 才需要圓角；
+   塞進 .masonry-card-image-wrapper 後上下左右會形成「浮一塊」的突兀感 */
+.masonry-card-image-wrapper > .hero-carousel {
+  border-radius: 0;
+  gap: 0;
 }
 
 .hero-dots {

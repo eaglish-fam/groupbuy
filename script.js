@@ -256,7 +256,8 @@ window.ImageOptimizer = ImageOptimizer;
 // ============================================
 
 // 產生優化的圖片 HTML
-function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable = true, groupUrl = '') {
+// extraImages: 額外圖片 URL 陣列（來自 Sheet「附加圖片」欄）；有值時整組改渲染成 .hero-carousel
+function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable = true, groupUrl = '', extraImages = []) {
   if (!imageUrl) {
     // 無圖片時顯示 placeholder
     return `
@@ -271,12 +272,16 @@ function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable =
     `;
   }
 
-  // 使用 ImageOptimizer 處理 URL
-  const { primary, fallback } = ImageOptimizer.getOptimizedImageUrl(imageUrl, brand);
-  
-  const imgTag = `
-    <img src="${primary}" 
-         alt="${alt || brand || '商品圖片'}"
+  const allUrls = [imageUrl, ...(Array.isArray(extraImages) ? extraImages : [])].filter(u => u);
+  const isMulti = allUrls.length > 1;
+  const safeBrand = (brand || '').replace(/"/g, '&quot;');
+  const href = clickable && groupUrl ? utils.withUTM(groupUrl, brand) : '';
+  const gaTrack = `try{ if(typeof gtag !== 'undefined'){ gtag('event','image_click',{ event_category:'engagement', event_label:'${(brand || '').replace(/'/g, "\\'")}' }); } }catch(e){}`;
+
+  const imgTags = allUrls.map((url, idx) => {
+    const { primary, fallback } = ImageOptimizer.getOptimizedImageUrl(url, brand);
+    const tag = `<img src="${primary}"
+         alt="${idx === 0 ? (alt || brand || '商品圖片') : (brand || '商品圖片') + ' ' + (idx + 1)}"
          data-fallback="${fallback}"
          class="masonry-card-image ${expired ? 'grayscale' : ''}"
          loading="lazy"
@@ -284,27 +289,18 @@ function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable =
          onerror="ImageOptimizer.handleImageError(this)"
          width="400"
          height="300"
-         style="aspect-ratio: 4/3;">
-  `;
+         style="aspect-ratio: 4/3;">`;
+    if (clickable && groupUrl) {
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation(); ${gaTrack}">${tag}</a>`;
+    }
+    return tag;
+  }).join('');
 
-  if (clickable && groupUrl) {
-    return `
-      <div class="masonry-card-image-wrapper">
-        <a href="${utils.withUTM(groupUrl, brand)}"
-           target="_blank"
-           rel="noopener noreferrer"
-           onclick="event.stopPropagation(); try{ if(typeof gtag !== 'undefined'){ gtag('event','image_click',{ event_category:'engagement', event_label:'${brand || ''}' }); } }catch(e){}">
-          ${imgTag}
-        </a>
-      </div>
-    `;
-  } else {
-    return `
-      <div class="masonry-card-image-wrapper">
-        ${imgTag}
-      </div>
-    `;
-  }
+  const inner = isMulti
+    ? `<div class="hero-carousel" data-card-carousel="${safeBrand}">${imgTags}</div>`
+    : imgTags;
+
+  return `<div class="masonry-card-image-wrapper">${inner}</div>`;
 }
 
 // 產生響應式背景圖片樣式（用於特殊卡片）
@@ -2303,7 +2299,11 @@ async function loadUpcomingFromTab() {
             productName: row['商品名稱'] || row['ProductName'] || row['product_name'] || '',
             startDate: row['開團日期'] || row['StartDate'] || '',
             endDate: row['結束日期'] || row['EndDate'] || '',
-            image: row['圖片網址'] || row['image'] || ''
+            image: row['圖片網址'] || row['image'] || '',
+            extraImages: String(row['附加圖片'] || row['ExtraImages'] || '')
+              .split(/[\r\n,，]+/)
+              .map(s => s.trim())
+              .filter(s => /^https?:\/\//i.test(s))
           });
         });
       }
@@ -2361,6 +2361,10 @@ async function loadData() {
             endDate: row['結束日期'] || row['EndDate'] || '',
             category,
             image: row['圖片網址'] || row['image'] || '',
+            extraImages: String(row['附加圖片'] || row['ExtraImages'] || '')
+              .split(/[\r\n,，]+/)
+              .map(s => s.trim())
+              .filter(s => /^https?:\/\//i.test(s)),
             description: row['商品描述'] || row['Description'] || '',
             stock: row['庫存狀態'] || row['Stock'] || '',
             tag: row['標籤'] || row['Tag'] || '',
@@ -2953,7 +2957,8 @@ function renderGroupCard(g) {
   const { body, cta, expired } = renderGroupCardBody(g);
   return `
     <div class="masonry-card ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
-      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
+      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url, g.extraImages)}
+      ${renderCardDots(g)}
       <div class="masonry-card-content p-5">
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         ${body}
@@ -2962,12 +2967,25 @@ function renderGroupCard(g) {
     </div>`;
 }
 
+// 圖片下方的圓點 indicator — 完全 reuse hero-dots 的樣式
+// 只有多張圖時才渲染；單圖回傳空字串，零視覺改動
+function renderCardDots(g) {
+  const count = 1 + (Array.isArray(g.extraImages) ? g.extraImages.length : 0);
+  if (count <= 1) return '';
+  const safeBrand = (g.brand || '').replace(/"/g, '&quot;');
+  const dots = Array.from({ length: count }, (_, i) =>
+    `<button type="button" class="hero-dot ${i === 0 ? 'active' : ''}" data-card-dot="${i}" aria-label="第 ${i + 1} 張"></button>`
+  ).join('');
+  return `<div class="hero-dots" data-card-dots-for="${safeBrand}">${dots}</div>`;
+}
+
 // 收藏頁面專用：精簡卡（圖+標題+CTA）+ 展開後是「跟一般卡片一樣的完整內容」
 function renderWishlistCard(g) {
   const { body, cta, expired } = renderGroupCardBody(g);
   return `
     <div class="masonry-card wishlist-compact ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
-      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url)}
+      ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url, g.extraImages)}
+      ${renderCardDots(g)}
       <div class="masonry-card-content">
         <h3 class="masonry-card-title text-lg font-bold text-center ${expired ? 'text-gray-500' : 'text-amber-900'} mb-2">${g.brand}</h3>
         ${cta}
@@ -3299,6 +3317,32 @@ function renderContentImpl() {
   initScrollSpy();
   // Hero carousel：scroll 同步 dots + 點 dot 切換
   initHeroCarousel();
+  // 卡片內多圖 carousel：scroll 同步 dots + 點 dot 切換（reuse hero-dots 樣式）
+  initCardCarousels();
+}
+
+function initCardCarousels() {
+  document.querySelectorAll('[data-card-carousel]').forEach(carousel => {
+    const brand = carousel.getAttribute('data-card-carousel');
+    const dotBar = document.querySelector(`[data-card-dots-for="${CSS.escape(brand)}"]`);
+    if (!dotBar) return;
+    const dots = dotBar.querySelectorAll('.hero-dot');
+    if (!dots.length) return;
+
+    // scroll → 算 index → 亮對應 dot
+    carousel.addEventListener('scroll', () => {
+      const idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
+      dots.forEach((d, i) => d.classList.toggle('active', i === idx));
+    }, { passive: true });
+
+    // 點 dot → 滑到對應圖
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        carousel.scrollTo({ left: i * carousel.clientWidth, behavior: 'smooth' });
+      });
+    });
+  });
 }
 
 let heroAutoPlayTimer = null;
@@ -3313,7 +3357,8 @@ function initHeroCarousel() {
 
   const carousel = document.getElementById('heroCarousel');
   if (!carousel) return;
-  const dots = document.querySelectorAll('.hero-dot');
+  // 卡片內 carousel 也用 .hero-dot（reuse 視覺）→ 必須 scope 到 #featured，不然會抓到卡片的圓點
+  const dots = document.querySelectorAll('#featured .hero-dot');
   if (!dots.length) return;
 
   // scroll → 算出當前 index → highlight 對應 dot
