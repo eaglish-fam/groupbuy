@@ -3365,8 +3365,20 @@ function initCardCarouselSwipe(carousel) {
   let direction = null;   // null | 'h' | 'v'
   let dragging = false;
   let lastDx = 0;
+  let pendingScrollLeft = null;
+  let rafId = 0;
   const SLOP = 6;         // 判方向的死區
   const SWIPE_THRESHOLD = 30; // 拖到這距離就算切換到下/上一張
+
+  // iOS ProMotion 一秒最多 120 次 pointermove，每次直寫 scrollLeft 會 layout-thrash
+  // 把寫入合併到下一幀，肉眼看起來才順
+  const flushScroll = () => {
+    rafId = 0;
+    if (pendingScrollLeft !== null) {
+      carousel.scrollLeft = pendingScrollLeft;
+      pendingScrollLeft = null;
+    }
+  };
 
   carousel.addEventListener('pointerdown', (e) => {
     if (e.pointerType === 'mouse' && e.button !== 0) return;
@@ -3396,13 +3408,16 @@ function initCardCarouselSwipe(carousel) {
     if (dragging) {
       e.preventDefault();
       lastDx = dx;
-      carousel.scrollLeft = startScrollLeft - dx;
+      pendingScrollLeft = startScrollLeft - dx;
+      if (!rafId) rafId = requestAnimationFrame(flushScroll);
     }
   });
 
   const endDrag = (e) => {
     if (e.pointerId !== pointerId) return;
     if (dragging) {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = 0; }
+      pendingScrollLeft = null;
       const width = carousel.clientWidth;
       const startIdx = Math.round(startScrollLeft / width);
       const slideCount = carousel.children.length;
