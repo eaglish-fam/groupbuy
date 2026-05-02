@@ -291,7 +291,10 @@ function renderOptimizedImage(imageUrl, alt, brand, expired = false, clickable =
          height="300"
          style="aspect-ratio: 4/3;">`;
     if (clickable && groupUrl) {
-      return `<a href="${href}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation(); ${gaTrack}">${tag}</a>`;
+      // 多圖 carousel 時，anchor 直接包 <img> 會被 iOS PWA 當「可拖曳圖片」攔截橫向 swipe
+      // （單圖無 carousel 不受影響，但統一加 span wrapper 行為一致、無視覺差）
+      // span wrapper 讓 iOS 看不到 anchor→img 直連，touch 才會交給 scroll 容器
+      return `<a href="${href}" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation(); ${gaTrack}"><span class="card-image-slide">${tag}</span></a>`;
     }
     return tag;
   }).join('');
@@ -2955,8 +2958,9 @@ function renderGroupCardBody(g) {
 
 function renderGroupCard(g) {
   const { body, cta, expired } = renderGroupCardBody(g);
+  const hasCarousel = Array.isArray(g.extraImages) && g.extraImages.length > 0;
   return `
-    <div class="masonry-card ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
+    <div class="masonry-card ${expired ? 'opacity-60' : ''} ${hasCarousel ? 'has-carousel' : ''}" data-brand="${g.brand}">
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url, g.extraImages)}
       ${renderCardDots(g)}
       <div class="masonry-card-content p-5">
@@ -2982,8 +2986,9 @@ function renderCardDots(g) {
 // 收藏頁面專用：精簡卡（圖+標題+CTA）+ 展開後是「跟一般卡片一樣的完整內容」
 function renderWishlistCard(g) {
   const { body, cta, expired } = renderGroupCardBody(g);
+  const hasCarousel = Array.isArray(g.extraImages) && g.extraImages.length > 0;
   return `
-    <div class="masonry-card wishlist-compact ${expired ? 'opacity-60' : ''}" data-brand="${g.brand}">
+    <div class="masonry-card wishlist-compact ${expired ? 'opacity-60' : ''} ${hasCarousel ? 'has-carousel' : ''}" data-brand="${g.brand}">
       ${renderOptimizedImage(g.image, g.brand, g.brand, expired, !!g.url, g.url, g.extraImages)}
       ${renderCardDots(g)}
       <div class="masonry-card-content">
@@ -3342,7 +3347,89 @@ function initCardCarousels() {
         carousel.scrollTo({ left: i * carousel.clientWidth, behavior: 'smooth' });
       });
     });
+
+    // iOS PWA 救星：JS 主導的 pointer swipe
+    // CSS 已把 touch-action 改 pan-y，橫向觸控原生不接管，由我們自己拿
+    initCardCarouselSwipe(carousel);
   });
+}
+
+// pointer-event 驅動的水平 swipe — 取代原生 scroll-snap 的觸控行為
+// 為什麼：iOS standalone PWA 下半寬卡片 + anchor 子層會吞橫向 swipe
+//   （桌面/手機瀏覽器不影響，那邊 CSS scroll-snap 可正常運作；
+//    這裡同一段 JS 兩邊都跑，行為一致更好維護）
+function initCardCarouselSwipe(carousel) {
+  let pointerId = null;
+  let startX = 0, startY = 0;
+  let startScrollLeft = 0;
+  let direction = null;   // null | 'h' | 'v'
+  let dragging = false;
+  let lastDx = 0;
+  const SLOP = 6;         // 判方向的死區
+  const SWIPE_THRESHOLD = 30; // 拖到這距離就算切換到下/上一張
+
+  carousel.addEventListener('pointerdown', (e) => {
+    if (e.pointerType === 'mouse' && e.button !== 0) return;
+    pointerId = e.pointerId;
+    startX = e.clientX;
+    startY = e.clientY;
+    startScrollLeft = carousel.scrollLeft;
+    direction = null;
+    dragging = false;
+    lastDx = 0;
+  });
+
+  carousel.addEventListener('pointermove', (e) => {
+    if (e.pointerId !== pointerId) return;
+    const dx = e.clientX - startX;
+    const dy = e.clientY - startY;
+    if (!direction) {
+      if (Math.abs(dx) < SLOP && Math.abs(dy) < SLOP) return;
+      direction = Math.abs(dx) > Math.abs(dy) ? 'h' : 'v';
+      if (direction === 'h') {
+        dragging = true;
+        try { carousel.setPointerCapture(pointerId); } catch (_) {}
+        // 拖曳期間關 snap，否則 scrollLeft 賦值會被 snap 拉回
+        carousel.style.scrollSnapType = 'none';
+      }
+    }
+    if (dragging) {
+      e.preventDefault();
+      lastDx = dx;
+      carousel.scrollLeft = startScrollLeft - dx;
+    }
+  });
+
+  const endDrag = (e) => {
+    if (e.pointerId !== pointerId) return;
+    if (dragging) {
+      const width = carousel.clientWidth;
+      const startIdx = Math.round(startScrollLeft / width);
+      const slideCount = carousel.children.length;
+      let targetIdx = startIdx;
+      if (Math.abs(lastDx) > SWIPE_THRESHOLD) {
+        targetIdx = startIdx + (lastDx < 0 ? 1 : -1);
+      }
+      targetIdx = Math.max(0, Math.min(slideCount - 1, targetIdx));
+      carousel.style.scrollSnapType = '';
+      carousel.scrollTo({ left: targetIdx * width, behavior: 'smooth' });
+      try { carousel.releasePointerCapture(pointerId); } catch (_) {}
+    }
+    pointerId = null;
+    direction = null;
+    dragging = false;
+  };
+  carousel.addEventListener('pointerup', endDrag);
+  carousel.addEventListener('pointercancel', endDrag);
+
+  // 拖完緊接著的 click 要吃掉，不然 anchor 會在拖曳結束時誤觸跳出新分頁
+  carousel.addEventListener('click', (e) => {
+    if (Math.abs(lastDx) > SLOP) {
+      e.preventDefault();
+      e.stopPropagation();
+      lastDx = 0;
+    }
+  }, { capture: true });
 }
 
 let heroAutoPlayTimer = null;

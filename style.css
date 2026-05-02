@@ -792,6 +792,10 @@
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
   border-radius: 16px;
+  /* PWA standalone 模式必須明確宣告：iOS 在 standalone 下 <a> 子層的長按預覽 / 拖曳
+     會吃掉橫向 swipe，加上 pan-x pan-y 才能讓 scroll-snap 容器本身收到觸控。
+     瀏覽器版 fallback 較寬鬆所以正常，PWA 不行。 */
+  touch-action: pan-x pan-y;
 }
 
 .hero-carousel::-webkit-scrollbar { display: none; }
@@ -804,9 +808,31 @@
 }
 
 /* 卡片內 carousel 的 <a> 包圖：去掉預設樣式，圖片佔滿 */
-.hero-carousel > a > img {
+.hero-carousel > a > img,
+.hero-carousel > a > .card-image-slide > img {
   width: 100%;
   display: block;
+}
+
+/* span wrapper：撐滿 <a>，確保 scroll-snap 寬度正確；同時阻斷 iOS PWA
+   把 anchor→img 當「可拖曳圖片」的偵測（這是 hero banner 能滑、卡片 carousel
+   不能滑的根本差異） */
+.card-image-slide {
+  display: block;
+  width: 100%;
+}
+
+/* iOS PWA 修法：關掉 anchor 原生長按預覽 + 圖片拖曳，否則它們會吃掉 swipe */
+.hero-carousel > a {
+  -webkit-touch-callout: none;
+  -webkit-user-drag: none;
+  touch-action: pan-x pan-y;
+}
+.hero-carousel > a > img,
+.hero-carousel > img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
 }
 
 /* 卡片內的 carousel 不要圓角、不要 gap — 跟單圖視覺對齊
@@ -815,6 +841,30 @@
 .masonry-card-image-wrapper > .hero-carousel {
   border-radius: 0;
   gap: 0;
+  /* 把橫向觸控從原生剝離，交給 JS pointer 驅動的 swipe 處理。
+     原生 scroll-snap 在 iOS PWA standalone + 半寬卡片 + anchor 子層
+     會被觸控仲裁吞掉橫向 swipe，CSS 再多招都救不回來；
+     hero banner 不套這條（它沒 wrapper），維持原生 scroll-snap。 */
+  touch-action: pan-y;
+}
+
+/* 內含多圖 carousel 的卡片：停掉所有 :active 縮小動畫，讓 scroll-snap 容器
+   獨佔觸控。不關掉的話 touchstart 同時觸發 scale(0.96) 動畫，PWA 把整段
+   touchmove 當「按住中」消耗掉，carousel 收不到水平 swipe（只剩 dots 能動）。
+   桌面 hover 不受影響；單圖卡片不受影響（沒套 .has-carousel） */
+.masonry-card.has-carousel:active,
+.masonry-card.has-carousel .masonry-card-image-wrapper:active,
+.masonry-card.has-carousel .masonry-card-image-wrapper:active .masonry-card-image {
+  transform: none;
+  opacity: 1;
+  filter: none;
+  box-shadow: none;
+}
+.masonry-card.has-carousel .hero-carousel a:active,
+.masonry-card.has-carousel .hero-carousel a:active img {
+  transform: none;
+  filter: none;
+  opacity: 1;
 }
 
 .hero-dots {
