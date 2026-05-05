@@ -3447,12 +3447,17 @@ function initCardCarouselSwipe(carousel) {
 }
 
 let heroAutoPlayTimer = null;
-const HERO_AUTOPLAY_INTERVAL = 4000;
+let heroPeekDone = false;
+const HERO_FIRST_INTERVAL = 5000;   // 第一張多停一拍，給首屏用 grace
+const HERO_NEXT_INTERVAL = 6000;    // 之後每張 6 秒，讓使用者看清楚再跳
+const HERO_PEEK_DELAY = 1800;       // 載入 1.8s 後做 swipe-hint
+const HERO_PEEK_DISTANCE = 36;      // 偷瞄距離（px）
+const HERO_PEEK_HOLD = 650;         // peek 停留時間
 
 function initHeroCarousel() {
   // 每次 render 都會重新呼叫 → 先清掉前一輪的 timer 避免疊加
   if (heroAutoPlayTimer) {
-    clearInterval(heroAutoPlayTimer);
+    clearTimeout(heroAutoPlayTimer);
     heroAutoPlayTimer = null;
   }
 
@@ -3476,14 +3481,39 @@ function initHeroCarousel() {
     });
   });
 
-  // 4 秒自動跳下一張，到尾回頭
-  heroAutoPlayTimer = setInterval(() => {
-    if (document.hidden) return; // 背景分頁不動
-    const total = dots.length;
-    const current = Math.round(carousel.scrollLeft / carousel.clientWidth);
-    const next = (current + 1) % total;
-    carousel.scrollTo({ left: next * carousel.clientWidth, behavior: 'smooth' });
-  }, HERO_AUTOPLAY_INTERVAL);
+  // 一次性 swipe-hint：載入後偷瞄一下再回來，暗示「這是可以滑的輪播」。
+  // scroll-snap-type: x mandatory 會把小幅 peek 立刻 snap 回 0，所以暫時關掉。
+  // heroPeekDone 是 module-level，filter/re-render 不會重複播。
+  if (!heroPeekDone && dots.length > 1) {
+    heroPeekDone = true;
+    setTimeout(() => {
+      if (document.hidden) return;
+      if (carousel.scrollLeft !== 0) return;  // 使用者已先 interact
+      const originalSnap = carousel.style.scrollSnapType;
+      carousel.style.scrollSnapType = 'none';
+      carousel.scrollTo({ left: HERO_PEEK_DISTANCE, behavior: 'smooth' });
+      setTimeout(() => {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+        setTimeout(() => {
+          carousel.style.scrollSnapType = originalSnap;
+        }, 450);
+      }, HERO_PEEK_HOLD);
+    }, HERO_PEEK_DELAY);
+  }
+
+  // Autoplay: 第一張 5 秒、之後每張 6 秒。改 setTimeout chain 才能首張不同延遲
+  const scheduleNext = (isFirst) => {
+    heroAutoPlayTimer = setTimeout(() => {
+      heroAutoPlayTimer = null;
+      if (document.hidden) { scheduleNext(isFirst); return; } // 背景分頁不跳
+      const total = dots.length;
+      const current = Math.round(carousel.scrollLeft / carousel.clientWidth);
+      const next = (current + 1) % total;
+      carousel.scrollTo({ left: next * carousel.clientWidth, behavior: 'smooth' });
+      scheduleNext(false);
+    }, isFirst ? HERO_FIRST_INTERVAL : HERO_NEXT_INTERVAL);
+  };
+  scheduleNext(true);
 }
 
 // ============ 初始化 ============
