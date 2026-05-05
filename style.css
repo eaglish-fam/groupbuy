@@ -867,6 +867,23 @@
   opacity: 1;
 }
 
+/* tablet/desktop carousel 修復：單圖版的 padding-top + img absolute 4:3 hack
+   不能 carry 到多圖 carousel — N 張 absolute img 全疊在 wrapper (0,0)，
+   只看到 source order 最後一張，scrollLeft 移動 carousel 但 img 是相對
+   wrapper 定位，所以圖片不會跟著滑動。手機版用 normal flow + img
+   aspect-ratio 沒這問題。多圖卡片改 aspect-ratio + static img，讓 flex 行佈局
+   正常吃到 scroll-snap。 */
+@media (min-width: 768px) {
+  .masonry-card.has-carousel .masonry-card-image-wrapper {
+    padding-top: 0;
+    aspect-ratio: 4 / 3;
+  }
+  .masonry-card.has-carousel .masonry-card-image {
+    position: static;
+    height: 100%;
+  }
+}
+
 .hero-dots {
   display: flex;
   justify-content: center;
