@@ -609,6 +609,13 @@ const utils = {
     return d !== null && d < 0;
   },
 
+  // 「結團」的真正判定：類型欄填「結團」就算（無視 endDate），或 endDate 已過。
+  // 統一入口，hero/列表/卡片 visual 都走這個避免單看 endDate 漏判長期商品。
+  isClosed(g) {
+    if (!g) return false;
+    return g.isEnded === true || this.isExpired(g.endDate);
+  },
+
   // 開團當天 + 後 2 天 = 共 3 個曆日掛 NEW（例：4/30 開 → 4/30、5/1、5/2 顯示 NEW，5/3 起拿掉）
   // 之前用 <= 3 等於開團第 4 天還在掛，跟「剩 X 天結團」的卡片同框會違和
   isNewlyAdded(g) {
@@ -830,7 +837,7 @@ function clearAllFilters() {
 
 function getFilterCounts() {
   const filtered = state.groups.filter(g => {
-    const okExpired = state.showExpired || !utils.isExpired(g.endDate);
+    const okExpired = state.showExpired || !utils.isClosed(g);
     return okExpired;
   });
   
@@ -1945,7 +1952,7 @@ function renderMonthlyGroupList() {
   state.groups.forEach(g => {
     const st = utils.parseDateSafe(g.startDate);
     if (st && st.getMonth() === curM && st.getFullYear() === curY) {
-      const isExpired = utils.isExpired(g.endDate);
+      const isExpired = utils.isClosed(g);
       monthlyGroups.push({
         brand: g.brand,
         startDate: g.startDate,
@@ -2182,7 +2189,7 @@ function addRecentSearch(brand) {
 
 function getHotBrands() {
   if (!state.groups || state.groups.length === 0) return [];
-  const featured = state.groups.filter(g => g.featured && !utils.isExpired(g.endDate)).map(g => g.brand);
+  const featured = state.groups.filter(g => g.featured && !utils.isClosed(g)).map(g => g.brand);
   const recent = state.groups
     .filter(g => utils.isNewlyAdded(g) && !featured.includes(g.brand))
     .map(g => g.brand);
@@ -2350,11 +2357,14 @@ async function loadData() {
 
           const typeRaw = String(row['類型'] || row['Type'] || '').toLowerCase();
           let category = 'short';
+          // 「結團」類型 — 結束的長期商品（endDate 不一定填），用 isEnded flag 跟 isExpired 對齊
+          const isEnded = /結團|已結團|已結束|closed|ended/.test(typeRaw);
           if (/長期|long/.test(typeRaw)) category = 'long';
           else if (/折扣|coupon|affiliate/.test(typeRaw)) category = 'coupon';
           else if (/即將|upcoming/.test(typeRaw)) category = 'upcoming';
           else if (/教育|公益|edu|charity/.test(typeRaw)) category = 'edu';
           else if (/書籍|書|book/.test(typeRaw)) category = 'book';
+          else if (isEnded) category = 'long';  // 結團視為長期類，列表顯示時無倒數，靠 isEnded 走 expired 流程
           all.push({
             id: i + 1,
             brand,
@@ -2363,6 +2373,7 @@ async function loadData() {
             startDate: row['開團日期'] || row['StartDate'] || '',
             endDate: row['結束日期'] || row['EndDate'] || '',
             category,
+            isEnded,
             image: row['圖片網址'] || row['image'] || '',
             extraImages: String(row['附加圖片'] || row['ExtraImages'] || '')
               .split(/[\r\n,，]+/)
@@ -2884,7 +2895,7 @@ function renderUpcomingSearchCard(g) {
 // 抽出成 helper，renderGroupCard 跟 renderWishlistCard（展開區）共用
 function renderGroupCardBody(g) {
   const daysLeft = utils.getDaysLeft(g.endDate);
-  const expired = utils.isExpired(g.endDate);
+  const expired = utils.isClosed(g);
   const qaList = g.qa && utils.isQA(g.qa) ? utils.parseQA(g.qa) : [];
   const openClass = expired ? 'from-gray-400 to-gray-500 hover:from-gray-400 hover:to-gray-500' : 'from-amber-600 to-pink-600 hover:from-amber-700 hover:to-pink-700';
 
@@ -3002,7 +3013,7 @@ function renderWishlistCard(g) {
 }
 
 function renderCouponCard(g) {
-  const expired = utils.isExpired(g.endDate);
+  const expired = utils.isClosed(g);
   const daysLeft = utils.getDaysLeft(g.endDate);
   const noteIsURL = utils.isURL(g.note);
   const noteIsQA = utils.isQA(g.note);
@@ -3139,9 +3150,9 @@ function renderContentImpl() {
       (g.tag || '').toLowerCase().includes(q) || 
       (g.description || '').toLowerCase().includes(q);
     
-    // 過期篩選
-    const okExpired = state.showExpired || !utils.isExpired(g.endDate);
-    
+    // 過期篩選（含 isEnded：類型 = 結團 也視為已結束）
+    const okExpired = state.showExpired || !utils.isClosed(g);
+
     // 分類篩選（支援複選：「韓國，歐洲」點擊「韓國」也會出現）
     const okCategory = state.selectedCategory === 'all' || 
       (g.itemCategory && g.itemCategory.split(/[,，]/).map(c => c.trim()).includes(state.selectedCategory));
@@ -3165,8 +3176,8 @@ function renderContentImpl() {
   const book = filtered.filter(g => g.category === 'book');
   // 收藏：從 state.groups 抓所有 saved（不受 search/category filter 影響）
   const wishlistItems = state.groups.filter(g => state.wishlist.has(g.brand));
-  // Hero 主推：從 state.groups 抓 featured（不受 filter 影響，永遠顯示，但過期排除）
-  const heroItems = state.groups.filter(g => g.featured && !utils.isExpired(g.endDate));
+  // Hero 主推：從 state.groups 抓 featured（不受 filter 影響，永遠顯示，但結團/過期排除）
+  const heroItems = state.groups.filter(g => g.featured && !utils.isClosed(g));
   // 把 Sheet 上的書籍 row 分組（紙本/電子）；同時看「標籤」跟「品牌」欄裡的關鍵字
   const isPaperback = (b) => /紙本|paperback/i.test(b.tag || '') || /紙本|paperback/i.test(b.brand || '');
   const isEbook     = (b) => /電子|ebook/i.test(b.tag || '')     || /電子|ebook/i.test(b.brand || '');
@@ -3199,13 +3210,13 @@ function renderContentImpl() {
     buildFromSheet(sheetPaperback, KANG_BOOKS_TEMPLATE[0]),
     buildFromSheet(sheetEbook,     KANG_BOOKS_TEMPLATE[1])
   ].filter(Boolean);
-  const expiredCount = state.groups.filter(g => utils.isExpired(g.endDate)).length;
+  const expiredCount = state.groups.filter(g => utils.isClosed(g)).length;
 
   const term = (state.searchTerm || '').trim().toLowerCase();
   const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  const activeBrandSet = new Set(filtered.filter(g => !utils.isExpired(g.endDate)).map(g => utils.normalizeBrand(g.brand)));
+  const activeBrandSet = new Set(filtered.filter(g => !utils.isClosed(g)).map(g => utils.normalizeBrand(g.brand)));
 
   const rawUpcoming = term ? (state.upcomingGroups || []).filter(u => {
     const hit = (u.brand || '').toLowerCase().includes(term);
