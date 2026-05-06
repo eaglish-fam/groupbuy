@@ -1454,8 +1454,102 @@ document.addEventListener('keydown', function(e) {
     if (blogModal && !blogModal.classList.contains('hidden')) {
       closeBlogModal();
     }
+    const detailsModal = document.getElementById('detailsModal');
+    if (detailsModal && !detailsModal.classList.contains('hidden')) {
+      closeDetailsModal();
+    }
   }
 });
+
+// ============ Details Modal（方案詳情）============
+// Sheet「方案詳情」欄填多行文字 → 卡片出現「📋 方案詳情」→ 點開彈視窗顯示
+// 支援極簡 markdown：## 標題、- 條列、URL 自動連結、空行段落
+function openDetailsModal(event, brand) {
+  if (event) event.stopPropagation();
+  const g = (state.groups || []).find(x => x.brand === brand);
+  if (!g || !g.details) return;
+
+  const modal = document.getElementById('detailsModal');
+  const title = document.getElementById('detailsModalTitle');
+  const body = document.getElementById('detailsModalBody');
+  const ctaBtn = document.getElementById('detailsModalCTA');
+  if (!modal || !body) return;
+
+  title.textContent = `${g.brand} · 方案詳情`;
+  // 圖片擺最前面增加視覺份量（飯店/票券方案 detail 多是文字，加圖才不單調）
+  // 走 ImageOptimizer 拿 lh3 優化版 + fallback，跟卡片用同一支轉換
+  const safeAlt = (g.brand || '').replace(/"/g, '&quot;');
+  let heroImg = '';
+  if (g.image) {
+    const opt = ImageOptimizer.getOptimizedImageUrl(g.image, g.brand);
+    heroImg = `<div class="-mx-5 -mt-4 mb-4 bg-gray-100">
+      <img src="${opt.primary}" alt="${safeAlt}"
+           data-fallback="${opt.fallback}"
+           onerror="ImageOptimizer.handleImageError(this)"
+           class="w-full h-auto block" loading="eager">
+    </div>`;
+  }
+  body.innerHTML = heroImg + renderDetailsMarkdown(g.details);
+
+  if (ctaBtn) {
+    if (g.url) {
+      ctaBtn.href = utils.withUTM(g.url, g.brand);
+      ctaBtn.style.display = '';
+      ctaBtn.onclick = function() {
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'click_group_from_details', { group_name: g.brand, event_category: 'conversion' });
+        }
+      };
+    } else {
+      ctaBtn.style.display = 'none';
+    }
+  }
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'open_details_modal', { group_name: g.brand, event_category: 'engagement' });
+  }
+}
+
+function closeDetailsModal() {
+  const modal = document.getElementById('detailsModal');
+  if (!modal) return;
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+
+function renderDetailsMarkdown(raw) {
+  const escapeHtml = (s) => s.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const linkify = (s) => s.replace(/(https?:\/\/[^\s<]+)/g, '<a href="$1" target="_blank" rel="noopener noreferrer" class="text-amber-700 underline hover:text-amber-900 break-all">$1</a>');
+  const lines = String(raw || '').split(/\r?\n/);
+  let html = '';
+  let inList = false;
+  const closeList = () => { if (inList) { html += '</ul>'; inList = false; } };
+  for (const rawLine of lines) {
+    const line = rawLine.trim();
+    if (!line) {
+      closeList();
+      html += '<div class="h-2"></div>';
+      continue;
+    }
+    if (/^##\s+/.test(line)) {
+      closeList();
+      html += `<h3 class="text-base font-bold text-amber-900 mt-3 mb-2">${escapeHtml(line.replace(/^##\s+/, ''))}</h3>`;
+    } else if (/^[-*•]\s+/.test(line)) {
+      if (!inList) { html += '<ul class="list-disc pl-5 space-y-1 mb-2">'; inList = true; }
+      html += `<li>${linkify(escapeHtml(line.replace(/^[-*•]\s+/, '')))}</li>`;
+    } else {
+      closeList();
+      html += `<p class="mb-2">${linkify(escapeHtml(line))}</p>`;
+    }
+  }
+  closeList();
+  return html;
+}
 
 function copyCoupon(ev, txt) {
   ev.stopPropagation();
@@ -2388,6 +2482,8 @@ async function loadData() {
             googleDoc: row['Google文件'] || row['GoogleDoc'] || row['文件介紹'] || '',
             qa: row['QA'] || row['Q&A'] || '',
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
+            // 方案詳情（飯店多方案/票券多選/任何需要說明的場景）— 多行純文字，支援極簡 markdown
+            details: row['方案詳情'] || row['詳情'] || row['Details'] || row['PlanDetails'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
             itemCountry: row['國家'] || row['Country'] || '',
             // 主推（任何非空值都算）
@@ -2934,6 +3030,7 @@ function renderGroupCardBody(g) {
     </div>
     ${countdown}
     ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900" style="white-space: pre-wrap;">${linkify(g.note)}</p></div>` : ''}
+    ${g.details && !expired ? `<div class="mb-3"><button onclick="openDetailsModal(event, '${g.brand.replace(/'/g, "\\'")}')" class="card-secondary-btn">📋 方案詳情</button></div>` : ''}
     ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="card-secondary-btn" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
     ${g.warrantyUrl && !expired ? `<div class="mb-3"><a href="${g.warrantyUrl}" target="_blank" rel="noopener noreferrer" class="card-secondary-btn" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_warranty', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">🛡️ 保固網站</a></div>` : ''}
     ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${(g.url || '').replace(/'/g, "\\'")}')" class="card-secondary-btn">📄 查看介紹</button></div>` : ''}
