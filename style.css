@@ -2232,3 +2232,100 @@ header.header-compact .header-logo-wrap {
   background: linear-gradient(135deg, #D4A88F 0%, #B89A75 100%);  /* 暖駝→深金駝漸層 */
   flex-shrink: 0;
 }
+
+/* ============================================
+   PWA 環境引導 Banner（.pwa-guide）
+   ① App 內建瀏覽器導去外部瀏覽器　② 加到主畫面提示
+   暖駝色系、可關、會自動收；只在手機顯示（出現條件由 JS 控制）
+   ============================================ */
+.pwa-guide {
+  position: fixed;
+  left: 12px;
+  right: 12px;
+  bottom: calc(env(safe-area-inset-bottom, 0px) + 12px);
+  z-index: 45;
+  max-width: 460px;
+  margin: 0 auto;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 38px 14px 14px;            /* 右側留位給 × */
+  background: #ffffff;
+  border: 1.5px solid var(--color-promo-border);
+  border-radius: 16px;
+  box-shadow: 0 10px 34px rgba(80, 60, 40, 0.20);
+  font-family: inherit;
+  transform: translateY(150%);
+  opacity: 0;
+  transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.42s ease;
+}
+.pwa-guide.is-visible { transform: translateY(0); opacity: 1; }
+
+.pwa-guide__icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  flex-shrink: 0;
+  object-fit: contain;
+  background: var(--color-bg-surface);
+}
+
+.pwa-guide__body { flex: 1; min-width: 0; }
+
+.pwa-guide__title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--color-text-title-dark);
+  margin: 0 0 3px;
+}
+
+.pwa-guide__text {
+  font-size: 12.5px;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+.pwa-guide__text strong { color: var(--color-accent-promo-alt); font-weight: 700; }
+
+.pwa-guide__actions { display: flex; gap: 8px; margin-top: 10px; }
+
+.pwa-guide__btn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: 9px;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: inherit;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, var(--color-price-gold) 0%, var(--color-accent-promo-alt) 100%);
+  color: #ffffff;
+  transition: transform 0.12s ease, opacity 0.18s ease;
+}
+.pwa-guide__btn:active { transform: scale(0.97); }
+.pwa-guide__btn--ghost {
+  background: #ffffff;
+  border: 1.5px solid var(--color-border-muted);
+  color: var(--color-text-title-dark);
+}
+
+.pwa-guide__close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  background: transparent;
+  color: var(--color-text-muted);
+  font-size: 19px;
+  line-height: 1;
+  transition: background 0.15s ease;
+}
+.pwa-guide__close:hover { background: var(--color-bg-page); }

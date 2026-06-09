@@ -3809,3 +3809,194 @@ window.shareWebsite = shareWebsite;
 window.clearAllFilters = clearAllFilters;
 window.getTodayDeadlines = getTodayDeadlines;
 window.formatTimeRemaining = formatTimeRemaining;
+
+/* ============================================================
+   PWA 環境引導
+   ① App 內建瀏覽器（IG / FB / LINE / Threads…）→ 引導去外部瀏覽器
+   ② 真瀏覽器（Safari / Chrome）→ 提示「加到主畫面」
+   只在手機、非已安裝、未關閉過時顯示；會自動收合；按 × 冷卻 14 天。
+   偵測沿用站內既有慣例（standalone / iOS / iPadOS-偽裝-Mac）。
+   ============================================================ */
+(function initPwaGuide() {
+  'use strict';
+
+  const ua = navigator.userAgent || '';
+
+  // beforeinstallprompt：盡早攔截，留作 Android Chrome 一鍵安裝用
+  let deferredPrompt = null;
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+  });
+
+  // 已從主畫面（standalone）開啟 → 不打擾
+  const isStandalone = window.navigator.standalone === true
+    || window.matchMedia('(display-mode: standalone)').matches;
+
+  // OS 判定（iPadOS 13+ UA 偽裝成 Macintosh，用 maxTouchPoints 補抓）
+  const isIOS = /iPad|iPhone|iPod/.test(ua)
+    || (/Macintosh/.test(ua) && (navigator.maxTouchPoints || 0) > 1);
+  const isAndroid = /Android/.test(ua);
+  const isMobile = isIOS || isAndroid;
+
+  // App 內建瀏覽器（webview）特徵字串
+  function detectInApp(uaStr) {
+    if (/Instagram/i.test(uaStr)) return 'Instagram';
+    if (/Threads|Barcelona/i.test(uaStr)) return 'Threads';
+    if (/MicroMessenger/i.test(uaStr)) return 'WeChat';   // 須在 Messenger 之前：MicroMessenger 含子字串 Messenger
+    if (/Messenger/i.test(uaStr)) return 'Messenger';
+    if (/FBAN|FBAV|FB_IAB|FB4A|FBIOS/i.test(uaStr)) return 'Facebook';
+    if (/\bLine\/|LIFF/i.test(uaStr)) return 'LINE';
+    if (/musical_ly|BytedanceWebview|TTWebView|TikTok/i.test(uaStr)) return 'TikTok';
+    if (/Twitter/i.test(uaStr)) return 'Twitter';
+    if (/KAKAOTALK/i.test(uaStr)) return 'KakaoTalk';
+    return null;
+  }
+  const inApp = detectInApp(ua);
+
+  // 桌機、或已安裝 → 不顯示
+  if (!isMobile || isStandalone) return;
+
+  // 關閉冷卻：× → localStorage 14 天；自動收 → 本 session 不再跳
+  const DISMISS_KEY = 'pwaGuideDismissedUntil';
+  const SESSION_KEY = 'pwaGuideShown';
+  try {
+    const until = parseInt(localStorage.getItem(DISMISS_KEY) || '0', 10);
+    if (until && Date.now() < until) return;
+    if (sessionStorage.getItem(SESSION_KEY)) return;
+  } catch (e) { /* 隱私模式 storage 受限，照常顯示 */ }
+
+  const ICON = '/icons/web-app-manifest-192x192.png';
+  const SHARE_SVG = '<svg viewBox="0 0 24 24" width="15" height="15" '
+    + 'style="display:inline-block;vertical-align:-3px" fill="none" stroke="currentColor" '
+    + 'stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'
+    + '<path d="M12 15V3M8 7l4-4 4 4"/><path d="M5 11v8a2 2 0 002 2h10a2 2 0 002-2v-8"/></svg>';
+
+  function track(label) {
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'pwa_guide_show', { event_category: 'engagement', event_label: label });
+    }
+  }
+
+  function copyUrl(btn) {
+    const done = () => { btn.textContent = '已複製 ✓ 去瀏覽器貼上'; };
+    try {
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(location.href).then(done, () => fallbackCopy(done));
+      } else {
+        fallbackCopy(done);
+      }
+    } catch (e) { fallbackCopy(done); }
+  }
+  function fallbackCopy(done) {
+    const t = document.createElement('textarea');
+    t.value = location.href;
+    t.style.position = 'fixed';
+    t.style.opacity = '0';
+    document.body.appendChild(t);
+    t.select();
+    try { document.execCommand('copy'); done(); } catch (e) {}
+    t.remove();
+  }
+
+  function doInstall(btn) {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    deferredPrompt.userChoice.finally(() => {
+      deferredPrompt = null;
+      const el = btn.closest('.pwa-guide');
+      if (el) hide(el);
+    });
+  }
+
+  function buildContent() {
+    // 場景 A：App 內建瀏覽器 → 先導去外部瀏覽器（內建瀏覽器裝不了 PWA、還會吃 UTM/affiliate 參數）
+    if (inApp) {
+      const opener = isIOS ? 'Safari' : '瀏覽器';
+      // 各 App「開啟外部瀏覽器」選單鈕的位置/圖示不同（依實機確認）：
+      //   LINE → 右下角的「⋮」（直立三個點）；IG/FB/Threads/Messenger → 右上角的「•••」（橫向）
+      const MENU_HINT = {
+        LINE: '右下角的 <strong>「⋮」（直立三個點）</strong>',
+        Instagram: '右上角的 <strong>「•••」</strong>',
+        Facebook: '右上角的 <strong>「•••」</strong>',
+        Threads: '右上角的 <strong>「•••」</strong>',
+        Messenger: '右上角的 <strong>「•••」</strong>',
+      };
+      const hint = MENU_HINT[inApp] || '瀏覽器的 <strong>選單鈕</strong>';
+      return {
+        title: '🦅 把「鷹家買物社」加到手機桌面',
+        html: '你正在 <strong>' + inApp + '</strong> 內開啟。點 ' + hint
+          + ' → 選「在 ' + opener + ' 開啟」，才能安裝、用最完整的功能。',
+        actions: [{ label: '📋 複製本頁網址', kind: 'ghost', onClick: copyUrl }],
+      };
+    }
+    // 場景 B：iOS 瀏覽器（Safari/Chrome）→ 純教學（iOS 沒有安裝 API）
+    // 實機順序（依使用者回報）：右下角「•••」→ 分享 → 加入主畫面（Share 收在「•••」選單裡，不是直接按）
+    if (isIOS) {
+      return {
+        title: '🦅 把「鷹家買物社」加到手機桌面',
+        html: '點 <strong>右下角的「•••」</strong> → 選「<strong>分享 ' + SHARE_SVG + '</strong>」 → 再選「<strong>加入主畫面</strong>」，下次桌面一指打開。',
+        actions: [],
+      };
+    }
+    // 場景 B：Android Chrome（有 beforeinstallprompt 就給一鍵安裝鈕，沒有就教學）
+    return {
+      title: '🦅 把「鷹家買物社」加到手機桌面',
+      html: deferredPrompt
+        ? '一鍵安裝，下次直接從桌面開啟、用最完整的功能。'
+        : '點 <strong>右上角選單</strong> → 選「<strong>加到主畫面</strong>」即可安裝。',
+      actions: deferredPrompt ? [{ label: '📲 安裝到桌面', kind: 'primary', onClick: doInstall }] : [],
+    };
+  }
+
+  let autoHideTimer = null;
+
+  function hide(el) {
+    clearTimeout(autoHideTimer);
+    el.classList.remove('is-visible');
+    setTimeout(() => el.remove(), 450);
+  }
+  function dismiss14d() {
+    try { localStorage.setItem(DISMISS_KEY, String(Date.now() + 14 * 864e5)); } catch (e) {}
+  }
+
+  function show() {
+    const c = buildContent();
+    const el = document.createElement('div');
+    el.className = 'pwa-guide';
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-label', '加到主畫面提示');
+    el.innerHTML =
+      '<img class="pwa-guide__icon" src="' + ICON + '" alt="" />'
+      + '<div class="pwa-guide__body">'
+      + '<p class="pwa-guide__title">' + c.title + '</p>'
+      + '<p class="pwa-guide__text">' + c.html + '</p>'
+      + (c.actions.length ? '<div class="pwa-guide__actions"></div>' : '')
+      + '</div>'
+      + '<button class="pwa-guide__close" aria-label="關閉">×</button>';
+
+    if (c.actions.length) {
+      const wrap = el.querySelector('.pwa-guide__actions');
+      c.actions.forEach((a) => {
+        const b = document.createElement('button');
+        b.className = 'pwa-guide__btn' + (a.kind === 'ghost' ? ' pwa-guide__btn--ghost' : '');
+        b.innerHTML = a.label;
+        b.addEventListener('click', () => a.onClick(b));
+        wrap.appendChild(b);
+      });
+    }
+    el.querySelector('.pwa-guide__close').addEventListener('click', () => {
+      dismiss14d();
+      hide(el);
+    });
+
+    document.body.appendChild(el);
+    requestAnimationFrame(() => el.classList.add('is-visible'));
+    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
+    autoHideTimer = setTimeout(() => hide(el), 12000);
+    track(inApp || (isIOS ? 'ios_safari' : 'android'));
+  }
+
+  // 延遲 2.5s 再跳，讓內容先 paint、不突兀
+  setTimeout(show, 2500);
+})();
