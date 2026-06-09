@@ -2329,3 +2329,135 @@ header.header-compact .header-logo-wrap {
   transition: background 0.15s ease;
 }
 .pwa-guide__close:hover { background: var(--color-bg-page); }
+
+/* ============================================
+   LINE 入群 CTA（共用：社群分隔鉤子 + 即將開團卡）
+   暖駝色填充、白字、LINE 官方 icon —— 不用螢光綠、不搶主 CTA
+   ============================================ */
+.line-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  background: linear-gradient(135deg, #C9A88A 0%, #B38D72 100%);
+  box-shadow: 0 2px 8px rgba(120, 90, 60, 0.18);
+  transition: transform 0.12s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+.line-cta:hover { filter: brightness(1.04); box-shadow: 0 4px 12px rgba(120, 90, 60, 0.24); }
+.line-cta:active { transform: scale(0.98); }
+.line-cta--block { display: flex; width: 100%; }
+
+/* 限時／常駐之間的入群分隔鉤子 */
+.community-hook {
+  margin: 0 0 2rem;
+  padding: 24px 20px;
+  border-radius: 18px;
+  text-align: center;
+  background: var(--color-promo-bg);            /* 淡駝色 tint，淡度同右上角「加入社群」鈕，不搶視覺 */
+  border: 1.5px solid var(--color-promo-border);
+}
+.community-hook__text {
+  margin: 0 0 14px;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: var(--color-text-title-dark);
+}
+
+/* 本週即將開團 —— 一欄列表區塊（不做卡片，輕量，導去行事曆總表） */
+.upcoming-list {
+  max-width: 560px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1.5px solid var(--color-promo-border);
+  border-radius: 16px;
+  padding: 18px 20px;
+}
+.upcoming-list__group {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-accent-promo-alt);
+  margin: 12px 0 4px;
+}
+.upcoming-list__group:first-child { margin-top: 0; }
+.upcoming-list__row {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  padding: 8px 2px;
+  border-bottom: 1px solid var(--color-border-muted-lighter);
+}
+.upcoming-list__date {
+  flex-shrink: 0;
+  min-width: 46px;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-text-muted);
+}
+.upcoming-list__name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-title-dark);
+}
+.upcoming-list__hint {
+  margin: 12px 0 0;
+  text-align: center;
+  font-size: 12px;
+  color: var(--color-text-muted);
+}
+.upcoming-list__cal-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 4px;
+  padding: 4px 12px;
+  border-radius: 999px;
+  border: 1px solid var(--color-promo-border);
+  background: #ffffff;
+  color: var(--color-accent-promo-alt);
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.upcoming-list__cal-btn:hover {
+  background: var(--color-promo-bg);
+  border-color: var(--color-text-muted);
+}
+
+/* 購物須知 modal 內的 Q&A */
+.notice-qa {
+  border: 1px solid var(--color-border-muted);
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: var(--color-bg-surface);
+}
+.notice-qa + .notice-qa { margin-top: 8px; }
+.notice-qa > summary {
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--color-text-title-dark);
+  list-style: none;
+}
+.notice-qa > summary::-webkit-details-marker { display: none; }
+.notice-qa > summary::before { content: '＋'; color: var(--color-accent-promo-alt); font-weight: 700; margin-right: 8px; }
+.notice-qa[open] > summary::before { content: '－'; }
+.notice-qa > p {
+  margin: 10px 0 2px;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--color-text-body);
+}
+.notice-qa strong { color: var(--color-accent-promo-alt); }

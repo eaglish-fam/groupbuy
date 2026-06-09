@@ -728,6 +728,25 @@ function closeContactModal() {
   document.body.style.overflow = '';
 }
 
+// 購物須知 Modal 開關（內容直接寫在 index.html，這裡只切換顯示）
+function openNoticeModal() {
+  const modal = document.getElementById('noticeModal');
+  if (!modal) return;
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
+  document.body.style.overflow = 'hidden';
+  if (typeof gtag !== 'undefined') gtag('event', 'open_notice_modal', { event_category: 'engagement' });
+}
+function closeNoticeModal() {
+  const modal = document.getElementById('noticeModal');
+  if (!modal) return;
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
+  document.body.style.overflow = '';
+}
+window.openNoticeModal = openNoticeModal;
+window.closeNoticeModal = closeNoticeModal;
+
 function refreshWishlistModal() {
   const modal = document.getElementById('wishlistModal');
   const content = document.getElementById('wishlistModalContent');
@@ -2220,7 +2239,9 @@ function initSearch() {
       elements.searchInput.value = saved;
       elements.clearBtn?.classList.remove('hidden');
     }
-    if (savedShow != null) state.showExpired = savedShow === 'true';
+    // 結團區功能已移除：永遠不顯示已結束團購，並清掉曾點過切換鈕留下的 localStorage 殘留
+    state.showExpired = false;
+    if (savedShow != null) { try { localStorage.removeItem(STORAGE_KEYS.showExpired); } catch {} }
     if (savedMonth != null) state.selectedCalendarMonth = parseInt(savedMonth, 10) || 0;
     if (savedCategory) state.selectedCategory = savedCategory;
     if (savedCountry) state.selectedCountry = savedCountry;
@@ -2957,6 +2978,9 @@ function renderHeroBanner(items) {
   </section>`;
 }
 
+const LINE_COMMUNITY_URL = 'https://line.me/ti/g2/YOQM0ZQlrN3jj_R5BP4W-hnxE3Ij1005VxJT7w?utm_source=invitation&utm_medium=link_copy&utm_campaign=default';
+const LINE_GLYPH_SVG = '<svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;flex-shrink:0"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>';
+
 function renderUpcomingSearchCard(g) {
   return `
     <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-xl overflow-hidden border-2 border-pink-200 shadow-md transition-all hover:shadow-lg">
@@ -2980,8 +3004,11 @@ function renderUpcomingSearchCard(g) {
         ${g.productName ? `<p class="text-sm text-gray-600 mb-2 text-center">${g.productName}</p>` : ''}
         ${g.startDate ? `<div class="text-sm text-pink-700 mb-1">📅 預計開團：${g.startDate}</div>` : ''}
         ${g.endDate ? `<div class="text-sm text-pink-700 mb-3">⏰ 預計結束：${g.endDate}</div>` : ''}
-        <div class="bg-white border-2 border-pink-300 rounded-lg p-3 text-center">
-          <p class="text-sm text-pink-800 font-medium">團購尚未開始，請密切關注</p>
+        <div class="space-y-2 mt-3">
+          <a href="${LINE_COMMUNITY_URL}" target="_blank" rel="noopener noreferrer"
+             onclick="if(typeof gtag!=='undefined'){gtag('event','click_social',{social_platform:'LINE',event_category:'engagement',event_label:'LINE社群_upcoming'});}"
+             class="line-cta line-cta--block">${LINE_GLYPH_SVG}<span>加 LINE 群・開團先通知</span></a>
+          ${g.startDate ? `<button onclick="addToCalendar(event, '${(g.brand||'').replace(/'/g, "\\'")} 開團提醒', '${g.startDate}', '${(g.url||'').replace(/'/g, "\\'")}', '🛒 開團囉！記得來下單')" class="card-secondary-btn">🗓️ 加入開團提醒</button>` : ''}
         </div>
       </div>
     </div>`;
@@ -3333,12 +3360,31 @@ function renderContentImpl() {
   }
   const upcomingMatches = Object.values(soonestByBrand);
 
+  // 首頁常駐「即將開團」預告（非搜尋/篩選時顯示；未來開團、未在售、去重、依開團日排序）
+  // 首頁「本週即將開團」：只看本週+下週（14 天內），非搜尋/篩選時顯示，去重、依開團日排序、標 本週/下週
+  const standingUpcoming = (!state.searchTerm && !state.hasActiveFilters) ? (() => {
+    const weekEnd = new Date(today); weekEnd.setDate(weekEnd.getDate() + 7);
+    const horizon = new Date(today); horizon.setDate(horizon.getDate() + 14);
+    const byBrand = {};
+    for (const u of (state.upcomingGroups || [])) {
+      const st = utils.parseDateSafe(u.startDate);
+      if (!st || st <= today || st > horizon) continue;
+      if (activeBrandSet.has(utils.normalizeBrand(u.brand))) continue;
+      const key = utils.normalizeBrand(u.brand);
+      if (!byBrand[key] || st < utils.parseDateSafe(byBrand[key].startDate)) byBrand[key] = u;
+    }
+    return Object.values(byBrand)
+      .map(u => { const st = utils.parseDateSafe(u.startDate); return { ...u, _st: st, _bucket: st <= weekEnd ? '本週' : '下週' }; })
+      .sort((a, b) => a._st - b._st);
+  })() : [];
+
   // 統一風格：所有 tab 同一個 .section-nav-btn class，emoji + 文字，amber hover
   const btn = (id, txt) => `<button onclick="scrollToSection('${id}')" data-target="${id}" class="section-nav-btn">${txt}</button>`;
   // 滑軌 nav 不放收藏按鈕（收藏改用 modal，從工具列點開）
   elements.sectionButtons.innerHTML =
     (shortTerm.length ? btn('short-term', '⏳ 限時團購') : '') +
     (longTerm.length ? btn('long-term', '☀️ 常駐團購') : '') +
+    (standingUpcoming.length ? btn('upcoming', '🔔 即將開團') : '') +
     (kangBooks.length ? btn('kang-books', '📖 康先生的書') : '') +
     (coupon.length ? btn('coupon', '🎟️ 折扣碼') : '') +
     (edu.length ? btn('edu', '📚 教育公益') : '') +
@@ -3378,9 +3424,37 @@ function renderContentImpl() {
        <div class="masonry-grid">${shortTerm.map(renderGroupCard).join('')}</div>
      </section>` : '') +
 
+    (!state.searchTerm && !state.hasActiveFilters && shortTerm.length ? `
+     <div class="community-hook">
+       <p class="community-hook__text">加入 LINE 社群，下一檔開團不錯過 💛</p>
+       <a href="${LINE_COMMUNITY_URL}" target="_blank" rel="noopener noreferrer"
+          onclick="if(typeof gtag!=='undefined'){gtag('event','click_social',{social_platform:'LINE',event_category:'engagement',event_label:'LINE社群_hook'});}"
+          class="line-cta">${LINE_GLYPH_SVG}<span>加入 LINE 社群</span></a>
+     </div>` : '') +
+
     (longTerm.length ? `<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">☀️ 常駐團購</h2>
        <div class="masonry-grid">${longTerm.map(renderGroupCard).join('')}</div>
+     </section>` : '') +
+
+    (standingUpcoming.length ? `
+     <section id="upcoming" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🔔 即將開團</h2>
+       <div class="upcoming-list">
+         ${(() => {
+            let rows = '', last = '';
+            for (const u of standingUpcoming) {
+              if (u._bucket !== last) { rows += `<div class="upcoming-list__group">${u._bucket}</div>`; last = u._bucket; }
+              const d = (u.startDate || '').replace(/^\d{4}[-\/.]/, '').replace(/[-.]/g, '/');
+              rows += `<div class="upcoming-list__row"><span class="upcoming-list__date">${d}</span><span class="upcoming-list__name">${u.brand || ''}</span></div>`;
+            }
+            return rows;
+         })()}
+         <a href="${LINE_COMMUNITY_URL}" target="_blank" rel="noopener noreferrer"
+            onclick="if(typeof gtag!=='undefined'){gtag('event','click_social',{social_platform:'LINE',event_category:'engagement',event_label:'LINE社群_upcoming'});}"
+            class="line-cta line-cta--block" style="margin-top:16px">${LINE_GLYPH_SVG}<span>加入 LINE 社群・開團先通知</span></a>
+         <p class="upcoming-list__hint">完整開團日期看 <button type="button" onclick="scrollToSection('calendar')" class="upcoming-list__cal-btn">🗓️ 行事曆總表</button></p>
+       </div>
      </section>` : '') +
 
     renderKangBooksSection(kangBooks) +
