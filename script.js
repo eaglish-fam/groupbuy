@@ -3912,21 +3912,22 @@ window.formatTimeRemaining = formatTimeRemaining;
   function buildContent() {
     // 場景 A：App 內建瀏覽器 → 先導去外部瀏覽器（內建瀏覽器裝不了 PWA、還會吃 UTM/affiliate 參數）
     if (inApp) {
-      const opener = isIOS ? 'Safari' : '瀏覽器';
-      // 各 App「開啟外部瀏覽器」選單鈕的位置/圖示不同（依實機確認）：
-      //   LINE → 右下角的「⋮」（直立三個點）；IG/FB/Threads/Messenger → 右上角的「•••」（橫向）
-      const MENU_HINT = {
-        LINE: '右下角的 <strong>「⋮」（直立三個點）</strong>',
-        Instagram: '右上角的 <strong>「•••」</strong>',
-        Facebook: '右上角的 <strong>「•••」</strong>',
-        Threads: '右上角的 <strong>「•••」</strong>',
-        Messenger: '右上角的 <strong>「•••」</strong>',
+      // 各 App「開啟外部瀏覽器」的選單位置/圖示 + 該選項的「實際文字」（依實機回報）：
+      //   LINE → 右下角直立「⋮」、選項寫「在瀏覽器中開啟」
+      //   IG   → 右上角「•••」、選項寫「使用外部瀏覽器開啟」
+      //   其餘未實測者一律用中性說法「用外部瀏覽器開啟」，不亂猜各家用字
+      const APP = {
+        Instagram: { menu: '右上角的 <strong>「•••」</strong>', action: '使用外部瀏覽器開啟' },
+        LINE: { menu: '右下角的 <strong>「⋮」（直立三個點）</strong>', action: '在瀏覽器中開啟' },
+        Facebook: { menu: '右上角的 <strong>「•••」</strong>', action: '用外部瀏覽器開啟' },
+        Threads: { menu: '右上角的 <strong>「•••」</strong>', action: '用外部瀏覽器開啟' },
+        Messenger: { menu: '右上角的 <strong>「•••」</strong>', action: '用外部瀏覽器開啟' },
       };
-      const hint = MENU_HINT[inApp] || '瀏覽器的 <strong>選單鈕</strong>';
+      const cfg = APP[inApp] || { menu: '瀏覽器的 <strong>選單鈕</strong>', action: '用外部瀏覽器開啟' };
       return {
         title: '🦅 把「鷹家買物社」加到手機桌面',
-        html: '你正在 <strong>' + inApp + '</strong> 內開啟。點 ' + hint
-          + ' → 選「在 ' + opener + ' 開啟」，才能安裝、用最完整的功能。',
+        html: '你正在 <strong>' + inApp + '</strong> 內開啟。點 ' + cfg.menu
+          + ' → 選「<strong>' + cfg.action + '</strong>」，才能安裝、用最完整的功能。',
         actions: [{ label: '📋 複製本頁網址', kind: 'ghost', onClick: copyUrl }],
       };
     }
