@@ -3660,15 +3660,20 @@ function initPullToRefresh() {
   document.body.appendChild(indicator);
 
   const THRESHOLD = 70;
+  const DIRECTION_LOCK_PX = 8;
+  let startX = 0;
   let startY = 0;
   let pullDistance = 0;
   let pulling = false;
+  let directionLocked = false;
 
   document.addEventListener('touchstart', (e) => {
     if (window.scrollY === 0 && !state.loading) {
+      startX = e.touches[0].clientX;
       startY = e.touches[0].clientY;
       pullDistance = 0;
       pulling = true;
+      directionLocked = false;
     } else {
       pulling = false;
     }
@@ -3676,7 +3681,14 @@ function initPullToRefresh() {
 
   document.addEventListener('touchmove', (e) => {
     if (!pulling) return;
-    pullDistance = e.touches[0].clientY - startY;
+    const dx = e.touches[0].clientX - startX;
+    const dy = e.touches[0].clientY - startY;
+    if (!directionLocked) {
+      if (Math.abs(dx) < DIRECTION_LOCK_PX && Math.abs(dy) < DIRECTION_LOCK_PX) return;
+      if (Math.abs(dx) > Math.abs(dy)) { pulling = false; return; }
+      directionLocked = true;
+    }
+    pullDistance = dy;
     if (pullDistance > 0 && window.scrollY === 0) {
       const visible = Math.min(pullDistance / 2, 90);
       indicator.style.transform = `translate(-50%, ${visible}px)`;
