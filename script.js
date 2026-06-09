@@ -3383,8 +3383,8 @@ function renderContentImpl() {
   // 滑軌 nav 不放收藏按鈕（收藏改用 modal，從工具列點開）
   elements.sectionButtons.innerHTML =
     (shortTerm.length ? btn('short-term', '⏳ 限時團購') : '') +
-    (longTerm.length ? btn('long-term', '☀️ 常駐團購') : '') +
     (standingUpcoming.length ? btn('upcoming', '🔔 即將開團') : '') +
+    (longTerm.length ? btn('long-term', '☀️ 常駐團購') : '') +
     (kangBooks.length ? btn('kang-books', '📖 康先生的書') : '') +
     (coupon.length ? btn('coupon', '🎟️ 折扣碼') : '') +
     (edu.length ? btn('edu', '📚 教育公益') : '') +
@@ -3424,19 +3424,6 @@ function renderContentImpl() {
        <div class="masonry-grid">${shortTerm.map(renderGroupCard).join('')}</div>
      </section>` : '') +
 
-    (!state.searchTerm && !state.hasActiveFilters && shortTerm.length ? `
-     <div class="community-hook">
-       <p class="community-hook__text">加入 LINE 社群，下一檔開團不錯過 💛</p>
-       <a href="${LINE_COMMUNITY_URL}" target="_blank" rel="noopener noreferrer"
-          onclick="if(typeof gtag!=='undefined'){gtag('event','click_social',{social_platform:'LINE',event_category:'engagement',event_label:'LINE社群_hook'});}"
-          class="line-cta">${LINE_GLYPH_SVG}<span>加入 LINE 社群</span></a>
-     </div>` : '') +
-
-    (longTerm.length ? `<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
-       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">☀️ 常駐團購</h2>
-       <div class="masonry-grid">${longTerm.map(renderGroupCard).join('')}</div>
-     </section>` : '') +
-
     (standingUpcoming.length ? `
      <section id="upcoming" class="scroll-mt-24 md:scroll-mt-28 mb-8">
        <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">🔔 即將開團</h2>
@@ -3456,6 +3443,19 @@ function renderContentImpl() {
          <p class="upcoming-list__hint">完整開團日期看 <button type="button" onclick="scrollToSection('calendar')" class="upcoming-list__cal-btn">🗓️ 行事曆總表</button></p>
        </div>
      </section>` : '') +
+
+    (longTerm.length ? `<section id="long-term" class="scroll-mt-24 md:scroll-mt-28 mb-8">
+       <h2 class="text-2xl font-bold text-amber-900 mb-4 text-center">☀️ 常駐團購</h2>
+       <div class="masonry-grid">${longTerm.map(renderGroupCard).join('')}</div>
+     </section>` : '') +
+
+    (!state.searchTerm && !state.hasActiveFilters && (shortTerm.length || longTerm.length) ? `
+     <div class="community-hook">
+       <p class="community-hook__text">加入 LINE 社群，下一檔開團不錯過 💛</p>
+       <a href="${LINE_COMMUNITY_URL}" target="_blank" rel="noopener noreferrer"
+          onclick="if(typeof gtag!=='undefined'){gtag('event','click_social',{social_platform:'LINE',event_category:'engagement',event_label:'LINE社群_hook'});}"
+          class="line-cta">${LINE_GLYPH_SVG}<span>加入 LINE 社群</span></a>
+     </div>` : '') +
 
     renderKangBooksSection(kangBooks) +
 
