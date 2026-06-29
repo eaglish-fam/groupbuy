@@ -919,9 +919,10 @@
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scrollbar-width: none;
-  /* 橫向交給 JS pointer swipe（iOS PWA standalone 原生 scroll-snap 不可靠），
-     直向 pan-y 保留給 modal body 捲動 */
-  touch-action: pan-y;
+  /* 手勢完全交給 JS pointer swipe：touch-action: none 讓瀏覽器不對此元素做任何
+     原生捲動。用 none 而非 pan-y 是因為 pan-y 會讓斜向滑動漏出垂直分量去捲 modal
+     body，造成左右滑時的上下晃動；none 鎖死成純水平，垂直拖曳由 JS 忽略不動作。 */
+  touch-action: none;
   aspect-ratio: 4 / 3;
   background: #f3f4f6;       /* gray-100 letterbox */
 }
