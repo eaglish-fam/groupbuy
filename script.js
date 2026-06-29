@@ -1498,17 +1498,44 @@ function openDetailsModal(event, brand) {
   // 圖片擺最前面增加視覺份量（飯店/票券方案 detail 多是文字，加圖才不單調）
   // 走 ImageOptimizer 拿 lh3 優化版 + fallback，跟卡片用同一支轉換
   const safeAlt = (g.brand || '').replace(/"/g, '&quot;');
+  // 圖片：g.image 首圖 + 「附加圖片」(extraImages)。多張 → 走 carousel（左右滑、圓點），
+  // 沿用卡片那套 swipe；詳情頁吃滿 modal 寬，圖比雙排卡片大、用 contain 顯示完整不裁切。
+  // 單張 → 維持原本單圖全寬，零行為改動。
+  const detailImages = [g.image, ...(Array.isArray(g.extraImages) ? g.extraImages : [])].filter(Boolean);
   let heroImg = '';
-  if (g.image) {
-    const opt = ImageOptimizer.getOptimizedImageUrl(g.image, g.brand);
+  if (detailImages.length === 1) {
+    const opt = ImageOptimizer.getOptimizedImageUrl(detailImages[0], g.brand);
     heroImg = `<div class="-mx-5 -mt-4 mb-4 bg-gray-100">
       <img src="${opt.primary}" alt="${safeAlt}"
            data-fallback="${opt.fallback}"
            onerror="ImageOptimizer.handleImageError(this)"
            class="w-full h-auto block" loading="eager">
     </div>`;
+  } else if (detailImages.length > 1) {
+    const slides = detailImages.map((url, i) => {
+      const opt = ImageOptimizer.getOptimizedImageUrl(url, g.brand);
+      const altText = i === 0 ? safeAlt : `${safeAlt} ${i + 1}`;
+      return `<div class="details-slide"><img src="${opt.primary}" alt="${altText}"
+                data-fallback="${opt.fallback}"
+                onerror="ImageOptimizer.handleImageError(this)"
+                loading="${i === 0 ? 'eager' : 'lazy'}" decoding="async"></div>`;
+    }).join('');
+    const dots = detailImages.map((_, i) =>
+      `<button type="button" class="hero-dot ${i === 0 ? 'active' : ''}" aria-label="第 ${i + 1} 張"></button>`
+    ).join('');
+    heroImg = `<div class="-mx-5 -mt-4 mb-2 bg-gray-100">
+        <div class="details-carousel" data-details-carousel>${slides}</div>
+      </div>
+      <div class="hero-dots" data-details-dots style="margin-bottom: 12px;">${dots}</div>`;
   }
   body.innerHTML = heroImg + renderDetailsMarkdown(g.details);
+
+  // 多圖時接上 swipe + 圓點同步（reuse 卡片 carousel 的 wiring）
+  const detailsCarousel = body.querySelector('[data-details-carousel]');
+  if (detailsCarousel) {
+    const dotBar = body.querySelector('[data-details-dots]');
+    wireCarousel(detailsCarousel, dotBar ? dotBar.querySelectorAll('.hero-dot') : []);
+  }
 
   if (ctaBtn) {
     if (g.url) {
@@ -3511,10 +3538,14 @@ function initCardCarousels() {
   document.querySelectorAll('[data-card-carousel]').forEach(carousel => {
     const brand = carousel.getAttribute('data-card-carousel');
     const dotBar = document.querySelector(`[data-card-dots-for="${CSS.escape(brand)}"]`);
-    if (!dotBar) return;
-    const dots = dotBar.querySelectorAll('.hero-dot');
-    if (!dots.length) return;
+    wireCarousel(carousel, dotBar ? dotBar.querySelectorAll('.hero-dot') : []);
+  });
+}
 
+// carousel 通用接線：scroll ↔ 圓點同步、點圓點跳圖、JS pointer swipe（iOS PWA 救星）。
+// 卡片 carousel 與方案詳情 carousel 共用；dots 可為空（只接 swipe）。
+function wireCarousel(carousel, dots) {
+  if (dots && dots.length) {
     // scroll → 算 index → 亮對應 dot
     carousel.addEventListener('scroll', () => {
       const idx = Math.round(carousel.scrollLeft / carousel.clientWidth);
@@ -3528,11 +3559,11 @@ function initCardCarousels() {
         carousel.scrollTo({ left: i * carousel.clientWidth, behavior: 'smooth' });
       });
     });
+  }
 
-    // iOS PWA 救星：JS 主導的 pointer swipe
-    // CSS 已把 touch-action 改 pan-y，橫向觸控原生不接管，由我們自己拿
-    initCardCarouselSwipe(carousel);
-  });
+  // iOS PWA 救星：JS 主導的 pointer swipe
+  // CSS 已把 touch-action 改 pan-y，橫向觸控原生不接管，由我們自己拿
+  initCardCarouselSwipe(carousel);
 }
 
 // pointer-event 驅動的水平 swipe — 取代原生 scroll-snap 的觸控行為

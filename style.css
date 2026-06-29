@@ -908,6 +908,46 @@
 }
 
 /* ============================================
+   方案詳情 Modal 內的圖片 carousel
+   首圖 + 附加圖片，可左右滑。吃滿 modal 寬（比雙排卡片大）；
+   object-fit: contain 顯示完整圖不裁切，固定 4:3 視窗讓多張切換不跳高，
+   gray 底補滿留白。swipe / 圓點 reuse 卡片那套 JS（wireCarousel）。
+   ============================================ */
+.details-carousel {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  /* 橫向交給 JS pointer swipe（iOS PWA standalone 原生 scroll-snap 不可靠），
+     直向 pan-y 保留給 modal body 捲動 */
+  touch-action: pan-y;
+  aspect-ratio: 4 / 3;
+  background: #f3f4f6;       /* gray-100 letterbox */
+}
+
+.details-carousel::-webkit-scrollbar { display: none; }
+
+.details-carousel > .details-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.details-slide > img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;       /* 顯示完整圖，不裁切 */
+  display: block;
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* ============================================
    卡片 Secondary Button — 統一中性樣式
    讓主要 CTA「立即前往」獨佔重點色，其他 action 全部退到中性
    ============================================ */
