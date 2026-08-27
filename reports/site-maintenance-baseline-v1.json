@@ -3,12 +3,12 @@
   "site": "https://www.eaglish.store/",
   "repository": "https://github.com/eaglish-fam/groupbuy",
   "sourceRoot": ".",
-  "status": "ready_with_findings",
+  "status": "ready",
   "summary": {
     "checks": 28,
-    "passed": 25,
+    "passed": 28,
     "blockingFailures": 0,
-    "warnings": 3
+    "warnings": 0
   },
   "checks": [
     {
@@ -91,9 +91,9 @@
     },
     {
       "id": "canonical",
-      "passed": false,
+      "passed": true,
       "severity": "warning",
-      "detail": "Homepage has no canonical link."
+      "detail": "Canonical is https://www.eaglish.store/."
     },
     {
       "id": "open-graph-url",
@@ -109,7 +109,7 @@
     },
     {
       "id": "search-console-token-shape",
-      "passed": false,
+      "passed": true,
       "severity": "warning",
       "detail": "Search Console verification content should contain the token only."
     },
@@ -139,9 +139,9 @@
     },
     {
       "id": "iframe-title",
-      "passed": false,
+      "passed": true,
       "severity": "warning",
-      "detail": "2 of 2 iframe(s) lack a title."
+      "detail": "0 of 2 iframe(s) lack a title."
     },
     {
       "id": "robots-allows-root",
@@ -180,24 +180,5 @@
       "detail": "All static homepage asset references resolve."
     }
   ],
-  "findings": [
-    {
-      "id": "canonical",
-      "severity": "warning",
-      "detail": "Homepage has no canonical link.",
-      "action": "Add to Lydia maintenance backlog."
-    },
-    {
-      "id": "search-console-token-shape",
-      "severity": "warning",
-      "detail": "Search Console verification content should contain the token only.",
-      "action": "Add to Lydia maintenance backlog."
-    },
-    {
-      "id": "iframe-title",
-      "severity": "warning",
-      "detail": "2 of 2 iframe(s) lack a title.",
-      "action": "Add to Lydia maintenance backlog."
-    }
-  ]
+  "findings": []
 }

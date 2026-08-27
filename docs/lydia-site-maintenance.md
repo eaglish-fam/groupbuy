@@ -48,11 +48,21 @@ npm run verify
 
 1. GitHub Pages 回報 `https_enforced: false`，`http://www.eaglish.store/` 不會轉址至 HTTPS。
 2. `https://eaglish.store/` 的 apex domain 目前連線逾時；只有 `www` 版本可穩定使用。
-3. 首頁缺少 self-referencing canonical link。
-4. Search Console verification meta 的 content 疑似包含多餘的 `google-site-verification=` 前綴，需在 Search Console 確認後修正。
-5. YouTube iframe 缺少可存取的 `title`。
-6. sitemap 的既有 `lastmod` 仍停在 2026-04-30；本機 primary checkout 有一份尚未納入 Git 的自動更新 workflow，不能在未審閱前當成 production authority。
-7. `llms.txt` 將品牌主理人寫成「Hiram 與 Zosia」，需要 Hiram／Queenie 確認正式對外說法後才能修改。
+3. sitemap 的既有 `lastmod` 仍停在 2026-04-30；本機 primary checkout 有一份尚未納入 Git 的自動更新 workflow，不能在未審閱前當成 production authority。
+4. `llms.txt` 將品牌主理人寫成「Hiram 與 Zosia」，需要 Hiram／Queenie 確認正式對外說法後才能修改。
+
+## 2026-08-27 R2 first-use 候選
+
+已在隔離分支完成、尚未部署：
+
+- 新增首頁 self-referencing canonical：`https://www.eaglish.store/`。
+- 將 Search Console verification meta content 校正為純 token。
+- 為 YouTube 與商品介紹兩個 iframe 補上可辨識的 `title`。
+- `npm run verify`：28/28 checks、3/3 tests、0 warning。
+- `npm audit --audit-level=high`：0 vulnerabilities。
+- 390×844 本機手機 smoke screenshot 可正常載入首屏、搜尋、篩選與商品區；本機 HTTP 回應 200。
+
+這是 Lydia v1.3 的第一個真實網站維護輸出候選。只有 Hiram 驗收候選的實際價值後，才可作為 `proven` 證據；部署仍需另外授權。
 
 ## 不在本次候選內
 

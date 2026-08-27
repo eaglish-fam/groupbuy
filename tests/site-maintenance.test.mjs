@@ -25,10 +25,12 @@ test('current website has no blocking maintenance failures', () => {
   assert.match(report.status, /^ready/);
 });
 
-test('known technical SEO findings stay visible until fixed', () => {
+test('first-use technical SEO findings are fixed', () => {
   const report = auditSite(ROOT);
   const findingIds = new Set(report.findings.map((finding) => finding.id));
-  assert.ok(findingIds.has('canonical'));
-  assert.ok(findingIds.has('search-console-token-shape'));
-  assert.ok(findingIds.has('iframe-title'));
+  assert.equal(findingIds.has('canonical'), false);
+  assert.equal(findingIds.has('search-console-token-shape'), false);
+  assert.equal(findingIds.has('iframe-title'), false);
+  assert.equal(report.summary.warnings, 0);
+  assert.equal(report.status, 'ready');
 });
