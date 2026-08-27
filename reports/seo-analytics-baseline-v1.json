@@ -1,0 +1,32 @@
+{
+  "schema": "eaglish.seo-analytics-baseline/v1",
+  "observedAt": "2026-08-27T14:41:17+08:00",
+  "publicSite": {
+    "httpsWww": {"status": 200, "available": true},
+    "httpWww": {"status": 200, "redirectsToHttps": false},
+    "httpsApex": {"status": null, "available": false, "reason": "timeout"},
+    "productionCanonicalPresent": false,
+    "productionSearchConsoleTokenShapeValid": false,
+    "productionIframeTitlesComplete": false
+  },
+  "githubPages": {
+    "status": "built",
+    "cname": "www.eaglish.store",
+    "sourceBranch": "main",
+    "sourcePath": "/",
+    "httpsEnforced": false
+  },
+  "connectors": {
+    "searchConsole": "not_connected",
+    "ga4": "not_connected"
+  },
+  "candidateBranch": {
+    "commit": "e3f5791",
+    "technicalAudit": "28/28",
+    "canonicalFixed": true,
+    "searchConsoleTokenShapeFixed": true,
+    "iframeTitlesFixed": true,
+    "deployed": false
+  },
+  "externalWrites": []
+}

@@ -1,0 +1,14 @@
+{
+  "schema": "eaglish.seo-analytics-contract/v1",
+  "owner": "lydia",
+  "engineeringSteward": "kira",
+  "canonicalOrigin": "https://www.eaglish.store",
+  "readSources": {
+    "publicHttp": "available",
+    "githubPagesApi": "available_read_only",
+    "searchConsole": "not_connected",
+    "ga4": "not_connected"
+  },
+  "recommendationRequiredFields": ["id", "title", "url", "source", "sourcePeriod", "evidence", "expectedImpact", "acceptanceMethod", "mutationRequiresApproval"],
+  "forbiddenAutomaticActions": ["dns_write", "pages_setting_write", "analytics_tracking_write", "oauth_install", "production_deploy"]
+}
