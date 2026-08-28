@@ -1,0 +1,45 @@
+{
+  "schema": "eaglish.site-maintenance/v1",
+  "site": {
+    "canonicalOrigin": "https://www.eaglish.store",
+    "publicUrl": "https://www.eaglish.store/",
+    "businessRole": "curated_groupbuy_discovery_and_referral",
+    "transactionalCommerce": false
+  },
+  "repository": {
+    "owner": "eaglish-fam",
+    "name": "groupbuy",
+    "url": "https://github.com/eaglish-fam/groupbuy",
+    "defaultBranch": "main"
+  },
+  "deployment": {
+    "provider": "github_pages",
+    "sourceBranch": "main",
+    "sourcePath": "/",
+    "productionWriteRequiresApproval": true
+  },
+  "owners": {
+    "requirementsAndOperations": "lydia",
+    "codeAndVerification": "kira",
+    "commercialDecision": [
+      "Hiram",
+      "Queenie"
+    ]
+  },
+  "sourceAuthority": {
+    "websiteCode": "https://github.com/eaglish-fam/groupbuy",
+    "groupbuyOperations": "google-sheet:eagle-groupbuy",
+    "agentStudioRole": "read_only_consumer"
+  },
+  "requiredFiles": [
+    "index.html",
+    "404.html",
+    "CNAME",
+    "robots.txt",
+    "sitemap.xml",
+    "llms.txt",
+    "script.js",
+    "style.css",
+    "tailwind.css"
+  ]
+}

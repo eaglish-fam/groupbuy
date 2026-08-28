@@ -1,0 +1,184 @@
+{
+  "schema": "eaglish.site-maintenance-audit/v1",
+  "site": "https://www.eaglish.store/",
+  "repository": "https://github.com/eaglish-fam/groupbuy",
+  "sourceRoot": ".",
+  "status": "ready",
+  "summary": {
+    "checks": 28,
+    "passed": 28,
+    "blockingFailures": 0,
+    "warnings": 0
+  },
+  "checks": [
+    {
+      "id": "required-file:index.html",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Required file index.html exists."
+    },
+    {
+      "id": "required-file:404.html",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Required file 404.html exists."
+    },
+    {
+      "id": "required-file:CNAME",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Required file CNAME exists."
+    },
+    {
+      "id": "required-file:robots.txt",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Required file robots.txt exists."
+    },
+    {
+      "id": "required-file:sitemap.xml",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Required file sitemap.xml exists."
+    },
+    {
+      "id": "required-file:llms.txt",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Required file llms.txt exists."
+    },
+    {
+      "id": "required-file:script.js",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Required file script.js exists."
+    },
+    {
+      "id": "required-file:style.css",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Required file style.css exists."
+    },
+    {
+      "id": "required-file:tailwind.css",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Required file tailwind.css exists."
+    },
+    {
+      "id": "html-lang",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Homepage declares Traditional Chinese locale."
+    },
+    {
+      "id": "viewport",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Homepage includes a responsive viewport."
+    },
+    {
+      "id": "title",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Homepage title length is 26."
+    },
+    {
+      "id": "meta-description",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Meta description length is 78."
+    },
+    {
+      "id": "canonical",
+      "passed": true,
+      "severity": "warning",
+      "detail": "Canonical is https://www.eaglish.store/."
+    },
+    {
+      "id": "open-graph-url",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Open Graph URL uses the canonical origin."
+    },
+    {
+      "id": "open-graph-image",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Open Graph image is an absolute HTTPS URL."
+    },
+    {
+      "id": "search-console-token-shape",
+      "passed": true,
+      "severity": "warning",
+      "detail": "Search Console verification content should contain the token only."
+    },
+    {
+      "id": "structured-data",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "1 JSON-LD block(s) found and parsed."
+    },
+    {
+      "id": "single-h1",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Homepage contains 1 H1 element(s)."
+    },
+    {
+      "id": "semantic-main",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Homepage contains a semantic main landmark."
+    },
+    {
+      "id": "image-alt",
+      "passed": true,
+      "severity": "warning",
+      "detail": "0 of 2 static image(s) lack alt text."
+    },
+    {
+      "id": "iframe-title",
+      "passed": true,
+      "severity": "warning",
+      "detail": "0 of 2 iframe(s) lack a title."
+    },
+    {
+      "id": "robots-allows-root",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "robots.txt does not block the whole site."
+    },
+    {
+      "id": "robots-sitemap",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "robots.txt points to the canonical sitemap."
+    },
+    {
+      "id": "sitemap-home",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Sitemap includes the canonical homepage."
+    },
+    {
+      "id": "sitemap-https",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "29 sitemap URL(s) use the canonical HTTPS origin."
+    },
+    {
+      "id": "sitemap-unique",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Sitemap URLs are unique."
+    },
+    {
+      "id": "local-assets",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "All static homepage asset references resolve."
+    }
+  ],
+  "findings": []
+}
