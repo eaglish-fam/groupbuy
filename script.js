@@ -2530,6 +2530,7 @@ async function loadData() {
             googleDoc: row['Google文件'] || row['GoogleDoc'] || row['文件介紹'] || '',
             qa: row['QA'] || row['Q&A'] || '',
             video: row['影片網址'] || row['Video'] || row['VideoURL'] || '',
+            videos: ProductContent.fromRow(row),
             // 方案詳情（飯店多方案/票券多選/任何需要說明的場景）— 多行純文字，支援極簡 markdown
             details: row['方案詳情'] || row['詳情'] || row['Details'] || row['PlanDetails'] || '',
             itemCategory: row['分類'] || row['Category'] || '',
@@ -3085,9 +3086,8 @@ function renderGroupCardBody(g) {
     ${countdown}
     ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900" style="white-space: pre-wrap;">${linkify(g.note)}</p></div>` : ''}
     ${g.details && !expired ? `<div class="mb-3"><button onclick="openDetailsModal(event, '${g.brand.replace(/'/g, "\\'")}')" class="card-secondary-btn">📋 方案詳情</button></div>` : ''}
-    ${g.blogUrl && !expired ? `<div class="mb-3"><a href="${g.blogUrl}" target="_blank" rel="noopener noreferrer" class="card-secondary-btn" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_blog', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">📝 查看網誌</a></div>` : ''}
+    ${ProductContent.readingButton(g)}
     ${g.warrantyUrl && !expired ? `<div class="mb-3"><a href="${g.warrantyUrl}" target="_blank" rel="noopener noreferrer" class="card-secondary-btn" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_warranty', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">🛡️ 保固網站</a></div>` : ''}
-    ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${(g.url || '').replace(/'/g, "\\'")}')" class="card-secondary-btn">📄 查看介紹</button></div>` : ''}
     ${(() => {
       if (!g.contacts || g.contacts.length === 0 || expired) return '';
       // 只有 1 個管道：全寬按鈕直接跳
@@ -3105,7 +3105,7 @@ function renderGroupCardBody(g) {
       <summary class="cursor-pointer text-indigo-700 font-medium">常見問題❓(${qaList.length})</summary>
       ${qaList.map(qa => `<div class="mt-2 border-t border-indigo-200 pt-2"><p class="text-sm font-semibold text-indigo-900 mb-1">Q: ${qa.q}</p><p class="text-sm text-indigo-700">A: ${qa.a}</p></div>`).join('')}
     </details>` : ''}
-    ${g.video && !expired ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="card-secondary-btn">🎬 觀看影片</button></div>` : ''}
+    ${ProductContent.videoButton(g)}
     ${g.coupon && !expired ? `<div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3"><div class="flex items-center justify-between"><div class="flex-1 min-w-0"><p class="text-xs text-green-700 font-semibold mb-1">🎟️ 專屬折扣碼</p><code class="text-base font-bold text-green-800 font-mono break-all">${g.coupon}</code></div><button onclick='copyCoupon(event, "${g.coupon}")' class="ml-3 bg-green-600 hover:bg-green-700 text-white px-3 py-2 rounded-lg text-sm font-medium">複製</button></div></div>` : ''}
     ${g.endDate && !expired && g.category !== '長期' ? `<div class="mb-3"><button onclick="addToCalendar(event, '${g.brand.replace(/'/g, "\\'")} - 團購截止', '${g.endDate}', '${g.url || ''}', '⏰ 今天是最後一天!記得下單')" class="card-secondary-btn">📅 加入行事曆</button></div>` : ''}
   `;
@@ -3195,9 +3195,9 @@ function renderCouponCard(g) {
         ${categoryTags ? `<div class="flex flex-wrap gap-2 mb-3">${categoryTags}</div>` : ''}
         ${g.note && !noteIsURL && !noteIsQA ? `<p class="text-sm text-gray-700 mb-3 leading-relaxed">${g.note}</p>` : ''}
         ${noteIsURL ? `<div class="mb-3"><a href="${g.note}" target="_blank" rel="noopener noreferrer" class="w-full bg-gradient-to-r from-gray-50 to-slate-50 border-2 border-gray-300 text-gray-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-gray-100 hover:to-slate-100 transition-colors flex items-center justify-center gap-2">📄 查看詳細說明</a></div>` : ''}
-        ${g.googleDoc && !expired ? `<div class="mb-3"><button onclick="openBlogModal(event, '${g.googleDoc.replace(/'/g, "\\'")}', '${g.brand.replace(/'/g, "\\'")}', '${g.url.replace(/'/g, "\\'")}')" class="w-full bg-gradient-to-r from-amber-50 to-orange-50 border-2 border-amber-300 text-amber-800 px-4 py-2 rounded-lg text-sm font-medium hover:from-amber-100 hover:to-orange-100 transition-colors flex items-center justify-center gap-2">📄 查看介紹</button></div>` : ''}
+        ${ProductContent.readingButton(g)}
         ${noteIsQA ? `<div class="space-y-2 mb-3">${qaList.map((qa, i) => `<details class="bg-white rounded-lg border border-purple-200 p-3"><summary class="cursor-pointer font-semibold text-purple-900 text-sm">${qa.q}</summary><div class="mt-2 text-sm text-gray-700">${qa.a}</div></details>`).join('')}</div>` : ''}
-        ${g.video ? `<div class="mb-3"><button onclick='openVideoModal(event, "${g.video}")' class="w-full bg-gradient-to-r from-red-50 to-pink-50 border-2 border-red-200 text-red-700 px-4 py-2 rounded-lg text-sm font-medium hover:from-red-100 hover:to-pink-100 transition-colors">🎬 觀看影片</button></div>` : ''}
+        ${ProductContent.videoButton(g)}
         ${g.endDate && !expired ? `<div class="flex items-center gap-2 text-sm mb-4"><span class="${daysLeft <= 7 ? 'text-red-600 font-semibold' : 'text-purple-700'}">⏰ ${daysLeft > 0 ? '剩 ' + daysLeft + ' 天' : '今天截止'}</span></div>` : ''}
         ${g.coupon && !expired ? `
           <div class="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-200 rounded-lg p-3 mb-3">
@@ -4106,3 +4106,5 @@ window.formatTimeRemaining = formatTimeRemaining;
   // 延遲 2.5s 再跳，讓內容先 paint、不突兀
   setTimeout(show, 2500);
 })();
+
+ProductContent.install(() => state.groups || []);

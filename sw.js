@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eaglish-v9.68';
+const CACHE_NAME = 'eaglish-blog-release-v1';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -7,6 +7,29 @@ const urlsToCache = [
   '/tailwind.css',
   '/theme-fresh-comfortable.css',
   '/script.js',
+  '/product-content.js',
+  '/product-content.css',
+  '/blog/',
+  '/blog/blog.css',
+  '/blog/blog-model.js',
+  '/blog/blog.js',
+  '/blog/atojet/',
+  '/blog/wave-hummus/',
+  '/blog/artisan-cb301/',
+  '/articles/article.css',
+  '/articles/article.js',
+  '/assets/atojet/home-set.webp',
+  '/assets/atojet/vendor-shower.webp',
+  '/assets/atojet/video-06.webp',
+  '/assets/atojet/video-12.webp',
+  '/assets/wave/family.webp',
+  '/assets/wave/mushroom.webp',
+  '/assets/wave/pita.webp',
+  '/assets/wave/toast.webp',
+  '/assets/artisan-cb301/contents.webp',
+  '/assets/artisan-cb301/cover.webp',
+  '/assets/artisan-cb301/long-reach.webp',
+  '/assets/artisan-cb301/surfaces.webp',
   '/logo-horizontal.jpg',
   '/logo-eaglish-text.png',
   '/icons/web-app-manifest-192x192.png',
@@ -29,6 +52,8 @@ self.addEventListener('install', event => {
 
 // 提取資源
 self.addEventListener('fetch', event => {
+  // Operational Sheet data must never be served from the offline cache.
+  if (new URL(event.request.url).hostname === 'docs.google.com') return;
   event.respondWith(
     caches.match(event.request)
       .then(response => {

@@ -1,0 +1,288 @@
+{
+  "schema": "eaglish.blog-release-audit/v1",
+  "generatedAt": "2026-09-08T14:13:46.893Z",
+  "status": "ready",
+  "summary": {
+    "checks": 55,
+    "passed": 55,
+    "failures": 0
+  },
+  "checks": [
+    {
+      "id": "blog:index.html:title",
+      "passed": true,
+      "detail": "Title length 25."
+    },
+    {
+      "id": "blog:index.html:description",
+      "passed": true,
+      "detail": "Description length 61."
+    },
+    {
+      "id": "blog:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/."
+    },
+    {
+      "id": "blog:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include 鷹式一家生活筆記."
+    },
+    {
+      "id": "blog:index.html:schema",
+      "passed": true,
+      "detail": "Blog structured data parses."
+    },
+    {
+      "id": "blog:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:atojet:index.html:title",
+      "passed": true,
+      "detail": "Title length 39."
+    },
+    {
+      "id": "blog:atojet:index.html:description",
+      "passed": true,
+      "detail": "Description length 55."
+    },
+    {
+      "id": "blog:atojet:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/atojet/."
+    },
+    {
+      "id": "blog:atojet:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:atojet:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:atojet:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include Atojet 濾芯蓮蓬頭."
+    },
+    {
+      "id": "blog:atojet:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:atojet:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:atojet:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:atojet:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:atojet:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:atojet:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:atojet:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:title",
+      "passed": true,
+      "detail": "Title length 33."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:description",
+      "passed": true,
+      "detail": "Description length 64."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/wave-hummus/."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include Wave 鷹嘴豆泥."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:title",
+      "passed": true,
+      "detail": "Title length 41."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:description",
+      "passed": true,
+      "detail": "Description length 62."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/artisan-cb301/."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ARTISAN CB301 電動清潔刷."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "identity:artisan-cb301",
+      "passed": true,
+      "detail": "CB301 does not inherit the sibling leg-massager video or model."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/atojet/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/wave-hummus/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/artisan-cb301/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    }
+  ],
+  "failures": []
+}
