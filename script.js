@@ -2879,6 +2879,35 @@ function linkify(text) {
   );
 }
 
+// 手機卡片的「貼心說明」可展開閱讀；桌機版則由 CSS 直接顯示全文。
+function renderCardNote(note) {
+  if (!note) return '';
+
+  return `<div class="card-note mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3">
+    <p class="card-note__label text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p>
+    <p class="card-note__text text-sm text-blue-900">${linkify(note)}</p>
+    <button type="button" class="card-note__toggle" aria-expanded="false" onclick="toggleCardNote(event)">
+      <span data-card-note-label>展開完整說明</span>
+      <span class="card-note__chevron" aria-hidden="true">⌄</span>
+    </button>
+  </div>`;
+}
+
+function toggleCardNote(event) {
+  event.stopPropagation();
+  const button = event.currentTarget;
+  const note = button.closest('.card-note');
+  if (!note) return;
+
+  const expanded = button.getAttribute('aria-expanded') === 'true';
+  const nextExpanded = !expanded;
+  note.classList.toggle('is-expanded', nextExpanded);
+  button.setAttribute('aria-expanded', String(nextExpanded));
+
+  const label = button.querySelector('[data-card-note-label]');
+  if (label) label.textContent = nextExpanded ? '收合說明' : '展開完整說明';
+}
+
 // 客服欄位智慧 href：判斷是 email / phone / LINE OA / 一般 URL，自動套對的 protocol
 function smartContactHref(value) {
   const v = String(value || '').trim();
@@ -3084,7 +3113,7 @@ function renderGroupCardBody(g) {
       ${g.stock === '少量' ? '<span class="text-xs bg-yellow-100 text-yellow-700 px-2 py-1 rounded-full">少量現貨</span>' : ''}
     </div>
     ${countdown}
-    ${g.note && !expired ? `<div class="mb-3 bg-blue-50 border-2 border-blue-200 rounded-lg p-3"><p class="text-xs text-blue-600 font-semibold mb-1">ℹ️ 貼心說明</p><p class="text-sm text-blue-900" style="white-space: pre-wrap;">${linkify(g.note)}</p></div>` : ''}
+    ${g.note && !expired ? renderCardNote(g.note) : ''}
     ${g.details && !expired ? `<div class="mb-3"><button onclick="openDetailsModal(event, '${g.brand.replace(/'/g, "\\'")}')" class="card-secondary-btn">📋 方案詳情</button></div>` : ''}
     ${ProductContent.readingButton(g)}
     ${g.warrantyUrl && !expired ? `<div class="mb-3"><a href="${g.warrantyUrl}" target="_blank" rel="noopener noreferrer" class="card-secondary-btn" onclick="if(typeof gtag !== 'undefined'){gtag('event', 'click_warranty', {group_name: '${g.brand.replace(/'/g, "\\'")}', event_category: 'engagement'});}">🛡️ 保固網站</a></div>` : ''}
@@ -3892,6 +3921,7 @@ window.openVideoModal = openVideoModal;
 window.closeVideoModal = closeVideoModal;
 window.copyCoupon = copyCoupon;
 window.openNote = openNote;
+window.toggleCardNote = toggleCardNote;
 window.addToCalendar = addToCalendar;
 window.addBothToCalendar = addBothToCalendar;
 window.showDayGroups = showDayGroups;

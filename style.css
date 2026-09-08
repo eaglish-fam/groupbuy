@@ -2502,3 +2502,70 @@ header.header-compact .header-logo-wrap {
   color: var(--color-text-body);
 }
 .notice-qa strong { color: var(--color-accent-promo-alt); }
+
+/* 貼心說明：桌機直接顯示全文；手機預設精簡並提供明確的展開／收合。 */
+.card-note__text {
+  white-space: pre-wrap;
+}
+
+.card-note__toggle {
+  display: none;
+}
+
+@media (max-width: 767px) {
+  /* 覆蓋手機卡片對所有 p 套用的三行截斷，避免標籤也被誤傷。 */
+  .masonry-card-content .card-note__label {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: initial;
+  }
+
+  .masonry-card-content .card-note__text {
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    color: var(--color-text-body);
+  }
+
+  .masonry-card-content .card-note.is-expanded .card-note__text {
+    display: block;
+    overflow: visible;
+    -webkit-line-clamp: unset;
+    -webkit-box-orient: initial;
+  }
+
+  .card-note__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    width: 100%;
+    min-height: 44px;
+    margin-top: 6px;
+    padding: 8px 6px;
+    border-top: 1px solid var(--color-info-border);
+    color: var(--color-info-dark);
+    font-size: 13px;
+    font-weight: 700;
+    white-space: normal;
+  }
+
+  .card-note__chevron {
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+
+  .card-note.is-expanded .card-note__chevron {
+    transform: rotate(180deg);
+  }
+
+  .card-note__toggle:focus-visible {
+    outline: 3px solid var(--color-info-dark);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
