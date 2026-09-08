@@ -74,6 +74,7 @@ export function auditBlog() {
 
   const artisan = content('blog/artisan-cb301/index.html');
   check('identity:artisan-cb301', !artisan.includes('bFNLF_Vgn7k') && !artisan.includes('LM3000'), 'CB301 does not inherit the sibling leg-massager video or model.');
+  check('cover:artisan-cb301', artisan.includes('/assets/artisan-cb301/blog-cover-v2.webp') && content('blog/index.html').includes('/assets/artisan-cb301/blog-cover-v2.webp'), 'CB301 uses its editorial cover on both the article and blog index.');
   const productContent = content('product-content.js');
   for (const page of pages.slice(1)) check(`catalog:${page.url}`, productContent.includes(`article:'${new URL(page.url).pathname}'`), 'Product-card article mapping exists.');
 

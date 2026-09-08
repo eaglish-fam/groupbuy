@@ -1,10 +1,10 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-08T14:13:46.893Z",
+  "generatedAt": "2026-09-08T14:30:01.545Z",
   "status": "ready",
   "summary": {
-    "checks": 55,
-    "passed": 55,
+    "checks": 56,
+    "passed": 56,
     "failures": 0
   },
   "checks": [
@@ -267,6 +267,11 @@
       "id": "identity:artisan-cb301",
       "passed": true,
       "detail": "CB301 does not inherit the sibling leg-massager video or model."
+    },
+    {
+      "id": "cover:artisan-cb301",
+      "passed": true,
+      "detail": "CB301 uses its editorial cover on both the article and blog index."
     },
     {
       "id": "catalog:https://www.eaglish.store/blog/atojet/",

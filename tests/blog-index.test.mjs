@@ -32,4 +32,6 @@ test('public blog candidate has clear sections, static article links, and no int
   for(const internal of ['閱讀風格預覽','尚未發布','廠商情境照片','廠商套組照片']){assert.ok(!home.includes(internal));for(const article of articles)assert.ok(!article.includes(internal));}
   assert.ok(articles[0].includes('這支影片發布於 2026 年 2 月'));
   assert.ok(!articles[2].includes('bFNLF_Vgn7k'),'CB301 article must not inherit the same-row LM3000 video');
+  assert.ok(home.includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN blog card uses the dedicated editorial cover');
+  assert.ok(articles[2].includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN article hero uses the dedicated editorial cover');
 });

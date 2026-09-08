@@ -1,4 +1,4 @@
-const CACHE_NAME = 'eaglish-blog-release-v1';
+const CACHE_NAME = 'eaglish-blog-release-v2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -27,6 +27,7 @@ const urlsToCache = [
   '/assets/wave/pita.webp',
   '/assets/wave/toast.webp',
   '/assets/artisan-cb301/contents.webp',
+  '/assets/artisan-cb301/blog-cover-v2.webp',
   '/assets/artisan-cb301/cover.webp',
   '/assets/artisan-cb301/long-reach.webp',
   '/assets/artisan-cb301/surfaces.webp',

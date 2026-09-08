@@ -3,7 +3,7 @@
   const catalog={
     atojet:{id:'atojet-home-shower',brands:['Atojet 濾芯蓮蓬頭'],article:'/blog/atojet/',title:'洗澡的水，看起來很乾淨。直到我們拆開了濾芯。',excerpt:'一段真實的換芯紀錄，一點關於浴室日常用水的留意。',category:'居家生活',image:'/assets/atojet/vendor-shower.webp'},
     wave:{id:'wave-hummus',brands:['Wave 鷹嘴豆泥'],article:'/blog/wave-hummus/',title:'吐司吃膩了，也許不是吐司的問題。',excerpt:'一盒鷹嘴豆泥，從抹、沾到拌，替普通的一餐換一種心情。',category:'餐桌日常',image:'/assets/wave/family.webp'},
-    artisanCb301:{id:'artisan-cb301',brands:['ARTISAN浴室清潔＆小腿按摩器'],article:'/blog/artisan-cb301/',title:'浴室真正難刷的，通常不是最髒的那一塊。',excerpt:'高處、角落和總要彎下腰的地方，才是讓人一拖再拖的原因。',category:'居家清潔',image:'/assets/artisan-cb301/cover.webp'}
+    artisanCb301:{id:'artisan-cb301',brands:['ARTISAN浴室清潔＆小腿按摩器'],article:'/blog/artisan-cb301/',title:'浴室真正難刷的，通常不是最髒的那一塊。',excerpt:'高處、角落和總要彎下腰的地方，才是讓人一拖再拖的原因。',category:'居家清潔',image:'/assets/artisan-cb301/blog-cover-v2.webp'}
   };
   const escape=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function safeUrl(value){try{const u=new URL(String(value).trim());return ['https:','http:'].includes(u.protocol)&&!u.username&&!u.password?u.href:'';}catch{return '';}}
