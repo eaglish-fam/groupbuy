@@ -1,10 +1,10 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-09T02:33:41.722Z",
+  "generatedAt": "2026-09-09T15:10:45.210Z",
   "status": "ready",
   "summary": {
-    "checks": 56,
-    "passed": 56,
+    "checks": 73,
+    "passed": 73,
     "failures": 0
   },
   "checks": [
@@ -264,6 +264,71 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:meroware:index.html:title",
+      "passed": true,
+      "detail": "Title length 38."
+    },
+    {
+      "id": "blog:meroware:index.html:description",
+      "passed": true,
+      "detail": "Description length 102."
+    },
+    {
+      "id": "blog:meroware:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/meroware/."
+    },
+    {
+      "id": "blog:meroware:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:meroware:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:meroware:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include Meroware 餐具與水壺."
+    },
+    {
+      "id": "blog:meroware:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:meroware:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:meroware:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:meroware:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:meroware:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:meroware:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:meroware:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
       "id": "identity:artisan-cb301",
       "passed": true,
       "detail": "CB301 does not inherit the sibling leg-massager video or model."
@@ -287,6 +352,26 @@
       "id": "catalog:https://www.eaglish.store/blog/artisan-cb301/",
       "passed": true,
       "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/meroware/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "homepage:meroware",
+      "passed": true,
+      "detail": "Homepage journal links to the Meroware article."
+    },
+    {
+      "id": "seo:meroware-intent",
+      "passed": true,
+      "detail": "Meroware meta description covers the primary choice intent."
+    },
+    {
+      "id": "geo:meroware-answers",
+      "passed": true,
+      "detail": "Meroware exposes a scannable choice map and direct FAQ answers."
     }
   ],
   "failures": []

@@ -11,6 +11,7 @@ const pages = [
   { path: 'blog/atojet/index.html', url: `${ORIGIN}/blog/atojet/`, type: 'Article', phrase: 'Atojet 濾芯蓮蓬頭' },
   { path: 'blog/wave-hummus/index.html', url: `${ORIGIN}/blog/wave-hummus/`, type: 'Article', phrase: 'Wave 鷹嘴豆泥' },
   { path: 'blog/artisan-cb301/index.html', url: `${ORIGIN}/blog/artisan-cb301/`, type: 'Article', phrase: 'ARTISAN CB301 電動清潔刷' },
+  { path: 'blog/meroware/index.html', url: `${ORIGIN}/blog/meroware/`, type: 'Article', phrase: 'Meroware 餐具與水壺' },
 ];
 const forbiddenPublicText = ['閱讀風格預覽', '尚未發布', '廠商情境照片', '廠商套組照片', '內部審核', '待 Hiram 核准'];
 
@@ -77,6 +78,11 @@ export function auditBlog() {
   check('cover:artisan-cb301', artisan.includes('/assets/artisan-cb301/blog-cover-v2.webp') && content('blog/index.html').includes('/assets/artisan-cb301/blog-cover-v2.webp'), 'CB301 uses its editorial cover on both the article and blog index.');
   const productContent = content('product-content.js');
   for (const page of pages.slice(1)) check(`catalog:${page.url}`, productContent.includes(`article:'${new URL(page.url).pathname}'`), 'Product-card article mapping exists.');
+  check('homepage:meroware', content('index.html').includes('href="/blog/meroware/"'), 'Homepage journal links to the Meroware article.');
+  const meroware = content('blog/meroware/index.html');
+  const merowareDescription = tagValue(meroware, 'meta', 'name', 'description');
+  check('seo:meroware-intent', ['Meroware', '餐具', '水壺', '怎麼選'].every((term) => merowareDescription.includes(term)), 'Meroware meta description covers the primary choice intent.');
+  check('geo:meroware-answers', meroware.includes('class="choice-map"') && (meroware.match(/<details>/g) || []).length >= 3, 'Meroware exposes a scannable choice map and direct FAQ answers.');
 
   const failures = checks.filter((item) => !item.passed);
   return {

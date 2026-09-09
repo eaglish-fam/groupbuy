@@ -33,6 +33,7 @@ const rows=()=>[
  ['Wave 鷹嘴豆泥',newURL,'長期','','','食品口味','/assets/wave/family.webp','https://www.instagram.com/reel/DYewo3syHDp/','食品','',''],
  ['ARTISAN浴室清潔＆小腿按摩器','https://example.invalid/artisan','短期','2026-09-01','2026-09-09','清潔刷','/assets/artisan-cb301/blog-cover-v2.webp','https://youtu.be/bFNLF_Vgn7k','居家','',''],
  ['Atojet 濾芯蓮蓬頭','https://example.invalid/atojet','短期','2026-09-01','2026-09-09','淋浴','/assets/atojet/vendor-shower.webp','https://youtu.be/ntovrIfv6DE','居家','',''],
+ ['Meroware 美學育兒用品','https://example.invalid/meroware','長期','','','親子餐具與水壺','/assets/meroware/blog-cover-v1.webp','','母嬰','',''],
  ['同品牌','https://example.invalid/a','長期','','','商品A','/assets/wave/toast.webp','','食品','',''],
  ['同品牌','https://example.invalid/a','折扣碼','','','商品A','/assets/wave/toast.webp','','食品','',''],
  ['同品牌','https://example.invalid/b','長期','','','商品B','/assets/wave/pita.webp','','食品','',''],
@@ -70,7 +71,8 @@ try {
  await page.clock.install({time:new Date('2026-09-09T02:00:00Z')});
  await page.addInitScript(()=>{localStorage.setItem('eg_wishlist',JSON.stringify(['Wave 鷹嘴豆泥']));window.sent=[];window.open=()=>({opener:null,document:{},closed:false,location:{replace:u=>window.sent.push(u)},close(){this.closed=true;}});});
  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
- await page.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===5);
+ await page.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===6);
+ check('Meroware product card links to its article',await page.locator('#products .product-card', {hasText:'Meroware 美學育兒用品'}).locator('a.card-reading[href="/blog/meroware/"]').count()===1);
  check('six shopping notices embedded',await page.locator('#original-notice details').count()===6);
  check('no preview copy in production homepage',!await page.locator('.preview-strip').count());
  check('legacy favourite migrated',await page.locator('#saved-count').innerText()==='1');
@@ -94,10 +96,10 @@ try {
  await page.evaluate(()=>load());
  check('refresh failure removes purchase CTAs',await page.locator('[data-buy-key]').count()===0);
  mode='open';await page.locator('#retry').click();
- await page.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===5);
+ await page.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===6);
  await page.clock.fastForward(86400000);
- await page.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===3);
- check('cross-day expires limited campaigns',await page.locator('#products .product-card').count()===3);
+ await page.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===4);
+ check('cross-day expires limited campaigns',await page.locator('#products .product-card').count()===4);
  for(const width of [320,390,768,1440]){
    await page.setViewportSize({width,height:900});
    await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
@@ -121,7 +123,7 @@ try {
  await prod.clock.install({time:new Date('2026-09-09T02:00:00Z')});
  await prod.addInitScript(()=>{window.sent=[];window.open=()=>({opener:null,document:{},closed:false,location:{replace:u=>sent.push(u)},close(){this.closed=true;}});});
  await prod.goto('https://www.eaglish.store/',{waitUntil:'domcontentloaded'});
- await prod.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===5);
+ await prod.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===6);
  check('production config initialised exactly once',await prod.evaluate(()=>dataLayer.filter(x=>x[0]==='config'&&x[1]==='G-7SW2X9B19H').length)===1);
  await prod.locator('#products [data-buy-key]').first().click();
  await prod.waitForFunction(()=>sent.length===1);
