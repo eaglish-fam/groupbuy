@@ -5,12 +5,13 @@
   "description": "鷹家 Fun 生買物社 - 團購頁",
   "scripts": {
     "build:homepage": "node scripts/build-homepage.mjs",
+    "build:sitemap": "node scripts/generate-sitemap.mjs",
     "audit:site": "node scripts/site-maintenance-audit.mjs --write",
     "audit:blog": "node scripts/blog-release-audit.mjs --write",
     "build:css": "tailwindcss -i src/tailwind-input.css -o tailwind.css --minify",
     "test": "node --test tests/*.test.mjs",
     "plan:seo": "node scripts/seo-performance-plan.mjs",
-    "verify": "npm run build:homepage && npm run build:css && npm run audit:site && npm run audit:blog && npm test",
+    "verify": "npm run build:homepage && npm run build:css && npm run build:sitemap && npm run audit:site && npm run audit:blog && npm test",
     "watch:css": "tailwindcss -i src/tailwind-input.css -o tailwind.css --watch"
   },
   "devDependencies": {
