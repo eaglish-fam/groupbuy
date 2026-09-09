@@ -24,6 +24,11 @@ test('blog resolves Wave and ARTISAN into live shelves independently',()=>{
   assert.equal(model.rowFor([wave,artisan],'artisanCb301'),artisan);
   assert.equal(model.stateFor(artisan,'2026-09-13').shelf,'journal');
 });
+test('blog articles sort newest first and invalid dates fall to the end',()=>{
+  assert.equal(model.newestFirst('2026-09-09','2026-09-08')<0,true);
+  assert.equal(model.newestFirst('2026-09-08','2026-09-09')>0,true);
+  assert.equal(model.newestFirst('not-a-date','2026-09-09')>0,true);
+});
 test('public blog candidate has clear sections, static article links, and no internal review language',()=>{
   const home=fs.readFileSync(new URL('../blog/index.html',import.meta.url),'utf8');
   const articles=['atojet','wave-hummus','artisan-cb301','meroware'].map(slug=>fs.readFileSync(new URL(`../blog/${slug}/index.html`,import.meta.url),'utf8'));
@@ -34,6 +39,8 @@ test('public blog candidate has clear sections, static article links, and no int
   assert.ok(!articles[2].includes('bFNLF_Vgn7k'),'CB301 article must not inherit the same-row LM3000 video');
   assert.ok(home.includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN blog card uses the dedicated editorial cover');
   assert.ok(articles[2].includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN article hero uses the dedicated editorial cover');
+  assert.ok(home.indexOf('data-article="meroware"')<home.indexOf('data-article="artisanCb301"'),'newest static card appears first before runtime sorting');
+  assert.equal((home.match(/data-published="\d{4}-\d{2}-\d{2}"/g)||[]).length,4,'every article card declares a publication date');
   const storefront=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
   assert.ok(storefront.includes('href="/blog/meroware/"'),'storefront journal links to Meroware');
 });

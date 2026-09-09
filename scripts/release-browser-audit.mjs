@@ -108,6 +108,11 @@ try {
  check('no runtime exceptions',errors.length===0);
  await page.goto(base+'/blog/',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>document.querySelector('[data-buy][href]'));
+ check('newest blog article appears first',await page.locator('[data-shelf="open"] [data-article]').first().getAttribute('data-article')==='meroware');
+ check('every blog shelf remains newest-first',await page.evaluate(()=>[...document.querySelectorAll('[data-shelf]')].every(shelf=>{
+   const dates=[...shelf.querySelectorAll('[data-published]')].map(card=>card.dataset.published);
+   return dates.every((date,index)=>index===0||dates[index-1]>=date);
+ })));
  mode='fail';
  await page.clock.fastForward(60000);
  await page.evaluate(()=>window.dispatchEvent(new Event('focus')));

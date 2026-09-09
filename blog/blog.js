@@ -1,6 +1,7 @@
 (() => {
   const sheetUrl = 'https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/gviz/tq?tqx=out:csv&headers=1&sheet=' + encodeURIComponent('現正開團');
-  const cards = [...document.querySelectorAll('[data-article]')];
+  const cards = [...document.querySelectorAll('[data-article]')]
+    .sort((a,b) => BlogIndexModel.newestFirst(a.dataset.published,b.dataset.published));
   const shelves = Object.fromEntries(['open','upcoming','journal'].map(k => [k, document.querySelector('[data-shelf="' + k + '"]')]));
   const freshness = document.querySelector('#freshness');
   let inFlight = null, refreshedAt = 0, day = '', buying = false;
