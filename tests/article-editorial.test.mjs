@@ -5,7 +5,8 @@ const html=fs.readFileSync(new URL('../blog/atojet/index.html',import.meta.url),
 const css=fs.readFileSync(new URL('../articles/article.css',import.meta.url),'utf8');
 test('editorial style preserves source images and functioning offer/video hooks',()=>{
   assert.equal((html.match(/<h1>/g)||[]).length,1);
-  assert.equal((html.match(/<img /g)||[]).length,4);
+  assert.equal((html.match(/<img /g)||[]).length,5);
+  assert.ok(html.includes('eaglish-journal-wordmark-v1.svg'));
   for(const source of ['vendor-shower.webp','video-06.webp','video-12.webp','home-set.webp'])assert.ok(html.includes(source));
   for(const hook of ['data-current-offer','id="offer-status"','id="article-videos"'])assert.equal(html.split(hook).length-1,1);
   assert.equal((html.match(/<details>/g)||[]).length,4);

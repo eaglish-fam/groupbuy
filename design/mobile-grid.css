@@ -1,0 +1,111 @@
+/* Preserve full action labels at every width; never orphan an external-link arrow. */
+.button {
+  white-space: nowrap;
+}
+.card-actions .button {
+  min-width: 0;
+  gap: 6px;
+}
+.card-reading {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+@media (max-width: 700px) {
+  .catalog-section > .wrap {
+    padding-inline: 14px;
+  }
+  .product-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1px;
+    gap: 0 12px;
+    align-items: start;
+  }
+  .product-card {
+    min-width: 0;
+    align-self: start;
+  }
+  .product-picture {
+    aspect-ratio: 4 / 3;
+  }
+  .product-picture > .image-open {
+    position: relative;
+  }
+  .save {
+    width: 44px;
+    height: 44px;
+    top: 2px;
+    right: 2px;
+  }
+  .product-body {
+    padding: 12px 11px 14px;
+  }
+  .product-meta {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 12px;
+  }
+  .product-meta > span:last-child {
+    display: none;
+  }
+  .status {
+    padding: 3px 6px;
+    font-size: 12px;
+  }
+  .product-card h3 {
+    font-family: "Noto Sans TC", sans-serif;
+    font-size: 17px;
+    line-height: 1.5;
+    margin-bottom: 7px;
+    overflow-wrap: anywhere;
+  }
+  .product-card h3 button {
+    min-height: 44px;
+  }
+  .product-description {
+    font-size: 14px;
+    line-height: 1.65;
+    margin-bottom: 10px;
+  }
+  .date-line {
+    font-size: 12px;
+    line-height: 1.65;
+    min-height: 0;
+    margin-bottom: 10px;
+  }
+  .product-bottom {
+    margin-top: 0;
+  }
+  .card-actions {
+    gap: 0;
+  }
+  /* Photos and product names open full details; give the only primary action all the width. */
+  .card-actions > .secondary:first-child {
+    display: none;
+  }
+  .card-actions .button {
+    width: 100%;
+    min-height: 44px;
+    font-size: 15px;
+    padding: 9px 6px;
+  }
+  .card-reading {
+    font-size: 13px;
+    line-height: 1.6;
+    margin-top: 8px;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .loading {
+    grid-column: 1 / -1;
+    grid-row: span 180;
+  }
+  .filter-row {
+    gap: 0 10px;
+  }
+  .status-tabs {
+    margin-right: -14px;
+    padding-right: 14px;
+  }
+}

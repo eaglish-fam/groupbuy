@@ -1,0 +1,476 @@
+.content-nav {
+  display: flex;
+  justify-content: center;
+  gap: 26px;
+  overflow-x: auto;
+  padding: 10px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--paper);
+  font-size: 14px;
+}
+.content-nav a {
+  white-space: nowrap;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+.content-nav a[href="#calendar"] {
+  color: var(--orange);
+  font-weight: 700;
+}
+.content-nav a[href="/blog/"] {
+  color: var(--orange);
+  font-weight: 700;
+}
+.category-reset {
+  min-height: 44px;
+  padding: 8px 12px;
+}
+.discovery .category-reset {
+  margin-top: 12px;
+}
+.category-links button[aria-pressed="true"] {
+  color: var(--orange);
+  border-left: 3px solid var(--orange);
+  background: #f1ece0;
+}
+.more-row #browse-progress {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.more-row #show-all-products {
+  display: block;
+  min-height: 44px;
+  margin: 12px auto 0;
+}
+.calendar-heading-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.calendar-collapse-row {
+  text-align: center;
+  margin-top: 24px;
+}
+@media (max-width: 700px) {
+  .calendar-section .section-heading {
+    flex-wrap: wrap;
+    gap: 18px;
+  }
+  .calendar-heading-actions {
+    width: 100%;
+  }
+  .calendar-heading-actions .button {
+    flex: 1;
+    font-size: 14px;
+    padding: 12px 10px;
+  }
+}
+.calendar-section,
+.resource-section,
+.latest-video,
+.shopping-notice {
+  padding-top: 55px;
+  padding-bottom: 55px;
+  border-bottom: 1px solid var(--line);
+}
+.calendar-intro {
+  color: var(--muted);
+  margin-bottom: 25px;
+}
+.calendar-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 860px;
+  margin-inline: auto;
+  gap: 30px;
+}
+.calendar-day:disabled {
+  color: var(--muted);
+  background: transparent;
+  cursor: default;
+}
+.calendar-board {
+  border: 1px solid var(--line);
+  padding: 22px;
+  background: #f3f1e8;
+  align-self: start;
+}
+.month-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+.month-controls h3 {
+  flex: 1;
+  font-size: 23px;
+}
+.month-controls button {
+  min-width: 44px;
+  min-height: 44px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: 3px;
+}
+.calendar-legend {
+  display: flex;
+  gap: 20px;
+  font-size: 12px;
+  margin: 12px 0 18px;
+}
+.calendar-legend span:first-child {
+  color: #48633f;
+}
+.calendar-legend span:last-child {
+  color: #994525;
+}
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 5px;
+}
+.weekday {
+  text-align: center;
+  padding: 7px 0;
+  font-size: 13px;
+}
+.calendar-day {
+  background: var(--paper);
+  min-height: 67px;
+  min-width: 0;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 0;
+  font-size: 16px;
+}
+.calendar-day.today {
+  border-color: var(--olive);
+}
+.calendar-day[aria-pressed="true"] {
+  background: var(--olive);
+  color: white;
+}
+.calendar-day small {
+  height: 20px;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+.calendar-day i {
+  font-style: normal;
+  font-size: 10px;
+  color: #fff;
+  border-radius: 20px;
+  min-width: 15px;
+  height: 15px;
+  line-height: 15px;
+  padding: 0 3px;
+}
+.start-dot {
+  background: #526c45;
+}
+.end-dot {
+  background: #ae532e;
+}
+.calendar-agenda {
+  border: 1px solid var(--line);
+  padding: 22px;
+}
+.calendar-agenda > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.calendar-agenda h3 {
+  font-size: 20px;
+}
+.calendar-agenda .text-link {
+  min-height: 44px;
+}
+.calendar-events {
+  max-height: 470px;
+  overflow: auto;
+}
+#calendar-events {
+  max-height: 470px;
+  overflow-y: auto;
+}
+.calendar-event {
+  border-top: 1px solid var(--line);
+  padding: 14px 0;
+}
+.calendar-event > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+}
+.event-type {
+  color: #994525;
+}
+.event-type.start {
+  color: #48633f;
+}
+.event-product {
+  font-size: 17px;
+  font-weight: 600;
+  text-align: left;
+  padding: 7px 0;
+  min-height: 44px;
+}
+.event-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font-size: 13px;
+}
+.event-actions button,
+.detail-tools button {
+  border: 1px solid #abb19f;
+  min-height: 44px;
+  padding: 7px 14px;
+  border-radius: 3px;
+}
+.event-actions span {
+  color: var(--muted);
+}
+.resource-empty {
+  grid-column: 1/-1;
+  padding: 24px 0;
+  color: var(--muted);
+}
+.retailer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.retailer-link {
+  border: 1px solid #aeb4a3;
+  padding: 9px 12px;
+  text-align: center;
+  min-height: 44px;
+  border-radius: 3px;
+  overflow-wrap: anywhere;
+  font-size: 15px;
+}
+.coupon-inline {
+  padding: 12px;
+  margin-bottom: 12px;
+  border: 1px dashed #a2ac96;
+  background: #edf0e5;
+  border-radius: 3px;
+}
+.coupon-inline small {
+  display: block;
+  font-size: 12px;
+}
+.coupon-inline code {
+  font-size: 17px;
+  overflow-wrap: anywhere;
+  font-weight: 700;
+}
+.coupon-inline button {
+  display: block;
+  min-height: 44px;
+  padding: 7px 0;
+  text-decoration: underline;
+  font-size: 14px;
+}
+.card-calendar {
+  display: block;
+  min-height: 44px;
+  font-size: 14px;
+  margin-top: 6px;
+  text-decoration: underline;
+  padding: 8px 0;
+}
+.latest-video iframe {
+  display: block;
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16/9;
+  border: 0;
+  margin: auto;
+}
+.shopping-notice details p {
+  max-width: 900px;
+}
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 26px;
+}
+.social-links a {
+  border: 1px solid var(--line);
+  min-height: 44px;
+  padding: 9px 15px;
+}
+.reminder-dialog {
+  max-width: 500px;
+}
+.reminder-dialog h2 {
+  font-size: 21px;
+}
+.reminder-options {
+  padding: 24px;
+  display: grid;
+  gap: 14px;
+}
+.reminder-options .button {
+  white-space: normal;
+}
+.detail-tools {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+.resource-grid .product-picture img {
+  object-fit: contain;
+}
+.resource-grid .product-description {
+  -webkit-line-clamp: 3;
+}
+.content-nav a:hover,
+.card-calendar:hover {
+  color: var(--orange);
+}
+@media (min-width: 701px) and (max-width: 950px) {
+  .site-header nav {
+    display: none;
+  }
+}
+@media (max-width: 1100px) {
+  .content-nav {
+    justify-content: flex-start;
+    gap: 24px;
+  }
+  .site-header nav {
+    gap: 18px;
+  }
+  .calendar-layout {
+    gap: 18px;
+  }
+  .calendar-board,
+  .calendar-agenda {
+    padding: 15px;
+  }
+}
+@media (max-width: 700px) {
+  .content-nav {
+    position: sticky;
+    top: 78px;
+    z-index: 19;
+    gap: 24px;
+    padding: 2px 16px;
+    box-shadow: 0 3px 8px #00000005;
+  }
+  html {
+    scroll-padding-top: 142px;
+  }
+  .calendar-section,
+  .resource-section,
+  .latest-video,
+  .shopping-notice {
+    padding: 35px 14px;
+  }
+  .calendar-section > .section-heading {
+    display: block;
+  }
+  .calendar-section .button {
+    margin-top: 18px;
+    min-height: 44px;
+  }
+  .calendar-intro {
+    font-size: 14px;
+  }
+  .calendar-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .calendar-board {
+    padding: 10px;
+  }
+  .month-controls h3 {
+    font-size: 21px;
+  }
+  .month-controls {
+    gap: 7px;
+  }
+  .month-grid {
+    gap: 3px;
+  }
+  .calendar-day {
+    min-height: 53px;
+    font-size: 15px;
+  }
+  .calendar-agenda {
+    padding: 15px;
+  }
+  #calendar-events {
+    max-height: none;
+  }
+  .calendar-event {
+    padding: 14px 0;
+  }
+  .calendar-day small {
+    height: 17px;
+  }
+  .event-product {
+    font-size: 16px;
+  }
+  .resource-section .product-grid {
+    gap: 0 12px;
+  }
+  .resource-section .resource-empty {
+    grid-row: span 90;
+  }
+  .resource-section .section-heading > p {
+    display: block;
+    font-size: 12px;
+    max-width: 125px;
+  }
+  .resource-section .section-heading h2 {
+    font-size: 25px;
+  }
+  .resource-section .retailer-link {
+    font-size: 14px;
+    padding: 9px 5px;
+  }
+  .coupon-inline {
+    padding: 8px;
+  }
+  .coupon-inline code {
+    font-size: 15px;
+  }
+  .card-calendar {
+    font-size: 13px;
+  }
+  .mobile-nav a,
+  .mobile-nav button {
+    padding: 12px 9px;
+    font-size: 13px;
+  }
+  .latest-video .section-heading {
+    display: block;
+  }
+  .latest-video .text-link {
+    display: inline-block;
+    margin-top: 15px;
+  }
+  .filter-row select {
+    max-width: 115px;
+  }
+  .detail-tools button {
+    font-size: 14px;
+  }
+}

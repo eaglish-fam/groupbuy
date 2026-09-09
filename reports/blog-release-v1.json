@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-08T14:30:01.545Z",
+  "generatedAt": "2026-09-09T02:33:41.722Z",
   "status": "ready",
   "summary": {
     "checks": 56,
@@ -11,12 +11,12 @@
     {
       "id": "blog:index.html:title",
       "passed": true,
-      "detail": "Title length 25."
+      "detail": "Title length 22."
     },
     {
       "id": "blog:index.html:description",
       "passed": true,
-      "detail": "Description length 61."
+      "detail": "Description length 56."
     },
     {
       "id": "blog:index.html:canonical",
@@ -36,7 +36,7 @@
     {
       "id": "blog:index.html:search-phrase",
       "passed": true,
-      "detail": "Title and H1 include 鷹式一家生活筆記."
+      "detail": "Title and H1 include 鷹家選物誌."
     },
     {
       "id": "blog:index.html:schema",

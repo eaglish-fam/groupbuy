@@ -81,13 +81,13 @@
       "id": "title",
       "passed": true,
       "severity": "blocking",
-      "detail": "Homepage title length is 26."
+      "detail": "Homepage title length is 16."
     },
     {
       "id": "meta-description",
       "passed": true,
       "severity": "blocking",
-      "detail": "Meta description length is 78."
+      "detail": "Meta description length is 102."
     },
     {
       "id": "canonical",
@@ -135,13 +135,13 @@
       "id": "image-alt",
       "passed": true,
       "severity": "warning",
-      "detail": "0 of 2 static image(s) lack alt text."
+      "detail": "0 of 7 static image(s) lack alt text."
     },
     {
       "id": "iframe-title",
       "passed": true,
       "severity": "warning",
-      "detail": "0 of 2 iframe(s) lack a title."
+      "detail": "0 of 1 iframe(s) lack a title."
     },
     {
       "id": "robots-allows-root",
@@ -165,7 +165,7 @@
       "id": "sitemap-https",
       "passed": true,
       "severity": "blocking",
-      "detail": "33 sitemap URL(s) use the canonical HTTPS origin."
+      "detail": "8 sitemap URL(s) use the canonical HTTPS origin."
     },
     {
       "id": "sitemap-unique",

@@ -19,8 +19,10 @@ async function refreshOffer(navigate=false){
     const current=rows.find(r=>ProductContent.entry(r['品牌'])?.id===article.id);
     const list=ProductContent.videos([...seed,...ProductContent.fromRow(current||{})]);
     const signature=JSON.stringify(list);if(videoEl&&signature!==videoSignature){videoEl.replaceChildren();ProductContent.mountVideos(videoEl,list);videoSignature=signature;}
-    if(navigate&&c.state==='open')window.location.assign(c.url);return c;
+    if(navigate&&c.state==='open'){window.SiteAnalytics?.track('click_group_from_blog',{group_name:article.brands[0],event_category:'conversion'});window.location.assign(c.url);}return c;
   }catch(error){offerButton.disabled=false;offerButton.textContent='重新確認團購狀態';statusEl.textContent='目前無法取得最新資料，未使用過期連結。你可以重試或返回團購首頁。';console.warn(articleKey+' offer unavailable:',error.message);}
   finally{busy=false;}
 }
 offerButton.addEventListener('click',()=>refreshOffer(true));window.addEventListener('focus',()=>refreshOffer());document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshOffer();});refreshOffer();
+
+setInterval(()=>{if(!document.hidden)refreshOffer();},300000);

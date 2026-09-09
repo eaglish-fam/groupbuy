@@ -1,0 +1,9 @@
+/* Hidden purchase actions must stay hidden even when a layout sets display. */
+[hidden] { display: none !important; }
+@media (max-width: 800px) {
+  footer a, .section-heading > a, .card-reading, .detail-tools button {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
