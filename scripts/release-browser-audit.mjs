@@ -72,6 +72,11 @@ try {
  await page.addInitScript(()=>{localStorage.setItem('eg_wishlist',JSON.stringify(['Wave 鷹嘴豆泥']));window.sent=[];window.open=()=>({opener:null,document:{},closed:false,location:{replace:u=>window.sent.push(u)},close(){this.closed=true;}});});
  await page.goto(base+'/',{waitUntil:'domcontentloaded'});
  await page.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===6);
+ check('utility header does not duplicate the primary navigation',await page.locator('.site-header nav').count()===0);
+ check('About follows shopping notice in the content navigation',await page.locator('.content-nav').evaluate(nav=>{
+  const labels=[...nav.querySelectorAll('a')].map(link=>link.textContent.trim());
+  return labels.indexOf('關於我們')===labels.indexOf('購物須知')+1;
+ }));
  check('Meroware product card links to its article',await page.locator('#products .product-card', {hasText:'Meroware 美學育兒用品'}).locator('a.card-reading[href="/blog/meroware/"]').count()===1);
  check('six shopping notices embedded',await page.locator('#original-notice details').count()===6);
  check('no preview copy in production homepage',!await page.locator('.preview-strip').count());

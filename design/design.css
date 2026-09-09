@@ -99,7 +99,7 @@ h3 {
   text-decoration: underline;
 }
 .site-header {
-  height: 105px;
+  height: 88px;
   padding: 0 48px;
   display: flex;
   align-items: center;
@@ -115,14 +115,6 @@ h3 {
   width: 210px;
   height: auto;
   mix-blend-mode: multiply;
-}
-.site-header nav {
-  display: flex;
-  gap: 38px;
-  font-size: 15px;
-}
-.site-header nav a {
-  padding: 15px 0;
 }
 .header-actions {
   display: flex;
@@ -923,9 +915,6 @@ details iframe {
   }
   .logo img {
     width: 175px;
-  }
-  .site-header nav {
-    display: none;
   }
   .header-actions {
     gap: 8px;
