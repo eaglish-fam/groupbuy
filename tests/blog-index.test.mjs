@@ -41,6 +41,8 @@ test('public blog candidate has clear sections, static article links, and no int
   assert.ok(articles[2].includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN article hero uses the dedicated editorial cover');
   assert.ok(home.indexOf('data-article="meroware"')<home.indexOf('data-article="artisanCb301"'),'newest static card appears first before runtime sorting');
   assert.equal((home.match(/data-published="\d{4}-\d{2}-\d{2}"/g)||[]).length,4,'every article card declares a publication date');
+  for(const category of ['','食品','居家','母嬰'])assert.ok(home.includes(`data-blog-category="${category}"`),'blog exposes the expected category filter');
+  assert.equal((home.match(/data-category="(?:食品|居家|母嬰)"/g)||[]).length,4,'every article card has a storefront-compatible category');
   const storefront=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
   assert.ok(storefront.includes('href="/blog/meroware/"'),'storefront journal links to Meroware');
 });

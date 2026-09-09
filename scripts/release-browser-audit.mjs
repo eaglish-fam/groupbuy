@@ -113,6 +113,12 @@ try {
    const dates=[...shelf.querySelectorAll('[data-published]')].map(card=>card.dataset.published);
    return dates.every((date,index)=>index===0||dates[index-1]>=date);
  })));
+ await page.locator('[data-blog-category="居家"]').click();
+ check('blog category filter exposes only matching cards',await page.evaluate(()=>[...document.querySelectorAll('[data-article]')].filter(card=>getComputedStyle(card).display!=='none').every(card=>card.dataset.category==='居家')));
+ check('blog category filter has an accessible selected state',await page.locator('[data-blog-category="居家"]').getAttribute('aria-pressed')==='true');
+ check('blog category filter is deep-linkable',new URL(page.url()).searchParams.get('category')==='居家');
+ await page.locator('[data-blog-category=""]').click();
+ check('all articles filter restores every card',await page.evaluate(()=>[...document.querySelectorAll('[data-article]')].every(card=>!card.hidden)));
  mode='fail';
  await page.clock.fastForward(60000);
  await page.evaluate(()=>window.dispatchEvent(new Event('focus')));

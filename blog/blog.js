@@ -3,11 +3,35 @@
   const cards = [...document.querySelectorAll('[data-article]')]
     .sort((a,b) => BlogIndexModel.newestFirst(a.dataset.published,b.dataset.published));
   const shelves = Object.fromEntries(['open','upcoming','journal'].map(k => [k, document.querySelector('[data-shelf="' + k + '"]')]));
+  const filterButtons = [...document.querySelectorAll('[data-blog-category]')];
+  const availableCategories = new Set(cards.map(card => card.dataset.category).filter(Boolean));
+  const filterEmpty = document.querySelector('#filter-empty');
   const freshness = document.querySelector('#freshness');
+  const requestedCategory = new URLSearchParams(location.search).get('category') || '';
+  let currentCategory = availableCategories.has(requestedCategory) ? requestedCategory : '';
   let inFlight = null, refreshedAt = 0, day = '', buying = false;
   function emptyStates() {
-    for (const [key, shelf] of Object.entries(shelves))
-      document.querySelector('[data-empty="' + key + '"]').hidden = !!shelf.querySelector('[data-article]');
+    let visibleTotal = 0;
+    for (const [key, shelf] of Object.entries(shelves)) {
+      const visible = [...shelf.querySelectorAll('[data-article]')].filter(card => !card.hidden).length;
+      visibleTotal += visible;
+      shelf.classList.toggle('is-filtered', Boolean(currentCategory));
+      document.querySelector('[data-empty="' + key + '"]').hidden = visible > 0;
+      shelf.closest('.shelf').hidden = Boolean(currentCategory) && visible === 0;
+    }
+    filterEmpty.hidden = visibleTotal > 0;
+  }
+  function applyCategory(category, updateUrl = true) {
+    currentCategory = availableCategories.has(category) ? category : '';
+    for (const card of cards) card.hidden = Boolean(currentCategory) && card.dataset.category !== currentCategory;
+    for (const button of filterButtons) button.setAttribute('aria-pressed', String(button.dataset.blogCategory === currentCategory));
+    if (updateUrl) {
+      const url = new URL(location.href);
+      if (currentCategory) url.searchParams.set('category', currentCategory);
+      else url.searchParams.delete('category');
+      history.pushState({category: currentCategory}, '', url);
+    }
+    emptyStates();
   }
   function render(rows) {
     for (const card of cards) {
@@ -20,7 +44,7 @@
       else buy.removeAttribute('href');
       shelves[state.shelf].append(card);
     }
-    emptyStates();
+    applyCategory(currentCategory, false);
     day = ProductContent.today();
     refreshedAt = Date.now();
     freshness.textContent = '團購狀態已依 ' + day.replaceAll('-','/') + ' 的最新資料確認。';
@@ -35,7 +59,7 @@
       buy.hidden = true; buy.removeAttribute('href');
       shelves.journal.append(card);
     }
-    emptyStates();
+    applyCategory(currentCategory, false);
   }
   function refresh() {
     if (inFlight) return inFlight;
@@ -60,6 +84,13 @@
   }
   window.addEventListener('focus', resume);
   document.addEventListener('visibilitychange', resume);
+  document.addEventListener('click', e => {
+    const button = e.target.closest('[data-blog-category]');
+    if (!button) return;
+    applyCategory(button.dataset.blogCategory);
+    document.querySelector('#open-now:not([hidden]), #upcoming:not([hidden]), #journal:not([hidden])')?.scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  window.addEventListener('popstate', () => applyCategory(new URLSearchParams(location.search).get('category') || '', false));
   setInterval(() => { if (!document.hidden && (day !== ProductContent.today() || Date.now() - refreshedAt > 300000)) refresh(); }, 60000);
   document.addEventListener('click', async e => {
     const a = e.target.closest('[data-buy]');
@@ -80,5 +111,6 @@
       else location.assign(destination);
     } finally { buying = false; }
   });
+  applyCategory(currentCategory, false);
   refresh();
 })();
