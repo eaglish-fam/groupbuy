@@ -665,6 +665,8 @@ h1 {
 }
 .product-bottom {
   margin-top: auto;
+  display: flex;
+  flex-direction: column;
 }
 .date-line {
   font-size: 13px;
@@ -687,10 +689,28 @@ h1 {
   font-size: 13px;
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  align-self: flex-start;
+  gap: 4px;
   margin-top: 14px;
-  border-bottom: 1px solid #b4baac;
-  padding-bottom: 2px;
+  border-bottom: 0;
+  color: var(--orange);
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+.card-reading:hover {
+  color: #963f25;
+}
+.card-primary-action {
+  display: flex;
+  margin-top: 12px;
+}
+.card-primary-action .button {
+  width: 100%;
+  min-height: 48px;
+  justify-content: center;
+  padding: 11px 9px;
+  font-size: 14px;
 }
 .more-row {
   text-align: center;
