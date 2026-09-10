@@ -1,0 +1,36 @@
+{
+  "status": "verified_candidate_not_deployed",
+  "date": "2026-09-10",
+  "baseSha": "ca492b159ead8f09740729a46671e2a6244ed556",
+  "scope": "Replace the fixed homepage Editor's Pick visual with a six-article editorial carousel",
+  "preview": "https://zosiamac-mini.tailb3e7be.ts.net:26443/?review=editors-picks-v1",
+  "contentSource": "ProductContent.catalog article entries with explicit publication dates",
+  "behavior": {
+    "initialSelection": "Newest published article; stable editorial order for same-day ties",
+    "automaticAdvanceMs": 7000,
+    "manualControls": ["previous", "next", "pause/play"],
+    "mobileGesture": "horizontal swipe",
+    "interactionPause": ["hover", "keyboard focus", "touch gesture", "background tab"],
+    "reducedMotion": "automatic rotation starts paused and fades are disabled",
+    "inactiveSlides": "aria-hidden and inert"
+  },
+  "verification": {
+    "siteAudit": "28/28",
+    "blogAudit": "101/101",
+    "tests": "34/34",
+    "desktopArticles": 6,
+    "desktopHorizontalOverflow": false,
+    "manualNext": "pass",
+    "pauseControl": "pass",
+    "singleAccessibleActiveSlide": "pass",
+    "mobileScreenshot": "/tmp/editors-picks-mobile-390.png"
+  },
+  "unchanged": [
+    "group-buy Sheet data",
+    "purchase links",
+    "article content",
+    "product cards",
+    "production website"
+  ],
+  "note": "UXUI Pro Max informed touch targets, motion controls, focus behavior, alternative text and reduced-motion support."
+}
