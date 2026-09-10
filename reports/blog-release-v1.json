@@ -1,13 +1,143 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-09T16:28:10.117Z",
+  "generatedAt": "2026-09-10T01:44:06.891Z",
   "status": "ready",
   "summary": {
-    "checks": 73,
-    "passed": 73,
+    "checks": 101,
+    "passed": 101,
     "failures": 0
   },
   "checks": [
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:title",
+      "passed": true,
+      "detail": "Title length 31."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:description",
+      "passed": true,
+      "detail": "Description length 74."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/mitoy-rice-blocks/."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include MiToy 米積木."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:title",
+      "passed": true,
+      "detail": "Title length 30."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:description",
+      "passed": true,
+      "detail": "Description length 65."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/chulu-aomori-drinks/."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include 台東初鹿與青森飲品."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
     {
       "id": "blog:index.html:title",
       "passed": true,
@@ -337,6 +467,16 @@
       "id": "cover:artisan-cb301",
       "passed": true,
       "detail": "CB301 uses its editorial cover on both the article and blog index."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/mitoy-rice-blocks/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/chulu-aomori-drinks/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
     },
     {
       "id": "catalog:https://www.eaglish.store/blog/atojet/",

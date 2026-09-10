@@ -7,6 +7,8 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://www.eaglish.store';
 const pages = [
+  { path: 'blog/mitoy-rice-blocks/index.html', url: 'https://www.eaglish.store/blog/mitoy-rice-blocks/', type: 'Article', phrase: 'MiToy 米積木' },
+  { path: 'blog/chulu-aomori-drinks/index.html', url: 'https://www.eaglish.store/blog/chulu-aomori-drinks/', type: 'Article', phrase: '台東初鹿與青森飲品' },
   { path: 'blog/index.html', url: `${ORIGIN}/blog/`, type: 'Blog', phrase: '鷹家選物誌' },
   { path: 'blog/atojet/index.html', url: `${ORIGIN}/blog/atojet/`, type: 'Article', phrase: 'Atojet 濾芯蓮蓬頭' },
   { path: 'blog/wave-hummus/index.html', url: `${ORIGIN}/blog/wave-hummus/`, type: 'Article', phrase: 'Wave 鷹嘴豆泥' },
@@ -77,7 +79,7 @@ export function auditBlog() {
   check('identity:artisan-cb301', !artisan.includes('bFNLF_Vgn7k') && !artisan.includes('LM3000'), 'CB301 does not inherit the sibling leg-massager video or model.');
   check('cover:artisan-cb301', artisan.includes('/assets/artisan-cb301/blog-cover-v2.webp') && content('blog/index.html').includes('/assets/artisan-cb301/blog-cover-v2.webp'), 'CB301 uses its editorial cover on both the article and blog index.');
   const productContent = content('product-content.js');
-  for (const page of pages.slice(1)) check(`catalog:${page.url}`, productContent.includes(`article:'${new URL(page.url).pathname}'`), 'Product-card article mapping exists.');
+  for (const page of pages.filter(page => page.type === 'Article')) check(`catalog:${page.url}`, productContent.includes(`article:'${new URL(page.url).pathname}'`), 'Product-card article mapping exists.');
   check('homepage:meroware', content('index.html').includes('href="/blog/meroware/"'), 'Homepage journal links to the Meroware article.');
   const meroware = content('blog/meroware/index.html');
   const merowareDescription = tagValue(meroware, 'meta', 'name', 'description');
