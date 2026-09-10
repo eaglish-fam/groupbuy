@@ -1,0 +1,37 @@
+{
+  "status": "verified_candidate_not_deployed",
+  "date": "2026-09-10",
+  "baseSha": "2be63850a14eb9661302e5ccea66623ae7ac54fe",
+  "scope": "Sticky journal masthead on index and all six articles; directional category navigation on the index only",
+  "preview": "https://zosiamac-mini.tailb3e7be.ts.net:25443/blog/",
+  "behavior": {
+    "headerHeightMobile": 64,
+    "headerHeightDesktop": 68,
+    "hideAfterDownwardPixels": 64,
+    "showAfterUpwardPixels": 32,
+    "ignoreNearTopPixels": 20,
+    "animationMs": 200,
+    "reducedMotion": "no transition",
+    "keyboard": "Tab reveals navigation; focused keyboard controls pin it open",
+    "hiddenCategories": "visibility hidden, pointer events none, inert, aria-hidden",
+    "layout": "Stable reserved height; native scrolling; resize-aware anchor offset"
+  },
+  "verification": {
+    "npmRunVerify": "pass",
+    "siteAudit": "28/28",
+    "blogAudit": "101/101",
+    "tests": "31/31",
+    "browserWidths": [320, 390, 768, 1440],
+    "horizontalOverflow": false,
+    "mobileScrollDown": {"scrollY": 661, "headerTop": 0, "categoriesHidden": true},
+    "mobileScrollUpMidPage": {"scrollY": 3629, "headerTop": 0, "categoryTop": 64, "categoriesHidden": false},
+    "foodFilter": ["chuluAomori", "wave"],
+    "filteredHeadingTop": 236.875,
+    "filteredChromeBottom": 127,
+    "articleScroll": {"scrollY": 776, "headerTop": 0},
+    "articleConsoleErrors": []
+  },
+  "unchanged": ["article copy", "product and Sheet data", "canonical URLs", "sitemap URLs", "production deployment", "Console and agency routing"],
+  "previewService": {"listen": "127.0.0.1:8782", "tailscalePort": 25443, "tailnetOnly": true},
+  "note": "UXUI Pro Max informed motion, sticky offset, keyboard and touch-target decisions. Existing caniuse-lite warning remains nonblocking."
+}
