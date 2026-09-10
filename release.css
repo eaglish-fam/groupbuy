@@ -1,9 +1,22 @@
 /* Hidden purchase actions must stay hidden even when a layout sets display. */
 [hidden] { display: none !important; }
 @media (max-width: 800px) {
-  footer a, .section-heading > a, .card-reading, .detail-tools button {
+  footer a, .section-heading > a, .detail-tools button {
     min-height: 44px;
     display: inline-flex;
     align-items: center;
+  }
+}
+@media (max-width: 700px) {
+  /* Product-card text actions are compact rows; the primary CTA retains 44px. */
+  .product-bottom .card-reading,
+  .product-bottom .card-calendar {
+    min-height: 36px;
+    height: 36px;
+    margin-block: 0;
+    padding-block: 0;
+  }
+  .product-bottom .card-reading {
+    margin-top: 4px;
   }
 }

@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 const root = new URL('../', import.meta.url);
-const release = '20260910-card-actions-v1';
+const release = '20260910-card-actions-v4';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
   .replace('content="noindex,nofollow"', 'content="index,follow,max-image-preview:large"')

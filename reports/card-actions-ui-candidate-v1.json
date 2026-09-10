@@ -1,19 +1,20 @@
 {
   "status": "candidate_not_deployed",
   "date": "2026-09-10",
-  "preview": "https://zosiamac-mini.tailb3e7be.ts.net:26443/?review=card-actions-v1",
+  "preview": "https://zosiamac-mini.tailb3e7be.ts.net:26443/?review=card-actions-v4",
   "behavior": {
     "primaryAction": "purchase or save is the final full-width action in every applicable card",
     "readingAction": "orange-red, visually distinct, no underline",
     "calendarAction": "secondary text action without underline",
-    "videoAction": "exact no-wrap label without extra word spacing"
+    "videoAction": "exact no-wrap label without extra word spacing or inherited spacer row"
   },
   "verification": {
     "homepageTests": "36/36 passed",
     "siteAudit": "28/28 passed",
     "blogAudit": "101/101 passed",
     "desktopVisualReview": "passed; card primary actions align at the bottom",
-    "responsiveContract": "passed; mobile primary action remains full-width and reading/video labels do not wrap",
+    "responsiveContract": "passed; mobile action stack uses max-content rows, hidden desktop controls create no row, and secondary text actions use compact 36px rows",
+    "mobileVisualReview": "passed; date-to-video gap is 4px, video-to-calendar gap is 0px, and the primary CTA remains 44px",
     "domSample": "8/8 sampled open cards placed the primary action last; every sampled calendar link had text-decoration none"
   },
   "production": "unchanged"
