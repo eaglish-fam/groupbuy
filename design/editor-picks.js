@@ -43,7 +43,6 @@
       article.className = "hero-slide";
       article.dataset.pickKey = item.key;
       article.setAttribute("aria-label", `第 ${index + 1} 篇，共 ${picks.length} 篇精選文章`);
-      article.style.setProperty("--pick-image", `url(${JSON.stringify(item.image)})`);
 
       const link = document.createElement("a");
       link.className = "hero-image-link";
@@ -60,10 +59,17 @@
 
       link.append(image);
 
+      const caption = document.createElement("div");
+      caption.className = "hero-caption";
+      caption.setAttribute("aria-hidden", "true");
+      const title = document.createElement("strong");
+      title.textContent = item.title;
+      caption.append(title);
+
       const number = document.createElement("span");
       number.className = "photo-index";
       number.textContent = `EDITOR'S PICK / ${String(index + 1).padStart(2, "0")}`;
-      article.append(link, number);
+      article.append(link, caption, number);
       return article;
     }
 

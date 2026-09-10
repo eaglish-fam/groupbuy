@@ -147,7 +147,7 @@ h3 {
   display: grid;
   grid-template-columns: 46% 54%;
   margin: auto;
-  min-height: 590px;
+  min-height: 520px;
   background: var(--cream);
 }
 .hero-copy {
@@ -255,7 +255,7 @@ h1 {
 }
 .hero-visual {
   position: relative;
-  min-height: 590px;
+  min-height: 520px;
   overflow: hidden;
   background: var(--cream);
   touch-action: pan-y;
@@ -291,7 +291,37 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: left center;
   display: block;
+}
+.hero-caption {
+  position: absolute;
+  z-index: 2;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  min-height: 72px;
+  display: flex;
+  align-items: flex-end;
+  padding: 27px 28px 14px;
+  background: linear-gradient(
+    to bottom,
+    rgba(250, 248, 243, 0),
+    rgba(250, 248, 243, 0.82) 44%,
+    rgba(250, 248, 243, 0.98) 100%
+  );
+  pointer-events: none;
+}
+.hero-caption strong {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--forest);
+  font-family: var(--serif);
+  font-size: clamp(16px, 1.35vw, 20px);
+  font-weight: 600;
+  line-height: 1.35;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .photo-index {
   position: absolute;
@@ -939,7 +969,7 @@ details iframe {
   }
   .hero,
   .hero-visual {
-    min-height: 550px;
+    min-height: 470px;
   }
   .discovery {
     grid-template-columns: 1fr;
@@ -1027,23 +1057,17 @@ details iframe {
   }
   .hero-visual {
     min-height: 0;
-    height: 355px;
+    height: clamp(250px, 72vw, 300px);
   }
   .hero-image-link > img {
-    object-fit: contain;
-    object-position: center;
+    object-fit: cover;
   }
-  .hero-slide::before {
-    content: "";
-    position: absolute;
-    z-index: 0;
-    inset: -18px;
-    background-image: var(--pick-image);
-    background-position: center;
-    background-size: cover;
-    filter: blur(16px);
-    opacity: 0.2;
-    transform: scale(1.05);
+  .hero-caption {
+    min-height: 58px;
+    padding: 22px 16px 10px;
+  }
+  .hero-caption strong {
+    font-size: clamp(15px, 4vw, 17px);
   }
   .photo-index {
     display: none;
