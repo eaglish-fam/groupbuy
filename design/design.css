@@ -1067,12 +1067,34 @@ details iframe {
   }
   .hero-caption {
     bottom: 59px;
-    left: 20px;
-    right: 20px;
-    padding: 15px 18px;
+    left: 16px;
+    right: auto;
+    width: min(74%, 290px);
+    max-width: calc(100% - 32px);
+    min-height: 56px;
+    padding: 10px 12px;
+    gap: 8px;
+    background: rgba(250, 248, 243, 0.88);
+    backdrop-filter: blur(7px);
+  }
+  .hero-caption small {
+    display: none;
   }
   .hero-caption strong {
-    font-size: 20px;
+    display: -webkit-box;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    font-size: 16px;
+    line-height: 1.35;
+    margin-top: 0;
+  }
+  .hero-caption .round-arrow {
+    flex: 0 0 28px;
+    width: 28px;
+    height: 28px;
+    border: 0;
+    font-size: 16px;
   }
   .photo-index {
     display: none;

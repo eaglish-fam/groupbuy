@@ -47,4 +47,6 @@ test('homepage exposes an accessible, pausable carousel with a no-JS first artic
   assert.match(script, /document\.hidden/);
   assert.match(css, /object-fit: contain/);
   assert.match(css, /\.pick-arrow/);
+  assert.match(css, /width: min\(74%, 290px\)/);
+  assert.match(css, /-webkit-line-clamp: 2/);
 });

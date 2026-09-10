@@ -11,6 +11,7 @@
     "manualControls": ["bottom dots", "desktop previous/next", "compact pause/play"],
     "mobileGesture": "horizontal swipe",
     "mobileImageFit": "full source image with a soft same-image backdrop; embedded headlines are not cropped",
+    "mobileCaption": "compact lower-left link, maximum 74% width, two-line title, reduced arrow",
     "interactionPause": ["hover", "keyboard focus", "touch gesture", "background tab"],
     "reducedMotion": "automatic rotation starts paused and fades are disabled",
     "inactiveSlides": "aria-hidden and inert"
@@ -24,7 +25,7 @@
     "manualNext": "pass",
     "pauseControl": "pass",
     "singleAccessibleActiveSlide": "pass",
-    "mobileScreenshot": "/tmp/editors-picks-mobile-v3.png",
+    "mobileScreenshot": "/tmp/editors-picks-mobile-v4.png",
     "mobileEmbeddedHeadlineVisible": "pass",
     "mobileControls": "six bottom dots plus compact pause icon; arrows hidden",
     "desktopControls": "bottom dots, compact pause icon and previous/next arrows"
