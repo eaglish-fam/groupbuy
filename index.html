@@ -105,11 +105,11 @@
               <span class="photo-index">EDITOR'S PICK / 01</span>
             </article>
           </div>
-          <div class="hero-pick-controls" aria-label="輪播控制">
-            <button type="button" data-pick-prev aria-label="上一篇 Editor's Pick">←</button>
-            <span data-pick-progress aria-label="第 1 篇，共 1 篇">1 / 1</span>
-            <button type="button" data-pick-next aria-label="下一篇 Editor's Pick">→</button>
-            <button type="button" class="pick-toggle" data-pick-toggle aria-label="暫停自動輪播" aria-pressed="false">暫停</button>
+          <div class="hero-pick-controls" aria-label="輪播控制" hidden>
+            <button type="button" class="pick-arrow" data-pick-prev aria-label="上一篇 Editor's Pick">←</button>
+            <div class="pick-dots" data-pick-dots role="group" aria-label="選擇 Editor's Pick"></div>
+            <button type="button" class="pick-toggle" data-pick-toggle aria-label="暫停自動輪播" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
+            <button type="button" class="pick-arrow" data-pick-next aria-label="下一篇 Editor's Pick">→</button>
           </div>
         </div>
       </section>

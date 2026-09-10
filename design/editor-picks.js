@@ -28,7 +28,8 @@
     const previous = carousel.querySelector("[data-pick-prev]");
     const next = carousel.querySelector("[data-pick-next]");
     const toggle = carousel.querySelector("[data-pick-toggle]");
-    const progress = carousel.querySelector("[data-pick-progress]");
+    const controls = carousel.querySelector(".hero-pick-controls");
+    const dotsRoot = carousel.querySelector("[data-pick-dots]");
     const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)");
     let active = 0;
     let timer = 0;
@@ -41,6 +42,7 @@
       article.className = "hero-slide";
       article.dataset.pickKey = item.key;
       article.setAttribute("aria-label", `第 ${index + 1} 篇，共 ${picks.length} 篇精選文章`);
+      article.style.setProperty("--pick-image", `url(${JSON.stringify(item.image)})`);
 
       const image = document.createElement("img");
       image.src = item.image;
@@ -74,6 +76,17 @@
 
     const slides = picks.map(slide);
     track.replaceChildren(...slides);
+    const dots = picks.map((item, index) => {
+      const dot = document.createElement("button");
+      dot.type = "button";
+      dot.className = "pick-dot";
+      dot.setAttribute("aria-label", `顯示第 ${index + 1} 篇：${item.title}`);
+      dot.setAttribute("aria-pressed", "false");
+      dot.addEventListener("click", () => show(index));
+      return dot;
+    });
+    dotsRoot.replaceChildren(...dots);
+    controls.hidden = picks.length < 2;
 
     function stop() {
       clearTimeout(timer);
@@ -86,7 +99,7 @@
       timer = setTimeout(() => {
         show(active + 1, false);
         schedule();
-      }, 7000);
+      }, 6500);
     }
 
     function show(index, userInitiated = true) {
@@ -97,8 +110,7 @@
         item.setAttribute("aria-hidden", String(!selected));
         item.inert = !selected;
       });
-      progress.textContent = `${active + 1} / ${slides.length}`;
-      progress.setAttribute("aria-label", `第 ${active + 1} 篇，共 ${slides.length} 篇`);
+      dots.forEach((dot, position) => dot.setAttribute("aria-pressed", String(position === active)));
       carousel.setAttribute("aria-label", `Editor's Pick 選物文章：${picks[active].title}`);
       if (userInitiated) schedule();
     }
@@ -106,7 +118,7 @@
     function setPaused(value) {
       pausedByUser = value;
       toggle.setAttribute("aria-pressed", String(value));
-      toggle.textContent = value ? "播放" : "暫停";
+      toggle.innerHTML = `<span aria-hidden="true">${value ? "▶" : "Ⅱ"}</span>`;
       toggle.setAttribute("aria-label", value ? "播放自動輪播" : "暫停自動輪播");
       schedule();
     }
@@ -141,7 +153,6 @@
     });
     document.addEventListener("visibilitychange", schedule);
     reducedMotion.addEventListener?.("change", (event) => setPaused(event.matches));
-    if (picks.length < 2) carousel.querySelector(".hero-pick-controls").hidden = true;
     show(0, false);
     setPaused(pausedByUser);
     return { count: picks.length, show, stop };

@@ -276,10 +276,12 @@ h1 {
   height: 100%;
   object-fit: cover;
   position: absolute;
+  z-index: 1;
 }
 .hero-caption {
   position: absolute;
-  bottom: 33px;
+  z-index: 2;
+  bottom: 72px;
   left: 30px;
   right: 30px;
   padding: 22px 26px;
@@ -312,6 +314,7 @@ h1 {
 }
 .photo-index {
   position: absolute;
+  z-index: 2;
   top: 20px;
   right: 22px;
   background: #faf8f3e8;
@@ -323,24 +326,24 @@ h1 {
 .hero-pick-controls {
   position: absolute;
   z-index: 4;
-  top: 17px;
-  left: 20px;
+  bottom: 14px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   align-items: center;
-  gap: 3px;
-  padding: 3px;
-  border: 1px solid rgba(52, 59, 50, 0.17);
-  border-radius: 999px;
-  background: rgba(250, 248, 243, 0.92);
-  box-shadow: 0 6px 18px rgba(52, 59, 50, 0.08);
+  gap: 6px;
 }
 .hero-pick-controls button {
-  min-width: 44px;
+  width: 44px;
   min-height: 44px;
   display: grid;
   place-items: center;
   border-radius: 999px;
   font-size: 17px;
+  border: 1px solid rgba(52, 59, 50, 0.17);
+  background: rgba(250, 248, 243, 0.9);
+  box-shadow: 0 5px 15px rgba(52, 59, 50, 0.07);
+  backdrop-filter: blur(8px);
 }
 .hero-pick-controls button:hover {
   background: rgba(54, 89, 73, 0.1);
@@ -349,17 +352,43 @@ h1 {
   outline: 3px solid var(--orange);
   outline-offset: 2px;
 }
-.hero-pick-controls [data-pick-progress] {
-  min-width: 42px;
-  text-align: center;
-  font: 600 11px Arial, sans-serif;
-  letter-spacing: 0.08em;
-  color: var(--muted);
+.pick-dots {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+  border: 1px solid rgba(52, 59, 50, 0.17);
+  border-radius: 999px;
+  background: rgba(250, 248, 243, 0.9);
+  box-shadow: 0 5px 15px rgba(52, 59, 50, 0.07);
+  backdrop-filter: blur(8px);
+}
+.hero-pick-controls .pick-dot {
+  width: 28px;
+  min-width: 28px;
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+}
+.pick-dot::after {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: rgba(52, 59, 50, 0.3);
+  transition: width 0.25s ease, background 0.25s ease;
+}
+.pick-dot[aria-pressed="true"]::after {
+  width: 20px;
+  background: var(--forest);
 }
 .hero-pick-controls .pick-toggle {
-  width: auto;
-  padding-inline: 12px;
-  font-size: 12px;
+  flex: 0 0 44px;
+  padding: 0;
+  font: 600 12px/1 Arial, sans-serif;
 }
 .discovery {
   padding-top: 56px;
@@ -1021,10 +1050,23 @@ details iframe {
     height: 355px;
   }
   .hero-slide > img {
-    object-position: center 45%;
+    object-fit: contain;
+    object-position: center;
+  }
+  .hero-slide::before {
+    content: "";
+    position: absolute;
+    z-index: 0;
+    inset: -18px;
+    background-image: var(--pick-image);
+    background-position: center;
+    background-size: cover;
+    filter: blur(16px);
+    opacity: 0.2;
+    transform: scale(1.05);
   }
   .hero-caption {
-    bottom: 18px;
+    bottom: 59px;
     left: 20px;
     right: 20px;
     padding: 15px 18px;
@@ -1036,12 +1078,15 @@ details iframe {
     display: none;
   }
   .hero-pick-controls {
-    top: 12px;
-    left: 14px;
+    top: auto;
+    bottom: 7px;
+    left: 50%;
   }
   .hero-pick-controls button {
-    min-width: 42px;
-    min-height: 42px;
+    min-height: 44px;
+  }
+  .hero-pick-controls .pick-arrow {
+    display: none;
   }
   .discovery {
     padding-top: 32px;

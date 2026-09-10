@@ -37,11 +37,14 @@ test('homepage exposes an accessible, pausable carousel with a no-JS first artic
   assert.match(source, /data-pick-prev/);
   assert.match(source, /data-pick-next/);
   assert.match(source, /data-pick-toggle/);
+  assert.match(source, /data-pick-dots/);
   assert.match(source, /href="\/blog\/mitoy-rice-blocks\/"/);
   assert.match(source, /editor-picks\.js/);
   assert.match(css, /min-height: 44px/);
   assert.match(css, /prefers-reduced-motion/);
-  assert.match(script, /7000/);
+  assert.match(script, /6500/);
   assert.match(script, /pointerup/);
   assert.match(script, /document\.hidden/);
+  assert.match(css, /object-fit: contain/);
+  assert.match(css, /\.pick-arrow/);
 });
