@@ -6,7 +6,6 @@
   const filterButtons = [...document.querySelectorAll('[data-blog-category]')];
   const availableCategories = new Set(cards.map(card => card.dataset.category).filter(Boolean));
   const filterEmpty = document.querySelector('#filter-empty');
-  const freshness = document.querySelector('#freshness');
   const requestedCategory = new URLSearchParams(location.search).get('category') || '';
   let currentCategory = availableCategories.has(requestedCategory) ? requestedCategory : '';
   let inFlight = null, refreshedAt = 0, day = '', buying = false;
@@ -47,11 +46,9 @@
     applyCategory(currentCategory, false);
     day = ProductContent.today();
     refreshedAt = Date.now();
-    freshness.textContent = '團購狀態已依 ' + day.replaceAll('-','/') + ' 的最新資料確認。';
   }
   function fail() {
     refreshedAt = 0;
-    freshness.textContent = '目前無法取得最新團購狀態；文章仍可閱讀，購買入口暫不顯示。';
     for (const card of cards) {
       card.dataset.state = 'journal';
       card.querySelector('[data-status]').textContent = '團購狀態待確認';

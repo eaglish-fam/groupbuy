@@ -15,7 +15,7 @@ const pages = [
   { path: 'blog/artisan-cb301/index.html', url: `${ORIGIN}/blog/artisan-cb301/`, type: 'Article', phrase: 'ARTISAN CB301 電動清潔刷' },
   { path: 'blog/meroware/index.html', url: `${ORIGIN}/blog/meroware/`, type: 'Article', phrase: 'Meroware 餐具與水壺' },
 ];
-const forbiddenPublicText = ['閱讀風格預覽', '尚未發布', '廠商情境照片', '廠商套組照片', '內部審核', '待 Hiram 核准'];
+const forbiddenPublicText = ['閱讀風格預覽', '尚未發布', '廠商情境照片', '廠商套組照片', '內部審核', '待 Hiram 核准', '依生活分類', '正在確認最新團購狀態', '團購狀態已依', '目前無法取得最新團購狀態'];
 
 function content(path) { return readFileSync(join(ROOT, path), 'utf8'); }
 function tagValue(html, tag, attribute, value, outputAttribute = 'content') {

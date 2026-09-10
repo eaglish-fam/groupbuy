@@ -35,7 +35,7 @@ test('public blog candidate has clear sections, static article links, and no int
   const articles=slugs.map(slug=>fs.readFileSync(new URL(`../blog/${slug}/index.html`,import.meta.url),'utf8'));
   for(const label of ['開團中','即將開團','選物文章'])assert.ok(home.includes(label));
   for(const slug of slugs)assert.ok(home.includes(`href="/blog/${slug}/"`));
-  for(const internal of ['閱讀風格預覽','尚未發布','廠商情境照片','廠商套組照片']){assert.ok(!home.includes(internal));for(const article of articles)assert.ok(!article.includes(internal));}
+  for(const internal of ['閱讀風格預覽','尚未發布','廠商情境照片','廠商套組照片','依生活分類','正在確認最新團購狀態','團購狀態已依']){assert.ok(!home.includes(internal));for(const article of articles)assert.ok(!article.includes(internal));}
   assert.ok(articles[0].includes('這支影片發布於 2026 年 2 月'));
   assert.ok(!articles[2].includes('bFNLF_Vgn7k'),'CB301 article must not inherit the same-row LM3000 video');
   assert.ok(home.includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN blog card uses the dedicated editorial cover');

@@ -12,13 +12,12 @@ html { scroll-padding-top: 150px; }
 .journal-chrome .masthead a { min-height: 44px; }
 .journal-chrome .article-filters {
   position: relative; z-index: 1; margin: 0;
-  display: flex; align-items: center; gap: 20px;
+  display: flex; align-items: center;
   padding: 8px max(24px, calc((100vw - 1100px) / 2));
   background: var(--paper); border-bottom: 1px solid var(--line);
   box-shadow: 0 5px 10px rgb(52 59 50 / 4%); pointer-events: auto;
   transition: transform 200ms ease, opacity 160ms ease, visibility 200ms;
 }
-.journal-chrome .article-filters > span { margin: 0; }
 .journal-chrome .filter-scroll { min-width: 0; margin: 0; padding: 4px; gap: 8px; overscroll-behavior-x: contain; }
 .journal-chrome .filter-scroll button { min-height: 44px; padding: 7px 16px; }
 .journal-chrome.is-categories-hidden .article-filters {
@@ -29,12 +28,8 @@ html { scroll-padding-top: 150px; }
   .journal-chrome .masthead { min-height: 64px; padding: calc(8px + env(safe-area-inset-top, 0px)) 18px 8px; gap: 12px; }
   .journal-chrome .masthead .brand { width: 140px; }
   .journal-chrome .masthead nav { gap: 14px; }
-  .journal-chrome .article-filters { gap: 8px; padding: 5px 14px; }
-  .journal-chrome .article-filters > span { font-size: 11px; letter-spacing: 0; }
+  .journal-chrome .article-filters { padding: 5px 14px; }
   .journal-chrome .filter-scroll button { padding-inline: 14px; }
-}
-@media (max-width: 370px) {
-  .journal-chrome .article-filters > span { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
 }
 @media (prefers-reduced-motion: reduce) {
   .journal-chrome .article-filters { transition: none; }

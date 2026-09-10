@@ -29,6 +29,8 @@ test('all journal pages use sticky chrome; only index carries the original live 
  const index=fs.readFileSync(new URL('index.html',base),'utf8');
  assert.equal((index.match(/class="article-filters"/g)||[]).length,1);
  assert.ok(index.indexOf('class="article-filters"')<index.indexOf('<main'));
+ assert.ok(!index.includes('id="freshness"'),'consumer page must not expose runtime freshness copy');
+ assert.ok(!index.includes('依生活分類'),'category controls do not need an explanatory label');
  const css=fs.readFileSync(new URL('journal-nav.css',base),'utf8');
  assert.ok(css.includes('prefers-reduced-motion'));
  assert.ok(css.includes('min-height: 44px'));

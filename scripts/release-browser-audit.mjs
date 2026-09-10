@@ -127,7 +127,8 @@ try {
  mode='fail';
  await page.clock.fastForward(60000);
  await page.evaluate(()=>window.dispatchEvent(new Event('focus')));
- await page.waitForFunction(()=>document.querySelector('#freshness').textContent.includes('無法'));
+ await page.waitForFunction(()=>[...document.querySelectorAll('[data-article]')].every(card=>card.dataset.state==='journal'));
+ check('blog omits internal refresh status from consumer UI',await page.locator('#freshness').count()===0);
  check('blog failure hides and clears all purchase links',await page.evaluate(()=>[...document.querySelectorAll('[data-buy]')].every(a=>a.hidden&&!a.hasAttribute('href')&&a.getBoundingClientRect().height===0)));
  check('private preview does not initialise GA4',await page.evaluate(()=>typeof gtag==='undefined'));
  await context.close();

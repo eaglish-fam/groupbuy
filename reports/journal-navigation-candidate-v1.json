@@ -14,13 +14,15 @@
     "reducedMotion": "no transition",
     "keyboard": "Tab reveals navigation; focused keyboard controls pin it open",
     "hiddenCategories": "visibility hidden, pointer events none, inert, aria-hidden",
-    "layout": "Stable reserved height; native scrolling; resize-aware anchor offset"
+    "layout": "Stable reserved height; native scrolling; resize-aware anchor offset",
+    "consumerCopy": "Category controls keep only actionable labels; runtime refresh success and failure details remain internal"
   },
   "verification": {
     "npmRunVerify": "pass",
     "siteAudit": "28/28",
     "blogAudit": "101/101",
     "tests": "31/31",
+    "consumerStatusCopy": "absent",
     "browserWidths": [320, 390, 768, 1440],
     "horizontalOverflow": false,
     "mobileScrollDown": {"scrollY": 661, "headerTop": 0, "categoriesHidden": true},
