@@ -15,17 +15,17 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/design/design.css?v=20260910-editor-picks-v4" />
-    <link rel="stylesheet" href="/design/mobile-grid.css?v=20260910-editor-picks-v4" />
-    <link rel="stylesheet" href="/design/complete-content.css?v=20260910-editor-picks-v4" />
-    <script defer src="/design/papaparse.min.js?v=20260910-editor-picks-v4"></script>
-    <script defer src="/product-content.js?v=20260910-editor-picks-v4"></script>
-    <script defer src="/design/editor-picks.js?v=20260910-editor-picks-v4"></script>
-    <script defer src="/design/design.js?v=20260910-editor-picks-v4"></script>
-    <script defer src="/design/mobile-grid.js?v=20260910-editor-picks-v4"></script>
-    <script defer src="/design/complete-content.js?v=20260910-editor-picks-v4"></script>
-  <link rel="stylesheet" href="/release.css?v=20260910-editor-picks-v4">
-<script defer src="/site-runtime.js?v=20260910-editor-picks-v4"></script>
+    <link rel="stylesheet" href="/design/design.css?v=20260910-editor-picks-v5" />
+    <link rel="stylesheet" href="/design/mobile-grid.css?v=20260910-editor-picks-v5" />
+    <link rel="stylesheet" href="/design/complete-content.css?v=20260910-editor-picks-v5" />
+    <script defer src="/design/papaparse.min.js?v=20260910-editor-picks-v5"></script>
+    <script defer src="/product-content.js?v=20260910-editor-picks-v5"></script>
+    <script defer src="/design/editor-picks.js?v=20260910-editor-picks-v5"></script>
+    <script defer src="/design/design.js?v=20260910-editor-picks-v5"></script>
+    <script defer src="/design/mobile-grid.js?v=20260910-editor-picks-v5"></script>
+    <script defer src="/design/complete-content.js?v=20260910-editor-picks-v5"></script>
+  <link rel="stylesheet" href="/release.css?v=20260910-editor-picks-v5">
+<script defer src="/site-runtime.js?v=20260910-editor-picks-v5"></script>
 <link rel="canonical" href="https://www.eaglish.store/">
     <meta name="google-site-verification" content="FdPBW_xSaPXriw8r-beUzCvUXbh0J4BqT-0ADmKbdSY">
     <meta property="og:site_name" content="鷹家買物社">
@@ -97,19 +97,25 @@
             <span class="rule"></span> 鷹式一家的生活選物提案
           </div>
         </div>
-        <div class="hero-visual" data-editor-picks aria-label="Editor's Pick 選物文章" aria-roledescription="carousel">
-          <div class="hero-slides">
-            <article class="hero-slide is-active" data-pick-key="mitoy" aria-label="第 1 篇精選文章">
-              <img src="/assets/mitoy-rice-blocks/play.webp" alt="MiToy 米積木的親子遊戲情境" fetchpriority="high" width="1400" height="1000" />
-              <a class="hero-caption" href="/blog/mitoy-rice-blocks/"><span><small>孩子的遊戲時光</small><strong>同一盒積木，<br />每天都有新的樣子。</strong></span><span class="round-arrow">↗</span></a>
-              <span class="photo-index">EDITOR'S PICK / 01</span>
-            </article>
+        <div class="hero-carousel" data-editor-picks aria-label="Editor's Pick 選物文章" aria-roledescription="carousel">
+          <div class="hero-visual">
+            <div class="hero-slides">
+              <article class="hero-slide is-active" data-pick-key="mitoy" aria-label="第 1 篇精選文章">
+                <a class="hero-image-link" href="/blog/mitoy-rice-blocks/" aria-label="閱讀：同一盒積木，每天都有新的樣子。">
+                  <img src="/assets/mitoy-rice-blocks/play.webp" alt="MiToy 米積木的親子遊戲情境" fetchpriority="high" width="1400" height="1000" />
+                </a>
+                <span class="photo-index">EDITOR'S PICK / 01</span>
+              </article>
+            </div>
           </div>
           <div class="hero-pick-controls" aria-label="輪播控制" hidden>
-            <button type="button" class="pick-arrow" data-pick-prev aria-label="上一篇 Editor's Pick">←</button>
-            <div class="pick-dots" data-pick-dots role="group" aria-label="選擇 Editor's Pick"></div>
             <button type="button" class="pick-toggle" data-pick-toggle aria-label="暫停自動輪播" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
-            <button type="button" class="pick-arrow" data-pick-next aria-label="下一篇 Editor's Pick">→</button>
+            <div class="pick-navigation">
+              <button type="button" class="pick-arrow" data-pick-prev aria-label="上一篇 Editor's Pick">←</button>
+              <div class="pick-dots" data-pick-dots role="group" aria-label="選擇 Editor's Pick"></div>
+              <button type="button" class="pick-arrow" data-pick-next aria-label="下一篇 Editor's Pick">→</button>
+            </div>
+            <span class="pick-control-spacer" aria-hidden="true"></span>
           </div>
         </div>
       </section>

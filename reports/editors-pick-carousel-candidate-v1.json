@@ -3,7 +3,7 @@
   "date": "2026-09-10",
   "baseSha": "ca492b159ead8f09740729a46671e2a6244ed556",
   "scope": "Replace the fixed homepage Editor's Pick visual with a six-article editorial carousel",
-  "preview": "https://zosiamac-mini.tailb3e7be.ts.net:26443/?review=editors-picks-v3",
+  "preview": "https://zosiamac-mini.tailb3e7be.ts.net:26443/?review=editors-picks-v5",
   "contentSource": "ProductContent.catalog article entries with explicit publication dates",
   "behavior": {
     "initialSelection": "Newest published article; stable editorial order for same-day ties",
@@ -11,7 +11,8 @@
     "manualControls": ["bottom dots", "desktop previous/next", "compact pause/play"],
     "mobileGesture": "horizontal swipe",
     "mobileImageFit": "full source image with a soft same-image backdrop; embedded headlines are not cropped",
-    "mobileCaption": "compact lower-left link, maximum 74% width, two-line title, reduced arrow",
+    "articleEntry": "the whole visible image is the article link; no overlay caption obscures artwork",
+    "controlPlacement": "independent strip below the image and above the discovery section",
     "interactionPause": ["hover", "keyboard focus", "touch gesture", "background tab"],
     "reducedMotion": "automatic rotation starts paused and fades are disabled",
     "inactiveSlides": "aria-hidden and inert"
@@ -25,7 +26,7 @@
     "manualNext": "pass",
     "pauseControl": "pass",
     "singleAccessibleActiveSlide": "pass",
-    "mobileScreenshot": "/tmp/editors-picks-mobile-v4.png",
+    "mobileScreenshot": "/tmp/editors-picks-mobile-v5-tall.png",
     "mobileEmbeddedHeadlineVisible": "pass",
     "mobileControls": "six bottom dots plus compact pause icon; arrows hidden",
     "desktopControls": "bottom dots, compact pause icon and previous/next arrows"

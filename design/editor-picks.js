@@ -36,6 +36,7 @@
     let pausedByUser = reducedMotion.matches;
     let interacting = false;
     let pointerStart = null;
+    let suppressClick = false;
 
     function slide(item, index) {
       const article = document.createElement("article");
@@ -43,6 +44,11 @@
       article.dataset.pickKey = item.key;
       article.setAttribute("aria-label", `第 ${index + 1} 篇，共 ${picks.length} 篇精選文章`);
       article.style.setProperty("--pick-image", `url(${JSON.stringify(item.image)})`);
+
+      const link = document.createElement("a");
+      link.className = "hero-image-link";
+      link.href = item.article;
+      link.setAttribute("aria-label", `閱讀：${item.title}`);
 
       const image = document.createElement("img");
       image.src = item.image;
@@ -52,25 +58,12 @@
       if (index === 0) image.fetchPriority = "high";
       else image.loading = "lazy";
 
-      const link = document.createElement("a");
-      link.className = "hero-caption";
-      link.href = item.article;
-      const copy = document.createElement("span");
-      const category = document.createElement("small");
-      category.textContent = item.category;
-      const title = document.createElement("strong");
-      title.textContent = item.title;
-      copy.append(category, title);
-      const arrow = document.createElement("span");
-      arrow.className = "round-arrow";
-      arrow.setAttribute("aria-hidden", "true");
-      arrow.textContent = "↗";
-      link.append(copy, arrow);
+      link.append(image);
 
       const number = document.createElement("span");
       number.className = "photo-index";
       number.textContent = `EDITOR'S PICK / ${String(index + 1).padStart(2, "0")}`;
-      article.append(image, link, number);
+      article.append(link, number);
       return article;
     }
 
@@ -135,6 +128,7 @@
       schedule();
     });
     carousel.addEventListener("pointerdown", (event) => {
+      suppressClick = false;
       pointerStart = { x: event.clientX, y: event.clientY, at: performance.now() };
       stop();
     });
@@ -144,8 +138,16 @@
       const dy = event.clientY - pointerStart.y;
       const elapsed = performance.now() - pointerStart.at;
       pointerStart = null;
-      if (elapsed < 900 && Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) show(active + (dx < 0 ? 1 : -1));
+      if (elapsed < 900 && Math.abs(dx) > 48 && Math.abs(dx) > Math.abs(dy)) {
+        suppressClick = true;
+        show(active + (dx < 0 ? 1 : -1));
+      }
       else schedule();
+    });
+    carousel.addEventListener("click", (event) => {
+      if (!suppressClick || !event.target.closest(".hero-image-link")) return;
+      event.preventDefault();
+      suppressClick = false;
     });
     carousel.addEventListener("pointercancel", () => {
       pointerStart = null;
