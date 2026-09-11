@@ -648,6 +648,23 @@ h1 {
   background: #e3eaed;
   color: #435e6b;
 }
+.status.timed {
+  color: var(--orange);
+  background: #f6e9df;
+}
+.status-tabs button[data-status="open"][aria-pressed="true"] {
+  color: var(--orange);
+  background: #f6e9df;
+}
+.closing-countdown {
+  display: block;
+  margin-top: 5px;
+  color: var(--orange);
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.65;
+  font-variant-numeric: tabular-nums;
+}
 .product-card h3 {
   font-size: 21px;
   line-height: 1.55;

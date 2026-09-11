@@ -85,7 +85,7 @@ function classify(r) {
     return { key: "closed", label: "目前已售完", long };
   if (!end && !long && !/折扣|公益|教育|書/.test(type))
     return { key: "unknown", label: "檔期待確認", long };
-  return { key: "open", label: long ? "常駐開團" : "開團中", long };
+  return { key: "open", label: long ? "常駐開團" : "限時開團", long };
 }
 function normalize(rows, upcoming = false) {
   return rows
@@ -159,9 +159,39 @@ function dateLine(p) {
         new Date(ProductContent.today() + "T00:00:00+08:00")) /
         86400000,
     );
-    return `${p.end.slice(5).replace("-", "/")} 結團${d === 0 ? "・今天最後一天" : d > 0 && d <= 3 ? `・還有 ${d} 天` : ""}`;
+    return `${p.end.slice(5).replace("-", "/")} 結團`;
   }
   return "方案與優惠請見當期賣場";
+}
+// Sheet dates are Taiwan calendar days, inclusive through the end of that day.
+function countdownText(end, now = Date.now()) {
+  const remaining = Date.parse(end + "T00:00:00+08:00") + 86400000 - now;
+  if (!Number.isFinite(remaining) || remaining <= 0) return "本次已結團";
+  const minutes = Math.ceil(remaining / 60000);
+  if (minutes >= 1440) return `距結團 ${Math.floor(minutes / 1440)} 天 ${Math.floor(minutes % 1440 / 60)} 小時`;
+  return `最後 ${Math.floor(minutes / 60)} 小時 ${minutes % 60} 分`;
+}
+function timedCampaign(p) {
+  return !p.kind && p.status.key === "open" && !p.status.long && !!p.end;
+}
+function countdownMarkup(p) {
+  return timedCampaign(p) ? `<span class="closing-countdown" data-closing-date="${esc(p.end)}">${countdownText(p.end)}</span>` : "";
+}
+function updateCountdowns() {
+  if (document.hidden) return;
+  const expired = products.some(p => timedCampaign(p) && ProductContent.today() > p.end);
+  if (expired) {
+    products.forEach(p => { if (timedCampaign(p) && ProductContent.today() > p.end) p.status = classify(p.source); });
+    render();
+    if ($("#product-dialog").open && $("#detail [data-closing-date]")?.dataset.closingDate < ProductContent.today()) {
+      $("#detail [data-buy-key]")?.remove();
+      const label = $("#detail .status.timed");
+      if (label) { label.textContent = "請重新查看當期團購"; label.classList.remove("timed"); }
+    }
+  }
+  document.querySelectorAll("[data-closing-date]").forEach(el => {
+    el.textContent = countdownText(el.dataset.closingDate);
+  });
 }
 function card(p) {
   const idx = products.indexOf(p);
@@ -189,9 +219,9 @@ function card(p) {
     .join("");
   return `<article class="product-card" data-product-key="${esc(p.key)}">
     <div class="product-picture"><button class="image-open" data-detail="${idx}" aria-label="查看 ${esc(p.brand)} 詳情">${p.images[0] ? `<img src="${esc(p.images[0])}" alt="${esc(p.brand)}" loading="lazy" width="1000" height="750">` : "<span>商品資訊</span>"}</button><button class="save" data-save="${idx}" aria-label="收藏 ${esc(p.brand)}" aria-pressed="${saved.has(p.key)}">${bookmark}</button></div>
-    <div class="product-body"><div class="product-meta"><span class="status ${p.status.key}">${label}</span><span>${esc(p.category.split(/[,，]/)[0])}${p.country ? " / " + esc(p.country) : ""}</span></div>
+    <div class="product-body"><div class="product-meta"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${label}</span><span>${esc(p.category.split(/[,，]/)[0])}${p.country ? " / " + esc(p.country) : ""}</span></div>
     <h3><button data-detail="${idx}" style="font:inherit;text-align:left;padding:0">${esc(p.brand)}</button></h3><p class="product-description">${esc(p.description)}</p>
-    <div class="product-bottom">${!["book", "edu"].includes(p.kind) ? `<p class="date-line">${dateLine(p)}</p>` : ""}
+    <div class="product-bottom">${!["book", "edu"].includes(p.kind) ? `<p class="date-line">${dateLine(p)}${countdownMarkup(p)}</p>` : ""}
     ${p.coupon && p.status.key === "open" ? `<div class="coupon-inline"><small>專屬折扣碼</small><code>${esc(p.coupon)}</code><button data-copy-code="${esc(p.coupon)}">複製折扣碼</button></div>` : ""}
     ${p.kind === "book" && retailerLinks ? `<div class="retailer-links">${retailerLinks}</div>` : `<div class="card-actions"><button class="button secondary" data-detail="${idx}">商品詳情</button></div>`}
     ${p.article ? `<a class="card-reading" href="${p.article.article}">先讀生活筆記<span aria-hidden="true">↗</span></a>` : p.videos.length ? `<button class="card-reading card-video" data-detail="${idx}">觀看使用影片</button>` : ""}
@@ -216,7 +246,7 @@ function render() {
         ? currentStatus === "all" || saved.has(p.key)
         : currentStatus === "long"
           ? p.status.long && p.status.key === "open"
-          : p.status.key === currentStatus && !p.kind),
+          : p.status.key === currentStatus && !p.kind && (currentStatus !== "open" || !p.status.long)),
   );
   const order = $("#sort").value;
   list.sort((a, b) => {
@@ -281,7 +311,7 @@ function openDetail(index, refreshing = false) {
     ? `<div class="detail-photo"><img id="detail-image" src="${esc(p.images[0])}" alt="${esc(p.brand)}"><div class="gallery-controls" ${p.images.length < 2 ? "hidden" : ""}><button id="photo-prev" aria-label="上一張商品圖片">←</button><span id="photo-count">1 / ${p.images.length}</span><button id="photo-next" aria-label="下一張商品圖片">→</button></div></div>`
     : "";
   $("#detail").innerHTML =
-    `<div class="detail-layout">${photo}<div class="detail-copy"><span class="status ${p.status.key}">${p.status.label}</span><h2 id="detail-title">${esc(p.brand)}</h2><p>${esc(p.description)}</p><p class="date-line">${dateLine(p)}</p>${p.coupon && p.status.key === "open" ? `<p>折扣碼：<strong>${esc(p.coupon)}</strong> <button class="text-link" id="copy-coupon">複製</button></p>` : ""}${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">前往廠商賣場選購 ↗</a>` : "<p>目前暫不提供訂購入口。</p>"}${p.article ? `<p><a class="text-link" href="${p.article.article}">閱讀完整生活筆記 ↗</a></p>` : ""}<p class="small">商品、配送與售後由廠商提供，詳情以當期賣場為準。</p></div></div><div class="detail-sections">${[
+    `<div class="detail-layout">${photo}<div class="detail-copy"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${p.status.label}</span><h2 id="detail-title">${esc(p.brand)}</h2><p>${esc(p.description)}</p><p class="date-line">${dateLine(p)}${countdownMarkup(p)}</p>${p.coupon && p.status.key === "open" ? `<p>折扣碼：<strong>${esc(p.coupon)}</strong> <button class="text-link" id="copy-coupon">複製</button></p>` : ""}${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">前往廠商賣場選購 ↗</a>` : "<p>目前暫不提供訂購入口。</p>"}${p.article ? `<p><a class="text-link" href="${p.article.article}">閱讀完整生活筆記 ↗</a></p>` : ""}<p class="small">商品、配送與售後由廠商提供，詳情以當期賣場為準。</p></div></div><div class="detail-sections">${[
       ["貼心說明", p.note],
       ["方案詳情", p.details],
       ["常見問題", p.qa],
@@ -524,6 +554,9 @@ function returnRefresh() {
   if (!document.hidden && (ProductContent.today() !== verifiedDay || Date.now() - refreshedAt > 30000)) load();
 }
 window.addEventListener("focus", returnRefresh);
+window.addEventListener("focus", updateCountdowns);
+document.addEventListener("visibilitychange", updateCountdowns);
+setInterval(updateCountdowns, 1000);
 document.addEventListener("visibilitychange", returnRefresh);
 setInterval(() => {
   if (!document.hidden && (ProductContent.today() !== verifiedDay || Date.now() - refreshedAt > 300000)) load();
