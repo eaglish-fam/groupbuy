@@ -175,7 +175,30 @@ function timedCampaign(p) {
   return !p.kind && p.status.key === "open" && !p.status.long && !!p.end;
 }
 function countdownMarkup(p) {
-  return timedCampaign(p) ? `<span class="closing-countdown" data-closing-date="${esc(p.end)}">${countdownText(p.end)}</span>` : "";
+  return timedCampaign(p) ? `<span class="closing-countdown${isClosingSoon(p.end) ? " is-urgent" : ""}" data-closing-date="${esc(p.end)}">${countdownText(p.end)}</span>` : "";
+}
+function isClosingSoon(end, now = Date.now()) {
+  const remaining = Date.parse(end + "T00:00:00+08:00") + 86400000 - now;
+  return remaining > 0 && remaining <= 3 * 86400000;
+}
+let todayClosingSignature = "";
+function updateTodayClosing() {
+  const region = $("#today-closing");
+  if (!region) return;
+  const today = ProductContent.today();
+  const closing = products.filter(p => timedCampaign(p) && p.end === today);
+  region.hidden = closing.length === 0;
+  const signature = JSON.stringify(closing.map(p => [p.key, products.indexOf(p)]));
+  if (signature !== todayClosingSignature) {
+    $("#today-closing-products").innerHTML = closing.map(p => `<button data-detail="${products.indexOf(p)}">${esc(p.brand)} <span aria-hidden="true">↗</span></button>`).join("");
+    todayClosingSignature = signature;
+  }
+  if (!closing.length) return;
+  const seconds = Math.max(0, Math.ceil((Date.parse(today + "T00:00:00+08:00") + 86400000 - Date.now()) / 1000));
+  const h = Math.floor(seconds / 3600), m = Math.floor(seconds % 3600 / 60), s = seconds % 60;
+  const clock = $("#today-closing-clock");
+  clock.textContent = [h, m, s].map(n => String(n).padStart(2, "0")).join(" : ");
+  clock.dateTime = `PT${h}H${m}M${s}S`;
 }
 function updateCountdowns() {
   if (document.hidden) return;
@@ -190,8 +213,11 @@ function updateCountdowns() {
     }
   }
   document.querySelectorAll("[data-closing-date]").forEach(el => {
-    el.textContent = countdownText(el.dataset.closingDate);
+    const text = countdownText(el.dataset.closingDate);
+    if (el.textContent !== text) el.textContent = text;
+    el.classList.toggle("is-urgent", isClosingSoon(el.dataset.closingDate));
   });
+  updateTodayClosing();
 }
 function card(p) {
   const idx = products.indexOf(p);
@@ -230,6 +256,7 @@ function card(p) {
     </div></div></article>`;
 }
 function render() {
+  updateTodayClosing();
   let list = products.filter(
     (p) =>
       (!country || p.country === country) &&
@@ -289,6 +316,7 @@ function render() {
 }
 function setStatus(value) {
   currentStatus = value;
+  $("#sort").value = value === "open" ? "closing" : "recommended";
   limit = PAGE_SIZE;
   render();
 }

@@ -654,17 +654,29 @@ h1 {
 }
 .status-tabs button[data-status="open"][aria-pressed="true"] {
   color: var(--orange);
-  background: #f6e9df;
+  background: transparent;
+  border-bottom-color: var(--olive);
 }
 .closing-countdown {
   display: block;
   margin-top: 5px;
-  color: var(--orange);
+  color: var(--muted);
   font-size: 13px;
   font-weight: 600;
   line-height: 1.65;
   font-variant-numeric: tabular-nums;
 }
+.closing-countdown.is-urgent { color: var(--orange); }
+.today-closing { margin: 0 0 22px; padding: 16px 0; border-block: 1px solid var(--line); }
+.today-closing[hidden] { display: none; }
+.today-closing-heading { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
+.today-closing-heading strong { color: var(--orange); font-size: 18px; font-family: var(--serif); font-weight: 600; }
+.today-closing-heading > span { color: var(--muted); font-size: 12px; }
+.today-closing-heading time { color: var(--orange); font: italic 28px/1.1 Georgia, serif; font-variant-numeric: tabular-nums; letter-spacing: .04em; margin-left: auto; }
+.today-closing-products { display: flex; flex-wrap: wrap; gap: 0 22px; margin-top: 4px; }
+.today-closing-products button { min-height: 44px; padding: 8px 0; text-align: left; font-size: 14px; color: var(--ink); overflow-wrap: anywhere; }
+.today-closing-products button:hover { color: var(--orange); }
+@media(max-width:400px) { .today-closing-heading { column-gap: 10px; } .today-closing-heading time { font-size: 24px; } }
 .product-card h3 {
   font-size: 21px;
   line-height: 1.55;
@@ -1070,7 +1082,7 @@ details iframe {
     min-height: 0;
   }
   .hero-copy {
-    padding: 27px 24px 24px;
+    padding: 18px 24px 24px;
   }
   .eyebrow {
     font-size: 10px;
@@ -1082,6 +1094,7 @@ details iframe {
   .hero-title {
     width: 100%;
     max-width: 520px;
+    margin: 6px 0 14px;
   }
   .hero-description {
     font-size: 16px;

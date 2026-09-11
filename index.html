@@ -15,17 +15,17 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/design/design.css?v=20260911-playzu-v1" />
-    <link rel="stylesheet" href="/design/mobile-grid.css?v=20260911-playzu-v1" />
-    <link rel="stylesheet" href="/design/complete-content.css?v=20260911-playzu-v1" />
-    <script defer src="/design/papaparse.min.js?v=20260911-playzu-v1"></script>
-    <script defer src="/product-content.js?v=20260911-playzu-v1"></script>
-    <script defer src="/design/editor-picks.js?v=20260911-playzu-v1"></script>
-    <script defer src="/design/design.js?v=20260911-playzu-v1"></script>
-    <script defer src="/design/mobile-grid.js?v=20260911-playzu-v1"></script>
-    <script defer src="/design/complete-content.js?v=20260911-playzu-v1"></script>
-  <link rel="stylesheet" href="/release.css?v=20260911-playzu-v1">
-<script defer src="/site-runtime.js?v=20260911-playzu-v1"></script>
+    <link rel="stylesheet" href="/design/design.css?v=20260911-closing-countdown-v2" />
+    <link rel="stylesheet" href="/design/mobile-grid.css?v=20260911-closing-countdown-v2" />
+    <link rel="stylesheet" href="/design/complete-content.css?v=20260911-closing-countdown-v2" />
+    <script defer src="/design/papaparse.min.js?v=20260911-closing-countdown-v2"></script>
+    <script defer src="/product-content.js?v=20260911-closing-countdown-v2"></script>
+    <script defer src="/design/editor-picks.js?v=20260911-closing-countdown-v2"></script>
+    <script defer src="/design/design.js?v=20260911-closing-countdown-v2"></script>
+    <script defer src="/design/mobile-grid.js?v=20260911-closing-countdown-v2"></script>
+    <script defer src="/design/complete-content.js?v=20260911-closing-countdown-v2"></script>
+  <link rel="stylesheet" href="/release.css?v=20260911-closing-countdown-v2">
+<script defer src="/site-runtime.js?v=20260911-closing-countdown-v2"></script>
 <link rel="canonical" href="https://www.eaglish.store/">
     <meta name="google-site-verification" content="FdPBW_xSaPXriw8r-beUzCvUXbh0J4BqT-0ADmKbdSY">
     <meta property="og:site_name" content="鷹家買物社">
@@ -74,9 +74,6 @@
     <main>
       <section class="hero" aria-labelledby="hero-title">
         <div class="hero-copy">
-          <p class="eyebrow">
-            <span class="dot"></span> EAGLISH EVERYDAY PICKS
-          </p>
           <h1 id="hero-title" class="hero-title">
             <span class="sr-only">把喜歡的日常帶回家</span>
             <img
@@ -153,6 +150,10 @@
             </div>
             <p>喜歡的可以先收藏，<br />需要時再回來慢慢選。</p>
           </header>
+          <section id="today-closing" class="today-closing" aria-label="今日結團提醒" hidden>
+            <div class="today-closing-heading"><strong>今天結團</strong><span>台北時間・今晚截止</span><time id="today-closing-clock" aria-label="距今日結團剩餘時間"></time></div>
+            <div id="today-closing-products" class="today-closing-products"></div>
+          </section>
           <div class="catalog-toolbar">
             <div class="status-tabs" role="group" aria-label="團購狀態">
               <button data-status="open" aria-pressed="true">限時開團</button
@@ -183,7 +184,7 @@
               >排序
               <select id="sort">
                 <option value="recommended">本期選物</option>
-                <option value="closing">即將結團優先</option>
+                <option value="closing" selected>即將結團優先</option>
                 <option value="new">最新開團優先</option>
               </select></label
             ><label
