@@ -1,273 +1,13 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-11T08:18:30.250Z",
+  "generatedAt": "2026-09-11T08:52:34.999Z",
   "status": "ready",
   "summary": {
-    "checks": 129,
-    "passed": 129,
+    "checks": 257,
+    "passed": 257,
     "failures": 0
   },
   "checks": [
-    {
-      "id": "blog:playzu:index.html:title",
-      "passed": true,
-      "detail": "Title length 39."
-    },
-    {
-      "id": "blog:playzu:index.html:description",
-      "passed": true,
-      "detail": "Description length 121."
-    },
-    {
-      "id": "blog:playzu:index.html:canonical",
-      "passed": true,
-      "detail": "Canonical https://www.eaglish.store/blog/playzu/."
-    },
-    {
-      "id": "blog:playzu:index.html:indexable",
-      "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
-    },
-    {
-      "id": "blog:playzu:index.html:single-h1",
-      "passed": true,
-      "detail": "Exactly one H1."
-    },
-    {
-      "id": "blog:playzu:index.html:search-phrase",
-      "passed": true,
-      "detail": "Title and H1 include Playzu 地墊."
-    },
-    {
-      "id": "blog:playzu:index.html:schema",
-      "passed": true,
-      "detail": "Article structured data parses."
-    },
-    {
-      "id": "blog:playzu:index.html:breadcrumb",
-      "passed": true,
-      "detail": "BreadcrumbList structured data parses."
-    },
-    {
-      "id": "blog:playzu:index.html:sitemap",
-      "passed": true,
-      "detail": "Canonical URL is in sitemap."
-    },
-    {
-      "id": "blog:playzu:index.html:consumer-copy",
-      "passed": true,
-      "detail": "No internal review language is visible."
-    },
-    {
-      "id": "blog:playzu:index.html:local-assets",
-      "passed": true,
-      "detail": "Local assets resolve."
-    },
-    {
-      "id": "blog:playzu:index.html:unique-title",
-      "passed": true,
-      "detail": "Title is unique."
-    },
-    {
-      "id": "blog:playzu:index.html:unique-description",
-      "passed": true,
-      "detail": "Meta description is unique."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:title",
-      "passed": true,
-      "detail": "Title length 43."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:description",
-      "passed": true,
-      "detail": "Description length 91."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:canonical",
-      "passed": true,
-      "detail": "Canonical https://www.eaglish.store/blog/hereu-tag/."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:indexable",
-      "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:single-h1",
-      "passed": true,
-      "detail": "Exactly one H1."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:search-phrase",
-      "passed": true,
-      "detail": "Title and H1 include Hereu Tag 智慧定位器."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:schema",
-      "passed": true,
-      "detail": "Article structured data parses."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:breadcrumb",
-      "passed": true,
-      "detail": "BreadcrumbList structured data parses."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:sitemap",
-      "passed": true,
-      "detail": "Canonical URL is in sitemap."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:consumer-copy",
-      "passed": true,
-      "detail": "No internal review language is visible."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:local-assets",
-      "passed": true,
-      "detail": "Local assets resolve."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:unique-title",
-      "passed": true,
-      "detail": "Title is unique."
-    },
-    {
-      "id": "blog:hereu-tag:index.html:unique-description",
-      "passed": true,
-      "detail": "Meta description is unique."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:title",
-      "passed": true,
-      "detail": "Title length 31."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:description",
-      "passed": true,
-      "detail": "Description length 74."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:canonical",
-      "passed": true,
-      "detail": "Canonical https://www.eaglish.store/blog/mitoy-rice-blocks/."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:indexable",
-      "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:single-h1",
-      "passed": true,
-      "detail": "Exactly one H1."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:search-phrase",
-      "passed": true,
-      "detail": "Title and H1 include MiToy 米積木."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:schema",
-      "passed": true,
-      "detail": "Article structured data parses."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:breadcrumb",
-      "passed": true,
-      "detail": "BreadcrumbList structured data parses."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:sitemap",
-      "passed": true,
-      "detail": "Canonical URL is in sitemap."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:consumer-copy",
-      "passed": true,
-      "detail": "No internal review language is visible."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:local-assets",
-      "passed": true,
-      "detail": "Local assets resolve."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:unique-title",
-      "passed": true,
-      "detail": "Title is unique."
-    },
-    {
-      "id": "blog:mitoy-rice-blocks:index.html:unique-description",
-      "passed": true,
-      "detail": "Meta description is unique."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:title",
-      "passed": true,
-      "detail": "Title length 30."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:description",
-      "passed": true,
-      "detail": "Description length 65."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:canonical",
-      "passed": true,
-      "detail": "Canonical https://www.eaglish.store/blog/chulu-aomori-drinks/."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:indexable",
-      "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:single-h1",
-      "passed": true,
-      "detail": "Exactly one H1."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:search-phrase",
-      "passed": true,
-      "detail": "Title and H1 include 台東初鹿與青森飲品."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:schema",
-      "passed": true,
-      "detail": "Article structured data parses."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:breadcrumb",
-      "passed": true,
-      "detail": "BreadcrumbList structured data parses."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:sitemap",
-      "passed": true,
-      "detail": "Canonical URL is in sitemap."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:consumer-copy",
-      "passed": true,
-      "detail": "No internal review language is visible."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:local-assets",
-      "passed": true,
-      "detail": "Local assets resolve."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:unique-title",
-      "passed": true,
-      "detail": "Title is unique."
-    },
-    {
-      "id": "blog:chulu-aomori-drinks:index.html:unique-description",
-      "passed": true,
-      "detail": "Meta description is unique."
-    },
     {
       "id": "blog:index.html:title",
       "passed": true,
@@ -329,136 +69,6 @@
       "detail": "Meta description is unique."
     },
     {
-      "id": "blog:atojet:index.html:title",
-      "passed": true,
-      "detail": "Title length 39."
-    },
-    {
-      "id": "blog:atojet:index.html:description",
-      "passed": true,
-      "detail": "Description length 55."
-    },
-    {
-      "id": "blog:atojet:index.html:canonical",
-      "passed": true,
-      "detail": "Canonical https://www.eaglish.store/blog/atojet/."
-    },
-    {
-      "id": "blog:atojet:index.html:indexable",
-      "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
-    },
-    {
-      "id": "blog:atojet:index.html:single-h1",
-      "passed": true,
-      "detail": "Exactly one H1."
-    },
-    {
-      "id": "blog:atojet:index.html:search-phrase",
-      "passed": true,
-      "detail": "Title and H1 include Atojet 濾芯蓮蓬頭."
-    },
-    {
-      "id": "blog:atojet:index.html:schema",
-      "passed": true,
-      "detail": "Article structured data parses."
-    },
-    {
-      "id": "blog:atojet:index.html:breadcrumb",
-      "passed": true,
-      "detail": "BreadcrumbList structured data parses."
-    },
-    {
-      "id": "blog:atojet:index.html:sitemap",
-      "passed": true,
-      "detail": "Canonical URL is in sitemap."
-    },
-    {
-      "id": "blog:atojet:index.html:consumer-copy",
-      "passed": true,
-      "detail": "No internal review language is visible."
-    },
-    {
-      "id": "blog:atojet:index.html:local-assets",
-      "passed": true,
-      "detail": "Local assets resolve."
-    },
-    {
-      "id": "blog:atojet:index.html:unique-title",
-      "passed": true,
-      "detail": "Title is unique."
-    },
-    {
-      "id": "blog:atojet:index.html:unique-description",
-      "passed": true,
-      "detail": "Meta description is unique."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:title",
-      "passed": true,
-      "detail": "Title length 33."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:description",
-      "passed": true,
-      "detail": "Description length 64."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:canonical",
-      "passed": true,
-      "detail": "Canonical https://www.eaglish.store/blog/wave-hummus/."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:indexable",
-      "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:single-h1",
-      "passed": true,
-      "detail": "Exactly one H1."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:search-phrase",
-      "passed": true,
-      "detail": "Title and H1 include Wave 鷹嘴豆泥."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:schema",
-      "passed": true,
-      "detail": "Article structured data parses."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:breadcrumb",
-      "passed": true,
-      "detail": "BreadcrumbList structured data parses."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:sitemap",
-      "passed": true,
-      "detail": "Canonical URL is in sitemap."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:consumer-copy",
-      "passed": true,
-      "detail": "No internal review language is visible."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:local-assets",
-      "passed": true,
-      "detail": "Local assets resolve."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:unique-title",
-      "passed": true,
-      "detail": "Title is unique."
-    },
-    {
-      "id": "blog:wave-hummus:index.html:unique-description",
-      "passed": true,
-      "detail": "Meta description is unique."
-    },
-    {
       "id": "blog:artisan-cb301:index.html:title",
       "passed": true,
       "detail": "Title length 41."
@@ -499,6 +109,81 @@
       "detail": "BreadcrumbList structured data parses."
     },
     {
+      "id": "blog:artisan-cb301:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
       "id": "blog:artisan-cb301:index.html:sitemap",
       "passed": true,
       "detail": "Canonical URL is in sitemap."
@@ -520,6 +205,426 @@
     },
     {
       "id": "blog:artisan-cb301:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:atojet:index.html:title",
+      "passed": true,
+      "detail": "Title length 39."
+    },
+    {
+      "id": "blog:atojet:index.html:description",
+      "passed": true,
+      "detail": "Description length 55."
+    },
+    {
+      "id": "blog:atojet:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/atojet/."
+    },
+    {
+      "id": "blog:atojet:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:atojet:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:atojet:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include Atojet 濾芯蓮蓬頭."
+    },
+    {
+      "id": "blog:atojet:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:atojet:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:atojet:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:atojet:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:atojet:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:atojet:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:atojet:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:atojet:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:atojet:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:atojet:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:atojet:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:atojet:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:atojet:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:atojet:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:atojet:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:atojet:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:atojet:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:atojet:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:atojet:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:atojet:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:atojet:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:atojet:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:title",
+      "passed": true,
+      "detail": "Title length 30."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:description",
+      "passed": true,
+      "detail": "Description length 65."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/chulu-aomori-drinks/."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include 台東初鹿與青森飲品."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:chulu-aomori-drinks:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:title",
+      "passed": true,
+      "detail": "Title length 43."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:description",
+      "passed": true,
+      "detail": "Description length 91."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/hereu-tag/."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include Hereu Tag 智慧定位器."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:unique-description",
       "passed": true,
       "detail": "Meta description is unique."
     },
@@ -564,6 +669,81 @@
       "detail": "BreadcrumbList structured data parses."
     },
     {
+      "id": "blog:meroware:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:meroware:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:meroware:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:meroware:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:meroware:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:meroware:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:meroware:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:meroware:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:meroware:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:meroware:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:meroware:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:meroware:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:meroware:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:meroware:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:meroware:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
       "id": "blog:meroware:index.html:sitemap",
       "passed": true,
       "detail": "Canonical URL is in sitemap."
@@ -589,6 +769,426 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:mitoy-rice-blocks:index.html:title",
+      "passed": true,
+      "detail": "Title length 31."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:description",
+      "passed": true,
+      "detail": "Description length 74."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/mitoy-rice-blocks/."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include MiToy 米積木."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:playzu:index.html:title",
+      "passed": true,
+      "detail": "Title length 39."
+    },
+    {
+      "id": "blog:playzu:index.html:description",
+      "passed": true,
+      "detail": "Description length 121."
+    },
+    {
+      "id": "blog:playzu:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/playzu/."
+    },
+    {
+      "id": "blog:playzu:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:playzu:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:playzu:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include Playzu 地墊."
+    },
+    {
+      "id": "blog:playzu:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:playzu:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:playzu:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:playzu:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:playzu:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:playzu:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:playzu:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:playzu:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:playzu:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:playzu:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:playzu:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:playzu:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:playzu:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:playzu:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:playzu:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:playzu:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:playzu:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:playzu:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:playzu:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:playzu:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:playzu:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:playzu:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:title",
+      "passed": true,
+      "detail": "Title length 33."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:description",
+      "passed": true,
+      "detail": "Description length 64."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/wave-hummus/."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include Wave 鷹嘴豆泥怎麼吃？."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
       "id": "identity:artisan-cb301",
       "passed": true,
       "detail": "CB301 does not inherit the sibling leg-massager video or model."
@@ -599,24 +1199,14 @@
       "detail": "CB301 uses its editorial cover on both the article and blog index."
     },
     {
-      "id": "catalog:https://www.eaglish.store/blog/playzu/",
+      "id": "catalog:https://www.eaglish.store/blog/artisan-cb301/",
       "passed": true,
       "detail": "Product-card article mapping exists."
     },
     {
-      "id": "catalog:https://www.eaglish.store/blog/hereu-tag/",
+      "id": "blog-index:https://www.eaglish.store/blog/artisan-cb301/",
       "passed": true,
-      "detail": "Product-card article mapping exists."
-    },
-    {
-      "id": "catalog:https://www.eaglish.store/blog/mitoy-rice-blocks/",
-      "passed": true,
-      "detail": "Product-card article mapping exists."
-    },
-    {
-      "id": "catalog:https://www.eaglish.store/blog/chulu-aomori-drinks/",
-      "passed": true,
-      "detail": "Product-card article mapping exists."
+      "detail": "Blog index links to the article."
     },
     {
       "id": "catalog:https://www.eaglish.store/blog/atojet/",
@@ -624,19 +1214,69 @@
       "detail": "Product-card article mapping exists."
     },
     {
-      "id": "catalog:https://www.eaglish.store/blog/wave-hummus/",
+      "id": "blog-index:https://www.eaglish.store/blog/atojet/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/chulu-aomori-drinks/",
       "passed": true,
       "detail": "Product-card article mapping exists."
     },
     {
-      "id": "catalog:https://www.eaglish.store/blog/artisan-cb301/",
+      "id": "blog-index:https://www.eaglish.store/blog/chulu-aomori-drinks/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/hereu-tag/",
       "passed": true,
       "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/hereu-tag/",
+      "passed": true,
+      "detail": "Blog index links to the article."
     },
     {
       "id": "catalog:https://www.eaglish.store/blog/meroware/",
       "passed": true,
       "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/meroware/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/mitoy-rice-blocks/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/mitoy-rice-blocks/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/playzu/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/playzu/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/wave-hummus/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/wave-hummus/",
+      "passed": true,
+      "detail": "Blog index links to the article."
     },
     {
       "id": "homepage:meroware",

@@ -1,22 +1,21 @@
 #!/usr/bin/env node
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://www.eaglish.store';
-const pages = [
-  { path: 'blog/playzu/index.html', url: `${ORIGIN}/blog/playzu/`, type: 'Article', phrase: 'Playzu 地墊' },
-  { path: 'blog/hereu-tag/index.html', url: `${ORIGIN}/blog/hereu-tag/`, type: 'Article', phrase: 'Hereu Tag 智慧定位器' },
-  { path: 'blog/mitoy-rice-blocks/index.html', url: 'https://www.eaglish.store/blog/mitoy-rice-blocks/', type: 'Article', phrase: 'MiToy 米積木' },
-  { path: 'blog/chulu-aomori-drinks/index.html', url: 'https://www.eaglish.store/blog/chulu-aomori-drinks/', type: 'Article', phrase: '台東初鹿與青森飲品' },
-  { path: 'blog/index.html', url: `${ORIGIN}/blog/`, type: 'Blog', phrase: '鷹家選物誌' },
-  { path: 'blog/atojet/index.html', url: `${ORIGIN}/blog/atojet/`, type: 'Article', phrase: 'Atojet 濾芯蓮蓬頭' },
-  { path: 'blog/wave-hummus/index.html', url: `${ORIGIN}/blog/wave-hummus/`, type: 'Article', phrase: 'Wave 鷹嘴豆泥' },
-  { path: 'blog/artisan-cb301/index.html', url: `${ORIGIN}/blog/artisan-cb301/`, type: 'Article', phrase: 'ARTISAN CB301 電動清潔刷' },
-  { path: 'blog/meroware/index.html', url: `${ORIGIN}/blog/meroware/`, type: 'Article', phrase: 'Meroware 餐具與水壺' },
-];
+const articlePages = readdirSync(join(ROOT, 'blog'), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && existsSync(join(ROOT, 'blog', entry.name, 'index.html')))
+  .map((entry) => {
+    const path = `blog/${entry.name}/index.html`;
+    const html = readFileSync(join(ROOT, path), 'utf8');
+    const phrase = html.match(/<span\s+class=["']seo-subject["'][^>]*>([\s\S]*?)<\/span>/i)?.[1]
+      .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() || '';
+    return { path, url: `${ORIGIN}/blog/${entry.name}/`, type: 'Article', phrase };
+  }).sort((a, b) => a.path.localeCompare(b.path));
+const pages = [{ path: 'blog/index.html', url: `${ORIGIN}/blog/`, type: 'Blog', phrase: '鷹家選物誌' }, ...articlePages];
 const forbiddenPublicText = ['閱讀風格預覽', '尚未發布', '廠商情境照片', '廠商套組照片', '內部審核', '待 Hiram 核准', '依生活分類', '正在確認最新團購狀態', '團購狀態已依', '目前無法取得最新團購狀態'];
 
 function content(path) { return readFileSync(join(ROOT, path), 'utf8'); }
@@ -40,6 +39,18 @@ function localAssets(html) {
   return [...html.matchAll(/\b(?:src|href)=["'](\/[^"'#?]+)["']/gi)]
     .map((match) => match[1]).filter((path) => !path.endsWith('/'));
 }
+function articleNode(schemas) {
+  const values = schemas.flatMap((item) => Array.isArray(item?.['@graph']) ? item['@graph'] : [item]);
+  return values.find((item) => item?.['@type'] === 'Article') || null;
+}
+function significantText(html) {
+  return html.replace(/<script[\s\S]*?<\/script>/gi, ' ').replace(/<style[\s\S]*?<\/style>/gi, ' ')
+    .replace(/<[^>]+>/g, ' ').replace(/&[^;]+;/g, ' ').replace(/\s+/g, ' ').trim();
+}
+function sitemapLastmod(xml, url) {
+  const escaped = url.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  return xml.match(new RegExp(`<loc>${escaped}<\\/loc>\\s*<lastmod>([^<]+)<\\/lastmod>`))?.[1] || '';
+}
 
 export function auditBlog() {
   const checks = [];
@@ -59,6 +70,7 @@ export function auditBlog() {
     let schemas = [];
     try { schemas = jsonLd(html); } catch { /* recorded below */ }
     const schemaTypes = schemas.reduce((all, item) => types(item, all), new Set());
+    const article = page.type === 'Article' ? articleNode(schemas) : null;
 
     check(`${id}:title`, title.length >= 20 && title.length <= 80, `Title length ${title.length}.`);
     check(`${id}:description`, description.length >= 55 && description.length <= 180, `Description length ${description.length}.`);
@@ -67,7 +79,31 @@ export function auditBlog() {
     check(`${id}:single-h1`, (html.match(/<h1\b/gi) || []).length === 1, 'Exactly one H1.');
     check(`${id}:search-phrase`, title.includes(page.phrase) && h1.includes(page.phrase), `Title and H1 include ${page.phrase}.`);
     check(`${id}:schema`, schemaTypes.has(page.type), `${page.type} structured data parses.`);
-    if (page.type === 'Article') check(`${id}:breadcrumb`, schemaTypes.has('BreadcrumbList'), 'BreadcrumbList structured data parses.');
+    if (page.type === 'Article') {
+      check(`${id}:breadcrumb`, schemaTypes.has('BreadcrumbList'), 'BreadcrumbList structured data parses.');
+      check(`${id}:author`, article?.author?.['@type'] === 'Organization' && article?.author?.name === '鷹式一家' && article?.author?.url === `${ORIGIN}/`, 'Author is the Eaglish organization with a stable URL.');
+      check(`${id}:publisher`, article?.publisher?.['@type'] === 'Organization' && article?.publisher?.name === '鷹式一家' && article?.publisher?.url === `${ORIGIN}/`, 'Publisher is the Eaglish organization.');
+      check(`${id}:schema-url`, article?.mainEntityOfPage === canonical, 'Article mainEntityOfPage matches canonical.');
+      check(`${id}:schema-dates`, /^\d{4}-\d{2}-\d{2}$/.test(article?.datePublished || '') && /^\d{4}-\d{2}-\d{2}$/.test(article?.dateModified || '') && article.dateModified >= article.datePublished, 'Published and modified dates are valid.');
+      check(`${id}:sitemap-lastmod`, sitemapLastmod(sitemap, page.url) === article?.dateModified, 'Sitemap lastmod matches the significant article update date.');
+      check(`${id}:schema-images`, Array.isArray(article?.image) && article.image.length > 0 && article.image.every((url) => /^https:\/\/www\.eaglish\.store\//.test(url)), 'Article images use absolute first-party URLs.');
+      check(`${id}:schema-keywords`, Array.isArray(article?.keywords) && article.keywords.length >= 2, 'Article has a restrained query/topic cluster.');
+      check(`${id}:schema-noise`, !schemaTypes.has('FAQPage') && !schemaTypes.has('Product'), 'No unsupported commercial FAQ or volatile Product/Offer markup.');
+      check(`${id}:opening-answer`, /<section\s+class=["'][^"']*opening[^"']*["'][\s\S]*?data-answer-block[\s\S]*?<\/section>/i.test(html), 'A source-grounded direct answer is visible near the opening.');
+      check(`${id}:answer-depth`, (html.match(/<details>/gi) || []).length >= 3, 'At least three visible reader questions support extractable answers.');
+      check(`${id}:crawlable-offer-fallback`, /<noscript>[\s\S]*?<a\s+[^>]*href=["']\/["']/i.test(html), 'A stable crawlable fallback reaches the live catalogue without JavaScript.');
+      check(`${id}:content-depth`, significantText(html).length >= 1200, 'Article has substantive consumer-facing depth.');
+      const ogImage = tagValue(html, 'meta', 'property', 'og:image');
+      check(`${id}:social-card`, tagValue(html, 'meta', 'name', 'twitter:card') === 'summary_large_image'
+        && tagValue(html, 'meta', 'name', 'twitter:image') === ogImage
+        && Boolean(tagValue(html, 'meta', 'name', 'twitter:title'))
+        && Boolean(tagValue(html, 'meta', 'name', 'twitter:description')), 'Twitter/X card mirrors the Open Graph card.');
+      check(`${id}:og-image-contract`, /^\d+$/.test(tagValue(html, 'meta', 'property', 'og:image:width'))
+        && /^\d+$/.test(tagValue(html, 'meta', 'property', 'og:image:height'))
+        && Boolean(tagValue(html, 'meta', 'property', 'og:image:alt')), 'OG image has dimensions and alt text.');
+      const badImages = (html.match(/<img\b[^>]*>/gi) || []).filter((tag) => !/\baria-hidden=["']true["']/i.test(tag) && !/\balt=["'][^"']+["']/i.test(tag));
+      check(`${id}:image-alt`, badImages.length === 0, 'Every non-decorative image has descriptive alt text.');
+    }
     check(`${id}:sitemap`, sitemap.includes(`<loc>${page.url}</loc>`), 'Canonical URL is in sitemap.');
     check(`${id}:consumer-copy`, forbiddenPublicText.every((text) => !html.includes(text)), 'No internal review language is visible.');
     const missing = [...new Set(localAssets(html))].filter((path) => !existsSync(join(ROOT, path.slice(1))));
@@ -81,7 +117,12 @@ export function auditBlog() {
   check('identity:artisan-cb301', !artisan.includes('bFNLF_Vgn7k') && !artisan.includes('LM3000'), 'CB301 does not inherit the sibling leg-massager video or model.');
   check('cover:artisan-cb301', artisan.includes('/assets/artisan-cb301/blog-cover-v2.webp') && content('blog/index.html').includes('/assets/artisan-cb301/blog-cover-v2.webp'), 'CB301 uses its editorial cover on both the article and blog index.');
   const productContent = content('product-content.js');
-  for (const page of pages.filter(page => page.type === 'Article')) check(`catalog:${page.url}`, productContent.includes(`article:'${new URL(page.url).pathname}'`), 'Product-card article mapping exists.');
+  const blogIndex = content('blog/index.html');
+  for (const page of articlePages) {
+    const pathname = new URL(page.url).pathname;
+    check(`catalog:${page.url}`, productContent.includes(`article:'${pathname}'`), 'Product-card article mapping exists.');
+    check(`blog-index:${page.url}`, blogIndex.includes(`href="${pathname}"`), 'Blog index links to the article.');
+  }
   check('homepage:meroware', content('index.html').includes('href="/blog/meroware/"'), 'Homepage journal links to the Meroware article.');
   const meroware = content('blog/meroware/index.html');
   const merowareDescription = tagValue(meroware, 'meta', 'name', 'description');
