@@ -7,6 +7,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://www.eaglish.store';
 const pages = [
+  { path: 'blog/hereu-tag/index.html', url: `${ORIGIN}/blog/hereu-tag/`, type: 'Article', phrase: 'Hereu Tag 智慧定位器' },
   { path: 'blog/mitoy-rice-blocks/index.html', url: 'https://www.eaglish.store/blog/mitoy-rice-blocks/', type: 'Article', phrase: 'MiToy 米積木' },
   { path: 'blog/chulu-aomori-drinks/index.html', url: 'https://www.eaglish.store/blog/chulu-aomori-drinks/', type: 'Article', phrase: '台東初鹿與青森飲品' },
   { path: 'blog/index.html', url: `${ORIGIN}/blog/`, type: 'Blog', phrase: '鷹家選物誌' },

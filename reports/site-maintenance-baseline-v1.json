@@ -165,7 +165,7 @@
       "id": "sitemap-https",
       "passed": true,
       "severity": "blocking",
-      "detail": "11 sitemap URL(s) use the canonical HTTPS origin."
+      "detail": "12 sitemap URL(s) use the canonical HTTPS origin."
     },
     {
       "id": "sitemap-unique",

@@ -1,6 +1,7 @@
 /* Shared article/video contract. No Sheet writes, publishing or message sending. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.ProductContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const catalog={
+    hereu:{id:'hereu-tag',brands:['hereu 智慧定位器'],article:'/blog/hereu-tag/',title:'出門前，少找一輪。',excerpt:'從 iPhone 設定到鑰匙、行李的找回方法，替常找不到的東西留一個線索。',category:'旅行與日常',image:'/assets/hereu-tag/cover.webp',published:'2026-09-11'},
     mitoy:{id:'mitoy-rice-blocks',brands:["MiToy米積木"],article:'/blog/mitoy-rice-blocks/',title:"同一盒積木，每天都有新的樣子。",excerpt:"從在恩、在熙的遊戲時光，看看 25 顆、50 顆與主題組怎麼選。",category:"孩子的遊戲時光",image:'/assets/mitoy-rice-blocks/play.webp',published:'2026-09-10'},
     chuluAomori:{id:'chulu-aomori-drinks',brands:["台東初鹿&青森蘋果汁"],article:'/blog/chulu-aomori-drinks/',title:"早餐的那一杯，留給家人喜歡的味道。",excerpt:"原味、可可、伯爵、黑豆芝麻與蘋果香，從家人的飲用習慣慢慢挑。",category:"餐桌上的日常",image:'/assets/chulu-aomori-drinks/flavored.webp',published:'2026-09-10'},
     atojet:{id:'atojet-home-shower',brands:['Atojet 濾芯蓮蓬頭'],article:'/blog/atojet/',title:'洗澡的水，看起來很乾淨。直到我們拆開了濾芯。',excerpt:'一段真實的換芯紀錄，一點關於浴室日常用水的留意。',category:'居家生活',image:'/assets/atojet/vendor-shower.webp',published:'2026-09-08'},

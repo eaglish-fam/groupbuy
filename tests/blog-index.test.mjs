@@ -31,7 +31,7 @@ test('blog articles sort newest first and invalid dates fall to the end',()=>{
 });
 test('public blog candidate has clear sections, static article links, and no internal review language',()=>{
   const home=fs.readFileSync(new URL('../blog/index.html',import.meta.url),'utf8');
-  const slugs=['atojet','wave-hummus','artisan-cb301','meroware','mitoy-rice-blocks','chulu-aomori-drinks'];
+  const slugs=['atojet','wave-hummus','artisan-cb301','meroware','mitoy-rice-blocks','chulu-aomori-drinks','hereu-tag'];
   const articles=slugs.map(slug=>fs.readFileSync(new URL(`../blog/${slug}/index.html`,import.meta.url),'utf8'));
   for(const label of ['開團中','即將開團','選物文章'])assert.ok(home.includes(label));
   for(const slug of slugs)assert.ok(home.includes(`href="/blog/${slug}/"`));
@@ -42,8 +42,8 @@ test('public blog candidate has clear sections, static article links, and no int
   assert.ok(articles[2].includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN article hero uses the dedicated editorial cover');
   assert.ok(home.indexOf('data-article="meroware"')<home.indexOf('data-article="artisanCb301"'),'newest static card appears first before runtime sorting');
   assert.equal((home.match(/data-published="\d{4}-\d{2}-\d{2}"/g)||[]).length,slugs.length,'every article card declares a publication date');
-  for(const category of ['','食品','居家','母嬰'])assert.ok(home.includes(`data-blog-category="${category}"`),'blog exposes the expected category filter');
-  assert.equal((home.match(/data-category="(?:食品|居家|母嬰)"/g)||[]).length,slugs.length,'every article card has a storefront-compatible category');
+  for(const category of ['','食品','居家','母嬰','旅遊'])assert.ok(home.includes(`data-blog-category="${category}"`),'blog exposes the expected category filter');
+  assert.equal((home.match(/data-category="(?:食品|居家|母嬰|旅遊)"/g)||[]).length,slugs.length,'every article card has a storefront-compatible category');
   const storefront=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
   assert.ok(storefront.includes('href="/blog/meroware/"'),'storefront journal links to Meroware');
 });
