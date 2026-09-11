@@ -1,6 +1,6 @@
 (function(root,factory){const api=factory(typeof module==='object'?require('../product-content.js'):root.ProductContent);if(typeof module==='object')module.exports=api;else root.BlogIndexModel=api;})(typeof globalThis!=='undefined'?globalThis:this,function(ProductContent){
   function formatDate(value){const date=ProductContent.date(value);if(!date)return '';return new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',month:'long',day:'numeric'}).format(new Date(date+'T12:00:00+08:00'));}
-  function rowFor(rows,key){const item=ProductContent.catalog[key];if(!item)return null;const matches=rows.filter(row=>ProductContent.entry(row['品牌']||'')?.id===item.id);return matches.length===1?matches[0]:null;}
+  function rowFor(rows,key){return ProductContent.rowForArticle(rows,key);}
   function newestFirst(a,b){
     const left=ProductContent.date(a)||'0000-00-00',right=ProductContent.date(b)||'0000-00-00';
     return right.localeCompare(left);

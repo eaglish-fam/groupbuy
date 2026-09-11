@@ -1,6 +1,7 @@
 /* Shared article/video contract. No Sheet writes, publishing or message sending. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.ProductContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const catalog={
+    kietla:{id:'kietla-kids-sunglasses',brands:['法國 Ki ET LA 兒童太陽眼鏡｜墨鏡'],ignoreExplicitlyClosedHistory:true,article:'/blog/kietla-kids-sunglasses/',title:'小小的臉，也有自己的喜歡。',excerpt:'從 0–1 歲到大童，配戴照片、框型圖鑑與護眼圖解，找到孩子願意戴的那一副。',category:'和孩子一起出門',image:'/assets/kietla/cover.webp',published:'2026-09-11'},
     playzu:{id:'playzu',brands:['Playzu'],article:'/blog/playzu/',title:'地板留給孩子，風格留給自己。',excerpt:'20 款花色搭配與我們家的生活照，先找到像你家的那一款，再量好尺寸。',category:'家的模樣',image:'/assets/playzu/cover.webp',published:'2026-09-11'},
     hereu:{id:'hereu-tag',brands:['hereu 智慧定位器'],article:'/blog/hereu-tag/',title:'出門前，少找一輪。',excerpt:'從 iPhone 設定到鑰匙、行李的找回方法，替常找不到的東西留一個線索。',category:'旅行與日常',image:'/assets/hereu-tag/cover.webp',published:'2026-09-11'},
     mitoy:{id:'mitoy-rice-blocks',brands:["MiToy米積木"],article:'/blog/mitoy-rice-blocks/',title:"同一盒積木，每天都有新的樣子。",excerpt:"從在恩、在熙的遊戲時光，看看 25 顆、50 顆與主題組怎麼選。",category:"孩子的遊戲時光",image:'/assets/mitoy-rice-blocks/play.webp',published:'2026-09-10'},
@@ -15,9 +16,10 @@
   function withUTM(value,brand){const safe=safeUrl(value);if(!safe)return '';const u=new URL(safe);if(!u.searchParams.has('utm_source')){u.searchParams.set('utm_source','eaglish');u.searchParams.set('utm_medium','groupbuy');if(brand)u.searchParams.set('utm_campaign',brand);}return u.href;}
   function videoId(url){try{const u=new URL(url);if(u.hostname==='youtu.be')return /^[\w-]{11}$/.test(u.pathname.slice(1))?u.pathname.slice(1):'';if(['youtube.com','www.youtube.com','m.youtube.com','www.youtube-nocookie.com'].includes(u.hostname)){const id=u.searchParams.get('v')||u.pathname.split('/')[2]||'';return /^[\w-]{11}$/.test(id)?id:'';}}catch{}return '';}
   function instagramEmbed(url){try{const u=new URL(url);if(!['instagram.com','www.instagram.com'].includes(u.hostname))return '';const match=u.pathname.match(/^\/(reel|reels|p)\/([\w-]+)\/?/);if(!match)return '';const kind=match[1]==='reels'?'reel':match[1];return `https://www.instagram.com/${kind}/${match[2]}/embed/`;}catch{return '';}}
+  function youtubeStart(url){try{const u=new URL(url),raw=u.searchParams.get('start')||u.searchParams.get('t')||'';if(!raw)return 0;const match=raw.match(/^(?:(\d+)h)?(?:(\d+)m)?(?:(\d+)s)?$/);const seconds=/^\d+$/.test(raw)?Number(raw):match?Number(match[1]||0)*3600+Number(match[2]||0)*60+Number(match[3]||0):0;return Number.isSafeInteger(seconds)&&seconds>0&&seconds<=86400?seconds:0;}catch{return 0;}}
   function videos(input){
     let list=input;if(typeof list==='string'){try{list=JSON.parse(list);}catch{list=list.split(/\r?\n/);}}if(!Array.isArray(list))list=list?[list]:[];
-    const seen=new Set();return list.flatMap((v)=>{if(typeof v==='string'){const i=v.indexOf('|');v=i<0?{url:v}:{title:v.slice(0,i).trim(),url:v.slice(i+1).trim()};}if(!v||typeof v!=='object')return [];const url=safeUrl(v.url),id=videoId(url),instagram=instagramEmbed(url),key=id||instagram||url;if(!url||seen.has(key))return [];seen.add(key);const youtube=id?`https://www.youtube-nocookie.com/embed/${id}`:'';return [{url,title:String(v.title||`影片 ${seen.size}`),type:String(v.type||'其他'),youtubeId:id,embedUrl:youtube||instagram,embedType:youtube?'youtube':instagram?'instagram':'external',vertical:Boolean(instagram||/\/shorts\//.test(new URL(url).pathname))}];});
+    const seen=new Set();return list.flatMap((v)=>{if(typeof v==='string'){const i=v.indexOf('|');v=i<0?{url:v}:{title:v.slice(0,i).trim(),url:v.slice(i+1).trim()};}if(!v||typeof v!=='object')return [];const url=safeUrl(v.url),id=videoId(url),instagram=instagramEmbed(url),key=id||instagram||url;if(!url||seen.has(key))return [];seen.add(key);const start=youtubeStart(url),youtube=id?`https://www.youtube-nocookie.com/embed/${id}${start?'?start='+start:''}`:'';return [{url,title:String(v.title||`影片 ${seen.size}`),type:String(v.type||'其他'),youtubeId:id,embedUrl:youtube||instagram,embedType:youtube?'youtube':instagram?'instagram':'external',vertical:Boolean(instagram||/\/shorts\//.test(new URL(url).pathname))}];});
   }
   function fromRow(row){if(entry(row['品牌'])?.videoPolicy==='none')return [];return videos([...(videos(row['影片清單']||row['Videos']||'')),...(videos(row['影片網址']||row.Video||row.VideoURL||''))]);}
   function sheetRows(data){const headers=(data[0]||[]).map(x=>String(x).trim());for(const h of ['品牌','連結','類型','開團日期','結束日期'])if(headers.filter(x=>x===h).length!==1)throw Error('Unexpected Sheet headers');return data.slice(1).map(row=>Object.fromEntries(headers.flatMap((h,i)=>h?[[h,row[i]||'']]:[])));}
@@ -27,12 +29,20 @@
   function videoButton(g){if(entry(g.brand)?.videoPolicy==='none')return '';const list=videos(g.videos||g.video);return list.length?`<div class="mb-3"><button class="card-secondary-btn" data-video-brand="${escape(g.brand)}">觀看影片${list.length>1?`（${list.length}）`:''}</button></div>`:'';}
   function today(){return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());}
   function date(value){const m=String(value||'').trim().match(/^(\d{4})[-/](\d{1,2})[-/](\d{1,2})$/);if(!m)return '';const s=`${m[1]}-${m[2].padStart(2,'0')}-${m[3].padStart(2,'0')}`;const d=new Date(s+'T00:00:00Z');return Number.isFinite(d.getTime())&&d.toISOString().slice(0,10)===s?s:'';}
+  function rowForArticle(rows,key){
+    const item=catalog[key];if(!item)return null;
+    let matches=rows.filter(r=>entry(r['品牌']||'')?.id===item.id);
+    // Opt-in only for verified brands with separate, explicitly closed historical rows.
+    // Ambiguous current rows still fail closed, regardless of date or URL.
+    if(item.ignoreExplicitlyClosedHistory){const current=matches.filter(r=>!/結團|已結束|closed|ended/i.test(String(r['類型']||'')));if(current.length)matches=current;}
+    return matches.length===1?matches[0]:null;
+  }
   function campaignFor(rows,key,now=today()){
     const item=catalog[key];
     if(!item)return {state:'unavailable',label:'目前無法確認團購狀態'};
-    const matches=rows.filter(r=>entry(r['品牌']||'')?.id===item.id);
-    if(matches.length!==1)return {state:'unavailable',label:'目前無法確認團購狀態'};
-    const r=matches[0],type=String(r['類型']||''),start=date(r['開團日期']),end=date(r['結束日期']),url=safeUrl(r['連結']);
+    const r=rowForArticle(rows,key);
+    if(!r)return {state:'unavailable',label:'目前無法確認團購狀態'};
+    const type=String(r['類型']||''),start=date(r['開團日期']),end=date(r['結束日期']),url=safeUrl(r['連結']);
     if(/結團|已結束|closed|ended/i.test(type))return {state:'closed',label:'本次團購已結束'};
     if((r['開團日期']&&!start)||(r['結束日期']&&!end)||(!end&&!/長期|long/i.test(type)))return {state:'unavailable',label:'檔期待確認'};
     if(start&&end&&start>end)return {state:'unavailable',label:'檔期待確認'};
@@ -77,5 +87,5 @@
     container.append(nav,panel);select(list[0],0);
   }
   function install(getGroups){document.addEventListener('click',e=>{const v=e.target.closest('[data-video-brand]'),r=e.target.closest('[data-reading-brand]');if(!v&&!r)return;const g=getGroups().find(g=>g.brand===(v?.dataset.videoBrand||r?.dataset.readingBrand));if(!g)return;e.preventDefault();e.stopPropagation();const d=dialog(v?'觀看影片':'閱讀文章');if(v)mountVideos(d,g.videos||g.video);else{const p=document.createElement('p');p.textContent='選擇閱讀內容（尚未整合的舊文保留原始入口）';d.append(p);for(const x of readingLinks(g)){const a=document.createElement('a');a.href=x.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=x.title;d.append(a);}}d.showModal();});}
-  return {catalog,escape,safeUrl,withUTM,videoId,instagramEmbed,videos,fromRow,sheetRows,entry,readingLinks,readingButton,videoButton,date,campaign,campaignFor,today,mountVideos,install};
+  return {catalog,escape,safeUrl,withUTM,videoId,instagramEmbed,videos,fromRow,sheetRows,entry,readingLinks,readingButton,videoButton,date,campaign,campaignFor,rowForArticle,today,mountVideos,install};
 });

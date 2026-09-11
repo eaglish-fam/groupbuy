@@ -51,7 +51,7 @@ async function refreshOffer(navigate=false){
     if(c.state==='open')offerButton.dataset.desktopFloatingLabel='true';
     floatingOffer.setAvailable(c.state==='open');
     statusEl.textContent=c.state==='open'?'已核對當期檔期。價格、庫存與優惠請以廠商賣場為準。':'暫不提供直接購買；仍可閱讀文章或返回團購首頁。';
-    const current=rows.find(r=>ProductContent.entry(r['品牌'])?.id===article.id);
+    const current=ProductContent.rowForArticle(rows,articleKey);
     const list=ProductContent.videos([...seed,...ProductContent.fromRow(current||{})]);
     const signature=JSON.stringify(list);if(videoEl&&signature!==videoSignature){videoEl.replaceChildren();ProductContent.mountVideos(videoEl,list);videoSignature=signature;}
     if(navigate&&c.state==='open'){window.SiteAnalytics?.track('click_group_from_blog',{group_name:article.brands[0],event_category:'conversion'});window.location.assign(c.url);}return c;
