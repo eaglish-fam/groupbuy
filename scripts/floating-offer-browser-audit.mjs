@@ -36,6 +36,7 @@ try{
    check(`${width} ${c.id}: floating visible and reachable`,await page.locator('[data-current-offer]').evaluate(b=>{const r=b.getBoundingClientRect();return r.height>=44&&r.left>=0&&r.right<=innerWidth&&r.bottom<=innerHeight&&r.bottom>innerHeight-80;}));
    check(`${width} ${c.id}: responsive floating placement`,await page.locator('[data-current-offer]').evaluate((b,width)=>{const r=b.getBoundingClientRect();return width<=700?r.width<innerWidth*.8&&r.bottom<=innerHeight-10:r.width<=118&&r.right<=innerWidth-27&&r.bottom<=innerHeight-38;},width));
    check(`${width} ${c.id}: borderless elevated treatment`,await page.locator('[data-current-offer]').evaluate(b=>{const s=getComputedStyle(b);return parseFloat(s.borderTopWidth)===0&&s.boxShadow!=='none'&&s.backgroundImage.includes('gradient');}));
+   check(`${width} ${c.id}: translucent glass treatment`,await page.locator('[data-current-offer]').evaluate(b=>{const s=getComputedStyle(b);return s.backgroundImage.includes('0.68')&&s.backdropFilter.includes('blur(18px)')&&!s.boxShadow.includes('30px')&&!s.boxShadow.includes('-1px');}));
    if(width>700)check(`${width} ${c.id}: compact two-line desktop label`,await page.locator('[data-current-offer]').evaluate(b=>getComputedStyle(b,'::after').content.includes('組合優惠')));
    check(`${width} ${c.id}: no horizontal overflow`,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
    await page.locator('.offer-slot').evaluate(e=>e.scrollIntoView({block:'center',behavior:'instant'}));
