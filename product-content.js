@@ -1,7 +1,7 @@
 /* Shared article/video contract. No Sheet writes, publishing or message sending. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.ProductContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const catalog={
-    kietla:{id:'kietla-kids-sunglasses',brands:['法國 Ki ET LA 兒童太陽眼鏡｜墨鏡'],ignoreExplicitlyClosedHistory:true,videoPolicy:'none',article:'/blog/kietla-kids-sunglasses/',title:'小小的臉，也有自己的喜歡。',excerpt:'從 0–1 歲到大童，配戴照片、框型圖鑑與護眼圖解，找到孩子願意戴的那一副。',category:'和孩子一起出門',image:'/assets/kietla/cover.webp',published:'2026-09-11'},
+    kietla:{id:'kietla-kids-sunglasses',brands:['法國 Ki ET LA 兒童太陽眼鏡｜墨鏡'],ignoreExplicitlyClosedHistory:true,videoPolicy:'none',article:'/blog/kietla-kids-sunglasses/',title:'小小的臉，也有自己的風格。',excerpt:'從 0–1 歲到大童，配戴照片、框型圖鑑與護眼圖解，找到孩子願意戴的那一副。',category:'和孩子一起出門',image:'/assets/kietla/cover-style-v2.webp',published:'2026-09-11'},
     playzu:{id:'playzu',brands:['Playzu'],article:'/blog/playzu/',title:'地板留給孩子，風格留給自己。',excerpt:'20 款花色搭配與我們家的生活照，先找到像你家的那一款，再量好尺寸。',category:'家的模樣',image:'/assets/playzu/cover.webp',published:'2026-09-11'},
     hereu:{id:'hereu-tag',brands:['hereu 智慧定位器'],article:'/blog/hereu-tag/',title:'出門前，少找一輪。',excerpt:'從 iPhone 設定到鑰匙、行李的找回方法，替常找不到的東西留一個線索。',category:'旅行與日常',image:'/assets/hereu-tag/cover.webp',published:'2026-09-11'},
     mitoy:{id:'mitoy-rice-blocks',brands:["MiToy米積木"],article:'/blog/mitoy-rice-blocks/',title:"同一盒積木，每天都有新的樣子。",excerpt:"從在恩、在熙的遊戲時光，看看 25 顆、50 顆與主題組怎麼選。",category:"孩子的遊戲時光",image:'/assets/mitoy-rice-blocks/play.webp',published:'2026-09-10'},
