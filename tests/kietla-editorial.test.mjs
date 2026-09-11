@@ -8,7 +8,10 @@ test('Ki ET LA uses exact product identity and all intended reading surfaces',()
  assert.equal(pc.entry('法國 Ki ET LA 兒童太陽眼鏡｜墨鏡').id,'kietla-kids-sunglasses');
  assert.equal(pc.entry('法國 Ki ET LA 兒童太陽眼鏡｜墨鏡').article,'/blog/kietla-kids-sunglasses/');
  for(const path of ['blog/index.html','sitemap.xml'])assert.ok(fs.readFileSync(new URL('../'+path,import.meta.url),'utf8').includes('/blog/kietla-kids-sunglasses/'));
- assert.ok(html.includes('data-current-offer'));assert.ok(html.includes('id="article-videos"'));
+ assert.ok(html.includes('data-current-offer'));assert.ok(!html.includes('id="article-videos"'));
+ assert.equal(pc.catalog.kietla.videoPolicy,'none');
+ assert.deepEqual(pc.fromRow({'品牌':'法國 Ki ET LA 兒童太陽眼鏡｜墨鏡','影片網址':'https://youtu.be/opoJj0-_lOQ?t=1200'}),[]);
+ assert.equal(pc.videoButton({brand:'法國 Ki ET LA 兒童太陽眼鏡｜墨鏡',video:'https://youtu.be/opoJj0-_lOQ?t=1200'}),'');
 });
 test('Ki ET LA ignores only explicitly closed history, never ambiguous current offers',()=>{
  const live={'品牌':'法國 Ki ET LA 兒童太陽眼鏡｜墨鏡','類型':'短期','開團日期':'2026-07-22','結束日期':'2026-09-30','連結':'https://gbf.tw/vqkfv','影片網址':'https://youtu.be/opoJj0-_lOQ?t=1200'};
