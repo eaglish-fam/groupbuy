@@ -40,7 +40,7 @@
     if(start&&now<start)return {state:'upcoming',label:'尚未開團'};
     if(!url)return {state:'unavailable',label:'購買連結待確認'};
     if(String(r['庫存狀態']||'')==='售完')return {state:'closed',label:'目前已售完'};
-    return {state:'open',label:'查看當期組合與優惠',url,videos:fromRow(r),end};
+    return {state:'open',label:'查看當期組合優惠',url,videos:fromRow(r),end};
   }
   function campaign(rows,now=today()){return campaignFor(rows,'atojet',now);}
   function dialog(title){const d=document.createElement('dialog');d.className='content-dialog';d.setAttribute('aria-label',title);const head=document.createElement('header'),h=document.createElement('h2'),close=document.createElement('button');h.textContent=title;close.textContent='關閉 ×';close.setAttribute('aria-label','關閉視窗');close.onclick=()=>d.close();head.append(h,close);d.append(head);const previous=document.activeElement;d.addEventListener('close',()=>{d.remove();previous?.focus();});d.addEventListener('click',e=>{if(e.target===d){const b=d.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)d.close();}});document.body.append(d);return d;}

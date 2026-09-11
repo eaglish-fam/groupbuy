@@ -10,6 +10,24 @@
 .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.masthead .brand{display:block;width:176px;line-height:1;text-decoration:none}.masthead .brand img{display:block;width:100%;height:auto}.masthead .brand small{display:block;margin-top:4px;font:9px var(--sans);letter-spacing:.22em;color:var(--muted)}@media(max-width:700px){.masthead .brand{width:155px}.masthead .brand small{font-size:8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 .seo-subject{display:block;margin-bottom:18px;color:var(--rust);font:600 13px/1.8 var(--sans);letter-spacing:.13em}
+/* One purchase control: floating during reading, in place at the closing section. */
+.offer-slot{margin:25px auto 12px;max-width:390px;width:100%;scroll-margin-bottom:90px}
+.offer-bar{--offer-bottom:12px;--offer-bottom:calc(12px + env(safe-area-inset-bottom,0px));bottom:var(--offer-bottom)}
+.purchase .offer-bar button{margin:0;width:100%;max-width:none;min-height:54px;font-size:16px}
+.offer-bar.is-floating{position:fixed;z-index:40;left:50%;bottom:var(--offer-bottom);transform:translateX(-50%);width:max-content;max-width:calc(100% - 32px);border-radius:12px}
+.purchase .offer-bar.is-floating button{width:auto;max-width:100%;min-height:52px;padding:12px 25px;white-space:nowrap;border:0;border-radius:12px;background:linear-gradient(145deg,#496452 0%,#365949 56%,#29483a 100%);box-shadow:inset 0 1px 0 #ffffff2e,0 12px 30px #20382d3b,0 3px 9px #20382d26,0 0 24px #6483732b;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.purchase .offer-bar.is-floating button:not(:disabled):hover{background:linear-gradient(145deg,#526d5a 0%,#3d6251 56%,#2e4f40 100%);box-shadow:inset 0 1px 0 #ffffff38,0 15px 34px #20382d42,0 4px 10px #20382d2b,0 0 28px #64837330;transform:translateY(-1px)}
+.purchase .offer-bar.is-floating button:not(:disabled):active{transform:translateY(1px);box-shadow:inset 0 1px 0 #ffffff24,0 8px 20px #20382d35,0 2px 6px #20382d24,0 0 18px #64837324}
+html:has(.offer-bar.is-floating){scroll-padding-bottom:100px}
+@media(min-width:701px){
+  .offer-bar{--offer-bottom:40px;--offer-bottom:calc(40px + env(safe-area-inset-bottom,0px))}
+  .offer-bar.is-floating{left:auto;right:clamp(28px,4vw,68px);transform:none;width:116px;max-width:116px}
+  .purchase .offer-bar.is-floating button{width:116px;min-height:72px;padding:11px 12px;white-space:normal;line-height:1.45}
+  .purchase .offer-bar.is-floating button[data-desktop-floating-label="true"]{font-size:0}
+  .purchase .offer-bar.is-floating button[data-desktop-floating-label="true"]::after{content:"查看當期\A組合優惠";white-space:pre;font-size:15px;font-weight:600;letter-spacing:.07em}
+}
+@media(prefers-reduced-motion:reduce){.purchase .offer-bar.is-floating button{transition:none}}
+@media print{.offer-bar.is-floating{position:static;transform:none;width:100%;box-shadow:none}}
 /* Product names remain readable beside the family-photo captions. */
 [data-article-key="meroware"] figcaption .product-name{display:block;margin:0 0 7px;font:600 16px/1.6 var(--sans);color:var(--green);letter-spacing:0}
 [data-article-key="meroware"] .product-pair figcaption .handwritten,[data-article-key="meroware"] .product-photo figcaption .handwritten{display:block;font:18px/1.65 var(--hand);color:var(--muted)}
