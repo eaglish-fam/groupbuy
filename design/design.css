@@ -652,9 +652,11 @@ h1 {
   color: var(--orange);
   background: #f6e9df;
 }
-.status-tabs button[data-status="open"][aria-pressed="true"] {
+.status-tabs button[data-status="open"] {
   color: var(--orange);
   background: transparent;
+}
+.status-tabs button[data-status="open"][aria-pressed="true"] {
   border-bottom-color: var(--olive);
 }
 .closing-countdown {

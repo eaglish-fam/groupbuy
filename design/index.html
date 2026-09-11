@@ -145,12 +145,12 @@
           </section>
           <div class="catalog-toolbar">
             <div class="status-tabs" role="group" aria-label="團購狀態">
-              <button data-status="open" aria-pressed="true">限時開團</button
-              ><button data-status="long" aria-pressed="false">常駐好物</button
+              <button data-status="all" aria-pressed="true">全部商品</button
+              ><button data-status="open" aria-pressed="false">限時團購</button
+              ><button data-status="long" aria-pressed="false">常駐團購</button
               ><button data-status="upcoming" aria-pressed="false">
                 即將開團</button
-              ><button data-status="saved" aria-pressed="false">我的收藏</button
-              ><button data-status="all" aria-pressed="false">全部選物</button>
+              ><button data-status="saved" aria-pressed="false">我的收藏</button>
             </div>
             <label class="search"
               ><svg viewBox="0 0 24 24">
@@ -172,8 +172,8 @@
             ><label
               >排序
               <select id="sort">
-                <option value="recommended">本期選物</option>
-                <option value="closing" selected>即將結團優先</option>
+                <option value="recommended" selected>預設排序</option>
+                <option value="closing">即將結團優先</option>
                 <option value="new">最新開團優先</option>
               </select></label
             ><label

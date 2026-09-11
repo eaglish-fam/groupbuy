@@ -8,7 +8,7 @@ const SAVED_KEY = ["www.eaglish.store", "eaglish.store"].includes(location.hostn
 let loadingPromise = null, refreshedAt = 0, verifiedDay = "", buying = false;
 const track = (name, data = {}) => window.SiteAnalytics?.track(name, data);
 let products = [],
-  currentStatus = "open",
+  currentStatus = "all",
   category = "",
   country = "",
   query = "",
@@ -270,22 +270,13 @@ function render() {
           .toLowerCase()
           .includes(query)) &&
       (currentStatus === "all" || currentStatus === "saved"
-        ? currentStatus === "all" || saved.has(p.key)
+        ? currentStatus === "all" ? !p.kind && p.status.key === "open" : saved.has(p.key)
         : currentStatus === "long"
-          ? p.status.long && p.status.key === "open"
+          ? !p.kind && p.status.long && p.status.key === "open"
           : p.status.key === currentStatus && !p.kind && (currentStatus !== "open" || !p.status.long)),
   );
   const order = $("#sort").value;
-  list.sort((a, b) => {
-    if (order === "closing")
-      return (a.end || "9999").localeCompare(b.end || "9999");
-    if (order === "new") return (b.start || "").localeCompare(a.start || "");
-    return (
-      { open: 0, upcoming: 1, unknown: 2, closed: 3 }[a.status.key] -
-        { open: 0, upcoming: 1, unknown: 2, closed: 3 }[b.status.key] ||
-      Number(b.featured) - Number(a.featured)
-    );
-  });
+  list = sortCatalog(list, currentStatus, order);
   $("#result-count").textContent =
     `${list.length} 件選物${category ? "・" + category : ""}`;
   $("#products").innerHTML = list.length
@@ -313,6 +304,27 @@ function render() {
       ),
     );
   window.dispatchEvent(new Event("catalog-rendered"));
+}
+// Filter first, order the full result, then paginate. Never mutate Sheet order.
+function sortCatalog(list, status, order) {
+  const closing = (a, b) => (a.end || "9999").localeCompare(b.end || "9999");
+  if (order === "closing") return [...list].sort(closing);
+  if (order === "new") return [...list].sort((a, b) => (b.start || "").localeCompare(a.start || ""));
+  if (status === "open") return [...list].sort(closing);
+  if (status === "long") return [...list];
+  if (status === "all") {
+    const timed = list.filter(p => !p.status.long).sort(closing);
+    const evergreen = list.filter(p => p.status.long);
+    const mixed = [];
+    for (let i = 0; i < Math.max(timed.length, evergreen.length); i++) {
+      if (timed[i]) mixed.push(timed[i]);
+      if (evergreen[i]) mixed.push(evergreen[i]);
+    }
+    return mixed;
+  }
+  return [...list].sort((a, b) =>
+    ({ open: 0, upcoming: 1, unknown: 2, closed: 3 }[a.status.key] -
+     { open: 0, upcoming: 1, unknown: 2, closed: 3 }[b.status.key]) || Number(b.featured) - Number(a.featured));
 }
 function setStatus(value) {
   currentStatus = value;
@@ -416,7 +428,8 @@ document.addEventListener("click", (e) => {
     $("#country").value = "";
     $("#search").value = "";
     $("#category").value = category;
-    currentStatus = "open";
+    currentStatus = "all";
+    $("#sort").value = "recommended";
     limit = PAGE_SIZE;
     render();
     $("#catalog").scrollIntoView();
@@ -428,7 +441,7 @@ document.addEventListener("click", (e) => {
     query = "";
     $("#category").value = "";
     $("#search").value = "";
-    setStatus("open");
+    setStatus("all");
   }
 });
 $("#search").addEventListener("input", (e) => {
