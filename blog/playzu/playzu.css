@@ -1,0 +1,20 @@
+/* Playzu palette sits within the shared Eaglish journal typography. */
+[data-article-key="playzu"]{--paper:#faf8f3;--green:#4f6557;--rust:#a2654e}
+.pattern-intro{padding:22px 24px;background:#eeeae0;border-left:3px solid #a6b3a0;margin:28px 0}
+.pattern-intro p:last-child{margin:0}
+.pattern-links{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0 30px}
+.pattern-links a{padding:8px 16px;min-height:44px;border:1px solid #c9cabe;border-radius:30px;font-size:14px;text-decoration:none;background:#fffdf8}
+.pattern-links a:hover{background:#e7ece2}
+.pattern-section{scroll-margin-top:100px}
+.pattern-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 18px;margin:30px -125px 15px}
+#garden .pattern-grid,#dots .pattern-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.pattern-grid figure{min-width:0}.pattern-grid a{display:block}.pattern-grid img{width:100%;aspect-ratio:1;object-fit:contain;background:#eeeae0;border-radius:3px}
+.pattern-grid figcaption{padding:12px 0 0;font-size:14px;color:var(--ink)}
+.pattern-grid .series{display:block;color:#716d60;font-size:12px;letter-spacing:.06em}
+.pattern-grid strong{display:block;font-weight:600;font-size:16px}.pattern-grid .colour{font-size:14px}
+.family-diptych{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:25px 0 12px}.family-diptych img{width:100%;height:auto}
+.family-note{font:20px/1.8 var(--hand)!important;color:var(--rust)}
+.size-table{width:100%;border-collapse:collapse;margin:25px 0;font-size:15px;line-height:1.8}.size-table th,.size-table td{padding:15px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}.size-table th{background:#eceee5;font-weight:600}.size-table td:first-child{width:53%}
+.pattern-viewer{max-width:960px;width:calc(100% - 28px);max-height:90dvh;padding:18px;border:0;background:var(--paper);color:var(--ink);border-radius:6px}.pattern-viewer::backdrop{background:#20291fbd}.pattern-viewer header{display:flex;justify-content:space-between;gap:15px;align-items:center;margin-bottom:12px}.pattern-viewer button{min-width:44px;min-height:44px;border:1px solid #ccc;background:white;border-radius:50%;font-size:22px}.pattern-viewer h2{font:600 18px/1.6 var(--sans);margin:0}.pattern-viewer img{display:block;max-width:100%;max-height:68dvh;width:auto;height:auto;margin:auto}
+@media(max-width:1100px){.pattern-grid{margin-inline:-30px}}
+@media(max-width:700px){.pattern-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px;margin:25px -8px}.pattern-grid strong{font-size:16px}.pattern-grid .series{font-size:12px}.pattern-grid .colour{font-size:14px}.pattern-intro{padding:18px}.pattern-links{gap:8px}.pattern-links a{padding-inline:12px}.size-table th,.size-table td{padding:12px 8px;font-size:14px}.family-note{font-size:18px!important}}

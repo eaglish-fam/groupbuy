@@ -1,13 +1,78 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-11T00:30:33.856Z",
+  "generatedAt": "2026-09-11T04:27:08.208Z",
   "status": "ready",
   "summary": {
-    "checks": 115,
-    "passed": 115,
+    "checks": 129,
+    "passed": 129,
     "failures": 0
   },
   "checks": [
+    {
+      "id": "blog:playzu:index.html:title",
+      "passed": true,
+      "detail": "Title length 39."
+    },
+    {
+      "id": "blog:playzu:index.html:description",
+      "passed": true,
+      "detail": "Description length 121."
+    },
+    {
+      "id": "blog:playzu:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/playzu/."
+    },
+    {
+      "id": "blog:playzu:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:playzu:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:playzu:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include Playzu 地墊."
+    },
+    {
+      "id": "blog:playzu:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:playzu:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:playzu:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:playzu:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:playzu:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:playzu:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:playzu:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
     {
       "id": "blog:hereu-tag:index.html:title",
       "passed": true,
@@ -532,6 +597,11 @@
       "id": "cover:artisan-cb301",
       "passed": true,
       "detail": "CB301 uses its editorial cover on both the article and blog index."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/playzu/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
     },
     {
       "id": "catalog:https://www.eaglish.store/blog/hereu-tag/",
