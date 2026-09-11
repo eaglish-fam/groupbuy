@@ -901,6 +901,15 @@ dialog::backdrop {
   padding: 8px 12px;
   min-height: 44px;
 }
+.close:focus-visible {
+  outline: none;
+  border-radius: 999px;
+  background: var(--cream);
+  color: var(--olive);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
 .detail-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
