@@ -1,4 +1,4 @@
-const CACHE_NAME = "eaglish-living-edit-20260909";
+const CACHE_NAME = "eaglish-living-edit-20260911-video-poster";
 self.addEventListener("install", event => {
   self.skipWaiting();
   event.waitUntil(caches.open(CACHE_NAME));

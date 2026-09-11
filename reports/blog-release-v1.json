@@ -1,10 +1,10 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-11T08:52:34.999Z",
+  "generatedAt": "2026-09-11T09:16:53.177Z",
   "status": "ready",
   "summary": {
-    "checks": 257,
-    "passed": 257,
+    "checks": 267,
+    "passed": 267,
     "failures": 0
   },
   "checks": [
@@ -184,6 +184,11 @@
       "detail": "Every non-decorative image has descriptive alt text."
     },
     {
+      "id": "blog:artisan-cb301:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
       "id": "blog:artisan-cb301:index.html:sitemap",
       "passed": true,
       "detail": "Canonical URL is in sitemap."
@@ -322,6 +327,11 @@
       "id": "blog:atojet:index.html:image-alt",
       "passed": true,
       "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:atojet:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
     },
     {
       "id": "blog:atojet:index.html:sitemap",
@@ -464,6 +474,11 @@
       "detail": "Every non-decorative image has descriptive alt text."
     },
     {
+      "id": "blog:chulu-aomori-drinks:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
       "id": "blog:chulu-aomori-drinks:index.html:sitemap",
       "passed": true,
       "detail": "Canonical URL is in sitemap."
@@ -602,6 +617,11 @@
       "id": "blog:hereu-tag:index.html:image-alt",
       "passed": true,
       "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:hereu-tag:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
     },
     {
       "id": "blog:hereu-tag:index.html:sitemap",
@@ -744,6 +764,11 @@
       "detail": "Every non-decorative image has descriptive alt text."
     },
     {
+      "id": "blog:meroware:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
       "id": "blog:meroware:index.html:sitemap",
       "passed": true,
       "detail": "Canonical URL is in sitemap."
@@ -882,6 +907,11 @@
       "id": "blog:mitoy-rice-blocks:index.html:image-alt",
       "passed": true,
       "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
     },
     {
       "id": "blog:mitoy-rice-blocks:index.html:sitemap",
@@ -1024,6 +1054,11 @@
       "detail": "Every non-decorative image has descriptive alt text."
     },
     {
+      "id": "blog:playzu:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
       "id": "blog:playzu:index.html:sitemap",
       "passed": true,
       "detail": "Canonical URL is in sitemap."
@@ -1164,6 +1199,11 @@
       "detail": "Every non-decorative image has descriptive alt text."
     },
     {
+      "id": "blog:wave-hummus:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
       "id": "blog:wave-hummus:index.html:sitemap",
       "passed": true,
       "detail": "Canonical URL is in sitemap."
@@ -1197,6 +1237,16 @@
       "id": "cover:artisan-cb301",
       "passed": true,
       "detail": "CB301 uses its editorial cover on both the article and blog index."
+    },
+    {
+      "id": "video:click-to-load",
+      "passed": true,
+      "detail": "YouTube uses a visible poster and a user-initiated inline player."
+    },
+    {
+      "id": "video:responsive-poster",
+      "passed": true,
+      "detail": "Video poster supports vertical media and an accessible play affordance."
     },
     {
       "id": "catalog:https://www.eaglish.store/blog/artisan-cb301/",

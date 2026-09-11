@@ -103,6 +103,7 @@ export function auditBlog() {
         && Boolean(tagValue(html, 'meta', 'property', 'og:image:alt')), 'OG image has dimensions and alt text.');
       const badImages = (html.match(/<img\b[^>]*>/gi) || []).filter((tag) => !/\baria-hidden=["']true["']/i.test(tag) && !/\balt=["'][^"']+["']/i.test(tag));
       check(`${id}:image-alt`, badImages.length === 0, 'Every non-decorative image has descriptive alt text.');
+      check(`${id}:video-runtime-version`, html.includes('/product-content.js?v=20260911-video-poster') && html.includes('/product-content.css?v=20260911-video-poster'), 'Article uses the current resilient video runtime and styles.');
     }
     check(`${id}:sitemap`, sitemap.includes(`<loc>${page.url}</loc>`), 'Canonical URL is in sitemap.');
     check(`${id}:consumer-copy`, forbiddenPublicText.every((text) => !html.includes(text)), 'No internal review language is visible.');
@@ -117,6 +118,9 @@ export function auditBlog() {
   check('identity:artisan-cb301', !artisan.includes('bFNLF_Vgn7k') && !artisan.includes('LM3000'), 'CB301 does not inherit the sibling leg-massager video or model.');
   check('cover:artisan-cb301', artisan.includes('/assets/artisan-cb301/blog-cover-v2.webp') && content('blog/index.html').includes('/assets/artisan-cb301/blog-cover-v2.webp'), 'CB301 uses its editorial cover on both the article and blog index.');
   const productContent = content('product-content.js');
+  const productStyles = content('product-content.css');
+  check('video:click-to-load', productContent.includes("poster.replaceWith(frameFor(v))") && productContent.includes('i.ytimg.com/vi/') && productContent.includes("src.searchParams.set('playsinline','1')"), 'YouTube uses a visible poster and a user-initiated inline player.');
+  check('video:responsive-poster', productStyles.includes('.video-poster.is-vertical') && productStyles.includes('.video-play'), 'Video poster supports vertical media and an accessible play affordance.');
   const blogIndex = content('blog/index.html');
   for (const page of articlePages) {
     const pathname = new URL(page.url).pathname;
