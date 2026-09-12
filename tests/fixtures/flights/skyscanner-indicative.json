@@ -1,0 +1,32 @@
+{
+  "status": "RESULT_STATUS_COMPLETE",
+  "content": {
+    "results": {
+      "quotes": {
+        "quote-1": {
+          "minPrice": { "amount": "6688.00", "unit": "PRICE_UNIT_WHOLE" },
+          "isDirect": true,
+          "outboundLeg": {
+            "originPlaceId": "place-tpe",
+            "destinationPlaceId": "place-nrt",
+            "departureDateTime": { "year": 2026, "month": 10, "day": 8 },
+            "marketingCarrierId": "carrier-ci"
+          },
+          "inboundLeg": {
+            "originPlaceId": "place-nrt",
+            "destinationPlaceId": "place-tpe",
+            "departureDateTime": { "year": 2026, "month": 10, "day": 12 },
+            "marketingCarrierId": "carrier-ci"
+          }
+        }
+      },
+      "places": {
+        "place-tpe": { "iata": "TPE", "name": "Taiwan Taoyuan" },
+        "place-nrt": { "iata": "NRT", "name": "Tokyo Narita" }
+      },
+      "carriers": {
+        "carrier-ci": { "name": "China Airlines" }
+      }
+    }
+  }
+}

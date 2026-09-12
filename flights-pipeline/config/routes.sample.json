@@ -1,0 +1,11 @@
+{
+  "market": "TW",
+  "locale": "zh-TW",
+  "currency": "TWD",
+  "originAirports": ["TPE", "TSA", "KHH"],
+  "regions": {
+    "asia": ["NRT", "KIX", "FUK", "ICN", "PUS", "BKK", "SIN", "KUL"],
+    "united_states": ["LAX", "SFO", "SEA", "JFK"],
+    "europe": ["LHR", "CDG", "AMS", "FCO", "FRA"]
+  }
+}
