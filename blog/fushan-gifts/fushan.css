@@ -1,1 +1,13 @@
 :root{--accent:#a33c2e}.hero em,.section-label{color:var(--accent)}.flavour-grid,.memory-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin:32px 0}.flavour-grid figure,.memory-grid figure{margin:0!important}.flavour-grid img,.memory-grid img{width:100%;height:auto;display:block}.flavour-grid figcaption strong{display:block;font:600 23px/1.5 var(--sans);color:#44352d}.choice-links{display:flex;flex-wrap:wrap;gap:12px;margin:28px 0}.choice-links a{border-bottom:1px solid #b97760;text-decoration:none;color:#8c3e2c;padding:8px 0;margin-right:16px}.decision-card{padding:26px 30px;background:#f3ecdf;border-left:3px solid #ae4b35;margin:28px 0}.decision-card p{margin:0}.guide-table{width:100%;border-collapse:collapse;font:17px/1.8 var(--sans);margin:28px 0}.guide-table th,.guide-table td{text-align:left;padding:15px 12px;border-bottom:1px solid #d8d0c3}.guide-table th{color:#91432e}.memory{background:#f3efe7;padding:32px}.memory .section-label{letter-spacing:.08em}.article-body .product-wide{max-width:660px;margin:32px auto}.product-wide img{width:100%;height:auto}.spec-link{font-size:15px}.handwritten{white-space:normal}#roe-videos{max-width:450px;margin:28px auto}.source-links{font-size:14px} @media(max-width:600px){.flavour-grid,.memory-grid{gap:12px}.flavour-grid figcaption strong{font-size:18px}.flavour-grid figcaption,.memory-grid figcaption{font-size:15px}.decision-card{padding:20px}.memory{padding:22px 16px}.guide-table{font-size:15px}.guide-table th,.guide-table td{padding:12px 6px}.margin-note{white-space:nowrap}}
+/* Match the shared article section specificity so the inset survives its reset. */
+.article-body > section.memory {
+  padding: 40px;
+}
+.article-body > section.memory > :last-child {
+  margin-bottom: 0;
+}
+@media (max-width: 600px) {
+  .article-body > section.memory {
+    padding: 32px 24px;
+  }
+}
