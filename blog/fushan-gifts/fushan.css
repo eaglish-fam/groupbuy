@@ -10,4 +10,7 @@
   .article-body > section.memory {
     padding: 32px 24px;
   }
+  .memory h2 br {
+    display: none;
+  }
 }
