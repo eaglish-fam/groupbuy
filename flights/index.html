@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="index,follow,max-image-preview:large" />
+    <title>機票優惠雷達｜鷹式一家 Eaglish Family</title>
+    <meta name="description" content="從台灣出發的機票優惠與熱門目的地靈感。每張票都標示查價時間與限制，價格變動時請到供應商重新確認。" />
+    <link rel="canonical" href="https://www.eaglish.store/flights/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="zh_TW" />
+    <meta property="og:site_name" content="鷹式一家 Eaglish Family" />
+    <meta property="og:title" content="機票優惠雷達｜鷹式一家" />
+    <meta property="og:description" content="從台灣出發的近期機票機會，附查價時間、條件與重新搜尋入口。" />
+    <meta property="og:url" content="https://www.eaglish.store/flights/" />
+    <meta property="og:image" content="https://www.eaglish.store/logo-eaglish-text.png" />
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/flights/flights.css?v=20260912-v1" />
+    <script defer src="/design/papaparse.min.js?v=20260912-v1"></script>
+    <script defer src="/flights/flights.js?v=20260912-v1"></script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"機票優惠雷達","url":"https://www.eaglish.store/flights/","isPartOf":{"@type":"WebSite","name":"鷹式一家 Eaglish Family","url":"https://www.eaglish.store/"}}</script>
+  </head>
+  <body>
+    <a class="skip" href="#deals">跳到機票優惠</a>
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="返回鷹家買物社首頁">
+        <img src="/logo-eaglish-text.png" width="220" height="65" alt="鷹式一家" />
+      </a>
+      <nav aria-label="旅遊頁導覽">
+        <a href="#deals">機票優惠</a>
+        <a href="#inspiration">目的地靈感</a>
+        <a href="/">買物社</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">EAGLISH TRAVEL · BETA</p>
+          <h1>值得出發的價格，<br />我們一起找。</h1>
+          <p class="hero-lead">從台灣出發，先看亞洲、美國與歐洲。資料會標明何時查到、包含哪些條件，點開後再向供應商確認最新價格。</p>
+          <div class="trust-list" aria-label="資料原則">
+            <span>✓ 不把快取價說成即時價</span>
+            <span>✓ 過期優惠自動退出</span>
+            <span>✓ 外連前清楚標示來源</span>
+          </div>
+        </div>
+        <aside class="status-card" aria-label="資料狀態">
+          <span class="status-dot" aria-hidden="true"></span>
+          <div>
+            <p>雷達狀態</p>
+            <strong id="radar-status">正在讀取資料…</strong>
+            <small id="radar-note">第一版資料管線建置中</small>
+          </div>
+        </aside>
+      </section>
+
+      <section class="section deals-section" id="deals" aria-labelledby="deals-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">FARE WATCH</p>
+            <h2 id="deals-title">最近查到的機票機會</h2>
+          </div>
+          <p>價格會變動；我們只顯示已複核、尚未過期的資料。</p>
+        </div>
+        <div class="filters" role="group" aria-label="機票地區篩選">
+          <button class="is-active" data-deal-region="全部" aria-pressed="true">全部</button>
+          <button data-deal-region="亞洲" aria-pressed="false">亞洲</button>
+          <button data-deal-region="美國" aria-pressed="false">美國</button>
+          <button data-deal-region="歐洲" aria-pressed="false">歐洲</button>
+          <button data-deal-region="全球漏票" aria-pressed="false">全球漏票</button>
+        </div>
+        <div id="deal-grid" class="deal-grid" aria-live="polite" aria-busy="true">
+          <div class="loading-card">正在整理最新資料…</div>
+        </div>
+      </section>
+
+      <section class="section inspiration-section" id="inspiration" aria-labelledby="inspiration-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">AFTER YOU LAND</p>
+            <h2 id="inspiration-title">抵達之後，也幫你找好</h2>
+          </div>
+          <p>先從熱門交通、門票與體驗開始；價格以結帳頁為準。</p>
+        </div>
+        <div class="product-toolbar">
+          <div class="filters" role="group" aria-label="旅遊商品地區篩選">
+            <button class="is-active" data-product-region="全部" aria-pressed="true">全部</button>
+            <button data-product-region="亞洲" aria-pressed="false">亞洲</button>
+            <button data-product-region="美國" aria-pressed="false">美國</button>
+            <button data-product-region="歐洲" aria-pressed="false">歐洲</button>
+          </div>
+          <label class="search-label">
+            <span class="sr-only">搜尋目的地或商品</span>
+            <input id="product-search" type="search" placeholder="搜尋國家、城市或商品" autocomplete="off" />
+          </label>
+        </div>
+        <div id="product-grid" class="product-grid" aria-live="polite" aria-busy="true">
+          <div class="loading-card">正在讀取目的地靈感…</div>
+        </div>
+        <p class="affiliate-note">部分連結為聯盟行銷連結；你透過連結完成消費時，我們可能獲得分潤，但不會增加你的購買價格。商品、價格、取消與供應狀態以 Klook 結帳頁為準。</p>
+      </section>
+    </main>
+
+    <footer>
+      <div>
+        <strong>鷹式一家 Eaglish Family</strong>
+        <p>把旅行資訊整理清楚，讓每一次出發更有把握。</p>
+      </div>
+      <div class="footer-links"><a href="/">買物社</a><a href="/blog/">選物誌</a></div>
+    </footer>
+  </body>
+</html>

@@ -31,6 +31,8 @@ SKYSCANNER_API_KEY=... npm run flight:indicative -- \
 
 Default database: `flights-pipeline/data/fares.sqlite` (gitignored).
 
+The `apps-script/` directory contains the on-demand Google Sheet publishing bridge used while partner APIs are pending. It can refresh the official Klook product catalogue, but it deliberately does not scrape flight-search websites or invent airfare data.
+
 The pipeline uses the built-in `node:sqlite` module and requires Node.js 22.13 or newer.
 
 ## Safety boundaries

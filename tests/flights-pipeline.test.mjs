@@ -123,6 +123,13 @@ test('Travelpayouts keeps token out of the URL and normalizes cached fare data',
   assert.equal(observations[0].priceAmount, 6688);
   assert.equal(observations[0].bookingUrl, 'https://www.aviasales.com/search/TPE0810NRT1210?t=fixture');
   assert.equal(observations[0].providerObservedAt, '2026-09-12T06:00:00Z');
+
+  const realPathShape = normalizeTravelpayoutsResponse({
+    success: true,
+    data: [{ ...fixture.data[0], link: '/search/TPE0810NRT1210?t=real-shape' }],
+  }, query, '2026-09-12T08:00:00.000Z');
+  assert.equal(realPathShape[0].bookingUrl, 'https://www.aviasales.com/search/TPE0810NRT1210?t=real-shape');
+  assert.doesNotMatch(realPathShape[0].bookingUrl, /\/search\/search\//);
 });
 
 test('Travelpayouts preflight and URL builder remain secret-safe', () => {

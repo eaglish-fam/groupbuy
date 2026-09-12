@@ -17,7 +17,10 @@ export function stableKey(parts) {
 function travelpayoutsBookingUrl(link) {
   if (!link) return null;
   if (/^https:\/\//.test(link)) return link;
-  return `https://www.aviasales.com/search/${String(link).replace(/^\//, '')}`;
+  const path = `/${String(link).replace(/^\/+/, '')}`;
+  return path.startsWith('/search/')
+    ? `https://www.aviasales.com${path}`
+    : `https://www.aviasales.com/search${path}`;
 }
 
 export function normalizeTravelpayoutsResponse(response, query, observedAt = new Date().toISOString()) {
