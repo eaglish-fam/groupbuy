@@ -1,10 +1,10 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-11T15:50:45.572Z",
+  "generatedAt": "2026-09-12T00:05:30.811Z",
   "status": "ready",
   "summary": {
-    "checks": 298,
-    "passed": 298,
+    "checks": 329,
+    "passed": 329,
     "failures": 0
   },
   "checks": [
@@ -500,6 +500,151 @@
     },
     {
       "id": "blog:chulu-aomori-drinks:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:title",
+      "passed": true,
+      "detail": "Title length 32."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:description",
+      "passed": true,
+      "detail": "Description length 101."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/fushan-gifts/."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include 富山私房菜."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:unique-description",
       "passed": true,
       "detail": "Meta description is unique."
     },
@@ -1420,6 +1565,16 @@
     },
     {
       "id": "blog-index:https://www.eaglish.store/blog/chulu-aomori-drinks/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/fushan-gifts/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/fushan-gifts/",
       "passed": true,
       "detail": "Blog index links to the article."
     },

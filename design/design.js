@@ -96,6 +96,7 @@ function normalize(rows, upcoming = false) {
       if (upcoming) r = { ...r, 類型: "即將開團" };
       const brand = r["品牌"].trim();
       const urls = [
+        ProductContent.entry(brand)?.cardImage || "",
         imageUrl(r["圖片網址"] || r.image),
         ...String(r["附加圖片"] || "")
           .split(/[\r\n,，]+/)
@@ -103,7 +104,7 @@ function normalize(rows, upcoming = false) {
       ].filter(Boolean);
       return {
         brand,
-        key: String(r["商品ID"] || r["ProductID"] || [brand, r["商品描述"] || "", urls[0] || ""].join("|")),
+        key: String(r["商品ID"] || r["ProductID"] || [brand, r["商品描述"] || "", imageUrl(r["圖片網址"] || r.image) || urls[0] || ""].join("|")),
         source: r,
         description: r["商品描述"] || "",
         url: safe(r["連結"]),
