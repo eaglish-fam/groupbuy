@@ -1,0 +1,22 @@
+{
+  "success": true,
+  "currency": "twd",
+  "data": [
+    {
+      "origin": "TPE",
+      "destination": "NRT",
+      "origin_airport": "TPE",
+      "destination_airport": "NRT",
+      "price": 6688,
+      "airline": "CI",
+      "flight_number": "100",
+      "departure_at": "2026-10-08T09:30:00+08:00",
+      "return_at": "2026-10-12T14:20:00+09:00",
+      "number_of_changes": 0,
+      "found_at": "2026-09-12T06:00:00Z",
+      "actual": true,
+      "link": "/TPE0810NRT1210?t=fixture"
+    }
+  ],
+  "error": null
+}

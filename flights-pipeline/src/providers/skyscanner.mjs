@@ -1,6 +1,7 @@
 import { setTimeout as delay } from 'node:timers/promises';
 
 import { ConfigurationError, InputError, ProviderError } from '../errors.mjs';
+import { normalizeIndicativeResponse } from '../normalize.mjs';
 import { normalizeQuery } from '../query.mjs';
 
 const DEFAULT_BASE_URL = 'https://partners.api.skyscanner.net/apiservices/v3';
@@ -129,6 +130,7 @@ export class SkyscannerProvider {
     maxPolls = 5,
     pollIntervalMs = 1_000,
   } = {}) {
+    this.id = 'skyscanner';
     this.apiKey = requireApiKey(env);
     this.post = createTransport({ apiKey: this.apiKey, fetchImpl, baseUrl, timeoutMs });
     this.maxPolls = maxPolls;
@@ -137,6 +139,10 @@ export class SkyscannerProvider {
 
   async searchIndicative(input) {
     return this.post('/flights/indicative/search', buildIndicativeRequest(input));
+  }
+
+  normalizeIndicative(response, query, observedAt) {
+    return normalizeIndicativeResponse(response, query, observedAt);
   }
 
   async searchLive(input, { userInitiated = false } = {}) {

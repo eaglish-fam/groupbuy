@@ -7,13 +7,18 @@ import test from 'node:test';
 import { fileURLToPath } from 'node:url';
 
 import { ConfigurationError, InputError, ProviderError } from '../flights-pipeline/src/errors.mjs';
-import { normalizeIndicativeResponse } from '../flights-pipeline/src/normalize.mjs';
+import { normalizeIndicativeResponse, normalizeTravelpayoutsResponse } from '../flights-pipeline/src/normalize.mjs';
 import {
   buildIndicativeRequest,
   buildLiveRequest,
   SkyscannerProvider,
   skyscannerPreflight,
 } from '../flights-pipeline/src/providers/skyscanner.mjs';
+import {
+  buildTravelpayoutsUrl,
+  TravelpayoutsProvider,
+  travelpayoutsPreflight,
+} from '../flights-pipeline/src/providers/travelpayouts.mjs';
 import { normalizeQuery } from '../flights-pipeline/src/query.mjs';
 import { buildScanQueries, runIndicativeScan } from '../flights-pipeline/src/scan.mjs';
 import { FareStore } from '../flights-pipeline/src/store.mjs';
@@ -35,11 +40,13 @@ test('preflight exposes only configuration status, never a credential value', ()
 
 test('provider refuses network work when secret boundary is missing', () => {
   assert.throws(() => new SkyscannerProvider({ env: {} }), ConfigurationError);
+  assert.throws(() => new TravelpayoutsProvider({ env: {} }), ConfigurationError);
 });
 
 test('query validation rejects malformed airports and reversed dates', () => {
   assert.throws(() => normalizeQuery({ ...SAMPLE_QUERY, origin: 'Taipei' }), InputError);
   assert.throws(() => normalizeQuery({ ...SAMPLE_QUERY, inbound: '2026-10-01' }), InputError);
+  assert.deepEqual(normalizeQuery(normalizeQuery(SAMPLE_QUERY)), normalizeQuery(SAMPLE_QUERY));
 });
 
 test('request builders match Skyscanner indicative and live contracts', () => {
@@ -93,6 +100,40 @@ test('live provider refuses automated background use before making a request', a
   assert.equal(called, false);
 });
 
+test('Travelpayouts keeps token out of the URL and normalizes cached fare data', async () => {
+  let request;
+  const fixture = JSON.parse(readFileSync(
+    join(ROOT, 'tests', 'fixtures', 'flights', 'travelpayouts-prices-for-dates.json'),
+    'utf8',
+  ));
+  const provider = new TravelpayoutsProvider({
+    env: { TRAVELPAYOUTS_API_TOKEN: 'affiliate-secret' },
+    fetchImpl: async (url, options) => {
+      request = { url, options };
+      return new Response(JSON.stringify(fixture), { status: 200 });
+    },
+  });
+  const query = normalizeQuery(SAMPLE_QUERY);
+  const response = await provider.searchIndicative(query);
+  assert.equal(request.url.searchParams.has('token'), false);
+  assert.equal(request.options.headers['x-access-token'], 'affiliate-secret');
+  assert.equal(request.url.searchParams.get('currency'), 'twd');
+  const observations = normalizeTravelpayoutsResponse(response, query, '2026-09-12T08:00:00.000Z');
+  assert.equal(observations.length, 1);
+  assert.equal(observations[0].priceAmount, 6688);
+  assert.equal(observations[0].bookingUrl, 'https://www.aviasales.com/search/TPE0810NRT1210?t=fixture');
+  assert.equal(observations[0].providerObservedAt, '2026-09-12T06:00:00Z');
+});
+
+test('Travelpayouts preflight and URL builder remain secret-safe', () => {
+  const result = travelpayoutsPreflight({ TRAVELPAYOUTS_API_TOKEN: 'affiliate-secret' });
+  assert.equal(result.configured, true);
+  assert.equal(JSON.stringify(result).includes('affiliate-secret'), false);
+  const url = buildTravelpayoutsUrl(SAMPLE_QUERY);
+  assert.equal(url.searchParams.get('origin'), 'TPE');
+  assert.equal(url.searchParams.get('one_way'), 'false');
+});
+
 test('bounded scan expands configured route regions and persists each successful result', async () => {
   const fixture = JSON.parse(readFileSync(
     join(ROOT, 'tests', 'fixtures', 'flights', 'skyscanner-indicative.json'),
@@ -109,7 +150,10 @@ test('bounded scan expands configured route regions and persists each successful
 
   const inserted = [];
   const summary = await runIndicativeScan({
-    provider: { searchIndicative: async () => fixture },
+    provider: {
+      searchIndicative: async () => fixture,
+      normalizeIndicative: normalizeIndicativeResponse,
+    },
     store: { insertMany: (observations) => (inserted.push(...observations), observations.length) },
     queries,
     now: () => '2026-09-12T08:00:00.000Z',

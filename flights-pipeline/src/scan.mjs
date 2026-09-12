@@ -1,4 +1,3 @@
-import { normalizeIndicativeResponse } from './normalize.mjs';
 import { normalizeQuery } from './query.mjs';
 
 export function buildScanQueries(config, input) {
@@ -42,7 +41,7 @@ export async function runIndicativeScan({ provider, store, queries, now = () => 
   for (const query of queries) {
     try {
       const response = await provider.searchIndicative(query);
-      const observations = normalizeIndicativeResponse(response, query, now());
+      const observations = provider.normalizeIndicative(response, query, now());
       summary.inserted += store.insertMany(observations);
       summary.succeeded += 1;
     } catch (error) {

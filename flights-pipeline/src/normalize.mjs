@@ -10,8 +10,45 @@ function dateTimeToIso(value) {
   return `${value.year}-${month}-${day}T${hour}:${minute}:${second}`;
 }
 
-function stableKey(parts) {
+export function stableKey(parts) {
   return createHash('sha256').update(parts.join('|')).digest('hex').slice(0, 24);
+}
+
+function travelpayoutsBookingUrl(link) {
+  if (!link) return null;
+  if (/^https:\/\//.test(link)) return link;
+  return `https://www.aviasales.com/search/${String(link).replace(/^\//, '')}`;
+}
+
+export function normalizeTravelpayoutsResponse(response, query, observedAt = new Date().toISOString()) {
+  const rows = Array.isArray(response.data) ? response.data : [];
+  return rows.flatMap((row, index) => {
+    const amount = Number(row.price ?? row.value);
+    if (!Number.isFinite(amount)) return [];
+    const departure = row.departure_at ?? row.depart_date ?? null;
+    const returnDeparture = row.return_at ?? row.return_date ?? null;
+    const origin = row.origin ?? query.origin;
+    const destination = row.destination ?? query.destination;
+    const resultId = row.signature ?? row.link ?? `${origin}-${destination}-${departure}-${index}`;
+    return [{
+      ...observationBase({ kind: 'indicative', query, provider: 'travelpayouts', observedAt }),
+      providerResultId: resultId,
+      fareKey: stableKey(['travelpayouts', 'indicative', origin, destination, departure ?? '', returnDeparture ?? '', row.airline ?? '']),
+      routeOrigin: origin,
+      routeDestination: destination,
+      departure,
+      returnDeparture,
+      priceAmount: amount,
+      priceUnit: null,
+      isDirect: Number(row.number_of_changes ?? row.transfers ?? 0) === 0,
+      carrier: row.airline ?? null,
+      bookingUrl: travelpayoutsBookingUrl(row.link ?? row.ticket_link),
+      freshness: 'cached_recent_user_search',
+      providerObservedAt: row.found_at ?? null,
+      providerActual: row.actual ?? null,
+      complete: response.success === true,
+    }];
+  });
 }
 
 function observationBase({ kind, query, provider, observedAt }) {

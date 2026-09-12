@@ -32,8 +32,10 @@ export function normalizeQuery(input) {
     throw new InputError('origin and destination must differ');
   }
 
-  const outbound = parseIsoDate(input.outbound, 'outbound');
-  const inbound = input.inbound ? parseIsoDate(input.inbound, 'inbound') : null;
+  const outboundValue = typeof input.outbound === 'object' ? input.outbound?.iso : input.outbound;
+  const inboundValue = typeof input.inbound === 'object' ? input.inbound?.iso : input.inbound;
+  const outbound = parseIsoDate(outboundValue, 'outbound');
+  const inbound = inboundValue ? parseIsoDate(inboundValue, 'inbound') : null;
   if (inbound && inbound.iso <= outbound.iso) {
     throw new InputError('inbound must be later than outbound', { field: 'inbound' });
   }

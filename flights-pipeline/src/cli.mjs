@@ -3,8 +3,9 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 
 import { ConfigurationError, InputError, ProviderError } from './errors.mjs';
-import { normalizeIndicativeResponse, normalizeLiveResponse } from './normalize.mjs';
-import { SkyscannerProvider, skyscannerPreflight } from './providers/skyscanner.mjs';
+import { normalizeLiveResponse } from './normalize.mjs';
+import { createIndicativeProvider, providerPreflight } from './providers/index.mjs';
+import { SkyscannerProvider } from './providers/skyscanner.mjs';
 import { normalizeQuery } from './query.mjs';
 import { buildScanQueries, runIndicativeScan } from './scan.mjs';
 import { FareStore } from './store.mjs';
@@ -51,9 +52,10 @@ function publicError(error) {
 async function main() {
   const command = process.argv[2];
   if (command === 'preflight') {
-    const result = skyscannerPreflight();
-    console.log(JSON.stringify({ ok: result.configured, ...result }, null, 2));
-    process.exitCode = result.configured ? 0 : 2;
+    const providers = providerPreflight();
+    const configured = providers.filter((provider) => provider.configured).map((provider) => provider.provider);
+    console.log(JSON.stringify({ ok: configured.length > 0, configuredProviders: configured, providers }, null, 2));
+    process.exitCode = configured.length > 0 ? 0 : 2;
     return;
   }
   if (!['indicative', 'live', 'scan'].includes(command)) {
@@ -63,26 +65,29 @@ async function main() {
   }
 
   const args = parseArguments(process.argv.slice(3));
+  const providerName = String(args.provider ?? process.env.FLIGHT_PROVIDER ?? 'travelpayouts').toLowerCase();
   if (command === 'scan') {
     const configPath = resolve(args.config ?? 'flights-pipeline/config/routes.sample.json');
     const config = JSON.parse(readFileSync(configPath, 'utf8'));
     const queries = buildScanQueries(config, args);
-    const provider = new SkyscannerProvider();
+    const provider = createIndicativeProvider(providerName);
     const databasePath = resolve(args.database ?? 'flights-pipeline/data/fares.sqlite');
     const store = new FareStore(databasePath);
     const summary = await runIndicativeScan({ provider, store, queries });
     store.close();
-    console.log(JSON.stringify({ ok: summary.failed === 0, provider: 'skyscanner', summary }, null, 2));
+    console.log(JSON.stringify({ ok: summary.failed === 0, provider: provider.id, summary }, null, 2));
     process.exitCode = summary.failed === 0 ? 0 : 1;
     return;
   }
   const query = normalizeQuery(args);
-  const provider = new SkyscannerProvider();
+  const provider = command === 'live'
+    ? new SkyscannerProvider()
+    : createIndicativeProvider(providerName);
   const raw = command === 'indicative'
     ? await provider.searchIndicative(query)
     : await provider.searchLive(query, { userInitiated: args.userInitiated === true });
   const observations = command === 'indicative'
-    ? normalizeIndicativeResponse(raw, query)
+    ? provider.normalizeIndicative(raw, query)
     : normalizeLiveResponse(raw, query);
   const databasePath = resolve(args.database ?? 'flights-pipeline/data/fares.sqlite');
   const store = new FareStore(databasePath);
@@ -91,7 +96,7 @@ async function main() {
   store.close();
   console.log(JSON.stringify({
     ok: true,
-    provider: 'skyscanner',
+    provider: provider.id,
     searchKind: command,
     inserted,
     totalStored: total,
