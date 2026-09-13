@@ -8,9 +8,12 @@ Run from the repository root:
 
 ```sh
 node flights-pipeline/src/radar-cli.mjs preflight
+node flights-pipeline/src/configure-provider.mjs serpapi
+node flights-pipeline/src/configure-provider.mjs serpapi --from-clipboard
 node flights-pipeline/src/radar-cli.mjs init --legacy /absolute/path/to/old/fares.sqlite
 node flights-pipeline/src/radar-cli.mjs plan
 node flights-pipeline/src/radar-cli.mjs collect
+node flights-pipeline/src/serpapi-review.mjs --top 3
 node flights-pipeline/src/radar-cli.mjs health
 node flights-pipeline/src/radar-cli.mjs backup
 node flights-pipeline/src/radar-cli.mjs candidates
@@ -35,10 +38,14 @@ Provider activation:
 | --- | --- | --- |
 | Travelpayouts | Exact date and month cached discovery | Existing Keychain tool boundary |
 | Skyscanner | Indicative discovery; user-selected Live verification | Partner API key and required public attribution |
-| SerpApi | Google Flights exact-date search snapshot | SERPAPI_API_KEY and chosen quota |
+| SerpApi | Google Flights flexible-date discovery, exact-date snapshot and selected-itinerary recheck | SERPAPI_API_KEY and chosen quota |
 | Duffel | Selected itinerary verification only | DUFFEL_ACCESS_TOKEN and production access |
 
 No new account, paid subscription or credential is created by the installer. SerpApi requires its key in the provider request query; the request URL and raw errors never leave the transport. Other secrets remain in headers. Sandbox Duffel offers fail verification. More platforms are enabled only after a successful production canary and observed incremental coverage.
+
+SerpApi flexible-date scans remain supervised and on demand while its incremental coverage and free quota are measured. They are not part of the launchd schedule. A deal response is only discovery evidence: return-leg selection, fare conditions and the booking path must be rechecked before review, and publication remains manual.
+
+`serpapi-review.mjs` uses the shared collector lock and daily request ledger. One discovery call plus three calls per selected itinerary checks outbound, return and the booking option. The private result omits SerpApi request links and tokens; the console also omits supplier links. Each candidate expires one hour after the last check and is inserted only into the private database as pending Hiram approval.
 
 The selected live-verification command takes the same collector lock and request budget. Each session create and poll is recorded separately before transport; a live session is not counted as one request. The optional browser regression uses `PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node scripts/flights-radar-browser-audit.mjs` when Playwright is supplied by the workspace rather than this repository.
 

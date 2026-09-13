@@ -2,6 +2,7 @@
   "version": 1,
   "dailyRequestLimit": 120,
   "runRequestLimit": 40,
+  "providerDailyRequestLimits": {"serpapi": 10},
   "retryLimit": 1,
   "maxRuntimeSeconds": 600,
   "minIntervalHours": 20,

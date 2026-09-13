@@ -5,6 +5,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { SerpApiProvider } from '../flights-pipeline/src/providers/serpapi.mjs';
 import { DuffelProvider } from '../flights-pipeline/src/providers/duffel.mjs';
+import { providerSecretLocator } from '../flights-pipeline/src/secret-boundary.mjs';
 import { normalizeQuote } from '../flights-pipeline/src/radar-model.mjs';
 import { RadarStore } from '../flights-pipeline/src/radar-store.mjs';
 import { approve,exportApproved,lineDraft } from '../flights-pipeline/src/radar-review.mjs';
@@ -24,6 +25,28 @@ test('SerpApi preserves Taiwan currency/market and does not assume return-leg di
 test('provider failure never emits a token-bearing transport URL or body',async()=>{
   const p=new SerpApiProvider({env:{SERPAPI_API_KEY:'SECRET'},fetchImpl:async()=>{throw new Error('https://example.com/?api_key=SECRET');}});
   await assert.rejects(()=>p.searchIndicative(query),e=>!String(e).includes('SECRET'));
+});
+
+test('SerpApi deal discovery validates flexible dates and keeps its secret out of candidates',async()=>{
+  const body={deals:[{departure_airport_code:'TPE',arrival_airport_code:'ISG',outbound_date:'2026-11-18',return_date:'2026-11-27',price:6037,average_price:16699,discount_percentage:64,stops:0,airline:'Tigerair Taiwan',flight_link:'https://www.google.com/travel/flights/s/example',serpapi_flight_link:'https://serpapi.com/search.json?engine=google_flights&departure_id=TPE&arrival_id=ISG&api_key=should-be-removed'}]};
+  let seen;const p=new SerpApiProvider({env:{SERPAPI_API_KEY:'SECRET'},fetchImpl:async url=>{seen=url;return new Response(JSON.stringify(body));}});
+  const input={origin:'TPE',outboundStart:'2026-10-01',outboundEnd:'2027-03-31',minNights:3,maxNights:10,currency:'TWD',adults:1};
+  const response=await p.searchDeals(input),rows=p.normalizeDeals(response,input,at);
+  assert.equal(seen.searchParams.get('engine'),'google_flights_deals');assert.equal(seen.searchParams.get('trip_length'),'3,10');
+  assert.equal(rows[0].destination,'ISG');assert.equal(rows[0].price,6037);assert.equal(rows[0].isDirect,true);assert.equal(rows[0].discountPercentage,64);
+  assert.equal(rows[0].verificationUrl.includes('api_key'),false);assert.equal(JSON.stringify(rows).includes('SECRET'),false);
+});
+
+test('SerpApi selected itinerary recheck only accepts its Google Flights endpoint',async()=>{
+  let seen;const p=new SerpApiProvider({env:{SERPAPI_API_KEY:'SECRET'},fetchImpl:async url=>{seen=url;return new Response('{}');}});
+  await p.searchSelection('https://serpapi.com/search.json?engine=google_flights&departure_id=TPE&api_key=old',{departureToken:'selection'});
+  assert.equal(seen.searchParams.get('api_key'),'SECRET');assert.equal(seen.searchParams.get('departure_token'),'selection');
+  await assert.rejects(()=>p.searchSelection('https://example.com/search.json?engine=google_flights'),/safe SerpApi/);
+});
+
+test('SerpApi secret has a named Keychain boundary without embedding its value',()=>{
+  assert.deepEqual(providerSecretLocator('serpapi'),{environmentVariable:'SERPAPI_API_KEY',service:'terra-serpapi-api',account:'zosia'});
+  assert.equal(providerSecretLocator('unknown'),null);
 });
 test('Duffel only verifies selected itineraries and rejects sandbox offers',async()=>{
   let calls=0;const p=new DuffelProvider({env:{DUFFEL_ACCESS_TOKEN:'hidden'},fetchImpl:async()=>{calls++;return new Response(JSON.stringify({data:{live_mode:false,offers:[]}}));}});

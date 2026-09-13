@@ -37,7 +37,10 @@ export class RadarStore {
   set(key, value) { this.db.prepare('INSERT OR REPLACE INTO radar_settings VALUES (?,?)').run(key, JSON.stringify(value)); }
   begin(provider, at) { const id = randomUUID(); this.db.prepare('INSERT INTO radar_runs(id,provider,started_at,status) VALUES(?,?,?,?)').run(id, provider, at, 'running'); return id; }
   finish(id, at, status, requests, inserted) { this.db.prepare('UPDATE radar_runs SET finished_at=?,status=?,requests=?,inserted=? WHERE id=?').run(at,status,requests,inserted,id); }
-  attemptsSince(at) { return this.db.prepare('SELECT count(*) n FROM radar_attempts WHERE attempted_at>=?').get(at).n; }
+  attemptsSince(at, provider = null) {
+    if(!provider)return this.db.prepare('SELECT count(*) n FROM radar_attempts WHERE attempted_at>=?').get(at).n;
+    return this.db.prepare('SELECT count(*) n FROM radar_attempts a JOIN radar_queries q ON q.id=a.query_id WHERE a.attempted_at>=? AND q.provider=?').get(at,provider).n;
+  }
   enqueue(provider, slot, query, purpose, at) {
     const id = digest([provider, query]);
     this.db.prepare('INSERT OR IGNORE INTO radar_queries(id,slot,provider,query_json,purpose,created_at) VALUES(?,?,?,?,?,?)').run(id,slot,provider,JSON.stringify(query),purpose,at);

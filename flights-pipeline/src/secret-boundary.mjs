@@ -1,7 +1,14 @@
 import { execFileSync } from 'node:child_process';
 
 // Existing account; secret bytes never appear in arguments, output, database or source.
-const known={TRAVELPAYOUTS_API_TOKEN:{service:'terra-travelpayouts-api',account:'zosia'}};
+const known={
+  TRAVELPAYOUTS_API_TOKEN:{service:'terra-travelpayouts-api',account:'zosia'},
+  SERPAPI_API_KEY:{service:'terra-serpapi-api',account:'zosia'},
+};
+export function providerSecretLocator(provider) {
+  const name={travelpayouts:'TRAVELPAYOUTS_API_TOKEN',serpapi:'SERPAPI_API_KEY'}[provider];
+  return name ? {environmentVariable:name,...known[name]} : null;
+}
 export function providerEnvironment(env=process.env) {
   const resolved={...env};
   if(process.platform==='darwin')for(const [name,locator] of Object.entries(known)) {

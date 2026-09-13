@@ -25,6 +25,11 @@ test('observation import is idempotent, preserves later fetches, and backup rest
   assert.equal(historyFor(later,s.quotes(),'2026-09-14T02:00:00.000Z').windows[7].samples,1);
   const path=s.backup(join(root,'backup.sqlite'));const backup=new DatabaseSync(path,{readOnly:true});assert.equal(backup.prepare('select count(*) n from radar_quotes').get().n,2);backup.close();
 });
+test('request ledger can enforce a provider-specific daily budget',t=>{
+  const {s}=temporary(t),run=s.begin('serpapi',at),serp=s.enqueue('serpapi','one',{route:'TPE-ISG'},'verification',at),other=s.enqueue('travelpayouts','two',{route:'TPE-NRT'},'baseline',at);
+  s.attempt(run,serp,at,'ok');s.attempt(run,other,at,'ok');
+  assert.equal(s.attemptsSince(at),2);assert.equal(s.attemptsSince(at,'serpapi'),1);assert.equal(s.attemptsSince(at,'travelpayouts'),1);
+});
 test('same cache repeatedly fetched cannot manufacture 30-day coverage',()=>{
   const rows=Array.from({length:40},(_,i)=>normalizeQuote(raw,q,new Date(Date.parse(at)+i*86400000).toISOString()));
   const h=historyFor(rows.at(-1),rows,rows.at(-1).fetchedAt);assert.equal(h.windows[30].mature,false);assert.ok(h.windows[30].observedDays<=1);
