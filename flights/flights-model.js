@@ -39,9 +39,20 @@
       return url.href;
     } catch { return ''; }
   }
+  function dealExpiresAt(row) {
+    const checked=Date.parse(row.verified_at || row.observed_at);
+    const expires=Date.parse(row.expires_at);
+    if(!Number.isFinite(checked)||!Number.isFinite(expires))return NaN;
+    const deadlines=[expires,checked+3600000];
+    for(const field of ['source_expires_at','sale_ends_at'])if(row[field]){
+      const time=Date.parse(row[field]);if(!Number.isFinite(time))return NaN;deadlines.push(time);
+    }
+    return Math.min(...deadlines);
+  }
   function isFresh(row, now = Date.now()) {
-    const expires = Date.parse(row.expires_at);
-    return Number.isFinite(expires) && expires > now;
+    const checked=Date.parse(row.verified_at || row.observed_at);
+    return checked<=now && dealExpiresAt(row)>now &&
+      !['unavailable','sold_out','price_changed','withdrawn','expired'].includes(String(row.availability_status||'').toLowerCase());
   }
   function eligibleDeals(rows, region = '全部', now = Date.now()) {
     return rows.filter(row => row.status === 'published' && row.review_status === 'approved' &&
@@ -82,7 +93,7 @@
     }
     return null;
   }
-  const api = { airport, amount, money, safeUrl, isFresh, eligibleDeals, matchingProducts, localDate, travelDate, priceHistory };
+  const api = { airport, amount, money, safeUrl, isFresh, dealExpiresAt, eligibleDeals, matchingProducts, localDate, travelDate, priceHistory };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.FlightsModel = api;
 })(typeof window !== 'undefined' ? window : globalThis);

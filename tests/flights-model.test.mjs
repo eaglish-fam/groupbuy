@@ -15,6 +15,7 @@ test('price history stays hidden for short samples, stale snapshots or invalid s
 const now = Date.parse('2026-09-12T15:30:00Z');
 const valid = {
   status: 'published', review_status: 'approved', region: '亞洲', price_twd: '10970',
+  observed_at: '2026-09-12T15:04:14Z',
   expires_at: '2026-09-13T03:04:14Z', search_url: 'https://www.aviasales.com/search/example',
 };
 
@@ -28,6 +29,17 @@ test('public fares require approval, valid expiry, usable price and a safe link'
   ];
   assert.deepEqual(model.eligibleDeals(cases, '全部', now), [valid]);
   assert.deepEqual(model.eligibleDeals(cases, '歐洲', now), []);
+});
+
+test('fares expire at the earliest source/sale/one-hour verification deadline and withdrawals fail closed',()=>{
+  const checked=Date.parse(valid.observed_at);
+  assert.equal(model.isFresh(valid,checked+3600000),false);
+  assert.equal(model.isFresh({...valid,observed_at:''},now),false);
+  assert.equal(model.isFresh({...valid,verified_at:'invalid'},now),false);
+  assert.equal(model.isFresh({...valid,verified_at:new Date(now+1).toISOString()},now),false);
+  assert.equal(model.isFresh({...valid,source_expires_at:new Date(now).toISOString()},now),false);
+  assert.equal(model.isFresh({...valid,sale_ends_at:new Date(now-1).toISOString()},now),false);
+  for(const availability_status of ['sold_out','unavailable','price_changed','withdrawn','expired'])assert.equal(model.isFresh({...valid,availability_status},now),false);
 });
 
 test('destination search respects both the published state and the selected region', () => {

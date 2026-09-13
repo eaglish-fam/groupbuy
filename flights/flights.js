@@ -5,6 +5,7 @@
   const state = { deals: [], products: [], dealRegion: '全部', productRegion: '全部', query: '', visible: 6, dealsError: false, productsError: false };
   const $ = selector => document.querySelector(selector);
   const $$ = selector => [...document.querySelectorAll(selector)];
+  let expiryTimer, flightRequest=null, lastFlightAttempt=0;
   const esc = value => String(value ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;').replaceAll('"', '&quot;').replaceAll("'", '&#039;');
 
   async function getRows(name) {
@@ -23,6 +24,7 @@
   }
 
   function renderDeals() {
+    clearTimeout(expiryTimer);
     const grid = $('#deal-grid');
     grid.setAttribute('aria-busy', 'false');
     if (state.dealsError) {
@@ -31,6 +33,7 @@
       return;
     }
     const rows = model.eligibleDeals(state.deals, state.dealRegion);
+    if(rows.length)expiryTimer=setTimeout(renderDeals,Math.max(1,Math.min(...rows.map(model.dealExpiresAt))-Date.now()+1));
     $('#radar-status').textContent = (state.dealRegion === '全部' ? '全部目的地' : state.dealRegion === '全球漏票' ? '全球特別票價' : state.dealRegion) + ' · ' + rows.length + ' 筆機票機會';
     if (!rows.length) {
       grid.innerHTML = emptyState('A GOOD TRIP IS WORTH THE WAIT', '下一張好價格，值得等一下。', state.dealRegion === '全部' ? '目前沒有仍在有效時間內的機票。先看看目的地的交通與體驗，替下一趟旅行留點靈感。' : '這個地區目前沒有仍在有效時間內的機票，也可以切換其他地區看看。', '<a class="text-link" href="#inspiration">先逛目的地 <span aria-hidden="true">↓</span></a>');
@@ -57,13 +60,22 @@
             </div>
           </div>
           <div class="ticket-info"><p class="ticket-dates">${esc(dates)}</p><p class="conditions">${esc(conditions)}</p><p class="baggage">${esc(baggage)}</p></div>
-          <div class="ticket-price"><small>${roundtrip ? '來回' : '單程'}／每人參考價</small><div class="price-amount"><small>NT$</small><strong>${model.amount(row.price_twd).toLocaleString('zh-TW')}</strong></div><a class="button" href="${esc(link)}" target="_blank" rel="noopener nofollow">查看最新票價 <span aria-hidden="true">↗</span></a></div>
+          <div class="ticket-price"><small>${roundtrip ? '來回' : '單程'}／每人參考價</small><div class="price-amount"><small>NT$</small><strong>${model.amount(row.price_twd).toLocaleString('zh-TW')}</strong></div><a class="button" data-fare-id="${esc(row.deal_id)}" href="${esc(link)}" target="_blank" rel="noopener nofollow">查看最新票價 <span aria-hidden="true">↗</span></a></div>
           </div>
           <div class="ticket-stub" aria-hidden="true"><span>FARE FIND · EAGLISH TRAVEL</span></div>
         </div>
-        <div class="ticket-foot"><span>查價 ${esc(model.localDate(row.observed_at))}（台灣時間） · ${esc(row.source || '來源未提供')}</span><details><summary>展開票價說明</summary><p>${esc(row.summary || '請於供應商頁面確認航班、行李、稅費與付款條件。')}</p><p>本筆資訊顯示至 ${esc(model.localDate(row.expires_at))}（台灣時間）；期限不代表供應商保留此價格。</p><p>票券造型僅呈現機票資訊，不代表已出票或保留座位。</p></details>${historyHtml}</div>
+        <div class="ticket-foot"><span>查價 ${esc(model.localDate(row.verified_at || row.observed_at))}（台灣時間） · ${esc(row.source || '來源未提供')}</span><details><summary>展開票價說明</summary><p>${esc(row.summary || '請於供應商頁面確認航班、行李、稅費與付款條件。')}</p><p>本筆資訊顯示至 ${esc(model.localDate(new Date(model.dealExpiresAt(row)).toISOString()))}（台灣時間）；期限不代表供應商保留此價格。</p><p>票券造型僅呈現機票資訊，不代表已出票或保留座位。</p></details>${historyHtml}</div>
       </article>`;
     }).join('');
+  }
+
+  function refreshDeals() {
+    if(flightRequest)return flightRequest;
+    lastFlightAttempt=Date.now();
+    flightRequest=getRows('機票優惠').then(rows=>{state.deals=rows;state.dealsError=false;})
+      .catch(()=>{state.deals=[];state.dealsError=true;})
+      .finally(()=>{flightRequest=null;renderDeals();});
+    return flightRequest;
   }
 
   function renderProducts(focusIndex = -1) {
@@ -127,10 +139,8 @@
     $('#product-grid').setAttribute('aria-busy', 'true');
     $('#radar-status').textContent = '正在整理機票…';
     $('#product-count').textContent = '正在整理目的地…';
-    const [deals, products, status] = await Promise.allSettled([getRows('機票優惠'), getRows('旅遊商品'), getRows('系統狀態')]);
-    state.dealsError = deals.status !== 'fulfilled';
+    const [, products, status] = await Promise.allSettled([refreshDeals(), getRows('旅遊商品'), getRows('系統狀態')]);
     state.productsError = products.status !== 'fulfilled';
-    state.deals = state.dealsError ? [] : deals.value;
     state.products = state.productsError ? [] : products.value;
     const lastImport = status.status === 'fulfilled' ? status.value.find(row => row.key === 'last_klook_catalog_import') : null;
     $('#radar-note').textContent = lastImport ? '商品更新 ' + model.localDate(lastImport.value, false) : '';
@@ -138,5 +148,17 @@
     renderProducts();
   }
   bindFilters();
+  function recheck(){renderDeals();if(!document.hidden&&Date.now()-lastFlightAttempt>15000)refreshDeals();}
+  document.addEventListener('visibilitychange',recheck);
+  window.addEventListener('pageshow',recheck);
+  window.addEventListener('focus',recheck);
+  setInterval(()=>{if(!document.hidden)refreshDeals();},120000);
+  function guardFare(event){
+    const link=event.target.closest('[data-fare-id]');if(!link)return;
+    const row=state.deals.find(row=>row.deal_id===link.dataset.fareId);
+    if(state.dealsError||!row||!model.eligibleDeals([row]).length){event.preventDefault();renderDeals();}
+  }
+  document.addEventListener('click',guardFare,true);
+  document.addEventListener('auxclick',guardFare,true);
   loadData();
 })();

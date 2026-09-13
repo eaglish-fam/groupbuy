@@ -50,6 +50,8 @@ Comparison keys include provider, airports, exact travel dates, passenger count,
 
 ## Publication and LINE
 
+2026-09-13 priority: first verified website fares and a second usable source; LINE development/publication is deferred by Hiram. Public visibility ends at the earliest explicit expiry, source expiry, campaign end, or one hour after verification (legacy fallback: observation time). Re-fetching a Sheet never extends this deadline. Unknown/future check times and known sold-out/changed/withdrawn availability fail closed. Open pages remove expired fares on a timer, recheck on resume and outbound clicks, and refresh only the public Sheet every two minutes while visible. A failed refresh hides fares until a successful reload. Supplier price changes cannot be detected instantly without a live response; this is not an inventory guarantee. Historical SQLite records are retained, not deleted when a card disappears.
+
 Candidates are private and pending. An approval binds quote hash, actor, checked time, supplier URL, price, route, exact dates, passenger count, currency, directness and baggage. Changed quotes require a new review. Export requires a still-current quote and verification within one hour. It produces JSON, CSV with the existing Sheet column contract, and a deterministic SVG/text LINE draft. Export is not a Sheet write or LINE send. New `history_json` is optional on the existing public Sheet; the page only displays mature, fresh statistics. A LINE draft still needs final visual review and the existing Lydia sending workflow.
 
 ## Local service

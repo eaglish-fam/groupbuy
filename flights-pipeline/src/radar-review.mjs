@@ -21,7 +21,8 @@ export function exportApproved(store,config,now=new Date().toISOString()) {
     if(!q || seen.has(q.comparableKey) || q.expiresAt<=now || q.outboundDate<now.slice(0,10) || digest(q)!==review.revision || Date.parse(now)-Date.parse(e.checkedAt)>3600000 || !safeUrl(q.bookingUrl))continue;
     seen.add(q.comparableKey);
     const history=historyFor(q,all,now),route=config.routes.find(r=>r.origin===q.origin&&r.destination===q.destination);
-    const row={deal_id:'fare-'+q.id.slice(0,24),status:'published',review_status:'approved',origin:q.origin,destination:q.destination,outbound_date:q.outboundDate,inbound_date:q.inboundDate,price_twd:q.price,region:route?.region??'其他',airline:q.carrier??'',stops:q.isDirect===true?'直飛':q.isDirect===false?'轉機':'待確認',baggage:q.baggage,source:q.provider,observed_at:q.fetchedAt,verified_at:e.checkedAt,expires_at:q.expiresAt,search_url:q.bookingUrl,summary:'價格與供應商條件已於 '+e.checkedAt+' 複核。',history_json:JSON.stringify(history),release_id:digest([review.id,history])};
+    const publicExpiry=new Date(Math.min(Date.parse(q.expiresAt),Date.parse(e.checkedAt)+3600000)).toISOString();
+    const row={deal_id:'fare-'+q.id.slice(0,24),status:'published',review_status:'approved',origin:q.origin,destination:q.destination,outbound_date:q.outboundDate,inbound_date:q.inboundDate,price_twd:q.price,region:route?.region??'其他',airline:q.carrier??'',stops:q.isDirect===true?'直飛':q.isDirect===false?'轉機':'待確認',baggage:q.baggage,source:q.provider,observed_at:q.fetchedAt,verified_at:e.checkedAt,expires_at:publicExpiry,search_url:q.bookingUrl,summary:'價格與供應商條件已於 '+e.checkedAt+' 複核。',history_json:JSON.stringify(history),release_id:digest([review.id,history,publicExpiry])};
     if(q.currency!=='TWD')continue;
     store.db.prepare('INSERT OR IGNORE INTO radar_releases VALUES(?,?,?,?)').run(row.release_id,review.id,now,JSON.stringify(row));rows.push(row);
   }
