@@ -15,7 +15,7 @@ function contrast(a, b) {
   return (values[0] + .05) / (values[1] + .05);
 }
 
-test('Faraway identity uses actual outlined glyphs and local documented imagery', () => {
+test('Faraway identity keeps internal production notes out of the consumer interface', () => {
   assert.match(html, /<title>鷹家遠行所/);
   const wordmark = read('flights/assets/faraway-wordmark.svg');
   assert.match(wordmark, /<title id="title">鷹家遠行所/);
@@ -24,7 +24,10 @@ test('Faraway identity uses actual outlined glyphs and local documented imagery'
   for (const asset of ['fuji-sky.webp', 'fuji-sky-800.webp', 'fuji-sky.jpg', 'sky-wing.webp']) {
     assert.ok(existsSync(new URL('../flights/assets/' + asset, import.meta.url)), asset);
   }
-  assert.match(html, /AI 品牌意象/);
+  assert.doesNotMatch(html, /AI\s*(?:生成|視覺|品牌)|人工智慧|意象圖|製作註記/);
+  assert.doesNotMatch(html, /hero-credit|faraway-design\.md|design-notes\.md/);
+  assert.match(html, /票價以供應商最新報價為準/);
+  assert.match(html, /商品連結含聯盟合作/);
   assert.doesNotMatch(html, /台北.*紐約|27,800/);
 });
 

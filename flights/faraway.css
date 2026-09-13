@@ -31,7 +31,6 @@ h1, h2, h3 { font-weight: 700; }
 .hero-route .route-end { text-align: right; }
 .hero-route .route-end i { background: var(--signal-bright); margin-left: auto; }
 .hero-handnote { position: absolute; right: 9%; top: 24px; color: var(--ink); font-size: 26px; transform: rotate(-6deg); background: #ffffffdf; padding: 6px 14px; border-radius: 3px; }
-.hero-credit { position: absolute; bottom: 10px; right: 20px; font-size: 9px; color: var(--ink); padding: 2px 7px; background: #ffffffe8; }
 .section { padding-block: 49px 54px; }
 .section-heading { margin-bottom: 24px; }
 .section-heading h2 { font-size: clamp(27px, 3.2vw, 40px); line-height: 1.5; letter-spacing: -.025em; }
@@ -147,7 +146,6 @@ h1, h2, h3 { font-weight: 700; }
   .hero-actions { margin-top: 19px; flex-wrap: wrap; gap: 10px; }
   .hero-actions > a { gap: 12px; padding-inline: 12px; }
   .hero-route { margin-top: 16px; height: 57px; }
-  .hero-credit { top: 8px; bottom: auto; right: 10px; font-size: 8px; }
   .section { padding-block: 35px 38px; }
   .section-heading h2 { font-size: 27px; }
   .region-nav { gap: 0 5px; overflow: visible; }
