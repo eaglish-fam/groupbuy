@@ -1,10 +1,10 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-13T01:41:20.113Z",
+  "generatedAt": "2026-09-13T15:26:50.063Z",
   "status": "ready",
   "summary": {
-    "checks": 329,
-    "passed": 329,
+    "checks": 360,
+    "passed": 360,
     "failures": 0
   },
   "checks": [
@@ -355,6 +355,151 @@
     },
     {
       "id": "blog:atojet:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:title",
+      "passed": true,
+      "detail": "Title length 36."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:description",
+      "passed": true,
+      "detail": "Description length 104."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/caesar-kenting/."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include 墾丁凱撒大飯店."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:unique-description",
       "passed": true,
       "detail": "Meta description is unique."
     },
@@ -1555,6 +1700,16 @@
     },
     {
       "id": "blog-index:https://www.eaglish.store/blog/atojet/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/caesar-kenting/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/caesar-kenting/",
       "passed": true,
       "detail": "Blog index links to the article."
     },

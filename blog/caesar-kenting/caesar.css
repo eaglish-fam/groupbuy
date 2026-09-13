@@ -1,0 +1,36 @@
+/* Local editorial layout; shared navigation and floating offer remain untouched. */
+body[data-article-key="caesarKenting"]{--green:#36594f;--rust:#a05238}
+.hero .seo-subject{display:block;font:600 16px var(--sans);letter-spacing:.12em;margin-bottom:18px}
+.hero .cover img{max-height:none;object-fit:contain}
+.article-body{max-width:920px;padding-inline:44px}
+.article-body>section{scroll-margin-top:105px;padding-top:64px}
+.article-body>section>p,.article-body>section>h2{max-width:720px;margin-left:auto;margin-right:auto}
+.article-body .section-label{max-width:none}
+.opening .handwritten{font-size:24px}
+.article-body figure{margin:30px 0}.article-body figure a{display:block}
+.article-body figure img{width:100%;height:auto;border-radius:2px;background:#eaece5}
+.article-body figcaption{padding:13px 2px 0;font-size:13px;line-height:1.85}
+.photo-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:30px 0}
+.photo-grid figure{margin:0}.photo-grid:has(>figure:last-child:nth-child(3))>figure:last-child{grid-column:1/-1;max-width:580px;width:100%;justify-self:center}
+.guide-nav{display:flex;flex-wrap:wrap;gap:8px 22px;border-block:1px solid var(--line);padding:20px 0;margin-top:30px}
+.guide-nav a{display:flex;align-items:center;min-height:44px;font-size:14px;text-decoration:none;color:var(--green)}
+.guide-nav a:hover{text-decoration:underline}
+.decision-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:28px 0}
+.decision-grid>div{padding:24px;background:#efeee6}.decision-grid h3{margin:0 0 12px;font:500 22px var(--serif);line-height:1.6}
+.decision-grid p{font-size:15px;margin-bottom:12px}.decision-grid a{display:inline-flex;align-items:center;min-height:44px;font-size:14px;color:var(--rust)}
+.table-wrap{overflow-x:auto;margin:32px 0;max-width:100%;border-top:2px solid #687a69}
+.table-wrap table{width:100%;min-width:600px;border-collapse:collapse;font-size:15px;line-height:1.85}
+caption{text-align:left;padding:16px 10px;font-weight:600;color:var(--green)}
+th,td{padding:16px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}thead{background:#edeee6}tbody th{min-width:116px;font-weight:600}
+.soft-note{padding:28px 32px;background:#eef0e8;margin:28px 0}.soft-note h3{margin:0 0 14px;color:var(--green)}.soft-note p{font-size:16px;margin-bottom:12px}.soft-note a{font-size:14px}
+.article-body>section.memory,.article-body>section.offer-details{padding:38px 34px 26px;margin-top:50px;background:#f0ede3}
+.article-body .small{font-size:13px;line-height:1.9;color:var(--muted)}
+.price-list{margin:24px 0}.price-list>div{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:18px 0;border-bottom:1px solid #d8d9cc}.price-list dt{font-size:15px}.price-list dd{margin:0;font-weight:600;color:var(--green);font-size:16px}
+.clean-list,.booking-steps{padding-left:24px}.clean-list li,.booking-steps li{padding:5px 0 12px;font-size:16px;line-height:1.95}
+.calendar img{background:white}.last-look .handwritten{text-align:center;font-size:27px}
+.questions details p{padding:0 6px 12px}.questions summary{min-height:64px}
+.video-section .video-poster img{object-fit:cover}.video-section .video-choices{display:none}
+.article-body .sources p{font-size:12px}.article-body .sources a{display:inline}
+@media(max-width:700px){.article-body{padding-inline:22px}.article-body>section{padding-top:44px;scroll-margin-top:92px}.hero h1{font-size:31px}.hero h1 em{font-size:28px}.hero .seo-subject{font-size:14px}.decision-grid{grid-template-columns:1fr;gap:12px}.decision-grid>div{padding:22px 24px}.photo-grid{grid-template-columns:1fr;gap:26px}.photo-grid:has(>figure:last-child:nth-child(3))>figure:last-child{max-width:none}.article-body>section.memory,.article-body>section.offer-details{padding:30px 22px 20px;margin-inline:-6px}.soft-note{padding:24px}.article-body p{font-size:16px}.price-list>div{grid-template-columns:1fr;gap:4px}.guide-nav{gap:4px 18px}.guide-nav a{font-size:13px}.table-wrap table{font-size:14px}.article-body figcaption{font-size:12px}.last-look .handwritten{font-size:23px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+@media(max-width:700px){.table-wrap caption::after{content:'左右滑動查看完整表格 →';display:block;font-size:12px;font-weight:400;margin-top:7px;color:var(--muted)}}
