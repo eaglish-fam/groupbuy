@@ -46,6 +46,8 @@
       const dates = model.travelDate(row.outbound_date, true) + (roundtrip ? ' — ' + model.travelDate(row.inbound_date) : '');
       return `<article class="deal-card" aria-label="${esc(origin.city)}到${esc(destination.city)}${roundtrip ? '來回' : '單程'}機票">
         <div class="ticket-main">
+          <div class="ticket-destination" aria-hidden="true"><img src="/flights/assets/sky-wing.webp" alt="" width="200" height="320" loading="lazy" /><div class="ticket-destination-label"><small>NEXT STOP</small><strong>${esc(destination.code)}</strong></div></div>
+          <div class="ticket-content">
           <div class="ticket-route"><div class="ticket-kicker"><b>${String(index + 1).padStart(2, '0')}</b><span>${esc(row.region === '全球漏票' ? '全球特別票價' : row.region)} · ${roundtrip ? '來回機票' : '單程機票'}</span></div>
             <div class="route-airports"><div class="airport"><h3>${esc(origin.city)}</h3><small>${esc(origin.code)} ${esc(origin.name)}</small></div>
               <span class="route-line" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="m3 11 7-1-3-7 3 1 5 6 5 1c2 0 2 2 0 2l-5 1-5 6-3 1 3-7-7-1z"/></svg></span>
@@ -54,8 +56,10 @@
           </div>
           <div class="ticket-info"><p class="ticket-dates">${esc(dates)}</p><p class="conditions">${esc(conditions)}</p><p class="baggage">${esc(baggage)}</p></div>
           <div class="ticket-price"><small>${roundtrip ? '來回' : '單程'}／每人參考價</small><div class="price-amount"><small>NT$</small><strong>${model.amount(row.price_twd).toLocaleString('zh-TW')}</strong></div><a class="button" href="${esc(link)}" target="_blank" rel="noopener nofollow">查看最新票價 <span aria-hidden="true">↗</span></a></div>
+          </div>
+          <div class="ticket-stub" aria-hidden="true"><span>FARE FIND · EAGLISH TRAVEL</span></div>
         </div>
-        <div class="ticket-foot"><span>查價 ${esc(model.localDate(row.observed_at))}（台灣時間） · ${esc(row.source || '來源未提供')}</span><details><summary>展開票價說明</summary><p>${esc(row.summary || '請於供應商頁面確認航班、行李、稅費與付款條件。')}</p><p>本筆資訊顯示至 ${esc(model.localDate(row.expires_at))}（台灣時間）；期限不代表供應商保留此價格。</p></details></div>
+        <div class="ticket-foot"><span>查價 ${esc(model.localDate(row.observed_at))}（台灣時間） · ${esc(row.source || '來源未提供')}</span><details><summary>展開票價說明</summary><p>${esc(row.summary || '請於供應商頁面確認航班、行李、稅費與付款條件。')}</p><p>本筆資訊顯示至 ${esc(model.localDate(row.expires_at))}（台灣時間）；期限不代表供應商保留此價格。</p><p>票券造型僅呈現機票資訊，不代表已出票或保留座位。</p></details></div>
       </article>`;
     }).join('');
   }
@@ -88,7 +92,7 @@
           <div class="product-kicker"><span>${esc(destination)}</span><span>${esc(row.category)}</span></div>
           <h3>${esc(row.title)}</h3><div class="product-rating">${rating}</div>
           <div class="product-bottom"><div class="product-price"><small>Klook 目錄參考價起</small><strong>${model.money(row.price_twd)}</strong></div>
-            ${affiliate ? `<a class="product-link" href="${esc(affiliate)}" target="_blank" rel="sponsored noopener" aria-label="查看 ${esc(row.title)} 的商品方案">看看這個體驗 <span aria-hidden="true">↗</span></a>` : ''}
+            ${affiliate ? `<a class="product-link" href="${esc(affiliate)}" target="_blank" rel="sponsored noopener" aria-label="探索 ${esc(row.title)} 的商品方案">探索體驗 <span aria-hidden="true">↗</span></a>` : ''}
           </div>
         </div>
       </article>`;

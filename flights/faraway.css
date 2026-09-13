@@ -1,0 +1,190 @@
+/* 鷹家遠行所: B composition, A sky imagery; warm accents are controls, never section fills. */
+:root { --signal-bright: #f47752; --sky: #f1f7ff; }
+.wrap { width: min(1320px, 100%); }
+h1, h2, h3 { font-weight: 700; }
+.masthead { min-height: 90px; }
+.brand { flex-basis: 230px; }
+.brand img { width: 230px; height: auto; mix-blend-mode: normal; }
+.masthead-label { border-left: 0; padding-left: 0; }
+.masthead nav a[aria-current] { color: var(--ink); position: relative; border-bottom: 1px solid var(--blue); }
+.masthead nav a[aria-current]::after { content: ""; position: absolute; width: 8px; height: 8px; border-radius: 50%; background: var(--signal-bright); bottom: -4px; left: calc(50% - 4px); }
+.sky-hero.hero { display: block; position: relative; max-width: 1800px; margin-inline: auto; padding: 0; isolation: isolate; background: #dcebfb; }
+.hero-panorama { position: absolute; inset: 0; z-index: -1; }
+.hero-panorama img { width: 100%; height: 100%; object-fit: cover; object-position: 70% center; }
+.hero-inner { position: relative; min-height: 565px; padding-block: 36px 42px; display: flex; align-items: center; }
+.hero-copy { width: 580px; max-width: 53%; padding: 32px 36px 24px; margin-left: -36px; background: var(--paper); border-radius: 0 28px 28px 0; }
+.eyebrow { display: flex; align-items: center; gap: 10px; font-size: 9px; letter-spacing: .15em; margin-bottom: 17px; color: var(--blue); }
+.signal-dot { width: 6px; height: 6px; background: var(--signal-bright); border-radius: 50%; }
+.hero h1 { font-size: clamp(40px, 4.25vw, 62px); line-height: 1.45; letter-spacing: -.035em; }
+.hero h1 em { color: var(--ink); }
+.hero-lead { font-size: 13px; line-height: 2; margin-top: 20px; color: var(--ink); }
+.hero-actions { flex-direction: row; align-items: center; gap: 14px; margin-top: 24px; }
+.button, .outline-button { min-height: 48px; border: 1px solid var(--blue); border-radius: 7px; padding: 11px 19px; font-size: 13px; gap: 22px; text-decoration: none; }
+.button:hover { border-color: var(--ink); }
+.outline-button { background: var(--paper); }
+.outline-button:hover { background: var(--sky); }
+.hero-route { position: relative; display: flex; align-items: start; justify-content: space-between; gap: 20px; height: 67px; margin-top: 24px; }
+.hero-route svg { position: absolute; inset: -5px 0 auto; width: 100%; height: 40px; fill: none; stroke: var(--blue); stroke-width: 1.5; stroke-dasharray: 4 4; }
+.hero-route > span { z-index: 1; padding-top: 21px; background: var(--paper); font-size: 10px; line-height: 1.45; letter-spacing: .08em; }
+.hero-route small { display: block; font-size: 9px; margin-top: 3px; }
+.hero-route i { display: block; width: 8px; height: 8px; background: var(--blue); border-radius: 50%; margin-bottom: 5px; }
+.hero-route .route-end { text-align: right; }
+.hero-route .route-end i { background: var(--signal-bright); margin-left: auto; }
+.hero-handnote { position: absolute; right: 9%; top: 24px; color: var(--ink); font-size: 26px; transform: rotate(-6deg); background: #ffffffdf; padding: 6px 14px; border-radius: 3px; }
+.hero-credit { position: absolute; bottom: 10px; right: 20px; font-size: 9px; color: var(--ink); padding: 2px 7px; background: #ffffffe8; }
+.section { padding-block: 49px 54px; }
+.section-heading { margin-bottom: 24px; }
+.section-heading h2 { font-size: clamp(27px, 3.2vw, 40px); line-height: 1.5; letter-spacing: -.025em; }
+.section-index { font-size: 14px; font-weight: 600; letter-spacing: .08em; margin-bottom: 10px; }
+.section-index span { color: var(--blue); border: 0; padding: 0; font-size: 10px; }
+.section-index span::before { content: "/"; color: var(--rust); margin-right: 12px; }
+.region-nav { display: flex; flex-wrap: wrap; gap: 0 28px; border-top: 0; }
+.region-nav button, .region-nav button:first-child { min-height: 48px; padding: 9px 12px; }
+.region-nav button span { font-size: 13px; }
+.region-nav button small, .region-nav button i, .region-nav button + button::before { display: none; }
+.region-nav button:hover { background: transparent; color: var(--rust); }
+.region-nav button.is-active { color: var(--blue); border-bottom-color: var(--blue); }
+.region-nav button.is-active::after { content: ""; position: absolute; width: 7px; height: 7px; border-radius: 50%; background: var(--signal-bright); bottom: -4px; left: calc(50% - 4px); }
+.results-bar, .product-count-line { padding-block: 19px; }
+.deal-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; align-items: start; }
+.deal-card { position: relative; min-width: 0; border: 1px solid var(--line); border-radius: 13px; background: #fff; }
+.ticket-main { grid-template-columns: minmax(94px, .7fr) minmax(0, 1.5fr) 38px; }
+.ticket-destination { position: relative; overflow: hidden; border-radius: 12px 0 0 0; background: #e7f2ff; min-height: 275px; }
+.ticket-destination img { position: absolute; width: 100%; height: 100%; object-fit: cover; object-position: 36% center; }
+.ticket-destination-label { position: absolute; bottom: 15px; inset-inline: 10px; background: #ffffffeb; color: var(--ink); padding: 8px; text-align: center; }
+.ticket-destination-label small { display: block; font-size: 8px; letter-spacing: .14em; }
+.ticket-destination-label strong { display: block; font: 500 28px/1.3 var(--serif); }
+.ticket-content { min-width: 0; padding: 18px 18px 16px; }
+.ticket-route { padding: 0; }
+.ticket-kicker { font-size: 9px; gap: 8px; margin-bottom: 13px; }
+.route-airports { gap: 10px; }
+.airport { min-width: 0; }
+.airport h3 { font-size: 23px; line-height: 1.35; overflow-wrap: anywhere; }
+.airport small { font-size: 9px; margin-top: 4px; letter-spacing: 0; }
+.route-line { min-width: 26px; border-top: 1px dashed var(--blue); background: none; height: 0; }
+.route-line svg { width: 18px; height: 18px; top: -9px; left: calc(50% - 9px); background: #fff; fill: var(--blue); }
+.route-line::after { background: var(--signal-bright); }
+.ticket-info { padding: 0; font-size: 10px; margin-top: 14px; }
+.ticket-dates { font-size: 12px; margin-bottom: 3px; }
+.ticket-info .baggage { font-size: 10px; margin-top: 3px; }
+.ticket-price { display: block; grid-column: auto; grid-row: auto; padding: 0; margin-top: 10px; border: 0; }
+.ticket-price > small { display: block; font-size: 9px; }
+.price-amount { color: var(--rust); margin: 0; }
+.price-amount strong { font-size: 32px; font-weight: 700; line-height: 1.45; }
+.ticket-price .button { min-height: 44px; width: 100%; margin-top: 6px; font-size: 11px; padding: 8px 12px; gap: 10px; }
+.ticket-stub { position: relative; display: flex; align-items: center; justify-content: center; border-left: 1px dashed #b8c9e0; color: var(--muted); }
+.ticket-stub::before, .ticket-stub::after { content: ""; position: absolute; left: -7px; width: 12px; height: 12px; border: 1px solid var(--line); border-radius: 50%; background: var(--paper); }
+.ticket-stub::before { top: -7px; border-top-color: transparent; }
+.ticket-stub::after { bottom: -7px; border-bottom-color: transparent; }
+.ticket-stub span { writing-mode: vertical-rl; font-size: 8px; letter-spacing: .17em; }
+.ticket-foot { display: block; padding: 10px 16px 0; overflow-wrap: anywhere; }
+.ticket-foot details { text-align: left; margin-top: 2px; min-width: 0; }
+.ticket-foot summary { margin-left: 0; color: var(--blue); }
+.ticket-foot details p { margin-bottom: 10px; }
+.fare-footnote a { color: var(--rust); }
+.empty-state, .loading-card { grid-column: 1/-1; background: #fff; border: 1px dashed var(--line); border-radius: 12px; padding: 32px; }
+.inspiration-band { background: var(--sky); border-block: 1px solid #e9f0f9; }
+.search-label { border-bottom-color: #8ea6c8; }
+.product-grid { gap: 26px; }
+.product-card { border: 1px solid #e1eaf6; border-radius: 10px; background: #fff; padding-top: 0; }
+.product-image { aspect-ratio: 1.55; border-radius: 9px 9px 0 0; background: #e2ecfa; }
+.product-body { padding: 16px 18px 18px; }
+.product-card h3 { font-size: 20px; line-height: 1.65; overflow-wrap: anywhere; }
+.product-bottom { flex-wrap: wrap; gap: 12px; }
+.product-price strong { color: var(--ink); }
+.product-link { padding: 8px 12px; background: var(--rust); color: #fff; font-size: 11px; border-radius: 5px; text-decoration: none; }
+.product-link:hover { background: #a83521; }
+.more-row { margin-top: 32px; }
+.travel-notes { padding-block: 50px; }
+.journal-invitation { padding-bottom: 28px; }
+.departure-banner { position: relative; min-height: 250px; display: flex; align-items: center; background: #cce4fa; isolation: isolate; }
+.departure-banner > img { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: left 62%; }
+.departure-banner .wrap { text-align: right; }
+.departure-banner .handwritten { color: var(--ink); font-size: 32px; }
+.departure-banner .text-link { background: #ffffffe8; padding: 3px 10px; border-radius: 3px; margin-top: 10px; }
+.site-footer { background: var(--paper); }
+.footer-main img { width: 195px; height: auto; mix-blend-mode: normal; }
+@media (max-width: 1100px) {
+  .masthead-label { display: none; }
+  .hero-copy { margin-left: -18px; padding-inline: 24px; max-width: 56%; }
+  .hero-inner { min-height: 520px; }
+  .hero h1 { font-size: 46px; }
+  .hero-handnote { right: 5%; font-size: 23px; }
+  .ticket-main { grid-template-columns: 92px minmax(0, 1fr) 30px; }
+  .ticket-content { padding-inline: 13px; }
+  .airport h3 { font-size: 21px; }
+}
+@media (max-width: 900px) {
+  .hero-copy { max-width: 60%; }
+  .hero h1 { font-size: 39px; }
+  .hero-handnote { display: none; }
+  .hero-lead { font-size: 12px; }
+  .hero-actions { gap: 9px; }
+  .hero-actions > a { font-size: 12px; padding-inline: 13px; gap: 15px; }
+  .deal-grid { grid-template-columns: 1fr; }
+  .ticket-main { grid-template-columns: minmax(130px, .6fr) minmax(0, 1.5fr) 44px; }
+  .ticket-content { padding: 22px; }
+  .airport h3 { font-size: 28px; }
+  .ticket-info { font-size: 12px; }
+  .ticket-dates { font-size: 14px; }
+  .ticket-price .button { max-width: 250px; font-size: 12px; }
+  .ticket-price { display: block; }
+}
+@media (max-width: 600px) {
+  .wrap { padding-inline: 20px; }
+  .masthead { min-height: 74px; gap: 10px; }
+  .brand { flex-basis: 170px; }
+  .brand img { width: 170px; }
+  .masthead nav { gap: 13px; font-size: 11px; }
+  .hero-panorama { height: 255px; }
+  .hero-panorama img { object-position: 73% center; }
+  .hero-inner { padding-top: 225px; padding-bottom: 22px; min-height: auto; }
+  .hero-copy { width: 100%; max-width: none; margin: 0; padding: 25px 21px 16px; border-radius: 19px 19px 8px 8px; }
+  .hero h1 { font-size: clamp(30px, 8.5vw, 46px); line-height: 1.45; }
+  .eyebrow { font-size: 8px; letter-spacing: .1em; margin-bottom: 14px; }
+  .hero-lead { margin-top: 16px; font-size: 12px; }
+  .hero-lead br { display: none; }
+  .hero-actions { margin-top: 19px; flex-wrap: wrap; gap: 10px; }
+  .hero-actions > a { gap: 12px; padding-inline: 12px; }
+  .hero-route { margin-top: 16px; height: 57px; }
+  .hero-credit { top: 8px; bottom: auto; right: 10px; font-size: 8px; }
+  .section { padding-block: 35px 38px; }
+  .section-heading h2 { font-size: 27px; }
+  .region-nav { gap: 0 5px; overflow: visible; }
+  .region-nav button, .region-nav button:first-child { flex: 0 1 auto; min-width: 0; padding: 9px 10px; }
+  .region-nav button span { font-size: 12px; }
+  .ticket-main { grid-template-columns: 80px minmax(0, 1fr) 25px; }
+  .ticket-content { padding: 17px 12px; }
+  .ticket-destination { min-height: 290px; }
+  .ticket-destination-label { inset-inline: 5px; padding-inline: 3px; }
+  .ticket-destination-label strong { font-size: 23px; }
+  .ticket-destination-label small { font-size: 7px; }
+  .ticket-route, .ticket-info { padding: 0; }
+  .ticket-kicker { font-size: 8px; gap: 5px; }
+  .airport h3 { font-size: 22px; }
+  .airport small { font-size: 9px; }
+  .route-airports { gap: 8px; }
+  .route-line { min-width: 20px; margin-inline: 0; }
+  .ticket-info { margin-top: 14px; font-size: 10px; }
+  .ticket-dates { font-size: 11px; }
+  .ticket-price { padding: 0; border: 0; }
+  .price-amount strong { font-size: 30px; }
+  .ticket-price .button { font-size: 11px; padding-inline: 10px; }
+  .ticket-stub span { font-size: 7px; }
+  .ticket-foot { font-size: 9px; padding-inline: 13px; }
+  .empty-state, .loading-card { padding: 25px 20px; }
+  .product-grid { gap: 24px; }
+  .product-body { padding: 16px; }
+  .product-card h3 { font-size: 22px; }
+  .product-link { font-size: 12px; }
+  .travel-notes { padding-block: 38px; }
+  .departure-banner { min-height: 225px; align-items: start; padding-top: 15px; }
+  .departure-banner > img { object-position: 32% bottom; }
+  .departure-banner .wrap { text-align: center; }
+  .departure-banner .handwritten { font-size: 24px; }
+  .departure-banner .text-link { font-size: 11px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}

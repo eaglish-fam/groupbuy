@@ -1,6 +1,6 @@
 :root {
-  --paper: #faf8f3; --ink: #343a30; --muted: #676d60; --olive: #46533a;
-  --green: #365949; --line: #dddcd2; --rust: #9a4b31; --cream: #eee9dd; --blue: #647e8a;
+  --paper: #fffefa; --ink: #15366a; --muted: #566781; --olive: #075cdb;
+  --green: #15366a; --line: #d4deec; --rust: #c4472d; --cream: #f1f7ff; --blue: #075cdb;
   --serif: "Noto Serif TC", "Songti TC", serif;
   --sans: "Noto Sans TC", system-ui, sans-serif;
   --hand: "LXGW WenKai TC", "BiauKai", serif;
