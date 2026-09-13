@@ -31,6 +31,12 @@ test('public fares require approval, valid expiry, usable price and a safe link'
   assert.deepEqual(model.eligibleDeals(cases, '歐洲', now), []);
 });
 
+test('first Japan discovery airports render consumer city and airport names',()=>{
+  assert.deepEqual(model.airport('HSG'),{code:'HSG',city:'佐賀',name:'九州佐賀'});
+  assert.deepEqual(model.airport('YGJ'),{code:'YGJ',city:'米子',name:'米子鬼太郎'});
+  assert.deepEqual(model.airport('ISG'),{code:'ISG',city:'石垣島',name:'新石垣'});
+});
+
 test('fares expire at the earliest source/sale/one-hour verification deadline and withdrawals fail closed',()=>{
   const checked=Date.parse(valid.observed_at);
   assert.equal(model.isFresh(valid,checked+3600000),false);
