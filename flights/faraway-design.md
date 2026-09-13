@@ -1,8 +1,9 @@
 # 鷹家遠行所 · 可操作設計稿 v1
 
 Date: 2026-09-13
-Status: local implementation and verification complete; not deployed.
-Preview: http://127.0.0.1:8767/flights/
+Status: implementation and verification complete; Hiram explicitly authorized production release on 2026-09-13.
+Release URL: https://www.eaglish.store/flights/
+The shop/journal entry remains hidden. Direct-URL access remains public.
 
 ## Approved direction
 
@@ -40,7 +41,7 @@ It expects a local preview server on 127.0.0.1:8767.
 
 ## Release and maintenance
 
-No push, deployment, Sheet mutation, connector activation, schedule, analytics, DNS or production entry changes. Canonical URL stays /flights/. Page title, OG and WebPage name align with 鷹家遠行所; the parent WebSite remains 鷹家買物社. Generated sitemap updates the local flight page date. The future release can be reverted as one scoped commit without changing data.
+The initial design phase made no external changes. Hiram subsequently authorized deploying this design to the existing /flights/ URL, with the navigation entry still hidden. No Sheet mutation, connector activation, schedule, analytics or DNS changes are included. Canonical URL stays /flights/. Page title, OG and WebPage name align with 鷹家遠行所; the parent WebSite remains 鷹家買物社. The release can be reverted without changing data.
 
 Delivery uses WebP, responsive hero source, lazy-loaded lower imagery, an 8KB outlined wordmark instead of a whole font download, and no new client dependencies. faraway.css is a scoped visual layer after the existing functional page styles; it may be consolidated after Hiram's visual acceptance.
 
@@ -55,4 +56,3 @@ Use case: photorealistic-natural. Website decorative panoramic footer photograph
 ```text
 Use case: photorealistic-natural. Generate only a wide panoramic scenic brand illustration for a travel website, 3:1 landscape, no typography or UI. Exquisitely bright crisp blue sky, fluffy small white clouds, snowcapped Mount Fuji positioned at 70 percent of image width so its entire beautiful silhouette is visible to the RIGHT of a future text panel covering left 40 percent. Calm bright blue lake across bottom, distant tiny Japanese shoreline village, a few delicate pale pink cherry blossoms at far right edge. Blue/white dominant fresh inviting travel energy. Left half mostly calm open sky/lake suitable to be covered by a separate white panel. Natural daylight, credible photo-like scenic imagery but used as an explicitly AI-generated travel mood illustration, not documentary photography. Avoid green-dominant vegetation, orange-red autumn colors, sunset, teal. No people, boats, aircraft, logos, watermark, embedded text, frames, collage. High resolution.
 ```
-
