@@ -1,6 +1,6 @@
 /* Local editorial layout; shared navigation and floating offer remain untouched. */
 body[data-article-key="caesarKenting"]{--green:#36594f;--rust:#a05238}
-.hero .seo-subject{display:block;font:600 16px var(--sans);letter-spacing:.12em;margin-bottom:18px}
+.hero .seo-subject{display:block;font:500 clamp(32px,4.7vw,50px)/1.45 var(--serif);letter-spacing:.02em;margin-bottom:20px;color:var(--green)}
 .hero .cover img{max-height:none;object-fit:contain}
 .article-body{max-width:920px;padding-inline:44px}
 .article-body>section{scroll-margin-top:105px;padding-top:64px}
@@ -31,6 +31,6 @@ th,td{padding:16px 14px;text-align:left;border-bottom:1px solid var(--line);vert
 .questions details p{padding:0 6px 12px}.questions summary{min-height:64px}
 .video-section .video-poster img{object-fit:cover}.video-section .video-choices{display:none}
 .article-body .sources p{font-size:12px}.article-body .sources a{display:inline}
-@media(max-width:700px){.article-body{padding-inline:22px}.article-body>section{padding-top:44px;scroll-margin-top:92px}.hero h1{font-size:31px}.hero h1 em{font-size:28px}.hero .seo-subject{font-size:14px}.decision-grid{grid-template-columns:1fr;gap:12px}.decision-grid>div{padding:22px 24px}.photo-grid{grid-template-columns:1fr;gap:26px}.photo-grid:has(>figure:last-child:nth-child(3))>figure:last-child{max-width:none}.article-body>section.memory,.article-body>section.offer-details{padding:30px 22px 20px;margin-inline:-6px}.soft-note{padding:24px}.article-body p{font-size:16px}.price-list>div{grid-template-columns:1fr;gap:4px}.guide-nav{gap:4px 18px}.guide-nav a{font-size:13px}.table-wrap table{font-size:14px}.article-body figcaption{font-size:12px}.last-look .handwritten{font-size:23px}}
+@media(max-width:700px){.article-body{padding-inline:22px}.article-body>section{padding-top:44px;scroll-margin-top:92px}.hero h1{font-size:31px}.hero h1 em{font-size:28px}.hero .seo-subject{font-size:32px}.decision-grid{grid-template-columns:1fr;gap:12px}.decision-grid>div{padding:22px 24px}.photo-grid{grid-template-columns:1fr;gap:26px}.photo-grid:has(>figure:last-child:nth-child(3))>figure:last-child{max-width:none}.article-body>section.memory,.article-body>section.offer-details{padding:30px 22px 20px;margin-inline:-6px}.soft-note{padding:24px}.article-body p{font-size:16px}.price-list>div{grid-template-columns:1fr;gap:4px}.guide-nav{gap:4px 18px}.guide-nav a{font-size:13px}.table-wrap table{font-size:14px}.article-body figcaption{font-size:12px}.last-look .handwritten{font-size:23px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 @media(max-width:700px){.table-wrap caption::after{content:'左右滑動查看完整表格 →';display:block;font-size:12px;font-weight:400;margin-top:7px;color:var(--muted)}}

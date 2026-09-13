@@ -1,7 +1,7 @@
 /* Shared article/video contract. No Sheet writes, publishing or message sending. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.ProductContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const catalog={
-    caesarKenting:{id:'caesar-kenting',brands:['墾丁凱撒大飯店'],article:'/blog/caesar-kenting/',title:'先選對房，再把假期留給一家人。',excerpt:'五種房型實景、我們的旅行影片與家庭費用試算，從選房到一泊二食，把訂房前的問題看清楚。',category:'親子旅行',image:'/assets/caesar-kenting/journal/cover.webp',cardImage:'/assets/caesar-kenting/product-card.webp',published:'2026-09-13'},
+    caesarKenting:{id:'caesar-kenting',brands:['墾丁凱撒大飯店'],article:'/blog/caesar-kenting/',title:'墾丁凱撒大飯店｜先選對房，再把假期留給一家人。',excerpt:'五種房型實景、我們的旅行影片與家庭費用試算，從選房到一泊二食，把訂房前的問題看清楚。',category:'親子旅行',image:'/assets/caesar-kenting/journal/cover-title-v2.webp',cardImage:'/assets/caesar-kenting/product-card.webp',published:'2026-09-13'},
     fushan:{id:'fushan-gifts',brands:['鷹式一家 × 富山私房菜（常溫品）'],article:'/blog/fushan-gifts/',title:'送禮之前，先想起那個人。',excerpt:'原味、香辣牛肉乾、蜜香紅茶與禮盒空盒，先挑口味，再裝一份心意。',category:'餐桌與送禮',image:'/assets/fushan/cover.webp',cardImage:'/assets/fushan/product-card.webp',published:'2026-09-12',videoPolicy:'none'},
     kietla:{id:'kietla-kids-sunglasses',brands:['法國 Ki ET LA 兒童太陽眼鏡｜墨鏡'],ignoreExplicitlyClosedHistory:true,videoPolicy:'none',article:'/blog/kietla-kids-sunglasses/',title:'小小的臉，也有自己的風格。',excerpt:'從 0–1 歲到大童，配戴照片、框型圖鑑與護眼圖解，找到孩子願意戴的那一副。',category:'和孩子一起出門',image:'/assets/kietla/cover-style-v2.webp',published:'2026-09-11'},
     playzu:{id:'playzu',brands:['Playzu'],article:'/blog/playzu/',title:'地板留給孩子，風格留給自己。',excerpt:'20 款花色搭配與我們家的生活照，先找到像你家的那一款，再量好尺寸。',category:'家的模樣',image:'/assets/playzu/cover.webp',published:'2026-09-11'},

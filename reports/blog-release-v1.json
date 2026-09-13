@@ -1,10 +1,10 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-13T15:26:50.063Z",
+  "generatedAt": "2026-09-13T16:45:49.590Z",
   "status": "ready",
   "summary": {
-    "checks": 360,
-    "passed": 360,
+    "checks": 371,
+    "passed": 371,
     "failures": 0
   },
   "checks": [
@@ -102,6 +102,11 @@
       "id": "blog:artisan-cb301:index.html:schema",
       "passed": true,
       "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:artisan-cb301:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
     },
     {
       "id": "blog:artisan-cb301:index.html:breadcrumb",
@@ -249,6 +254,11 @@
       "detail": "Article structured data parses."
     },
     {
+      "id": "blog:atojet:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
       "id": "blog:atojet:index.html:breadcrumb",
       "passed": true,
       "detail": "BreadcrumbList structured data parses."
@@ -392,6 +402,11 @@
       "id": "blog:caesar-kenting:index.html:schema",
       "passed": true,
       "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:caesar-kenting:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
     },
     {
       "id": "blog:caesar-kenting:index.html:breadcrumb",
@@ -539,6 +554,11 @@
       "detail": "Article structured data parses."
     },
     {
+      "id": "blog:chulu-aomori-drinks:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
       "id": "blog:chulu-aomori-drinks:index.html:breadcrumb",
       "passed": true,
       "detail": "BreadcrumbList structured data parses."
@@ -682,6 +702,11 @@
       "id": "blog:fushan-gifts:index.html:schema",
       "passed": true,
       "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:fushan-gifts:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
     },
     {
       "id": "blog:fushan-gifts:index.html:breadcrumb",
@@ -829,6 +854,11 @@
       "detail": "Article structured data parses."
     },
     {
+      "id": "blog:hereu-tag:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
       "id": "blog:hereu-tag:index.html:breadcrumb",
       "passed": true,
       "detail": "BreadcrumbList structured data parses."
@@ -972,6 +1002,11 @@
       "id": "blog:kietla-kids-sunglasses:index.html:schema",
       "passed": true,
       "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:kietla-kids-sunglasses:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
     },
     {
       "id": "blog:kietla-kids-sunglasses:index.html:breadcrumb",
@@ -1119,6 +1154,11 @@
       "detail": "Article structured data parses."
     },
     {
+      "id": "blog:meroware:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
       "id": "blog:meroware:index.html:breadcrumb",
       "passed": true,
       "detail": "BreadcrumbList structured data parses."
@@ -1262,6 +1302,11 @@
       "id": "blog:mitoy-rice-blocks:index.html:schema",
       "passed": true,
       "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:mitoy-rice-blocks:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
     },
     {
       "id": "blog:mitoy-rice-blocks:index.html:breadcrumb",
@@ -1409,6 +1454,11 @@
       "detail": "Article structured data parses."
     },
     {
+      "id": "blog:playzu:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
       "id": "blog:playzu:index.html:breadcrumb",
       "passed": true,
       "detail": "BreadcrumbList structured data parses."
@@ -1552,6 +1602,11 @@
       "id": "blog:wave-hummus:index.html:schema",
       "passed": true,
       "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:wave-hummus:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
     },
     {
       "id": "blog:wave-hummus:index.html:breadcrumb",

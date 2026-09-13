@@ -3,6 +3,7 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { validateBlogCover } from './blog-cover-contract.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://www.eaglish.store';
@@ -58,6 +59,9 @@ export function auditBlog() {
   const titles = new Set();
   const descriptions = new Set();
   const sitemap = content('sitemap.xml');
+  const coverRegistry = JSON.parse(content('config/blog-cover-identities.json'));
+  const indexHtml = content('blog/index.html');
+  const sharedContent = content('product-content.js');
 
   for (const page of pages) {
     const html = content(page.path);
@@ -80,6 +84,12 @@ export function auditBlog() {
     check(`${id}:search-phrase`, title.includes(page.phrase) && h1.includes(page.phrase), `Title and H1 include ${page.phrase}.`);
     check(`${id}:schema`, schemaTypes.has(page.type), `${page.type} structured data parses.`);
     if (page.type === 'Article') {
+      const route = new URL(page.url).pathname;
+      const indexCard = (indexHtml.match(/<article\b[\s\S]*?<\/article>/gi) || []).find((card) => card.includes(`href="${route}"`));
+      const productEntry = sharedContent.split('\n').find((line) => line.includes(`article:'${route}'`));
+      const coverFailures = validateBlogCover({ root: ROOT, datePublished: article?.datePublished, dateModified: article?.dateModified,
+        entry: coverRegistry.articles[route], html, indexCard, productEntry });
+      check(`${id}:cover-identity`, !coverFailures.length, coverFailures.join(', ') || 'Cover identity review matches asset, article, index and shared editorial card.');
       check(`${id}:breadcrumb`, schemaTypes.has('BreadcrumbList'), 'BreadcrumbList structured data parses.');
       check(`${id}:author`, article?.author?.['@type'] === 'Organization' && article?.author?.name === '鷹式一家' && article?.author?.url === `${ORIGIN}/`, 'Author is the Eaglish organization with a stable URL.');
       check(`${id}:publisher`, article?.publisher?.['@type'] === 'Organization' && article?.publisher?.name === '鷹式一家' && article?.publisher?.url === `${ORIGIN}/`, 'Publisher is the Eaglish organization.');
