@@ -8,6 +8,8 @@
     ICN: ['首爾', '仁川'], GMP: ['首爾', '金浦'], SEL: ['首爾', '首爾各機場'], PUS: ['釜山', '金海'],
     BKK: ['曼谷', '蘇凡納布'], DMK: ['曼谷', '廊曼'], CNX: ['清邁', '清邁'],
     SIN: ['新加坡', '樟宜'], KUL: ['吉隆坡', '吉隆坡'], PEN: ['檳城', '檳城'],
+    DAD: ['峴港', '峴港'], MNL: ['馬尼拉', '馬尼拉'], HKG: ['香港', '香港'], MFM: ['澳門', '澳門'],
+    SYD: ['雪梨', '雪梨'], MEL: ['墨爾本', '墨爾本'], BNE: ['布里斯本', '布里斯本'], AKL: ['奧克蘭', '奧克蘭'],
     LAX: ['洛杉磯', '洛杉磯'], SFO: ['舊金山', '舊金山'], JFK: ['紐約', '甘迺迪'],
     NYC: ['紐約', '紐約各機場'], SEA: ['西雅圖', '西雅圖'],
     CDG: ['巴黎', '戴高樂'], PAR: ['巴黎', '巴黎各機場'], LHR: ['倫敦', '希斯洛'],
@@ -68,7 +70,19 @@
     const prefix = withYear ? value.slice(0, 4) + '/' : '';
     return prefix + Number(value.slice(5, 7)) + '/' + Number(value.slice(8, 10)) + '（' + day + '）';
   }
-  const api = { airport, amount, money, safeUrl, isFresh, eligibleDeals, matchingProducts, localDate, travelDate };
+  function priceHistory(row, now=Date.now()) {
+    let history;try{history=typeof row.history_json==='string'?JSON.parse(row.history_json):null;}catch{return null;}
+    if(!history?.windows || !Number.isFinite(Date.parse(history.asOf)) || Date.parse(history.asOf)>now || now-Date.parse(history.asOf)>86400000)return null;
+    for(const days of [90,30,7]){
+      const w=history.windows[days];
+      if(!w?.mature || !Number.isInteger(w.observedDays)||w.observedDays<Math.ceil(days*.8)||w.observedDays>days+1||!Number.isFinite(w.min)||w.min<=0||!Number.isFinite(w.median)||w.median<w.min)continue;
+      const points=Array.isArray(w.points)?w.points.filter(p=>/^\d{4}-\d{2}-\d{2}$/.test(p.date)&&Number.isFinite(p.price)&&p.price>0).slice(-days):[];
+      if(!points.length)return null;
+      return {days,min:w.min,median:w.median,observedDays:w.observedDays,points,asOf:history.asOf};
+    }
+    return null;
+  }
+  const api = { airport, amount, money, safeUrl, isFresh, eligibleDeals, matchingProducts, localDate, travelDate, priceHistory };
   if (typeof module !== 'undefined' && module.exports) module.exports = api;
   else root.FlightsModel = api;
 })(typeof window !== 'undefined' ? window : globalThis);

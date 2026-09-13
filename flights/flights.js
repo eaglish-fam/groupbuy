@@ -44,7 +44,9 @@
       const baggage = !row.baggage || /^(未知|unknown)$/i.test(row.baggage) ? '托運行李待確認' : row.baggage;
       const conditions = [row.stops || '轉機資訊待確認', row.airline ? '航空公司代碼 ' + row.airline : '航空公司待確認'].join(' · ');
       const dates = model.travelDate(row.outbound_date, true) + (roundtrip ? ' — ' + model.travelDate(row.inbound_date) : '');
-      return `<article class="deal-card" aria-label="${esc(origin.city)}到${esc(destination.city)}${roundtrip ? '來回' : '單程'}機票">
+      const history=model.priceHistory(row);
+      const historyHtml=history?`<details class="price-history"><summary>查看 ${history.days} 天票價觀測</summary><p>相同日期與條件的觀測參考價：最低 ${model.money(history.min)}，每日最低價的中位數 ${model.money(history.median)}。</p><p>共有 ${history.observedDays} 個觀測日；${esc(row.source)} 的資料範圍，統計至 ${esc(model.localDate(history.asOf))}。</p><div class="history-table"><table><caption>每日觀測最低參考價</caption><thead><tr><th scope="col">觀測日</th><th scope="col">票價</th></tr></thead><tbody>${history.points.map(p=>`<tr><td>${esc(p.date)}</td><td>${model.money(p.price)}</td></tr>`).join('')}</tbody></table></div></details>`:'';
+      return `<article id="${esc(row.deal_id)}" class="deal-card" aria-label="${esc(origin.city)}到${esc(destination.city)}${roundtrip ? '來回' : '單程'}機票">
         <div class="ticket-main">
           <div class="ticket-destination" aria-hidden="true"><img src="/flights/assets/sky-wing.webp" alt="" width="200" height="320" loading="lazy" /><div class="ticket-destination-label"><small>NEXT STOP</small><strong>${esc(destination.code)}</strong></div></div>
           <div class="ticket-content">
@@ -59,7 +61,7 @@
           </div>
           <div class="ticket-stub" aria-hidden="true"><span>FARE FIND · EAGLISH TRAVEL</span></div>
         </div>
-        <div class="ticket-foot"><span>查價 ${esc(model.localDate(row.observed_at))}（台灣時間） · ${esc(row.source || '來源未提供')}</span><details><summary>展開票價說明</summary><p>${esc(row.summary || '請於供應商頁面確認航班、行李、稅費與付款條件。')}</p><p>本筆資訊顯示至 ${esc(model.localDate(row.expires_at))}（台灣時間）；期限不代表供應商保留此價格。</p><p>票券造型僅呈現機票資訊，不代表已出票或保留座位。</p></details></div>
+        <div class="ticket-foot"><span>查價 ${esc(model.localDate(row.observed_at))}（台灣時間） · ${esc(row.source || '來源未提供')}</span><details><summary>展開票價說明</summary><p>${esc(row.summary || '請於供應商頁面確認航班、行李、稅費與付款條件。')}</p><p>本筆資訊顯示至 ${esc(model.localDate(row.expires_at))}（台灣時間）；期限不代表供應商保留此價格。</p><p>票券造型僅呈現機票資訊，不代表已出票或保留座位。</p></details>${historyHtml}</div>
       </article>`;
     }).join('');
   }

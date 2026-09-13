@@ -2,6 +2,16 @@ import assert from 'node:assert/strict';
 import test from 'node:test';
 import model from '../flights/flights-model.js';
 
+test('price history stays hidden for short samples, stale snapshots or invalid statistics', () => {
+  const now=Date.parse('2026-09-13T03:00:00Z');
+  const history={asOf:new Date(now).toISOString(),windows:{30:{mature:true,observedDays:26,min:5000,median:8000,points:[{date:'2026-09-12',price:5000}]}}};
+  const row={history_json:JSON.stringify(history)};
+  assert.equal(model.priceHistory(row,now).min,5000);
+  assert.equal(model.priceHistory(row,now+86400001),null);
+  assert.equal(model.priceHistory({history_json:'broken'},now),null);
+  history.windows[30].observedDays=2;assert.equal(model.priceHistory({history_json:JSON.stringify(history)},now),null);
+});
+
 const now = Date.parse('2026-09-12T15:30:00Z');
 const valid = {
   status: 'published', review_status: 'approved', region: '亞洲', price_twd: '10970',

@@ -22,13 +22,18 @@ export function buildTravelpayoutsUrl(input, baseUrl = DEFAULT_BASE_URL) {
   url.searchParams.set('destination', query.destination);
   url.searchParams.set('departure_at', query.outbound.iso);
   if (query.inbound) url.searchParams.set('return_at', query.inbound.iso);
+  if(input.dateMode==='month') {
+    url.searchParams.set('departure_at',query.outbound.iso.slice(0,7));
+    if(query.inbound)url.searchParams.set('return_at',query.inbound.iso.slice(0,7));
+    url.searchParams.set('limit','100');
+  }
   url.searchParams.set('one_way', query.inbound ? 'false' : 'true');
   url.searchParams.set('direct', 'false');
   url.searchParams.set('currency', query.currency.toLowerCase());
   url.searchParams.set('market', query.market.toLowerCase());
   url.searchParams.set('sorting', 'price');
   url.searchParams.set('unique', 'false');
-  url.searchParams.set('limit', '30');
+  if(!url.searchParams.has('limit'))url.searchParams.set('limit', '30');
   url.searchParams.set('page', '1');
   return url;
 }

@@ -31,6 +31,10 @@ h1, h2, h3 { font-weight: 700; }
 .hero-route .route-end { text-align: right; }
 .hero-route .route-end i { background: var(--signal-bright); margin-left: auto; }
 .hero-handnote { position: absolute; right: 9%; top: 24px; color: var(--ink); font-size: 26px; transform: rotate(-6deg); background: #ffffffdf; padding: 6px 14px; border-radius: 3px; }
+.price-history { width: 100%; }
+.history-table { max-height: 240px; overflow: auto; }
+.history-table table { width: 100%; border-collapse: collapse; text-align: left; }
+.history-table td, .history-table th { padding: 7px; border-bottom: 1px solid var(--line); }
 .section { padding-block: 49px 54px; }
 .section-heading { margin-bottom: 24px; }
 .section-heading h2 { font-size: clamp(27px, 3.2vw, 40px); line-height: 1.5; letter-spacing: -.025em; }

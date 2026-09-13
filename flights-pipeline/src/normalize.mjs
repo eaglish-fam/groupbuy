@@ -27,11 +27,11 @@ export function normalizeTravelpayoutsResponse(response, query, observedAt = new
   const rows = Array.isArray(response.data) ? response.data : [];
   return rows.flatMap((row, index) => {
     const amount = Number(row.price ?? row.value);
-    if (!Number.isFinite(amount)) return [];
+    if (!Number.isFinite(amount) || amount <= 0) return [];
     const departure = row.departure_at ?? row.depart_date ?? null;
     const returnDeparture = row.return_at ?? row.return_date ?? null;
-    const origin = row.origin ?? query.origin;
-    const destination = row.destination ?? query.destination;
+    const origin = row.origin_airport ?? row.origin ?? query.origin;
+    const destination = row.destination_airport ?? row.destination ?? query.destination;
     const resultId = row.signature ?? row.link ?? `${origin}-${destination}-${departure}-${index}`;
     return [{
       ...observationBase({ kind: 'indicative', query, provider: 'travelpayouts', observedAt }),
@@ -43,12 +43,13 @@ export function normalizeTravelpayoutsResponse(response, query, observedAt = new
       returnDeparture,
       priceAmount: amount,
       priceUnit: null,
-      isDirect: Number(row.number_of_changes ?? row.transfers ?? 0) === 0,
+      isDirect: row.transfers == null && row.number_of_changes == null ? null : (Number(row.number_of_changes ?? row.transfers) > 0 || Number(row.return_transfers ?? 0)>0) ? false : returnDeparture && row.return_transfers == null ? null : true,
       carrier: row.airline ?? null,
       bookingUrl: travelpayoutsBookingUrl(row.link ?? row.ticket_link),
       freshness: 'cached_recent_user_search',
       providerObservedAt: row.found_at ?? null,
       providerActual: row.actual ?? null,
+      providerExpiresAt: row.expires_at ?? null,
       complete: response.success === true,
     }];
   });
@@ -122,7 +123,7 @@ export function normalizeLiveResponse(response, query, observedAt = new Date().t
         returnDeparture: query.inbound ? `${query.inbound.iso}T00:00:00` : null,
         priceAmount: amount,
         priceUnit: option.price?.unit ?? null,
-        isDirect: (itinerary.legIds?.length ?? 0) <= (query.inbound ? 2 : 1),
+      isDirect: itinerary.legIds?.length && itinerary.legIds.every(id => results.legs?.[id]?.segmentIds?.length) ? itinerary.legIds.every(id => results.legs[id].segmentIds.length === 1) : null,
         carrier: null,
         bookingUrl: item.deepLink ?? null,
         freshness: 'live_search',
