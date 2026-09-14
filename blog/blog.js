@@ -102,8 +102,9 @@
       const rows = await refresh();
       const c = rows && ProductContent.campaignFor(rows, key);
       if (!c || c.state !== 'open') { pending?.close(); return; }
-      window.SiteAnalytics?.track('click_group_from_blog', { group_name: ProductContent.catalog[key].brands[0], event_category: 'conversion' });
       const destination = ProductContent.withUTM(c.url, ProductContent.catalog[key].brands[0]);
+      const article = ProductContent.catalog[key];
+      window.SiteAnalytics?.outboundGroupbuy({ productId: article.id, productName: article.brands[0], groupType: c.end ? 'limited' : 'evergreen', sourceSurface: 'blog_index_card', articleSlug: article.id, destinationUrl: destination, ctaLabel: a.textContent, campaignKey: c.end || 'evergreen', legacyEvent: 'click_group_from_blog' });
       if (pending && !pending.closed) pending.location.replace(destination);
       else location.assign(destination);
     } finally { buying = false; }

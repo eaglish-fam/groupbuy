@@ -12,11 +12,13 @@ const pages = [
   ...readdirSync(resolve(root,'blog'),{withFileTypes:true})
     .filter(d=>d.isDirectory()&&existsSync(resolve(root,'blog',d.name,'index.html')))
     .map(d=>({path:'/blog/'+d.name+'/',file:'blog/'+d.name+'/index.html'})),
-  {path:'/toolbox.html',file:'toolbox.html'},
-  {path:'/zosia.html',file:'zosia.html'},
-  {path:'/trading.html',file:'trading.html'}
 ];
 function lastmod(file){
+  if(file.startsWith('blog/')&&file.endsWith('/index.html')){
+    const html=readFileSync(resolve(root,file),'utf8');
+    const schemaDate=html.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})"/)?.[1];
+    if(schemaDate)return schemaDate;
+  }
   const dirty=execFileSync('git',['status','--porcelain','--',file],{cwd:root,encoding:'utf8'}).trim();
   if(dirty)return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei'}).format(new Date());
   const committed=execFileSync('git',['log','-1','--format=%cs','--',file],{cwd:root,encoding:'utf8'}).trim();

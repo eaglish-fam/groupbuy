@@ -241,7 +241,7 @@ function card(p) {
   const retailerLinks = p.retailers
     .map(
       (r) =>
-        `<a class="retailer-link" href="${esc(r.url)}" target="_blank" rel="noopener noreferrer">${esc(r.name)}</a>`,
+        `<a class="retailer-link" href="${esc(ProductContent.withUTM(r.url, p.brand))}" target="_blank" rel="noopener noreferrer" data-outbound-product-id="${esc(p.key)}" data-outbound-product-name="${esc(p.brand)}" data-outbound-group-type="book" data-outbound-source-surface="homepage_product_card" data-outbound-campaign-key="book" data-outbound-retailer="${esc(r.name)}" data-outbound-legacy-event="click_book">${esc(r.name)}</a>`,
     )
     .join("");
   return `<article class="product-card" data-product-key="${esc(p.key)}">
@@ -611,6 +611,7 @@ document.addEventListener("click", async e => {
   if (buying) return;
   buying = true;
   const key = a.dataset.buyKey;
+  const sourceSurface = a.closest("#product-dialog") ? "homepage_details_modal" : "homepage_product_card";
   const pending = window.open("about:blank", "_blank");
   if (pending) { pending.opener = null; pending.document.title = "正在確認當期團購"; }
   notify("正在確認最新團購入口…");
@@ -623,8 +624,18 @@ document.addEventListener("click", async e => {
       notify("目前無法確認可訂購，請稍後再試。");
       return;
     }
-    track(p.kind === "coupon" ? "click_coupon" : "click_group", { group_name: p.brand, group_category: p.category, event_category: "conversion" });
     const destination = ProductContent.withUTM(p.url, p.brand);
+    window.SiteAnalytics?.outboundGroupbuy({
+      productId: p.key,
+      productName: p.brand,
+      groupType: p.kind === "coupon" ? "coupon" : p.status.long ? "evergreen" : "limited",
+      sourceSurface,
+      destinationUrl: destination,
+      ctaLabel: a.textContent,
+      campaignKey: [p.start || "evergreen", p.end || "open"].join("_"),
+      legacyEvent: p.kind === "coupon" ? "click_coupon" : "click_group",
+      legacyData: { group_category: p.category },
+    });
     if (pending && !pending.closed) pending.location.replace(destination);
     else window.location.assign(destination);
   } finally { buying = false; }

@@ -5,8 +5,8 @@
   "sourceRoot": ".",
   "status": "ready",
   "summary": {
-    "checks": 28,
-    "passed": 28,
+    "checks": 30,
+    "passed": 30,
     "blockingFailures": 0,
     "warnings": 0
   },
@@ -165,13 +165,25 @@
       "id": "sitemap-https",
       "passed": true,
       "severity": "blocking",
-      "detail": "17 sitemap URL(s) use the canonical HTTPS origin."
+      "detail": "14 sitemap URL(s) use the canonical HTTPS origin."
     },
     {
       "id": "sitemap-unique",
       "passed": true,
       "severity": "blocking",
       "detail": "Sitemap URLs are unique."
+    },
+    {
+      "id": "sitemap-excludes-test-pages",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Sitemap excludes internal test convenience pages."
+    },
+    {
+      "id": "sitemap-pages-have-analytics",
+      "passed": true,
+      "severity": "blocking",
+      "detail": "Every sitemap page loads the shared analytics runtime."
     },
     {
       "id": "local-assets",

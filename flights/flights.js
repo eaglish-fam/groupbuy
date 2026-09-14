@@ -60,7 +60,7 @@
             </div>
           </div>
           <div class="ticket-info"><p class="ticket-dates">${esc(dates)}</p><p class="conditions">${esc(conditions)}</p><p class="baggage">${esc(baggage)}</p></div>
-          <div class="ticket-price"><small>${roundtrip ? '來回' : '單程'}／每人參考價</small><div class="price-amount"><small>NT$</small><strong>${model.amount(row.price_twd).toLocaleString('zh-TW')}</strong></div><a class="button" data-fare-id="${esc(row.deal_id)}" href="${esc(link)}" target="_blank" rel="noopener nofollow">查看最新票價 <span aria-hidden="true">↗</span></a></div>
+          <div class="ticket-price"><small>${roundtrip ? '來回' : '單程'}／每人參考價</small><div class="price-amount"><small>NT$</small><strong>${model.amount(row.price_twd).toLocaleString('zh-TW')}</strong></div><a class="button" data-fare-id="${esc(row.deal_id)}" data-outbound-product-id="${esc(row.deal_id)}" data-outbound-product-name="${esc(origin.code + '–' + destination.code + ' 機票')}" data-outbound-group-type="travel_fare" data-outbound-source-surface="flights_fare_card" data-outbound-campaign-key="${esc(row.outbound_date + '_' + (row.inbound_date || 'oneway'))}" data-outbound-legacy-event="click_fare" href="${esc(link)}" target="_blank" rel="noopener nofollow">查看最新票價 <span aria-hidden="true">↗</span></a></div>
           </div>
           <div class="ticket-stub" aria-hidden="true"><span>FARE FIND · EAGLISH TRAVEL</span></div>
         </div>
@@ -100,13 +100,15 @@
       const rating = Number(row.rating) > 0 ? '<span class="star" aria-hidden="true">★</span>' + esc(row.rating) + ' ／ ' + Number(row.review_count || 0).toLocaleString('zh-TW') + ' 則評價' : '查看旅客評價';
       const img = image ? '<img src="' + esc(image) + '" alt="' + esc(row.title) + '" loading="lazy" width="720" height="540" />' : '<span class="image-placeholder">目的地靈感</span>';
       const destination = [row.country, row.city && row.city !== row.country ? row.city : ''].filter(Boolean).join('・');
+      const productId = row.product_id || row.id || [row.country, row.city, row.title].filter(Boolean).join('-');
+      const outbound = `data-outbound-product-id="${esc(productId)}" data-outbound-product-name="${esc(row.title)}" data-outbound-group-type="travel_catalog" data-outbound-source-surface="flights_product_card" data-outbound-campaign-key="travel_catalog" data-outbound-legacy-event="click_travel_product"`;
       return `<article class="product-card">
-        ${affiliate ? `<a class="product-image" href="${esc(affiliate)}" target="_blank" rel="sponsored noopener" tabindex="-1" aria-hidden="true">${img}</a>` : `<div class="product-image">${img}</div>`}
+        ${affiliate ? `<a class="product-image" ${outbound} href="${esc(affiliate)}" target="_blank" rel="sponsored noopener" tabindex="-1" aria-hidden="true">${img}</a>` : `<div class="product-image">${img}</div>`}
         <div class="product-body">
           <div class="product-kicker"><span>${esc(destination)}</span><span>${esc(row.category)}</span></div>
           <h3>${esc(row.title)}</h3><div class="product-rating">${rating}</div>
           <div class="product-bottom"><div class="product-price"><small>Klook 目錄參考價起</small><strong>${model.money(row.price_twd)}</strong></div>
-            ${affiliate ? `<a class="product-link" href="${esc(affiliate)}" target="_blank" rel="sponsored noopener" aria-label="探索 ${esc(row.title)} 的商品方案">探索體驗 <span aria-hidden="true">↗</span></a>` : ''}
+            ${affiliate ? `<a class="product-link" ${outbound} href="${esc(affiliate)}" target="_blank" rel="sponsored noopener" aria-label="探索 ${esc(row.title)} 的商品方案">探索體驗 <span aria-hidden="true">↗</span></a>` : ''}
           </div>
         </div>
       </article>`;
@@ -156,7 +158,7 @@
   function guardFare(event){
     const link=event.target.closest('[data-fare-id]');if(!link)return;
     const row=state.deals.find(row=>row.deal_id===link.dataset.fareId);
-    if(state.dealsError||!row||!model.eligibleDeals([row]).length){event.preventDefault();renderDeals();}
+    if(state.dealsError||!row||!model.eligibleDeals([row]).length){event.preventDefault();event.stopImmediatePropagation();renderDeals();}
   }
   document.addEventListener('click',guardFare,true);
   document.addEventListener('auxclick',guardFare,true);

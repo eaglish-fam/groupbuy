@@ -91,12 +91,16 @@ try {
  await page.keyboard.press('Escape');
  await page.evaluate(()=>{window.auditEvents=[];window.SiteAnalytics.track=(name,data)=>auditEvents.push({name,data});});
  const before=calls;
- await page.locator('#products [data-buy-key]').first().click();
+ await page.locator('#products .product-card', {hasText:'Wave 鷹嘴豆泥'}).locator('[data-buy-key]').click();
  await page.waitForFunction(()=>window.sent.length===1);
  check('purchase rechecks Sheet',calls>before);
  check('purchase uses new URL',await page.evaluate(()=>sent[0].split('?')[0])===newURL);
  check('outbound tracking preserved',await page.evaluate(()=>new URL(sent[0]).searchParams.get('utm_source'))==='eaglish');
  check('one purchase event',await page.evaluate(()=>auditEvents.filter(e=>e.name==='click_group').length)===1);
+ check('one dimensioned outbound purchase event',await page.evaluate(()=>{
+  const events=auditEvents.filter(e=>e.name==='outbound_groupbuy_click');
+  return events.length===1&&events[0].data.product_id&&events[0].data.product_name==='Wave 鷹嘴豆泥'&&events[0].data.source_surface==='homepage_product_card';
+ }));
  mode='fail';
  await page.evaluate(()=>load());
  check('refresh failure removes purchase CTAs',await page.locator('[data-buy-key]').count()===0);
@@ -142,13 +146,14 @@ try {
  await prod.goto('https://www.eaglish.store/',{waitUntil:'domcontentloaded'});
  await prod.waitForFunction(()=>document.querySelectorAll('#products .product-card').length===6);
  check('production config initialised exactly once',await prod.evaluate(()=>dataLayer.filter(x=>x[0]==='config'&&x[1]==='G-7SW2X9B19H').length)===1);
- await prod.locator('#products [data-buy-key]').first().click();
+ await prod.locator('#products .product-card', {hasText:'Wave 鷹嘴豆泥'}).locator('[data-buy-key]').click();
  await prod.waitForFunction(()=>sent.length===1);
  check('production purchase enqueued exactly once',await prod.evaluate(()=>dataLayer.filter(x=>x[0]==='event'&&x[1]==='click_group').length)===1);
+ check('production unified purchase enqueued exactly once',await prod.evaluate(()=>dataLayer.filter(x=>x[0]==='event'&&x[1]==='outbound_groupbuy_click').length)===1);
  mode='closed';
- await prod.locator('#products [data-buy-key]').first().click();
+ await prod.locator('#products .product-card', {hasText:'Wave 鷹嘴豆泥'}).locator('[data-buy-key]').click();
  await prod.waitForFunction(()=>document.querySelectorAll('#products [data-buy-key]').length===0);
- check('closed campaign does not navigate or emit a conversion',await prod.evaluate(()=>sent.length===1&&dataLayer.filter(x=>x[0]==='event'&&x[1]==='click_group').length===1));
+ check('closed campaign does not navigate or emit a conversion',await prod.evaluate(()=>sent.length===1&&dataLayer.filter(x=>x[0]==='event'&&x[1]==='click_group').length===1&&dataLayer.filter(x=>x[0]==='event'&&x[1]==='outbound_groupbuy_click').length===1));
  await production.close();
  mode='open';
 

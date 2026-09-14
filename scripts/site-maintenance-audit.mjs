@@ -112,6 +112,17 @@ export function auditSite(root = DEFAULT_ROOT) {
   check('sitemap-home', sitemapLocs.includes(`${config.site.canonicalOrigin}/`), 'Sitemap includes the canonical homepage.');
   check('sitemap-https', sitemapLocs.length > 0 && sitemapLocs.every((url) => url.startsWith(`${config.site.canonicalOrigin}/`)), `${sitemapLocs.length} sitemap URL(s) use the canonical HTTPS origin.`);
   check('sitemap-unique', new Set(sitemapLocs).size === sitemapLocs.length, 'Sitemap URLs are unique.');
+  const testPagePaths = ['/toolbox.html', '/zosia.html', '/trading.html'];
+  check('sitemap-excludes-test-pages', testPagePaths.every((path) => !sitemapLocs.includes(`${config.site.canonicalOrigin}${path}`)), 'Sitemap excludes internal test convenience pages.');
+  const sitemapFiles = sitemapLocs.map((value) => {
+    const pathname = new URL(value).pathname;
+    return pathname.endsWith('/') ? `${pathname.slice(1)}index.html` : pathname.slice(1);
+  });
+  const withoutAnalytics = sitemapFiles.filter((path) => {
+    const file = join(root, path);
+    return !existsSync(file) || !/src=["'][^"']*site-runtime\.js/i.test(text(file));
+  });
+  check('sitemap-pages-have-analytics', withoutAnalytics.length === 0, withoutAnalytics.length ? `Public sitemap pages without analytics runtime: ${withoutAnalytics.join(', ')}` : 'Every sitemap page loads the shared analytics runtime.');
 
   const missingLocalRefs = localReferences(html).filter((path) => !existsSync(join(root, path)));
   check('local-assets', missingLocalRefs.length === 0, missingLocalRefs.length ? `Missing local references: ${missingLocalRefs.join(', ')}` : 'All static homepage asset references resolve.');

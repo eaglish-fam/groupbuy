@@ -4,7 +4,46 @@
   const track = (name, data = {}) => {
     if (production && typeof window.gtag === "function") window.gtag("event", name, data);
   };
-  window.SiteAnalytics = { track };
+  const text = value => String(value ?? "").trim();
+  const vendorKey = value => {
+    try { return new URL(value, location.href).hostname.toLowerCase().replace(/^www\./, ""); }
+    catch { return ""; }
+  };
+  const outboundGroupbuy = ({
+    productId,
+    productName,
+    groupType,
+    sourceSurface,
+    articleSlug = "",
+    destinationUrl = "",
+    ctaLabel = "",
+    campaignKey = "",
+    vendor = "",
+    legacyEvent = "",
+    legacyData = {},
+  } = {}) => {
+    const payload = {
+      product_id: text(productId),
+      product_name: text(productName),
+      group_type: text(groupType),
+      source_surface: text(sourceSurface),
+      article_slug: text(articleSlug),
+      vendor_key: text(vendor) || vendorKey(destinationUrl),
+      cta_label: text(ctaLabel),
+      campaign_key: text(campaignKey),
+      destination_host: vendorKey(destinationUrl),
+      event_category: "conversion",
+      transport_type: "beacon",
+    };
+    // A conversion without these dimensions cannot answer which product and surface worked.
+    if (!payload.product_id || !payload.product_name || !payload.group_type || !payload.source_surface) return false;
+    const emit = window.SiteAnalytics?.track || track;
+    emit("outbound_groupbuy_click", payload);
+    // Keep the historical series during migration. Only outbound_groupbuy_click is a key event.
+    if (legacyEvent) emit(legacyEvent, { ...legacyData, group_name: payload.product_name, event_category: "conversion" });
+    return true;
+  };
+  window.SiteAnalytics = { track, outboundGroupbuy, vendorKey };
   if (production && !window.gtag) {
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () { window.dataLayer.push(arguments); };
@@ -20,7 +59,21 @@
     if (!a || !a.href || a.hasAttribute("data-buy-key") || a.hasAttribute("data-buy")) return;
     const u = new URL(a.href);
     const brand = a.closest(".product-card")?.querySelector("h3")?.textContent || "";
-    if (u.origin === location.origin && u.pathname.startsWith("/blog/"))
+    const outbound = a.closest("[data-outbound-product-id]");
+    if (outbound) {
+      outboundGroupbuy({
+        productId: outbound.dataset.outboundProductId,
+        productName: outbound.dataset.outboundProductName || brand,
+        groupType: outbound.dataset.outboundGroupType,
+        sourceSurface: outbound.dataset.outboundSourceSurface,
+        articleSlug: outbound.dataset.outboundArticleSlug,
+        destinationUrl: a.href,
+        ctaLabel: a.textContent,
+        campaignKey: outbound.dataset.outboundCampaignKey,
+        legacyEvent: outbound.dataset.outboundLegacyEvent,
+        legacyData: { retailer: outbound.dataset.outboundRetailer || "" },
+      });
+    } else if (u.origin === location.origin && u.pathname.startsWith("/blog/"))
       track("open_blog_modal", { group_name: brand, article_path: u.pathname, source: "journal" });
     else if (a.classList.contains("retailer-link"))
       track("click_book", { group_name: brand, retailer: a.textContent.trim() });
