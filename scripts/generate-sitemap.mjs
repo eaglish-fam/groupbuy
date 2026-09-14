@@ -9,6 +9,7 @@ const pages = [
   {path:'/',file:'index.html'},
   {path:'/blog/',file:'blog/index.html'},
   {path:'/trip/',file:'trip/index.html'},
+  ...['new-zealand/','new-zealand/christchurch/','new-zealand/akaroa/','new-zealand/christchurch/3-days/','thailand/','thailand/bangkok/'].map(p=>({path:'/trip/'+p,file:'trip/'+p+'index.html'})),
   {path:'/trip/guides/bangkok-with-kids/',file:'trip/guides/bangkok-with-kids/index.html'},
   {path:'/trip/flights/',file:'trip/flights/index.html'},
   ...readdirSync(resolve(root,'blog'),{withFileTypes:true})
