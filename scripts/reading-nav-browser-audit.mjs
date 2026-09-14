@@ -147,6 +147,10 @@ try {
     const style=getComputedStyle(el),rect=el.getBoundingClientRect();
     return rect.width >= 48 && rect.height >= 76 && style.backgroundImage.includes('gradient') && style.boxShadow !== 'none' && parseFloat(style.borderWidth) === 0;
   }));
+  check('Mobile: four characters form one upright vertical column', await touchPage.locator('.reading-nav__tab-label').evaluate(el => {
+    const style=getComputedStyle(el),rect=el.getBoundingClientRect();
+    return style.writingMode === 'vertical-rl' && style.textOrientation === 'upright' && style.whiteSpace === 'nowrap' && rect.height > rect.width * 3;
+  }));
   await swipe(10,bounds.y+25,95,0);
   check('Mobile: right swipe opens the drawer', await touchTab.getAttribute('aria-expanded') === 'true');
   await swipe(220,400,-95,0);

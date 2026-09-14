@@ -1,6 +1,6 @@
 # Long-article side navigation pilot
 
-Pilot: `/blog/caesar-kenting/`. Production is unchanged until Hiram approves deployment.
+Pilot: `/blog/caesar-kenting/`. Hiram approved production deployment after restoring the trigger label to a single upright vertical column (文／章／目／錄) on 2026-09-14. The larger touch target, white glow and shrink-to-side transition are retained.
 
 ## Interaction contract
 
