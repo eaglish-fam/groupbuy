@@ -1,0 +1,37 @@
+/* Shared, opt-in reading navigation. Article content and purchase CTA keep their layout. */
+.reading-nav[hidden]{display:none}
+.reading-nav{--reading-nav-top:100px;position:fixed;inset:0;z-index:50;pointer-events:none}
+.reading-nav button{font:inherit;color:var(--green,#36594f);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.reading-nav__tab{position:absolute;top:max(var(--reading-nav-top),38vh);left:0;display:flex;flex-direction:column;align-items:flex-start;width:44px;min-height:44px;padding:0;border:0;background:none;pointer-events:auto;touch-action:pan-y;transition:opacity .2s,transform .25s}
+/* Only 20px is painted inside the article's 22px gutter; the transparent touch target stays 44px wide. */
+.reading-nav__tab:before{content:"";position:absolute;inset:0 auto 0 0;width:20px;border-radius:0 9px 9px 0;background:linear-gradient(105deg,#f4f0e5 15%,#e4e9df 100%)}
+.reading-nav__tab-label{position:relative;writing-mode:vertical-rl;letter-spacing:.16em;font-size:11px;line-height:12px;width:20px;padding:12px 4px 4px}
+.reading-nav__chevron{position:relative;width:20px;padding-bottom:8px;text-align:center;font-size:19px;line-height:16px}
+.reading-nav.has-hint .reading-nav__chevron{animation:reading-nav-hint 1.3s ease-in-out 2}
+.reading-nav__panel{position:absolute;top:var(--reading-nav-top);bottom:max(100px,env(safe-area-inset-bottom));left:0;width:min(288px,calc(100vw - 56px));display:flex;flex-direction:column;padding:22px 24px 20px 22px;border-radius:0 20px 20px 0;background:linear-gradient(105deg,#f7f4eafc 0%,#edf0e7fa 75%,#e6ece1eb 100%);box-shadow:5px 2px 18px #253c2f12;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);transform:translateX(-105%);visibility:hidden;transition:transform .3s ease,visibility .3s;pointer-events:none;touch-action:pan-y}
+.reading-nav__heading{display:flex;align-items:center;justify-content:space-between;flex-shrink:0;padding-bottom:13px;color:var(--green,#36594f);font-size:12px;letter-spacing:.14em}
+.reading-nav__close{display:grid;place-items:center;width:44px;height:44px;margin:-10px -10px -8px 0;border:0;background:none;font-size:25px!important;font-weight:300;line-height:1}
+.reading-nav__list{list-style:none;counter-reset:chapter;margin:0;padding:0;overflow-y:auto;overscroll-behavior:contain;touch-action:pan-y pinch-zoom;scrollbar-width:thin;scrollbar-color:#36594f40 transparent}
+.reading-nav__tab,.reading-nav__panel{touch-action:pan-y pinch-zoom}
+.reading-nav__list li{counter-increment:chapter;margin:0;padding:0}
+.reading-nav__list a{display:flex;align-items:center;gap:12px;min-height:44px;padding:8px 3px;color:var(--green,#36594f);font-size:14px;line-height:1.5;text-decoration:none;transition:color .18s}
+.reading-nav__list a:before{content:counter(chapter,decimal-leading-zero);min-width:19px;font-family:Georgia,serif;font-size:12px;opacity:.5}
+.reading-nav__list a[aria-current="location"]{color:var(--rust,#a05238);font-weight:600}
+.reading-nav__list a[aria-current="location"]:before{opacity:1}
+.reading-nav__list a:hover{color:var(--rust,#a05238)}
+.reading-nav :focus-visible{outline:2px solid var(--green,#36594f);outline-offset:-2px;border-radius:4px}
+.reading-nav__shade{position:absolute;inset:0;border:0;background:linear-gradient(90deg,#23372f0c,transparent 90%);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s;pointer-events:none}
+.reading-nav.is-open .reading-nav__panel{transform:translateX(0);visibility:visible;pointer-events:auto}
+.reading-nav.is-open .reading-nav__tab{opacity:0;transform:translateX(-100%);pointer-events:none;visibility:hidden}
+.reading-nav.is-open .reading-nav__shade{opacity:1;visibility:visible;pointer-events:auto}
+@keyframes reading-nav-hint{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
+@media(min-width:1200px){
+  .reading-nav__tab,.reading-nav__close,.reading-nav__shade{display:none}
+  .reading-nav__panel{top:max(var(--reading-nav-top),calc(50vh - 275px));bottom:auto;left:16px;width:min(188px,calc((100vw - 920px)/2 + 8px));max-height:calc(100dvh - var(--reading-nav-top) - 40px);padding:20px 10px 16px 12px;border-radius:12px;transform:none;visibility:visible;pointer-events:auto;background:linear-gradient(135deg,#f0eee5e8,#f8f7f200);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
+  .reading-nav__heading{padding:0 0 15px 3px;font-size:11px}
+  .reading-nav__list a{gap:9px;font-size:13px;min-height:40px}
+}
+@media(prefers-reduced-motion:reduce){
+  .reading-nav *, .reading-nav *:before{animation:none!important;transition:none!important}
+}
+@media print{.reading-nav{display:none!important}}
