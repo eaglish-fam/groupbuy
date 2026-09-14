@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
-const html = readFileSync(new URL('../trip/index.html', import.meta.url), 'utf8');
+const html = readFileSync(new URL('../trip/flights/index.html', import.meta.url), 'utf8');
 const js = readFileSync(new URL('../flights/flights.js', import.meta.url), 'utf8');
 const model = readFileSync(new URL('../flights/flights-model.js', import.meta.url), 'utf8');
 const appsScript = readFileSync(new URL('../flights-pipeline/apps-script/Code.gs', import.meta.url), 'utf8');
@@ -17,7 +17,7 @@ test('flights stays available by direct URL without a shop or journal entry', ()
 });
 
 test('flights page has an indexable canonical consumer entry', () => {
-  assert.match(html, /<link rel="canonical" href="https:\/\/www\.eaglish\.store\/trip\/"/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/www\.eaglish\.store\/trip\/flights\/"/);
   assert.match(html, /<meta name="robots" content="index,follow,max-image-preview:large"/);
   assert.equal((html.match(/<h1>/g) || []).length, 1);
 });

@@ -9,6 +9,8 @@ const pages = [
   {path:'/',file:'index.html'},
   {path:'/blog/',file:'blog/index.html'},
   {path:'/trip/',file:'trip/index.html'},
+  {path:'/trip/guides/bangkok-with-kids/',file:'trip/guides/bangkok-with-kids/index.html'},
+  {path:'/trip/flights/',file:'trip/flights/index.html'},
   ...readdirSync(resolve(root,'blog'),{withFileTypes:true})
     .filter(d=>d.isDirectory()&&existsSync(resolve(root,'blog',d.name,'index.html')))
     .map(d=>({path:'/blog/'+d.name+'/',file:'blog/'+d.name+'/index.html'})),
