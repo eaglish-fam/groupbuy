@@ -15,11 +15,11 @@ test('destination hierarchy has static text, canonical URLs, valid local assets 
   for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))assert.doesNotThrow(()=>JSON.parse(m[1]));
  }
 });
-test('nine place cards distinguish visited sources and contain direct maps plus disclosure',()=>{
+test('eleven place cards distinguish visited sources and contain direct maps plus disclosure',()=>{
  const html=read(nzRoute.slice(1)+'index.html');
- assert.equal(places.length,9);assert.equal(places.filter(p=>p.visited).length,3);
- for(const p of places){assert.ok(html.includes(`id="${p.id}"`));assert.ok(html.includes(encodeURIComponent(p.query)));assert.ok(p.source.startsWith('https://'));}
- assert.equal((html.match(/<summary>展開景點介紹與行前提醒/g)||[]).length,9);
+ assert.equal(places.length,11);assert.equal(places.filter(p=>p.visited).length,7);
+ for(const p of places){assert.ok(html.includes(`id="${p.id}"`));assert.ok(html.includes(p.mapsUrl||encodeURIComponent(p.query)));assert.ok(p.source.startsWith('https://'));}
+ assert.equal((html.match(/<summary>展開景點介紹與行前提醒/g)||[]).length,11);
  assert.match(html,/Drummonds Jetty/);assert.match(html,/海外旅客另有票種/);
  assert.match(html,/不是下水與海豚共游/);assert.doesNotMatch(html,/近100%|95%|保證看到|最低價/);
  assert.match(html,/klook\.com\/activity\/7758-/);

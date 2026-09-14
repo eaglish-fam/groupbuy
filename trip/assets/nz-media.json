@@ -1,0 +1,200 @@
+[
+  {
+    "name": "nz-sandfly-bay",
+    "source": "https://www.instagram.com/p/C5vpJ4KPq2Y/",
+    "caption": "Sandfly Bay 沙灘合照",
+    "slide": 1,
+    "kind": "photo",
+    "width": 1440,
+    "height": 959,
+    "bytes": 95408,
+    "sha256": "92bd07283934cf508edd332a844c6a8f231c243f00aff48c7279369e4fdc2345"
+  },
+  {
+    "name": "nz-cardrona",
+    "source": "https://www.instagram.com/p/C5vpJ4KPq2Y/",
+    "caption": "Cardrona 胸罩圍牆",
+    "slide": 2,
+    "kind": "photo",
+    "width": 1440,
+    "height": 961,
+    "bytes": 211626,
+    "sha256": "9e129b19a05c1388fca531b83bd94f327900853b25de1bc2d63888ca38389ca1"
+  },
+  {
+    "name": "nz-wanaka-tree",
+    "source": "https://www.instagram.com/p/C5vpJ4KPq2Y/",
+    "caption": "瓦納卡湖畔的樹與家人",
+    "slide": 3,
+    "kind": "photo",
+    "width": 1440,
+    "height": 960,
+    "bytes": 189248,
+    "sha256": "d68ad29d13f1233c8034c7728f5997c89d75edb6f2164f63125d492823156eff"
+  },
+  {
+    "name": "nz-tekapo-church",
+    "source": "https://www.instagram.com/p/C5vpJ4KPq2Y/",
+    "caption": "好牧羊人教堂前的合照",
+    "slide": 4,
+    "kind": "photo",
+    "width": 1440,
+    "height": 962,
+    "bytes": 195722,
+    "sha256": "879edaf47acb5a6bfdc5a3598af47725fce4288abbcbd523349694e9f835f95c"
+  },
+  {
+    "name": "nz-baldwin-street",
+    "source": "https://www.instagram.com/p/C5vpJ4KPq2Y/",
+    "caption": "Baldwin Street 的陡坡",
+    "slide": 5,
+    "kind": "photo",
+    "width": 1440,
+    "height": 960,
+    "bytes": 326576,
+    "sha256": "c73fdf18e89ccf0be5a4147a2440e5c783b0c8c5adff3e95d94819b41871d98b"
+  },
+  {
+    "name": "nz-christchurch-tram",
+    "source": "https://www.instagram.com/p/C5vpJ4KPq2Y/",
+    "caption": "基督城市區電車與一家人的旅行合照",
+    "slide": 6,
+    "kind": "photo",
+    "width": 1440,
+    "height": 961,
+    "bytes": 160922,
+    "sha256": "6f651300d38fe8dc47e5b2a37c10ed24ea23f38c9fe5c5c3d4096619d170c670"
+  },
+  {
+    "name": "nz-moeraki-boulders",
+    "source": "https://www.instagram.com/p/C5vpJ4KPq2Y/",
+    "caption": "Moeraki Boulders Beach 圓石沙灘",
+    "slide": 7,
+    "kind": "photo",
+    "width": 1440,
+    "height": 960,
+    "bytes": 191450,
+    "sha256": "8859622a67eaa672091d78583f31fc476d08fd29e008b538b3fe1d229cbdd8d3"
+  },
+  {
+    "name": "nz-oamaru-precinct",
+    "source": "https://www.instagram.com/p/C5vpJ4KPq2Y/",
+    "caption": "Oamaru 維多利亞歷史街區",
+    "slide": 8,
+    "kind": "photo",
+    "width": 1440,
+    "height": 959,
+    "bytes": 144058,
+    "sha256": "d6250de1e6e1d501fc4042e441ac1af28efc7aa9fdcb6809ba22eab00aa34ce7"
+  },
+  {
+    "name": "nz-tekapo-lake",
+    "source": "https://www.instagram.com/p/C5vpJ4KPq2Y/",
+    "caption": "蒂卡波湖與好牧羊人教堂遠景",
+    "slide": 10,
+    "kind": "photo",
+    "width": 1440,
+    "height": 964,
+    "bytes": 141958,
+    "sha256": "82571a9ae86977ebf5c76d699e799ab678f2479abfda28d1e2a9fca24acd83c5"
+  },
+  {
+    "name": "nz-akaroa-walk",
+    "source": "https://www.youtube.com/watch?v=tMUSkF_RAkM&t=1331s",
+    "caption": "Akaroa 海濱散步",
+    "second": 1331,
+    "kind": "video-frame",
+    "width": 1440,
+    "height": 810,
+    "bytes": 56066,
+    "sha256": "030f2c392e7638b91db0ea695282ed52e75d4c178f688b15a2603aed4350eac0"
+  },
+  {
+    "name": "nz-akaroa-road",
+    "source": "https://www.youtube.com/watch?v=tMUSkF_RAkM&t=993s",
+    "caption": "前往 Shamarra 的山海道路",
+    "second": 993,
+    "kind": "video-frame",
+    "width": 1440,
+    "height": 810,
+    "bytes": 101050,
+    "sha256": "a28fed89816b356be9c905f4430c8d7da56036bb553307301cfb413b2554815d"
+  },
+  {
+    "name": "nz-akaroa-museum",
+    "source": "https://www.youtube.com/watch?v=tMUSkF_RAkM&t=1740s",
+    "caption": "Akaroa Museum 展品",
+    "second": 1740,
+    "kind": "video-frame",
+    "width": 1440,
+    "height": 810,
+    "bytes": 52308,
+    "sha256": "93b86574dd5522c1436066b54b2fe2dfb9bef4c0cfdfee3e4e16417f471ab8bb"
+  },
+  {
+    "name": "nz-akaroa-lunch",
+    "source": "https://www.youtube.com/watch?v=tMUSkF_RAkM&t=1800s",
+    "caption": "Akaroa 出海前的炸魚薯條午餐",
+    "second": 1800,
+    "kind": "video-frame",
+    "width": 1440,
+    "height": 810,
+    "bytes": 56366,
+    "sha256": "7d3476181e36d574b8adff6d0f711e9fa6298465b3c2b36fcffacc3b0c779aa2"
+  },
+  {
+    "name": "nz-akaroa-harbour",
+    "source": "https://www.youtube.com/watch?v=tMUSkF_RAkM&t=1966s",
+    "caption": "Akaroa Dolphins 船上的港灣景色",
+    "second": 1966,
+    "kind": "video-frame",
+    "width": 1440,
+    "height": 810,
+    "bytes": 38576,
+    "sha256": "2a0505be2e895308a4473200b4cc69fc60493fc8e0dff1295b793d85defaad57"
+  },
+  {
+    "name": "nz-rotorua-luge",
+    "source": "https://www.youtube.com/watch?v=ne6-znP10dE&t=405s",
+    "caption": "Rotorua 斜坡滑車",
+    "second": 405,
+    "kind": "video-frame",
+    "width": 1440,
+    "height": 810,
+    "bytes": 76878,
+    "sha256": "586d27528552be8f17c5406690d1139ee73344e97b1e0581a4bdad06213f9ab8"
+  },
+  {
+    "name": "nz-wellington-harbour",
+    "source": "https://www.youtube.com/watch?v=Y3ad6Z2NACk&t=218s",
+    "caption": "Wellington 港灣",
+    "second": 218,
+    "kind": "video-frame",
+    "width": 1440,
+    "height": 810,
+    "bytes": 62896,
+    "sha256": "e2b4de8736c642161723285eaed12ce85716424eacd2d9ec14dd21333f67d0ea"
+  },
+  {
+    "name": "nz-queenstown-lake",
+    "source": "https://www.youtube.com/watch?v=ksl8ZBTtKjE&t=953s",
+    "caption": "Queenstown 湖畔散步",
+    "second": 953,
+    "kind": "video-frame",
+    "width": 1440,
+    "height": 810,
+    "bytes": 160406,
+    "sha256": "fec9b21fae9950568d84bb300bfa7e775e1ff92478e784d1df895f0eb01937ff"
+  },
+  {
+    "name": "nz-hobbiton",
+    "source": "https://www.youtube.com/watch?v=ne6-znP10dE&t=679s",
+    "caption": "Hobbiton Movie Set 入口",
+    "second": 679,
+    "kind": "video-frame",
+    "width": 1440,
+    "height": 810,
+    "bytes": 66296,
+    "sha256": "2b4da28dfc115b3fb004656189295695161daf814ed6de2ba3c5b31f9548aea8"
+  }
+]
