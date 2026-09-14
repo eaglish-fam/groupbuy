@@ -8,7 +8,7 @@ const origin = 'https://www.eaglish.store';
 const pages = [
   {path:'/',file:'index.html'},
   {path:'/blog/',file:'blog/index.html'},
-  {path:'/flights/',file:'flights/index.html'},
+  {path:'/trip/',file:'trip/index.html'},
   ...readdirSync(resolve(root,'blog'),{withFileTypes:true})
     .filter(d=>d.isDirectory()&&existsSync(resolve(root,'blog',d.name,'index.html')))
     .map(d=>({path:'/blog/'+d.name+'/',file:'blog/'+d.name+'/index.html'})),

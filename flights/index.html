@@ -3,106 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="robots" content="index,follow,max-image-preview:large" />
-  <title>鷹家遠行所｜機票優惠與旅行靈感</title>
-  <meta name="description" content="下一站，去喜歡的地方。鷹式一家整理從台灣出發的機票機會、交通票券與目的地體驗。價格變動時請到供應商重新確認。" />
-  <link rel="canonical" href="https://www.eaglish.store/flights/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:locale" content="zh_TW" />
-  <meta property="og:site_name" content="鷹家遠行所" />
-  <meta property="og:title" content="下一站，去喜歡的地方。｜鷹家遠行所" />
-  <meta property="og:description" content="從一張機票開始，把想去的地方、想做的小事，慢慢放進下一趟旅行。" />
-  <meta property="og:url" content="https://www.eaglish.store/flights/" />
-  <meta property="og:image" content="https://www.eaglish.store/flights/assets/fuji-sky.jpg" />
-  <meta property="og:image:alt" content="藍天、雪山與湖面的晴空風景" />
-  <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
-  <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preconnect" href="https://res.klook.com" />
-  <link href="https://fonts.googleapis.com/css2?family=LXGW+WenKai+TC&family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/flights/flights.css?v=20260913-faraway-v1" />
-  <link rel="stylesheet" href="/flights/faraway.css?v=20260913-expiry-v1" />
-  <script defer src="/design/papaparse.min.js?v=20260912-v1"></script>
-  <script defer src="/site-runtime.js?v=20260914-analytics-v1"></script>
-  <script defer src="/flights/flights-model.js?v=20260913-fare-release-v1"></script>
-  <script defer src="/flights/flights.js?v=20260914-outbound-tracking-v2"></script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"鷹家遠行所｜機票優惠與旅行靈感","url":"https://www.eaglish.store/flights/","inLanguage":"zh-TW","isPartOf":{"@type":"WebSite","name":"鷹家買物社","url":"https://www.eaglish.store/"}}</script>
+  <meta name="robots" content="noindex,follow" />
+  <title>鷹家遠行所</title>
+  <link rel="canonical" href="https://www.eaglish.store/trip/" />
+  <script>window.location.replace('/trip/' + window.location.search + window.location.hash);</script>
+  <noscript><meta http-equiv="refresh" content="0;url=/trip/" /></noscript>
 </head>
-<body>
-  <a class="skip" href="#deals">跳到機票優惠</a>
-  <header class="site-header">
-    <div class="masthead wrap">
-      <a class="brand" href="/flights/" aria-label="鷹家遠行所首頁"><img src="/flights/assets/faraway-wordmark.svg" width="220" height="65" alt="鷹家遠行所" /></a>
-      <span class="masthead-label">從日常出發 <span lang="en">EAGLISH TRAVEL</span></span>
-      <nav aria-label="主要導覽"><a href="/">買物社</a><a href="/blog/">選物誌</a><a href="/flights/" aria-current="page">遠行所</a></nav>
-    </div>
-  </header>
-  <main>
-    <section class="hero sky-hero" aria-label="鷹家遠行所的旅行提案">
-      <picture class="hero-panorama"><source media="(max-width: 600px)" srcset="/flights/assets/fuji-sky-800.webp" /><img src="/flights/assets/fuji-sky.webp" width="2048" height="683" alt="藍天、雪山與湖面的晴空風景" fetchpriority="high" /></picture>
-      <div class="hero-inner wrap">
-        <div class="hero-copy">
-          <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> GOOD FLIGHTS. BRIGHTER DAYS.</p>
-          <h1>下一站，<br /><em>去喜歡的地方。</em></h1>
-          <p class="hero-lead">一張剛好的機票，一段想走走的路。<br />把省下來的預算，留給旅途裡喜歡的小事。</p>
-          <div class="hero-actions"><a class="button" href="#deals">找出發的機票 <span aria-hidden="true">↗</span></a><a class="outline-button" href="#inspiration">先逛目的地 <span aria-hidden="true">↓</span></a></div>
-          <div class="hero-route" aria-hidden="true"><span><i></i>TPE<small>台灣出發</small></span><svg viewBox="0 0 330 50" preserveAspectRatio="none"><path d="M2 32 Q90 -8 180 25 T325 20" /></svg><span class="route-end"><i></i>NEXT STOP<small>喜歡的地方</small></span></div>
-        </div>
-        <p class="hero-handnote handwritten">把想去的地方，<br />變成下一站。</p>
-      </div>
-    </section>
-    <section class="section deals-section wrap" id="deals" aria-labelledby="deals-title">
-      <header class="section-heading">
-        <div><p class="section-index">01 <span>FLIGHT FINDS</span></p><h2 id="deals-title">好價格，準備出發。</h2></div>
-        <p>從台灣出發的近期機票機會，<br />把日期、價格與條件一起看清楚。</p>
-      </header>
-      <div class="region-nav" role="group" aria-label="機票地區篩選">
-        <button type="button" class="is-active" data-deal-region="全部" aria-pressed="true"><span>全部機票</span><small>看看有哪些機會</small></button>
-        <button type="button" data-deal-region="亞洲" aria-pressed="false"><span>亞洲 <i aria-hidden="true">↗</i></span><small>日本・韓國・東南亞</small></button>
-        <button type="button" data-deal-region="美國" aria-pressed="false"><span>美國 <i aria-hidden="true">↗</i></span><small>飛遠一點，待久一點</small></button>
-        <button type="button" data-deal-region="歐洲" aria-pressed="false"><span>歐洲 <i aria-hidden="true">↗</i></span><small>城市與風景之間</small></button>
-        <button type="button" data-deal-region="全球漏票" aria-pressed="false"><span>全球特別票價 <i aria-hidden="true">↗</i></span><small>Error fare & more</small></button>
-      </div>
-      <div class="results-bar"><p id="radar-status" role="status">正在整理機票…</p><span>票價以供應商最新報價為準</span></div>
-      <div id="deal-grid" class="deal-grid" aria-live="polite" aria-busy="true"><div class="loading-card">稍等一下，正在找出發的機會。</div></div>
-      <p class="fare-footnote">顯示的是查詢時的參考價格，點選後可重新確認航班與總價。<a href="#travel-notes">訂票前的小提醒 <span aria-hidden="true">↓</span></a></p>
-    </section>
-    <section class="inspiration-band" id="inspiration" aria-labelledby="inspiration-title">
-      <div class="section wrap">
-        <header class="section-heading">
-          <div><p class="section-index">02 <span>AFTER YOU LAND</span></p><h2 id="inspiration-title">抵達之後，精彩才開始。</h2></div>
-          <p>一張車票、一場體驗、一個想去的地方。<br />先收進心裡，再放進行程。</p>
-        </header>
-        <div class="product-toolbar">
-          <div class="filters" role="group" aria-label="旅遊商品地區篩選">
-            <button type="button" class="is-active" data-product-region="全部" aria-pressed="true">全部目的地</button>
-            <button type="button" data-product-region="亞洲" aria-pressed="false">亞洲</button>
-            <button type="button" data-product-region="美國" aria-pressed="false">美國</button>
-            <button type="button" data-product-region="歐洲" aria-pressed="false">歐洲</button>
-          </div>
-          <label class="search-label"><span class="sr-only">搜尋目的地或商品</span><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id="product-search" type="search" placeholder="想去哪裡？搜尋城市、體驗" autocomplete="off" /></label>
-        </div>
-        <div class="product-count-line"><span id="product-count" role="status">正在整理目的地…</span><span id="radar-note"></span></div>
-        <div id="product-grid" class="product-grid" aria-live="polite" aria-busy="true"><div class="loading-card">正在整理交通票券與體驗。</div></div>
-        <div class="more-row"><button type="button" id="show-more" class="outline-button" hidden>再看更多旅行靈感 <span aria-hidden="true">↓</span></button></div>
-        <p class="affiliate-note">這裡的商品連結含聯盟合作；透過連結訂購，我們可能獲得分潤，不會增加你的購買價格。價格、適用方案與可用日期，請以 Klook 結帳頁為準。</p>
-      </div>
-    </section>
-    <section class="travel-notes wrap" id="travel-notes" aria-labelledby="notes-title">
-      <div><p class="handwritten">出發前，留意幾件小事</p><h2 id="notes-title">選一張，<br />適合自己的機票。</h2></div>
-      <div class="notes-list">
-        <details><summary>這個價格，包含哪些東西？<span aria-hidden="true">＋</span></summary><p>先看單程或來回、旅遊日期與轉機次數，再確認托運行李、選位與付款手續費。未標明的項目，需要到供應商頁面重新確認。</p></details>
-        <details><summary>為什麼點進去，價格可能不一樣？<span aria-hidden="true">＋</span></summary><p>機票數量和價格隨時會變。這裡記錄查到的價格與時間，並在有效時間結束後停止顯示；實際可訂的航班和價格，仍以供應商重新查詢的結果為準。</p></details>
-        <details><summary>看到全球特別票價時，要注意什麼？<span aria-hidden="true">＋</span></summary><p>部分特殊低價可能來自促銷或標價異常，不一定能完成出票。請先確認航空公司已開立有效機票，再安排不可退款的住宿和其他行程。</p></details>
-      </div>
-    </section>
-    <aside class="journal-invitation wrap" aria-label="繼續逛鷹家"><p class="handwritten">旅途之外，也有值得喜歡的日常。</p><a class="text-link" href="/blog/">讀一篇鷹家選物誌 <span aria-hidden="true">↗</span></a></aside>
-    <aside class="departure-banner" aria-label="出發邀請"><img src="/flights/assets/sky-wing.webp" width="2048" height="683" alt="" loading="lazy" /><div class="wrap"><p class="handwritten">飛向更多喜歡的地方。</p><a class="text-link" href="#deals">下一站，從一張機票開始 <span aria-hidden="true">↗</span></a></div></aside>
-  </main>
-  <footer class="site-footer">
-    <div class="wrap footer-main"><div><img src="/flights/assets/faraway-wordmark.svg" width="220" height="65" alt="鷹家遠行所" /><p>從日常出發，把喜歡分享給你。</p></div><nav aria-label="頁尾導覽"><a href="/">鷹家買物社</a><a href="/blog/">鷹家選物誌</a><a href="#deals">回到機票 <span aria-hidden="true">↑</span></a></nav></div>
-    <div class="wrap footer-fine"><span>© 鷹式一家 Eaglish Family</span></div>
-  </footer>
-</body>
+<body><p>前往<a href="/trip/">鷹家遠行所</a>。</p></body>
 </html>

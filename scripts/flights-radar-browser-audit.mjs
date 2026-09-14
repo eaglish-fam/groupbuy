@@ -22,7 +22,7 @@ try {
       const data=name==='機票優惠'?csv([{deal_id:'fixture',status:withdrawn?'withdrawn':'published',review_status:'approved',region:'亞洲',origin:'TPE',destination:'NRT',outbound_date:'2027-01-10',inbound_date:'2027-01-14',price_twd:6000,expires_at:new Date(+now+3600000).toISOString(),observed_at:now.toISOString(),search_url:'https://www.aviasales.com/search/test',source:'test',history_json:JSON.stringify(history)}]):'status,title\n';
       await route.fulfill({status:200,contentType:'text/csv',body:data});
     });
-    await page.goto('http://127.0.0.1:'+server.address().port+'/flights/');await page.waitForSelector('.deal-card');
+    await page.goto('http://127.0.0.1:'+server.address().port+'/trip/');await page.waitForSelector('.deal-card');
     assert.equal(await page.locator('.price-history').count(),mature?1:0);
     if(mature){await page.locator('.price-history summary').click();assert.equal(await page.locator('.price-history table').isVisible(),true);}
     assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false);

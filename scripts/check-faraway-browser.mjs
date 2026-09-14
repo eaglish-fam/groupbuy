@@ -16,7 +16,7 @@ try {
   const page = await browser.newPage({ viewport: { width: 1440, height: 1000 } });
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
-  await page.goto('http://127.0.0.1:8767/flights/', { waitUntil: 'networkidle' });
+  await page.goto('http://127.0.0.1:8767/trip/', { waitUntil: 'networkidle' });
   await page.locator('#product-grid[aria-busy="false"]').waitFor();
   await page.locator('#deal-grid[aria-busy="false"]').waitFor();
   const initialProducts = await page.locator('.product-card').count();

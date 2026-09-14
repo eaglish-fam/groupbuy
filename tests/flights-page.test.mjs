@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import test from 'node:test';
 
-const html = readFileSync(new URL('../flights/index.html', import.meta.url), 'utf8');
+const html = readFileSync(new URL('../trip/index.html', import.meta.url), 'utf8');
 const js = readFileSync(new URL('../flights/flights.js', import.meta.url), 'utf8');
 const model = readFileSync(new URL('../flights/flights-model.js', import.meta.url), 'utf8');
 const appsScript = readFileSync(new URL('../flights-pipeline/apps-script/Code.gs', import.meta.url), 'utf8');
@@ -10,14 +10,14 @@ const appsScript = readFileSync(new URL('../flights-pipeline/apps-script/Code.gs
 test('flights stays available by direct URL without a shop or journal entry', () => {
   for (const page of ['../index.html', '../design/index.html', '../blog/index.html']) {
     const pageHtml = readFileSync(new URL(page, import.meta.url), 'utf8');
-    assert.doesNotMatch(pageHtml, /href=["'][^"']*\/flights(?:\/|[?#"'])/i, page);
+    assert.doesNotMatch(pageHtml, /href=["'][^"']*\/(?:flights|trip)(?:\/|[?#"'])/i, page);
   }
   assert.match(html, /id="deal-grid"/);
   assert.match(html, /src="\/flights\/flights\.js/);
 });
 
 test('flights page has an indexable canonical consumer entry', () => {
-  assert.match(html, /<link rel="canonical" href="https:\/\/www\.eaglish\.store\/flights\/"/);
+  assert.match(html, /<link rel="canonical" href="https:\/\/www\.eaglish\.store\/trip\/"/);
   assert.match(html, /<meta name="robots" content="index,follow,max-image-preview:large"/);
   assert.equal((html.match(/<h1>/g) || []).length, 1);
 });

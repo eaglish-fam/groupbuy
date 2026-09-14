@@ -3,7 +3,7 @@ import { readFileSync, existsSync } from 'node:fs';
 import test from 'node:test';
 
 const read = name => readFileSync(new URL('../' + name, import.meta.url), 'utf8');
-const html = read('flights/index.html');
+const html = read('trip/index.html');
 const css = read('flights/flights.css') + read('flights/faraway.css');
 function contrast(a, b) {
   const luminance = color => {

@@ -65,7 +65,7 @@ test('preview hosts expose the API but emit no analytics', () => {
 test('public sitemap excludes convenience pages and every indexed page loads analytics', () => {
   const sitemap = readFileSync(new URL('../sitemap.xml', import.meta.url), 'utf8');
   for (const page of ['toolbox.html', 'zosia.html', 'trading.html']) assert.doesNotMatch(sitemap, new RegExp(page));
-  assert.match(readFileSync(new URL('../flights/index.html', import.meta.url), 'utf8'), /site-runtime\.js/);
+  assert.match(readFileSync(new URL('../trip/index.html', import.meta.url), 'utf8'), /site-runtime\.js/);
 });
 
 test('homepage and both blog surfaces share catalog product identity and actual article slug', () => {
