@@ -99,7 +99,7 @@ try {
  check('one purchase event',await page.evaluate(()=>auditEvents.filter(e=>e.name==='click_group').length)===1);
  check('one dimensioned outbound purchase event',await page.evaluate(()=>{
   const events=auditEvents.filter(e=>e.name==='outbound_groupbuy_click');
-  return events.length===1&&events[0].data.product_id&&events[0].data.product_name==='Wave 鷹嘴豆泥'&&events[0].data.source_surface==='homepage_product_card';
+  return events.length===1&&events[0].data.product_id==='wave-hummus'&&events[0].data.article_slug==='wave-hummus'&&events[0].data.product_name==='Wave 鷹嘴豆泥'&&events[0].data.source_surface==='homepage_product_card';
  }));
  mode='fail';
  await page.evaluate(()=>load());

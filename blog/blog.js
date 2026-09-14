@@ -104,7 +104,7 @@
       if (!c || c.state !== 'open') { pending?.close(); return; }
       const destination = ProductContent.withUTM(c.url, ProductContent.catalog[key].brands[0]);
       const article = ProductContent.catalog[key];
-      window.SiteAnalytics?.outboundGroupbuy({ productId: article.id, productName: article.brands[0], groupType: c.end ? 'limited' : 'evergreen', sourceSurface: 'blog_index_card', articleSlug: article.id, destinationUrl: destination, ctaLabel: a.textContent, campaignKey: c.end || 'evergreen', legacyEvent: 'click_group_from_blog' });
+      window.SiteAnalytics?.outboundGroupbuy({ productId: article.id, productName: article.brands[0], groupType: c.end ? 'limited' : 'evergreen', sourceSurface: 'blog_index_card', articleSlug: article.article.split('/').filter(Boolean).at(-1), destinationUrl: destination, ctaLabel: a.textContent, campaignKey: c.end || 'evergreen', legacyEvent: 'click_group_from_blog' });
       if (pending && !pending.closed) pending.location.replace(destination);
       else location.assign(destination);
     } finally { buying = false; }

@@ -57,7 +57,7 @@ async function refreshOffer(navigate=false){
     if(navigate&&c.state==='open'){
       const floating=offerButton.closest('.offer-bar')?.classList.contains('is-floating');
       const destination=ProductContent.withUTM(c.url,article.brands[0]);
-      window.SiteAnalytics?.outboundGroupbuy({productId:article.id,productName:article.brands[0],groupType:c.end?'limited':'evergreen',sourceSurface:floating?'blog_floating_cta':'blog_inline_cta',articleSlug:article.id,destinationUrl:destination,ctaLabel:offerButton.textContent,campaignKey:c.end||'evergreen',legacyEvent:'click_group_from_blog'});
+      window.SiteAnalytics?.outboundGroupbuy({productId:article.id,productName:article.brands[0],groupType:c.end?'limited':'evergreen',sourceSurface:floating?'blog_floating_cta':'blog_inline_cta',articleSlug:article.article.split('/').filter(Boolean).at(-1),destinationUrl:destination,ctaLabel:offerButton.textContent,campaignKey:c.end||'evergreen',legacyEvent:'click_group_from_blog'});
       window.location.assign(destination);
     }return c;
   }catch(error){floatingOffer.setAvailable(false);delete offerButton.dataset.desktopFloatingLabel;offerButton.disabled=false;offerButton.textContent='重新確認團購狀態';offerButton.setAttribute('aria-label','重新確認團購狀態');statusEl.textContent='目前無法取得最新資料，未使用過期連結。你可以重試或返回團購首頁。';console.warn(articleKey+' offer unavailable:',error.message);}

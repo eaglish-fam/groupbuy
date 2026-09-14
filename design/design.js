@@ -626,13 +626,14 @@ document.addEventListener("click", async e => {
     }
     const destination = ProductContent.withUTM(p.url, p.brand);
     window.SiteAnalytics?.outboundGroupbuy({
-      productId: p.key,
+      productId: p.article?.id || p.key,
       productName: p.brand,
       groupType: p.kind === "coupon" ? "coupon" : p.status.long ? "evergreen" : "limited",
       sourceSurface,
+      articleSlug: p.article ? new URL(p.article.article, location.href).pathname.split('/').filter(Boolean).at(-1) : '',
       destinationUrl: destination,
       ctaLabel: a.textContent,
-      campaignKey: [p.start || "evergreen", p.end || "open"].join("_"),
+      campaignKey: p.end || "evergreen",
       legacyEvent: p.kind === "coupon" ? "click_coupon" : "click_group",
       legacyData: { group_category: p.category },
     });

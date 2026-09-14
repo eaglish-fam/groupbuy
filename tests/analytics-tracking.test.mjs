@@ -67,3 +67,22 @@ test('public sitemap excludes convenience pages and every indexed page loads ana
   for (const page of ['toolbox.html', 'zosia.html', 'trading.html']) assert.doesNotMatch(sitemap, new RegExp(page));
   assert.match(readFileSync(new URL('../flights/index.html', import.meta.url), 'utf8'), /site-runtime\.js/);
 });
+
+test('homepage and both blog surfaces share catalog product identity and actual article slug', () => {
+  const article = { id: 'atojet-home-shower', article: '/blog/atojet/', brands: ['Atojet 濾芯蓮蓬頭'] };
+  const shared = { URL, location: { href: 'https://www.eaglish.store/' }, article,
+    p: { article, key: 'legacy-sheet-key', brand: article.brands[0], status: { long: true } },
+    c: { end: '' }, sourceSurface: 'homepage_product_card', destination: 'https://example.com/',
+    a: { textContent: '前往團購' }, offerButton: { textContent: '查看當期組合優惠' }, floating: true };
+  const expectedSurfaces = ['homepage_product_card', 'blog_index_card', 'blog_floating_cta'];
+  for (const [index, path] of ['design/design.js', 'blog/blog.js', 'articles/article.js'].entries()) {
+    const code = readFileSync(new URL('../' + path, import.meta.url), 'utf8');
+    const call = code.match(/window\.SiteAnalytics\?\.outboundGroupbuy\((\{[\s\S]*?\})\);/);
+    assert.ok(call, `outbound call exists in ${path}`);
+    const dimensions = vm.runInNewContext('(' + call[1] + ')', shared);
+    assert.equal(dimensions.productId, article.id, path);
+    assert.equal(dimensions.articleSlug, 'atojet', path);
+    assert.equal(dimensions.campaignKey, 'evergreen', path);
+    assert.equal(dimensions.sourceSurface, expectedSurfaces[index], path);
+  }
+});
