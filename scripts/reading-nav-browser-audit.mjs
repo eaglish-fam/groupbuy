@@ -82,6 +82,51 @@ try {
     check(`${width}: no runtime errors`, errors.length === 0);
     await context.close();
   }
+  for (const width of [390,1440]) {
+    const context = await browser.newContext({viewport:{width,height:844},serviceWorkers:'block'});
+    await fixture(context);
+    const page = await context.newPage();
+    await page.goto(base + '/blog/caesar-kenting/');
+    await page.evaluate(() => document.fonts.ready);
+    const showSource = async () => {
+      await page.locator('[data-reading-nav]').evaluate(el => el.scrollIntoView({block:'center',behavior:'instant'}));
+      await settle(page);
+    };
+    const exitSource = async () => {
+      await page.locator('[data-reading-nav]').evaluate(el => scrollTo({top:scrollY + el.getBoundingClientRect().bottom - document.querySelector('.journal-chrome').getBoundingClientRect().bottom,behavior:'instant'}));
+      await settle(page);
+    };
+    await showSource();
+    await exitSource();
+    const flight = page.locator('.reading-nav__flight');
+    check(`${width}: original TOC morphs toward the side`, await flight.count() === 1);
+    check(`${width}: moving copy has no interactive or duplicate section identity`, await flight.evaluate(el => el.inert && el.getAttribute('aria-hidden') === 'true' && !el.hasAttribute('data-reading-nav') && !el.querySelector('[id]')));
+    const frame = await flight.evaluate(el => {
+      const animation = el.getAnimations()[0];
+      animation.pause(); animation.currentTime = 300;
+      return {frames:animation.effect.getKeyframes(),duration:animation.effect.getTiming().duration};
+    });
+    check(`${width}: source shrinks and moves in a bounded transition`, frame.duration === 760 && frame.frames.at(-1).transform.includes('scale(') && frame.frames.at(-1).opacity === '0');
+    await page.mouse.move(width-5,840);
+    await page.screenshot({path:`/tmp/caesar-reading-nav-${width}-morph.png`});
+    await flight.evaluate(el => el.getAnimations()[0].play());
+    await flight.waitFor({state:'detached'});
+    check(`${width}: arrival cleans up its copy`, await flight.count() === 0);
+    await showSource(); await exitSource();
+    await showSource();
+    check(`${width}: reverse scrolling cancels arrival`, await flight.count() === 0 && await page.locator('.reading-nav').isHidden());
+    if (width < 1200) {
+      await exitSource();
+      await page.locator('.reading-nav__tab').click();
+      check('Mobile: opening during arrival cancels the copy and opens real navigation', await flight.count() === 0 && await page.locator('.reading-nav__tab').getAttribute('aria-expanded') === 'true');
+      await page.keyboard.press('Escape');
+      await showSource();
+    }
+    await page.emulateMedia({reducedMotion:'reduce'});
+    await exitSource();
+    check(`${width}: reduced motion keeps immediate navigation without flight`, await flight.count() === 0 && await page.locator('.reading-nav').isVisible());
+    await context.close();
+  }
   // Real touch events exercise swipe cancellation and animation, not just synthetic click handlers.
   const touchContext = await browser.newContext({viewport:{width:390,height:844},isMobile:true,hasTouch:true,deviceScaleFactor:1,serviceWorkers:'block'});
   await fixture(touchContext);
@@ -98,7 +143,10 @@ try {
     await touchPage.waitForTimeout(400);
   };
   let bounds = await touchTab.boundingBox();
-  check('Mobile: painted tab stays in margin, tap area remains accessible', await touchTab.evaluate(el => parseFloat(getComputedStyle(el, '::before').width) <= 20 && el.getBoundingClientRect().width >= 44));
+  check('Mobile: larger visible 48px target has white gradient and restrained glow', await touchTab.evaluate(el => {
+    const style=getComputedStyle(el),rect=el.getBoundingClientRect();
+    return rect.width >= 48 && rect.height >= 76 && style.backgroundImage.includes('gradient') && style.boxShadow !== 'none' && parseFloat(style.borderWidth) === 0;
+  }));
   await swipe(10,bounds.y+25,95,0);
   check('Mobile: right swipe opens the drawer', await touchTab.getAttribute('aria-expanded') === 'true');
   await swipe(220,400,-95,0);

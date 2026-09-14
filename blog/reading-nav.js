@@ -41,9 +41,54 @@
   let shownOnce = false;
   let scheduled = false;
   let current = null;
+  let sawSource = false;
+  let flight = null;
+  let arrivalAnimations = [];
   const headerBottom = () => Math.max(0, chrome?.getBoundingClientRect().bottom || 0);
 
+  function cancelArrival() {
+    for (const animation of arrivalAnimations) animation.cancel();
+    arrivalAnimations = [];
+    flight?.remove();
+    flight = null;
+  }
+
+  function arriveFromSource(rect, top) {
+    cancelArrival();
+    if (reducedMotion.matches || typeof source.animate !== 'function') return;
+    const destination = desktop.matches ? panel : tab;
+    const end = destination.getBoundingClientRect();
+    // Keep a visual copy below the masthead as the real inline navigation exits.
+    // It is decorative only: original anchors and the live destination remain interactive.
+    const copy = source.cloneNode(true);
+    copy.removeAttribute('data-reading-nav');
+    copy.removeAttribute('id');
+    copy.setAttribute('aria-hidden', 'true');
+    copy.inert = true;
+    copy.classList.add('reading-nav__flight');
+    for (const element of copy.querySelectorAll('[id],a')) {
+      element.removeAttribute('id');
+      if (element.tagName === 'A') element.setAttribute('tabindex', '-1');
+    }
+    const startY = top + 8;
+    Object.assign(copy.style, {left: `${rect.left}px`, top: `${startY}px`, width: `${rect.width}px`, height: `${rect.height}px`});
+    document.body.append(copy);
+    flight = copy;
+    const endWidth = desktop.matches ? 48 : end.width;
+    const endHeight = desktop.matches ? 48 : end.height;
+    const transform = `translate(${end.left - rect.left}px, ${end.top - startY}px) scale(${endWidth / rect.width}, ${endHeight / rect.height})`;
+    const moving = copy.animate([
+      {transform:'translate(0, 0) scale(1)', opacity:.96, borderRadius:'12px', offset:0},
+      {opacity:.96, offset:.82},
+      {transform, opacity:0, borderRadius:'28px', offset:1}
+    ], {duration:760, easing:'cubic-bezier(.4,0,.2,1)', fill:'forwards'});
+    const reveal = destination.animate([{opacity:.15}, {opacity:1}], {duration:420, delay:340, fill:'backwards'});
+    arrivalAnimations = [moving, reveal];
+    moving.onfinish = () => { if (flight === copy) {copy.remove(); flight = null;} };
+  }
+
   function setOpen(value, restoreFocus = false) {
+    if (value) cancelArrival();
     opened = value && !desktop.matches && !root.hidden;
     root.classList.toggle('is-open', opened);
     tab.setAttribute('aria-expanded', String(opened));
@@ -62,13 +107,20 @@
     scheduled = false;
     const top = headerBottom();
     root.style.setProperty('--reading-nav-top', `${Math.ceil(top + 20)}px`);
-    const visible = source.getBoundingClientRect().bottom < top + 12 && article.getBoundingClientRect().bottom > top + 80;
+    const sourceRect = source.getBoundingClientRect();
+    if (sourceRect.top < innerHeight - 24 && sourceRect.bottom > top + 24) sawSource = true;
+    const visible = sourceRect.bottom < top + 12 && article.getBoundingClientRect().bottom > top + 80;
     if (root.hidden === visible) {
       if (!visible && root.contains(document.activeElement)) {
         (current?.link || entries[0].link).focus({preventScroll: true});
       }
       root.hidden = !visible;
       setOpen(false);
+      if (!visible) cancelArrival();
+      else if (sawSource) {
+        arriveFromSource(sourceRect, top);
+        sawSource = false;
+      }
       if (visible && !shownOnce) {
         root.classList.add('has-hint');
         shownOnce = true;
@@ -155,9 +207,10 @@
     }
   });
   for (const type of ['pointerup', 'pointercancel']) root.addEventListener(type, () => { pointerStart = null; });
-  desktop.addEventListener('change', () => { setOpen(false); schedule(); });
+  desktop.addEventListener('change', () => { cancelArrival(); setOpen(false); schedule(); });
+  reducedMotion.addEventListener('change', cancelArrival);
   addEventListener('scroll', schedule, {passive: true});
-  addEventListener('resize', schedule, {passive: true});
+  addEventListener('resize', () => { cancelArrival(); schedule(); }, {passive: true});
   addEventListener('pageshow', schedule);
   addEventListener('hashchange', schedule);
   document.addEventListener('load', schedule, true);
