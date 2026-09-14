@@ -9,7 +9,7 @@ const bangkok='/trip/guides/bangkok-with-kids/';
 const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 const external=(url,label,cls='text-link')=>`<a class="${cls}" href="${esc(url)}" target="_blank" rel="noopener">${label} ↗</a>`;
 const maps=(q,label='Google Maps')=>external('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(q),label);
-const image=(name,alt,priority=false)=>`<img src="/trip/assets/${name}.jpg" alt="${alt}" width="${name==='nz-farm'?3274:3280}" height="4096" ${priority?'fetchpriority="high"':'loading="lazy" decoding="async"'}>`;
+const image=(name,alt,priority=false)=>`<img src="/trip/assets/${name}.webp" alt="${alt}" width="${name==='nz-farm'?3274:3280}" height="4096" ${priority?'fetchpriority="high"':'loading="lazy" decoding="async"'}>`;
 const photoFarm=()=>image('nz-farm','Shamarra 羊駝農場裡的鷹式一家，後方是海灣與山坡');
 const jsonld=value=>`<script type="application/ld+json">${JSON.stringify(value).replaceAll('<','\\u003c')}</script>`;
 const breadcrumbs=(items)=>`<nav class="breadcrumbs" aria-label="麵包屑"><a href="/trip/">遠行所</a>${items.map(([name,path])=>` <span aria-hidden="true">/</span> ${path?`<a href="${path}">${name}</a>`:`<span aria-current="page">${name}</span>`}`).join('')}</nav>`;

@@ -36,3 +36,12 @@ test('trip remains an isolated destination, not a newly exposed shop entry',()=>
  assert.doesNotMatch(read('index.html'),/href="\/trip\//);
  for(const path of paths)assert.ok(read('sitemap.xml').includes('<loc>https://www.eaglish.store'+path+'</loc>'));
 });
+test('on-page travel photos use lighter web variants and retain source JPEGs',()=>{
+ let original=0,web=0;
+ for(const name of ['nz-farm','nz-boat']){
+  original+=readFileSync(new URL('../trip/assets/'+name+'.jpg',import.meta.url)).length;
+  web+=readFileSync(new URL('../trip/assets/'+name+'.webp',import.meta.url)).length;
+  assert.ok(read(nzRoute.slice(1)+'index.html').includes(`src="/trip/assets/${name}.webp"`));
+ }
+ assert.ok(web<original*.4);
+});
