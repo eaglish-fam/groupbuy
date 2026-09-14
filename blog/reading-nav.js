@@ -168,6 +168,9 @@
       heading.setAttribute('tabindex', '-1');
       heading.addEventListener('blur', () => heading.removeAttribute('tabindex'), {once: true});
     }
+    // Keep the reading position accessible without Safari painting a box around prose.
+    heading.setAttribute('data-reading-nav-target', '');
+    heading.addEventListener('blur', () => heading.removeAttribute('data-reading-nav-target'), {once: true});
     heading.focus({preventScroll: true});
     schedule();
   }

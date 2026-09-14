@@ -27,6 +27,8 @@ try {
     const page = await context.newPage(), errors = [];
     page.on('pageerror', error => errors.push(error.message));
     await page.goto(base + '/blog/caesar-kenting/');
+    // Simulate a browser that paints a default focus ring on programmatically focused headings.
+    await page.addStyleTag({content:':where(h2[tabindex="-1"]):focus{outline:3px solid rgb(80,160,240)}'});
     await page.evaluate(() => document.fonts.ready);
     await page.locator('.offer-bar.is-floating').waitFor();
     const root = page.locator('.reading-nav'), tab = page.locator('.reading-nav__tab'), panel = page.locator('.reading-nav__panel');
@@ -42,6 +44,8 @@ try {
       check(`${width}: drawer opens with accessible links`, await tab.getAttribute('aria-expanded') === 'true' && !await panel.evaluate(el => el.inert));
       check(`${width}: gradient drawer`, await panel.evaluate(el => getComputedStyle(el).backgroundImage.includes('gradient')));
       await page.screenshot({path:`/tmp/caesar-reading-nav-${width}-open.png`});
+      await page.keyboard.press('Tab');
+      check(`${width}: keyboard navigation retains a visible focus indicator`, await page.evaluate(() => document.activeElement.matches('.reading-nav a') && getComputedStyle(document.activeElement).outlineStyle !== 'none'));
       await page.keyboard.press('Escape');
       check(`${width}: Escape closes and returns focus`, await tab.getAttribute('aria-expanded') === 'false' && await tab.evaluate(el => document.activeElement === el));
       await tab.click();
@@ -57,6 +61,7 @@ try {
       if (width < 1200 && await tab.getAttribute('aria-expanded') !== 'true') await tab.click();
       await page.locator(`.reading-nav__list a[href="#${id}"]`).click();
       await settle(page);
+      check(`${width}: ${id} keeps heading focus without browser outline`, await page.locator(`#${id} h2`).evaluate(el => document.activeElement === el && getComputedStyle(el).outlineStyle === 'none'));
       check(`${width}: jump ${id} preserves visible heading and URL`, new URL(page.url()).hash === '#' + id && await page.locator(`#${id} h2`).evaluate(el => {
         const r = el.getBoundingClientRect(), chrome = document.querySelector('.journal-chrome').getBoundingClientRect();
         return r.top >= chrome.bottom && r.top < innerHeight;
