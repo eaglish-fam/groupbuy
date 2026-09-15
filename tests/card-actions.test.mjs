@@ -13,8 +13,8 @@ test('product cards place the primary purchase action after reading and calendar
   const calendar = source.indexOf('class="card-calendar"');
   const primary = source.indexOf('class="card-primary-action"');
   assert.ok(reading > -1 && calendar > reading && primary > calendar);
-  assert.match(source, /觀看使用影片<\/button>/);
-  assert.doesNotMatch(source, /觀看\s+使用\s+影片/);
+  assert.doesNotMatch(source, /觀看使用影片/);
+  assert.doesNotMatch(source, /常駐好物・訂購前查看當期組合/);
 });
 
 test('secondary card actions use distinct, uncluttered styling', () => {

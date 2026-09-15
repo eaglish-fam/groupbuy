@@ -144,27 +144,6 @@ function updateSaved() {
   } catch {}
   $("#saved-count").textContent = saved.size;
 }
-function dateLine(p) {
-  if (p.status.key === "upcoming")
-    return p.start
-      ? `${p.start.replaceAll("-", "/")} 開團`
-      : "開團日期確認後公布";
-  if (p.status.key === "closed")
-    return p.status.long
-      ? "等新一期入口更新，再一起買。"
-      : "這次錯過了，可以先收藏。";
-  if (p.status.key === "unknown") return "確認最新資訊後，提供購買入口。";
-  if (p.status.long) return "常駐好物・訂購前查看當期組合";
-  if (p.end) {
-    const d = Math.round(
-      (new Date(p.end + "T00:00:00+08:00") -
-        new Date(ProductContent.today() + "T00:00:00+08:00")) /
-        86400000,
-    );
-    return `${p.end.slice(5).replace("-", "/")} 結團`;
-  }
-  return "方案與優惠請見當期賣場";
-}
 // Sheet dates are Taiwan calendar days, inclusive through the end of that day.
 function countdownText(end, now = Date.now()) {
   const remaining = Date.parse(end + "T00:00:00+08:00") + 86400000 - now;
@@ -249,10 +228,10 @@ function card(p) {
     <div class="product-picture"><button class="image-open" data-detail="${idx}" aria-label="查看 ${esc(p.brand)} 詳情">${p.images[0] ? `<img src="${esc(p.images[0])}" alt="${esc(p.brand)}" loading="lazy" width="1000" height="750">` : "<span>商品資訊</span>"}</button><button class="save" data-save="${idx}" aria-label="收藏 ${esc(p.brand)}" aria-pressed="${saved.has(p.key)}">${bookmark}</button></div>
     <div class="product-body"><div class="product-meta"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${label}</span><span>${esc(p.category.split(/[,，]/)[0])}${p.country ? " / " + esc(p.country) : ""}</span></div>
     <h3><button data-detail="${idx}" style="font:inherit;text-align:left;padding:0">${esc(p.brand)}</button></h3><p class="product-description">${esc(p.description)}</p>
-    <div class="product-bottom">${!["book", "edu"].includes(p.kind) ? `<p class="date-line">${dateLine(p)}${countdownMarkup(p)}</p>` : ""}
+    <div class="product-bottom">${timedCampaign(p) ? `<p class="date-line">${countdownMarkup(p)}</p>` : ""}
     ${p.coupon && p.status.key === "open" ? `<div class="coupon-inline"><small>專屬折扣碼</small><code>${esc(p.coupon)}</code><button data-copy-code="${esc(p.coupon)}">複製折扣碼</button></div>` : ""}
     ${p.kind === "book" && retailerLinks ? `<div class="retailer-links">${retailerLinks}</div>` : `<div class="card-actions"><button class="button secondary" data-detail="${idx}">商品詳情</button></div>`}
-    ${p.article ? `<a class="card-reading" href="${p.article.article}">先讀生活筆記<span aria-hidden="true">↗</span></a>` : p.videos.length ? `<button class="card-reading card-video" data-detail="${idx}">觀看使用影片</button>` : ""}
+    ${p.article ? `<a class="card-reading" href="${p.article.article}">先讀生活筆記<span aria-hidden="true">↗</span></a>` : ""}
     ${!p.kind && (p.end || p.start) && p.status.key !== "closed" ? `<button class="card-calendar" data-calendar-product="${idx}">加入行事曆</button>` : ""}
     ${p.kind === "book" && retailerLinks ? "" : `<div class="card-primary-action">${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">${cta}</a>` : `<button class="button secondary" data-save="${idx}">${saved.has(p.key) ? "已收藏 ✓" : "先收藏"}</button>`}</div>`}
     </div></div></article>`;
