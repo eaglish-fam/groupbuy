@@ -231,7 +231,7 @@ function card(p) {
     <div class="product-bottom">${timedCampaign(p) ? `<p class="date-line">${countdownMarkup(p)}</p>` : ""}
     ${p.coupon && p.status.key === "open" ? `<div class="coupon-inline"><small>專屬折扣碼</small><code>${esc(p.coupon)}</code><button data-copy-code="${esc(p.coupon)}">複製折扣碼</button></div>` : ""}
     ${p.kind === "book" && retailerLinks ? `<div class="retailer-links">${retailerLinks}</div>` : `<div class="card-actions"><button class="button secondary" data-detail="${idx}">商品詳情</button></div>`}
-    ${p.article ? `<a class="card-reading" href="${p.article.article}">先讀生活筆記<span aria-hidden="true">↗</span></a>` : ""}
+    ${p.article ? `<a class="card-reading" href="${p.article.article}">先讀生活筆記<span aria-hidden="true">↗</span></a>` : p.videos.length ? `<button class="card-reading card-video" data-detail="${idx}">觀看使用影片</button>` : ""}
     ${!p.kind && (p.end || p.start) && p.status.key !== "closed" ? `<button class="card-calendar" data-calendar-product="${idx}">加入行事曆</button>` : ""}
     ${p.kind === "book" && retailerLinks ? "" : `<div class="card-primary-action">${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">${cta}</a>` : `<button class="button secondary" data-save="${idx}">${saved.has(p.key) ? "已收藏 ✓" : "先收藏"}</button>`}</div>`}
     </div></div></article>`;
@@ -333,7 +333,7 @@ function openDetail(index, refreshing = false) {
     ? `<div class="detail-photo"><img id="detail-image" src="${esc(p.images[0])}" alt="${esc(p.brand)}"><div class="gallery-controls" ${p.images.length < 2 ? "hidden" : ""}><button id="photo-prev" aria-label="上一張商品圖片">←</button><span id="photo-count">1 / ${p.images.length}</span><button id="photo-next" aria-label="下一張商品圖片">→</button></div></div>`
     : "";
   $("#detail").innerHTML =
-    `<div class="detail-layout">${photo}<div class="detail-copy"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${p.status.label}</span><h2 id="detail-title">${esc(p.brand)}</h2><p>${esc(p.description)}</p><p class="date-line">${dateLine(p)}${countdownMarkup(p)}</p>${p.coupon && p.status.key === "open" ? `<p>折扣碼：<strong>${esc(p.coupon)}</strong> <button class="text-link" id="copy-coupon">複製</button></p>` : ""}${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">前往廠商賣場選購 ↗</a>` : "<p>目前暫不提供訂購入口。</p>"}${p.article ? `<p><a class="text-link" href="${p.article.article}">閱讀完整生活筆記 ↗</a></p>` : ""}<p class="small">商品、配送與售後由廠商提供，詳情以當期賣場為準。</p></div></div><div class="detail-sections">${[
+    `<div class="detail-layout">${photo}<div class="detail-copy"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${p.status.label}</span><h2 id="detail-title">${esc(p.brand)}</h2><p>${esc(p.description)}</p>${timedCampaign(p) ? `<p class="date-line">${countdownMarkup(p)}</p>` : ""}${p.coupon && p.status.key === "open" ? `<p>折扣碼：<strong>${esc(p.coupon)}</strong> <button class="text-link" id="copy-coupon">複製</button></p>` : ""}${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">前往廠商賣場選購 ↗</a>` : "<p>目前暫不提供訂購入口。</p>"}${p.article ? `<p><a class="text-link" href="${p.article.article}">閱讀完整生活筆記 ↗</a></p>` : ""}<p class="small">商品、配送與售後由廠商提供，詳情以當期賣場為準。</p></div></div><div class="detail-sections">${[
       ["貼心說明", p.note],
       ["方案詳情", p.details],
       ["常見問題", p.qa],
