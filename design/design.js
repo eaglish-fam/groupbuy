@@ -4,6 +4,7 @@ const $ = (s) => document.querySelector(s),
   safe = (s) => ProductContent.safeUrl(s);
 const sheet = "1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU";
 const PAGE_SIZE = 12;
+const catalogueFallback = document.querySelector('[data-snapshot-card]') ? $("#products").innerHTML : "";
 const SAVED_KEY = ["www.eaglish.store", "eaglish.store"].includes(location.hostname) ? "eaglish-saved-v2" : "eaglish-design-saved-v2";
 let loadingPromise = null, refreshedAt = 0, verifiedDay = "", buying = false;
 const track = (name, data = {}) => window.SiteAnalytics?.track(name, data);
@@ -244,7 +245,7 @@ function card(p) {
         `<a class="retailer-link" href="${esc(ProductContent.withUTM(r.url, p.brand))}" target="_blank" rel="noopener noreferrer" data-outbound-product-id="${esc(p.key)}" data-outbound-product-name="${esc(p.brand)}" data-outbound-group-type="book" data-outbound-source-surface="homepage_product_card" data-outbound-campaign-key="book" data-outbound-retailer="${esc(r.name)}" data-outbound-legacy-event="click_book">${esc(r.name)}</a>`,
     )
     .join("");
-  return `<article class="product-card" data-product-key="${esc(p.key)}">
+  return `<article class="product-card" ${p.article ? `id="product-${esc(p.article.id)}"` : ""} data-product-key="${esc(p.key)}">
     <div class="product-picture"><button class="image-open" data-detail="${idx}" aria-label="查看 ${esc(p.brand)} 詳情">${p.images[0] ? `<img src="${esc(p.images[0])}" alt="${esc(p.brand)}" loading="lazy" width="1000" height="750">` : "<span>商品資訊</span>"}</button><button class="save" data-save="${idx}" aria-label="收藏 ${esc(p.brand)}" aria-pressed="${saved.has(p.key)}">${bookmark}</button></div>
     <div class="product-body"><div class="product-meta"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${label}</span><span>${esc(p.category.split(/[,，]/)[0])}${p.country ? " / " + esc(p.country) : ""}</span></div>
     <h3><button data-detail="${idx}" style="font:inherit;text-align:left;padding:0">${esc(p.brand)}</button></h3><p class="product-description">${esc(p.description)}</p>
@@ -257,6 +258,7 @@ function card(p) {
     </div></div></article>`;
 }
 function render() {
+  if (!refreshedAt && document.querySelector('[data-snapshot-card]')) return;
   updateTodayClosing();
   let list = products.filter(
     (p) =>
@@ -570,13 +572,17 @@ async function performLoad() {
   } catch (e) {
     $("#source-status").innerHTML =
       '目前無法取得最新團購資料。<button id="retry" class="text-link">重新讀取</button>';
-    $("#products").innerHTML =
-      '<div class="loading">稍候再試，也可以先閱讀下方的生活筆記。</div>';
+    $("#products").innerHTML = catalogueFallback ||
+      '<div class="loading"><a href="/guides/">先看選購方向</a>，或<a href="/blog/">閱讀生活筆記</a>。</div>';
     $("#products").setAttribute("aria-busy", "false");
-    $("#result-count").textContent = "資料暫時無法讀取";
+    $("#result-count").textContent = "商品介紹目錄・即時狀態待確認";
+    $("#load-more").hidden = true;
+    $("#show-all-products").hidden = true;
+    $("#browse-progress").textContent = "";
     $("#retry").onclick = load;
     refreshedAt = 0;
     products = products.map(p => ({ ...p, status: { ...p.status, key: "unknown", label: "團購狀態待確認" } }));
+    updateTodayClosing();
     window.dispatchEvent(new Event("catalog-ready"));
     if ($("#product-dialog").open) {
       $("#detail [data-buy-key]")?.remove();
@@ -645,6 +651,15 @@ let sharedLinkHandled = false;
 window.addEventListener("catalog-ready", () => {
   if (sharedLinkHandled || !refreshedAt) return;
   sharedLinkHandled = true;
+  const articleId = location.hash.match(/^#product-([a-z0-9-]+)$/)?.[1];
+  if (articleId) {
+    const matches = products.filter(p => p.article?.id === articleId);
+    if (matches.length === 1) return openDetail(products.indexOf(matches[0]));
+    // Missing or ambiguous campaigns do not inherit a checkout from another product.
+    if (matches.length > 1) { query=matches[0].brand.toLowerCase(); $("#search").value=query; setStatus("all"); }
+    $("#catalog").scrollIntoView();
+    return;
+  }
   const key = new URLSearchParams(location.search).get("p");
   if (!key) return;
   const exact = products.findIndex(p => p.key === key);

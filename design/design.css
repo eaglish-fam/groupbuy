@@ -848,6 +848,7 @@ footer p {
   color: var(--muted);
 }
 footer > div {
+  flex-wrap: wrap;
   display: flex;
   gap: 22px;
   margin-left: auto;

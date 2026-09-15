@@ -1,7 +1,8 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import {readSnapshot,snapshotCards} from './catalog-snapshot.mjs';
 const root = new URL('../', import.meta.url);
-const release = '20260914-outbound-tracking-v2';
+const release = '20260915-crawlable-catalog-v1';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
   .replace('content="noindex,nofollow"', 'content="index,follow,max-image-preview:large"')
@@ -26,6 +27,11 @@ html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
     <meta name="agd-partner-manual-verification">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"鷹家買物社","alternateName":["鷹式一家","Eaglish Family"],"url":"https://www.eaglish.store/","logo":"https://www.eaglish.store/logo-eaglish-text.png"}</script>
   </head>`);
+const snapshot=readSnapshot();
+html=html.replace('正在讀取最新團購…','商品選購目錄')
+ .replace('<div class="product-grid" id="products" aria-busy="true">\n            <div class="loading">正在為你整理今天的好物…</div>\n          </div>',`<div class="product-grid" id="products" aria-busy="false" data-snapshot-date="${snapshot.observedAt.slice(0,10)}">${snapshotCards(snapshot)}</div>`)
+ .replace('<p class="source-status" id="source-status" aria-live="polite"></p>',`<p class="source-status" id="source-status" aria-live="polite">先閱讀商品介紹與選購筆記；即時開團狀態載入後更新。目錄整理：${snapshot.observedAt.slice(0,10)}。</p>`);
+if(!html.includes('data-snapshot-card'))throw Error('Homepage snapshot insertion failed');
 html = html.replace(/((?:src|href)="\/[^"]+\.(?:js|css))(?:\?[^"]*)?"/g, '$1?v=' + release + '"');
 if (html.includes('noindex') || html.includes('獨立設計提案') || !html.includes('id="original-notice"')) throw Error('Invalid production homepage');
 writeFileSync(new URL('index.html', root), html.replace(/[ \t]+$/gm, ''));

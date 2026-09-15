@@ -1,0 +1,234 @@
+{
+  "version": 1,
+  "origin": "https://www.eaglish.store",
+  "articles": [
+    {
+      "slug": "artisan-cb301",
+      "url": "https://www.eaglish.store/blog/artisan-cb301/",
+      "title": "ARTISAN CB301 電動清潔刷：浴室真正難刷的，不是最髒的那一塊｜鷹式一家",
+      "productNames": [
+        "ARTISAN浴室清潔＆小腿按摩器"
+      ],
+      "productId": "artisan-cb301",
+      "mode": "product",
+      "intent": "product:artisan-cb301",
+      "topics": [
+        "ARTISAN CB301 電動清潔刷",
+        "ARTISAN CB301 電動清潔刷 怎麼選"
+      ],
+      "cluster": "home",
+      "published": "2026-09-08",
+      "modified": "2026-09-11",
+      "sourceHash": "995397a94ac301c28f833126b33a47709df8229978c8f31ae783a4eb63f2a8ee"
+    },
+    {
+      "slug": "atojet",
+      "url": "https://www.eaglish.store/blog/atojet/",
+      "title": "Atojet 濾芯蓮蓬頭：洗澡的水，看起來很乾淨。直到我們拆開了濾芯｜鷹式一家",
+      "productNames": [
+        "Atojet 濾芯蓮蓬頭"
+      ],
+      "productId": "atojet-home-shower",
+      "mode": "product",
+      "intent": "product:atojet",
+      "topics": [
+        "Atojet 濾芯蓮蓬頭",
+        "Atojet 濾芯蓮蓬頭 怎麼選"
+      ],
+      "cluster": "home",
+      "published": "2026-09-08",
+      "modified": "2026-09-11",
+      "sourceHash": "cb389e2be7cc86bd0abc42caed2066389fa3cd57f577949ce1a109d27f95c410"
+    },
+    {
+      "slug": "caesar-kenting",
+      "url": "https://www.eaglish.store/blog/caesar-kenting/",
+      "title": "墾丁凱撒大飯店怎麼選房？親子房型圖解、一泊二食與訂房 FAQ｜鷹家選物誌",
+      "productNames": [
+        "墾丁凱撒大飯店"
+      ],
+      "productId": "caesar-kenting",
+      "mode": "product",
+      "intent": "product:caesar-kenting",
+      "topics": [
+        "墾丁凱撒大飯店",
+        "墾丁凱撒房型",
+        "墾丁親子住宿",
+        "花園客房",
+        "一泊二食"
+      ],
+      "cluster": "travel",
+      "published": "2026-09-13",
+      "modified": "2026-09-14",
+      "sourceHash": "ed4a922905ee9e03c951a2a524f9c40014106cf58bb8a742879fed5a241f37fa"
+    },
+    {
+      "slug": "chulu-aomori-drinks",
+      "url": "https://www.eaglish.store/blog/chulu-aomori-drinks/",
+      "title": "台東初鹿與青森飲品怎麼選？原味、調味與蘋果汁整理｜鷹家選物誌",
+      "productNames": [
+        "台東初鹿&青森蘋果汁"
+      ],
+      "productId": "chulu-aomori-drinks",
+      "mode": "product",
+      "intent": "product:chulu-aomori-drinks",
+      "topics": [
+        "初鹿保久乳團購怎麼選",
+        "初鹿原味保久乳",
+        "初鹿調味乳",
+        "黑豆芝麻飲",
+        "青森蘋果汁"
+      ],
+      "cluster": "table",
+      "published": "2026-09-10",
+      "modified": "2026-09-11",
+      "sourceHash": "923fc9c452ec6431380411d0eb165ffb8104eb8f9d034c71ab72c95a7947c301"
+    },
+    {
+      "slug": "fushan-gifts",
+      "url": "https://www.eaglish.store/blog/fushan-gifts/",
+      "title": "富山私房菜團購怎麼選？牛肉乾、蜜香紅茶與送禮搭配指南｜鷹家選物誌",
+      "productNames": [
+        "鷹式一家 × 富山私房菜（常溫品）"
+      ],
+      "productId": "fushan-gifts",
+      "mode": "product",
+      "intent": "product:fushan-gifts",
+      "topics": [
+        "富山私房菜",
+        "富山牛肉乾",
+        "蜜香紅茶",
+        "富山禮盒怎麼選"
+      ],
+      "cluster": "table",
+      "published": "2026-09-12",
+      "modified": "2026-09-12",
+      "sourceHash": "a47b7c827ac54cdc1a5e765a8ebd7b1031e4d00e9e99c529019a751f89e649a0"
+    },
+    {
+      "slug": "hereu-tag",
+      "url": "https://www.eaglish.store/blog/hereu-tag/",
+      "title": "Hereu Tag 智慧定位器怎麼用？iPhone 設定、找鑰匙與行李指南｜鷹家選物誌",
+      "productNames": [
+        "hereu 智慧定位器"
+      ],
+      "productId": "hereu-tag",
+      "mode": "product",
+      "intent": "product:hereu-tag",
+      "topics": [
+        "Hereu Tag 智慧定位器",
+        "Hereu Tag 怎麼用",
+        "iPhone 尋找設定",
+        "行李定位器",
+        "Hereu Tag 團購"
+      ],
+      "cluster": "travel",
+      "published": "2026-09-11",
+      "modified": "2026-09-11",
+      "sourceHash": "0b1f161b7b5e6812c95ca6fe6ef992ecbb2d9bcbe11910d08fc55877fff3f64f"
+    },
+    {
+      "slug": "kietla-kids-sunglasses",
+      "url": "https://www.eaglish.store/blog/kietla-kids-sunglasses/",
+      "title": "Ki ET LA 兒童太陽眼鏡怎麼選？0–1 歲起的年齡、款式與 UV 指南｜鷹家選物誌",
+      "productNames": [
+        "法國 Ki ET LA 兒童太陽眼鏡｜墨鏡"
+      ],
+      "productId": "kietla-kids-sunglasses",
+      "mode": "product",
+      "intent": "product:kietla-kids-sunglasses",
+      "topics": [
+        "Ki ET LA 兒童太陽眼鏡",
+        "Ki ET LA 團購",
+        "嬰兒太陽眼鏡 0–1 歲",
+        "兒童太陽眼鏡怎麼選",
+        "兒童 UV 防護",
+        "WAZZ 偏光"
+      ],
+      "cluster": "travel",
+      "published": "2026-09-11",
+      "modified": "2026-09-11",
+      "sourceHash": "a4b1beb4bdddc6ea2a7309d9a5a80a02f0d5233362131a9e779f74f62df9c4bc"
+    },
+    {
+      "slug": "meroware",
+      "url": "https://www.eaglish.store/blog/meroware/",
+      "title": "Meroware 餐具與水壺怎麼選？現行系列與三個孩子的使用筆記｜鷹家選物誌",
+      "productNames": [
+        "Meroware 美學育兒用品"
+      ],
+      "productId": "meroware-parenting",
+      "mode": "product",
+      "intent": "product:meroware",
+      "topics": [
+        "Meroware 餐具與水壺",
+        "Meroware 餐具與水壺 怎麼選"
+      ],
+      "cluster": "family",
+      "published": "2026-09-09",
+      "modified": "2026-09-11",
+      "sourceHash": "1030fd45d08b2af99f7a9369e2383a7d90b28808b47657c067441ab3dcdeebe7"
+    },
+    {
+      "slug": "mitoy-rice-blocks",
+      "url": "https://www.eaglish.store/blog/mitoy-rice-blocks/",
+      "title": "MiToy 米積木怎麼選？25顆、50顆與玩法整理｜鷹家選物誌",
+      "productNames": [
+        "MiToy米積木"
+      ],
+      "productId": "mitoy-rice-blocks",
+      "mode": "product",
+      "intent": "product:mitoy-rice-blocks",
+      "topics": [
+        "MiToy 米積木怎麼選",
+        "天然米香積木"
+      ],
+      "cluster": "family",
+      "published": "2026-09-10",
+      "modified": "2026-09-11",
+      "sourceHash": "6f0a3f44165fa9d6366aefd7a31b7f93c0858166d15f6fb39aca253a2c0577de"
+    },
+    {
+      "slug": "playzu",
+      "url": "https://www.eaglish.store/blog/playzu/",
+      "title": "Playzu 地墊團購指南｜20 款花色搭配、尺寸怎麼選與清潔方法｜鷹家選物誌",
+      "productNames": [
+        "Playzu"
+      ],
+      "productId": "playzu",
+      "mode": "product",
+      "intent": "product:playzu",
+      "topics": [
+        "Playzu 地墊",
+        "Playzu 地墊團購",
+        "巧拼地墊花色",
+        "台灣製地墊",
+        "地墊清潔",
+        "EVA 地墊尺寸"
+      ],
+      "cluster": "family",
+      "published": "2026-09-11",
+      "modified": "2026-09-11",
+      "sourceHash": "ac12d5150dcb27556cac8b0b43bd454182725451d8a78a20def0a1e99e0d6aea"
+    },
+    {
+      "slug": "wave-hummus",
+      "url": "https://www.eaglish.store/blog/wave-hummus/",
+      "title": "Wave 鷹嘴豆泥怎麼吃？吐司吃膩了，也許不是吐司的問題｜鷹式一家",
+      "productNames": [
+        "Wave 鷹嘴豆泥"
+      ],
+      "productId": "wave-hummus",
+      "mode": "product",
+      "intent": "product:wave-hummus",
+      "topics": [
+        "Wave 鷹嘴豆泥怎麼吃？",
+        "Wave 鷹嘴豆泥怎麼吃？ 怎麼選"
+      ],
+      "cluster": "table",
+      "published": "2026-09-08",
+      "modified": "2026-09-11",
+      "sourceHash": "7437a68970dd04f7f654a7785dd65a6339e7684d82ddae77e0e71d3f1b79ed61"
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "counts": {
+    "pages": 24,
+    "blocking": 0,
+    "warnings": 37,
+    "total": 37
+  },
+  "findings": [
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
+      "file": "index.html",
+      "index": 2943
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
+      "file": "index.html",
+      "index": 31427
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "index.html",
+      "index": 31427
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Hero/first image should not be lazy-loaded",
+      "file": "blog/index.html",
+      "index": 4562
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "blog/index.html",
+      "index": 9572
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "blog/index.html",
+      "index": 10308
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "blog/index.html",
+      "index": 11068
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "blog/index.html",
+      "index": 11769
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (984KB): /trip/assets/nz-farm.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "trip/index.html",
+      "index": 2569
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (984KB): /trip/assets/nz-farm.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "trip/index.html",
+      "index": 4861
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (503KB): /trip/assets/nz-boat.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "trip/index.html",
+      "index": 5225
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "trip/index.html",
+      "index": 5906
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Hero/first image should not be lazy-loaded",
+      "file": "trip/new-zealand/index.html",
+      "index": 2966
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "trip/new-zealand/index.html",
+      "index": 16089
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Hero/first image should not be lazy-loaded",
+      "file": "trip/new-zealand/christchurch/index.html",
+      "index": 2971
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "trip/new-zealand/christchurch/index.html",
+      "index": 5131
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (984KB): /trip/assets/nz-farm.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "trip/new-zealand/akaroa/index.html",
+      "index": 3201
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Hero/first image should not be lazy-loaded",
+      "file": "trip/new-zealand/akaroa/index.html",
+      "index": 3201
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (503KB): /trip/assets/nz-boat.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "trip/new-zealand/akaroa/index.html",
+      "index": 3525
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "trip/new-zealand/akaroa/index.html",
+      "index": 3891
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (984KB): /trip/assets/nz-farm.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "trip/new-zealand/christchurch/3-days/index.html",
+      "index": 16972
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (503KB): /trip/assets/nz-boat.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "trip/new-zealand/christchurch/3-days/index.html",
+      "index": 18146
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "trip/new-zealand/christchurch/3-days/index.html",
+      "index": 24898
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /trip/assets/market-walk.jpg",
+      "file": "trip/thailand/index.html",
+      "index": 2871
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Hero/first image should not be lazy-loaded",
+      "file": "trip/thailand/index.html",
+      "index": 2871
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "trip/thailand/index.html",
+      "index": 3254
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /trip/assets/market-walk.jpg",
+      "file": "trip/thailand/bangkok/index.html",
+      "index": 2961
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Hero/first image should not be lazy-loaded",
+      "file": "trip/thailand/bangkok/index.html",
+      "index": 2961
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "trip/thailand/bangkok/index.html",
+      "index": 3344
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /trip/assets/market-walk.jpg",
+      "file": "trip/guides/bangkok-with-kids/index.html",
+      "index": 2207
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /trip/assets/bangkok-market.jpg",
+      "file": "trip/guides/bangkok-with-kids/index.html",
+      "index": 3266
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /trip/assets/aquarium-moment.jpg",
+      "file": "trip/guides/bangkok-with-kids/index.html",
+      "index": 4669
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /trip/assets/food-break.jpg",
+      "file": "trip/guides/bangkok-with-kids/index.html",
+      "index": 5289
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "trip/guides/bangkok-with-kids/index.html",
+      "index": 6696
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "trip/flights/index.html",
+      "index": 8119
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "file": "trip/flights/index.html",
+      "index": 8444
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (375KB): /assets/caesar-kenting/journal/pool-detail.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/caesar-kenting/index.html",
+      "index": 18390
+    }
+  ]
+}

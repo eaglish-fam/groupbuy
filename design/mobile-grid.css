@@ -11,7 +11,18 @@
   overflow-wrap: normal;
   text-align: left;
 }
+/* Static introduction cards also work before JS loads or when Sheet is offline. */
+#products:has([data-snapshot-card]) { grid-auto-rows: auto; gap: 20px 12px; }
+[data-snapshot-card] .card-reading { white-space: normal; height: auto; overflow-wrap: anywhere; }
+[data-snapshot-card] .image-open { display: block; }
+.hero-visual { min-width: 0; }
+.hero-pick-controls { grid-template-columns: 44px minmax(0, 1fr) 44px; min-width: 0; }
+.pick-navigation { min-width: 0; max-width: 100%; justify-content: center; }
+.pick-dots { min-width: 0; overflow-x: auto; justify-content: flex-start; }
+.pick-navigation .pick-arrow { flex-shrink: 0; }
 @media (max-width: 700px) {
+  .hero-carousel { width: 100%; }
+  .hero-pick-controls { grid-template-columns: 44px minmax(0, 1fr); }
   .catalog-section > .wrap {
     padding-inline: 14px;
   }

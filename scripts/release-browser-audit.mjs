@@ -112,6 +112,8 @@ try {
  for(const width of [320,390,768,1440]){
    await page.setViewportSize({width,height:900});
    await page.evaluate(()=>new Promise(r=>requestAnimationFrame(()=>requestAnimationFrame(r))));
+   const overflow=await page.evaluate(()=>[...document.querySelectorAll('body *')].filter(e=>e.getBoundingClientRect().right>innerWidth+1&&e.getBoundingClientRect().width>0).slice(0,10).map(e=>({tag:e.tagName,class:e.className,id:e.id,width:e.getBoundingClientRect().width})));
+   if(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth))console.error('Overflow diagnostic',width,overflow);
    check('no horizontal overflow '+width,await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
  }
  check('no runtime exceptions',errors.length===0);

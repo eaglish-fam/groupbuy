@@ -8,6 +8,8 @@ const origin = 'https://www.eaglish.store';
 const pages = [
   {path:'/',file:'index.html'},
   {path:'/blog/',file:'blog/index.html'},
+  {path:'/guides/',file:'guides/index.html'},
+  {path:'/how-we-select/',file:'how-we-select/index.html'},
   {path:'/trip/',file:'trip/index.html'},
   ...['new-zealand/','new-zealand/christchurch/','new-zealand/akaroa/','new-zealand/christchurch/3-days/','thailand/','thailand/bangkok/'].map(p=>({path:'/trip/'+p,file:'trip/'+p+'index.html'})),
   {path:'/trip/guides/bangkok-with-kids/',file:'trip/guides/bangkok-with-kids/index.html'},
@@ -29,6 +31,9 @@ function lastmod(file){
 }
 const lines=pages.map(p=>{
   const url=origin+p.path;
+  const html=readFileSync(resolve(root,p.file),'utf8');
+  const canonical=(html.match(/<link\b[^>]*>/gi)||[]).find(t=>/rel=["']canonical["']/i.test(t))?.match(/href=["']([^"']+)/i)?.[1];
+  if(canonical!==url||/<meta\b[^>]*content=["'][^"']*noindex/i.test(html)||/[?#]/.test(p.path))throw Error('Non-indexable sitemap document: '+p.path);
   return '  <url>\n    <loc>'+url+'</loc>\n    <lastmod>'+lastmod(p.file)+'</lastmod>\n  </url>';
 });
 writeFileSync(resolve(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+lines.join('\n')+'\n</urlset>\n');

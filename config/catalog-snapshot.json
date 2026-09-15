@@ -1,0 +1,215 @@
+{
+  "version": 1,
+  "observedAt": "2026-09-15T11:45:19.159Z",
+  "source": "https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/",
+  "items": [
+    {
+      "id": "caesar-kenting",
+      "brand": "墾丁凱撒大飯店",
+      "description": "五種房型實景、我們的旅行影片與家庭費用試算，從選房到一泊二食，把訂房前的問題看清楚。",
+      "category": "旅遊",
+      "article": "/blog/caesar-kenting/",
+      "image": "/assets/caesar-kenting/product-card.webp"
+    },
+    {
+      "id": "hereu-tag",
+      "brand": "hereu 智慧定位器",
+      "description": "從 iPhone 設定到鑰匙、行李的找回方法，替常找不到的東西留一個線索。",
+      "category": "旅遊",
+      "article": "/blog/hereu-tag/",
+      "image": "/assets/hereu-tag/cover.webp"
+    },
+    {
+      "id": "atojet-home-shower",
+      "brand": "Atojet 濾芯蓮蓬頭",
+      "description": "一段真實的換芯紀錄，一點關於浴室日常用水的留意。",
+      "category": "居家",
+      "article": "/blog/atojet/",
+      "image": "/assets/atojet/vendor-shower.webp"
+    },
+    {
+      "id": "playzu",
+      "brand": "Playzu",
+      "description": "20 款花色搭配與我們家的生活照，先找到像你家的那一款，再量好尺寸。",
+      "category": "母嬰, 居家",
+      "article": "/blog/playzu/",
+      "image": "/assets/playzu/cover.webp"
+    },
+    {
+      "id": "kietla-kids-sunglasses",
+      "brand": "法國 Ki ET LA 兒童太陽眼鏡｜墨鏡",
+      "description": "從 0–1 歲到大童，配戴照片、框型圖鑑與護眼圖解，找到孩子願意戴的那一副。",
+      "category": "母嬰",
+      "article": "/blog/kietla-kids-sunglasses/",
+      "image": "/assets/kietla/cover-style-v2.webp"
+    },
+    {
+      "id": "artisan-cb301",
+      "brand": "ARTISAN浴室清潔＆小腿按摩器",
+      "description": "高處、角落和總要彎下腰的地方，才是讓人一拖再拖的原因。",
+      "category": "居家",
+      "article": "/blog/artisan-cb301/",
+      "image": "/assets/artisan-cb301/blog-cover-v2.webp"
+    },
+    {
+      "id": "d2549d4d95381dc2",
+      "brand": "鷹式一家 × 果子禮｜中秋水果團",
+      "description": "先確認品項、使用需求與適用限制，再核對廠商最新說明。",
+      "category": "食品",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "fushan-gifts",
+      "brand": "鷹式一家 × 富山私房菜（常溫品）",
+      "description": "原味、香辣牛肉乾、蜜香紅茶與禮盒空盒，先挑口味，再裝一份心意。",
+      "category": "食品",
+      "article": "/blog/fushan-gifts/",
+      "image": "/assets/fushan/product-card.webp"
+    },
+    {
+      "id": "chulu-aomori-drinks",
+      "brand": "台東初鹿&青森蘋果汁",
+      "description": "原味、可可、伯爵、黑豆芝麻與蘋果香，從家人的飲用習慣慢慢挑。",
+      "category": "食品",
+      "article": "/blog/chulu-aomori-drinks/",
+      "image": "/assets/chulu-aomori-drinks/flavored.webp"
+    },
+    {
+      "id": "wave-hummus",
+      "brand": "Wave 鷹嘴豆泥",
+      "description": "一盒鷹嘴豆泥，從抹、沾到拌，替普通的一餐換一種心情。",
+      "category": "食品",
+      "article": "/blog/wave-hummus/",
+      "image": "/assets/wave/family.webp"
+    },
+    {
+      "id": "51c6f6285365f89a",
+      "brand": "瑞士 Miamily",
+      "description": "逛街神器の行動頭等艙行李箱",
+      "category": "母嬰",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "8cc51da726d4a16f",
+      "brand": "Rieti 太陽眼鏡",
+      "description": "秀秀外出必備護眼時尚單品",
+      "category": "服飾",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "474d4bd57c378844",
+      "brand": "樂米電風扇",
+      "description": "外出降溫續航的好幫手！",
+      "category": "旅遊",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "meroware-parenting",
+      "brand": "Meroware 美學育兒用品",
+      "description": "在恩、在熙到舟夏，幾件陪我們家走過不同用餐階段的餐桌小物。",
+      "category": "母嬰",
+      "article": "/blog/meroware/",
+      "image": "/assets/meroware/blog-cover-v1.webp"
+    },
+    {
+      "id": "mitoy-rice-blocks",
+      "brand": "MiToy米積木",
+      "description": "從在恩、在熙的遊戲時光，看看 25 顆、50 顆與主題組怎麼選。",
+      "category": "母嬰",
+      "article": "/blog/mitoy-rice-blocks/",
+      "image": "/assets/mitoy-rice-blocks/play.webp"
+    },
+    {
+      "id": "e69103aacd3feb90",
+      "brand": "酪梨油品、紐西蘭食品",
+      "description": "先確認品項、使用需求與適用限制，再核對廠商最新說明。",
+      "category": "食品",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "f7097020cf9701df",
+      "brand": "冷壓初榨橄欖油",
+      "description": "來自希臘最存粹的冷壓橄欖油",
+      "category": "食品",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "ccb4cb6db8e69ded",
+      "brand": "收麻吉手捲收納袋",
+      "description": "【收納好幫手】收麻吉手壓收納袋",
+      "category": "居家",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "add22530b724b09a",
+      "brand": "Sunnylife戲水泳具",
+      "description": "泳衣、泳鏡、泳圈⋯⋯大人小孩的都有",
+      "category": "母嬰",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "8c578ff118c1d1e5",
+      "brand": "Kamee",
+      "description": "客製化保健食品",
+      "category": "食品",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "737d1cbf9e45656f",
+      "brand": "紐登斯優格",
+      "description": "先確認品項、使用需求與適用限制，再核對廠商最新說明。",
+      "category": "食品",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "84ea43dcce0460b9",
+      "brand": "斜面式氣動升降伴讀桌",
+      "description": "先確認品項、使用需求與適用限制，再核對廠商最新說明。",
+      "category": "居家",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "f9bff54df54c59af",
+      "brand": "PLAFARM",
+      "description": "玩具收納盒",
+      "category": "母嬰",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "592c8244d448ea41",
+      "brand": "PLAFARM",
+      "description": "收納拉拉車｜伸縮衣架",
+      "category": "母嬰",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "f0380f87f93d484f",
+      "brand": "心窪生活",
+      "description": "超音波電繡時光記憶盒",
+      "category": "母嬰",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "fec16029b05f93b8",
+      "brand": "Alzipmat",
+      "description": "舟夏最愛的超厚地墊｜涼感墊｜睡袋",
+      "category": "母嬰",
+      "article": null,
+      "image": null
+    }
+  ]
+}

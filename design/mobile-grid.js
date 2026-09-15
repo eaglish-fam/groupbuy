@@ -7,7 +7,7 @@
     cancelAnimationFrame(frame);
     frame = requestAnimationFrame(() => {
       for (const card of document.querySelectorAll('.product-grid .product-card')) {
-        const span = mobile.matches
+        const span = mobile.matches && !card.hasAttribute('data-snapshot-card')
           ? `span ${Math.ceil(card.getBoundingClientRect().height) + 14}`
           : "";
         if (card.style.gridRowEnd !== span) card.style.gridRowEnd = span;
