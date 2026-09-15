@@ -14,6 +14,7 @@ test('product cards place the primary purchase action after reading and calendar
   const primary = source.indexOf('class="card-primary-action"');
   assert.ok(reading > -1 && calendar > reading && primary > calendar);
   assert.match(source, /觀看使用影片<\/button>/);
+  assert.match(source, /p\.article \?[^\n]+\n\s*\$\{p\.videos\.length \?/);
   assert.doesNotMatch(source, /常駐好物・訂購前查看當期組合/);
 });
 
