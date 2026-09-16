@@ -8,7 +8,7 @@ const html=read('blog/miamily/index.html');
 test('MiaMily uses six real family photographs and two source-matched generation images',()=>{
  for(let i=1;i<=6;i++){
   const path='/assets/miamily/family-'+i+'.webp';
-  assert.match(html,new RegExp(path.replaceAll('/','\\/') ));
+  assert.ok(html.includes(path));
   assert.ok(fs.existsSync(new URL('..'+path,import.meta.url)));
  }
  for(const gen of ['gen1','gen2']){
@@ -18,6 +18,18 @@ test('MiaMily uses six real family photographs and two source-matched generation
  }
  assert.match(html,/請不要把它當成建議坐姿/);
  assert.doesNotMatch(html,/12 吋.*MacBook Air/);
+});
+test('MiaMily explains the second-generation front opening with real photos and accessible HTML',()=>{
+ for(const image of ['second-gen-front-pockets','second-gen-front-access']){
+  const path='/assets/miamily/'+image+'.webp';
+  assert.ok(html.includes(path));
+  assert.ok(fs.existsSync(new URL('..'+path,import.meta.url)));
+ }
+ assert.match(html,/aria-labelledby="second-gen-detail-title"/);
+ assert.match(html,/小物放前門/);
+ assert.match(html,/大件放主空間/);
+ assert.match(html,/前門內袋適合放途中會拿的小物/);
+ assert.match(html,/零碎物品可再用收納袋固定/);
 });
 test('MiaMily integrates the canonical article, Sheet identity, static card and shared reading/video/offer flows',()=>{
  assert.equal(content.entry('瑞士 Miamily').article,'/blog/miamily/');
