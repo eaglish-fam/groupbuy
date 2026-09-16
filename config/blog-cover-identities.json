@@ -2,6 +2,20 @@
   "schema": "eaglish.blog-cover-identity/v1",
   "effectiveDate": "2026-09-14",
   "articles": {
+    "/blog/miamily/": {
+      "identity": "MiaMily",
+      "image": "/assets/miamily/cover.webp",
+      "imageSha256": "99a0148fe8ea8f4d1adad65a2566850242a6941c8a33361f9c0c81ff1f14859e",
+      "source": "/assets/miamily/cover-source.html",
+      "sourceSha256": "2b89ee17b09babfdca60c1bc74c4fc122a491cba5c3fe82f50257dfc05e3faa7",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "99a0148fe8ea8f4d1adad65a2566850242a6941c8a33361f9c0c81ff1f14859e",
+        "viewportWidths": [320, 390, 768, 1440],
+        "mobileCardLegible": true
+      }
+    },
     "/blog/caesar-kenting/": {
       "identity": "墾丁凱撒大飯店",
       "image": "/assets/caesar-kenting/journal/cover-title-v2.webp",

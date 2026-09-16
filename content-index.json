@@ -60,7 +60,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "ed4a922905ee9e03c951a2a524f9c40014106cf58bb8a742879fed5a241f37fa"
+      "sourceHash": "6251dac3b356d158dd1d1464a9842eed26134f82615db1e00be6d9be8543bd45"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -125,7 +125,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "0b1f161b7b5e6812c95ca6fe6ef992ecbb2d9bcbe11910d08fc55877fff3f64f"
+      "sourceHash": "337b52b72e3ac499e7018cef30d00e9f4b0610117f6aa18dcefa6d31880fac1e"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -148,7 +148,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "a4b1beb4bdddc6ea2a7309d9a5a80a02f0d5233362131a9e779f74f62df9c4bc"
+      "sourceHash": "12e62f55b28386e04d6593a50ae7619c2f9828684e89dfd7bbe42d946b73ee60"
     },
     {
       "slug": "meroware",
@@ -168,6 +168,27 @@
       "published": "2026-09-09",
       "modified": "2026-09-11",
       "sourceHash": "1030fd45d08b2af99f7a9369e2383a7d90b28808b47657c067441ab3dcdeebe7"
+    },
+    {
+      "slug": "miamily",
+      "url": "https://www.eaglish.store/blog/miamily/",
+      "title": "MiaMily 行李箱兩代怎麼選？前開、對開與親子旅行實拍｜鷹家選物誌",
+      "productNames": [
+        "瑞士 Miamily"
+      ],
+      "productId": "miamily",
+      "mode": "product",
+      "intent": "product:miamily",
+      "topics": [
+        "MiaMily 行李箱",
+        "行動頭等艙",
+        "前開對開",
+        "親子旅行"
+      ],
+      "cluster": "travel",
+      "published": "2026-09-16",
+      "modified": "2026-09-16",
+      "sourceHash": "5091aa4b79a6719ad13216e6d3ccf097e60e68aa38f232c4fa9269e43c116225"
     },
     {
       "slug": "mitoy-rice-blocks",

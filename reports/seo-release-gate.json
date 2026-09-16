@@ -1,6 +1,6 @@
 {
   "counts": {
-    "pages": 24,
+    "pages": 25,
     "blocking": 0,
     "warnings": 37,
     "total": 37
@@ -11,56 +11,56 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 2943
+      "index": 2899
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 31427
+      "index": 31611
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 31427
+      "index": 31611
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "blog/index.html",
-      "index": 4562
+      "index": 4546
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 9572
+      "index": 10261
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 10308
+      "index": 10997
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 11068
+      "index": 11757
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 11769
+      "index": 12458
     },
     {
       "level": "warn",

@@ -84,12 +84,12 @@
       "image": "/assets/wave/family.webp"
     },
     {
-      "id": "51c6f6285365f89a",
+      "id": "miamily",
       "brand": "瑞士 Miamily",
-      "description": "逛街神器の行動頭等艙行李箱",
+      "description": "六張旅行實拍，看看孩子乘坐、載大包的日常，以及前開與對開兩代的收納取捨。",
       "category": "母嬰",
-      "article": null,
-      "image": null
+      "article": "/blog/miamily/",
+      "image": "/assets/miamily/cover.webp"
     },
     {
       "id": "8cc51da726d4a16f",

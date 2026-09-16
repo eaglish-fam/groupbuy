@@ -2,7 +2,7 @@ import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import {readSnapshot,snapshotCards} from './catalog-snapshot.mjs';
 const root = new URL('../', import.meta.url);
-const release = '20260915-card-videos-v1';
+const release = '20260916-miamily-astra-v1';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
   .replace('content="noindex,nofollow"', 'content="index,follow,max-image-preview:large"')
