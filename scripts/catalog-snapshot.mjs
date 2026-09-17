@@ -34,7 +34,7 @@ export function normalizeSnapshot(csv,observedAt=new Date().toISOString()){
 export function snapshotCards(snapshot){
   const e=content.escape;
   return snapshot.items.map(p=>`<article class="product-card" id="product-${e(p.id)}" data-snapshot-card>
-    ${p.image?`<div class="product-picture"><a href="${e(p.article)}" class="image-open"><img src="${e(p.image)}" width="1000" height="750" alt="${e(p.brand)}" loading="lazy" decoding="async"></a></div>`:''}
+    ${p.image?`<div class="product-picture">${p.article?`<a href="${e(p.article)}" class="image-open">`:''}<img src="${e(p.image)}" width="1000" height="750" alt="${e(p.brand)}" loading="lazy" decoding="async">${p.article?'</a>':''}</div>`:''}
     <div class="product-body"><span class="status">${e(p.category)}</span><h3>${e(p.brand)}</h3><p class="product-description">${e(p.description||'先從使用需求出發，再確認適合的品項。')}</p>
     <div class="product-bottom">${p.article?`<a class="card-reading" href="${e(p.article)}">${e(p.brand)}選購筆記 ↗</a>`:'<a class="card-reading" href="/guides/">先看選購方向 ↗</a>'}
     </div></div></article>`).join('\n');

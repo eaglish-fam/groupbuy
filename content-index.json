@@ -82,13 +82,14 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "923fc9c452ec6431380411d0eb165ffb8104eb8f9d034c71ab72c95a7947c301"
+      "sourceHash": "276f8ad8a4f34b4e85f80d85d7130364c98f0ec196f9331dd5f5d9112c501f8b"
     },
     {
       "slug": "fushan-gifts",
       "url": "https://www.eaglish.store/blog/fushan-gifts/",
       "title": "富山私房菜團購怎麼選？牛肉乾、蜜香紅茶與送禮搭配指南｜鷹家選物誌",
       "productNames": [
+        "富山私房菜｜常溫品",
         "鷹式一家 × 富山私房菜（常溫品）"
       ],
       "productId": "fushan-gifts",
@@ -103,7 +104,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "a47b7c827ac54cdc1a5e765a8ebd7b1031e4d00e9e99c529019a751f89e649a0"
+      "sourceHash": "cc66a9fabf512aa04ced1e14da4755090049d07eaa510e203a75e41b9e726885"
     },
     {
       "slug": "hereu-tag",
@@ -270,7 +271,7 @@
       "cluster": "table",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "7437a68970dd04f7f654a7785dd65a6339e7684d82ddae77e0e71d3f1b79ed61"
+      "sourceHash": "3b185e23121ea7ead71f79b5c5a2fa107473bd1af3ce130366568ab0ae0dec2b"
     }
   ]
 }

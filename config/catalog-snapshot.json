@@ -1,8 +1,16 @@
 {
   "version": 1,
-  "observedAt": "2026-09-15T11:45:19.159Z",
+  "observedAt": "2026-09-17T13:30:04.451Z",
   "source": "https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/",
   "items": [
+    {
+      "id": "ef76d384e04eb906",
+      "brand": "L'Ange 棉之境",
+      "description": "100% 天然純棉紗布巾",
+      "category": "母嬰, 居家",
+      "article": null,
+      "image": null
+    },
     {
       "id": "caesar-kenting",
       "brand": "墾丁凱撒大飯店",
@@ -61,11 +69,19 @@
     },
     {
       "id": "fushan-gifts",
-      "brand": "鷹式一家 × 富山私房菜（常溫品）",
+      "brand": "富山私房菜｜常溫品",
       "description": "原味、香辣牛肉乾、蜜香紅茶與禮盒空盒，先挑口味，再裝一份心意。",
       "category": "食品",
       "article": "/blog/fushan-gifts/",
       "image": "/assets/fushan/product-card.webp"
+    },
+    {
+      "id": "fushan-frozen",
+      "brand": "富山私房菜｜冷凍品",
+      "description": "蒲燒鰻、白燒鰻、一口吃烏魚子與冷凍料理，中秋送禮與家常加菜都方便。",
+      "category": "食品",
+      "article": null,
+      "image": "/assets/fushan-frozen/product-card.webp"
     },
     {
       "id": "chulu-aomori-drinks",
@@ -142,7 +158,7 @@
     {
       "id": "shoumaji",
       "brand": "收麻吉手捲收納袋",
-      "description": "【收納好幫手】收麻吉手壓收納袋",
+      "description": "用天數、人數與衣物厚度先算 XS、S、M 袋數，再看真實影片的收納前後與手捲步驟。",
       "category": "居家",
       "article": "/blog/shoumaji/",
       "image": "/assets/shoumaji/cover.webp"

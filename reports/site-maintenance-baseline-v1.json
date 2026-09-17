@@ -135,7 +135,7 @@
       "id": "image-alt",
       "passed": true,
       "severity": "warning",
-      "detail": "0 of 23 static image(s) lack alt text."
+      "detail": "0 of 24 static image(s) lack alt text."
     },
     {
       "id": "iframe-title",
