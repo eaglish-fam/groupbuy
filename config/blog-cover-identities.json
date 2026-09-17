@@ -2,6 +2,14 @@
   "schema": "eaglish.blog-cover-identity/v1",
   "effectiveDate": "2026-09-14",
   "articles": {
+    "/blog/shoumaji/": {
+      "identity": "收麻吉手捲壓縮袋",
+      "image": "/assets/shoumaji/cover.webp",
+      "imageSha256": "4f1f97b75dd5829543ac1c86186a1f6c48d8aff60cda75337cc438ebc677230d",
+      "source": "/assets/shoumaji/cover-source.html",
+      "sourceSha256": "6fff89f8e318109057e7c681f478af31321fd11c70c55b1219cc1d01a8cb3582",
+      "review": {"identityVisible": true,"realPhotoPreserved": true,"imageSha256": "4f1f97b75dd5829543ac1c86186a1f6c48d8aff60cda75337cc438ebc677230d","viewportWidths": [320,390,768,1440],"mobileCardLegible": true}
+    },
     "/blog/miamily/": {
       "identity": "MiaMily",
       "image": "/assets/miamily/cover.webp",

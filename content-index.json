@@ -60,7 +60,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "6251dac3b356d158dd1d1464a9842eed26134f82615db1e00be6d9be8543bd45"
+      "sourceHash": "89130223e23516210df482128c7525cb7c5bde65a19d847c59dbba5590009330"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -125,7 +125,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "337b52b72e3ac499e7018cef30d00e9f4b0610117f6aa18dcefa6d31880fac1e"
+      "sourceHash": "ef6de14bc58da64d306a231958793b4b2db7af3bf949d0189bfdab1f747d238a"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -148,7 +148,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "12e62f55b28386e04d6593a50ae7619c2f9828684e89dfd7bbe42d946b73ee60"
+      "sourceHash": "5cda8ec2eb4ccd7298ced1f87353e98087d98a81d3055371369169923d12e253"
     },
     {
       "slug": "meroware",
@@ -188,7 +188,7 @@
       "cluster": "travel",
       "published": "2026-09-16",
       "modified": "2026-09-16",
-      "sourceHash": "6ebf7750aea6bae975b6f63f55f416b205815df4ea167888761f6b58138ea52e"
+      "sourceHash": "230cd782441f7e9f50ff36facd00850cd8b18d29375d9d6faacf18c21616fd3c"
     },
     {
       "slug": "mitoy-rice-blocks",
@@ -231,6 +231,27 @@
       "published": "2026-09-11",
       "modified": "2026-09-11",
       "sourceHash": "ac12d5150dcb27556cac8b0b43bd454182725451d8a78a20def0a1e99e0d6aea"
+    },
+    {
+      "slug": "shoumaji",
+      "url": "https://www.eaglish.store/blog/shoumaji/",
+      "title": "收麻吉手捲壓縮袋怎麼選？尺寸、袋數計算與手捲教學｜鷹家選物誌",
+      "productNames": [
+        "收麻吉手捲收納袋"
+      ],
+      "productId": "shoumaji",
+      "mode": "product",
+      "intent": "product:shoumaji",
+      "topics": [
+        "旅行壓縮袋怎麼選",
+        "壓縮袋尺寸",
+        "親子旅行收納",
+        "收麻吉手捲壓縮袋"
+      ],
+      "cluster": "travel",
+      "published": "2026-09-17",
+      "modified": "2026-09-17",
+      "sourceHash": "7d1e4adb1c2d439c1dfb2306844416357b5d6d3024b98171d74da4320e6e1645"
     },
     {
       "slug": "wave-hummus",

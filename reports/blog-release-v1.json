@@ -1,10 +1,10 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-16T04:47:57.161Z",
+  "generatedAt": "2026-09-17T01:20:20.598Z",
   "status": "ready",
   "summary": {
-    "checks": 403,
-    "passed": 403,
+    "checks": 435,
+    "passed": 435,
     "failures": 0
   },
   "checks": [
@@ -1719,6 +1719,156 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:shoumaji:index.html:title",
+      "passed": true,
+      "detail": "Title length 30."
+    },
+    {
+      "id": "blog:shoumaji:index.html:description",
+      "passed": true,
+      "detail": "Description length 73."
+    },
+    {
+      "id": "blog:shoumaji:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/shoumaji/."
+    },
+    {
+      "id": "blog:shoumaji:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large."
+    },
+    {
+      "id": "blog:shoumaji:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:shoumaji:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include 收麻吉手捲壓縮袋."
+    },
+    {
+      "id": "blog:shoumaji:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:shoumaji:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:shoumaji:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:shoumaji:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:shoumaji:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:shoumaji:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:shoumaji:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid."
+    },
+    {
+      "id": "blog:shoumaji:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:shoumaji:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:shoumaji:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:shoumaji:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:shoumaji:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:shoumaji:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:shoumaji:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:shoumaji:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:shoumaji:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:shoumaji:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:shoumaji:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:shoumaji:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:shoumaji:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:shoumaji:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:shoumaji:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:shoumaji:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:shoumaji:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
       "id": "blog:wave-hummus:index.html:title",
       "passed": true,
       "detail": "Title length 33."
@@ -1995,6 +2145,16 @@
     },
     {
       "id": "blog-index:https://www.eaglish.store/blog/playzu/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/shoumaji/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/shoumaji/",
       "passed": true,
       "detail": "Blog index links to the article."
     },

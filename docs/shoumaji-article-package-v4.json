@@ -1,0 +1,76 @@
+{
+  "schema": "eaglish.article-package/v4",
+  "createdAt": "2026-09-17T08:55:00+08:00",
+  "status": "candidate_ready",
+  "publicationAuthorized": false,
+  "identity": {
+    "brand": "收麻吉",
+    "product": "日本製手捲式壓縮袋",
+    "sheetBrand": "收麻吉手捲收納袋",
+    "canonical": "https://www.eaglish.store/blog/shoumaji/",
+    "purchaseUrl": "https://bigordr.somuch.tw/shop/somuch-eaglish.family2607_maji"
+  },
+  "readerJob": "依旅行天數、成人與小孩人數、衣物厚度和尿布需求，先估 XS、S、M 需要幾片，再理解手捲排氣的使用方式與限制。",
+  "topic": {
+    "mode": "problem_plus_tool",
+    "primaryQuery": "旅行壓縮袋怎麼選",
+    "relatedQueries": ["壓縮袋尺寸怎麼選", "旅行壓縮袋幾個", "親子旅行收納", "手捲壓縮袋怎麼用"],
+    "selectedDirection": "用官方尺寸容量做透明的旅行袋數計算器，補足搜尋結果多談袋型、少談家庭人數與天數換算的內容缺口。"
+  },
+  "purposePlan": {
+    "purpose": "降低第一次購買者不知道尺寸、袋數與使用方式的決策成本。",
+    "conversionPath": ["先回答怎麼挑", "互動計算", "官方尺寸核對", "真實影片證據", "限制與 FAQ", "核對當期購買頁"],
+    "visualPlan": ["真實影片畫面", "響應式 SVG 尺寸圖", "互動袋數計算器", "官方尺寸圖"]
+  },
+  "evidenceLedger": [
+    {"claim": "XS、S、M、L、XL 尺寸、每包片數與容納例子", "source": "當期 BigOrdr 商品頁與官方尺寸圖", "status": "verified_2026-09-17"},
+    {"claim": "不用吸塵器，以手捲方式排氣", "source": "收麻吉官方功能圖與鷹式一家影片", "status": "verified"},
+    {"claim": "整理前後的行李箱畫面", "source": "鷹式一家 YouTube Shorts D2q6cajm8Bg", "status": "verified_real_media"},
+    {"claim": "旅行袋數結果", "source": "編輯部依官方容量建立的透明估算公式", "status": "heuristic_labeled"},
+    {"claim": "壓縮後固定節省 70%", "source": "廠商宣傳視覺", "status": "excluded_unconditional_claim"}
+  ],
+  "calculator": {
+    "inputs": ["旅行天數", "成人數", "小孩數", "夏季或冬季", "是否帶尿布", "是否分開已穿衣物"],
+    "rules": [
+      "成人日常衣物：每人每 4 天先估 1 片 S",
+      "小孩衣物：每人每 4 天先估 1 片 XS",
+      "冬季蓬鬆衣物：每 1–2 人增加 1 片 M",
+      "尿布與已穿衣物另外分袋",
+      "結果同時換算目前 XS 每包 3 片、S/M 每包 2 片"
+    ],
+    "disclosure": "估算不是容量保證；衣物厚度、尺寸、折法與換洗頻率都會改變結果。"
+  },
+  "searchResearchBrief": {
+    "observedAt": "2026-09-17",
+    "coverageStatus": "full",
+    "queries": ["旅行 壓縮袋 怎麼挑 尺寸 幾天 大人 小孩", "旅行壓縮袋 手捲 排氣 行李箱 收納 建議", "壓縮袋 壓縮 體積 不減少 重量 旅行", "親子旅行 收納袋 尺寸 選擇"],
+    "observedUrls": [
+      "https://www.openworld.tv/blog/travel-compression-bag-guide.html",
+      "https://post.smzdm.com/p/a3md74dk/",
+      "https://uptogo.com.tw/%E6%97%85%E9%81%8A/%E6%97%85%E8%A1%8C%E5%A3%93%E7%B8%AE%E8%A2%8B%E5%93%AA%E8%A3%A1%E8%B2%B7%EF%BC%9F/",
+      "https://j-eps.net/packing-cubes-compression-bags-guide-taiwan-zh-tw/",
+      "https://www.openworld.tv/blog/travel-packing-bag-guide.html",
+      "https://www.myhoo.com.tw/%E9%9C%B2%E7%87%9F%E6%97%85%E8%A1%8C%E6%94%B6%E7%B4%8D%E7%A5%9E%E5%99%A8%E6%87%B6%E4%BA%BA%E5%8C%85",
+      "https://noahgetaways.tw/chapter-4520139",
+      "https://uptogo.com.tw/%E5%B1%85%E5%AE%B6/%E5%AE%B6%E5%85%B7%E5%AE%B6%E9%A3%BE/%E8%A1%A3%E6%AB%83-%E8%A1%A3%E7%89%A9%E6%94%B6%E7%B4%8D/%E8%A1%A3%E7%89%A9%E5%A3%93%E7%B8%AE%E8%A2%8B/%E8%A1%A3%E6%9C%8D%E5%A3%93%E7%B8%AE%E8%A2%8B%E6%9C%89%E7%94%A8%E5%97%8E%EF%BC%9F/",
+      "https://ipick.tw/travelcompressionbag/",
+      "https://www.somuch.com.tw/somuch/index.php?action=somaji"
+    ],
+    "contentGap": "前排內容多為袋型比較、宣稱壓縮率或一般打包技巧，少有用實際品牌尺寸把旅行天數、家庭人數與袋數連起來的透明工具。"
+  },
+  "mediaLedger": [
+    {"asset": "/assets/shoumaji/cover.webp", "source": "鷹式一家影片同一批棉被與衣物的壓縮前後畫面，加上商品包裝實拍與文字版型", "role": "cover", "realProductPixels": true},
+    {"asset": "/assets/shoumaji/trip-overfilled.webp", "source": "YouTube Shorts D2q6cajm8Bg", "timestampSeconds": 4.5, "cropXYWH": [0,310,608,760], "role": "step 1: clothes visibly above suitcase rim"},
+    {"asset": "/assets/shoumaji/trip-packing.webp", "source": "YouTube Shorts D2q6cajm8Bg", "timestampSeconds": 16.2, "cropXYWH": [0,290,608,760], "role": "step 2: hands pressing the actual compression bag"},
+    {"asset": "/assets/shoumaji/trip-closed.webp", "source": "YouTube Shorts D2q6cajm8Bg", "timestampSeconds": 22.3, "cropXYWH": [0,310,608,760], "role": "step 3: closing the repacked suitcase"},
+    {"asset": "/assets/shoumaji/product-package.webp", "source": "YouTube Shorts D2q6cajm8Bg", "role": "product proof"},
+    {"asset": "/assets/shoumaji/roll-step.webp", "source": "YouTube Shorts D2q6cajm8Bg", "role": "how-to proof"},
+    {"asset": "/assets/shoumaji/official-size-use.webp", "source": "supplier material", "role": "size evidence"},
+    {"asset": "/assets/shoumaji/official-features.webp", "source": "supplier material", "role": "feature evidence, not embedded because of unconditional 70% wording"}
+  ],
+  "release": {
+    "candidateUrl": "https://zosiamac-mini.tailb3e7be.ts.net:31443/blog/shoumaji/",
+    "tests": {"nodeTests": "145/145", "blogAudit": "435/435"},
+    "nextAction": "human_review_then_explicit_publish_authorization"
+  }
+}
