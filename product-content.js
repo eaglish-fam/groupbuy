@@ -1,6 +1,7 @@
 /* Shared article/video contract. No Sheet writes, publishing or message sending. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.ProductContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const catalog={
+    lange:{id:'lange',brands:["L'Ange 棉之境"],article:'/blog/lange/',title:'紗布巾｜全家日用和旅行，尺寸怎麼挑？',excerpt:'洗臉、拍嗝、擦髮、洗澡和旅行自帶浴巾，先看尺寸，再照家裡的換洗習慣估數量。',category:'居家生活',image:'/assets/lange/cover.webp',published:'2026-09-17'},
     shoumaji:{id:'shoumaji',brands:['收麻吉手捲收納袋'],article:'/blog/shoumaji/',title:'收麻吉手捲壓縮袋｜旅行怎麼挑尺寸與袋數？',excerpt:'用天數、人數與衣物厚度先算 XS、S、M 袋數，再看真實影片的收納前後與手捲步驟。',category:'旅行收納',image:'/assets/shoumaji/cover.webp',published:'2026-09-17'},
     miamily:{id:'miamily',brands:['瑞士 Miamily'],article:'/blog/miamily/',title:'MiaMily｜孩子走累了，旅行還可以慢慢走。',excerpt:'六張旅行實拍，看看孩子乘坐、載大包的日常，以及前開與對開兩代的收納取捨。',category:'親子旅行',image:'/assets/miamily/cover.webp',published:'2026-09-16'},
     caesarKenting:{id:'caesar-kenting',brands:['墾丁凱撒大飯店'],article:'/blog/caesar-kenting/',title:'墾丁凱撒大飯店｜先選對房，再把假期留給一家人。',excerpt:'五種房型實景、我們的旅行影片與家庭費用試算，從選房到一泊二食，把訂房前的問題看清楚。',category:'親子旅行',image:'/assets/caesar-kenting/journal/cover-title-v2.webp',cardImage:'/assets/caesar-kenting/product-card.webp',published:'2026-09-13'},

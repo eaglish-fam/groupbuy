@@ -152,6 +152,27 @@
       "sourceHash": "5cda8ec2eb4ccd7298ced1f87353e98087d98a81d3055371369169923d12e253"
     },
     {
+      "slug": "lange",
+      "url": "https://www.eaglish.store/blog/lange/",
+      "title": "L’Ange 棉之境紗布巾怎麼選？全家日用與旅行尺寸指南｜鷹家選物誌",
+      "productNames": [
+        "L'Ange 棉之境"
+      ],
+      "productId": "lange",
+      "mode": "product",
+      "intent": "product:lange",
+      "topics": [
+        "L’Ange 棉之境",
+        "紗布巾怎麼選",
+        "紗布巾尺寸",
+        "旅行浴巾"
+      ],
+      "cluster": "family",
+      "published": "2026-09-17",
+      "modified": "2026-09-17",
+      "sourceHash": "8a730656bfc3e136ca61ddc16b15a93b42dc888fd4af114669d2f2ecc3a7adc7"
+    },
+    {
       "slug": "meroware",
       "url": "https://www.eaglish.store/blog/meroware/",
       "title": "Meroware 餐具與水壺怎麼選？現行系列與三個孩子的使用筆記｜鷹家選物誌",
@@ -168,7 +189,7 @@
       "cluster": "family",
       "published": "2026-09-09",
       "modified": "2026-09-11",
-      "sourceHash": "1030fd45d08b2af99f7a9369e2383a7d90b28808b47657c067441ab3dcdeebe7"
+      "sourceHash": "575b9c16091a190ae9eb55f7bddcc0047bccafc3d75286e415668fb266842e17"
     },
     {
       "slug": "miamily",
@@ -208,7 +229,7 @@
       "cluster": "family",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "6f0a3f44165fa9d6366aefd7a31b7f93c0858166d15f6fb39aca253a2c0577de"
+      "sourceHash": "97eff50537b4b2531665edf25b95cb66edc92f2d8523a9a04590b0e9aac2289f"
     },
     {
       "slug": "playzu",
@@ -231,7 +252,7 @@
       "cluster": "family",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "ac12d5150dcb27556cac8b0b43bd454182725451d8a78a20def0a1e99e0d6aea"
+      "sourceHash": "ea4e9ce76feeb38e195885a14bb95f3fcaf63b5d94fc60f7ce840b6bbaca27fd"
     },
     {
       "slug": "shoumaji",

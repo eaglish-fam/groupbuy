@@ -2,6 +2,14 @@
   "schema": "eaglish.blog-cover-identity/v1",
   "effectiveDate": "2026-09-14",
   "articles": {
+    "/blog/lange/": {
+      "identity": "紗布巾",
+      "image": "/assets/lange/cover.webp",
+      "imageSha256": "b300a5632562e1d24e43fc87f0869d993f88a643c1107e86734990e22b790aa7",
+      "source": "/assets/lange/cover.jpg",
+      "sourceSha256": "f0dbe887af9a6b8103518a942fd364fc4e25326f12e41df11986b5039505eb95",
+      "review": {"identityVisible": true,"realPhotoPreserved": true,"imageSha256": "b300a5632562e1d24e43fc87f0869d993f88a643c1107e86734990e22b790aa7","viewportWidths": [320,390,768,1440],"mobileCardLegible": true}
+    },
     "/blog/shoumaji/": {
       "identity": "收麻吉手捲壓縮袋",
       "image": "/assets/shoumaji/cover.webp",
