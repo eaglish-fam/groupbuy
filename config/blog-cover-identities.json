@@ -8,7 +8,18 @@
       "imageSha256": "b300a5632562e1d24e43fc87f0869d993f88a643c1107e86734990e22b790aa7",
       "source": "/assets/lange/cover.jpg",
       "sourceSha256": "f0dbe887af9a6b8103518a942fd364fc4e25326f12e41df11986b5039505eb95",
-      "review": {"identityVisible": true,"realPhotoPreserved": true,"imageSha256": "b300a5632562e1d24e43fc87f0869d993f88a643c1107e86734990e22b790aa7","viewportWidths": [320,390,768,1440],"mobileCardLegible": true}
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "b300a5632562e1d24e43fc87f0869d993f88a643c1107e86734990e22b790aa7",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true
+      }
     },
     "/blog/shoumaji/": {
       "identity": "收麻吉手捲壓縮袋",
@@ -16,7 +27,18 @@
       "imageSha256": "4f1f97b75dd5829543ac1c86186a1f6c48d8aff60cda75337cc438ebc677230d",
       "source": "/assets/shoumaji/cover-source.html",
       "sourceSha256": "6fff89f8e318109057e7c681f478af31321fd11c70c55b1219cc1d01a8cb3582",
-      "review": {"identityVisible": true,"realPhotoPreserved": true,"imageSha256": "4f1f97b75dd5829543ac1c86186a1f6c48d8aff60cda75337cc438ebc677230d","viewportWidths": [320,390,768,1440],"mobileCardLegible": true}
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "4f1f97b75dd5829543ac1c86186a1f6c48d8aff60cda75337cc438ebc677230d",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true
+      }
     },
     "/blog/miamily/": {
       "identity": "MiaMily",
@@ -28,7 +50,12 @@
         "identityVisible": true,
         "realPhotoPreserved": true,
         "imageSha256": "99a0148fe8ea8f4d1adad65a2566850242a6941c8a33361f9c0c81ff1f14859e",
-        "viewportWidths": [320, 390, 768, 1440],
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
         "mobileCardLegible": true
       }
     },
@@ -42,7 +69,31 @@
         "identityVisible": true,
         "realPhotoPreserved": true,
         "imageSha256": "f19127dfcdf6f87f9121503040a746429843449a80df6e2250447d53f7250f08",
-        "viewportWidths": [320, 390, 768, 1440],
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true
+      }
+    },
+    "/blog/branden/": {
+      "identity": "旅行壓縮袋",
+      "image": "/assets/branden/cover.webp",
+      "imageSha256": "968c4c27daa73ea7f5c0a7b67704f8de601124853cbce2f1d1b1e0ca005058ee",
+      "source": "/assets/branden/cover-source.html",
+      "sourceSha256": "34b72c851f410171ced0412ff737460ad58870347b1d9e4c3ba6a3cd734e7c8c",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "968c4c27daa73ea7f5c0a7b67704f8de601124853cbce2f1d1b1e0ca005058ee",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
         "mobileCardLegible": true
       }
     }

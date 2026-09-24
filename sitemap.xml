@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.eaglish.store/</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
   </url>
   <url>
     <loc>https://www.eaglish.store/blog/</loc>
-    <lastmod>2026-09-18</lastmod>
+    <lastmod>2026-09-24</lastmod>
   </url>
   <url>
     <loc>https://www.eaglish.store/guides/</loc>
@@ -59,6 +59,10 @@
   <url>
     <loc>https://www.eaglish.store/blog/atojet/</loc>
     <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/blog/branden/</loc>
+    <lastmod>2026-09-24</lastmod>
   </url>
   <url>
     <loc>https://www.eaglish.store/blog/caesar-kenting/</loc>

@@ -1,6 +1,7 @@
 /* Shared article/video contract. No Sheet writes, publishing or message sending. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.ProductContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const catalog={
+    branden:{id:'branden',brands:['Branden 壓縮袋'],article:'/blog/branden/',title:'旅行壓縮袋好用嗎？BRANDEN 二代與 Lite 怎麼選',excerpt:'從真實打包影片看拉鍊式壓縮袋，再按袋身、重量、開口與尺寸挑選。',category:'旅行收納',image:'/assets/branden/cover.webp',cardImage:'/assets/branden/product-card.webp',published:'2026-09-24'},
     lange:{id:'lange',brands:["L'Ange 棉之境"],article:'/blog/lange/',title:'紗布巾｜全家日用和旅行，尺寸怎麼挑？',excerpt:'洗臉、拍嗝、擦髮、洗澡和旅行自帶浴巾，先看尺寸，再照家裡的換洗習慣估數量。',category:'居家生活',image:'/assets/lange/cover.webp',published:'2026-09-17'},
     shoumaji:{id:'shoumaji',brands:['收麻吉手捲收納袋'],article:'/blog/shoumaji/',title:'收麻吉手捲壓縮袋｜旅行怎麼挑尺寸與袋數？',excerpt:'用天數、人數與衣物厚度先算 XS、S、M 袋數，再看真實影片的收納前後與手捲步驟。',category:'旅行收納',image:'/assets/shoumaji/cover.webp',published:'2026-09-17'},
     miamily:{id:'miamily',brands:['瑞士 Miamily'],article:'/blog/miamily/',title:'MiaMily｜孩子走累了，旅行還可以慢慢走。',excerpt:'六張旅行實拍，看看孩子乘坐、載大包的日常，以及前開與對開兩代的收納取捨。',category:'親子旅行',image:'/assets/miamily/cover.webp',published:'2026-09-16'},

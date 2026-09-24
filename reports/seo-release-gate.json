@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 27,
+    "pages": 28,
     "blocking": 0,
-    "warnings": 37,
-    "total": 37
+    "warnings": 38,
+    "total": 38
   },
   "findings": [
     {
@@ -18,49 +18,49 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 32677
+      "index": 33431
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 32677
+      "index": 33431
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "blog/index.html",
-      "index": 4542
+      "index": 4546
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 11631
+      "index": 12269
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 12367
+      "index": 13005
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 13127
+      "index": 13765
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 13828
+      "index": 14466
     },
     {
       "level": "warn",
@@ -257,6 +257,13 @@
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/flights/index.html",
       "index": 8444
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (454KB): /assets/branden/gen2-1.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/branden/index.html",
+      "index": 6912
     },
     {
       "level": "warn",
