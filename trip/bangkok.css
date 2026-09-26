@@ -29,6 +29,7 @@
 .bkk-guide .bkk-day{border-color:var(--bkk-rule)}
 .bkk-guide .bkk-day li,.bkk-guide .toc a,.bkk-guide .prose details{border-color:var(--bkk-rule)}
 .bkk-guide .toc{border-top-color:var(--bkk-cocoa)}
+@media(min-width:1200px){.bkk-guide .toc{max-height:calc(100vh - 60px);overflow-y:auto;scrollbar-width:thin}}
 .bkk-guide .reading-nav__tab,.bkk-guide .reading-nav__list a[aria-current="location"]{background:var(--bkk-sand)}
 .bkk-guide .reading-nav__panel,.bkk-guide .reading-nav__flight{background:var(--bkk-paper)}
 @media(max-width:1199px){
