@@ -45,3 +45,17 @@ test('Bangkok scene assets retain source provenance, responsive variants and bou
 test('travel stylesheet has mobile and reduced-motion layouts',()=>{
  const css=read('trip/trip.css');assert.match(css,/max-width:700px/);assert.match(css,/prefers-reduced-motion:reduce/);assert.match(css,/:focus-visible/);
 });
+test('Bangkok opts into the shared mobile drawer without replacing its static TOC',()=>{
+ const html=read(pages[1]);
+ assert.equal((html.match(/data-reading-nav/g)||[]).length,1);
+ assert.match(html,/class="toc guide-nav" data-reading-nav/);
+ assert.match(html,/defer src="\/blog\/reading-nav\.js\?v=/);
+ assert.match(html,/href="\/blog\/reading-nav\.css\?v=/);
+ const nav=html.match(/<nav[^>]*data-reading-nav[^>]*>([\s\S]*?)<\/nav>/)[1];
+ for(const p of bangkokCatalog.places){
+  assert.ok(nav.includes('href="#'+p.anchor+'"'));
+  const section=html.match(new RegExp('<section id="'+p.anchor+'"[\\s\\S]*?<h2>'))[0];
+  assert.ok(section.includes(p.englishName.split(' · ')[0].toUpperCase()));
+  assert.ok(!section.includes('/ '+p.area.toUpperCase()+'</'));
+ }
+});

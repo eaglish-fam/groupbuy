@@ -31,3 +31,12 @@
 - Seven full-size WebP images under 350 KiB each plus 640px variants. Explicit dimensions, alt text, lazy loading below the hero and existing reduced-motion/focus styles retained. This is not a claim of a measured Core Web Vitals score or a full WCAG audit.
 - Canonical URL stays unchanged; Article and BreadcrumbList match the page. Sitemap lastmod changes only for the guide and two destination hubs.
 - Rollback: revert this scoped release commit and allow the normal Pages build to publish. No data migration, credential change, deployment configuration change or new service.
+
+## Mobile navigation and heading correction follow-up
+
+- Reuse the existing opt-in `blog/reading-nav.js` and CSS, rather than build a second navigation engine. Original inline TOC remains usable without JavaScript; desktop sticky TOC is retained.
+- Bangkok-only neutral drawer styles avoid inheriting the shop's green palette. No article palette is changed pending Hiram's choice.
+- Numbered place headings now use the exact English venue name; geography remains in the separate area/transport information.
+- Mobile checks at 390px: SEA LIFE → drawer → Chatuchak → drawer → SEA LIFE; fragment and heading focus match, current chapter is highlighted. Escape closes the drawer and restores focus to its trigger. No horizontal overflow.
+- Disable the drawer panel's visibility transition on this page so keyboard focus can move into the panel immediately when opened. Shared shop code remains unchanged.
+- Canonical URL, source data, commercial links and scene assets unchanged. Reuses cached shared assets, with no additional library or service.
