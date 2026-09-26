@@ -1,6 +1,39 @@
-/* Opt-in article navigation. The inline table of contents remains the source of truth. */
+/* Reuse an editorial table of contents, or build one from the article's chapters. */
 (() => {
-  const source = document.querySelector('[data-reading-nav]');
+  function buildSource() {
+    const body = document.querySelector('main article .article-body');
+    if (!body) return null;
+    const sections = [...body.querySelectorAll(':scope > section')];
+    const opening = sections[0];
+    if (!opening) return null;
+    const chapters = sections.slice(1).map((section, index) => {
+      const heading = section.querySelector('h2');
+      if (!heading) return null;
+      const target = section.id ? section : heading.id ? heading : section;
+      if (!target.id) target.id = `reading-chapter-${index + 1}`;
+      return { target, label: heading.textContent.trim().replace(/\s+/g, ' ') };
+    }).filter(Boolean);
+    if (!chapters.length) return null;
+    const nav = document.createElement('nav');
+    nav.className = 'guide-nav reading-nav-source';
+    nav.dataset.readingNav = '';
+    nav.setAttribute('aria-label', '文章目錄');
+    const title = document.createElement('span');
+    title.className = 'reading-nav-source__title';
+    title.textContent = '文章目錄';
+    nav.append(title);
+    chapters.forEach(({target, label}) => {
+      const link = document.createElement('a');
+      link.href = `#${target.id}`;
+      link.textContent = label;
+      nav.append(link);
+    });
+    opening.after(nav);
+    return nav;
+  }
+  const source = document.querySelector('[data-reading-nav]') ||
+    document.querySelector('main article .article-body :is(.choice-links, .age-links, .pattern-links)') ||
+    buildSource();
   if (!source || document.querySelector('.reading-nav')) return;
   const entries = [...source.querySelectorAll('a[href^="#"]')].map(link => ({
     link, target: document.getElementById(decodeURIComponent(link.hash.slice(1)))

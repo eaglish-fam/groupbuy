@@ -158,14 +158,14 @@
       "category": "images",
       "message": "Image exceeds 350KB (454KB): /assets/branden/gen2-1.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/branden/index.html",
-      "index": 6912
+      "index": 6960
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (375KB): /assets/caesar-kenting/journal/pool-detail.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/caesar-kenting/index.html",
-      "index": 18390
+      "index": 18412
     }
   ]
 }

@@ -1,4 +1,9 @@
-/* Shared, opt-in reading navigation. Article content and purchase CTA keep their layout. */
+/* Shared reading navigation. Article content and purchase CTA keep their layout. */
+.reading-nav-source{display:flex;flex-wrap:wrap;align-items:center;gap:4px 18px;margin:20px 0 30px;padding:14px 0;border-block:1px solid var(--line,#d8d8ca)}
+.reading-nav-source__title{width:100%;color:var(--green,#36594f);font-size:13px;font-weight:600;letter-spacing:.08em}
+.reading-nav-source a{display:inline-flex;align-items:center;min-height:44px;color:var(--green,#36594f);font-size:14px;line-height:1.5;text-decoration:none}
+.reading-nav-source a:hover{text-decoration:underline}
+.reading-nav-source a:focus-visible{outline:2px solid var(--green,#36594f);outline-offset:2px}
 .reading-nav[hidden]{display:none}
 .reading-nav{--reading-nav-top:100px;position:fixed;inset:0;z-index:50;pointer-events:none}
 .reading-nav button{font:inherit;color:var(--green,#36594f);cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -26,6 +31,10 @@
 .reading-nav.is-open .reading-nav__shade{opacity:1;visibility:visible;pointer-events:auto}
 @keyframes reading-nav-hint{0%,100%{transform:translateX(0)}50%{transform:translateX(3px)}}
 .guide-nav.reading-nav__flight{position:fixed;z-index:55;box-sizing:border-box;margin:0;overflow:hidden;pointer-events:none;transform-origin:top left;border:0;padding:20px 12px;background:linear-gradient(120deg,#fffdf8f5,#edf0e5ee);box-shadow:0 0 12px #ffffffcc;will-change:transform,opacity}
+@media(max-width:1199px){
+  .reading-nav__tab{width:36px;padding-left:7px;padding-right:3px;align-items:flex-start}
+  .reading-nav__chevron{display:none}
+}
 @media(min-width:1200px){
   .reading-nav__tab,.reading-nav__close,.reading-nav__shade{display:none}
   .reading-nav__panel{top:max(var(--reading-nav-top),calc(50vh - 275px));bottom:auto;left:16px;width:min(188px,calc((100vw - 920px)/2 + 8px));max-height:calc(100dvh - var(--reading-nav-top) - 40px);padding:20px 10px 16px 12px;border-radius:12px;transform:none;visibility:visible;pointer-events:auto;background:linear-gradient(135deg,#f0eee5e8,#f8f7f200);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
