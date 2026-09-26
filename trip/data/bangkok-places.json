@@ -1,9 +1,13 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "country": "TH",
   "city": "bangkok",
   "checkedAt": "2026-09-26",
   "video": "https://www.youtube.com/watch?v=f5h0gGdaX2c",
+  "videos": [
+    {"id":"f5h0gGdaX2c","url":"https://www.youtube.com/watch?v=f5h0gGdaX2c","label":"市集、兒童館、老屋餐廳與水族館","coverage":"實際涵蓋兩天，不是單日路線"},
+    {"id":"F5cQv1yS69g","url":"https://www.youtube.com/watch?v=F5cQv1yS69g","label":"動物園、水上市場、侏羅紀體驗與暹羅蛇園","coverage":"實際涵蓋數天，並非一天走完"}
+  ],
   "places": [
     {
       "id": "th-bangkok-chatuchak-weekend-market",
@@ -94,10 +98,152 @@
         {"label": "館方：玻璃底船體驗", "url": "https://www.visitsealife.com/bangkok/en/explore/experiences/glass-bottom-boat/"},
         {"label": "館方：交通與入口", "url": "https://www.visitsealife.com/bangkok/en/plan/before-you-visit/how-to-get-here/"}
       ],
+      "bookingIntro": "基本入場、玻璃底船和 4D 電影可能分開販售。比較相同日期與旅客條件，再確認套票包含的活動。",
       "booking": [
         {"provider": "Klook", "label": "Klook：查看入場與套票", "url": "https://affiliate.klook.com/redirect?aid=43858&aff_adid=921120&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F357-sea-life-bangkok-ocean-world-bangkok%2F", "affiliate": true},
         {"provider": "KKday", "label": "KKday：查看入場與套票", "url": "https://www.kkday.com/zh-tw/product/2735?cid=22159", "affiliate": true}
       ]
+    },
+    {
+      "id":"th-bangkok-safari-world",
+      "anchor":"safari",
+      "name":"Safari World 曼谷野生動物園",
+      "englishName":"Safari World",
+      "area":"Khlong Sam Wa・曼谷東北郊",
+      "kind":"整日動物園・車遊・長頸鹿",
+      "visited":true,
+      "summary":"把完整白天留給動物園。車遊 Safari Park 和步行 Marine Park 是不同區域，門票、接送與園內車輛要分開看清楚。",
+      "intro":"Safari World 是曼谷東北郊的大型動物園，適合喜歡觀察動物的家庭。它分成車輛遊覽的 Safari Park，以及以步行參觀、動物展示和活動為主的 Marine Park。兩區的玩法不同：一邊隔著車窗看開放區域裡的動物，一邊走進園區看展示、依現場安排參加活動。從市中心過來需要專程搭車，建議當天只排這一個主要景點。",
+      "activities":[
+        {"title":"Safari Park：先確認用什麼車入園","text":"這一區以車輛遊覽為主，不是下車在動物旁散步。訂票時確認是否含園內遊園車；若包車，則向業者確認能否駛入、是否另收費。車遊途中依工作人員指示，不任意下車或開窗餵食。"},
+        {"title":"Marine Park：挑想看的動物，不必追完所有場次","text":"長頸鹿是我們這次很有印象的體驗。入園後先看地圖與當日活動，再安排步行、午餐和休息；餵食與近距離活動是否另收費，以現場為準。是否參與動物互動或表演，可以依家庭對動物福利的考量選擇。"}
+      ],
+      "experience":"我們這次實際看了長頸鹿，也坐車看園區動物。出發前遇到叫車取消，最後另找接送；帶孩子跑這種郊區整日行程，回程怎麼回飯店，最好出發前一起確定。",
+      "duration":"園內約 5–6 小時；加交通預留完整白天",
+      "hours":"官網票務頁列週二至週日開放，平日與週末閉園時間不同。選票前確認出發日、兩區及活動時刻；週一不要直接照表出發。",
+      "transport":"建議事先安排來回包車或含接送方案。此處不是市中心捷運站旁的景點，出發與返程都要留塞車時間。",
+      "weather":"車遊＋戶外步行・不適合當大雨備案",
+      "tip":"核對兩區門票、園內車、午餐、接送是否包含。帶水與遮陽用品，餵食只用園方允許的飼料並遵守指示。",
+      "mapsQuery":"Safari World 99 Panya Indra Road Bangkok",
+      "image":"bkk-safari-giraffes",
+      "gallery":["bkk-safari-drive"],
+      "video":"https://www.youtube.com/watch?v=F5cQv1yS69g",
+      "videoSeconds":161,
+      "sources":[{"label":"Safari World 官方票務與開園日","url":"https://ticket.safariworld.com/"},{"label":"泰國觀光局：Safari World 園區介紹","url":"https://www.tourismthailand.org/Attraction/safari-world"}],
+      "bookingIntro":"先選 Safari Park、Marine Park 或雙園方案，再檢查車遊、接送、午餐與餵食是否包含。市區接送車不代表一定含園內車。",
+      "booking":[{"provider":"Klook","label":"Klook：比較雙園與接送方案","url":"https://affiliate.klook.com/redirect?aid=43858&aff_adid=921120&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F365-safari-world-bangkok%2F","affiliate":true}]
+    },
+    {
+      "id":"th-bangkok-jurassic-world-experience",
+      "anchor":"jurassic",
+      "name":"Jurassic World 侏羅紀世界體驗",
+      "englishName":"Jurassic World: The Experience Bangkok",
+      "area":"Asiatique・昭披耶河畔",
+      "kind":"恐龍場景・沉浸式步行體驗",
+      "visited":true,
+      "summary":"在河濱商場裡走進侏羅紀世界，以大型恐龍、研究室場景與聲光效果串起體驗。適合接 Asiatique 散步與晚餐。",
+      "intro":"Jurassic World: The Experience 位於 Asiatique The Riverfront，是以侏羅紀世界電影為主題的步行體驗。參觀者跟著動線走過場景，看大型機械恐龍與研究室造景，也會遇到聲光和突發效果。這裡不是能玩一整天遊樂設施的主題樂園；喜歡恐龍、願意接受較刺激效果的人，可以把它排成河畔行程的一站。",
+      "activities":[
+        {"title":"跟著場景前進，留意孩子對聲光的反應","text":"官方以約 45–60 分鐘介紹體驗，另留報到與等候時間。裡面有較暗的環境、突然的聲音與恐龍動作；幼兒或容易受驚的孩子，先看內容再決定是否入場，同行大人可事前詢問中途離場方式。"},
+        {"title":"先訂場次，之後就近逛 Asiatique","text":"它採分時入場，別把訂票時間當成從飯店出發時間。看完可以在同一園區休息、用餐，不必立刻跨區。想拍照也應遵守現場規定，不為取景擋住團體動線。"}
+      ],
+      "experience":"我們覺得場景很精彩，但孩子對突如其來的恐龍效果也真的會害怕。這個反應值得放進選點考量：喜歡恐龍，不一定就喜歡被恐龍嚇一跳。",
+      "duration":"體驗約 45–60 分鐘；連報到預留 1.5–2 小時",
+      "hours":"官網公布每日 11:00–22:00，最後入場時段為 21:00；請以所訂日期和票券報到規定為準。",
+      "transport":"直接前往 Asiatique，或從 BTS Saphan Taksin 轉接駁。船與車的服務時段不同，下午較早的場次不要預設已經有船。",
+      "weather":"以室內場景為主；抵達、候場與周邊散步仍可能淋雨",
+      "tip":"官方目前不允許推車進入體驗區，售票區附近有室外遮蔽停放處。帶小小孩先規劃抱行方式，進場前先上廁所。",
+      "mapsQuery":"Jurassic World The Experience Bangkok Asiatique",
+      "image":"bkk-jurassic-dinosaur",
+      "gallery":["bkk-jurassic-lab"],
+      "video":"https://www.youtube.com/watch?v=F5cQv1yS69g",
+      "videoSeconds":1548,
+      "sources":[{"label":"Jurassic World 官方：場次、交通與參觀規則","url":"https://jurassicworldexperience.com/th/en/"}],
+      "bookingIntro":"挑好日期與入場時段，確認兒童票、陪同規定和退改條款。餐點套票並非每個方案都有，依實際包含項目選擇。",
+      "booking":[{"provider":"Klook","label":"Klook：查看侏羅紀體驗場次","url":"https://affiliate.klook.com/redirect?aid=43858&aff_adid=921120&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F187815-jurassic-world-the-experience-bangkok-at-asiatique-the-riverfront%2F","affiliate":true}]
+    },
+    {
+      "id":"th-bangkok-asiatique-riverfront",
+      "anchor":"asiatique",
+      "name":"Asiatique 河濱夜市與商場",
+      "englishName":"Asiatique The Riverfront Destination",
+      "area":"Charoen Krung・昭披耶河畔",
+      "kind":"河畔散步・商店・晚餐選擇",
+      "visited":true,
+      "summary":"倉庫式街區、摩天輪與河畔餐飲集中在同一園區。去完侏羅紀體驗，可以直接在這裡接晚餐。",
+      "intro":"Asiatique 是昭披耶河邊結合商店、餐飲與娛樂活動的園區，中文常叫河濱夜市。這裡有倉庫式的街區、紀念品店、Big C 和醒目的摩天輪，與恰圖恰那種密集小巷市集感受不同。Jurassic World 就在同一園區，適合把兩站接在一起，留到傍晚用餐，再看天氣決定要不要到河邊走走。",
+      "activities":[
+        {"title":"白天先玩體驗，傍晚再逛街","text":"白天可以依預約場次去侏羅紀體驗，結束後找地方喝水或吃點東西。若想看河畔夜景，把散步放在晚餐前後；遇到大雨就以已確認有室內座位的餐廳為主，不硬走河岸。"},
+        {"title":"餐廳、商店與摩天輪各自看條件","text":"這裡有多種餐飲和商店，園區開放不等於每一家都同時營業。摩天輪及個別活動另看營業、天候和票券條件；不要以為買了侏羅紀門票，就連其他娛樂都能參加。"}
+      ],
+      "experience":"我們在侏羅紀體驗前後有逛園區，也去了 Big C。當天孩子累了，沒有留下來吃晚餐或搭摩天輪；本文的河畔晚餐與夜景，是方便讀者延伸安排的選項。",
+      "duration":"散步與用餐約 2–3 小時；不含侏羅紀體驗",
+      "hours":"園區官網列每日 11:00–00:00；各商店、餐廳與設施營業時間不同，晚餐前先確認想去的店。",
+      "transport":"與侏羅紀體驗在同一園區，可步行銜接。回程先查接駁末班與叫車位置，預留走到碼頭或停車場的時間。",
+      "weather":"半戶外園區・河畔散步與碼頭不適合大雨",
+      "tip":"親子同行可把晚餐排早一點；餐廳選擇以有座位、當天菜單與等候時間為準。",
+      "mapsQuery":"Asiatique The Riverfront Destination Bangkok",
+      "image":"bkk-asiatique-street",
+      "gallery":[],
+      "video":"https://www.youtube.com/watch?v=F5cQv1yS69g",
+      "videoSeconds":1940,
+      "sources":[{"label":"Asiatique 官方：餐飲與園區介紹","url":"https://www.asiatiquethailand.com/"}],
+      "booking":[]
+    },
+    {
+      "id":"th-bangkok-siam-serpentarium",
+      "anchor":"serpentarium",
+      "name":"Siam Serpentarium 暹羅蛇園",
+      "englishName":"Siam Serpentarium",
+      "area":"Lat Krabang・素萬那普機場周邊",
+      "kind":"蛇類展示・知識探索・機場區半日",
+      "visited":true,
+      "summary":"以蛇為主題的學習與展示空間。位置在曼谷東側，適合本來就住機場附近的行程，不是 Siam 百貨商圈的景點。",
+      "intro":"Siam Serpentarium 結合蛇類展示、多媒體學習空間與活動，讓旅客認識蛇的外觀、生活方式和棲地。參觀重點可以放在看展、比較不同蛇類，以及觀察展示箱裡的動物。它位於 Lat Krabang 的 Luang Phaeng Road，靠近素萬那普機場一帶；名稱雖然有 Siam，卻不是位在市中心 Siam 站，也不是席隆的另一座蛇園。",
+      "activities":[
+        {"title":"先看多媒體，再慢慢觀察展示箱","text":"和動物園一次看很多類動物不同，這一站把主題集中在蛇。可以讓孩子觀察身體的花紋與移動方式，但不要敲玻璃；遇到不動的蛇，也不需要設法驚動牠。"},
+        {"title":"是否參加互動，依當天開放與個人意願","text":"活動、劇場和咖啡區的開放可能與一般展區不同，出發前向館方確認，不把互動列為一定能參加的項目。若有接觸動物的活動，只依現場專業人員規範進行；不想接觸的人看展示就好。"}
+      ],
+      "experience":"我們是在準備搬到機場附近住宿的那一天過來，先吃東西，再進展區。對這趟旅行而言，它比較像機場區的獨立半日，而不是從市中心跨來跨去的一站。",
+      "duration":"參觀與休息約 2–3 小時；另計交通",
+      "hours":"Museum Thailand 有分平日、週末的時間資訊，但公告起始日期較早。出發前請向館方 Facebook 確認當日開館、售票與活動，不直接沿用影片時間。",
+      "transport":"定位 Lat Krabang 的 Siam Serpentarium，安排車輛前往及返程。若當天要搭飛機，先扣除車程與航空公司要求的報到緩衝再決定是否前往。",
+      "weather":"主要展覽在室內；入園與餐飲銜接仍須看現場動線",
+      "tip":"不是因為靠機場就適合塞在任何班機前。上午或中午起飛者不建議硬排；營業與票價確認後再出發。",
+      "mapsQuery":"Siam Serpentarium 969 Luang Phaeng Road Lat Krabang",
+      "image":"bkk-serpentarium-snake",
+      "gallery":["bkk-serpentarium-gallery"],
+      "video":"https://www.youtube.com/watch?v=F5cQv1yS69g",
+      "videoSeconds":2250,
+      "sources":[{"label":"Museum Thailand：館舍資訊與地點","url":"https://www.museumthailand.com/museum/siamserpentarium"},{"label":"暹羅蛇園官方 Facebook：確認最新開館與活動","url":"https://www.facebook.com/siamserpentarium"}],
+      "booking":[]
+    },
+    {
+      "id":"th-bangkok-baan-langsuan",
+      "anchor":"baanlangsuan",
+      "name":"Baan Langsuan 老屋餐廳",
+      "englishName":"Baan Langsuan Bangkok",
+      "area":"Langsuan・Chit Lom",
+      "kind":"泰式餐食・老屋・庭院用餐",
+      "visited":true,
+      "summary":"Langsuan 巷內的老屋餐廳，是我們去水族館前的用餐地點。喜歡庭院與老房子，可以排在 Chit Lom／Siam 日的前半段。",
+      "intro":"Baan Langsuan 位於 Chit Lom 一帶的 Langsuan 巷內，在有庭院和植栽的老屋裡提供餐食與飲品。它適合想坐下來吃一餐、看看屋內陳設的旅客，不是百貨美食街那種快速用餐動線。我們當天吃完再往 Siam 方向走；帶孩子規劃時，要把離開餐廳、移動到百貨及找水族館入口的時間一起留出來。",
+      "activities":[
+        {"title":"餐點與用餐環境一起選","text":"抵達先看當日菜單、座位和等候時間；需要冷氣的人要確認實際座位安排，不能只看到庭院照片就以為全部在室內。帶孩子可先問適合分享的餐點，以及是否能調整辣度。"},
+        {"title":"接 Siam 行程，別把兩站當成同一棟","text":"餐廳在 Langsuan，水族館則在 Siam Paragon。可以依天氣選擇步行搭配大眾交通或短程車行；若下雨、孩子已經累了，直接在百貨用餐會更簡單，不必為了這一餐繞出來。"}
+      ],
+      "experience":"我們在這裡吃了早午餐，也看了老屋的介紹與陳設。庭院很有氣氛，但當天坐在戶外仍覺得熱；帶小小孩時，座位是否舒服比拍照位置更需要先確認。",
+      "duration":"用餐約 1–1.5 小時；候位另計",
+      "hours":"泰國觀光局日本站列 08:00–18:00、週一休息；行前再看餐廳社群公告。",
+      "transport":"BTS Chit Lom 一帶，定位 39/2 Soi Langsuan。往 Siam Paragon 另留交通與步行時間。",
+      "weather":"老屋與庭院座位・下雨前確認室內座位，不保證隨到隨坐",
+      "tip":"餐點價格、支付方式與供餐時段以現場為準；影片中的舊菜單不當成現價。",
+      "mapsQuery":"Baan Langsuan Bangkok 39/2 Soi Langsuan",
+      "image":"bkk-baan-langsuan",
+      "gallery":[],
+      "videoSeconds":1830,
+      "sources":[{"label":"泰國觀光局：Baan Langsuan 地址與介紹","url":"https://www.thailandtravel.or.jp/baanlangsuan/"},{"label":"餐廳官方 Facebook","url":"https://www.facebook.com/baanlangsuanbangkok/"}],
+      "booking":[]
     }
   ]
 }

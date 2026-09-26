@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {bangkokCatalog,media} from '../scripts/trip-bangkok-places.mjs';
+import {bangkokRoutes} from '../scripts/trip-bangkok-routes.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const pages=['trip/index.html','trip/guides/bangkok-with-kids/index.html'];
 test('travel journal has real static content, distinct canonical pages and no internal data',()=>{
@@ -27,8 +28,8 @@ test('Bangkok place identities, facts and media are reusable in the guide and ci
    for(const suffix of ['','-640','-960'])assert.ok(existsSync(new URL(`../trip/assets/${id}${suffix}.webp`,import.meta.url)));
   }
  }
- const ids=[...article.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
- assert.match(article,/Klook／KKday 連結為聯盟連結/);assert.equal((article.match(/rel="sponsored noopener"/g)||[]).length,2);
+ const ids=[...article.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
+ assert.match(article,/Klook／KKday 連結為聯盟連結/);assert.equal((article.match(/rel="sponsored noopener"/g)||[]).length,bangkokCatalog.places.flatMap(p=>p.booking).filter(b=>b.affiliate).length);
  assert.doesNotMatch(article,/aid=1819|cid=15925/);
  for(const s of article.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))assert.doesNotThrow(()=>JSON.parse(s[1]));
 });
@@ -36,11 +37,28 @@ test('Bangkok scene assets retain source provenance, responsive variants and bou
  const manifest=JSON.parse(read('trip/assets/bkk-media.json'));
  assert.equal(manifest.length,Object.keys(media).length);
  for(const m of manifest){
-  assert.match(m.source,/youtube.com\/watch\?v=f5h0gGdaX2c&t=\d+s$/);
+  const url=new URL(m.source);assert.ok(bangkokCatalog.videos.some(v=>v.id===url.searchParams.get('v')));assert.match(url.searchParams.get('t'),/^\d+s$/);
   assert.equal(m.kind,'owned-video-frame');assert.ok(m.alt&&m.width&&m.height);
   assert.equal(m.variants.length,3);
   for(const v of m.variants){const bytes=readFileSync(new URL('..'+v.file,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),v.sha256);assert.ok(bytes.length<350*1024);}
  }
+});
+test('Bangkok route combinations resolve to unique real place cards and preserve both video sources',()=>{
+ const article=read(pages[1]);
+ const ids=new Set(bangkokCatalog.places.map(p=>p.id));
+ const routes=new Map(bangkokRoutes.routes.map(r=>[r.id,r]));
+ for(const route of routes.values()){
+  assert.ok(article.includes(`id="route-${route.id}"`));
+  for(const id of route.placeIds)assert.ok(ids.has(id));
+  for(const step of route.steps)if(step.anchor)assert.ok(bangkokCatalog.places.some(p=>p.anchor===step.anchor));
+ }
+ for(const combo of bangkokRoutes.combinations){
+  assert.equal(combo.days,combo.routes.length);
+  const places=combo.routes.flatMap(id=>routes.get(id).placeIds);
+  assert.equal(places.length,new Set(places).size);
+ }
+ for(const p of bangkokCatalog.places)assert.ok(article.includes(`${(p.video||bangkokCatalog.video).replaceAll('&','&amp;')}&amp;t=${p.videoSeconds}s`));
+ assert.match(article,/不是影片的 Day 1/);assert.match(article,/推車進入體驗區/);
 });
 test('travel stylesheet has mobile and reduced-motion layouts',()=>{
  const css=read('trip/trip.css');assert.match(css,/max-width:700px/);assert.match(css,/prefers-reduced-motion:reduce/);assert.match(css,/:focus-visible/);

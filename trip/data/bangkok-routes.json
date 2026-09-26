@@ -1,0 +1,71 @@
+{
+  "schemaVersion":1,
+  "kind":"suggested-area-routes",
+  "note":"按區域重組的遊玩日，不是原影片天數；不含抵達、離境與跨城日。",
+  "routes":[
+    {
+      "id":"chatuchak","label":"A｜市集＋兒童館","area":"Chatuchak","duration":"白天遊玩，晚餐回住宿區","placeIds":["th-bangkok-chatuchak-weekend-market","th-bangkok-childrens-discovery-museum-1"],
+      "condition":"優先週六、週日；兒童館週一休館。下雨時改選 Siam 路線。",
+      "steps":[
+        {"time":"09:30","title":"恰圖恰逛小店","anchor":"market","text":"從想逛的分區開始，留約一個半小時，記下喜歡的店面與巷號。"},
+        {"time":"11:00","title":"市集午餐、補水","text":"選現場有座位的熟食攤或附近餐飲；用餐後預留走到兒童館的時間。"},
+        {"time":"12:30","title":"兒童探索博物館","anchor":"museum","text":"攀爬、玩沙或看室內展示，活動以當天開放為準。"},
+        {"time":"14:30","title":"點心與休息，再選是否補逛","text":"體力還夠可回市集找上午看中的小物；孩子需要午睡，就直接回飯店。"},
+        {"time":"16:00","title":"返回住宿區","text":"預留車程、洗澡與休息；晚餐不再安排到另一個遠端景點。"},
+        {"time":"18:00","title":"住宿附近吃晚餐","text":"這是用餐時間建議，依住宿位置選餐廳，不是我們實訪過的指定店家。"}
+      ]
+    },
+    {
+      "id":"siam","label":"B｜老屋早午餐＋水族館","area":"Chit Lom → Siam","duration":"約 10:00–18:00，可改成全室內","placeIds":["th-bangkok-baan-langsuan","th-bangkok-sea-life-ocean-world"],
+      "condition":"Baan Langsuan 先確認營業日與座位；大雨時省略老屋，直接在 Siam Paragon 用餐。",
+      "steps":[
+        {"time":"10:00","title":"Baan Langsuan 早午餐","anchor":"baanlangsuan","text":"慢慢吃一餐、看看老屋；若候位太久，改在百貨用餐，不壓縮已訂好的入場時間。"},
+        {"time":"11:30","title":"移動到 Siam Paragon","text":"這兩站不在同一棟。預留交通、找水族館入口、廁所和報到時間。"},
+        {"time":"12:30","title":"SEA LIFE 與玻璃底船","anchor":"indoors","text":"以所訂票券和船班為準；沒有搭船的人可把時間留給水槽展示。"},
+        {"time":"15:30","title":"百貨點心與休息","text":"在同棟挑餐飲、補水，也可分頭逛街；不用為了填滿時間再跑遠。"},
+        {"time":"17:30","title":"Siam Paragon 晚餐","text":"留在同棟美食街或餐廳吃飯，再回飯店。想早睡的家庭可以提早用餐。"}
+      ]
+    },
+    {
+      "id":"safari","label":"C｜Safari World 整日","area":"曼谷東北郊","duration":"含交通預留約 08:00–18:00","placeIds":["th-bangkok-safari-world"],
+      "condition":"事先安排來回車輛與票種；下列順序依當日園區、車班和活動調整，不是官方場次表。",
+      "steps":[
+        {"time":"08:00","title":"從市區出發","text":"依住宿和當日路況調整接送時間，兒童安全座椅需求也先與業者確認。"},
+        {"time":"09:30","title":"抵達、換票與看園區地圖","anchor":"safari","text":"先確認車遊安排及想看的活動，再決定兩區順序。"},
+        {"time":"10:00","title":"步行園區與動物展示","text":"留意遮陽、飲水和孩子體力；長頸鹿活動是否可參加，以現場規定為準。"},
+        {"time":"12:00","title":"園內午餐與坐下休息","text":"先確認門票是否附餐；沒有附餐則現場選擇，不預設可隨意離園再入場。"},
+        {"time":"13:00","title":"車遊區或尚未參觀的區域","text":"依車班調整，若上午先車遊，下午改步行；閉園前提早到接送集合點。"},
+        {"time":"15:30","title":"集合返程","text":"實際出園時間依園區和票券調整，回程另留塞車緩衝。"},
+        {"time":"18:00","title":"回住宿區吃晚餐","text":"今天已是整日戶外，不再接河濱夜市或水族館。"}
+      ]
+    },
+    {
+      "id":"riverside","label":"D｜侏羅紀＋河畔晚餐","area":"Asiatique 同區銜接","duration":"約 15:00–19:30；上午自由安排","placeIds":["th-bangkok-jurassic-world-experience","th-bangkok-asiatique-riverfront"],
+      "condition":"適合晚起、午睡後出門；想搭接駁船先查開始服務時間。大雨縮成已訂體驗＋室內餐廳。",
+      "steps":[
+        {"time":"上午","title":"飯店早餐、附近活動與休息","text":"這是下午出發的路線，不必再塞一個郊區景點；中午先吃飯，讓孩子休息。"},
+        {"time":"15:00","title":"抵達 Asiatique","text":"先找入口、上廁所、停推車。交通方式按抵達時間選擇，不等沒有開的船班。"},
+        {"time":"16:00","title":"侏羅紀世界體驗","anchor":"jurassic","text":"這是建議選票時段，並非已代訂；依票券時間完成報到。"},
+        {"time":"17:00","title":"點心、商店與河畔散步","anchor":"asiatique","text":"體驗後留時間坐下來，再看天氣決定是否往河岸。"},
+        {"time":"18:00","title":"Asiatique 晚餐","text":"選有空位的園區餐廳；這段晚餐是行程延伸，不是影片裡的用餐紀錄。"},
+        {"time":"19:30","title":"返程，或自選夜景活動","text":"孩子還有體力才考慮摩天輪，另確認票價與天候；離開前查接駁和叫車位置。"}
+      ]
+    },
+    {
+      "id":"airport","label":"E｜暹羅蛇園機場區半日","area":"Lat Krabang","duration":"約 10:30–14:00；非固定離境日行程","placeIds":["th-bangkok-siam-serpentarium"],
+      "condition":"適合已住機場附近、接下來移宿機場區，或願意專程前往者。先確認開館；同日班機須另作交通與報到評估。",
+      "steps":[
+        {"time":"10:30","title":"抵達暹羅蛇園","anchor":"serpentarium","text":"以館方回覆的當日開館和售票時間為前提，再安排接送。"},
+        {"time":"11:00","title":"室內展覽與蛇類展示","text":"慢慢觀察，活動與劇場另依當日安排，不強迫怕蛇的人接觸動物。"},
+        {"time":"12:30","title":"午餐與休息","text":"先確認園內咖啡區當日是否供餐；也可改在已訂的機場區飯店用餐。"},
+        {"time":"14:00","title":"機場區住宿或下一段交通","text":"這段本來就是半日選項。若當天搭飛機，從班機時間倒推，不使用這張表保證趕得上。"}
+      ]
+    }
+  ],
+  "combinations":[
+    {"days":2,"routes":["chatuchak","siam"],"label":"第一次帶孩子：市集遊戲＋水族館","note":"沒有碰到週末，可把 A 換成 D；想看動物園則用 C 換掉其中一日。"},
+    {"days":3,"routes":["chatuchak","siam","safari"],"label":"加一個整日動物園","note":"不喜歡長途車程，第三天改 D 河畔組合；避開各場館休館日。"},
+    {"days":4,"routes":["chatuchak","siam","safari","riverside"],"label":"城市、動物與恐龍都想玩","note":"D 上午可休息，讓前三天的戶外與步行不會一路累積。"},
+    {"days":5,"routes":["chatuchak","siam","safari","riverside","airport"],"label":"加機場區半日，或留自由日","note":"E 是可選項，不順路就拿掉；第五天也可以留給購物、泳池和休息。"}
+  ]
+}

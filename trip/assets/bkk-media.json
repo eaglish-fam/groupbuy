@@ -1,5 +1,269 @@
 [
   {
+    "id": "bkk-safari-giraffes",
+    "source": "https://www.youtube.com/watch?v=F5cQv1yS69g&t=670s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "Safari World 的長頸鹿靠近參觀平台，能看清楚臉部和花紋",
+    "crop": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-safari-giraffes.webp",
+        "bytes": 44524,
+        "sha256": "2d76d4a6e5648d579d14bc7518a3b5cd4d7325d4cd9ab8bd6fba4608e359e86d"
+      },
+      {
+        "file": "/trip/assets/bkk-safari-giraffes-640.webp",
+        "bytes": 17082,
+        "sha256": "5418e5abdc6c22cd464fc92dd5031500493708a914c80c54e53c875d15d04591"
+      },
+      {
+        "file": "/trip/assets/bkk-safari-giraffes-960.webp",
+        "bytes": 26080,
+        "sha256": "68c1f549a516a0ddfe86d1dd3493c7ba9f7c2ba5cbce6aa8f761c5773398e08d"
+      }
+    ]
+  },
+  {
+    "id": "bkk-safari-drive",
+    "source": "https://www.youtube.com/watch?v=F5cQv1yS69g&t=790s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "從遊覽車窗看 Safari World 草地與開放區域中的犀牛",
+    "crop": [
+      0,
+      0,
+      1280,
+      620
+    ],
+    "width": 1280,
+    "height": 620,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-safari-drive.webp",
+        "bytes": 113422,
+        "sha256": "28c0d2f1f1eaef48ecf3549fc73ac090b90d7cfc696a8a1e49894c14412133d4"
+      },
+      {
+        "file": "/trip/assets/bkk-safari-drive-640.webp",
+        "bytes": 37026,
+        "sha256": "3a63b0820be53397dbda15e7a636809f654dd6ae3191228b0a227a689c953069"
+      },
+      {
+        "file": "/trip/assets/bkk-safari-drive-960.webp",
+        "bytes": 62906,
+        "sha256": "be0aa9e66e8fa00453e6a2c3aaad2f91ddc3c0e688ef2c46df968c35bb536ebb"
+      }
+    ]
+  },
+  {
+    "id": "bkk-jurassic-dinosaur",
+    "source": "https://www.youtube.com/watch?v=F5cQv1yS69g&t=1645s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "曼谷侏羅紀世界體驗裡，巨大的恐龍探向叢林步道",
+    "crop": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-jurassic-dinosaur.webp",
+        "bytes": 31866,
+        "sha256": "375bd5ac93a73b6a064d06427db6f1b7dcfc1fa366f1d9ddfa14b7eadcfc5973"
+      },
+      {
+        "file": "/trip/assets/bkk-jurassic-dinosaur-640.webp",
+        "bytes": 12896,
+        "sha256": "af69e52bdd5eb96b91b9f486f1943b44c67f033f17901c643e42fbec93f76a74"
+      },
+      {
+        "file": "/trip/assets/bkk-jurassic-dinosaur-960.webp",
+        "bytes": 19020,
+        "sha256": "75977fdfab173033384197cf83ece002158693ae5b069ff00e103a80ef448916"
+      }
+    ]
+  },
+  {
+    "id": "bkk-jurassic-lab",
+    "source": "https://www.youtube.com/watch?v=F5cQv1yS69g&t=1710s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "侏羅紀體驗的玻璃展示與研究室場景，燈光照亮裡面的恐龍",
+    "crop": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-jurassic-lab.webp",
+        "bytes": 49124,
+        "sha256": "84dd45c4caca0034aec14a8a2ae8ef83087fd2da771371bb09f258c6abbb6cc1"
+      },
+      {
+        "file": "/trip/assets/bkk-jurassic-lab-640.webp",
+        "bytes": 16996,
+        "sha256": "638ce97e33c04f141b7a8101faaed8ab70c4d5eaed44fd203328b10072a063ed"
+      },
+      {
+        "file": "/trip/assets/bkk-jurassic-lab-960.webp",
+        "bytes": 26728,
+        "sha256": "7929f9c872cc3a14bd1cc0c01068b1442fa8210a0df1bbe1cb774e34631280de"
+      }
+    ]
+  },
+  {
+    "id": "bkk-asiatique-street",
+    "source": "https://www.youtube.com/watch?v=F5cQv1yS69g&t=1940s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "白天的 Asiatique 倉庫式商店街，遠處可看見摩天輪",
+    "crop": [
+      0,
+      0,
+      1280,
+      620
+    ],
+    "width": 1280,
+    "height": 620,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-asiatique-street.webp",
+        "bytes": 45796,
+        "sha256": "c7402d9c61e804178a28ee9d158b16c12531b2c6908cc6a792c54d563aec4b27"
+      },
+      {
+        "file": "/trip/assets/bkk-asiatique-street-640.webp",
+        "bytes": 17768,
+        "sha256": "d0e14b1906546da6d93cdf6515c1777b822c225d36e5fb49e79d0dc759efa566"
+      },
+      {
+        "file": "/trip/assets/bkk-asiatique-street-960.webp",
+        "bytes": 27758,
+        "sha256": "bfce10bc7847c0c166477d72588f143e1c0bb2f334c5a6ab277502dbcb55a072"
+      }
+    ]
+  },
+  {
+    "id": "bkk-serpentarium-snake",
+    "source": "https://www.youtube.com/watch?v=F5cQv1yS69g&t=2390s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "Siam Serpentarium 展示箱裡的蛇與棲地造景",
+    "crop": [
+      0,
+      0,
+      1280,
+      530
+    ],
+    "width": 1280,
+    "height": 530,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-serpentarium-snake.webp",
+        "bytes": 29436,
+        "sha256": "5539ebac646d7a3891c8cf2f15a99cdb5857426e44cfe4287d498c9be51d52dd"
+      },
+      {
+        "file": "/trip/assets/bkk-serpentarium-snake-640.webp",
+        "bytes": 11862,
+        "sha256": "e089cc77fa3dd5493bb05c10518d5ce60a6c0ac1c9c9ce9d2a420afe32849d2d"
+      },
+      {
+        "file": "/trip/assets/bkk-serpentarium-snake-960.webp",
+        "bytes": 17658,
+        "sha256": "575cad30d33d64eed561436f2245cc0f2f29dcaacf4d01beba81e8abfa31735c"
+      }
+    ]
+  },
+  {
+    "id": "bkk-serpentarium-gallery",
+    "source": "https://www.youtube.com/watch?v=F5cQv1yS69g&t=2330s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "孩子從入口走進 Siam Serpentarium 的室內蛇類展覽空間",
+    "crop": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "width": 1280,
+    "height": 720,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-serpentarium-gallery.webp",
+        "bytes": 32168,
+        "sha256": "6aa5d9bd54e65d88d0a3eaba6ac58a9593632aab3755f49061024c9c021f9a22"
+      },
+      {
+        "file": "/trip/assets/bkk-serpentarium-gallery-640.webp",
+        "bytes": 13234,
+        "sha256": "214d506b3e59f3a0c80e6cbf8b32363e5b34256ed1fd8b9b94096a0a58e8f397"
+      },
+      {
+        "file": "/trip/assets/bkk-serpentarium-gallery-960.webp",
+        "bytes": 20054,
+        "sha256": "0705444ee1be7b89b9e6f66d84856520cbfd893724c8099a0349f95e2b1a05c3"
+      }
+    ]
+  },
+  {
+    "id": "bkk-baan-langsuan",
+    "source": "https://www.youtube.com/watch?v=f5h0gGdaX2c&t=2038s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "Baan Langsuan 庭院裡，孩子指著老屋餐廳的介紹牌",
+    "crop": [
+      0,
+      0,
+      1920,
+      928
+    ],
+    "width": 1440,
+    "height": 696,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-baan-langsuan.webp",
+        "bytes": 37530,
+        "sha256": "2dff39eb4c646154798c9211e7de3f5a043882e4240c667e56e55e45ff2b0c7f"
+      },
+      {
+        "file": "/trip/assets/bkk-baan-langsuan-640.webp",
+        "bytes": 13174,
+        "sha256": "3ae86a591c8eeb639ac68c336f4b053dbb4d855f07a4191dcbf53888070b0bfb"
+      },
+      {
+        "file": "/trip/assets/bkk-baan-langsuan-960.webp",
+        "bytes": 21044,
+        "sha256": "058f6ed0eaa49942886d744dda5d889167d3b23ef59c671752441f8f0c075edd"
+      }
+    ]
+  },
+  {
     "id": "bkk-market-stalls",
     "source": "https://www.youtube.com/watch?v=f5h0gGdaX2c&t=810s",
     "kind": "owned-video-frame",

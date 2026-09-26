@@ -13,6 +13,7 @@
 .bkk-guide .reading-nav__panel{transition:none}
 
 /* Cream sandstone: warm paper and quiet rules drawn from the shop journal. */
+.bkk-combinations{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0 32px}.bkk-combinations article{border:1px solid #dcd5c9;padding:20px;background:#faf7f0}.prose .bkk-combinations h3{margin:10px 0;font-size:19px}.prose .bkk-combinations p{font-size:14px}.bkk-combinations .actions{display:grid;gap:8px}.prose .bkk-day .route-description{margin:0 0 18px}.bkk-day[id]{scroll-margin-top:24px}@media(max-width:700px){.bkk-combinations{grid-template-columns:1fr}}
 .bkk-guide{--bkk-sand:#f2eee5;--bkk-cream:#faf7f0;--bkk-paper:#fcfaf5;--bkk-cocoa:#494139;--bkk-rule:#dcd5c9}
 .bkk-guide .bkk-overview a{background:var(--bkk-sand);border-color:var(--bkk-rule);border-radius:3px;color:var(--bkk-cocoa)}
 .bkk-guide .bkk-overview a:hover,.bkk-guide .bkk-overview a:focus-visible{background:#e9e3d8}
