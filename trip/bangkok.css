@@ -11,3 +11,22 @@
 .bkk-guide .reading-nav__flight{background:#fffefa}
 .bkk-guide .toc a[aria-current="location"]{color:var(--signal);font-weight:700}
 .bkk-guide .reading-nav__panel{transition:none}
+
+/* Bangkok guide: sunny travel palette, scoped away from the trip landing pages. */
+.bkk-guide{--bkk-honey:#fff0c4;--bkk-cream:#fff8e7;--bkk-paper:#fffdf7;--bkk-cocoa:#49372a;--bkk-wheat:#e6d2a3}
+.bkk-guide .bkk-overview a{background:var(--bkk-honey);border-color:var(--bkk-wheat);color:var(--bkk-cocoa)}
+.bkk-guide .bkk-overview a:hover,.bkk-guide .bkk-overview a:focus-visible{background:#ffe6a6}
+.bkk-guide .bkk-overview strong{color:var(--bkk-cocoa)}
+.bkk-guide .bkk-overview small{color:#635044}
+.bkk-guide .bkk-facts,.bkk-guide .bkk-rain,.bkk-guide .quick-note,.bkk-guide .video-end{background:var(--bkk-cream);color:var(--bkk-cocoa)}
+.bkk-guide .bkk-facts{border-color:var(--bkk-wheat)}
+.bkk-guide .bkk-facts>div{border-bottom-color:var(--bkk-wheat)}
+.bkk-guide .bkk-facts>div:last-child{border-bottom:0}
+.bkk-guide .bkk-booking{background:var(--bkk-honey);color:var(--bkk-cocoa)}
+.bkk-guide .bkk-rain,.bkk-guide .quick-note{border-left-color:var(--signal)}
+.bkk-guide .bkk-experience{background:var(--bkk-cream);border-left-color:#d5a338;color:var(--bkk-cocoa)}
+.bkk-guide .bkk-day{border-color:var(--bkk-wheat)}
+.bkk-guide .bkk-day li,.bkk-guide .toc a,.bkk-guide .prose details{border-color:var(--bkk-wheat)}
+.bkk-guide .toc{border-top-color:var(--bkk-cocoa)}
+.bkk-guide .reading-nav__tab,.bkk-guide .reading-nav__list a[aria-current="location"]{background:var(--bkk-honey)}
+.bkk-guide .reading-nav__panel,.bkk-guide .reading-nav__flight{background:var(--bkk-paper)}
