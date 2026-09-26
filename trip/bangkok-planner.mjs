@@ -1,4 +1,4 @@
-import {resizePlan,replaceDay} from './bangkok-planner-model.mjs';
+import {resizePlan,replaceDay,compactPath} from './bangkok-planner-model.mjs';
 
 const root=document.querySelector('.bkk-planner');
 if(root){
@@ -36,6 +36,8 @@ if(root){
    panel.querySelectorAll('[data-pace="relaxed"]').forEach(element=>{element.hidden=pace!=='relaxed';});
    const compact=panel.querySelector('.bkk-compact-variant');
    panel.querySelectorAll('[data-pace="compact"]').forEach(element=>{element.hidden=pace!=='compact';});
+   const path=compactPath(plan,panel.dataset.routeId);
+   panel.querySelectorAll('[data-compact-path]').forEach(element=>{element.hidden=pace!=='compact'||element.dataset.compactPath!==path;});
    compact.open=pace==='compact';
   });
   if(announce)status.textContent=`${plan.length} 天${pace==='compact'?'緊湊':'悠閒'}試排 · 正在看第 ${active+1} 天：${label(plan[active])}`;

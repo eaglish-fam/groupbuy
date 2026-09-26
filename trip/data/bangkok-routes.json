@@ -23,8 +23,21 @@
         {"time":"11:00","title":"市集午餐與補水","text":"先找座位用餐，再步行到兒童館；不要把吃飯壓到下一站。"},
         {"time":"12:30","title":"兒童探索博物館","anchor":"museum","text":"挑攀爬、玩沙或當日開放的室內區；週一休館。"},
         {"time":"15:30","title":"前往耀華力","text":"離開兒童館後預留找出口與交通時間；可以搭 MRT 到 Wat Mangkon，再步行前往耀華力。"},
-        {"time":"17:30","title":"耀華力街景與小吃","mapsQuery":"Yaowarat Road Chinatown Bangkok","text":"逛一小段、挑當晚有營業且有座位的店吃飯；這是延伸推薦，不是我們影片裡去過的點。"},
+        {"time":"17:30","title":"耀華力街景與小吃","mapsQuery":"Yaowarat Road Chinatown Bangkok","hours":"街區無統一營業時間；各攤另查","text":"逛一小段、挑當晚有營業且有座位的店吃飯；這是延伸推薦，不是我們影片裡去過的點。"},
         {"time":"19:30","title":"返程","text":"尖峰車流和孩子體力都會影響停留時間，想早回飯店就直接結束。"}
+      ],
+      "compactJurassicDuration":"09:30–20:30，兒童館後接侏羅紀晚場",
+      "compactJurassicNote":"沒有另外安排 D 河畔日的 2～3 日行程，可在兒童館後前往 Asiatique，先吃晚餐，再選 19:00 左右的侏羅紀體驗場次。這是新增的緊湊排法，不是原影片同一天的動線；帶孩子跨區請保留車程和休息時間。",
+      "compactJurassicSourceUrl":"https://jurassicworldexperience.com/th/en/",
+      "compactJurassicSourceLabel":"侏羅紀體驗官方場次與接駁時間",
+      "compactJurassicSteps":[
+        {"time":"09:30","title":"恰圖恰週末市集","anchor":"market","text":"只逛一兩區，主要購物區週末 09:00 開始。"},
+        {"time":"11:00","title":"市集午餐與補水","text":"先坐下吃飯，再走到兒童館。"},
+        {"time":"12:30","title":"兒童探索博物館","anchor":"museum","text":"週二至日 10:00–16:00 開放；挑想玩的區域，約 15:00 準備離開。"},
+        {"time":"15:00","title":"休息並前往 Asiatique","text":"預留市區跨區車程；如果塞車或孩子疲累，晚場可以取消，不趕 21:00 最後入場。"},
+        {"time":"17:30","title":"Asiatique 提早吃晚餐","anchor":"asiatique","text":"園區 11:00 起開放，但餐廳各有時段；挑有座位的店並保留報到時間。"},
+        {"time":"19:00","title":"Jurassic World 侏羅紀體驗","anchor":"jurassic","text":"官方每日營業到 22:00，最後入場 21:00；19:00 僅是建議訂票時段，以實際票券為準。"},
+        {"time":"20:30","title":"返程","text":"先確認回程交通；這天不再加夜景或其他景點。"}
       ]
     },
     {
@@ -44,7 +57,7 @@
         {"time":"11:30","title":"移動到 Siam Paragon","text":"預留交通、找入口和驗票時間。"},
         {"time":"12:30","title":"SEA LIFE 水族館","anchor":"indoors","text":"走完主要展區；玻璃底船依實際票種與場次決定。"},
         {"time":"15:30","title":"同棟點心與休息","text":"坐下來補水，讓孩子有時間恢復體力。"},
-        {"time":"17:00","title":"Siam Square 周邊逛街","mapsQuery":"Siam Square Bangkok","text":"從 Siam Paragon 周邊步行一段；看想逛的店是否營業，雨大時就留在百貨。"},
+        {"time":"17:00","title":"Siam Square 周邊逛街","mapsQuery":"Siam Square Bangkok","hours":"街區無統一營業時間；各店另查","text":"從 Siam Paragon 周邊步行一段；看想逛的店是否營業，雨大時就留在百貨。"},
         {"time":"18:30","title":"附近晚餐後返程","text":"餐廳依現場營業與候位選擇，晚餐時間可依孩子狀態前後調整。"}
       ]
     },
@@ -84,16 +97,17 @@
         {"time":"18:00","title":"Asiatique 晚餐","text":"選有空位的園區餐廳；這段晚餐是行程延伸，不是影片裡的用餐紀錄。"},
         {"time":"19:30","title":"返程，或自選夜景活動","text":"孩子還有體力才考慮摩天輪，另確認票價與天候；離開前查接駁和叫車位置。"}
       ],
-      "compactDuration":"10:30–19:30，ICONSIAM 與河畔",
+      "compactDuration":"10:30–20:30，ICONSIAM 與侏羅紀晚場",
+      "compactCondition":"上午逛 ICONSIAM，午後跨河到 Asiatique；遇大雨可省略河畔散步，保留已訂場次。",
       "compactNote":"上午加入 ICONSIAM；午後預留跨河到 Asiatique 的交通。這是新增的延伸推薦，並非原影片走過的順序。",
       "compactSteps":[
-        {"time":"10:30","title":"ICONSIAM 逛街","mapsQuery":"ICONSIAM Bangkok","text":"先確認商場當日營業時間；找一兩個想逛的區域，不用把全館走完。"},
+        {"time":"10:30","title":"ICONSIAM 逛街","mapsQuery":"ICONSIAM Bangkok","hours":"商場每日 10:00–22:00；各店另查","hoursSourceUrl":"https://www.iconsiam.com/th/directory/content-id-5cd6f180-e233-11e8-990c-75d7230f0d71","text":"商場 10:00 才開；找一兩個想逛的區域，不用把全館走完。"},
         {"time":"12:00","title":"商場午餐","text":"吃完先休息，再搭車到 Asiatique；這兩處不在同一岸，不能當作步行銜接。"},
         {"time":"14:00","title":"前往 Asiatique","text":"另留過河與車流緩衝，確認所訂的侏羅紀體驗場次。"},
-        {"time":"16:00","title":"侏羅紀世界體驗","anchor":"jurassic","text":"以實際預訂時間報到；孩子不適應聲光效果時不要硬排。"},
-        {"time":"17:00","title":"Asiatique 河畔散步","anchor":"asiatique","text":"依天候看河邊與商店，戶外活動可隨時縮短。"},
-        {"time":"18:30","title":"園區晚餐","text":"選擇當天有營業且有座位的餐廳。"},
-        {"time":"19:30","title":"夜景或返程","text":"想搭摩天輪再核對票價、營業與天氣；孩子累了就直接回住宿區。"}
+        {"time":"16:00","title":"Asiatique 河畔散步與休息","anchor":"asiatique","text":"園區 11:00 起開放；先找晚餐位置和體驗入口，雨大就縮短戶外時間。"},
+        {"time":"17:30","title":"園區提早吃晚餐","text":"餐廳各有營業時段，先選當天有座位的店；預留票券報到時間。"},
+        {"time":"19:00","title":"侏羅紀世界體驗晚場","anchor":"jurassic","text":"每日 11:00–22:00，最後入場 21:00；19:00 是建議訂票時段，不是已訂好的場次。"},
+        {"time":"20:30","title":"返程","text":"體驗約 45–60 分鐘，回程先查接駁末班；孩子累了就不再加摩天輪。"}
       ]
     },
     {

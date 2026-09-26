@@ -78,6 +78,9 @@
 .bkk-compact-variant>summary{font-weight:700;color:#784b39;cursor:pointer;min-height:44px;padding:10px 0}
 .bkk-guide .prose .bkk-compact-note{color:var(--bkk-cocoa);font-size:14px;line-height:1.8;margin:6px 0 12px}
 .bkk-compact-variant ol{padding:0}
+.bkk-stop-meta{display:flex;flex-wrap:wrap;column-gap:10px;row-gap:2px;margin-top:4px;font-size:12px;line-height:1.6;color:var(--bkk-cocoa)}
+.bkk-stop-meta span{flex-basis:100%}
+.bkk-stop-meta a{color:#784b39;text-underline-offset:3px}
 .prose .bkk-plan-notes{font-size:14px}
 .bkk-plan-notes summary{min-height:44px;display:flex;align-items:center;cursor:pointer}
 @media(max-width:900px){.bkk-guide .bkk-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}

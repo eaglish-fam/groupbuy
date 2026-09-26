@@ -13,3 +13,8 @@ export function replaceDay(current,index,routeId,config){
  next[index]=routeId;
  return next;
 }
+// The dinosaur evening is offered after Chatuchak only when it is not already
+// part of a separate riverside day in the same suggested trip.
+export function compactPath(current,routeId){
+ return routeId==='chatuchak'&&!current.includes('riverside')?'jurassic':'standard';
+}

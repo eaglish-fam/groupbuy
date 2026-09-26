@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {resizePlan,replaceDay} from '../trip/bangkok-planner-model.mjs';
+import {resizePlan,replaceDay,compactPath} from '../trip/bangkok-planner-model.mjs';
 import {bangkokRoutes as config} from '../scripts/trip-bangkok-routes.mjs';
 import {bangkokCatalog} from '../scripts/trip-bangkok-places.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
@@ -65,7 +65,7 @@ test('compact mode has a separate, source-aware timeline for every route',()=>{
   if(route.compactSourceUrl)assert.ok(html.includes(route.compactSourceUrl));
  }
  assert.equal((html.match(/class="bkk-compact-variant"/g)||[]).length,config.routes.length);
- assert.equal((html.match(/data-pace="compact" hidden/g)||[]).length,config.routes.length);
+ assert.equal((html.match(/class="route-description" data-pace="compact"[^>]*hidden/g)||[]).length,config.routes.length+1);
  assert.match(html,/name="bkk-pace" value="relaxed" checked/);
  assert.match(html,/name="bkk-pace" value="compact"/);
  assert.ok(config.routes.find(r=>r.id==='chatuchak').compactSteps.some(s=>s.mapsQuery?.includes('Yaowarat')));
@@ -73,4 +73,41 @@ test('compact mode has a separate, source-aware timeline for every route',()=>{
  const safari=config.routes.find(r=>r.id==='safari');
  assert.ok(safari.compactNote.includes('平日 16:00、週末 17:00'));
  assert.ok(safari.compactSteps.every(s=>!(s.time>='17:00'&&s.title.includes('Safari'))));
+});
+test('Jurassic evening appears after the museum only when not duplicated on a riverside day',()=>{
+ const route=config.routes.find(r=>r.id==='chatuchak');
+ assert.equal(compactPath(['chatuchak','siam'],'chatuchak'),'jurassic');
+ assert.equal(compactPath(['chatuchak','siam','safari','riverside'],'chatuchak'),'standard');
+ assert.equal(compactPath(['chatuchak','riverside'],'riverside'),'standard');
+ assert.ok(route.compactJurassicSteps.some(s=>s.anchor==='museum'&&s.time==='12:30'));
+ assert.ok(route.compactJurassicSteps.some(s=>s.anchor==='jurassic'&&s.time==='19:00'));
+ assert.ok(route.compactJurassicSteps.some(s=>s.anchor==='asiatique'&&s.time==='17:30'));
+ const riverside=config.routes.find(r=>r.id==='riverside');
+ assert.ok(riverside.compactSteps.some(s=>s.anchor==='jurassic'&&s.time==='19:00'));
+ const html=read('trip/guides/bangkok-with-kids/index.html');
+ assert.match(html,/data-compact-path="jurassic"/);
+ assert.match(html,/侏羅紀體驗官方場次與接駁時間/);
+});
+test('every attraction timeline stop displays checked opening guidance and a direct Google Maps link',()=>{
+ const html=read('trip/guides/bangkok-with-kids/index.html');
+ const places=new Map(bangkokCatalog.places.map(p=>[p.anchor,p]));
+ for(const place of bangkokCatalog.places){
+  assert.ok(place.plannerHours,`${place.anchor} missing planning hours`);
+  assert.ok(place.sources.length,`${place.anchor} missing time source`);
+  assert.ok(html.includes(`query=${encodeURIComponent(place.mapsQuery)}`));
+  assert.ok(html.includes(`開放參考：${place.plannerHours}`));
+ }
+ for(const route of config.routes){
+  for(const steps of [route.steps,route.compactSteps,route.compactJurassicSteps||[]]){
+   for(const step of steps){
+    if(step.anchor)assert.ok(places.has(step.anchor));
+    if(step.mapsQuery){
+     assert.ok(step.hours,`${step.title} missing opening guidance`);
+     assert.ok(html.includes(`query=${encodeURIComponent(step.mapsQuery)}`));
+    }
+   }
+  }
+ }
+ assert.match(html,/景點時間於 2026-09-27 核對/);
+ assert.match(html,/出發前再看地圖的當日營業狀態/);
 });
