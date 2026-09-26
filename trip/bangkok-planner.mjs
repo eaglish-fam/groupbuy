@@ -5,11 +5,12 @@ if(root){
  const config=JSON.parse(document.getElementById('bkk-planner-data').textContent);
  const controls=root.querySelector('.bkk-planner-controls');
  const days=root.querySelector('#bkk-days');
+ const paceInputs=[...root.querySelectorAll('input[name="bkk-pace"]')];
  const choice=root.querySelector('#bkk-route-choice');
  const switcher=root.querySelector('.bkk-day-switcher');
  const status=root.querySelector('[role="status"]');
  const panels=[...root.querySelectorAll('[data-route-id]')];
- let plan=resizePlan([],2,config),active=0;
+ let plan=resizePlan([],2,config),active=0,pace='relaxed';
  const label=id=>config.routes.find(r=>r.id===id).label.split('｜').at(-1);
  function render({rebuild=false,announce=true}={}){
   days.value=String(plan.length);
@@ -27,18 +28,27 @@ if(root){
    button.setAttribute('aria-controls',`route-${plan[index]}`);
   });
   choice.value=plan[active];
-  choice.labels[0].textContent=`③ 第 ${active+1} 天想換玩法？`;
+  choice.labels[0].textContent=`④ 第 ${active+1} 天想換玩法？`;
   panels.forEach(panel=>{
    const selected=panel.dataset.routeId===plan[active];
    panel.hidden=!selected;
    panel.open=selected;
+   panel.querySelectorAll('[data-pace="relaxed"]').forEach(element=>{element.hidden=pace!=='relaxed';});
+   const compact=panel.querySelector('.bkk-compact-variant');
+   panel.querySelectorAll('[data-pace="compact"]').forEach(element=>{element.hidden=pace!=='compact';});
+   compact.open=pace==='compact';
   });
-  if(announce)status.textContent=`${plan.length} 天試排 · 正在看第 ${active+1} 天：${label(plan[active])}`;
+  if(announce)status.textContent=`${plan.length} 天${pace==='compact'?'緊湊':'悠閒'}試排 · 正在看第 ${active+1} 天：${label(plan[active])}`;
  }
  days.addEventListener('change',()=>{
   plan=resizePlan(plan,Number(days.value),config);active=Math.min(active,plan.length-1);
   render({rebuild:true});
  });
+ paceInputs.forEach(input=>input.addEventListener('change',()=>{
+  if(!input.checked)return;
+  pace=input.value;
+  render();
+ }));
  choice.addEventListener('change',()=>{
   const other=plan.indexOf(choice.value);
   plan=replaceDay(plan,active,choice.value,config);render();

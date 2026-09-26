@@ -54,3 +54,23 @@ test('planner is above long guides and has a readable collapsed no-JavaScript fa
  const embedded=JSON.parse(html.match(/id="bkk-planner-data">([\s\S]*?)<\/script>/)[1]);
  assert.deepEqual(embedded.combinations,config.combinations);
 });
+test('compact mode has a separate, source-aware timeline for every route',()=>{
+ const html=read('trip/guides/bangkok-with-kids/index.html');
+ for(const route of config.routes){
+  assert.ok(route.compactDuration&&route.compactNote&&route.compactSteps.length>=4);
+  for(const step of route.compactSteps){
+   if(step.anchor)assert.ok(bangkokCatalog.places.some(p=>p.anchor===step.anchor));
+   if(step.mapsQuery)assert.ok(html.includes(`query=${encodeURIComponent(step.mapsQuery)}`));
+  }
+  if(route.compactSourceUrl)assert.ok(html.includes(route.compactSourceUrl));
+ }
+ assert.equal((html.match(/class="bkk-compact-variant"/g)||[]).length,config.routes.length);
+ assert.equal((html.match(/data-pace="compact" hidden/g)||[]).length,config.routes.length);
+ assert.match(html,/name="bkk-pace" value="relaxed" checked/);
+ assert.match(html,/name="bkk-pace" value="compact"/);
+ assert.ok(config.routes.find(r=>r.id==='chatuchak').compactSteps.some(s=>s.mapsQuery?.includes('Yaowarat')));
+ assert.ok(config.routes.find(r=>r.id==='riverside').compactSteps.some(s=>s.mapsQuery?.includes('ICONSIAM')));
+ const safari=config.routes.find(r=>r.id==='safari');
+ assert.ok(safari.compactNote.includes('平日 16:00、週末 17:00'));
+ assert.ok(safari.compactSteps.every(s=>!(s.time>='17:00'&&s.title.includes('Safari'))));
+});

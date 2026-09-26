@@ -46,11 +46,20 @@
 .bkk-overview-copy>span{font-size:13px;line-height:1.6}
 .bkk-overview-copy>small{margin-top:4px;line-height:1.6}
 .bkk-guide .bkk-overview a:focus-visible,.bkk-planner :is(select,button,summary,a):focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.bkk-guide .prose section > h3{color:#784b39;font-weight:700;border-left:3px solid #bb7658;padding-left:12px;margin-top:32px;line-height:1.55}
 .bkk-guide .bkk-planner{border-top:2px solid var(--bkk-rule);padding-top:30px}
 .bkk-planner [hidden]{display:none!important}
 .bkk-planner-controls{background:var(--bkk-sand);color:var(--bkk-cocoa);border:1px solid var(--bkk-rule);padding:20px;border-radius:3px;margin:24px 0 16px}
 .bkk-planner label,.prose .bkk-control-label{display:block;font-weight:700;font-size:16px;margin:0 0 10px}
 .bkk-planner select{display:block;width:100%;min-height:48px;padding:10px 12px;font:inherit;font-size:16px;color:var(--bkk-cocoa);background:var(--bkk-paper);border:1px solid #a79b8a;border-radius:3px;cursor:pointer}
+.bkk-pace{border:0;padding:0;margin:0 0 4px;min-width:0}
+.bkk-pace legend{font-size:16px;font-weight:700;padding:0;margin-bottom:10px}
+.bkk-pace-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.bkk-planner .bkk-pace-option{display:flex;align-items:flex-start;gap:10px;min-height:72px;padding:13px;margin:0;border:1px solid #b8ac9a;border-radius:3px;background:var(--bkk-paper);cursor:pointer;touch-action:manipulation}
+.bkk-pace-option:has(input:checked){border:2px solid var(--signal);padding:12px;background:#fffaf2}
+.bkk-pace-option input{width:18px;height:18px;flex:none;margin:4px 0 0;accent-color:var(--signal)}
+.bkk-pace-option strong,.bkk-pace-option small{display:block;line-height:1.5}.bkk-pace-option small{font-weight:400;font-size:12px;color:#645c52;margin-top:3px}
+.bkk-pace-option:focus-within{outline:3px solid var(--signal);outline-offset:3px}
 .prose .bkk-control-help{font-size:13px;line-height:1.7;margin:8px 0 22px;color:#645c52}
 .bkk-day-switcher{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:0 0 24px}
 .bkk-day-switcher button{font:inherit;font-size:14px;line-height:1.6;text-align:left;padding:12px;min-height:48px;cursor:pointer;color:var(--bkk-cocoa);background:var(--bkk-paper);border:1px solid #b8ac9a;border-radius:3px;touch-action:manipulation}
@@ -64,13 +73,20 @@
 .bkk-guide .prose .bkk-day>.eyebrow{margin:18px 20px 8px}
 .bkk-guide .prose .bkk-day>.route-description{margin:0 20px 18px;color:var(--bkk-cocoa)}
 .bkk-day ol{padding:0 20px}
+.bkk-compact-variant{margin:0 20px 20px;padding:0;border-top:1px solid var(--bkk-rule)}
+.bkk-compact-variant[hidden],.bkk-pace-schedule[hidden]{display:none!important}
+.bkk-compact-variant>summary{font-weight:700;color:#784b39;cursor:pointer;min-height:44px;padding:10px 0}
+.bkk-guide .prose .bkk-compact-note{color:var(--bkk-cocoa);font-size:14px;line-height:1.8;margin:6px 0 12px}
+.bkk-compact-variant ol{padding:0}
 .prose .bkk-plan-notes{font-size:14px}
 .bkk-plan-notes summary{min-height:44px;display:flex;align-items:center;cursor:pointer}
 @media(max-width:900px){.bkk-guide .bkk-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:700px){
  .bkk-guide .bkk-overview{gap:10px}.bkk-overview-copy{padding:10px}.bkk-overview strong{font-size:15px}
  .bkk-planner-controls{padding:16px}.bkk-day-switcher{grid-template-columns:1fr}
+ .bkk-pace-options{grid-template-columns:1fr 1fr}.bkk-planner .bkk-pace-option{padding:10px;min-height:76px}.bkk-pace-option:has(input:checked){padding:9px}
  .bkk-day summary{padding:16px}.bkk-day ol{padding:0 16px}
+ .bkk-compact-variant{margin:0 16px 16px}.bkk-compact-variant ol{padding:0}
  .bkk-guide .prose .bkk-day>.route-description{margin-left:16px;margin-right:16px}
 }
 @media(max-width:340px){.bkk-overview strong{font-size:14px}.bkk-overview-copy>span{font-size:12px}}
