@@ -7,7 +7,7 @@
     "build:homepage": "node scripts/build-homepage.mjs",
     "refresh:catalog": "node scripts/catalog-snapshot.mjs --refresh",
     "build:content": "node scripts/build-content-hubs.mjs",
-    "build:trip": "node scripts/build-trip.mjs",
+    "build:trip": "node scripts/optimize-trip-images.mjs && node scripts/build-trip.mjs && node scripts/check-trip-images.mjs",
     "build:sitemap": "node scripts/generate-sitemap.mjs",
     "normalize:blog-seo": "node scripts/normalize-blog-seo.mjs --write --touch-date",
     "check:blog-seo": "node scripts/normalize-blog-seo.mjs",
@@ -25,6 +25,7 @@
     "watch:css": "tailwindcss -i src/tailwind-input.css -o tailwind.css --watch"
   },
   "devDependencies": {
+    "sharp": "^0.35.4",
     "tailwindcss": "^3.4.17"
   }
 }

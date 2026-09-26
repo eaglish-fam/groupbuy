@@ -41,7 +41,10 @@ test('on-page travel photos use lighter web variants and retain source JPEGs',()
  for(const name of ['nz-farm','nz-boat']){
   original+=readFileSync(new URL('../trip/assets/'+name+'.jpg',import.meta.url)).length;
   web+=readFileSync(new URL('../trip/assets/'+name+'.webp',import.meta.url)).length;
-  assert.ok(read(nzRoute.slice(1)+'index.html').includes(`src="/trip/assets/${name}.webp"`));
+  const html=read(nzRoute.slice(1)+'index.html');
+  assert.ok(html.includes(`src="/trip/assets/${name}-1440.webp"`));
+  assert.ok(html.includes(`/trip/assets/${name}-640.webp 640w`));
+  assert.ok(html.includes(`/trip/assets/${name}-960.webp 960w`));
  }
  assert.ok(web<original*.4);
 });

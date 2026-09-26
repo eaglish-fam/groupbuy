@@ -2,8 +2,8 @@
   "counts": {
     "pages": 28,
     "blocking": 0,
-    "warnings": 30,
-    "total": 30
+    "warnings": 23,
+    "total": 23
   },
   "findings": [
     {
@@ -65,30 +65,9 @@
     {
       "level": "warn",
       "category": "images",
-      "message": "Image exceeds 350KB (984KB): /trip/assets/nz-farm.webp. File weight alone does not guarantee ranking; only flagged for review.",
-      "file": "trip/index.html",
-      "index": 2569
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Image exceeds 350KB (984KB): /trip/assets/nz-farm.webp. File weight alone does not guarantee ranking; only flagged for review.",
-      "file": "trip/index.html",
-      "index": 4861
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Image exceeds 350KB (503KB): /trip/assets/nz-boat.webp. File weight alone does not guarantee ranking; only flagged for review.",
-      "file": "trip/index.html",
-      "index": 5225
-    },
-    {
-      "level": "warn",
-      "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/index.html",
-      "index": 5906
+      "index": 6679
     },
     {
       "level": "warn",
@@ -102,7 +81,7 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/index.html",
-      "index": 16089
+      "index": 19149
     },
     {
       "level": "warn",
@@ -116,14 +95,7 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/christchurch/index.html",
-      "index": 5131
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Image exceeds 350KB (984KB): /trip/assets/nz-farm.webp. File weight alone does not guarantee ranking; only flagged for review.",
-      "file": "trip/new-zealand/akaroa/index.html",
-      "index": 3201
+      "index": 5561
     },
     {
       "level": "warn",
@@ -135,58 +107,37 @@
     {
       "level": "warn",
       "category": "images",
-      "message": "Image exceeds 350KB (503KB): /trip/assets/nz-boat.webp. File weight alone does not guarantee ranking; only flagged for review.",
-      "file": "trip/new-zealand/akaroa/index.html",
-      "index": 3525
-    },
-    {
-      "level": "warn",
-      "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/akaroa/index.html",
-      "index": 3891
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Image exceeds 350KB (984KB): /trip/assets/nz-farm.webp. File weight alone does not guarantee ranking; only flagged for review.",
-      "file": "trip/new-zealand/christchurch/3-days/index.html",
-      "index": 16972
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Image exceeds 350KB (503KB): /trip/assets/nz-boat.webp. File weight alone does not guarantee ranking; only flagged for review.",
-      "file": "trip/new-zealand/christchurch/3-days/index.html",
-      "index": 18146
+      "index": 4263
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/christchurch/3-days/index.html",
-      "index": 24898
+      "index": 27127
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/index.html",
-      "index": 3532
+      "index": 3578
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/bangkok/index.html",
-      "index": 6706
+      "index": 6889
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 17920
+      "index": 18376
     },
     {
       "level": "warn",

@@ -22,8 +22,13 @@
       },
       {
         "file": "/trip/assets/bkk-market-stalls-640.webp",
-        "bytes": 20444,
-        "sha256": "b0a9ba51edf2c0e81266bd01a72ba3d1d105ee02aa5703593bd26578f97fe42d"
+        "bytes": 17128,
+        "sha256": "c54f21a4d2716e65edfcd739a35ff4f1cf59768f4b43c3934be8685e5b5c857c"
+      },
+      {
+        "file": "/trip/assets/bkk-market-stalls-960.webp",
+        "bytes": 27196,
+        "sha256": "32ab19d1f0c08981d56d91c8ffc87bd47deba00667d45cd8e3c4cd733f0dedb8"
       }
     ]
   },
@@ -50,8 +55,13 @@
       },
       {
         "file": "/trip/assets/bkk-market-section-640.webp",
-        "bytes": 17120,
-        "sha256": "57f99c359b9888c3b234a1033058932b038b1e88d9face0fd0d7ab39234aada7"
+        "bytes": 14296,
+        "sha256": "1809a7af1d6fae5f33d02193ac53c01c3b456f1328ebef12e1faae2af56f68de"
+      },
+      {
+        "file": "/trip/assets/bkk-market-section-960.webp",
+        "bytes": 22806,
+        "sha256": "12bb4163a6cc51a0b3e73231b01a8ba1a572eb9a851567405e1939f6870a6627"
       }
     ]
   },
@@ -78,8 +88,13 @@
       },
       {
         "file": "/trip/assets/bkk-museum-climb-640.webp",
-        "bytes": 88792,
-        "sha256": "c93588dd9e9eec8530aaea17e927f9ae950ae5190c90c9b1db8a9148624c9a6a"
+        "bytes": 75902,
+        "sha256": "79bf09ee94a852a5553d03286d70ba4934e3f6e813e93290df99395a0cb01a45"
+      },
+      {
+        "file": "/trip/assets/bkk-museum-climb-960.webp",
+        "bytes": 148296,
+        "sha256": "caf9cb9b34ee0502bf79f497b895956e17f3fa6c49f9b00a04ae721dbb6a918f"
       }
     ]
   },
@@ -106,8 +121,13 @@
       },
       {
         "file": "/trip/assets/bkk-museum-sand-640.webp",
-        "bytes": 60958,
-        "sha256": "181b961301b658e38f61a48724f85ef5b5cf782a1d4df1d34a0a2b236b8e3fab"
+        "bytes": 51144,
+        "sha256": "70237469f95372bf5cfcab30f36d128a61f65b0696ced4b8accc9265557e2c87"
+      },
+      {
+        "file": "/trip/assets/bkk-museum-sand-960.webp",
+        "bytes": 98794,
+        "sha256": "9021dcbd9ac41c946727dc6dfb44f7bd066f9b73e10700f8c3424af31641c2ec"
       }
     ]
   },
@@ -134,8 +154,13 @@
       },
       {
         "file": "/trip/assets/bkk-aquarium-reef-640.webp",
-        "bytes": 30832,
-        "sha256": "9f3bc37cfa3bab03e563f511e5fae786dbd36b1699088b2f6c62bd334cbcfed3"
+        "bytes": 26058,
+        "sha256": "0636674051bb020b67b48d892f2c992376838e24efab0f6dca8de7afd220be80"
+      },
+      {
+        "file": "/trip/assets/bkk-aquarium-reef-960.webp",
+        "bytes": 42198,
+        "sha256": "7d8c88f4e269d02f9ed1bc38d24ef3c3ebe2cdde7792087c161fffc13422080f"
       }
     ]
   },
@@ -162,8 +187,13 @@
       },
       {
         "file": "/trip/assets/bkk-aquarium-sharks-640.webp",
-        "bytes": 23332,
-        "sha256": "e2d1ab165bb56efa48406018bf137728b57d13994a62c453dbf81cd4c0e2ac9e"
+        "bytes": 18534,
+        "sha256": "6076a40d757ccfb8097b554c6338aa4b2e5c3b3304bd802e7a89ffef1c612fb5"
+      },
+      {
+        "file": "/trip/assets/bkk-aquarium-sharks-960.webp",
+        "bytes": 30902,
+        "sha256": "b7ded70216da359a8c3b8479508cec446fa60df01af66b41aee4663447df33af"
       }
     ]
   },
@@ -190,8 +220,13 @@
       },
       {
         "file": "/trip/assets/bkk-glass-boat-640.webp",
-        "bytes": 17704,
-        "sha256": "1eb739f5dc82f146ff1b6a13081c489028d694f04a90080d8bb4118048e9475b"
+        "bytes": 14470,
+        "sha256": "06fedb013b892a998a859e2ee082d84c524464b87075b9fed18843526e6869f4"
+      },
+      {
+        "file": "/trip/assets/bkk-glass-boat-960.webp",
+        "bytes": 22868,
+        "sha256": "b98d24c0b02ffaf11c23c75ff7909311d7c6d0925f4a0227865484049fd10e4d"
       }
     ]
   }

@@ -15,7 +15,7 @@ export const media={
 };
 export function scene(id,{priority=false,card=false}={}){
  const m=media[id];if(!m)throw new Error(`Unknown Bangkok media: ${id}`);
- return `<img src="/trip/assets/${id}.webp" srcset="/trip/assets/${id}-640.webp 640w, /trip/assets/${id}.webp 1440w" sizes="${card?'(max-width:700px) 90vw, 380px':'(max-width:700px) 90vw, 760px'}" alt="${esc(m.alt)}" width="1440" height="${m.height}" ${priority?'fetchpriority="high"':'loading="lazy"'} decoding="async">`;
+ return `<img src="/trip/assets/${id}.webp" srcset="/trip/assets/${id}-640.webp 640w, /trip/assets/${id}-960.webp 960w, /trip/assets/${id}.webp 1440w" sizes="${card?'(max-width:700px) 90vw, 380px':'(max-width:700px) 90vw, 760px'}" alt="${esc(m.alt)}" width="1440" height="${m.height}" ${priority?'fetchpriority="high"':'loading="lazy"'} decoding="async">`;
 }
 export const external=(url,label,cls='text-link',affiliate=false)=>`<a class="${cls}" href="${esc(url)}" target="_blank" rel="${affiliate?'sponsored ':''}noopener">${esc(label)} ↗</a>`;
 export const maps=p=>external('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.mapsQuery),'Google Maps','button outline');

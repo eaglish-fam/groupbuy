@@ -24,7 +24,7 @@ test('Bangkok place identities, facts and media are reusable in the guide and ci
   for(const html of [article,hub])assert.ok(html.includes(`data-place-id="${p.id}"`));
   for(const id of [p.image,...p.gallery]){
    assert.ok(media[id]?.alt&&media[id]?.second>0);
-   for(const suffix of ['','-640'])assert.ok(existsSync(new URL(`../trip/assets/${id}${suffix}.webp`,import.meta.url)));
+   for(const suffix of ['','-640','-960'])assert.ok(existsSync(new URL(`../trip/assets/${id}${suffix}.webp`,import.meta.url)));
   }
  }
  const ids=[...article.matchAll(/\bid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
@@ -38,7 +38,7 @@ test('Bangkok scene assets retain source provenance, responsive variants and bou
  for(const m of manifest){
   assert.match(m.source,/youtube.com\/watch\?v=f5h0gGdaX2c&t=\d+s$/);
   assert.equal(m.kind,'owned-video-frame');assert.ok(m.alt&&m.width&&m.height);
-  assert.equal(m.variants.length,2);
+  assert.equal(m.variants.length,3);
   for(const v of m.variants){const bytes=readFileSync(new URL('..'+v.file,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),v.sha256);assert.ok(bytes.length<350*1024);}
  }
 });
