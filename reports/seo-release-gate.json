@@ -2,8 +2,8 @@
   "counts": {
     "pages": 28,
     "blocking": 0,
-    "warnings": 38,
-    "total": 38
+    "warnings": 30,
+    "total": 30
   },
   "findings": [
     {
@@ -170,79 +170,23 @@
     {
       "level": "warn",
       "category": "images",
-      "message": "Raster image is not webp/avif: /trip/assets/market-walk.jpg",
-      "file": "trip/thailand/index.html",
-      "index": 2871
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Hero/first image should not be lazy-loaded",
-      "file": "trip/thailand/index.html",
-      "index": 2871
-    },
-    {
-      "level": "warn",
-      "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/index.html",
-      "index": 3254
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Raster image is not webp/avif: /trip/assets/market-walk.jpg",
-      "file": "trip/thailand/bangkok/index.html",
-      "index": 2961
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Hero/first image should not be lazy-loaded",
-      "file": "trip/thailand/bangkok/index.html",
-      "index": 2961
+      "index": 3532
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/bangkok/index.html",
-      "index": 3344
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Raster image is not webp/avif: /trip/assets/market-walk.jpg",
-      "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 2207
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Raster image is not webp/avif: /trip/assets/bangkok-market.jpg",
-      "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 3266
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Raster image is not webp/avif: /trip/assets/aquarium-moment.jpg",
-      "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 4669
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Raster image is not webp/avif: /trip/assets/food-break.jpg",
-      "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 5289
+      "index": 6706
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 6696
+      "index": 17646
     },
     {
       "level": "warn",

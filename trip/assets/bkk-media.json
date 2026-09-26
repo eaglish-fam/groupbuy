@@ -1,0 +1,198 @@
+[
+  {
+    "id": "bkk-market-stalls",
+    "source": "https://www.youtube.com/watch?v=f5h0gGdaX2c&t=810s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "恰圖恰市集的服飾攤位與逛街巷道",
+    "crop": [
+      0,
+      0,
+      1920,
+      928
+    ],
+    "width": 1440,
+    "height": 696,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-market-stalls.webp",
+        "bytes": 48958,
+        "sha256": "b22ba2b8a3120049075860492535c7ca5d03099910ae1aba499f3855a8fa2557"
+      },
+      {
+        "file": "/trip/assets/bkk-market-stalls-640.webp",
+        "bytes": 20444,
+        "sha256": "b0a9ba51edf2c0e81266bd01a72ba3d1d105ee02aa5703593bd26578f97fe42d"
+      }
+    ]
+  },
+  {
+    "id": "bkk-market-section",
+    "source": "https://www.youtube.com/watch?v=f5h0gGdaX2c&t=744s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "恰圖恰市集的 Section 2 與 Soi 41 分區路牌",
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-market-section.webp",
+        "bytes": 40524,
+        "sha256": "2d92ee5b6d98b1ed99c83a97d665770270e9d3ee89e7705fa177ed9d2e8ed4d9"
+      },
+      {
+        "file": "/trip/assets/bkk-market-section-640.webp",
+        "bytes": 17120,
+        "sha256": "57f99c359b9888c3b234a1033058932b038b1e88d9face0fd0d7ab39234aada7"
+      }
+    ]
+  },
+  {
+    "id": "bkk-museum-climb",
+    "source": "https://www.youtube.com/watch?v=f5h0gGdaX2c&t=1092s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "孩子在曼谷兒童探索博物館的戶外攀爬網上活動",
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-museum-climb.webp",
+        "bytes": 309384,
+        "sha256": "e64e0701c994c8c1b735c0bb500b7ed57394febdabd91d3a7d602b8cfe961deb"
+      },
+      {
+        "file": "/trip/assets/bkk-museum-climb-640.webp",
+        "bytes": 88792,
+        "sha256": "c93588dd9e9eec8530aaea17e927f9ae950ae5190c90c9b1db8a9148624c9a6a"
+      }
+    ]
+  },
+  {
+    "id": "bkk-museum-sand",
+    "source": "https://www.youtube.com/watch?v=f5h0gGdaX2c&t=1094s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "兒童探索博物館裡，孩子在岩壁造景旁的沙坑玩沙",
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-museum-sand.webp",
+        "bytes": 225890,
+        "sha256": "f77ca169e8d390e14255f42ace32081317459f647be110863406d3254823af96"
+      },
+      {
+        "file": "/trip/assets/bkk-museum-sand-640.webp",
+        "bytes": 60958,
+        "sha256": "181b961301b658e38f61a48724f85ef5b5cf782a1d4df1d34a0a2b236b8e3fab"
+      }
+    ]
+  },
+  {
+    "id": "bkk-aquarium-reef",
+    "source": "https://www.youtube.com/watch?v=f5h0gGdaX2c&t=2220s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "SEA LIFE 曼谷海洋世界水槽中的魚與彩色水族造景",
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-aquarium-reef.webp",
+        "bytes": 74590,
+        "sha256": "e5e56baff20efb3b16f9adc3e32c4da6ddbc2c0b4956cd8675a09db0046e4852"
+      },
+      {
+        "file": "/trip/assets/bkk-aquarium-reef-640.webp",
+        "bytes": 30832,
+        "sha256": "9f3bc37cfa3bab03e563f511e5fae786dbd36b1699088b2f6c62bd334cbcfed3"
+      }
+    ]
+  },
+  {
+    "id": "bkk-aquarium-sharks",
+    "source": "https://www.youtube.com/watch?v=f5h0gGdaX2c&t=2380s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "SEA LIFE 曼谷海洋世界的大型水槽裡，鯊魚從前方游過",
+    "crop": [
+      0,
+      0,
+      1920,
+      1080
+    ],
+    "width": 1440,
+    "height": 810,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-aquarium-sharks.webp",
+        "bytes": 59088,
+        "sha256": "b0a1bf85af0fc0cfb59e0cbbcf985c078752df4e8f18b5fcf4cd5363bf551e95"
+      },
+      {
+        "file": "/trip/assets/bkk-aquarium-sharks-640.webp",
+        "bytes": 23332,
+        "sha256": "e2d1ab165bb56efa48406018bf137728b57d13994a62c453dbf81cd4c0e2ac9e"
+      }
+    ]
+  },
+  {
+    "id": "bkk-glass-boat",
+    "source": "https://www.youtube.com/watch?v=f5h0gGdaX2c&t=2370s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-26",
+    "alt": "孩子穿著救生衣坐在 SEA LIFE 玻璃底船上，觀看水中的動物",
+    "crop": [
+      0,
+      0,
+      1920,
+      928
+    ],
+    "width": 1440,
+    "height": 696,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-glass-boat.webp",
+        "bytes": 41734,
+        "sha256": "265635e9edcfa997777d1fff82af3c6a1c03e270cce95ef105f6b55b480b0b73"
+      },
+      {
+        "file": "/trip/assets/bkk-glass-boat-640.webp",
+        "bytes": 17704,
+        "sha256": "1eb739f5dc82f146ff1b6a13081c489028d694f04a90080d8bb4118048e9475b"
+      }
+    ]
+  }
+]

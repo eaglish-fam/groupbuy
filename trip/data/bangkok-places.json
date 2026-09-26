@@ -1,0 +1,103 @@
+{
+  "schemaVersion": 1,
+  "country": "TH",
+  "city": "bangkok",
+  "checkedAt": "2026-09-26",
+  "video": "https://www.youtube.com/watch?v=f5h0gGdaX2c",
+  "places": [
+    {
+      "id": "th-bangkok-chatuchak-weekend-market",
+      "anchor": "market",
+      "name": "恰圖恰週末市集",
+      "englishName": "Chatuchak Weekend Market",
+      "area": "Chatuchak",
+      "kind": "市集・購物・小吃",
+      "visited": true,
+      "summary": "服飾、手作、家飾與小吃攤聚在一起的大型市集。先挑想逛的區域，再接附近的兒童探索博物館。",
+      "intro": "恰圖恰也常被叫作洽圖洽或 JJ Market，是曼谷很有代表性的週末市集。攤位沿著一條條小巷排列，從衣服、包包、飾品到生活雜貨都有。喜歡逛街的人可以找泰式花樣與小物，不購物也能看看攤販和街景，沿途挑一份想吃的小吃。",
+      "activities": [
+        {"title": "先選類別，再逛巷子", "text": "把想找的衣服、手作或家飾列成兩三項，到場後看分區與巷號。看到喜歡的店，先拍店面和附近標示；市集巷子相似，只記得「剛剛轉角那家」很容易找不到。"},
+        {"title": "小吃安排在休息時段", "text": "市集有飲料和熟食攤，可以挑椰子飲品、冰品或一份熱食。帶孩子先找好能坐的地方，再決定吃什麼；想吃完整一餐，就提早離開最擁擠的巷道找座位。"}
+      ],
+      "experience": "我們這次讓孩子拿著錢，試著自己向店員開口買東西。想試試看的家庭，可以先給孩子一筆小預算，挑一件喜歡的小物，由大人在旁陪同。",
+      "duration": "建議 1.5–2 小時；想認真購物可留半天",
+      "hours": "購物行程優先排週六、週日白天；平日並非全區開市，各攤時間不同。",
+      "transport": "可搭 MRT 至 Kamphaeng Phet，或搭 BTS 至 Mo Chit 再步行；先依想逛的區域選入口。",
+      "weather": "戶外與半露天・不適合作為大雨備案",
+      "tip": "帶水、遮陽用品與小額現金。人多時推車較難通行，先約好走散時的集合點。",
+      "mapsQuery": "Chatuchak Weekend Market Bangkok",
+      "image": "bkk-market-stalls",
+      "gallery": ["bkk-market-section"],
+      "videoSeconds": 742,
+      "sources": [
+        {"label": "曼谷市政府：市集介紹", "url": "https://publicspace.bangkok.go.th/Spaces/Info/2FBD1377-1BC8-4565-86CA-2C647E59F18A"},
+        {"label": "泰國觀光局：曼谷交通與景點指南", "url": "https://www.tattpe.org.tw/uploads/content/files/E-Brochure%20Bangkok%28En%29.pdf"}
+      ],
+      "booking": []
+    },
+    {
+      "id": "th-bangkok-childrens-discovery-museum-1",
+      "anchor": "museum",
+      "name": "曼谷兒童探索博物館",
+      "englishName": "Children’s Discovery Museum · Chatuchak",
+      "area": "Chatuchak",
+      "kind": "動手探索・攀爬・玩沙",
+      "visited": true,
+      "summary": "恰圖恰附近的兒童活動館，有室內探索空間，也有戶外攀爬與遊戲區。適合和市集排在同一天。",
+      "intro": "Children’s Discovery Museum 是讓孩子透過操作與遊戲認識世界的博物館。這裡介紹的是恰圖恰的一館，位於詩麗吉王后公園一帶，不是另一處 Thung Khru 分館。館內有展覽與學習空間，戶外則有遊戲設施；可以先看看孩子對哪一區有興趣，再分配時間。",
+      "activities": [
+        {"title": "攀爬網與沙坑，適合安排一段遊戲時間", "text": "我們拍到孩子在攀爬網上活動，以及岩壁造景旁的玩沙空間。戶外遊具會受到天氣與維護影響，先看現場是否開放，並按孩子的能力選擇設施。"},
+        {"title": "入館先問當天的活動", "text": "室內展示、工作坊與戲水活動不一定能隨到隨玩。抵達時先問開放區域、報名方式和場次；想玩水可預備替換衣物，不把影片當年的時段當成固定時間表。"}
+      ],
+      "experience": "我們逛恰圖恰時，把這一站接進行程，讓孩子玩攀爬設施。若大人想分頭活動，可以一位家長陪孩子，另一位逛市集，再約時間會合。",
+      "duration": "建議 1.5–2 小時，另留入館與換裝時間",
+      "hours": "曼谷市政府公布：週二至週日 10:00–16:00，週一休館；特殊休館另依公告。",
+      "transport": "定位 Children’s Discovery Museum 第一館（Chatuchak）。從市集前往需走戶外路段，距離取決於所在攤區。",
+      "weather": "室內＋戶外・小雨可調整，大雨先確認室內區開放",
+      "tip": "帶護照等入館可能需要的證件，並在抵達前確認登記規定。年齡限制依各項設施，不把全館視為同一種遊具。",
+      "mapsQuery": "Children's Discovery Museum Bangkok 1 Chatuchak Kamphaeng Phet 4",
+      "image": "bkk-museum-climb",
+      "gallery": ["bkk-museum-sand"],
+      "videoSeconds": 1097,
+      "sources": [
+        {"label": "曼谷市政府：第一館與開放時間", "url": "https://learning.bangkok.go.th/location/loca_0085/"},
+        {"label": "曼谷市政府：館舍位置與設施", "url": "https://publicspace.bangkok.go.th/Spaces/Info/7CC542F5-1AA9-4325-9F2F-0539A2A53D4A"}
+      ],
+      "booking": []
+    },
+    {
+      "id": "th-bangkok-sea-life-ocean-world",
+      "anchor": "indoors",
+      "name": "SEA LIFE 曼谷海洋世界",
+      "englishName": "SEA LIFE Bangkok Ocean World",
+      "area": "Siam",
+      "kind": "水族館・玻璃底船・室內雨備",
+      "visited": true,
+      "summary": "Siam Paragon 百貨地下的水族館，可以看魚群、鯊魚與水族展示；想搭玻璃底船，要另外確認票券包含的項目。",
+      "intro": "SEA LIFE 曼谷海洋世界，也就是暹羅海洋世界，位於 Siam Paragon 的 B1–B2。從市區搭 BTS 到 Siam 站就能前往，很適合把水族館、午餐與逛街排成同一天。展區以海洋生物為主，可以沿著水槽觀察魚群、在大型展示區看鯊魚，再依票種加入玻璃底船等活動。",
+      "activities": [
+        {"title": "先看水族展示，再安排加購體驗", "text": "孩子容易在喜歡的水槽前停很久，建議先留完整參觀時間。館方以約 90 分鐘介紹一般參觀；這份親子路線建議抓 2–3 小時，若加船或電影，再計入排隊與報到。"},
+        {"title": "玻璃底船：從水面往下看", "text": "這項活動是在館內水槽上方搭船，透過透明船底看水中的魚與鯊魚，不是出海行程。我們有搭乘，孩子穿著救生衣觀察水裡的動物。想體驗的人，訂票前要確認方案是否包含玻璃底船，以及當天可搭場次、年齡與陪同規定。"}
+      ],
+      "experience": "我們這次除了逛水族展示，也搭了玻璃底船。孩子對鯊魚很有興趣，在展示窗前看了一段時間；如果同行孩子也喜歡海洋生物，可以多留一些時間在這一區。",
+      "duration": "建議 2–3 小時；加購活動另留等候時間",
+      "hours": "館方公布每日 10:00–20:00，最後入場 19:00；活動場次另計。",
+      "transport": "BTS Siam 站 → Siam Paragon → B1 水族館入口。百貨內仍要步行，預留找入口與驗票時間。",
+      "weather": "室內・可與同棟百貨用餐合併作雨天行程",
+      "tip": "基本入場、玻璃底船、4D 電影是不同項目。比較方案時，確認適用旅客、日期、兒童條件與退改規則；不要只買了加購券，卻沒有入場票。",
+      "mapsQuery": "SEA LIFE Bangkok Ocean World Siam Paragon",
+      "image": "bkk-aquarium-reef",
+      "gallery": ["bkk-aquarium-sharks", "bkk-glass-boat"],
+      "videoSeconds": 2205,
+      "sources": [
+        {"label": "館方：營業與最後入場時間", "url": "https://www.visitsealife.com/bangkok/plan/before-you-visit/opening-hours/"},
+        {"label": "館方：玻璃底船體驗", "url": "https://www.visitsealife.com/bangkok/en/explore/experiences/glass-bottom-boat/"},
+        {"label": "館方：交通與入口", "url": "https://www.visitsealife.com/bangkok/en/plan/before-you-visit/how-to-get-here/"}
+      ],
+      "booking": [
+        {"provider": "Klook", "label": "Klook：查看入場與套票", "url": "https://affiliate.klook.com/redirect?aid=43858&aff_adid=921120&k_site=https%3A%2F%2Fwww.klook.com%2Fzh-TW%2Factivity%2F357-sea-life-bangkok-ocean-world-bangkok%2F", "affiliate": true},
+        {"provider": "KKday", "label": "KKday：查看入場與套票", "url": "https://www.kkday.com/zh-tw/product/2735?cid=22159", "affiliate": true}
+      ]
+    }
+  ]
+}
