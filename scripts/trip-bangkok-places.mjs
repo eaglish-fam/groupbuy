@@ -21,9 +21,15 @@ export const media={
  'bkk-aquarium-sharks':{second:2380,height:810,alt:'SEA LIFE 曼谷海洋世界的大型水槽裡，鯊魚從前方游過',caption:'近距離看鯊魚，和逛市集是完全不同的體驗。'},
  'bkk-glass-boat':{second:2370,height:696,alt:'孩子穿著救生衣坐在 SEA LIFE 玻璃底船上，觀看水中的動物',caption:'我們實際搭乘的館內玻璃底船；預訂時確認方案是否包含這項活動。',crop:[0,0,1920,928]}
 };
-export function scene(id,{priority=false,card=false,thumbnail=false}={}){
+const sceneSources=(id,{card=false,thumbnail=false}={})=>{
  const m=media[id];if(!m)throw new Error(`Unknown Bangkok media: ${id}`);
- return `<img src="/trip/assets/${id}.webp" srcset="/trip/assets/${id}-640.webp 640w, /trip/assets/${id}-960.webp 960w, /trip/assets/${id}.webp ${m.width||1440}w" sizes="${thumbnail?'(max-width:700px) 44vw, 200px':card?'(max-width:700px) 90vw, 380px':'(max-width:700px) 90vw, 760px'}" alt="${esc(m.alt)}" width="${m.width||1440}" height="${m.height}" ${priority?'fetchpriority="high"':'loading="lazy"'} decoding="async">`;
+ return {m,srcset:`/trip/assets/${id}-640.webp 640w, /trip/assets/${id}-960.webp 960w, /trip/assets/${id}.webp ${m.width||1440}w`,sizes:thumbnail?'(max-width:700px) 44vw, 200px':card?'(max-width:700px) 90vw, 380px':'(max-width:700px) 90vw, 760px'};
+};
+export function scene(id,{priority=false,card=false,thumbnail=false}={}){
+ const {m,srcset,sizes}=sceneSources(id,{card,thumbnail});
+ // Only the main visual competes at high priority; adjacent hero tiles stay eager but low.
+ const delivery=priority?(card?'loading="eager" fetchpriority="low"':'loading="eager" fetchpriority="high"'):'loading="lazy" fetchpriority="low"';
+ return `<img src="/trip/assets/${id}.webp" srcset="${srcset}" sizes="${sizes}" alt="${esc(m.alt)}" width="${m.width||1440}" height="${m.height}" ${delivery} decoding="async">`;
 }
 const overviewLabels={
  market:['恰圖恰週末市集','逛小店・吃小吃','約 1.5～2 小時'],

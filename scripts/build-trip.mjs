@@ -4,6 +4,7 @@ import {resolve} from 'node:path';
 import {buildDestinations} from './build-trip-destinations.mjs';
 import {bangkokCatalog,bangkokGuide,scene,overviewCard,placeSection,film,esc,media} from './trip-bangkok-places.mjs';
 import {routeSection,rainSection} from './trip-bangkok-routes.mjs';
+import {prioritizeFirstTravelImage} from './trip-image-priority.mjs';
 const root=resolve(import.meta.dirname,'..');
 const origin='https://www.eaglish.store';
 const title='曼谷親子景點攻略：8 個實訪地點與 2～5 日自由行行程';
@@ -24,7 +25,7 @@ ${rainSection()}
 <section id="video" class="video-end"><p class="eyebrow">OUR BANGKOK TRIP</p><h2>想看現場？這兩支影片接著看</h2><p>上面先幫你選地點與排路線，影片則可以看孩子的反應、動物園車遊、恐龍場景和展覽環境。</p>${bangkokCatalog.videos.map(v=>`<h3>${esc(v.label)}</h3><p>${esc(v.coverage)}</p><a class="text-link" href="${esc(v.url)}" target="_blank" rel="noopener">看完整旅行影片 ↗</a>`).join('')}<div class="actions">${film(1097,'兒童館遊戲')}${film(2370,'玻璃底船')}${film(670,'Safari World 長頸鹿',bangkokCatalog.videos[1].url)}${film(1645,'侏羅紀場景',bangkokCatalog.videos[1].url)}</div><p class="article-return"><a href="/trip/thailand/bangkok/">← 看全部曼谷景點卡</a></p></section></article></div></main>
 <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="/trip/"><img src="/flights/assets/faraway-wordmark.svg" width="220" height="65" alt="鷹家遠行所"></a><p>出發，找下一個好玩的地方！<br><small>© 鷹式一家 Eaglish Family</small></p><nav aria-label="頁尾導覽"><a href="/">鷹家買物社 ↗</a><a href="/blog/">鷹家選物誌 ↗</a><a href="/trip/thailand/">泰國自由行 ↗</a></nav></div></footer></body></html>`;
 mkdirSync(resolve(root,'trip/guides/bangkok-with-kids'),{recursive:true});
-writeFileSync(resolve(root,'trip/guides/bangkok-with-kids/index.html'),article);
+writeFileSync(resolve(root,'trip/guides/bangkok-with-kids/index.html'),prioritizeFirstTravelImage(article));
 writeFileSync(resolve(root,'trip/assets/bkk-media.json'),JSON.stringify(Object.entries(media).map(([id,m])=>({id,source:(m.video?`https://www.youtube.com/watch?v=${m.video}`:bangkokCatalog.video)+`&t=${m.second}s`,kind:'owned-video-frame',creator:'鷹式一家',reviewedAt:bangkokCatalog.checkedAt,alt:m.alt,crop:m.crop||[0,0,1920,1080],width:m.width||1440,height:m.height,variants:['','-640','-960'].map(suffix=>{const file=`/trip/assets/${id}${suffix}.webp`,buffer=readFileSync(resolve(root,'.'+file));return {file,bytes:buffer.length,sha256:createHash('sha256').update(buffer).digest('hex')};})})),null,2)+'\n');
 buildDestinations(root);
 console.log('Built place-first Bangkok guide and shared destination cards.');

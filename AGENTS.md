@@ -30,6 +30,8 @@ Do not push, open or merge a PR, modify `main`, change GitHub Pages, DNS, CNAME,
 
 ## SEO and content rules
 
+For 鷹家遠行所 travel articles, read `docs/trip-editorial-guidelines.md` and `trip/IMAGE_PIPELINE.md` before creating or revising a page. Hiram designated `/trip/guides/bangkok-with-kids/` as the reference for future article structure, visual style, place cards, and itinerary interaction. Adapt destination data and timing to the new city; retain the approved photo-led, cream-sandstone presentation and first-image loading policy.
+
 - Preserve one canonical domain: `https://www.eaglish.store/`.
 - Keep `robots.txt`, `sitemap.xml`, canonical URLs, Open Graph, structured data, and public content mutually consistent.
 - Do not generate indexable URLs for expired or unconfirmed campaigns.

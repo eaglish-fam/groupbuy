@@ -2,8 +2,8 @@
   "counts": {
     "pages": 28,
     "blocking": 0,
-    "warnings": 23,
-    "total": 23
+    "warnings": 20,
+    "total": 20
   },
   "findings": [
     {
@@ -67,77 +67,56 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/index.html",
-      "index": 6679
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Hero/first image should not be lazy-loaded",
-      "file": "trip/new-zealand/index.html",
-      "index": 2966
+      "index": 7052
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/index.html",
-      "index": 19149
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Hero/first image should not be lazy-loaded",
-      "file": "trip/new-zealand/christchurch/index.html",
-      "index": 2971
+      "index": 19778
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/christchurch/index.html",
-      "index": 5561
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Hero/first image should not be lazy-loaded",
-      "file": "trip/new-zealand/akaroa/index.html",
-      "index": 3201
+      "index": 5930
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/akaroa/index.html",
-      "index": 4263
+      "index": 4585
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/christchurch/3-days/index.html",
-      "index": 27127
+      "index": 27687
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/index.html",
-      "index": 3615
+      "index": 3921
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/bangkok/index.html",
-      "index": 12129
+      "index": 12595
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 57242
+      "index": 58038
     },
     {
       "level": "warn",
