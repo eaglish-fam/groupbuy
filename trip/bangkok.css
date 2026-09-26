@@ -30,3 +30,6 @@
 .bkk-guide .toc{border-top-color:var(--bkk-cocoa)}
 .bkk-guide .reading-nav__tab,.bkk-guide .reading-nav__list a[aria-current="location"]{background:var(--bkk-sand)}
 .bkk-guide .reading-nav__panel,.bkk-guide .reading-nav__flight{background:var(--bkk-paper)}
+@media(max-width:1199px){
+  .bkk-guide .reading-nav__tab{width:36px;padding-left:7px;padding-right:3px;align-items:flex-start}
+}
