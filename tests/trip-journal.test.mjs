@@ -24,8 +24,8 @@ test('Bangkok place identities, facts and media are reusable in the guide and ci
   assert.ok(p.intro.length>90&&p.activities.length>=2);
   for(const html of [article,hub])assert.ok(html.includes(`data-place-id="${p.id}"`));
   for(const id of [p.image,...p.gallery]){
-   assert.ok(media[id]?.alt&&media[id]?.second>0);
-   for(const suffix of ['','-640','-960'])assert.ok(existsSync(new URL(`../trip/assets/${id}${suffix}.webp`,import.meta.url)));
+   assert.ok(media[id]?.alt&&(media[id]?.second>0||media[id]?.kind==='user-supplied-photo'));
+   for(const suffix of ['',...[640,960].filter(w=>w<(media[id].width||1440)).map(w=>'-'+w)])assert.ok(existsSync(new URL(`../trip/assets/${id}${suffix}.webp`,import.meta.url)));
   }
  }
  const ids=[...article.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(ids.length,new Set(ids).size);
@@ -37,9 +37,9 @@ test('Bangkok scene assets retain source provenance, responsive variants and bou
  const manifest=JSON.parse(read('trip/assets/bkk-media.json'));
  assert.equal(manifest.length,Object.keys(media).length);
  for(const m of manifest){
-  const url=new URL(m.source);assert.ok(bangkokCatalog.videos.some(v=>v.id===url.searchParams.get('v')));assert.match(url.searchParams.get('t'),/^\d+s$/);
-  assert.equal(m.kind,'owned-video-frame');assert.ok(m.alt&&m.width&&m.height);
-  assert.equal(m.variants.length,3);
+  if(m.kind==='owned-video-frame'){const url=new URL(m.source);assert.ok(bangkokCatalog.videos.some(v=>v.id===url.searchParams.get('v')));assert.match(url.searchParams.get('t'),/^\d+s$/);}else{assert.equal(m.kind,'user-supplied-photo');assert.match(m.originalSha256,/^[a-f0-9]{64}$/);assert.ok(m.source.includes('Hiram'));}
+  assert.ok(m.alt&&m.width&&m.height);
+  assert.equal(m.variants.length,1+[640,960].filter(w=>w<m.width).length);
   for(const v of m.variants){const bytes=readFileSync(new URL('..'+v.file,import.meta.url));assert.equal(createHash('sha256').update(bytes).digest('hex'),v.sha256);assert.ok(bytes.length<350*1024);}
  }
 });

@@ -131,7 +131,7 @@
       "tip":"核對兩區門票、園內車、午餐、接送是否包含。帶水與遮陽用品，餵食只用園方允許的飼料並遵守指示。",
       "mapsQuery":"Safari World 99 Panya Indra Road Bangkok",
       "image":"bkk-safari-giraffes",
-      "gallery":["bkk-safari-drive"],
+      "gallery":["bkk-market-section"],
       "video":"https://www.youtube.com/watch?v=F5cQv1yS69g",
       "videoSeconds":161,
       "sources":[{"label":"Safari World 官方票務與開園日","url":"https://ticket.safariworld.com/"},{"label":"泰國觀光局：Safari World 園區介紹","url":"https://www.tourismthailand.org/Attraction/safari-world"}],
@@ -161,7 +161,7 @@
       "tip":"官方目前不允許推車進入體驗區，售票區附近有室外遮蔽停放處。帶小小孩先規劃抱行方式，進場前先上廁所。",
       "mapsQuery":"Jurassic World The Experience Bangkok Asiatique",
       "image":"bkk-jurassic-dinosaur",
-      "gallery":["bkk-jurassic-lab"],
+      "gallery":["bkk-museum-sand"],
       "video":"https://www.youtube.com/watch?v=F5cQv1yS69g",
       "videoSeconds":1548,
       "sources":[{"label":"Jurassic World 官方：場次、交通與參觀規則","url":"https://jurassicworldexperience.com/th/en/"}],
@@ -191,7 +191,7 @@
       "tip":"親子同行可把晚餐排早一點；餐廳選擇以有座位、當天菜單與等候時間為準。",
       "mapsQuery":"Asiatique The Riverfront Destination Bangkok",
       "image":"bkk-asiatique-street",
-      "gallery":[],
+      "gallery":["bkk-aquarium-sharks","bkk-glass-boat","bkk-sealife-boat-kids"],
       "video":"https://www.youtube.com/watch?v=F5cQv1yS69g",
       "videoSeconds":1940,
       "sources":[{"label":"Asiatique 官方：餐飲與園區介紹","url":"https://www.asiatiquethailand.com/"}],
@@ -220,7 +220,7 @@
       "tip":"不是因為靠機場就適合塞在任何班機前。上午或中午起飛者不建議硬排；營業與票價確認後再出發。",
       "mapsQuery":"Siam Serpentarium 969 Luang Phaeng Road Lat Krabang",
       "image":"bkk-serpentarium-snake",
-      "gallery":["bkk-serpentarium-gallery"],
+      "gallery":["bkk-safari-drive","bkk-safari-family"],
       "video":"https://www.youtube.com/watch?v=F5cQv1yS69g",
       "videoSeconds":2250,
       "sources":[{"label":"Museum Thailand：館舍資訊與地點","url":"https://www.museumthailand.com/museum/siamserpentarium"},{"label":"暹羅蛇園官方 Facebook：確認最新開館與活動","url":"https://www.facebook.com/siamserpentarium"}],
@@ -249,10 +249,68 @@
       "tip":"餐點價格、支付方式與供餐時段以現場為準；影片中的舊菜單不當成現價。",
       "mapsQuery":"Baan Langsuan Bangkok 39/2 Soi Langsuan",
       "image":"bkk-baan-langsuan",
-      "gallery":[],
+      "gallery":["bkk-jurassic-lab","bkk-jurassic-raptor-family","bkk-jurassic-family"],
       "videoSeconds":1830,
       "sources":[{"label":"泰國觀光局：Baan Langsuan 地址與介紹","url":"https://www.thailandtravel.or.jp/baanlangsuan/"},{"label":"餐廳官方 Facebook","url":"https://www.facebook.com/baanlangsuanbangkok/"}],
       "booking":[]
+    },
+    {
+      "id": "th-bangkok-khlong-bang-luang",
+      "anchor": "canal",
+      "name": "空邦龍水上市集與運河遊船",
+      "englishName": "Khlong Bang Luang Floating Market · ตลาดน้ำคลองบางหลวง",
+      "area": "Thonburi・曼谷西岸",
+      "kind": "長尾船・水岸街區・金色大佛",
+      "activity": "運河搭船・水岸小店・船上看大佛",
+      "visited": true,
+      "summary": "搭長尾船看水岸房屋與 Wat Paknam 金色大佛，回到岸上再逛小店、吃午餐。想替曼谷行程加一段搭船體驗，可以留半天給這裡。",
+      "intro": "空邦龍水上市集在曼谷西岸的吞武里一帶，沿著運河發展出木屋、小店、餐飲與藝術空間。來這裡可以先沿岸散步，再搭長尾船看水邊住家、寺院與運河生活。我們這次也從船上看見 Wat Paknam 的金色大佛。喜歡拍照、想帶孩子換一種交通方式認識曼谷，很適合把搭船、逛街和午餐放在同一個半日。",
+      "activities": [
+        {
+          "title": "先逛水岸小店，再搭長尾船",
+          "text": "這裡的購物與用餐多在岸邊步道和店面，遊船則是看運河風景。可以先買飲料、小吃，確認船班後再逛附近；喜歡手作的人也能留意藝術空間與當天開放的店家。期待坐船一攤一攤買東西的旅客，要先看清楚行程內容，這次我們搭的是遊河看景的船。"
+        },
+        {
+          "title": "從水面看 Wat Paknam 金色大佛",
+          "text": "長尾船沿著運河前進，兩側的房屋、橋梁與寺院會接連出現。大佛也是我們這次船程裡很有印象的畫面，孩子坐在船上就能一起看。訂船時可直接問「會經過 Wat Paknam 嗎？會停靠嗎？」行經大佛與下船入寺是兩種安排，選自己想玩的那一種。"
+        },
+        {
+          "title": "帶孩子搭船，把上船準備也排進去",
+          "text": "先向業者確認兒童救生衣尺寸、嬰幼兒乘船條件和推車收放方式。長尾船上下有高低差，帶嬰兒背巾會比全程推車靈活；大人可以分工照顧孩子與行李。等船時先喝水、上廁所，隨身包放好防曬、飲水和手機防水袋。"
+        },
+        {
+          "title": "搭完船吃午餐，下午接回市區",
+          "text": "建議留約半日，船程長度以選的方案為準，岸上再留時間散步與用餐。我們當時搭完船，就找能坐下休息、有冷氣的餐廳吃飯。想排得緊湊一點，可以增加岸上小店的停留；若同日接侏羅紀晚場，兩區之間仍要另外安排車程與休息。"
+        }
+      ],
+      "experience": "我們先在市場買飲料和小吃，再帶三個孩子一起上船。等船、喬座位的時候真的很熱，開船後就忙著看沿岸景色；孩子也一直往水邊找有趣的東西。搭完船，全家最期待的是找個有冷氣的地方坐下來吃午餐。",
+      "duration": "搭船、岸上散步與用餐建議留半日；船程依方案另確認",
+      "hours": "Google Maps 目前列每日 09:30–18:30（2026-09-27 核對）。店家、藝術空間與船班各有時段；出發前再查當日營業，並向船家確認出發、回程與最後一班。",
+      "plannerHours": "市集每日 09:30–18:30；船班另向業者確認",
+      "transport": "用下方 Google Maps 定位 Khlong Bang Luang Floating Market。叫車先和司機確認可抵達的下車點，末段依導航步行；若已訂船，以業者提供的集合碼頭為準。",
+      "weather": "戶外與水上活動；大雨或雷雨時依船家通知改期，可改排 SEA LIFE 室內日",
+      "tip": "訂船先問總價、計價方式、船程、停靠點、兒童條件與天候取消辦法；回程下船位置也一起確認。",
+      "mapsQuery": "Khlong Bang Luang Floating Market Bangkok",
+      "mapsUrl": "https://maps.app.goo.gl/aegTtEfDUrmkHQeHA?g_st=ic",
+      "image": "bkk-canal-family",
+      "gallery": [
+        "bkk-canal-buddha",
+        "bkk-canal-mother-kids"
+      ],
+      "video": "https://www.youtube.com/watch?v=F5cQv1yS69g",
+      "videoSeconds": 1041,
+      "checkedAt": "2026-09-27",
+      "sources": [
+        {
+          "label": "Google Maps：空邦龍水上市集與當日營業資訊",
+          "url": "https://maps.app.goo.gl/aegTtEfDUrmkHQeHA?g_st=ic"
+        },
+        {
+          "label": "泰國 OKMD：空邦龍水岸社區與藝術空間",
+          "url": "https://knowledgeportal.okmd.or.th/kmap/all/8a6fec8e78601463eb767f40843be253"
+        }
+      ],
+      "booking": []
     }
   ]
 }

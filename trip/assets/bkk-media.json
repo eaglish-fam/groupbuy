@@ -1,5 +1,259 @@
 [
   {
+    "id": "bkk-jurassic-raptor-family",
+    "source": "Hiram 提供的曼谷家庭照片（2026-09-27）",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "alt": "媽媽與孩子在 Jurassic World 猛禽訓練室造景前合照",
+    "section": "jurassic",
+    "photoNumber": 1,
+    "originalSha256": "c3e7bb0a2167aac9a84801cfccf681379fc6c22caa01d388a573b69a8096b17c",
+    "originalBytes": 263043,
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-jurassic-raptor-family.webp",
+        "bytes": 107586,
+        "sha256": "467187102788db58980e47f753cbd822b5c6d6f5409b517aeac9746c564dc1d8"
+      },
+      {
+        "file": "/trip/assets/bkk-jurassic-raptor-family-640.webp",
+        "bytes": 49698,
+        "sha256": "b0cb1c06ff278928bcfb736abc3d386ce6b0c86c11c11831947a1646f08108e4"
+      }
+    ]
+  },
+  {
+    "id": "bkk-jurassic-family",
+    "source": "Hiram 提供的曼谷家庭照片（2026-09-27）",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "alt": "鷹式一家五人在 Jurassic World 發光入口招牌下合照",
+    "section": "jurassic",
+    "photoNumber": 2,
+    "originalSha256": "c1d6fb17306afcf1fef0dbd1e41f253d8de5e59ba5e959e1adc5fceeaa3392b1",
+    "originalBytes": 273941,
+    "width": 1023,
+    "height": 1280,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-jurassic-family.webp",
+        "bytes": 113068,
+        "sha256": "b004fe8dafc16c91369b4c5755e96fee094cd4670371a0aa02eae47ac9fb93b4"
+      },
+      {
+        "file": "/trip/assets/bkk-jurassic-family-640.webp",
+        "bytes": 50868,
+        "sha256": "209bf3dcd69edcc0ff4522c837f1abc29fdf8b3c60c30ced7ef4b961d7be4d92"
+      },
+      {
+        "file": "/trip/assets/bkk-jurassic-family-960.webp",
+        "bytes": 83156,
+        "sha256": "5ba1cbff8ef0b2c363c1f33b98a1d6852dd06fa8f3d6f0948a2e7830c4d30251"
+      }
+    ]
+  },
+  {
+    "id": "bkk-canal-family",
+    "source": "Hiram 提供的曼谷家庭照片（2026-09-27）",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "alt": "一家人在彩色船篷下搭乘曼谷運河長尾船，身旁是水岸房屋",
+    "section": "canal",
+    "photoNumber": 3,
+    "originalSha256": "9e1c60308f06d39148a9d9a3fcb5f8afbbec8e8cc43b9947a88b103dfcdd76f9",
+    "originalBytes": 306674,
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-canal-family.webp",
+        "bytes": 128800,
+        "sha256": "aff644233747b7b9f0c4ccd0d7c4d28934fd22ec3cd41c3183d9b6d957a9b2cc"
+      },
+      {
+        "file": "/trip/assets/bkk-canal-family-640.webp",
+        "bytes": 59362,
+        "sha256": "67de95a9c10521259c677ab50a9fbae8396a5bac412d11794e9d36fd4ce8ae76"
+      }
+    ]
+  },
+  {
+    "id": "bkk-canal-buddha",
+    "source": "Hiram 提供的曼谷家庭照片（2026-09-27）",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "alt": "孩子坐在長尾船上，後方是 Wat Paknam 的金色大佛",
+    "section": "canal",
+    "photoNumber": 4,
+    "originalSha256": "4d5730596daa83b1593a23ad8040375d3233345d5f6310a806fa6d3bd9270242",
+    "originalBytes": 178135,
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-canal-buddha.webp",
+        "bytes": 61334,
+        "sha256": "fe5323afbfe1b144215c6b0d092fb7618626b25004c0cc293a845f187ee1b68e"
+      },
+      {
+        "file": "/trip/assets/bkk-canal-buddha-640.webp",
+        "bytes": 31866,
+        "sha256": "d152a168d9ebbb0c12100d13c3272fc9774bf82f0fe88c119842f7e120d31476"
+      }
+    ]
+  },
+  {
+    "id": "bkk-bangkok-family",
+    "source": "Hiram 提供的曼谷家庭照片（2026-09-27）",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "alt": "鷹式一家五人帶著推車，在曼谷的商店步道合照",
+    "section": "bangkok",
+    "photoNumber": 5,
+    "originalSha256": "969bc092aae7ecc1e23b24e9583a8b6be6d4e03dc4c21974f1bebfe1d76b2ef7",
+    "originalBytes": 445986,
+    "width": 1024,
+    "height": 1280,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-bangkok-family.webp",
+        "bytes": 225724,
+        "sha256": "9043e9354752493ab381bdfa38fc3f06ded52102798845b022ddb412ec60d7ff"
+      },
+      {
+        "file": "/trip/assets/bkk-bangkok-family-640.webp",
+        "bytes": 94638,
+        "sha256": "0bf46fb43593e1d1096c3b30f37348b769a3ca4c90fe31f8efbdb6d20ef0e4d3"
+      },
+      {
+        "file": "/trip/assets/bkk-bangkok-family-960.webp",
+        "bytes": 161156,
+        "sha256": "0f6092e448e0a566cdf936df55f7d7018b0db0efe46eeff3076742c8e3b0d363"
+      }
+    ]
+  },
+  {
+    "id": "bkk-canal-mother-kids",
+    "source": "Hiram 提供的曼谷家庭照片（2026-09-27）",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "alt": "媽媽與孩子坐在曼谷運河長尾船上，船後可見水岸建築",
+    "section": "canal",
+    "photoNumber": 6,
+    "originalSha256": "881b8b7c94598a5fc6644f218da0d4e16b33fb88e1009e5f1ff236662d6b4535",
+    "originalBytes": 242657,
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-canal-mother-kids.webp",
+        "bytes": 97082,
+        "sha256": "f2146b9dc07e01fd1e9722f6af30da813df8a0a9f692e96850b73cc614f95b37"
+      },
+      {
+        "file": "/trip/assets/bkk-canal-mother-kids-640.webp",
+        "bytes": 49400,
+        "sha256": "92c27bc142149ddc28c09e355e1d48d3d2e2aada3f468e9bec2d4baa485c3e02"
+      }
+    ]
+  },
+  {
+    "id": "bkk-safari-family",
+    "source": "Hiram 提供的曼谷家庭照片（2026-09-27）",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "alt": "爸爸與孩子在 Safari World 長頸鹿平台，兩隻長頸鹿靠近欄杆",
+    "section": "safari",
+    "photoNumber": 7,
+    "originalSha256": "17c5ca38601a0d83df2ada182813cd86953f96c4fecdfe5c94041bc52e46ada2",
+    "originalBytes": 364769,
+    "width": 1023,
+    "height": 1280,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-safari-family.webp",
+        "bytes": 167356,
+        "sha256": "f6b8a73f2635cb815971241a895254ac6b1d5a99c11cf342e69d5fbfb1ba9e26"
+      },
+      {
+        "file": "/trip/assets/bkk-safari-family-640.webp",
+        "bytes": 69964,
+        "sha256": "321fb95f8a93a49e34f9c9970065b5eb6baef3ae9bb58e1d920b0fca891ece7c"
+      },
+      {
+        "file": "/trip/assets/bkk-safari-family-960.webp",
+        "bytes": 120324,
+        "sha256": "8aea7abe2bf6c5f7ec665bdfcc1790d68cd17a071097bbe632e6a548af873f68"
+      }
+    ]
+  },
+  {
+    "id": "bkk-sealife-boat-kids",
+    "source": "Hiram 提供的曼谷家庭照片（2026-09-27）",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "alt": "兩個孩子穿著橘色救生衣，坐在 SEA LIFE 的玻璃底船上",
+    "section": "indoors",
+    "photoNumber": 8,
+    "originalSha256": "e10f450b51a08de36de3a1bab411f2267a12b840d8c0da7a897fd4708908b37c",
+    "originalBytes": 229006,
+    "width": 1023,
+    "height": 1280,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-sealife-boat-kids.webp",
+        "bytes": 86740,
+        "sha256": "fdb4d7e213dbf99ef627b4312ec161c7eb3954cd965de982498a4681572eaa34"
+      },
+      {
+        "file": "/trip/assets/bkk-sealife-boat-kids-640.webp",
+        "bytes": 43014,
+        "sha256": "173e8fa49929684ba35f2083b536f4c165f7f04fa8af3b50b83e9b9fe34fb1e2"
+      },
+      {
+        "file": "/trip/assets/bkk-sealife-boat-kids-960.webp",
+        "bytes": 65790,
+        "sha256": "23d48cef67c4948b6435dc3818cbc0cd813785d6f2eaf0de3677547fe1bf0d96"
+      }
+    ]
+  },
+  {
+    "id": "bkk-city-stroller",
+    "source": "Hiram 提供的曼谷家庭照片（2026-09-27）",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "alt": "媽媽推著嬰兒車，與兩個孩子走在曼谷市區人行道上",
+    "section": "practical",
+    "photoNumber": 9,
+    "originalSha256": "956ba7e30900f9adb267dfe663e3d48ffefbb00fef34557ea7af9e3e6c510c9b",
+    "originalBytes": 283354,
+    "width": 960,
+    "height": 1280,
+    "variants": [
+      {
+        "file": "/trip/assets/bkk-city-stroller.webp",
+        "bytes": 110424,
+        "sha256": "914de4ec00f111f42791c0ba3c338d2b33c2f45d130f5a587c8370d9f12f8162"
+      },
+      {
+        "file": "/trip/assets/bkk-city-stroller-640.webp",
+        "bytes": 51162,
+        "sha256": "d7faf74715fd02a9b36b153bd1d77115d75cc0df85be0ab3e65a1516a5a61116"
+      }
+    ]
+  },
+  {
     "id": "bkk-safari-giraffes",
     "source": "https://www.youtube.com/watch?v=F5cQv1yS69g&t=670s",
     "kind": "owned-video-frame",

@@ -1,5 +1,5 @@
 export const cities = [
-  {id:'bangkok',name:'曼谷',en:'BANGKOK',number:'01',image:'bkk-aquarium-reef',guide:'/trip/guides/bangkok-with-kids/',tag:'市集・水族館・河畔夜晚',title:'白天看魚，晚上遇見恐龍',intro:'從恰圖恰的小店逛到 SEA LIFE，再把侏羅紀世界和河畔晚餐排進另一段。喜歡都市裡豐富的選擇，就從曼谷開始。',area:'中部・城市旅行',pace:'市區搭配一個郊區日',x:45,y:45,point:[100.5018,13.7563]},
+  {id:'bangkok',name:'曼谷',en:'BANGKOK',number:'01',image:'bkk-bangkok-family',guide:'/trip/guides/bangkok-with-kids/',tag:'市集・運河搭船・河畔夜晚',title:'白天看魚，晚上遇見恐龍',intro:'搭長尾船看水岸生活，逛恰圖恰、SEA LIFE，再把侏羅紀世界和河畔晚餐排進另一段。喜歡都市裡豐富的選擇，就從曼谷開始。',area:'中部・城市旅行',pace:'市區搭配一個郊區日',x:45,y:45,point:[100.5018,13.7563]},
   {id:'chiang-mai',name:'清邁',en:'CHIANG MAI',number:'02',image:'cm-thai-dress-family',guide:'/trip/guides/chiang-mai-with-kids/',tag:'古城泰服・市集・造紙手作',title:'換上泰服，走進古城與小店',intro:'在塔佩門拍全家照，週末到真心市集吃早餐，再安排一段纖維造紙體驗。喜歡手作、逛街和咖啡廳，清邁有很多玩法。',area:'北部・古城與手作',pace:'古城、寧曼與郊區分日',x:32,y:16,point:[98.9853,18.7883]},
   {id:'chiang-rai',name:'清萊',en:'CHIANG RAI',number:'03',image:'cr-white-temple',guide:'/trip/guides/chiang-rai-with-kids/',tag:'白廟・瀑布花園・山景羊群',title:'走進白色寺院，再去山裡看羊',intro:'白廟的建築細節、Lalitta 的瀑布花園，還有 Akha FarmVille 的羊群與山景。景點散在不同方向，選好區域，就能玩得更順。',area:'北部・建築與山景',pace:'南側景點、市區與山區分開',x:39,y:8,point:[99.8325,19.9105]}
 ];

@@ -11,7 +11,7 @@ const pic=(id,hero=false)=>{
 };
 const refs=[
  ['bangkok','market','market'],['chiang-mai','thai-costume','craft'],['chiang-rai','white','scenery'],
- ['bangkok','indoors','family'],['chiang-mai','paper','craft'],['chiang-rai','akha','scenery'],
+ ['bangkok','canal','family'],['bangkok','indoors','family'],['chiang-mai','paper','craft'],['chiang-rai','akha','scenery'],
  ['bangkok','jurassic','family'],['chiang-mai','jingjai','market'],['chiang-rai','lalitta','scenery'],
  ['bangkok','asiatique','market'],['chiang-mai','elefin','family'],['chiang-rai','night-market','market']
 ];
@@ -22,7 +22,7 @@ export const hubPlaces=refs.map(([city,anchor,theme])=>{
  return {...p,city,anchor,theme};
 });
 const cityLinks=()=>cities.map(c=>`<a href="${c.guide}">${c.name}完整攻略 ↗</a>`).join('');
-export const thailandAssets=`<link rel="stylesheet" href="/trip/thailand-hub.css?v=20260927-1"><script type="module" src="/trip/thailand-hub.mjs?v=20260927-1"></script>${plannerAssets}`;
+export const thailandAssets=`<link rel="stylesheet" href="/trip/thailand-hub.css?v=20260927-photos-1"><script type="module" src="/trip/thailand-hub.mjs?v=20260927-1"></script>${plannerAssets}`;
 export function thailandHub(){return `<main id="main" class="th-hub">
  <header class="th-intro wrap"><nav class="breadcrumbs" aria-label="麵包屑"><a href="/trip/">遠行所</a> / <span aria-current="page">泰國</span></nav><div class="th-heading"><div><p class="eyebrow"><b>TH</b> / THREE CITIES, YOUR WAY</p><h1>泰國，這次想去哪裡？</h1></div><p>曼谷、清邁、清萊。<br>點地圖找城市，看照片挑玩法。</p></div></header>
  <section class="th-atlas wrap" id="atlas" aria-label="泰國三城互動地圖">

@@ -25,7 +25,7 @@ test('Pace changes viable allocations; empty and malicious hash values normalize
  assert.deepEqual(allocateTrip({selected:cities.map(c=>c.id),first:'chiang-mai',days:10}).stops.map(s=>s.id),['chiang-mai','chiang-rai','bangkok']);
 });
 test('Thailand cards resolve to existing city guide anchors and photos',()=>{
- assert.equal(hubPlaces.length,12);
+ assert.equal(hubPlaces.length,13);
  for(const p of hubPlaces){const c=cities.find(c=>c.id===p.city);const html=readFileSync(new URL('..'+c.guide+'index.html',import.meta.url),'utf8');assert.ok(html.includes(`id="${p.anchor}"`),p.anchor);assert.ok(existsSync(new URL('../trip/assets/'+p.image+'.webp',import.meta.url)));}
 });
 test('Country hub has static crawlable links, one priority image and late planner',()=>{

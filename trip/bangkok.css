@@ -93,3 +93,14 @@
  .bkk-guide .prose .bkk-day>.route-description{margin-left:16px;margin-right:16px}
 }
 @media(max-width:340px){.bkk-overview strong{font-size:14px}.bkk-overview-copy>span{font-size:12px}}
+/* Family photographs keep their full portrait composition, including children's faces. */
+.bkk-guide .bkk-hero{grid-template-columns:minmax(0,1fr) minmax(0,1fr);grid-template-rows:250px 250px}
+.bkk-guide .bkk-hero-main img{object-fit:contain;background:#f2eee5}
+.bkk-guide .prose .bkk-portrait-lead{max-width:360px;margin:24px auto}
+.bkk-guide .prose .bkk-portrait-lead img{width:100%;height:auto;aspect-ratio:var(--photo-ratio)}
+.bkk-guide .prose .bkk-photo-gallery{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;align-items:start}
+.bkk-guide .prose .bkk-photo-gallery img{width:100%;height:auto;aspect-ratio:var(--photo-ratio);object-fit:contain}
+.bkk-guide .prose .bkk-photo-gallery.single{grid-template-columns:1fr;max-width:360px;margin-inline:auto}
+.bkk-practical-photo{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:24px;align-items:start}
+.bkk-guide .bkk-practical-photo img{width:100%;height:auto;aspect-ratio:var(--photo-ratio)}
+@media(max-width:700px){.bkk-guide .bkk-hero{grid-template-columns:1fr 1fr;grid-template-rows:340px 130px}.bkk-practical-photo{grid-template-columns:1fr}.bkk-practical-photo figure{max-width:300px;margin-inline:auto}.bkk-guide .prose .bkk-photo-gallery figcaption{font-size:12px;line-height:1.6}}

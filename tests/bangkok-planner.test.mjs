@@ -29,22 +29,22 @@ test('replacing an existing route swaps days without duplicate stops or input mu
  assert.throws(()=>replaceDay(['chatuchak'],2,'siam',config),RangeError);
  assert.throws(()=>replaceDay(['chatuchak'],0,'missing',config),RangeError);
 });
-test('visual overview has eight source-bound responsive thumbnails and concise copy',()=>{
+test('visual overview has nine source-bound responsive thumbnails and concise copy',()=>{
  const html=read('trip/guides/bangkok-with-kids/index.html');
  const overview=html.match(/<div class="bkk-overview">([\s\S]*?)<div class="actions">/)[1];
- assert.equal((overview.match(/<img /g)||[]).length,8);
+ assert.equal((overview.match(/<img /g)||[]).length,9);
  for(const p of bangkokCatalog.places){
   assert.ok(overview.includes(`href="#${p.anchor}"`));
   assert.ok(overview.includes(`/trip/assets/${p.image}-640.webp 640w`));
  }
- assert.equal((overview.match(/loading="lazy"/g)||[]).length,8);
- assert.equal((overview.match(/sizes="\(max-width:700px\) 44vw, 200px"/g)||[]).length,8);
+ assert.equal((overview.match(/loading="lazy"/g)||[]).length,9);
+ assert.equal((overview.match(/sizes="\(max-width:700px\) 44vw, 200px"/g)||[]).length,9);
 });
 test('planner is above long guides and has a readable collapsed no-JavaScript fallback',()=>{
  const html=read('trip/guides/bangkok-with-kids/index.html');
  assert.ok(html.indexOf('<section id="plan"')<html.indexOf('<section id="market"'));
  const details=[...html.matchAll(/<details class="bkk-day"[^>]*>/g)];
- assert.equal(details.length,5);
+ assert.equal(details.length,6);
  for(const [tag] of details){assert.doesNotMatch(tag,/\bhidden\b|\bopen\b/);}
  assert.match(html,/class="bkk-planner-controls" hidden/);
  assert.doesNotMatch(html,/class="bkk-combinations"/);
@@ -94,7 +94,7 @@ test('every attraction timeline stop displays checked opening guidance and a dir
  for(const place of bangkokCatalog.places){
   assert.ok(place.plannerHours,`${place.anchor} missing planning hours`);
   assert.ok(place.sources.length,`${place.anchor} missing time source`);
-  assert.ok(html.includes(`query=${encodeURIComponent(place.mapsQuery)}`));
+  assert.ok(html.includes(place.mapsUrl?.replaceAll('&','&amp;')||`query=${encodeURIComponent(place.mapsQuery)}`));
   assert.ok(html.includes(`開放參考：${place.plannerHours}`));
  }
  for(const route of config.routes){

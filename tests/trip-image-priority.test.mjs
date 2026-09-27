@@ -12,8 +12,8 @@ const pages=[
  ['trip/new-zealand/akaroa/index.html','nz-farm'],
  ['trip/new-zealand/christchurch/3-days/index.html','nz-christchurch-tram'],
  ['trip/thailand/index.html','thailand-atlas'],
- ['trip/thailand/bangkok/index.html','bkk-aquarium-reef'],
- ['trip/guides/bangkok-with-kids/index.html','bkk-aquarium-reef'],
+ ['trip/thailand/bangkok/index.html','bkk-bangkok-family'],
+ ['trip/guides/bangkok-with-kids/index.html','bkk-bangkok-family'],
  ['trip/guides/chiang-mai-with-kids/index.html','cm-thai-dress-family'],
  ['trip/thailand/chiang-mai/index.html','cm-thai-dress-family'],
  ['trip/guides/chiang-rai-with-kids/index.html','cr-lalitta-garden'],
@@ -46,5 +46,5 @@ test('Bangkok guide holds adjacent hero tiles below the main image and defers th
  assert.equal((hero.match(/loading="eager" fetchpriority="high"/g)||[]).length,1);
  assert.equal((hero.match(/loading="eager" fetchpriority="low"/g)||[]).length,2);
  const overview=html.match(/<div class="bkk-overview">([\s\S]*?)<\/div>/)[1];
- assert.equal((overview.match(/loading="lazy" fetchpriority="low"/g)||[]).length,8);
+ assert.equal((overview.match(/loading="lazy" fetchpriority="low"/g)||[]).length,9);
 });

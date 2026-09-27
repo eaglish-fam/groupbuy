@@ -4,7 +4,9 @@ import {readFileSync} from 'node:fs';
 export const bangkokCatalog=JSON.parse(readFileSync(new URL('../trip/data/bangkok-places.json',import.meta.url)));
 export const bangkokGuide='/trip/guides/bangkok-with-kids/';
 export const esc=s=>String(s).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
+const uploadedPhotos=JSON.parse(readFileSync(new URL('../trip/data/bangkok-photos.json',import.meta.url)));
 export const media={
+ ...Object.fromEntries(uploadedPhotos.map(p=>[p.id,p])),
  'bkk-safari-giraffes':{video:'F5cQv1yS69g',second:670,width:1280,height:720,alt:'Safari World 的長頸鹿靠近參觀平台，能看清楚臉部和花紋',caption:'Safari World 的長頸鹿。近距離活動須依現場工作人員指示。',crop:[0,0,1280,720]},
  'bkk-safari-drive':{video:'F5cQv1yS69g',second:790,width:1280,height:620,alt:'從遊覽車窗看 Safari World 草地與開放區域中的犀牛',caption:'車遊區的動物與景觀，參觀途中不要任意下車。',crop:[0,0,1280,620]},
  'bkk-jurassic-dinosaur':{video:'F5cQv1yS69g',second:1645,width:1280,height:720,alt:'曼谷侏羅紀世界體驗裡，巨大的恐龍探向叢林步道',caption:'近距離看大型恐龍造景，是這項體驗的重點之一。',crop:[0,0,1280,720]},
@@ -23,15 +25,18 @@ export const media={
 };
 const sceneSources=(id,{card=false,thumbnail=false}={})=>{
  const m=media[id];if(!m)throw new Error(`Unknown Bangkok media: ${id}`);
- return {m,srcset:`/trip/assets/${id}-640.webp 640w, /trip/assets/${id}-960.webp 960w, /trip/assets/${id}.webp ${m.width||1440}w`,sizes:thumbnail?'(max-width:700px) 44vw, 200px':card?'(max-width:700px) 90vw, 380px':'(max-width:700px) 90vw, 760px'};
+ const width=m.width||1440;
+ const srcset=[...[640,960].filter(w=>w<width).map(w=>`/trip/assets/${id}-${w}.webp ${w}w`),`/trip/assets/${id}.webp ${width}w`].join(', ');
+ return {m,srcset,sizes:thumbnail?'(max-width:700px) 44vw, 200px':card?'(max-width:700px) 90vw, 380px':'(max-width:700px) 90vw, 760px'};
 };
-export function scene(id,{priority=false,card=false,thumbnail=false}={}){
+export function scene(id,{priority=false,card=false,thumbnail=false,sizes:responsiveSizes}={}){
  const {m,srcset,sizes}=sceneSources(id,{card,thumbnail});
  // Only the main visual competes at high priority; adjacent hero tiles stay eager but low.
  const delivery=priority?(card?'loading="eager" fetchpriority="low"':'loading="eager" fetchpriority="high"'):'loading="lazy" fetchpriority="low"';
- return `<img src="/trip/assets/${id}.webp" srcset="${srcset}" sizes="${sizes}" alt="${esc(m.alt)}" width="${m.width||1440}" height="${m.height}" ${delivery} decoding="async">`;
+ return `<img${m.portrait?` class="bkk-portrait" style="--photo-ratio:${m.width}/${m.height}"`:''} src="/trip/assets/${id}.webp" srcset="${srcset}" sizes="${responsiveSizes||sizes}" alt="${esc(m.alt)}" width="${m.width||1440}" height="${m.height}" ${delivery} decoding="async">`;
 }
 const overviewLabels={
+ canal:['空邦龍水上市集','運河搭船・看金色大佛','搭船加散步約半日'],
  market:['恰圖恰週末市集','逛小店・吃小吃','約 1.5～2 小時'],
  museum:['兒童探索博物館','攀爬・玩沙','約 1.5～2 小時'],
  indoors:['SEA LIFE 水族館','看魚・玻璃底船','約 2～3 小時'],
@@ -46,12 +51,15 @@ export function overviewCard(p){
  return `<a href="#${p.anchor}" data-place-ref="${p.id}">${scene(p.image,{thumbnail:true})}<span class="bkk-overview-copy"><strong>${esc(name)}</strong><span>${esc(activity)}</span><small>${esc(duration)}</small></span></a>`;
 }
 export const external=(url,label,cls='text-link',affiliate=false)=>`<a class="${cls}" href="${esc(url)}" target="_blank" rel="${affiliate?'sponsored ':''}noopener">${esc(label)} ↗</a>`;
-export const maps=p=>external('https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.mapsQuery),'Google Maps','button outline');
+export const maps=p=>external(p.mapsUrl||'https://www.google.com/maps/search/?api=1&query='+encodeURIComponent(p.mapsQuery),'Google Maps','button outline');
 export const film=(second,label='看我們的體驗片段',video=bangkokCatalog.video)=>external(video+`&t=${second}s`,label);
 export function placeCard(p){
  return `<article class="place-card" data-place-id="${p.id}">${scene(p.image,{card:true})}<div class="place-copy"><p class="eyebrow">${p.area} <span class="origin-tag">我們去過</span></p><h3><a href="${bangkokGuide}#${p.anchor}">${p.name}</a></h3><p>${p.summary}</p><p class="place-facts">${p.duration}<br>${p.weather}</p><div class="actions">${maps(p)}<a class="text-link" href="${bangkokGuide}#${p.anchor}">看景點攻略 ↓</a></div></div></article>`;
 }
 export function cardsSection(){return `<section class="section wrap" id="places"><p class="eyebrow"><b>01</b> / BANGKOK PLACES</p><h2>${bangkokCatalog.places.length} 個實訪地點，挑喜歡的排進行程</h2><p class="section-intro">恰圖恰、Siam、河畔與郊區分開安排。先看玩法、停留時間與雨天條件，再搭配適合的日程。</p><div class="place-grid">${bangkokCatalog.places.map(placeCard).join('')}</div></section>`;}
+export function gallery(ids){
+ return [false,true].map(portrait=>{const group=ids.filter(id=>!!media[id].portrait===portrait);return group.length?`<div class="bkk-gallery ${portrait?'bkk-photo-gallery':''} ${group.length===1?'single':''}">${group.map(id=>`<figure>${scene(id,{sizes:group.length>1?'(max-width:700px) 44vw, 370px':portrait?'(max-width:700px) 90vw, 360px':undefined})}<figcaption>${media[id].caption}</figcaption></figure>`).join('')}</div>`:'';}).join('');
+}
 export function placeSection(p,index){
- return `<section id="${p.anchor}" data-place-id="${p.id}"><p class="eyebrow"><b>${String(index+1).padStart(2,'0')}</b> <span>/ ${esc(p.englishName.split(' · ')[0].toUpperCase())}</span></p><h2>${p.name}</h2><p class="place-english">${p.englishName}</p><p>${p.intro}</p><figure>${scene(p.image)}<figcaption>${media[p.image].caption}</figcaption></figure><dl class="bkk-facts"><div><dt>建議停留</dt><dd>${p.duration}</dd></div><div><dt>開放時間</dt><dd>${p.hours}</dd></div><div><dt>怎麼去</dt><dd>${p.transport}</dd></div><div><dt>雨天安排</dt><dd>${p.weather}</dd></div></dl>${p.activities.map(a=>`<h3>${a.title}</h3><p>${a.text}</p>`).join('')}<div class="bkk-gallery ${p.gallery.length===1?'single':''}">${p.gallery.map(id=>`<figure>${scene(id)}<figcaption>${media[id].caption}</figcaption></figure>`).join('')}</div><aside class="bkk-experience"><h3>我們在這裡的小故事</h3><p>${p.experience}</p></aside><p class="bkk-tip"><strong>出發前準備：</strong>${p.tip}</p><div class="actions">${maps(p)}${film(p.videoSeconds,'看我們的體驗片段',p.video||bangkokCatalog.video)}</div>${p.booking.length?`<aside class="bkk-booking"><h3>想去 ${p.name}？先看日期與方案</h3><p>${p.bookingIntro||'確認入場日、旅客身分與包含項目，再比較總價。'}</p><div class="actions">${p.booking.map(b=>external(b.url,b.label,'button',b.affiliate)).join('')}</div><p class="affiliate-note">本文的 Klook／KKday 連結為聯盟連結；透過連結購買，我們可能獲得佣金。價格與方案依預訂頁顯示。</p></aside>`:''}<details class="bkk-sources"><summary>查看營業與參觀資訊來源</summary><p>行前資訊核對：${bangkokCatalog.checkedAt}。臨時休館、活動場次與票券條件，請在出發前再次確認。</p><div class="actions">${p.sources.map(s=>external(s.url,s.label)).join('')}</div></details></section>`;
+ return `<section id="${p.anchor}" data-place-id="${p.id}"><p class="eyebrow"><b>${String(index+1).padStart(2,'0')}</b> <span>/ ${esc(p.englishName.split(' · ')[0].toUpperCase())}</span></p><h2>${p.name}</h2><p class="place-english">${p.englishName}</p><p>${p.intro}</p><figure class="${media[p.image].portrait?'bkk-portrait-lead':'bkk-landscape-lead'}">${scene(p.image)}<figcaption>${media[p.image].caption}</figcaption></figure><dl class="bkk-facts"><div><dt>建議停留</dt><dd>${p.duration}</dd></div><div><dt>開放時間</dt><dd>${p.hours}</dd></div><div><dt>怎麼去</dt><dd>${p.transport}</dd></div><div><dt>雨天安排</dt><dd>${p.weather}</dd></div></dl>${p.activities.map(a=>`<h3>${a.title}</h3><p>${a.text}</p>`).join('')}${gallery(p.gallery)}<aside class="bkk-experience"><h3>我們在這裡的小故事</h3><p>${p.experience}</p></aside><p class="bkk-tip"><strong>出發前準備：</strong>${p.tip}</p><div class="actions">${maps(p)}${film(p.videoSeconds,'看我們的體驗片段',p.video||bangkokCatalog.video)}</div>${p.booking.length?`<aside class="bkk-booking"><h3>想去 ${p.name}？先看日期與方案</h3><p>${p.bookingIntro||'確認入場日、旅客身分與包含項目，再比較總價。'}</p><div class="actions">${p.booking.map(b=>external(b.url,b.label,'button',b.affiliate)).join('')}</div><p class="affiliate-note">本文的 Klook／KKday 連結為聯盟連結；透過連結購買，我們可能獲得佣金。價格與方案依預訂頁顯示。</p></aside>`:''}<details class="bkk-sources"><summary>查看營業與參觀資訊來源</summary><p>行前資訊核對：${p.checkedAt||bangkokCatalog.checkedAt}。臨時休館、活動場次與票券條件，請在出發前再次確認。</p><div class="actions">${p.sources.map(s=>external(s.url,s.label)).join('')}</div></details></section>`;
 }
