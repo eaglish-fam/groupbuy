@@ -8,6 +8,14 @@ import {resizePlan,replaceDay} from '../trip/bangkok-planner-model.mjs';
 import {stopOwners} from '../trip/chiang-rai-planner-model.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const rai=read('trip/guides/chiang-rai-with-kids/index.html'),mai=read('trip/guides/chiang-mai-with-kids/index.html');
+test('all travel planners use the same concise pace labels',()=>{
+ for(const page of [rai,mai,read('trip/guides/bangkok-with-kids/index.html')]){
+  assert.match(page,/<strong>悠閒<\/strong>/);
+  assert.match(page,/<strong>緊湊<\/strong>/);
+  assert.doesNotMatch(page,/悠閒散步/);
+ }
+ assert.doesNotMatch(read('trip/chiang-rai-planner.mjs'),/悠閒散步/);
+});
 test('all twelve authorized IG sources have a published destination, without merging cities',()=>{
  for(const id of ['Cty2vosvqnC','CtMUIiRolk0','CtO76HQqqiS','CtRl60VqJsW','CtULGSfIBUl','CtWhiJTo1US','CtZNwWZIyEy','CtbnQYoIEoS','CteLPMDIv6H','CtjX3L2odHj','CtorBSRIG3-','CtwJqqsoTDe'])assert.ok((rai+mai).includes(id),id);
  assert.match(rai,/Rdu6QhsPYPgTUfVV6/);

@@ -10,7 +10,7 @@ if(root){
   const owners=stopOwners(plan,pace,config);
   for(const id of plan){const panel=root.querySelector(`[data-route="${id}"]`);for(const li of panel.querySelectorAll(`[data-pace="${pace}"] li[data-place]`)){const repeated=owners[li.dataset.place]!==id;li.querySelector('[data-visit]').hidden=repeated;li.querySelector('[data-repeat]').hidden=!repeated;}}
   root.querySelectorAll('[data-route]').forEach(p=>{p.hidden=p.dataset.route!==plan[active];p.open=!p.hidden;p.querySelectorAll('[data-pace]').forEach(v=>{v.hidden=v.dataset.pace!==pace;if(v.tagName==='DETAILS')v.open=!v.hidden;});});
-  status.textContent=`${plan.length} 天 · ${pace==='relaxed'?'悠閒散步':'緊湊'} · 正在看第 ${active+1} 天。重複景點已換成休息／附近用餐；營業與接待請行前另確認。`;
+  status.textContent=`${plan.length} 天 · ${pace==='relaxed'?'悠閒':'緊湊'} · 正在看第 ${active+1} 天。重複景點已換成休息／附近用餐；營業與接待請行前另確認。`;
  }
  days.onchange=()=>{plan=resizePlan(plan,Number(days.value),config);active=Math.min(active,plan.length-1);render();};
  route.onchange=()=>{plan=replaceDay(plan,active,route.value,config);render();};

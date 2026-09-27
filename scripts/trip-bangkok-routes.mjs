@@ -19,7 +19,7 @@ export function routeSection(){
  <div class="bkk-planner-controls" hidden>
  <label for="bkk-days">① 這趟有幾個遊玩日？</label><select id="bkk-days" aria-describedby="bkk-days-help">${bangkokRoutes.combinations.map(c=>`<option value="${c.days}">${c.days} 天${c.days===5?'（含機場區半日，可替換）':''}</option>`).join('')}</select>
  <p id="bkk-days-help" class="bkk-control-help">不含抵達、離境日。先給你一組按區域安排的建議，可以繼續調整。</p>
- <fieldset class="bkk-pace" aria-describedby="bkk-pace-help"><legend>② 這趟想走什麼步調？</legend><div class="bkk-pace-options"><label class="bkk-pace-option"><input type="radio" name="bkk-pace" value="relaxed" checked><span><strong>悠閒散步</strong><small>每區留休息時間</small></span></label><label class="bkk-pace-option"><input type="radio" name="bkk-pace" value="compact"><span><strong>緊湊</strong><small>多看一站或晚間延伸</small></span></label></div></fieldset>
+ <fieldset class="bkk-pace" aria-describedby="bkk-pace-help"><legend>② 這趟想走什麼步調？</legend><div class="bkk-pace-options"><label class="bkk-pace-option"><input type="radio" name="bkk-pace" value="relaxed" checked><span><strong>悠閒</strong><small>每區留休息時間</small></span></label><label class="bkk-pace-option"><input type="radio" name="bkk-pace" value="compact"><span><strong>緊湊</strong><small>多看一站或晚間延伸</small></span></label></div></fieldset>
  <p id="bkk-pace-help" class="bkk-control-help">緊湊版會改變當天時間表；侏羅紀可排晚場，同趟只安排一次。Safari World 仍只排白天，機場區須先看班機時間。</p>
  <p class="bkk-control-label">③ 點選一天，看當天怎麼玩</p><div class="bkk-day-switcher" role="group" aria-label="選擇要查看的遊玩日"></div>
  <label for="bkk-route-choice">④ 想換玩法？替換這一天的區域</label><select id="bkk-route-choice" aria-describedby="bkk-route-help">${config.routes.map(r=>`<option value="${r.id}">${esc(r.label)}</option>`).join('')}</select>
