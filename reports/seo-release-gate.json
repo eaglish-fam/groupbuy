@@ -102,7 +102,7 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/index.html",
-      "index": 23955
+      "index": 24007
     },
     {
       "level": "warn",

@@ -1,3 +1,4 @@
+export const country = {name:'泰國',englishName:'Thailand',flag:'🇹🇭',overviewLabel:'旅行總覽'};
 export const cities = [
   {id:'bangkok',name:'曼谷',en:'BANGKOK',number:'01',image:'bkk-bangkok-family',guide:'/trip/guides/bangkok-with-kids/',tag:'市集・運河搭船・河畔夜晚',title:'白天看魚，晚上遇見恐龍',intro:'搭長尾船看水岸生活，逛恰圖恰、SEA LIFE，再把侏羅紀世界和河畔晚餐排進另一段。喜歡都市裡豐富的選擇，就從曼谷開始。',area:'中部・城市旅行',pace:'市區搭配一個郊區日',x:45,y:45,point:[100.5018,13.7563]},
   {id:'chiang-mai',name:'清邁',en:'CHIANG MAI',number:'02',image:'cm-thai-dress-family',guide:'/trip/guides/chiang-mai-with-kids/',tag:'古城泰服・市集・造紙手作',title:'換上泰服，走進古城與小店',intro:'在塔佩門拍全家照，週末到真心市集吃早餐，再安排一段纖維造紙體驗。喜歡手作、逛街和咖啡廳，清邁有很多玩法。',area:'北部・古城與手作',pace:'古城、寧曼與郊區分日',x:32,y:16,point:[98.9853,18.7883]},

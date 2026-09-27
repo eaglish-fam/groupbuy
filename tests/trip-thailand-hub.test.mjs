@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
-import {cities,allocateTrip,stateFromHash,shareHash} from '../trip/thailand-model.mjs';
+import {country,cities,allocateTrip,stateFromHash,shareHash} from '../trip/thailand-model.mjs';
 import {hubPlaces} from '../scripts/trip-thailand-hub.mjs';
 test('Thailand planner accounts for every day without duplicate cities',()=>{
  for(const selected of [[cities[0].id],['chiang-mai','chiang-rai'],cities.map(c=>c.id)])for(const first of selected)for(const pace of ['relaxed','compact'])for(let days=3;days<=14;days++){
@@ -36,4 +36,16 @@ test('Country hub has static crawlable links, one priority image and late planne
  assert.equal((html.match(/<img[^>]+fetchpriority="high"/g)||[]).length,1);
  assert.ok(html.indexOf('id="plan"')>html.indexOf('id="faq"'));
  assert.ok(!html.includes('悠閒散步'));
+});
+test('Country heading and overview navigation are not tied to the city count',()=>{
+ const html=readFileSync(new URL('../trip/thailand/index.html',import.meta.url),'utf8');
+ assert.ok(html.includes(`<span aria-hidden="true">${country.flag}</span> <span lang="en">${country.englishName}</span>`));
+ assert.ok(html.includes(`data-city="all" aria-current="true">${country.overviewLabel}</a>`));
+ assert.ok(!html.includes('三城一覽'));
+ assert.ok(!html.includes('THREE CITIES, YOUR WAY'));
+});
+test('Timeline dots and connectors share one horizontal center axis',()=>{
+ const css=readFileSync(new URL('../trip/thailand-hub.css',import.meta.url),'utf8');
+ assert.match(css,/\.th-trip-line li:before,\.th-trip-line li:after\{[^}]*left:var\(--timeline-axis\);transform:translateX\(-50%\)/);
+ assert.match(css,/\.th-trip-line li:last-child:after\{display:none\}/);
 });

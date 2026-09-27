@@ -1,5 +1,5 @@
 import {readFileSync} from 'node:fs';
-import {cities,themes} from '../trip/thailand-model.mjs';
+import {country,cities,themes} from '../trip/thailand-model.mjs';
 import {bangkokCatalog,scene,esc} from './trip-bangkok-places.mjs';
 import {catalog as cm,image as cmImage} from './trip-chiang-mai.mjs';
 import {northImage} from './trip-north-media.mjs';
@@ -22,12 +22,12 @@ export const hubPlaces=refs.map(([city,anchor,theme])=>{
  return {...p,city,anchor,theme};
 });
 const cityLinks=()=>cities.map(c=>`<a href="${c.guide}">${c.name}完整攻略 ↗</a>`).join('');
-export const thailandAssets=`<link rel="stylesheet" href="/trip/thailand-hub.css?v=20260927-photos-1"><script type="module" src="/trip/thailand-hub.mjs?v=20260927-1"></script>${plannerAssets}`;
+export const thailandAssets=`<link rel="stylesheet" href="/trip/thailand-hub.css?v=20260927-polish-1"><script type="module" src="/trip/thailand-hub.mjs?v=20260927-polish-1"></script>${plannerAssets}`;
 export function thailandHub(){return `<main id="main" class="th-hub">
- <header class="th-intro wrap"><nav class="breadcrumbs" aria-label="麵包屑"><a href="/trip/">遠行所</a> / <span aria-current="page">泰國</span></nav><div class="th-heading"><div><p class="eyebrow"><b>TH</b> / THREE CITIES, YOUR WAY</p><h1>泰國，這次想去哪裡？</h1></div><p>曼谷、清邁、清萊。<br>點地圖找城市，看照片挑玩法。</p></div></header>
- <section class="th-atlas wrap" id="atlas" aria-label="泰國三城互動地圖">
+ <header class="th-intro wrap"><nav class="breadcrumbs" aria-label="麵包屑"><a href="/trip/">遠行所</a> / <span aria-current="page">${esc(country.name)}</span></nav><div class="th-heading"><div><p class="eyebrow th-country"><span aria-hidden="true">${esc(country.flag)}</span> <span lang="en">${esc(country.englishName)}</span></p><h1>${esc(country.name)}，這次想去哪裡？</h1></div><p>曼谷、清邁、清萊。<br>點地圖找城市，看照片挑玩法。</p></div></header>
+ <section class="th-atlas wrap" id="atlas" aria-label="${esc(country.name)}旅行互動地圖">
  <div class="th-map"><img src="/trip/assets/thailand-atlas.webp" srcset="/trip/assets/thailand-atlas-640.webp 640w, /trip/assets/thailand-atlas-960.webp 960w, /trip/assets/thailand-atlas.webp 1200w" sizes="(max-width:760px) 92vw, 560px" width="1200" height="1200" alt="泰國手繪旅行示意圖：清邁與清萊在北部，曼谷位於中部" decoding="async"><span class="th-map-caption">THAILAND<br><small>點一座城市，開始探索</small></span><div class="th-map-pins">${cities.map(c=>`<a href="#city-${c.id}" class="th-pin th-pin-${c.id}" data-city="${c.id}" style="--x:${c.x}%;--y:${c.y}%" aria-label="探索${c.name}"><i aria-hidden="true"></i><span>${c.name}<small>${c.en}</small></span></a>`).join('')}</div><span class="th-map-note">旅行位置示意</span></div>
- <div class="th-explorer"><div class="th-tabs" role="group" aria-label="選擇城市"><a href="#city-all" data-city="all" aria-current="true">三城一覽</a>${cities.map(c=>`<a href="#city-${c.id}" data-city="${c.id}">${c.name}</a>`).join('')}</div>
+ <div class="th-explorer"><div class="th-tabs" role="group" aria-label="選擇城市"><a href="#city-all" data-city="all" aria-current="true">${esc(country.overviewLabel)}</a>${cities.map(c=>`<a href="#city-${c.id}" data-city="${c.id}">${c.name}</a>`).join('')}</div>
  <div class="th-city-panel th-overview" id="city-all" data-city-panel="all"><div class="th-photo-trio">${cities.map(c=>`<a href="#city-${c.id}" data-city="${c.id}" aria-label="探索${c.name}">${pic(c.image,'trio')}<span>${c.name}</span></a>`).join('')}</div><div class="th-panel-copy"><p class="eyebrow">YOUR THAILAND NOTEBOOK</p><h2>三座城市，三種旅行靈感</h2><p>曼谷的水族館與河畔夜晚、清邁的古城與手作，清萊的白廟與山景。先挑一座，也可以把泰北兩城串起來。</p><a class="th-text-link" href="#experiences">看圖挑玩法 <span>↓</span></a></div></div>
  ${cities.map(c=>`<article hidden id="city-${c.id}" class="th-city-panel" data-city-panel="${c.id}"><div class="th-city-photo">${pic(c.image,true)}<span>${c.en} <b>${c.number}</b></span></div><div class="th-panel-copy"><p class="eyebrow">${c.area}</p><h2>${c.title}</h2><p>${c.intro}</p><div class="th-panel-actions"><a class="button" href="${c.guide}">看${c.name}攻略 ↗</a><a class="th-text-link" href="#experiences" data-explore-city="${c.id}">挑${c.name}景點 ↓</a></div></div></article>`).join('')}<p class="th-sr" id="th-city-status" role="status" aria-live="polite"></p></div></section><noscript><style>.thailand-page .th-city-panel[hidden]{display:block!important}</style></noscript>
  <section class="wrap th-compare" aria-label="曼谷清邁清萊玩法比較">${cities.map(c=>`<a href="/trip/thailand/${c.id}/"><span class="th-index">${c.number}</span><div><h2>${c.name} <small>${c.en}</small></h2><p>${c.tag}</p><span>${c.pace}・城市總覽 ↗</span></div></a>`).join('')}</section>

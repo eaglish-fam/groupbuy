@@ -6,7 +6,7 @@ if(root){
   if(!['all',...cities.map(c=>c.id)].includes(id))id='all';
   cityPanels.forEach(p=>p.hidden=p.dataset.cityPanel!==id);
   root.querySelectorAll('[data-city]').forEach(a=>{if(a.dataset.city===id)a.setAttribute('aria-current','true');else a.removeAttribute('aria-current');});
-  root.querySelector('#th-city-status').textContent=id==='all'?'顯示三城一覽':`已切換至${cities.find(c=>c.id===id).name}，照片與攻略在地圖旁或下方。`;
+  root.querySelector('#th-city-status').textContent=id==='all'?`顯示${root.querySelector('.th-tabs [data-city="all"]').textContent.trim()}`:`已切換至${cities.find(c=>c.id===id).name}，照片與攻略在地圖旁或下方。`;
   if(updateHash)history.replaceState(null,'',`#city-${id}`);
  }
  root.querySelectorAll('[data-city]').forEach(a=>a.addEventListener('click',e=>{if(e.metaKey||e.ctrlKey||e.shiftKey||e.altKey)return;e.preventDefault();chooseCity(a.dataset.city);if(matchMedia('(max-width:760px)').matches&&!a.closest('.th-tabs')){root.querySelector(`.th-tabs [data-city="${a.dataset.city}"]`)?.focus({preventScroll:true});root.querySelector('.th-explorer').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth',block:'start'});}}));
