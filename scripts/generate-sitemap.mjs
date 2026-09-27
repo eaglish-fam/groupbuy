@@ -14,6 +14,8 @@ const pages = [
   ...['new-zealand/','new-zealand/christchurch/','new-zealand/akaroa/','new-zealand/christchurch/3-days/','thailand/','thailand/bangkok/'].map(p=>({path:'/trip/'+p,file:'trip/'+p+'index.html'})),
   {path:'/trip/guides/bangkok-with-kids/',file:'trip/guides/bangkok-with-kids/index.html'},
   {path:'/trip/guides/chiang-mai-with-kids/',file:'trip/guides/chiang-mai-with-kids/index.html'},
+  {path:'/trip/guides/chiang-rai-with-kids/',file:'trip/guides/chiang-rai-with-kids/index.html'},
+  {path:'/trip/thailand/chiang-rai/',file:'trip/thailand/chiang-rai/index.html'},
   {path:'/trip/thailand/chiang-mai/',file:'trip/thailand/chiang-mai/index.html'},
   {path:'/trip/flights/',file:'trip/flights/index.html'},
   ...readdirSync(resolve(root,'blog'),{withFileTypes:true})

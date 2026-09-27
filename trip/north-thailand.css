@@ -1,0 +1,9 @@
+/* Vertical original Reels stay paired; no autoplay/embed weight. */
+.north-hero{max-width:720px;margin-inline:auto!important}
+.north-hero img{max-height:490px;object-fit:cover}
+.north-reel-pair img{aspect-ratio:9/16;object-fit:contain;background:#f2eee5}
+.cnx-guide .north-reel-pair{gap:14px}
+.cnx-guide .prose h4{color:#784b39;font-weight:700;border-left:3px solid #bb7658;padding-left:12px;margin-top:24px}
+[data-cei-planner] [role=status]{font-size:14px;color:#494139;line-height:1.8}
+[data-cei-planner] select{max-width:100%;min-width:0}
+@media(max-width:600px){.north-hero img{max-height:320px}.cnx-guide .north-reel-pair{gap:10px}}

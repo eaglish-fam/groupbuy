@@ -15,7 +15,9 @@ const pages=[
  ['trip/thailand/bangkok/index.html','bkk-aquarium-reef'],
  ['trip/guides/bangkok-with-kids/index.html','bkk-aquarium-reef'],
  ['trip/guides/chiang-mai-with-kids/index.html','cm-thai-dress-family'],
- ['trip/thailand/chiang-mai/index.html','cm-thai-dress-family']
+ ['trip/thailand/chiang-mai/index.html','cm-thai-dress-family'],
+ ['trip/guides/chiang-rai-with-kids/index.html','cr-lalitta-garden'],
+ ['trip/thailand/chiang-rai/index.html','cr-lalitta-garden']
 ];
 
 test('travel entry pages preload their first visual using the same responsive source as the image',()=>{

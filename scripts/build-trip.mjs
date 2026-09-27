@@ -2,6 +2,7 @@ import {writeFileSync,mkdirSync,readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {buildDestinations} from './build-trip-destinations.mjs';
+import {buildChiangRai} from './build-trip-chiang-rai.mjs';
 import {buildChiangMai} from './build-trip-chiang-mai.mjs';
 import {bangkokCatalog,bangkokGuide,scene,overviewCard,placeSection,film,esc,media} from './trip-bangkok-places.mjs';
 import {routeSection,rainSection} from './trip-bangkok-routes.mjs';
@@ -30,4 +31,5 @@ writeFileSync(resolve(root,'trip/guides/bangkok-with-kids/index.html'),prioritiz
 writeFileSync(resolve(root,'trip/assets/bkk-media.json'),JSON.stringify(Object.entries(media).map(([id,m])=>({id,source:(m.video?`https://www.youtube.com/watch?v=${m.video}`:bangkokCatalog.video)+`&t=${m.second}s`,kind:'owned-video-frame',creator:'鷹式一家',reviewedAt:bangkokCatalog.checkedAt,alt:m.alt,crop:m.crop||[0,0,1920,1080],width:m.width||1440,height:m.height,variants:['','-640','-960'].map(suffix=>{const file=`/trip/assets/${id}${suffix}.webp`,buffer=readFileSync(resolve(root,'.'+file));return {file,bytes:buffer.length,sha256:createHash('sha256').update(buffer).digest('hex')};})})),null,2)+'\n');
 buildDestinations(root);
 buildChiangMai(root);
+buildChiangRai(root);
 console.log('Built place-first Bangkok guide and shared destination cards.');
