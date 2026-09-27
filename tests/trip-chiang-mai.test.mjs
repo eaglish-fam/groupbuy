@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
+import {createHash} from 'node:crypto';
+import sharp from 'sharp';
 import {resolve} from 'node:path';
 import {catalog,routes} from '../scripts/trip-chiang-mai.mjs';
 import {dayOfTrip,available} from '../trip/chiang-mai-planner-model.mjs';
@@ -35,19 +37,19 @@ test('Chiang Mai plans are unique, do not auto-book elephant activities, and hav
  }
  assert.match(read('trip/chiang-mai-planner.mjs'),/週日紙園中文導覽不提供/);
 });
-test('one source catalog drives 7 reusable places, real media, maps and current source notes',()=>{
+test('one source catalog drives 8 reusable places, real media, maps and current source notes',()=>{
  const media=JSON.parse(read('trip/assets/chiang-mai-media.json'));
- assert.equal(catalog.places.length,7);assert.equal(media.length,11);
- assert.equal(new Set(catalog.places.map(p=>p.id)).size,7);
+ assert.equal(catalog.places.length,8);assert.equal(media.length,21);
+ assert.equal(new Set(catalog.places.map(p=>p.id)).size,8);
  for(const p of catalog.places){
   assert.match(html,new RegExp(`id="${p.anchor}" data-place-id="${p.id}"`));
   assert.ok(html.includes(encodeURIComponent(p.mapsQuery)));
-  assert.ok(p.sources.length);assert.ok(catalog.videos.some(v=>v.id===p.video));
+  assert.ok(p.sources.length);if(p.video)assert.ok(catalog.videos.some(v=>v.id===p.video));else assert.equal(p.anchor,'thai-costume');
   for(const id of p.gallery)assert.ok(media.some(m=>m.id===id));
  }
  for(const m of media){
-  assert.ok(catalog.videos.some(v=>v.id===m.video));assert.ok(m.second>=0);assert.ok(m.sha256);
-  for(const suffix of ['','-640','-960'])assert.ok(existsSync(resolve(root,`trip/assets/${m.id}${suffix}.webp`)));
+  if(m.kind==='owned-video-frame'){assert.ok(catalog.videos.some(v=>v.id===m.video));assert.ok(m.second>=0);}else assert.equal(m.kind,'user-supplied-photo');assert.ok(m.sha256);
+  for(const suffix of ['',...[640,960].filter(w=>w<m.width).map(w=>'-'+w)])assert.ok(existsSync(resolve(root,`trip/assets/${m.id}${suffix}.webp`)));
  }
  assert.equal(catalog.places.find(p=>p.anchor==='plane').hoursStatus,'confirm-before-going');
  assert.match(html,/rel="sponsored noopener"/);assert.match(html,/可能獲得佣金/);
@@ -64,4 +66,22 @@ test('Chiang Mai guide is discoverable and has accessible static content and str
  for(const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g))assert.ok(JSON.parse(match[1])['@type']);
  const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length);
  for(const match of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(match[1]),match[1]);
+});
+
+test('all ten supplied photos are visible in the guide, full-ratio originals are compressed and no EXIF leaks',async()=>{
+ const photos=JSON.parse(read('trip/assets/chiang-mai-media.json')).filter(m=>m.kind==='user-supplied-photo');
+ assert.deepEqual(photos.map(m=>m.attachmentNumber).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8,9,10]);
+ for(const p of photos){
+  assert.ok(html.includes(`src="/trip/assets/${p.id}.webp"`),p.id);
+  const buffer=readFileSync(resolve(root,`trip/assets/${p.id}.webp`));
+  assert.equal(createHash('sha256').update(buffer).digest('hex'),p.sha256);
+  const meta=await sharp(buffer).metadata();assert.ok(!meta.exif);assert.ok(buffer.length<200000);
+  assert.ok(Math.abs(meta.width/meta.height-p.originalWidth/p.originalHeight)<0.005);
+ }
+ const costume=catalog.places.find(p=>p.anchor==='thai-costume');
+ assert.ok(!costume.video);assert.match(costume.mapsLabel,/拍照地標/);
+ assert.match(costume.mapsContext,/不是.*店址/);
+ assert.equal(costume.hoursStatus,'provider-confirmation-required');
+ assert.ok(routes.routes.some(r=>r.id==='oldcity'&&r.steps.some(s=>s.anchor==='thai-costume')));
+ assert.doesNotMatch(html,/watch\?v=undefined|undefineds/);
 });

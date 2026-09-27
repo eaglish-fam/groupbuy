@@ -6,3 +6,9 @@
 .bkk-guide .cnx-city-grid .place-card{background:var(--bkk-paper);border-color:var(--bkk-rule)}
 /* Long destination TOC: keep the shared drawer, without a full-size flying copy. */
 .cnx-guide .reading-nav__flight{display:none}
+.cnx-guide .cnx-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start;margin-block:26px}
+.cnx-guide .cnx-gallery:empty{display:none}
+.cnx-guide .cnx-gallery figure{margin:0;min-width:0}
+.cnx-guide .cnx-gallery img{width:100%;height:auto}
+.cnx-guide .cnx-map-note{font-size:13px;color:var(--bkk-cocoa)}
+@media(max-width:500px){.cnx-guide .cnx-gallery{gap:12px}.cnx-guide .cnx-gallery figcaption{font-size:11px;line-height:1.7}}
