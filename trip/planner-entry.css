@@ -1,0 +1,26 @@
+.trip-plan-entry {
+  position: fixed;
+  right: max(12px, env(safe-area-inset-right));
+  bottom: calc(16px + env(safe-area-inset-bottom));
+  z-index: 30;
+  width: 58px;
+  height: 58px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  border: 1px solid #bb7658;
+  border-radius: 18px;
+  background: #faf7f0;
+  color: #784b39;
+  box-shadow: 0 3px 12px #49413920;
+  font: 700 14px/1.3 "Noto Sans TC", sans-serif;
+  text-decoration: none;
+}
+.trip-plan-entry:hover { background: #f2eee5; }
+.trip-plan-entry:focus-visible { outline: 3px solid #784b39; outline-offset: 3px; }
+.trip-plan-entry[hidden], body:has(.reading-nav.is-open) .trip-plan-entry { display: none; }
+#plan { scroll-margin-top: 24px; }
+#plan > h2:focus { outline: 2px solid #bb7658; outline-offset: 6px; }
