@@ -249,5 +249,35 @@
     "caption": "我們的村落參訪合照；與居民互動與拍照請先徵求同意。",
     "bytes": 93824,
     "sha256": "63574d3e6c8579d542b0a738d891d6a996c9f1f30a376b5a20a536bdad4216cd"
+  },
+  {
+    "id": "cr-akha-farmville",
+    "kind": "owned-instagram-photo",
+    "creator": "鷹式一家",
+    "source": "https://www.instagram.com/p/Cty2vosvqnC/",
+    "reviewedAt": "2026-09-27",
+    "originalWidth": 1440,
+    "originalHeight": 1800,
+    "width": 960,
+    "height": 1200,
+    "alt": "一家四口坐在 AKHA FARMVILLE 招牌前合照",
+    "caption": "Akha FarmVille：我們在農場招牌前的全家合照。",
+    "bytes": 144790,
+    "sha256": "6a52b2aa2efa2b0b88fad42af5a3253e20ed119d59643304ea8e4dc6139deeff"
+  },
+  {
+    "id": "cr-white-temple",
+    "kind": "owned-instagram-photo",
+    "creator": "鷹式一家",
+    "source": "https://www.instagram.com/p/Cty2vosvqnC/",
+    "reviewedAt": "2026-09-27",
+    "originalWidth": 1440,
+    "originalHeight": 1800,
+    "width": 960,
+    "height": 1200,
+    "alt": "一家四口在清萊白廟 Wat Rong Khun 前合照",
+    "caption": "白廟 Wat Rong Khun：我們在白色寺院前的合照。",
+    "bytes": 137496,
+    "sha256": "0afa748f2cdbbab908bcda2b2f15894775fc22d46f7dbe9e6f7f3cad369cbba2"
   }
 ]

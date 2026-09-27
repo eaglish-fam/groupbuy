@@ -36,8 +36,10 @@ test('three-day compact plan preserves the city day and deduplicates optional ea
  assert.equal(stopOwners(['south','north'],'compact',ceiRoutes)['night-market'],'south');
 });
 test('owned media have provenance, matching hashes, stripped metadata and small variants',async()=>{
- const media=JSON.parse(read('trip/assets/north-thailand-media.json'));assert.equal(media.length,14);
+ const media=JSON.parse(read('trip/assets/north-thailand-media.json'));assert.equal(media.length,16);
  for(const m of media){const b=readFileSync(new URL('../trip/assets/'+m.id+'.webp',import.meta.url));assert.equal(createHash('sha256').update(b).digest('hex'),m.sha256);const meta=await sharp(b).metadata();assert.ok(!meta.exif);assert.ok(b.length<=220000,m.id);assert.ok((rai+mai).includes(m.id));assert.ok(existsSync(new URL('../trip/assets/'+m.id+'-640.webp',import.meta.url)));if(m.kind==='owned-video-frame'){assert.match(m.source,/instagram.com/);assert.ok(m.second>=0);}}
- assert.match(rai,/<section id="akha"[^>]*>[\s\S]*?我們去過/);
- assert.doesNotMatch(rai,/cr-akha-farmville\.webp/);
+ assert.match(rai,/<section id="white"[^>]*>[\s\S]*?cr-white-temple\.webp/);
+ assert.match(rai,/<section id="akha"[^>]*>[\s\S]*?cr-akha-farmville\.webp/);
+ assert.match(rai,/<a href="#white" data-place-ref="cei-white">[\s\S]*?cr-white-temple\.webp/);
+ assert.match(rai,/<a href="#akha" data-place-ref="cei-akha">[\s\S]*?cr-akha-farmville\.webp/);
 });

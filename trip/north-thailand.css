@@ -3,6 +3,10 @@
 .north-hero img{max-height:490px;object-fit:cover}
 .north-reel-pair img{aspect-ratio:9/16;object-fit:contain;background:#f2eee5}
 .cnx-guide .north-reel-pair{gap:14px}
+.cnx-guide .north-photo-single{grid-template-columns:minmax(0,1fr);max-width:480px}
+.cnx-guide .north-photo-single img{display:block;width:100%;height:auto}
+.cnx-guide .bkk-overview{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.cnx-guide .bkk-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .cnx-guide .prose h4{color:#784b39;font-weight:700;border-left:3px solid #bb7658;padding-left:12px;margin-top:24px}
 [data-cei-planner] [role=status]{font-size:14px;color:#494139;line-height:1.8}
 [data-cei-planner] select{max-width:100%;min-width:0}
