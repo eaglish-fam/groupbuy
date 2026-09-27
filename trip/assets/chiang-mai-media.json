@@ -1,0 +1,233 @@
+[
+  {
+    "id": "cm-jingjai-street",
+    "video": "DroH1Lm7DMo",
+    "second": 1040,
+    "source": "https://www.youtube.com/watch?v=DroH1Lm7DMo&t=1040s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      610
+    ],
+    "width": 1280,
+    "height": 610,
+    "alt": "Jing Jai 市集的商店與步行巷道",
+    "caption": "Jing Jai：逛手作小店，也能在同區找早餐。",
+    "bytes": 62304,
+    "sha256": "4b22e5f309c49c94f9148bfbed799f8a3b40e8a0f9f0fbc5b7909a2cf24a9f70"
+  },
+  {
+    "id": "cm-jingjai-food",
+    "video": "DroH1Lm7DMo",
+    "second": 1035,
+    "source": "https://www.youtube.com/watch?v=DroH1Lm7DMo&t=1035s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "width": 1280,
+    "height": 720,
+    "alt": "Jing Jai 市集攤位上以葉子包裝的點心與食物",
+    "caption": "市場熟食與點心，先挑想吃的再找座位。",
+    "bytes": 64808,
+    "sha256": "38666fbaf0ff374ea2f0b5b9ed47c29f09e7278642ec4127dab5b47a173f6318"
+  },
+  {
+    "id": "cm-nimman",
+    "video": "Qd5Mnwfa4lc",
+    "second": 995,
+    "source": "https://www.youtube.com/watch?v=Qd5Mnwfa4lc&t=995s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      65,
+      1280,
+      655
+    ],
+    "width": 1280,
+    "height": 655,
+    "alt": "One Nimman 的磚造商店、廣場與步行空間",
+    "caption": "One Nimman 有商店、用餐與半戶外廣場。",
+    "bytes": 94052,
+    "sha256": "56fa1497f2d3678456b28e147979f097e3d5693e18dd480dc45dd04dd1d56463"
+  },
+  {
+    "id": "cm-ginger",
+    "video": "Qd5Mnwfa4lc",
+    "second": 1000,
+    "source": "https://www.youtube.com/watch?v=Qd5Mnwfa4lc&t=1000s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      65,
+      1280,
+      655
+    ],
+    "width": 1280,
+    "height": 655,
+    "alt": "Ginger Farm Kitchen One Nimman 店的木桌椅與花磚用餐空間",
+    "caption": "我們實際用餐的 Ginger Farm Kitchen。",
+    "bytes": 39452,
+    "sha256": "9a10dc3495859021a74038970714b836e22f0172aa2a2d066bd7900f32bcb1b9"
+  },
+  {
+    "id": "cm-sunday",
+    "video": "Qd5Mnwfa4lc",
+    "second": 1470,
+    "source": "https://www.youtube.com/watch?v=Qd5Mnwfa4lc&t=1470s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      65,
+      1280,
+      550
+    ],
+    "width": 1280,
+    "height": 550,
+    "alt": "清邁週日市集傍晚的棚攤、燈光與逛街人潮",
+    "caption": "Sunday Walking Street：越晚人越多，先想好接車位置。",
+    "bytes": 64592,
+    "sha256": "385b0a131ca94eb7f1e487bbf07c21f8fa61090a3bdff84f011b8a6fb4bb9bbb"
+  },
+  {
+    "id": "cm-zoo",
+    "video": "Qd5Mnwfa4lc",
+    "second": 945,
+    "source": "https://www.youtube.com/watch?v=Qd5Mnwfa4lc&t=945s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      65,
+      1280,
+      550
+    ],
+    "width": 1280,
+    "height": 550,
+    "alt": "清邁動物園的大象展區與參觀平台",
+    "caption": "動物園的戶外展區；不是全天候室內景點。",
+    "bytes": 102524,
+    "sha256": "5ff8c2b887b49a83880b14c0e58ce4b267141eec9ba17270f43454bc8569cf79"
+  },
+  {
+    "id": "cm-rantong",
+    "video": "tP4X3XKEaX0",
+    "second": 525,
+    "source": "https://www.youtube.com/watch?v=tP4X3XKEaX0&t=525s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      610
+    ],
+    "width": 1280,
+    "height": 610,
+    "alt": "Ran-Tong 草棚下的大象與周圍草地",
+    "caption": "我們拍下的 Ran-Tong 草棚與大象；參訪方式請以當期方案確認。",
+    "bytes": 82450,
+    "sha256": "d3d85a3142179ac6c1c99df8572be3a39e351a7ad9b3f8e0ed23bc188c96a050"
+  },
+  {
+    "id": "cm-plane",
+    "video": "tP4X3XKEaX0",
+    "second": 640,
+    "source": "https://www.youtube.com/watch?v=tP4X3XKEaX0&t=640s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "width": 1280,
+    "height": 720,
+    "alt": "Air Diamond 飛機咖啡廳的白色飛機與登機階梯",
+    "caption": "Air Diamond：從登機梯走進停放在地面的飛機。",
+    "bytes": 36682,
+    "sha256": "b7a272c0372b1a352e1b8d683f5849d660d9fb73326a3dd9cf4a9467ca4906f2"
+  },
+  {
+    "id": "cm-cabin",
+    "video": "tP4X3XKEaX0",
+    "second": 720,
+    "source": "https://www.youtube.com/watch?v=tP4X3XKEaX0&t=720s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      610
+    ],
+    "width": 1280,
+    "height": 610,
+    "alt": "Air Diamond 飛機咖啡廳內保留的客艙座椅與舷窗",
+    "caption": "客艙裡的座椅與窗戶，是孩子觀察飛機的另一種方式。",
+    "bytes": 32996,
+    "sha256": "a9dab3ddd7886bdfd95b05e2d10d08ed9ae0208da7937b1bb2bf1715b6f6615d"
+  },
+  {
+    "id": "cm-paper-colors",
+    "video": "tP4X3XKEaX0",
+    "second": 1220,
+    "source": "https://www.youtube.com/watch?v=tP4X3XKEaX0&t=1220s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      610
+    ],
+    "width": 1280,
+    "height": 610,
+    "alt": "大象紙園工作桌上不同顏色的纖維紙漿",
+    "caption": "把回收纖維做成紙，先從認識材料開始。",
+    "bytes": 70896,
+    "sha256": "54fa2aa35f7244be26bb00b9bef9ad5796a1166468acbc0db841ff946b17b857"
+  },
+  {
+    "id": "cm-paper-craft",
+    "video": "tP4X3XKEaX0",
+    "second": 1250,
+    "source": "https://www.youtube.com/watch?v=tP4X3XKEaX0&t=1250s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      610
+    ],
+    "width": 1280,
+    "height": 610,
+    "alt": "孩子在大象紙園的桌邊製作紙藝作品",
+    "caption": "留一段時間給孩子自己挑材料、完成作品。",
+    "bytes": 53164,
+    "sha256": "78d09e8d8fce8e5af0391789dd67aaebeb371dcc2e885884f9dc993cf799f3f9"
+  }
+]

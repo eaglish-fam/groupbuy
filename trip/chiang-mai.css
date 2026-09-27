@@ -1,0 +1,8 @@
+/* Destination-specific controls only. All editorial styling inherits Bangkok. */
+[data-cnx-planner] input[type=date]{display:block;width:100%;min-width:0;max-width:100%;min-height:48px;box-sizing:border-box;padding:10px 12px;font:inherit;font-size:16px;color:var(--bkk-cocoa);background:var(--bkk-paper);border:1px solid #a79b8a;border-radius:3px}
+[data-cnx-planner] input[type=date]:focus-visible{outline:3px solid var(--signal);outline-offset:3px}
+.bkk-guide .cnx-city-grid{padding-top:40px}
+.bkk-guide .cnx-city-grid h2{margin-bottom:24px}
+.bkk-guide .cnx-city-grid .place-card{background:var(--bkk-paper);border-color:var(--bkk-rule)}
+/* Long destination TOC: keep the shared drawer, without a full-size flying copy. */
+.cnx-guide .reading-nav__flight{display:none}

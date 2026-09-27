@@ -13,7 +13,9 @@ const pages=[
  ['trip/new-zealand/christchurch/3-days/index.html','nz-christchurch-tram'],
  ['trip/thailand/index.html','bkk-aquarium-reef'],
  ['trip/thailand/bangkok/index.html','bkk-aquarium-reef'],
- ['trip/guides/bangkok-with-kids/index.html','bkk-aquarium-reef']
+ ['trip/guides/bangkok-with-kids/index.html','bkk-aquarium-reef'],
+ ['trip/guides/chiang-mai-with-kids/index.html','cm-jingjai-street'],
+ ['trip/thailand/chiang-mai/index.html','cm-jingjai-street']
 ];
 
 test('travel entry pages preload their first visual using the same responsive source as the image',()=>{

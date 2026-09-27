@@ -1,6 +1,6 @@
 {
   "counts": {
-    "pages": 28,
+    "pages": 30,
     "blocking": 0,
     "warnings": 20,
     "total": 20
@@ -67,7 +67,7 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/index.html",
-      "index": 7052
+      "index": 7097
     },
     {
       "level": "warn",
@@ -102,7 +102,7 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/index.html",
-      "index": 3921
+      "index": 4715
     },
     {
       "level": "warn",

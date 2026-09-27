@@ -1,0 +1,68 @@
+{
+  "city": "Chiang Mai",
+  "checkedAt": "2026-09-27",
+  "videos": [
+    {"id":"DroH1Lm7DMo","label":"清邁旅行①：Jing Jai 市集、泰北料理與城市生活","url":"https://www.youtube.com/watch?v=DroH1Lm7DMo"},
+    {"id":"Qd5Mnwfa4lc","label":"清邁旅行②：動物園、One Nimman 與週日市集","url":"https://www.youtube.com/watch?v=Qd5Mnwfa4lc"},
+    {"id":"tP4X3XKEaX0","label":"清邁旅行③：Ran-Tong、飛機咖啡廳與大象紙手作","url":"https://www.youtube.com/watch?v=tP4X3XKEaX0"}
+  ],
+  "places": [
+    {
+      "id":"th-chiang-mai-jingjai", "anchor":"jingjai", "name":"Jing Jai 真心市集", "english":"Jing Jai Market", "area":"古城東北側", "image":"cm-jingjai-street", "gallery":["cm-jingjai-street","cm-jingjai-food"], "activity":"週末手作・早餐・小店", "duration":"約 1.5～2 小時", "mapsQuery":"Jing Jai Market Chiang Mai", "video":"DroH1Lm7DMo", "videoSeconds":1030,
+      "summary":"想找手作小物、布包或在地點心，週末早上來這裡。先吃早餐再逛，會比正午才到更好安排。",
+      "intro":"Jing Jai 不是每天都長得一樣的市集。園區有常設店家、餐飲與藝文空間，週六、週日才增加農夫與手作攤市。想逛的是攤位，就把它放進週末早上；平日看到園區營業，並不代表同樣的攤商也會出現。",
+      "tips":[["先吃、再逛兩類想買的東西","早餐可先找熟食、麵包、飲料或當日點心，再往手作攤逛。布件、陶器與飾品都值得慢慢看，但不用每條走道都走完。帶孩子可先約好一樣想看的物品，逛 30～40 分鐘就補水休息。"],["週末早上留給市集，下午換市區","這裡和 One Nimman 不是隔壁街區，建議搭車轉往寧曼路吃午餐。帶推車時先留意人潮與攤間寬度；有棚的用餐區也不代表所有逛街路線都遮雨。"]],
+      "hours":"週末攤市：週六、日 06:30–15:00。常設園區：週一至五 09:00–22:00、週末 06:30–22:00；個別店家另有時段。", "hoursStatus":"official-reference", "weather":"戶外與有棚區混合；不當成大雨備案。", "transport":"由古城搭車前往，行程預留 20～30 分鐘移動與下車緩衝；實際以住宿出發的 Maps 路線為準。", "budget":"購物與餐飲自行計費；先帶小額泰銖，付款方式逐攤確認。", "experience":"我們在這裡先看攤位、買食物，再坐下吃。孩子有得吃，大人也比較能好好逛；這比一路追著景點跑適合我們當天的步調。",
+      "sources":[{"label":"Jing Jai 官方：攤市與園區分開公布的時間","url":"https://www.jingjaicentralchiangmai.com/market"}]
+    },
+    {
+      "id":"th-chiang-mai-one-nimman", "anchor":"nimman", "name":"One Nimman 與 Ginger Farm Kitchen", "english":"One Nimman / GINGER FARM kitchen", "area":"寧曼路 Nimman", "image":"cm-nimman", "gallery":["cm-nimman","cm-ginger"], "activity":"設計小店・泰北料理", "duration":"用餐加逛街約 2～3 小時", "mapsQuery":"One Nimman Chiang Mai", "video":"Qd5Mnwfa4lc", "videoSeconds":995,
+      "summary":"把逛街和一頓坐下吃的泰北料理排在一起。動物園結束後想找餐廳，或市集逛累了，都能考慮寧曼區。",
+      "intro":"One Nimman 是寧曼路的商店、餐飲與活動空間，磚造建築、廣場和小店很好辨認。它不是兒童遊樂園，比較適合安排買小物、吃飯、喝飲料；帶小孩來，先把用餐當主活動，再依體力走一小段。",
+      "tips":[["Ginger Farm Kitchen：來吃飯，不是來逛農場","我們去的是 One Nimman 裡的餐廳，和郊外的 Ginger Farm 不是同一個地點。餐廳主打泰北家常菜；多人可點幾樣共享，孩子的餐可先問辣度、香料與份量，再挑適合共享的菜。"],["排隊和休息也要算時間","官網說 One Nimman 店採現場候位，不接受預約。午餐可以抓 11:30 左右，遇到隊伍過長就改同區其他餐廳；不要把下一個付費場次壓在吃完飯後幾分鐘。One Nimman 有半戶外區域，暴雨時縮成室內用餐，不硬走廣場。"]],
+      "hours":"Ginger Farm Kitchen 官網列每日 10:00–23:00；One Nimman 各店與活動時間不同，不能把餐廳時間當成整區時間。", "hoursStatus":"official-reference", "weather":"餐廳可室內用餐，廣場與店間移動不是全遮雨。", "transport":"從古城、市集或動物園搭車到寧曼區；不是步行接完上述所有地點的路線。", "budget":"依菜單與現場候位安排；先確認服務費、稅、辣度與是否有孩子能吃的菜。", "experience":"動物園結束後，我們到 Ginger Farm Kitchen 吃飯，再在 One Nimman 逛逛、買冰。這裡最實用的角色，就是讓整天行程有一頓能坐下好好吃的飯。",
+      "sources":[{"label":"餐廳官方：One Nimman 分店與營業時間","url":"https://www.gingerfarmkitchen.com/welcome"},{"label":"餐廳官方：One Nimman 只接受現場候位","url":"https://www.gingerfarmkitchen.com/reservations"},{"label":"One Nimman 官方店家目錄","url":"https://www.onenimman.com/en/shop/restaurant/"}]
+    },
+    {
+      "id":"th-chiang-mai-sunday-market", "anchor":"sunday", "name":"清邁週日步行市集", "english":"Sunday Walking Street / Ratchadamnoen Road", "area":"古城・塔佩門一帶", "image":"cm-sunday", "gallery":["cm-sunday"], "activity":"週日限定・小吃・手作", "duration":"挑一段逛約 1.5～2 小時", "mapsQuery":"Sunday Walking Street Ratchadamnoen Road Chiang Mai", "video":"Qd5Mnwfa4lc", "videoSeconds":1368,
+      "summary":"週日晚上才有的古城市集。先吃一點、再看小物，走到孩子累了就折返，不用把整條逛完。",
+      "intro":"Sunday Walking Street 沿古城 Ratchadamnoen Road 一帶展開，有熟食、小點、日用品與手作攤位。它和長康路 Night Bazaar、週六 Wualai 市集不是同一個市場；導航時輸入完整名字，別只搜「清邁夜市」。",
+      "tips":[["把傍晚留給它，不要上午就去找攤位","泰國觀光局介紹為週日約 17:00 起，攤商陸續營業。帶孩子可以抓 17:30～19:30 的短版，先在天還亮時找到入口、洗手間和能坐下吃東西的位置；不需要留到所有攤商打烊。"],["接車點設在步行區外","市集時段道路有人流與交通管制，車不會直接開到你所在的攤位前。下車時先和同行的人約好會合點，回程走出步行區再叫車。推車可能需要繞人群；下雨、人多或孩子已累，就縮短範圍。"]],
+      "hours":"週日約 17:00 起至深夜，依攤商與當日公告；本文安排 17:30–19:30，不以最晚打烊時間作保證。", "hoursStatus":"official-reference", "weather":"戶外；大雨就取消，不用為了逛夜市等雨到深夜。", "transport":"塔佩門／Ratchadamnoen Road 步行區外上下車，再步行入內。", "budget":"小吃、購物逐攤計費，備小額現金；一餐可先挑少量再加點。", "experience":"我們原本要去另一個夜市，臨時改到 Sunday Market，才發現可以逛得很久。寫成攻略時，更重要的是先確認星期和地點，讓你不用碰運氣。",
+      "sources":[{"label":"泰國觀光局：Sunday Market 位置與週日時段","url":"https://www.thailandtravel.or.jp/sunday-market/"}]
+    },
+    {
+      "id":"th-chiang-mai-poopoopaper", "anchor":"paper", "name":"大象 POOPOOPAPER 紙園", "english":"Elephant POOPOOPAPER Park", "area":"Mae Rim 湄林", "image":"cm-paper-colors", "gallery":["cm-paper-colors","cm-paper-craft"], "activity":"纖維造紙・紙藝手作", "duration":"含導覽與手作約 1.5～2 小時", "mapsQuery":"Elephant POOPOOPAPER Park Mae Rim Chiang Mai", "video":"tP4X3XKEaX0", "videoSeconds":1058,
+      "summary":"從大象糞便裡的植物纖維，看到紙張怎麼做出來。孩子可以觀察製程，再動手做一份作品。",
+      "intro":"這是一座以再生紙為主題的戶外博物館園區，不是讓人騎大象或餵大象的象園。導覽帶你認識纖維處理、紙漿與成紙過程；DIY 區則讓孩子把材料組成自己的紙藝作品。喜歡動手做，比只看展板更容易投入。",
+      "tips":[["先查導覽語言，手作別排在最後十分鐘","官網有不同導覽語言的預訂入口；Klook 商品頁另註明週日不提供中文導覽。需要中文請先選其他日期，再確認場次，導覽後再留 30～45 分鐘手作；看孩子年齡，簡單貼飾也能有成就感。"],["它有棚子，但不是全室內雨備","園區在戶外，工作區有遮蔽，移動仍可能淋雨。小雨先向園方確認能否參觀；暴雨就不要特地從市區跑來。適合與同方向的飛機咖啡廳分段安排，不要再塞進大象半日團後一路趕末班導覽。"]],
+      "hours":"每日 09:00–17:00，最後一場導覽 16:00 開始。", "hoursStatus":"official-reference", "weather":"戶外園區＋有棚工作區；小雨先問、大雨另換市區室內活動。", "transport":"在 Mae Rim；由市區出發建議先留 45～60 分鐘含接車緩衝，請依住宿和當天路況調整。", "budget":"官網導覽門票參考每人 THB 150、4 歲及以下免費；DIY 作品、材料或其他消費是否另計，購買前問清楚。", "experience":"我們帶孩子看了製程，也坐下做紙藝。這裡的重點不只是「大便變成紙」的驚喜，而是能親眼看材料，再真的動手做。",
+      "booking":{"url":"https://www.klook.com/zh-TW/activity/189925-elephant-poopoopaper-park-ticket-chiang-mai/","label":"比較紙園導覽與造紙方案","note":"先核對日期、導覽語言、手作內容與退改條件；接送、餐食不包含在本頁所查方案內。Klook 商品頁註明週日不提供中文導覽，需中文服務請另選日期並於預訂時再次確認。"},
+      "sources":[{"label":"紙園官方：園區性質、開放與末班導覽","url":"https://www.poopoopaperpark.com/"},{"label":"紙園官方：票價、兒童條件與導覽語言","url":"https://www.poopoopaperpark.com/book-online"},{"label":"Klook 商品頁：週日中文導覽限制與方案內容","url":"https://www.klook.com/en-SG/activity/189925-elephant-poopoopaper-park-ticket-chiang-mai/"}]
+    },
+    {
+      "id":"th-chiang-mai-air-diamond", "anchor":"plane", "name":"Air Diamond 飛機咖啡廳", "english":"Air Diamond Cafe & Hotel", "area":"Mae Taeng 湄登", "image":"cm-plane", "gallery":["cm-plane","cm-cabin"], "activity":"登機梯・客艙・飲料休息", "duration":"約 1～1.5 小時，不含車程", "mapsQuery":"Air Diamond Cafe Mae Taeng Chiang Mai", "video":"tP4X3XKEaX0", "videoSeconds":640,
+      "summary":"走上登機梯、坐進停在地面的飛機喝飲料。喜歡飛機的孩子會有很多東西可以看，適合放在北郊行程裡。",
+      "intro":"Air Diamond 用飛機做成咖啡空間，吸引人的不只是飲料，而是登機梯、舷窗與客艙座椅。它在 Mae Taeng，並不在清邁機場旁邊；不要看到「飛機」就把它排成去機場前順路的一站。",
+      "tips":[["看客艙就有得聊，別保證能進駕駛艙","可以和孩子找找舷窗、座位、頭頂設備，體驗和一般咖啡店不同的空間。影片拍到的區域，不代表現在所有區域都開放；駕駛艙、服裝或其他活動是否能進行，依店家當日安排。"],["先確認營業，再決定要不要往北多開一段","紙園與咖啡廳不是步行距離，中間安排 40～50 分鐘移動額度，回市區另外留 60～90 分鐘。這些是行程緩衝，不是即時導航。若店家未確認營業，就只去紙園，午餐後回市區，不為一杯飲料白跑。"]],
+      "hours":"本次未取得可核實的咖啡廳當期官方開放時段；不要沿用飯店時間。出發前以 Google Maps 聯絡店家確認，未確認時略過此站。", "hoursStatus":"confirm-before-going", "weather":"客艙室內，但停車、登機梯與排隊有戶外段；大雨不專程遠行。", "transport":"Mae Taeng 北郊；建議自駕或事先約好往返車輛，不預設臨時叫得到返程車。", "budget":"確認入場／登機費、是否抵飲料、兒童身高條件；影片裡舊票價不作現行報價。", "experience":"我們曾在前往 Ran-Tong 的路上發現這架飛機，之後又來了一次。Hiram 在機上聊了飛機設備；實際排行程時，最先要處理的是距離與登機階梯。",
+      "sources":[{"label":"泰國觀光認證名錄：Mae Taeng 店址與飛機咖啡地標（非咖啡廳時刻表）","url":"https://www.tatstar.org/company/STAR-B01601"}]
+    },
+    {
+      "id":"th-chiang-mai-zoo", "anchor":"zoo", "name":"清邁動物園", "english":"Chiang Mai Zoo", "area":"Huay Kaew・素帖山腳", "image":"cm-zoo", "gallery":["cm-zoo"], "activity":"動物展區・園內移動", "duration":"約 3～4 小時，另留午餐與交通", "mapsQuery":"Chiang Mai Zoo Huay Kaew Road", "video":"Qd5Mnwfa4lc", "videoSeconds":20,
+      "summary":"喜歡動物的家庭可以留半天，但先看園內交通與總費用。水族館不是一定要加購，也不是我們優先推薦的雨備。",
+      "intro":"清邁動物園是分區參觀的戶外園區，和清邁夜間動物園不是同一個地方。步行距離和坡度會影響體力；帶幼兒、長輩或推車，應先問遊園車、租車方式與停靠站，不要只看入口票價就以為一天的花費都算完了。",
+      "tips":[["先選想看的展區，不用每一區都到","上午進園，先看當日開放展區與園內交通，再挑孩子最有興趣的部分。移動途中注意補水、遮陽和休息；不把餵食、表演或看到某種動物當成保證，活動是否提供要看現場。"],["水族館另外決定，不跟著影片照買","我們 2025 年這次參觀，對水族館的展示與額外花費不滿意，所以沒有把它放進預設行程。這是當時的實際感受，不代表現在每個展區都一樣。若仍想去，先看近期照片與開放公告，再比包含動物園和水族館的總價。"]],
+      "hours":"動物園管理單位列每日 08:00–18:00；售票、園內車輛與展區可能提早結束。本文安排上午到下午早段。", "hoursStatus":"official-reference", "weather":"主要戶外、有坡度；不當成大雨備案。", "transport":"市區搭車至 Huay Kaew 路入口；園內移動另計。先查車型、人數、駕駛資格及租用時限。", "budget":"先分開算入口票、園內交通、停車、加購展館和餐食。水族館外籍成人參考 THB 450、3～12 歲 THB 350，且不含動物園門票；最新方案再向售票處核對。", "experience":"我們這趟租了園內車，仍逛了約三小時。影片中後段才吃午餐，對讀者來說不必照做：把午餐固定留出來，會比一路逛到很餓更舒服。",
+      "sources":[{"label":"泰國動物園管理單位：清邁動物園開放資訊","url":"https://www.zoothailand.org/ewt_news.php?nid=5794"},{"label":"水族館官方：外籍旅客票與不含動物園的條件","url":"https://chiangmaiaquarium.com/en/fee-tourists/"},{"label":"水族館官方泰文頁：2026 年 4 月起平假日開放時段","url":"https://chiangmaiaquarium.com/fee/"}]
+    },
+    {
+      "id":"th-chiang-mai-rantong", "anchor":"rantong", "name":"Ran-Tong 大象體驗", "english":"Ran-Tong Save & Rescue Elephant Centre", "area":"Mae Taeng 湄登", "image":"cm-rantong", "gallery":["cm-rantong"], "activity":"預約活動・行前評估", "duration":"半日方案含接送約 6 小時", "mapsQuery":"Ran Tong Save Rescue Elephant Centre Mae Taeng", "video":"tP4X3XKEaX0", "videoSeconds":18,
+      "summary":"我們實際去過的預約型大象活動。先看互動方式、孩子條件與接送，再決定；不是預設人人都要排的一站。",
+      "intro":"Ran-Tong 在 Mae Taeng，我們的旅行紀錄包含準備大象食物和近距離活動。業者提供半日與全日方案，行程會連帶影響整天接送與用餐，不能把「半日」當成只在園內待兩個小時。",
+      "tips":[["實訪不等於動物福利認證","世界動物保護協會建議選擇不接觸、以觀察為主的大象旅遊。影片曾參加近距離互動，不代表本文把它認證為保育活動，也不把洗澡或餵食列為必做。預約前詢問能否不接觸參觀、兒童限制和安全安排；不適合就選紙園手作。"],["跟團接送不能自行插入咖啡廳","業者晨間半日方案列古城周邊約 07:00–07:30 接客、13:00–13:30 返城；實際時間以訂單為準。若用其接送，不要在行程表裡擅自加 Air Diamond 或紙園中途下車。自駕另約活動時段，也要扣掉報到、換衣和用餐時間。"]],
+      "hours":"預約場次制。晨間半日公布接送參考 07:00–13:30；不是可隨時走入的開放時間。", "hoursStatus":"booking-confirmation-required", "weather":"戶外、可能泥濘；風雨與活動調整先問業者。", "transport":"確認住宿是否在接送範圍、兒童安全座椅、上下車時間及返程；網站列古城 3 公里範圍，範圍外另問。", "budget":"按日期、年齡與方案詢價；看是否含餐、保險與接送。不要套用影片中的舊價。", "experience":"我們曾兩次來這裡，也記錄過為大象準備食物的過程。有興趣的家庭可先了解目前的活動方式；偏好觀察、不想近距離接觸，也可以詢問業者是否有合適方案。",
+      "sources":[{"label":"業者：半日方案與接送資訊","url":"https://www.rantongelephantssanctuary.com/"},{"label":"世界動物保護協會：大象旅遊的觀察優先建議","url":"https://www.worldanimalprotection.org/animals/elephants/"}]
+    }
+  ]
+}
