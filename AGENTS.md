@@ -30,7 +30,7 @@ Do not push, open or merge a PR, modify `main`, change GitHub Pages, DNS, CNAME,
 
 ## SEO and content rules
 
-For 鷹家遠行所 travel articles, read `docs/trip-editorial-guidelines.md` and `trip/IMAGE_PIPELINE.md` before creating or revising a page. Hiram designated `/trip/guides/bangkok-with-kids/` as the reference for future article structure, visual style, place cards, and itinerary interaction. Adapt destination data and timing to the new city; retain the approved photo-led, cream-sandstone presentation and first-image loading policy.
+For 鷹家遠行所 country hubs and city articles, follow the finalized cross-country rules in `docs/trip-editorial-guidelines.md` and read `trip/IMAGE_PIPELINE.md` before creating or revising a page. Thailand's country hub and Bangkok, Chiang Mai, and Chiang Rai articles are the approved content and visual references. Bangkok still has an earlier front-positioned planner; use the finalized late-planner placement documented in the guidelines for new pages. Adapt geography, destination data, timing, and city count to each country while retaining the approved photo-led, cream-sandstone presentation and first-image loading policy.
 
 - Preserve one canonical domain: `https://www.eaglish.store/`.
 - Keep `robots.txt`, `sitemap.xml`, canonical URLs, Open Graph, structured data, and public content mutually consistent.
