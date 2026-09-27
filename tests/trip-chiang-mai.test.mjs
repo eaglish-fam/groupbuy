@@ -37,10 +37,10 @@ test('Chiang Mai plans are unique, do not auto-book elephant activities, and hav
  }
  assert.match(read('trip/chiang-mai-planner.mjs'),/週日紙園中文導覽不提供/);
 });
-test('one source catalog drives 8 reusable places, real media, maps and current source notes',()=>{
+test('one source catalog drives 9 reusable places, real media, maps and current source notes',()=>{
  const media=JSON.parse(read('trip/assets/chiang-mai-media.json'));
- assert.equal(catalog.places.length,8);assert.equal(media.length,21);
- assert.equal(new Set(catalog.places.map(p=>p.id)).size,8);
+ assert.equal(catalog.places.length,9);assert.equal(media.length,25);
+ assert.equal(new Set(catalog.places.map(p=>p.id)).size,9);
  for(const p of catalog.places){
   assert.match(html,new RegExp(`id="${p.anchor}" data-place-id="${p.id}"`));
   assert.ok(html.includes(encodeURIComponent(p.mapsQuery)));
@@ -84,4 +84,27 @@ test('all ten supplied photos are visible in the guide, full-ratio originals are
  assert.equal(costume.hoursStatus,'provider-confirmation-required');
  assert.ok(routes.routes.some(r=>r.id==='oldcity'&&r.steps.some(s=>s.anchor==='thai-costume')));
  assert.doesNotMatch(html,/watch\?v=undefined|undefineds/);
+});
+
+test('Elefin is a separate evidence-bound cafe and route, never an alias for Ran-Tong',()=>{
+ const elefin=catalog.places.find(p=>p.anchor==='elefin');
+ const rantong=catalog.places.find(p=>p.anchor==='rantong');
+ assert.notEqual(elefin.id,rantong.id);assert.notEqual(elefin.mapsQuery,rantong.mapsQuery);
+ assert.equal(elefin.video,'DroH1Lm7DMo');assert.equal(elefin.videoSeconds,288);
+ assert.equal(rantong.video,'tP4X3XKEaX0');
+ assert.match(elefin.hours,/10:00–17:00/);assert.match(elefin.area,/Hang Dong/);
+ const media=JSON.parse(read('trip/assets/chiang-mai-media.json'));
+ for(const id of elefin.gallery){
+  const frame=media.find(m=>m.id===id);
+  assert.equal(frame.video,elefin.video);assert.ok(frame.second>=288&&frame.second<=550);
+  assert.ok(html.includes(`/trip/assets/${id}.webp`));
+  assert.equal(createHash('sha256').update(readFileSync(resolve(root,`trip/assets/${id}.webp`))).digest('hex'),frame.sha256);
+ }
+ const route=routes.routes.find(r=>r.id==='hangdong');
+ for(const list of [route.steps,route.compactSteps]){
+  assert.equal(list.find(s=>s.anchor==='elefin').time,'10:30');
+  assert.ok(!list.some(s=>['paper','plane','rantong'].includes(s.anchor)));
+ }
+ assert.match(html,/value="hangdong"/);assert.match(html,/9 個景點與體驗/);
+ assert.ok(!routes.combinations.some(c=>c.routes.includes('hangdong')));
 });

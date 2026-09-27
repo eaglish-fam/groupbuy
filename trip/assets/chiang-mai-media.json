@@ -409,5 +409,89 @@
     "caption": "我們當時在飛機下方休息、拍照；現場布置可能隨時間調整。",
     "bytes": 149244,
     "sha256": "5213c4cad375cc283fe345dbdb561f4250edbb92b139368bac196bf32cc5176b"
+  },
+  {
+    "id": "cm-elefin-elephant",
+    "video": "DroH1Lm7DMo",
+    "second": 430,
+    "source": "https://www.youtube.com/watch?v=DroH1Lm7DMo&t=430s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "width": 1280,
+    "height": 720,
+    "alt": "Elefin 咖啡廳木平台旁的大象與戶外土地",
+    "caption": "Elefin 的大象活動區，就在咖啡廳平台旁。",
+    "bytes": 87304,
+    "sha256": "0b15370513e11dd790396d1e004b7cd1574f6f42cd1d634bd709e9dc685e8ce9"
+  },
+  {
+    "id": "cm-elefin-cafe",
+    "video": "DroH1Lm7DMo",
+    "second": 300,
+    "source": "https://www.youtube.com/watch?v=DroH1Lm7DMo&t=300s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      600
+    ],
+    "width": 1280,
+    "height": 600,
+    "alt": "一家人在 Elefin 有棚的木桌座位區用餐，旁邊可見山景",
+    "caption": "有棚座位可吃飯、喝飲料；戶外區仍需看天氣。",
+    "bytes": 84566,
+    "sha256": "67bfc24ecb91f2e0556b12a209b63ed2271998f18922c229c78581816bde15ab"
+  },
+  {
+    "id": "cm-elefin-feeding",
+    "video": "DroH1Lm7DMo",
+    "second": 402,
+    "source": "https://www.youtube.com/watch?v=DroH1Lm7DMo&t=402s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      720
+    ],
+    "width": 1280,
+    "height": 720,
+    "alt": "Queenie 在 Elefin 木平台上餵大象，後方可見山坡與木欄杆",
+    "caption": "我們曾在這裡餵象；也可選擇保持距離觀察。",
+    "bytes": 63016,
+    "sha256": "6756393df32a10030dac873667abb06d7471adca6f2b595a411b43735fc80ec7"
+  },
+  {
+    "id": "cm-elefin-kids",
+    "video": "DroH1Lm7DMo",
+    "second": 460,
+    "source": "https://www.youtube.com/watch?v=DroH1Lm7DMo&t=460s",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "reviewedAt": "2026-09-27",
+    "crop": [
+      0,
+      0,
+      1280,
+      610
+    ],
+    "width": 1280,
+    "height": 610,
+    "alt": "孩子站在 Elefin 木平台上手拿象食，旁邊有工作人員與家人",
+    "caption": "孩子參與餵食的實訪畫面；參加前先聽現場安全說明。",
+    "bytes": 101162,
+    "sha256": "e5cb6acd04158bf3145e5fc554b4295591813815ec8d01dfe233dc48df9544ff"
   }
 ]

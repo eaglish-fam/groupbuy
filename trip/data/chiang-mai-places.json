@@ -4,7 +4,7 @@
   "videos": [
     {
       "id": "DroH1Lm7DMo",
-      "label": "清邁旅行①：Jing Jai 市集、泰北料理與城市生活",
+      "label": "清邁旅行①：Elefin 大象咖啡廳、Jing Jai 市集與泰北料理",
       "url": "https://www.youtube.com/watch?v=DroH1Lm7DMo"
     },
     {
@@ -195,6 +195,38 @@
           "label": "泰國觀光局：Sunday Market 位置與週日時段",
           "url": "https://www.thailandtravel.or.jp/sunday-market/"
         }
+      ]
+    },
+    {
+      "id": "th-chiang-mai-elefin",
+      "anchor": "elefin",
+      "name": "Elefin Farm & Cafe 大象咖啡廳",
+      "english": "Elefin Farm & Cafe",
+      "area": "Hang Dong 杭東・Ban Pong",
+      "image": "cm-elefin-elephant",
+      "gallery": ["cm-elefin-elephant", "cm-elefin-cafe", "cm-elefin-feeding", "cm-elefin-kids"],
+      "activity": "山景咖啡廳・用餐・看大象",
+      "duration": "建議約 1.5～2 小時，另留來回交通",
+      "mapsQuery": "Elefin Farm & Cafe Ban Pong Hang Dong Chiang Mai",
+      "video": "DroH1Lm7DMo",
+      "videoSeconds": 288,
+      "summary": "在有山景的咖啡廳坐下吃飯，看大象走到平台附近。我們曾在這裡餵大象；想安排短時間參訪，可先了解現場活動方式，再決定是否加入。",
+      "intro": "Elefin 是清邁杭東 Ban Pong 一帶的山間咖啡廳，有餐飲座位、觀景平台和大象活動區。我們在這裡吃飯，也拍下家人在平台餵大象的過程。它和北郊的 Ran-Tong 是不同地點：這一站以咖啡廳、用餐與短時間停留來安排，不必直接套用大象半日團的接送時程。",
+      "tips": [
+        ["想吃飯，也想看大象，先留一段坐下來的時間", "先找座位、看看當日菜單，再決定要不要參加現場活動。影片裡我們有在這裡用餐，不只是買飲料打卡；帶孩子可先問辣度、份量和等待時間。若沒有合適餐點，縮成飲料與參觀，回市區再吃正餐，不必為了湊滿停留時間一直加購活動。"],
+        ["餵象是我們的實訪紀錄，是否參加由你選擇", "現場有購買象食與近距離活動的選項，內容和價格請當天確認。帶孩子先聽工作人員說明，大人陪同，不追逐、不自行靠近或把食物藏起來逗弄；孩子怕了就退回座位觀察。喜歡看動物也可以選擇不接觸的方式，這裡的實訪照片不代表動物福利認證；本文不把騎乘或洗澡列為推薦活動。"],
+        ["上午開門後再到，回程車先約好", "公布參考時間為 10:00–17:00，不適合排成早上八點的第一站。可安排 10:30 到、用餐或喝飲料後返城；下午要換泰服，另約好集合時間再銜接。它在杭東方向，和 Mae Rim 紙園、Mae Taeng 飛機咖啡廳不同區，不把三處當成順路停靠。"]
+      ],
+      "hours": "泰國觀光局列參考營業時間 10:00–17:00；大象活動、供餐及臨時休業另向店家確認，出發前再看 Google Maps。",
+      "hoursStatus": "official-reference",
+      "weather": "座位有遮棚，但大象活動區、停車與移動有戶外段；不是全室內雨備。大雨或山路狀況不佳就改市區活動。",
+      "transport": "杭東 Ban Pong 山區。觀光局列市區車程約 45 分鐘；規劃先留 60～75 分鐘含接車緩衝，依住宿與當日 Maps 重算。先約好司機等候或返程，不假設山區隨時叫得到車。",
+      "budget": "餐飲、象食、拍照與其他活動分別確認是否計費；本文不把影片中的舊菜單、入場條件或套裝價格當成現價，也不要求購買騎乘方案。",
+      "experience": "我們先在有棚的座位吃飯，接著到平台看大象、餵食，孩子也參與其中。有的孩子一開始先看，後來才試著參與；安排這一站時，不用預設每個人都要有同樣的互動。",
+      "sources": [
+        {"label": "泰國觀光局：Elefin 位置、餐飲與參考營業時間", "url": "https://www.thailandtravel.or.jp/elefin-farm-cafe/"},
+        {"label": "Elefin 店家 Facebook：行前確認供餐與活動", "url": "https://www.facebook.com/elefinfarmandcafe/"},
+        {"label": "世界動物保護協會：大象旅遊的觀察優先建議", "url": "https://www.worldanimalprotection.org/animals/elephants/"}
       ]
     },
     {
