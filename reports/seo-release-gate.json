@@ -102,7 +102,7 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/index.html",
-      "index": 5389
+      "index": 23143
     },
     {
       "level": "warn",
@@ -116,7 +116,7 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 58038
+      "index": 58036
     },
     {
       "level": "warn",

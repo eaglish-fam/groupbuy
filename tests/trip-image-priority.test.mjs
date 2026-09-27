@@ -11,7 +11,7 @@ const pages=[
  ['trip/new-zealand/christchurch/index.html','nz-christchurch-tram'],
  ['trip/new-zealand/akaroa/index.html','nz-farm'],
  ['trip/new-zealand/christchurch/3-days/index.html','nz-christchurch-tram'],
- ['trip/thailand/index.html','bkk-aquarium-reef'],
+ ['trip/thailand/index.html','thailand-atlas'],
  ['trip/thailand/bangkok/index.html','bkk-aquarium-reef'],
  ['trip/guides/bangkok-with-kids/index.html','bkk-aquarium-reef'],
  ['trip/guides/chiang-mai-with-kids/index.html','cm-thai-dress-family'],

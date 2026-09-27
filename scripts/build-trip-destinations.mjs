@@ -5,6 +5,7 @@ import {cardsSection as bangkokPlaceCards,scene as bangkokScene} from './trip-ba
 import {prioritizeFirstTravelImage} from './trip-image-priority.mjs';
 import {chiangRaiFeature} from './build-trip-chiang-rai.mjs';
 import {feature as chiangMaiFeature} from './trip-chiang-mai.mjs';
+import {thailandHub,thailandAssets} from './trip-thailand-hub.mjs';
 const media=JSON.parse(readFileSync(new URL('../trip/assets/nz-media.json',import.meta.url)));
 const origin='https://www.eaglish.store';
 export const nzRoute='/trip/new-zealand/christchurch/3-days/';
@@ -75,7 +76,10 @@ export function buildDestinations(root){
  hub(city,'基督城行程：市區與 Akaroa 怎麼排？','初訪南島的城市起點。先看三天兩夜主線，再依可用時間縮成兩天或放慢成五天。',[['紐西蘭',nz],['基督城',null]],'CHRISTCHURCH',`${cityStory(image,nzRoute)}<section class="section wrap">${feature()}</section><section class="section wrap"><h2>行程裡的市區選擇</h2><div class="city-links">${places.filter(p=>p.area==='基督城').map(p=>`<a href="${nzRoute}#${p.id}">${p.name} ↗</a>`).join('')}</div><p class="section-intro">電車與 New Regent Street 有我們的實際旅行照片；植物園、市場與博物館等則是為完整動線加入的延伸選擇。</p></section>`);
  hub(akaroa,'Akaroa 一日遊：羊駝，還是海豚？','從基督城出發，先選一個最想做的活動，午餐與小鎮散步就能從容排在前後。',[['紐西蘭',nz],['Akaroa',null]],'AKAROA / BANKS PENINSULA',`<section class="section wrap"><div class="quick-note"><p>三天版建議農場與出海二選一；五天版則可以在 Akaroa 住一晚，把兩項體驗分日安排。沒有車時，先確認接送再預約活動。</p><a class="button" href="${nzRoute}#itinerary">查看完整路線 ↗</a></div><div class="highlight-grid">${places.filter(p=>['farm','dolphins'].includes(p.id)).map(p=>`<a class="story-card" href="${nzRoute}#${p.id}">${image(p.photo,p.alt)}<div><h3>${p.name}</h3><p>${p.summary}</p><span class="read-link">景點介紹與地圖 ↗</span></div></a>`).join('')}</div></section>`);
  const bangkokCard=`<section class="section wrap"><a class="feature" href="${bangkok}"><div class="feature-image">${bangkokScene('bkk-aquarium-reef',{priority:true})}</div><div class="feature-copy"><span class="pill">親子景點</span><span class="pill">2～5 日組合・雨天安排</span><h2>曼谷帶孩子去哪玩？<br>從市集、動物園到侏羅紀體驗。</h2><p>8 個實訪地點拆成景點卡，按區域組合 2～5 日行程。附照片、Google Maps、交通、餐食和雨天提醒。</p><span class="read-link">看完整曼谷親子攻略 ↗</span></div></a></section>`;
- hub('/trip/thailand/','泰國親子自由行：曼谷、清邁與清萊景點攻略','曼谷逛市集、看水族館與恐龍；清邁體驗造紙手作、週末市集與飛機咖啡廳。先選城市，再用實訪景點卡組合適合自己的行程。',[['泰國',null]],'THAILAND',`<section class="wrap"><div class="city-links"><a href="/trip/thailand/bangkok/">曼谷景點與行程 ↗</a><a href="/trip/thailand/chiang-mai/">清邁景點與行程 ↗</a><a href="/trip/thailand/chiang-rai/">清萊景點與行程 ↗</a></div></section>`+bangkokCard+chiangMaiFeature()+chiangRaiFeature(),true);
+ const thTitle='泰國自由行地圖：曼谷、清邁、清萊景點與行程';
+ const thDesc='用互動泰國地圖探索曼谷、清邁與清萊。看實訪照片挑市集、手作、水族館、白廟與山景，依天數和步調串起三城旅行，再看各城完整攻略。';
+ const thHead=head(thTitle,thDesc,'/trip/thailand/',{bangkokImage:true}).replace('<meta property="og:image" content="https://www.eaglish.store/trip/assets/bkk-aquarium-reef.webp">','<meta property="og:image" content="https://www.eaglish.store/trip/assets/thailand-atlas.webp">').replace('SEA LIFE 曼谷海洋世界的水族展示','泰國手繪旅行地圖，探索曼谷、清邁與清萊').replace('</head>',thailandAssets+'</head>').replace('<body>','<body class="thailand-page">').replace(`<a href="${nzRoute}">精選行程</a>`,'<a href="#experiences">找玩法</a>');
+ write('/trip/thailand/',thHead+crumbSchema([['泰國','/trip/thailand/']])+jsonld({'@context':'https://schema.org','@type':'CollectionPage',name:thTitle,description:thDesc,url:origin+'/trip/thailand/',inLanguage:'zh-Hant',hasPart:['bangkok','chiang-mai','chiang-rai'].map(c=>({'@type':'WebPage',url:origin+'/trip/guides/'+c+'-with-kids/'}))})+thailandHub()+footer);
  hub('/trip/thailand/bangkok/','曼谷親子景點：市集、水族館、動物園與侏羅紀體驗','8 個實訪景點與餐廳，附照片、交通與地圖。選市區、河畔或郊區，再組合適合自己的 2～5 日行程。',[['泰國','/trip/thailand/'],['曼谷',null]],'BANGKOK',bangkokCard+bangkokPlaceCards(),true);
  const title='基督城三天兩夜行程：市區散步、Akaroa 羊駝與海豚';
  const desc='基督城三天兩夜怎麼玩？電車與街區散步、Akaroa 一日遊、Bully Hayes 午餐，附真實照片、11 張景點卡、Google Maps、雨備及兩天五天延伸行程。';
