@@ -1,9 +1,9 @@
 :root {
   --paper: #fffefa; --ink: #15366a; --muted: #566781; --olive: #075cdb;
   --green: #15366a; --line: #d4deec; --rust: #c4472d; --cream: #f1f7ff; --blue: #075cdb;
-  --serif: "Noto Serif TC", "Songti TC", serif;
-  --sans: "Noto Sans TC", system-ui, sans-serif;
-  --hand: "LXGW WenKai TC", "BiauKai", serif;
+  --serif: "Songti TC", "PMingLiU", serif;
+  --sans: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --hand: "BiauKai", "KaiTi", "Songti TC", "BiauKai", serif;
 }
 * { box-sizing: border-box; }
 html { scroll-behavior: smooth; scroll-padding-top: 110px; }

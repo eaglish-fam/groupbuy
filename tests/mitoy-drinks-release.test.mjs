@@ -29,7 +29,9 @@ test('both approved pages share production theme and live fail-closed purchase c
   assert.ok(html.includes('/articles/article.js?v='));
   assert.ok(!html.includes('<form action='));
   assert.ok(!html.includes('noindex'));assert.ok(!html.includes('<style>'));
-  assert.ok(html.includes('LXGW+WenKai+TC'));assert.ok(html.includes('/articles/article.css?'));
+  assert.doesNotMatch(html,/fonts\.googleapis\.com\/css2/);
+  assert.match(read('articles/article.css'),/--serif:"Songti TC"/);
+  assert.ok(html.includes('/articles/article.css?'));
   assert.ok(home.indexOf(`data-article="${key}"`)<home.indexOf('data-article="meroware"'));
   assert.ok(read('index.html').includes(`href="/blog/${slug}/"`));
   for(const match of html.matchAll(/src="(\/assets\/[^"?]+)"/g))assert.ok(fs.existsSync(new URL('..'+match[1],import.meta.url)),match[1]);

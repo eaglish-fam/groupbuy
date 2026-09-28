@@ -1,10 +1,24 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
+import {createRequire} from 'node:module';
 import {readSnapshot,snapshotCards} from './catalog-snapshot.mjs';
 import {renderHomepageTravelEntry} from './homepage-travel-entry.mjs';
+const require=createRequire(import.meta.url),{catalog,escape}=require('../product-content.js');
 const root = new URL('../', import.meta.url);
-const release = '20260928-site-nav-v8';
+const release = '20260928-entry-perf-v1';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
+const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
+  .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];
+if(!firstPick)throw Error('Missing editorial first pick');
+const [pickKey,pick]=firstPick;
+const staticPick=`<article class="hero-slide is-active" data-pick-key="${escape(pickKey)}" aria-label="第 1 篇精選文章">
+                <a class="hero-image-link" href="${escape(pick.article)}" aria-label="閱讀：${escape(pick.title)}">
+                  <img src="${escape(pick.image)}" alt="${escape(pick.brands?.[0]||'選物文章')}：${escape(pick.title)}" fetchpriority="high" width="1600" height="1000" />
+                </a>
+                <div class="hero-caption" aria-hidden="true"><strong>${escape(pick.title)}</strong></div>
+                <span class="photo-index">EDITOR'S PICK / 01</span>
+              </article>`;
+html=html.replace(/<article class="hero-slide is-active"[\s\S]*?<\/article>/,staticPick);
 html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
   .replace('content="noindex,nofollow"', 'content="index,follow,max-image-preview:large"')
   .replace(/<div class="preview-strip">[\s\S]*?<\/div>/, '')

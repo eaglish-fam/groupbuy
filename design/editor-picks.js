@@ -50,12 +50,24 @@
       link.setAttribute("aria-label", `閱讀：${item.title}`);
 
       const image = document.createElement("img");
-      image.src = item.image;
+      const originalWidth = globalThis.EntryImageWidths?.[item.image];
+      const srcset = /^\/assets\/[a-z0-9/_-]+\.webp$/i.test(item.image)
+        ? `${item.image.replace(/\.webp$/, '-480.webp')} 480w, ${item.image.replace(/\.webp$/, '-960.webp')} 960w${originalWidth ? `, ${item.image} ${originalWidth}w` : ''}`
+        : '';
+      if (index === 0) {
+        image.src = item.image;
+        if (srcset) image.srcset = srcset;
+      } else {
+        image.dataset.src = item.image;
+        if (srcset) image.dataset.srcset = srcset;
+      }
+      image.sizes = "(max-width:700px) 100vw, 50vw";
       image.alt = `${item.brands?.[0] || "選物文章"}：${item.title}`;
       image.width = 1400;
       image.height = 1000;
+      image.decoding = "async";
       if (index === 0) image.fetchPriority = "high";
-      else image.loading = "lazy";
+      else { image.loading = "lazy"; image.fetchPriority = "low"; }
 
       link.append(image);
 
@@ -105,6 +117,13 @@
       active = wrap(index, slides.length);
       slides.forEach((item, position) => {
         const selected = position === active;
+        const image = item.querySelector('img');
+        if (selected && image.dataset.src) {
+          if (image.dataset.srcset) image.srcset = image.dataset.srcset;
+          image.src = image.dataset.src;
+          delete image.dataset.src;
+          delete image.dataset.srcset;
+        }
         item.classList.toggle("is-active", selected);
         item.setAttribute("aria-hidden", String(!selected));
         item.inert = !selected;

@@ -9,6 +9,18 @@
   const requestedCategory = new URLSearchParams(location.search).get('category') || '';
   let currentCategory = availableCategories.has(requestedCategory) ? requestedCategory : '';
   let inFlight = null, refreshedAt = 0, day = '', buying = false;
+  let parserPromise;
+  function ensureParser() {
+    if (window.Papa) return Promise.resolve();
+    if (!parserPromise) parserPromise = new Promise((resolve, reject) => {
+      const script = document.createElement('script');
+      script.src = '/design/papaparse.min.js';
+      script.onload = resolve;
+      script.onerror = () => reject(Error('CSV parser unavailable'));
+      document.head.append(script);
+    });
+    return parserPromise;
+  }
   function emptyStates() {
     let visibleTotal = 0;
     for (const [key, shelf] of Object.entries(shelves)) {
@@ -62,6 +74,7 @@
     if (inFlight) return inFlight;
     inFlight = (async () => {
       try {
+        await ensureParser();
         const response = await fetch(sheetUrl + '&_=' + Date.now(), { cache: 'no-store', signal: AbortSignal.timeout(12000) });
         if (!response.ok) throw Error('Sheet unavailable');
         const csv = await response.text();
@@ -110,5 +123,10 @@
     } finally { buying = false; }
   });
   applyCategory(currentCategory, false);
-  refresh();
+  const afterPageLoad = () => {
+    if ('requestIdleCallback' in window) requestIdleCallback(refresh, {timeout: 2000});
+    else setTimeout(refresh, 300);
+  };
+  if (document.readyState === 'complete') afterPageLoad();
+  else window.addEventListener('load', afterPageLoad, {once: true});
 })();

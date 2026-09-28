@@ -61,10 +61,21 @@
       : location.pathname.startsWith('/blog/') ? 'journal'
       : location.pathname.startsWith('/guides/') ? 'shopping_guides' : 'shopping';
     window.gtag("config", "G-7SW2X9B19H", { send_page_view: true, content_group: contentGroup, page_location: cleanPageUrl(location.href), page_referrer: cleanPageUrl(document.referrer) });
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = "https://www.googletagmanager.com/gtag/js?id=G-7SW2X9B19H";
-    document.head.append(script);
+    const loadAnalytics = () => {
+      if (document.querySelector?.('script[data-site-analytics]')) return;
+      const script = document.createElement("script");
+      script.async = true;
+      if (script.dataset) script.dataset.siteAnalytics = "";
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-7SW2X9B19H";
+      document.head.append(script);
+    };
+    const afterPageLoad = () => {
+      if ("requestIdleCallback" in window) requestIdleCallback(loadAnalytics, { timeout: 2000 });
+      else setTimeout(loadAnalytics, 300);
+    };
+    if (document.readyState === "complete") afterPageLoad();
+    else if (typeof window.addEventListener === "function") window.addEventListener("load", afterPageLoad, { once: true });
+    else loadAnalytics();
   }
   const countryFromPath = path => {
     const id = path.match(/^\/trip\/([a-z0-9-]+)\//)?.[1] || '';

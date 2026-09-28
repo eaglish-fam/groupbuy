@@ -520,7 +520,7 @@
 
 .countdown-time {
   /* Cormorant Garamond — 跟 9to21 同一支字體，襯線復古優雅 */
-  font-family: "Cormorant Garamond", "Noto Serif TC", "Times New Roman", serif;
+  font-family: "Cormorant Garamond", "Songti TC", "PMingLiU", "Times New Roman", serif;
   font-weight: 400;        /* Regular，serif 字身已有重量感不用拉太重 */
   color: #6b4226;           /* coffee 棕 */
   font-size: 40px;          /* serif 顯得比 sans 小，所以再放大一點 */

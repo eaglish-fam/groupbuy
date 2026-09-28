@@ -1,5 +1,5 @@
 /* One quiet site switcher after the page footer; on phones it replaces the store's utility dock. */
-.site-switcher{color:#544b42;background:#f5f1e9;border-top:1px solid #ded6ca;font-family:'Noto Sans TC',sans-serif;position:relative;z-index:25}
+.site-switcher{color:#544b42;background:#f5f1e9;border-top:1px solid #ded6ca;font-family:-apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei",sans-serif;position:relative;z-index:25}
 .site-switcher-inner{max-width:1280px;margin:0 auto;padding:0 48px;display:flex;justify-content:center;gap:0}
 .site-switcher a{display:flex;align-items:center;justify-content:center;min-width:130px;min-height:49px;padding:10px 20px;text-decoration:none;color:inherit;font-size:13px;line-height:1.5;border-top:2px solid transparent;white-space:nowrap}
 .site-switcher a[aria-current]{border-top-color:#784b39;color:#784b39;font-weight:700}
@@ -12,7 +12,7 @@ a.skip:focus,a.skip-link:focus{z-index:1000}
 aside.site-reading-note{padding:22px 24px;margin:28px 0;background:#f2eee5;border:1px solid #dcd5c9;border-left:3px solid #a9785e;border-radius:5px;color:#494139}
 aside.site-reading-note>p{font-size:14px;line-height:1.9;margin:0 0 12px}
 aside.site-reading-note>p:first-child{font-size:11px;letter-spacing:.08em;color:#784b39;margin-bottom:8px}
-aside.site-reading-note>h3{font-family:'Noto Serif TC',serif;font-size:22px;line-height:1.55;color:#784b39;border:0;padding:0;margin:0 0 12px}
+aside.site-reading-note>h3{font-family:"Songti TC", "PMingLiU",serif;font-size:22px;line-height:1.55;color:#784b39;border:0;padding:0;margin:0 0 12px}
 aside.site-reading-note>ul{list-style:none;margin:14px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 20px}
 aside.site-reading-note>ul>li{margin:0;padding:0;min-width:0}
 aside.site-reading-note a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:#784b39;line-height:1.8;text-underline-offset:4px}

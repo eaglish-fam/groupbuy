@@ -64,7 +64,7 @@
     font-size: 12px;
   }
   .product-card h3 {
-    font-family: "Noto Sans TC", sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
     font-size: 17px;
     line-height: 1.5;
     margin-bottom: 7px;

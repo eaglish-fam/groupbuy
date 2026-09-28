@@ -97,7 +97,7 @@ function normalize(rows, upcoming = false) {
       if (upcoming) r = { ...r, 類型: "即將開團" };
       const brand = r["品牌"].trim();
       const urls = [
-        ProductContent.entry(brand)?.cardImage || "",
+        ProductContent.entry(brand)?.cardImage || ProductContent.entry(brand)?.image || "",
         imageUrl(r["圖片網址"] || r.image),
         ...String(r["附加圖片"] || "")
           .split(/[\r\n,，]+/)
@@ -224,8 +224,13 @@ function card(p) {
         `<a class="retailer-link" href="${esc(ProductContent.withUTM(r.url, p.brand))}" target="_blank" rel="noopener noreferrer" data-outbound-product-id="${esc(p.key)}" data-outbound-product-name="${esc(p.brand)}" data-outbound-group-type="book" data-outbound-source-surface="homepage_product_card" data-outbound-campaign-key="book" data-outbound-retailer="${esc(r.name)}" data-outbound-legacy-event="click_book">${esc(r.name)}</a>`,
     )
     .join("");
+  const firstImage = p.images[0] || "";
+  const cardImage = /^https:\/\/lh3\.googleusercontent\.com\/d\/[^\s]+\=w\d+$/.test(firstImage)
+    ? firstImage.replace(/=w\d+$/, '=w480') : firstImage;
+  const responsive = /^\/assets\/[a-z0-9/_-]+\.webp$/i.test(firstImage)
+    ? ` srcset="${esc(firstImage.replace(/\.webp$/, '-480.webp'))} 480w, ${esc(firstImage.replace(/\.webp$/, '-960.webp'))} 960w${window.EntryImageWidths?.[firstImage] ? `, ${esc(firstImage)} ${window.EntryImageWidths[firstImage]}w` : ''}" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"` : '';
   return `<article class="product-card" ${p.article ? `id="product-${esc(p.article.id)}"` : ""} data-product-key="${esc(p.key)}">
-    <div class="product-picture"><button class="image-open" data-detail="${idx}" aria-label="查看 ${esc(p.brand)} 詳情">${p.images[0] ? `<img src="${esc(p.images[0])}" alt="${esc(p.brand)}" loading="lazy" width="1000" height="750">` : "<span>商品資訊</span>"}</button><button class="save" data-save="${idx}" aria-label="收藏 ${esc(p.brand)}" aria-pressed="${saved.has(p.key)}">${bookmark}</button></div>
+    <div class="product-picture"><button class="image-open" data-detail="${idx}" aria-label="查看 ${esc(p.brand)} 詳情">${firstImage ? `<img src="${esc(cardImage)}"${responsive} alt="${esc(p.brand)}" loading="lazy" decoding="async" fetchpriority="low" width="1000" height="750">` : "<span>商品資訊</span>"}</button><button class="save" data-save="${idx}" aria-label="收藏 ${esc(p.brand)}" aria-pressed="${saved.has(p.key)}">${bookmark}</button></div>
     <div class="product-body"><div class="product-meta"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${label}</span><span>${esc(p.category.split(/[,，]/)[0])}${p.country ? " / " + esc(p.country) : ""}</span></div>
     <h3><button data-detail="${idx}" style="font:inherit;text-align:left;padding:0">${esc(p.brand)}</button></h3><p class="product-description">${esc(p.description)}</p>
     <div class="product-bottom">${timedCampaign(p) ? `<p class="date-line">${countdownMarkup(p)}</p>` : ""}
@@ -651,4 +656,13 @@ window.addEventListener("catalog-ready", () => {
   }
 });
 updateSaved();
-load();
+const loadCatalogueAfterPaint = () => {
+  setTimeout(() => {
+    if ("requestIdleCallback" in window) requestIdleCallback(load, { timeout: 2000 });
+    else load();
+  }, 1500);
+};
+document.querySelector('.hero-entry-actions a[href="#catalog"]')?.addEventListener('click', load);
+if (location.hash.startsWith("#product-") || location.hash === '#catalog' || new URLSearchParams(location.search).has("p")) load();
+else if (document.readyState === "complete") loadCatalogueAfterPaint();
+else window.addEventListener("load", loadCatalogueAfterPaint, { once: true });

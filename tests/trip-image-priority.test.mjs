@@ -29,7 +29,8 @@ test('travel entry pages preload their first visual using the same responsive so
   const head=html.split('</head>')[0];
   const preload=head.match(/<link rel="preload" as="image"[^>]+>/g)||[];
   assert.equal(preload.length,1,`${path}: exactly one image should be preloaded`);
-  assert.ok(head.indexOf(preload[0])<head.indexOf('fonts.googleapis.com'),`${path}: preload must precede font requests`);
+  assert.doesNotMatch(head,/fonts\.googleapis\.com/,`${path}: system fonts should avoid render-blocking font requests`);
+  assert.ok(head.indexOf(preload[0])<head.indexOf('<link rel="stylesheet"'),`${path}: preload must precede stylesheets`);
   assert.match(preload[0],new RegExp(`imagesrcset="[^"]*${id}-640\\.webp 640w`));
   assert.match(preload[0],/imagesizes="[^"]+"/);
   assert.match(preload[0],/fetchpriority="high"/);

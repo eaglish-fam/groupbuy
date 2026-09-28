@@ -5,8 +5,8 @@ import {createHash} from 'node:crypto';
 import vm from 'node:vm';
 
 const source=readFileSync(new URL('../site-runtime.js',import.meta.url),'utf8');
-function runtime({hostname='www.eaglish.store',path='/trip/',robots='',query='',referrer='',country='new-zealand',breadcrumbs=[]}={}){
- const listeners={},scripts=[],selection={value:country};
+function runtime({hostname='www.eaglish.store',path='/trip/',robots='',query='',referrer='',country='new-zealand',breadcrumbs=[],deferred=false}={}){
+ const listeners={},scripts=[],idle=[],selection={value:country};
  const context={URL,location:{hostname,pathname:path,origin:`https://${hostname}`,href:`https://${hostname}${path}${query}`},navigator:{},
   document:{referrer,
    head:{append:script=>scripts.push(script)},createElement:()=>({}),
@@ -15,6 +15,11 @@ function runtime({hostname='www.eaglish.store',path='/trip/',robots='',query='',
    addEventListener(name,handler){(listeners[name]??=[]).push(handler);},
   },
  };
+ if(deferred){
+  context.document.readyState='loading';
+  context.addEventListener=(name,handler)=>{(listeners[name]??=[]).push(handler);};
+  context.requestIdleCallback=handler=>idle.push(handler);
+ }
  context.window=context;
  vm.createContext(context);vm.runInContext(source,context);
  const events=()=>context.dataLayer?.filter(row=>row[0]==='event')||[];
@@ -23,8 +28,20 @@ function runtime({hostname='www.eaglish.store',path='/trip/',robots='',query='',
   const target={closest:s=>s==='a'?a:matches[s]||null};
   for(const handler of listeners.click)handler({target});
  };
- return {context,listeners,scripts,events,click,selection};
+ return {context,listeners,scripts,events,click,selection,flushLoad(){
+  for(const handler of listeners.load||[])handler();
+  for(const handler of idle.splice(0))handler();
+ }};
 }
+
+test('GA queues page view immediately and downloads the library after page load and idle',()=>{
+ const r=runtime({deferred:true});
+ assert.equal(r.context.dataLayer.filter(row=>row[0]==='config').length,1);
+ assert.equal(r.scripts.length,0);
+ r.flushLoad();
+ assert.equal(r.scripts.length,1);
+ assert.match(r.scripts[0].src,/googletagmanager\.com\/gtag\/js/);
+});
 
 test('one GA initialization and page view configuration survives repeated runtime inclusion',()=>{
  const r=runtime();vm.runInContext(source,r.context);

@@ -9,18 +9,13 @@
       name="description"
       content="從餐桌、居家到旅行，跟著鷹式一家發現生活選物、當期團購與真實使用筆記。"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./design.css" />
     <link rel="stylesheet" href="./mobile-grid.css?v=2" />
     <link rel="stylesheet" href="./complete-content.css?v=3" />
     <link rel="stylesheet" href="./travel-entry.css" />
     <script defer src="./papaparse.min.js"></script>
     <script defer src="/product-content.js?v=20260916-miamily-astra-v1"></script>
+    <script defer src="./entry-image-widths.js"></script>
     <script defer src="./editor-picks.js"></script>
     <script defer src="./design.js"></script>
     <script defer src="./mobile-grid.js?v=2"></script>
@@ -89,7 +84,7 @@
             <div class="hero-slides">
               <article class="hero-slide is-active" data-pick-key="playzu" aria-label="第 1 篇精選文章">
                 <a class="hero-image-link" href="/blog/playzu/" aria-label="閱讀：地板留給孩子，風格留給自己。">
-                  <img src="/assets/playzu/cover.webp" alt="Playzu 地墊家庭遊戲角落，地板留給孩子、風格留給自己" fetchpriority="high" width="1600" height="1000" />
+                  <img src="/assets/playzu/cover.webp" alt="Playzu 地墊家庭遊戲角落，地板留給孩子、風格留給自己" fetchpriority="high" width="1600" height="1000" decoding="async" loading="eager" srcset="/assets/playzu/cover-480.webp 480w, /assets/playzu/cover-960.webp 960w, /assets/playzu/cover.webp 1600w" sizes="(max-width:700px) 100vw, 50vw" />
                 </a>
                 <div class="hero-caption" aria-hidden="true"><strong>地板留給孩子，風格留給自己。</strong></div>
                 <span class="photo-index">EDITOR'S PICK / 01</span>
@@ -315,8 +310,8 @@
           <a class="text-link" href="/blog/">所有選物文章 ↗</a>
         </header>
         <div class="journal-grid">
-<a class="story" href="/blog/mitoy-rice-blocks/"><div class="story-image"><img src="/assets/mitoy-rice-blocks/play.webp" width="1400" height="1000" loading="lazy" alt="MiToy 米積木"><span>孩子的遊戲時光</span></div><h3>同一盒積木，每天都有新的樣子。</h3><p>從在恩、在熙的遊戲時光，看看 25 顆、50 顆與主題組怎麼選。</p><span class="text-link">讀讀這篇筆記 ↗</span></a>
-<a class="story" href="/blog/chulu-aomori-drinks/"><div class="story-image"><img src="/assets/chulu-aomori-drinks/flavored.webp" width="1400" height="1000" loading="lazy" alt="台東初鹿與青森飲品"><span>餐桌上的日常</span></div><h3>早餐的那一杯，留給家人喜歡的味道。</h3><p>原味、可可、伯爵、黑豆芝麻與蘋果香，從家人的飲用習慣慢慢挑。</p><span class="text-link">讀讀這篇筆記 ↗</span></a>
+<a class="story" href="/blog/mitoy-rice-blocks/"><div class="story-image"><img src="/assets/mitoy-rice-blocks/play.webp" width="1400" height="1000" loading="lazy" alt="MiToy 米積木" decoding="async" fetchpriority="low" srcset="/assets/mitoy-rice-blocks/play-480.webp 480w, /assets/mitoy-rice-blocks/play-960.webp 960w, /assets/mitoy-rice-blocks/play.webp 1400w" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"><span>孩子的遊戲時光</span></div><h3>同一盒積木，每天都有新的樣子。</h3><p>從在恩、在熙的遊戲時光，看看 25 顆、50 顆與主題組怎麼選。</p><span class="text-link">讀讀這篇筆記 ↗</span></a>
+<a class="story" href="/blog/chulu-aomori-drinks/"><div class="story-image"><img src="/assets/chulu-aomori-drinks/flavored.webp" width="1400" height="1000" loading="lazy" alt="台東初鹿與青森飲品" decoding="async" fetchpriority="low" srcset="/assets/chulu-aomori-drinks/flavored-480.webp 480w, /assets/chulu-aomori-drinks/flavored-960.webp 960w, /assets/chulu-aomori-drinks/flavored.webp 1400w" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"><span>餐桌上的日常</span></div><h3>早餐的那一杯，留給家人喜歡的味道。</h3><p>原味、可可、伯爵、黑豆芝麻與蘋果香，從家人的飲用習慣慢慢挑。</p><span class="text-link">讀讀這篇筆記 ↗</span></a>
           <a class="story" href="/blog/atojet/"
             ><div class="story-image">
               <img
@@ -324,7 +319,7 @@
                 loading="lazy"
                 alt="Atojet 浴室蓮蓬頭"
                 width="1000"
-                height="740"
+                height="740" decoding="async" fetchpriority="low" srcset="/assets/atojet/vendor-shower-480.webp 480w, /assets/atojet/vendor-shower-960.webp 960w, /assets/atojet/vendor-shower.webp 1000w" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"
               /><span>居家觀察</span>
             </div>
             <h3>洗澡的水，看起來很乾淨。<br />直到我們拆開了濾芯。</h3>
@@ -338,7 +333,7 @@
                 loading="lazy"
                 alt="吐司抹上 Wave 鷹嘴豆泥"
                 width="1125"
-                height="1312"
+                height="1312" decoding="async" fetchpriority="low" srcset="/assets/wave/toast-480.webp 480w, /assets/wave/toast-960.webp 960w, /assets/wave/toast.webp 1125w" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"
               /><span>餐桌日常</span>
             </div>
             <h3>一片吐司，<br />還有多少種好吃的可能？</h3>
@@ -352,7 +347,7 @@
                 loading="lazy"
                 alt="ARTISAN 電動清潔刷居家清潔導購圖"
                 width="1586"
-                height="992"
+                height="992" decoding="async" fetchpriority="low" srcset="/assets/artisan-cb301/blog-cover-v2-480.webp 480w, /assets/artisan-cb301/blog-cover-v2-960.webp 960w, /assets/artisan-cb301/blog-cover-v2.webp 1586w" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"
               /><span>順手好物</span>
             </div>
             <h3>真正難刷的，<br />往往不是最髒的地方。</h3>
@@ -366,7 +361,7 @@
                 loading="lazy"
                 alt="在恩與在熙身旁擺著 Meroware 水壺、餐具與零食球"
                 width="1600"
-                height="1000"
+                height="1000" decoding="async" fetchpriority="low" srcset="/assets/meroware/blog-cover-v1-480.webp 480w, /assets/meroware/blog-cover-v1-960.webp 960w, /assets/meroware/blog-cover-v1.webp 1600w" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"
               /><span>親子餐桌</span>
             </div>
             <h3>從第一口，<br />到孩子自己吃。</h3>
