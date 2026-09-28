@@ -72,7 +72,7 @@ if (form) {
       } else if (day.stops.length) {
         const areaNames = [...new Set(day.stops.map(stop => areaLabel(regionId,stop.area)))];
         if (previousActivityArea && previousActivityArea !== day.area) {
-          item.append(element('p',`跨區移動：從 ${areaLabel(regionId,previousActivityArea)} 到 ${areaNames[0]}；請另外核對交通時間，這一天不要當作完整遊玩日。`,'nz-plan-transfer-note'));
+          item.append(element('p',`交通銜接：從 ${areaLabel(regionId,previousActivityArea)} 前往 ${areaNames[0]}，請依路線預留交通與休息時間。`,'nz-plan-transfer-note'));
         }
         item.append(element('p',`今日區域：${areaNames.join(' → ')}。移動、用餐及休息另留時間。`,'nz-plan-day-area'));
         if (areaNames.length > 1) item.append(element('p','同日跨區已預留粗估緩衝，實際車程與路況請另查。','nz-plan-transfer-note'));

@@ -105,6 +105,8 @@ test('day switcher clamps resized trips, exposes native buttons and retains a fu
   assert.match(client,/button\.setAttribute\('aria-controls',item\.id\)/);
   assert.match(client,/button\.setAttribute\('aria-pressed'/);
   assert.match(client,/panel\.hidden=dayIndex!==index/);
+  assert.match(client,/交通銜接：從 /);
+  assert.doesNotMatch(client,/這一天不要當作完整遊玩日/);
   const staticHtml = readFileSync(new URL('../trip/new-zealand/index.html',import.meta.url),'utf8');
   const fallback = staticHtml.match(/<div class="nz-planner"[\s\S]*?<\/div><p class="nz-plan-share">/)?.[0];
   assert.ok(fallback);
