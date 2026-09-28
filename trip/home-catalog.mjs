@@ -31,14 +31,14 @@ export const travelHomeCatalog = {
   countries: [
     {
       id:'thailand',name:'泰國',englishName:'Thailand',href:'/trip/thailand/',
-      region:'asia',regionLabel:'亞洲',geography:{point:[100.5,15],isoNumeric:'764'},
+      region:'asia',subregion:'southeast-asia',regionLabel:'亞洲',geography:{point:[100.5,15],isoNumeric:'764'},
       summary:'從曼谷的運河與市集，到清邁古城、清萊花園，挑一座城市開始。',
       image:images.thailand,
       guideIds:['bangkok','chiang-mai','chiang-rai'],
     },
     {
       id:'new-zealand',name:'紐西蘭',englishName:'New Zealand',href:'/trip/new-zealand/',
-      region:'oceania',regionLabel:'大洋洲',geography:{point:[172.8,-43.2],isoNumeric:'554'},
+      region:'oceania',subregion:'australasia',regionLabel:'大洋洲',geography:{point:[172.8,-43.2],isoNumeric:'554'},
       summary:'北島的城市與戶外活動，南島的湖泊、海岸與農場，先選一段喜歡的風景。',
       image:images.newZealand,
       guideIds:['north-island','wellington','christchurch-akaroa','mid-canterbury','kaikoura','otago','queenstown-arrowtown','wanaka-tekapo'],

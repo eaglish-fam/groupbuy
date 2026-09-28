@@ -67,7 +67,7 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/index.html",
-      "index": 119428
+      "index": 86552
     },
     {
       "level": "warn",

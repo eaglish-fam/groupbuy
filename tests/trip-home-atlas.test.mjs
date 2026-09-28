@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {runInNewContext} from 'node:vm';
 import {travelHomeCatalog} from '../trip/home-catalog.mjs';
+import {regionsForCatalog} from '../trip/home-regions.mjs';
 import {travelHomeCommerce} from '../trip/home-commerce.mjs';
 import {renderTravelHome} from '../scripts/build-trip-home.mjs';
 import {projectDestination,destinationOnLand,renderWorldAtlas} from '../scripts/trip-world-atlas.mjs';
@@ -18,7 +19,7 @@ function tenCountryCatalog(){
  const catalog=structuredClone(travelHomeCatalog);
  for(const [id,name,region,regionLabel,isoNumeric,point] of fixtures){
   const countryId='fixture-'+id,guideId=countryId+'-guide';
-  catalog.countries.push({...structuredClone(catalog.countries[0]),id:countryId,name,englishName:id,href:`/trip/${countryId}/`,region,regionLabel,geography:{isoNumeric,point},guideIds:[guideId]});
+  catalog.countries.push({...structuredClone(catalog.countries[0]),id:countryId,name,englishName:id,href:`/trip/${countryId}/`,region,regionLabel,subregion:region==='asia'?'east-asia':region==='europe'?({'uk':'northern-europe','fr':'western-europe','it':'southern-europe'}[id]):region==='oceania'?'australasia':'north-america',geography:{isoNumeric,point},guideIds:[guideId]});
   catalog.guides.push({...structuredClone(catalog.guides[0]),id:guideId,countryId,href:`/trip/${countryId}/guide/`});
  }
  return catalog;
@@ -45,12 +46,15 @@ test('atlas places published destination points on their actual land geometry',(
 
 test('ten destinations reuse atlas, region filters, panels and guide options without entering production',()=>{
  const catalog=tenCountryCatalog(),html=renderTravelHome(catalog);
- assert.equal((html.match(/data-atlas-country=/g)||[]).length,10);
+ assert.equal((html.match(/data-atlas-country=/g)||[]).length,0); // No overlapping globe labels or hitboxes.
  assert.equal((html.match(/data-atlas-choice=/g)||[]).length,10);
  assert.equal((html.match(/data-country-panel=/g)||[]).length,10);
- assert.equal((html.match(/data-atlas-region=/g)||[]).length,5);
- assert.match(html,/home-world-map-dense/);
- assert.equal((html.match(/data-atlas-decorative="true"/g)||[]).length,10);
+ assert.equal((html.match(/data-atlas-region=/g)||[]).length,6);
+ assert.match(html,/home-globe-preview/);
+ const config=JSON.parse(html.match(/id="home-globe-config">([\s\S]*?)<\/script>/)[1]);
+ assert.equal(config.countries.length,10);
+ assert.equal(config.regions.find(r=>r.id==='asia').children.length,5);
+ assert.doesNotMatch(html,/<script[^>]+src="[^"]*globe\.js|<link[^>]+globe-land/);
  assert.doesNotMatch(html,/NaN|Infinity/);
  for(const country of catalog.countries){
   assert.ok(html.includes(`value="${country.id}"`));
@@ -82,13 +86,15 @@ test('affiliate offers resolve to existing guide anchors and unchanged source tr
  assert.doesNotMatch(read('trip/home.js'),/fetch\(|XMLHttpRequest|gtag\(|setInterval\(/);
 });
 
-test('ten-country controller supports region selection, expand and contextual commerce without silently filtering guides',()=>{
+test('region and subregion browsing scales to ten countries, clears empty regions and keeps guide choices explicit',()=>{
  const catalog=tenCountryCatalog();
+ const allRegions=regionsForCatalog(catalog);
  const el=(dataset={})=>({dataset,hidden:false,attrs:{},events:{},textContent:'',classList:{toggle(){}},setAttribute(k,v){this.attrs[k]=v;},addEventListener(k,f){this.events[k]=f;},querySelector(){return {textContent:this.dataset.atlasChoice||'',focus(){}};}});
- const choices=catalog.countries.map(c=>el({atlasChoice:c.id,countryRegion:c.region}));
- const pins=catalog.countries.map(c=>el({atlasCountry:c.id}));
+ const choices=catalog.countries.map(c=>el({atlasChoice:c.id,countryRegion:c.region,countrySubregion:c.subregion||''}));
  const panels=catalog.countries.map(c=>el({countryPanel:c.id}));
- const regions=['all','asia','oceania','americas','europe'].map(id=>el({atlasRegion:id}));
+ const regions=['all',...allRegions.map(r=>r.id)].map(id=>el({atlasRegion:id}));
+ const subButtons=allRegions.flatMap(r=>['all',...r.children.map(c=>c.id)].map(id=>el({atlasSubregion:id,parentRegion:r.id})));
+ const subGroups=allRegions.map(r=>el({subregionGroup:r.id}));
  const offers=travelHomeCommerce.offers.map(o=>el({offerCountry:o.countryId}));
  const explore=catalog.countries.map(c=>el({exploreCountry:c.id}));
  const country={value:'all',selectedOptions:[{textContent:'選擇國家'}],focus(){}},theme={value:'all',selectedOptions:[{textContent:'玩法'}]};
@@ -96,23 +102,33 @@ test('ten-country controller supports region selection, expand and contextual co
  const cards=catalog.guides.map(g=>el({guideId:g.id,country:g.countryId,themes:g.suitableFor.join(' ')}));
  const grid=el();grid.querySelectorAll=()=>cards;
  const singles={'[data-home-filters]':form,'[data-home-guides]':grid,'.home-atlas':el()};
- for(const name of ['home-status','home-empty','home-more','home-reset','atlas-more','atlas-status','commerce-empty','region-filters'])singles[`[data-${name}]`]=el();
+ for(const name of ['home-status','home-empty','home-more','home-reset','atlas-more','atlas-status','commerce-empty','region-filters','atlas-empty','atlas-back','atlas-scope','atlas-count','atlas-country-heading','atlas-empty-copy','atlas-return','subregions','atlas-breadcrumb'])singles[`[data-${name}]`]=el();
  singles['.home-affiliate-note']=el();
- const lists={'[data-atlas-choice]':choices,'[data-atlas-country]':pins,'[data-country-panel]':panels,'[data-atlas-region]':regions,'[data-offer-country]':offers,'[data-explore-country]':explore};
+ singles['#home-globe-config']={textContent:JSON.stringify({regions:allRegions,countries:catalog.countries,initialRegion:'asia'})};
+ const lists={'[data-atlas-choice]':choices,'[data-country-panel]':panels,'[data-atlas-region]':regions,'[data-atlas-subregion]':subButtons,'[data-subregion-group]':subGroups,'[data-offer-country]':offers,'[data-explore-country]':explore};
  runInNewContext(read('trip/home.js'),{document:{querySelector:s=>singles[s]||null,querySelectorAll:s=>lists[s]||[]}});
  const click=control=>control.events.click({preventDefault(){}});
- assert.equal(choices.filter(c=>!c.hidden).length,6);
+ assert.equal(choices.filter(c=>!c.hidden).length,3); // Thailand, Japan, Taiwan.
  assert.equal(panels.filter(c=>!c.hidden).length,1);
  assert.equal(singles['.home-affiliate-note'].hidden,false);
+ click(subButtons.find(b=>b.dataset.atlasSubregion==='east-asia'));
+ assert.deepEqual(choices.filter(c=>!c.hidden).map(c=>c.dataset.atlasChoice),['fixture-jp','fixture-tw']);
+ assert.equal(panels.find(c=>!c.hidden).dataset.countryPanel,'fixture-jp');
+ assert.equal(country.value,'all');
+ click(singles['[data-atlas-back]']);assert.equal(choices.filter(c=>!c.hidden).length,3);
+ click(regions[0]);assert.equal(choices.filter(c=>!c.hidden).length,6);
  click(singles['[data-atlas-more]']);assert.equal(choices.filter(c=>!c.hidden).length,10);
  click(regions.find(r=>r.dataset.atlasRegion==='europe'));
  assert.equal(choices.filter(c=>!c.hidden).length,3);
- assert.equal(pins.filter(c=>!c.hidden).length,3);
  assert.equal(panels.find(c=>!c.hidden).dataset.countryPanel,'fixture-uk');
- assert.equal(country.value,'all');
- assert.equal(singles['[data-commerce-empty]'].hidden,false);
+ click(subButtons.find(b=>b.dataset.atlasSubregion==='eastern-europe'));
+ assert.equal(choices.filter(c=>!c.hidden).length,0);
+ assert.equal(panels.filter(c=>!c.hidden).length,0);
+ assert.equal(offers.filter(c=>!c.hidden).length,0);
+ assert.equal(singles['[data-atlas-empty]'].hidden,false);
  assert.equal(singles['.home-affiliate-note'].hidden,true);
- click(regions[0]);
+ click(singles['[data-atlas-return]']);assert.equal(choices.filter(c=>!c.hidden).length,10);
+ click(regions.find(r=>r.dataset.atlasRegion==='oceania'));
  const nz=choices.find(c=>c.dataset.atlasChoice==='new-zealand');
  nz.events.keydown({key:' ',preventDefault(){}});
  assert.equal(panels.find(c=>!c.hidden).dataset.countryPanel,'new-zealand');
@@ -121,6 +137,7 @@ test('ten-country controller supports region selection, expand and contextual co
  assert.equal(country.value,'new-zealand');
  assert.equal(cards.filter(c=>!c.hidden).length,6);
  click(singles['[data-home-more]']);assert.equal(cards.filter(c=>!c.hidden).length,8);
+ click(regions.find(r=>r.dataset.atlasRegion==='asia'));
  click(choices[0]);assert.equal(offers.filter(c=>!c.hidden).length,3);
  assert.equal(singles['.home-affiliate-note'].hidden,false);
 });

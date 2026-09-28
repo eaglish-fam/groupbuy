@@ -37,57 +37,113 @@
 
  // The atlas is optional when this controller is reused with only guide discovery.
  if(!document.querySelector('.home-atlas'))return;
- // The atlas uses the same country records as the static links and guide filter.
+ const configNode=document.querySelector('#home-globe-config');
+ if(!configNode)return;
+ const config=JSON.parse(configNode.textContent);
  const choices=[...document.querySelectorAll('[data-atlas-choice]')];
- const pins=[...document.querySelectorAll('[data-atlas-country]')];
  const panels=[...document.querySelectorAll('[data-country-panel]')];
- const regions=[...document.querySelectorAll('[data-atlas-region]')];
+ const regionButtons=[...document.querySelectorAll('[data-atlas-region]')];
+ const subButtons=[...document.querySelectorAll('[data-atlas-subregion]')];
+ const subGroups=[...document.querySelectorAll('[data-subregion-group]')];
  const atlasMore=document.querySelector('[data-atlas-more]');
  const atlasStatus=document.querySelector('[data-atlas-status]');
  const offers=[...document.querySelectorAll('[data-offer-country]')];
  const commerceEmpty=document.querySelector('[data-commerce-empty]');
- let selectedCountry=choices[0]?.dataset.atlasChoice;
- let selectedRegion='all',expandedCountries=false;
- function selectCountry(id,announce=true){
-  const chosen=choices.find(choice=>choice.dataset.atlasChoice===id);
-  if(!chosen)return;
-  selectedCountry=id;
-  panels.forEach(panel=>{panel.hidden=panel.dataset.countryPanel!==id;});
-  [...choices,...pins].forEach(control=>{
-   const active=(control.dataset.atlasChoice||control.dataset.atlasCountry)===id;
-   control.setAttribute('aria-pressed',String(active));
-   control.classList.toggle('is-selected',active);
-  });
-  offers.forEach(offer=>{offer.hidden=offer.dataset.offerCountry!==id;});
-  commerceEmpty.hidden=offers.some(offer=>!offer.hidden);
-  document.querySelector('.home-affiliate-note').hidden=commerceEmpty.hidden===false;
-  if(announce)atlasStatus.textContent=`已選擇${chosen.querySelector('span').textContent}，下方顯示當地照片與指南入口。`;
+ const emptyPanel=document.querySelector('[data-atlas-empty]');
+ const back=document.querySelector('[data-atlas-back]');
+ const scopeLabel=document.querySelector('[data-atlas-scope]');
+ const host=document.querySelector('[data-globe-host]');
+ const enable=document.querySelector('[data-globe-enable]');
+ const resetView=document.querySelector('[data-globe-reset]');
+ const globeMessage=document.querySelector('[data-globe-message]');
+ let selectedCountry='',selectedRegion=config.initialRegion,selectedSubregion='all',expandedCountries=false;
+ let globe=null,globeTask=null;
+ const world={id:'all',label:'世界',center:[112,22],children:[]};
+ const region=()=>config.regions.find(r=>r.id===selectedRegion)||world;
+ const scope=()=>region().children.find(r=>r.id===selectedSubregion)||region();
+ let desiredView={center:region().center,countryId:'',regionId:selectedRegion};
+
+ function loadGlobe(){
+  if(!host||!enable)return Promise.resolve();
+  if(globe){globe.setView(desiredView);return Promise.resolve(globe);}
+  if(globeTask)return globeTask;
+  enable.disabled=true;host.setAttribute('aria-busy','true');
+  globeMessage.textContent='地球載入中，國家清單仍可操作。';
+  globeTask=import('/trip/globe.js?v=20260928-globe-3')
+   .then(module=>module.mountGlobe(host,{countries:config.countries,region:config.regions.find(r=>r.id===config.initialRegion),selectedCountry:config.countries[0]?.id}))
+   .then(instance=>{
+    globe=instance;globe.setView(desiredView);enable.hidden=true;resetView.hidden=false;
+    globeMessage.textContent='左右拖曳，或用方向鍵轉動。';
+    return instance;
+   }).catch(()=>{
+    globeTask=null;enable.textContent='重新載入地球';
+    globeMessage.textContent='暫時顯示靜態預覽，仍可從清單選目的地。';
+   }).finally(()=>{enable.disabled=false;host.setAttribute('aria-busy','false');});
+  return globeTask;
  }
- function showCountries(){
-  const matched=choices.filter(choice=>selectedRegion==='all'||choice.dataset.countryRegion===selectedRegion);
+ function moveGlobe(center,activate=true){
+  desiredView={center,countryId:selectedCountry,regionId:selectedSubregion==='all'?selectedRegion:selectedSubregion};
+  if(activate)loadGlobe();
+  else if(globe)globe.setView(desiredView);
+ }
+ function selectCountry(id,{announce=true,move=true}={}){
+  const chosen=choices.find(choice=>choice.dataset.atlasChoice===id);
+  selectedCountry=chosen?id:'';
+  panels.forEach(panel=>{panel.hidden=panel.dataset.countryPanel!==selectedCountry;});
+  choices.forEach(control=>{
+   const active=control.dataset.atlasChoice===selectedCountry;
+   control.setAttribute('aria-pressed',String(active));control.classList.toggle('is-selected',active);
+  });
+  offers.forEach(offer=>{offer.hidden=offer.dataset.offerCountry!==selectedCountry;});
+  commerceEmpty.hidden=offers.some(offer=>!offer.hidden);
+  document.querySelector('.home-affiliate-note').hidden=!commerceEmpty.hidden;
+  emptyPanel.hidden=Boolean(chosen);
+  if(chosen&&announce)atlasStatus.textContent=`已選擇${chosen.querySelector('span').textContent}，顯示當地照片與指南入口。`;
+  if(move){
+   const record=config.countries.find(c=>c.id===selectedCountry);
+   moveGlobe(record?.geography?.point||scope().center);
+  }
+ }
+ function showCountries(activate=true){
+  const matched=choices.filter(choice=>(selectedRegion==='all'||choice.dataset.countryRegion===selectedRegion)&&(selectedSubregion==='all'||choice.dataset.countrySubregion===selectedSubregion));
   const visible=new Set(expandedCountries?matched:matched.slice(0,6));
   choices.forEach(choice=>{choice.hidden=!visible.has(choice);});
-  pins.forEach(pin=>{pin.hidden=!matched.some(choice=>choice.dataset.atlasChoice===pin.dataset.atlasCountry);});
   atlasMore.hidden=matched.length<=6;
   atlasMore.textContent=expandedCountries?'收合目的地':`展開全部 ${matched.length} 個目的地`;
   atlasMore.setAttribute('aria-expanded',String(expandedCountries));
-  regions.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.atlasRegion===selectedRegion)));
-  if(!matched.some(choice=>choice.dataset.atlasChoice===selectedCountry)&&matched[0])selectCountry(matched[0].dataset.atlasChoice);
+  regionButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.atlasRegion===selectedRegion)));
+  subGroups.forEach(group=>{group.hidden=group.dataset.subregionGroup!==selectedRegion;});
+  subButtons.forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.atlasSubregion===selectedSubregion)));
+  scopeLabel.textContent=selectedSubregion==='all'?region().label:`${region().label} ／ ${scope().label}`;
+  back.textContent=selectedSubregion==='all'?'← 世界':`← ${region().label}`;
+  back.hidden=selectedRegion==='all';
+  document.querySelector('[data-atlas-count]').textContent=`${matched.length} 個目的地`;
+  document.querySelector('[data-atlas-country-heading]').textContent=`${scope().label}的旅行指南`;
+  document.querySelector('[data-atlas-empty-copy]').textContent=`${scope().label}目前沒有公開的旅行指南。你可以繼續探索地球，或看看已有的目的地。`;
+  const keep=matched.some(choice=>choice.dataset.atlasChoice===selectedCountry);
+  selectCountry(keep?selectedCountry:matched[0]?.dataset.atlasChoice,{announce:false,move:false});
+  atlasStatus.textContent=`${scope().label}，${matched.length} 個已公開目的地。`;
+  moveGlobe(scope().center,activate);
  }
- [...choices,...pins.filter(pin=>pin.dataset.atlasDecorative!=='true')].forEach(control=>{
+ choices.forEach(control=>{
   control.setAttribute('role','button');
   control.addEventListener('click',event=>{
    if(event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;
-   event.preventDefault();selectCountry(control.dataset.atlasChoice||control.dataset.atlasCountry);
+   event.preventDefault();selectCountry(control.dataset.atlasChoice);
   });
-  control.addEventListener('keydown',event=>{if(event.key===' '){event.preventDefault();selectCountry(control.dataset.atlasChoice||control.dataset.atlasCountry);}});
+  control.addEventListener('keydown',event=>{if(event.key===' '){event.preventDefault();selectCountry(control.dataset.atlasChoice);}});
  });
- regions.forEach(button=>button.addEventListener('click',()=>{selectedRegion=button.dataset.atlasRegion;expandedCountries=false;showCountries();}));
- atlasMore.addEventListener('click',()=>{expandedCountries=!expandedCountries;showCountries();});
- document.querySelectorAll('[data-explore-country]').forEach(link=>link.addEventListener('click',()=>{
-  country.value=link.dataset.exploreCountry;theme.value='all';limit=batchSize;render();
- }));
+ regionButtons.forEach(button=>button.addEventListener('click',()=>{selectedRegion=button.dataset.atlasRegion;selectedSubregion='all';expandedCountries=false;showCountries();}));
+ subButtons.forEach(button=>button.addEventListener('click',()=>{selectedRegion=button.dataset.parentRegion;selectedSubregion=button.dataset.atlasSubregion;expandedCountries=false;showCountries();}));
+ back.addEventListener('click',()=>{if(selectedSubregion!=='all')selectedSubregion='all';else selectedRegion='all';expandedCountries=false;showCountries();});
+ document.querySelector('[data-atlas-return]').addEventListener('click',()=>{selectedRegion='all';selectedSubregion='all';expandedCountries=true;showCountries();});
+ atlasMore.addEventListener('click',()=>{expandedCountries=!expandedCountries;showCountries(false);});
+ document.querySelectorAll('[data-explore-country]').forEach(link=>link.addEventListener('click',()=>{country.value=link.dataset.exploreCountry;theme.value='all';limit=batchSize;render();}));
+ enable?.addEventListener('click',()=>loadGlobe());
+ resetView?.addEventListener('click',()=>moveGlobe(scope().center));
  document.querySelector('[data-region-filters]').hidden=false;
- if(selectedCountry)selectCountry(selectedCountry,false);
- showCountries();
+ document.querySelector('[data-subregions]').hidden=false;
+ document.querySelector('[data-atlas-breadcrumb]').hidden=false;
+ if(host)document.querySelector('[data-globe-toolbar]').hidden=false;
+ showCountries(false);
 })();

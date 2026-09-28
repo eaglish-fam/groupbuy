@@ -51,6 +51,8 @@ test('invalid references fail instead of silently dropping cards or inventing de
     c => {c.guides[0].suitableFor.push('missing-theme');},
     c => {c.countries[0].image.src = '/trip/assets/nonexistent-home-cover.webp';},
     c => {c.guides[0].href = 'javascript:alert(1)';},
+    c => {c.countries[0].subregion = 'misspelled-subregion';},
+    c => {c.countries[0].geography.point = [181,0];},
   ];
   for (const mutate of mutations) {
     const catalog = clone();
