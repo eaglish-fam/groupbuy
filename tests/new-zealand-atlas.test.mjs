@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
+import sharp from 'sharp';
 import {atlasViews,projectAtlasPoint,newZealandAtlas} from '../scripts/trip-new-zealand-atlas.mjs';
 
 const root = resolve(import.meta.dirname,'..');
@@ -25,6 +26,50 @@ test('NZ atlas focuses both islands without moving point identities or losing ar
   assert.equal(atlasViews.south.routes.length,2,'inland and coastal choices remain separate');
 });
 
+
+test('NZ route segments stay on the illustrated land between their destination pins',async()=>{
+  const {data,info} = await sharp(resolve(root,'trip/assets/new-zealand-atlas.webp')).removeAlpha().raw().toBuffer({resolveWithObject:true});
+  const pixel = (x,y) => {
+    const offset = (Math.round(y)*info.width+Math.round(x))*info.channels;
+    return [data[offset],data[offset+1],data[offset+2]];
+  };
+  // This atlas has warm ochre land/brown coastlines, blue water and pale cream paper.
+  // A four-source-pixel neighbourhood tolerates the drawn coastline and narrow rivers;
+  // it cannot hide a route crossing the pale sea. No screenshot or DOM mock is used.
+  function hasLand(x,y) {
+    for (let dy=-4;dy<=4;dy++) for (let dx=-4;dx<=4;dx++) {
+      if (dx*dx+dy*dy>16 || x+dx<0 || x+dx>=info.width || y+dy<0 || y+dy>=info.height) continue;
+      const [r,g,b] = pixel(x+dx,y+dy);
+      if (r-b>30 && g-b>12) return true;
+    }
+    return false;
+  }
+  function longestWaterRun(points) {
+    let run=0,longest=0;
+    for (let index=1;index<points.length;index++) {
+      const a=[points[index-1][0]*info.width/100,points[index-1][1]*info.height/100];
+      const b=[points[index][0]*info.width/100,points[index][1]*info.height/100];
+      const distance=Math.hypot(b[0]-a[0],b[1]-a[1]);
+      const steps=Math.ceil(distance/2);
+      for (let step=1;step<=steps;step++) {
+        const x=a[0]+(b[0]-a[0])*step/steps;
+        const y=a[1]+(b[1]-a[1])*step/steps;
+        run=hasLand(x,y)?0:run+distance/steps;
+        longest=Math.max(longest,run);
+      }
+    }
+    return longest;
+  }
+  const formerOffshoreCoast=[[51,67],[49,73],[45,79],[40,83]];
+  assert.ok(longestWaterRun(formerOffshoreCoast)>100,'mask must reject the former visibly offshore blue route');
+  assert.ok(longestWaterRun([[55,60],[51,67],[45,69],[40,71],[32,77]])>4,'mask must also catch the shorter water crossings on the former main route');
+  for (const island of ['north','south']) for (const route of atlasViews[island].routes) {
+    assert.ok(longestWaterRun(route.points)<=4,`${island}/${route.kind} crosses water for more than four source pixels`);
+    for (const endpoint of [route.points[0],route.points.at(-1)]) {
+      assert.ok(atlasViews[island].pins.some(pin=>pin.point.every((value,index)=>value===endpoint[index])),`${island}/${route.kind} endpoint must remain attached to a destination pin`);
+    }
+  }
+});
 
 test('NZ focus images request enough source pixels for their actual CSS magnification',()=>{
   const html = newZealandAtlas();

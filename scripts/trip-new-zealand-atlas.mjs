@@ -38,8 +38,9 @@ export const atlasViews = {
     title:'南島旅行地圖', english:'SOUTH ISLAND', scale:1.85, translate:[-24.925,-78.725],
     pins:[regionPin('kaikoura','right',20),regionPin('christchurch-akaroa','right',57),regionPin('mid-canterbury','left',38),regionPin('wanaka-tekapo','left',57),regionPin('queenstown-arrowtown','left',78),regionPin('otago','right',83)],
     routes:[
-      {kind:'main',points:[[55,60],[51,67],[45,69],[40,71],[32,77]]},
-      {kind:'coast',points:[[51,67],[49,73],[45,79],[40,83]]}
+      // Intermediate vertices keep the connections on the illustrated land, including around the lake.
+      {kind:'main',points:[[55,60],[51,64],[51,67],[45,69],[44,67],[42,67.5],[40,71],[32,77]]},
+      {kind:'coast',points:[[51,67],[43.8,72],[43,75],[41.5,78],[40,83]]}
     ],
     note:'跨區順序示意：凱庫拉 → 基督城 → 中坎特伯雷 → 湖區 → 皇后鎮；另一方向沿東岸往奧塔哥。虛線表示旅行順序，非實際道路或一日行程。'
   }
