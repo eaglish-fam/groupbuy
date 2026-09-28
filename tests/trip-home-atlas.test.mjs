@@ -86,7 +86,7 @@ test('affiliate offers resolve to existing guide anchors and unchanged source tr
  assert.doesNotMatch(read('trip/home.js'),/fetch\(|XMLHttpRequest|gtag\(|setInterval\(/);
 });
 
-test('region and subregion browsing scales to ten countries, clears empty regions and keeps guide choices explicit',()=>{
+test('region and subregion browsing scales to ten countries, clears empty regions and synchronizes destination choices and offers',()=>{
  const catalog=tenCountryCatalog();
  const allRegions=regionsForCatalog(catalog);
  const el=(dataset={})=>({dataset,hidden:false,attrs:{},events:{},textContent:'',classList:{toggle(){}},setAttribute(k,v){this.attrs[k]=v;},addEventListener(k,f){this.events[k]=f;},querySelector(){return {textContent:this.dataset.atlasChoice||'',focus(){}};}});
@@ -102,7 +102,7 @@ test('region and subregion browsing scales to ten countries, clears empty region
  const cards=catalog.guides.map(g=>el({guideId:g.id,country:g.countryId,themes:g.suitableFor.join(' ')}));
  const grid=el();grid.querySelectorAll=()=>cards;
  const singles={'[data-home-filters]':form,'[data-home-guides]':grid,'.home-atlas':el()};
- for(const name of ['home-status','home-empty','home-more','home-reset','atlas-more','atlas-status','commerce-empty','region-filters','atlas-empty','atlas-back','atlas-scope','atlas-count','atlas-country-heading','atlas-empty-copy','atlas-return','subregions','atlas-breadcrumb'])singles[`[data-${name}]`]=el();
+ for(const name of ['home-status','home-empty','home-more','home-reset','atlas-more','atlas-status','commerce-empty','region-filters','atlas-empty','atlas-back','atlas-scope','atlas-count','atlas-country-heading','atlas-empty-copy','atlas-return','subregions','atlas-breadcrumb','country-unavailable'])singles[`[data-${name}]`]=el();
  singles['.home-affiliate-note']=el();
  singles['#home-globe-config']={textContent:JSON.stringify({regions:allRegions,countries:catalog.countries,initialRegion:'asia'})};
  const lists={'[data-atlas-choice]':choices,'[data-country-panel]':panels,'[data-atlas-region]':regions,'[data-atlas-subregion]':subButtons,'[data-subregion-group]':subGroups,'[data-offer-country]':offers,'[data-explore-country]':explore};
@@ -114,7 +114,7 @@ test('region and subregion browsing scales to ten countries, clears empty region
  click(subButtons.find(b=>b.dataset.atlasSubregion==='east-asia'));
  assert.deepEqual(choices.filter(c=>!c.hidden).map(c=>c.dataset.atlasChoice),['fixture-jp','fixture-tw']);
  assert.equal(panels.find(c=>!c.hidden).dataset.countryPanel,'fixture-jp');
- assert.equal(country.value,'all');
+ assert.equal(country.value,'fixture-jp');
  click(singles['[data-atlas-back]']);assert.equal(choices.filter(c=>!c.hidden).length,3);
  click(regions[0]);assert.equal(choices.filter(c=>!c.hidden).length,6);
  click(singles['[data-atlas-more]']);assert.equal(choices.filter(c=>!c.hidden).length,10);
@@ -127,12 +127,17 @@ test('region and subregion browsing scales to ten countries, clears empty region
  assert.equal(offers.filter(c=>!c.hidden).length,0);
  assert.equal(singles['[data-atlas-empty]'].hidden,false);
  assert.equal(singles['.home-affiliate-note'].hidden,true);
+ assert.equal(country.value,'');
+ assert.equal(cards.filter(c=>!c.hidden).length,0);
+ assert.equal(singles['[data-country-unavailable]'].hidden,false);
  click(singles['[data-atlas-return]']);assert.equal(choices.filter(c=>!c.hidden).length,10);
  click(regions.find(r=>r.dataset.atlasRegion==='oceania'));
  const nz=choices.find(c=>c.dataset.atlasChoice==='new-zealand');
  nz.events.keydown({key:' ',preventDefault(){}});
  assert.equal(panels.find(c=>!c.hidden).dataset.countryPanel,'new-zealand');
- assert.equal(country.value,'all');
+ assert.equal(country.value,'new-zealand');
+ assert.ok(cards.filter(c=>!c.hidden).every(c=>c.dataset.country==='new-zealand'));
+ assert.equal(offers.filter(c=>!c.hidden).length,0);
  click(explore.find(c=>c.dataset.exploreCountry==='new-zealand'));
  assert.equal(country.value,'new-zealand');
  assert.equal(cards.filter(c=>!c.hidden).length,6);
@@ -140,4 +145,38 @@ test('region and subregion browsing scales to ten countries, clears empty region
  click(regions.find(r=>r.dataset.atlasRegion==='asia'));
  click(choices[0]);assert.equal(offers.filter(c=>!c.hidden).length,3);
  assert.equal(singles['.home-affiliate-note'].hidden,false);
+ // Reproduce the reported dropdown -> globe/planning mismatch in both directions.
+ const choose=id=>{country.value=id;form.events.change({target:country});};
+ choose('new-zealand');
+ assert.equal(panels.find(c=>!c.hidden).dataset.countryPanel,'new-zealand');
+ assert.equal(regions.find(r=>r.attrs['aria-pressed']==='true').dataset.atlasRegion,'oceania');
+ assert.equal(choices.find(c=>c.attrs['aria-pressed']==='true').hidden,false);
+ assert.equal(offers.filter(c=>!c.hidden).length,0);
+ assert.ok(cards.filter(c=>!c.hidden).every(c=>c.dataset.country==='new-zealand'));
+ theme.value='unavailable-theme';form.events.change({target:theme});
+ assert.equal(country.value,'new-zealand');
+ assert.equal(cards.filter(c=>!c.hidden).length,0);
+ assert.equal(offers.filter(c=>!c.hidden).length,0);
+ theme.value='all';form.events.change({target:theme});
+ click(singles['[data-home-more]']);
+ click(singles['[data-atlas-more]']);
+ assert.equal(cards.filter(c=>!c.hidden).length,8); // List expansion doesn't reset guide pagination.
+ choose('thailand');
+ assert.equal(panels.find(c=>!c.hidden).dataset.countryPanel,'thailand');
+ assert.equal(offers.filter(c=>!c.hidden).length,3);
+ assert.equal(cards.filter(c=>!c.hidden).length,3);
+ form.reset();
+ assert.equal(country.value,'all');
+ assert.equal(panels.filter(c=>!c.hidden).length,0);
+ assert.equal(choices.filter(c=>c.attrs['aria-pressed']==='true').length,0);
+ assert.equal(regions.find(r=>r.attrs['aria-pressed']==='true').dataset.atlasRegion,'all');
+ assert.equal(cards.filter(c=>!c.hidden).length,6);
+ assert.equal(offers.filter(c=>!c.hidden).length,3);
+ assert.equal(singles['[data-country-unavailable]'].hidden,true);
+ assert.match(singles['[data-atlas-empty-copy]'].textContent,/所有目的地/);
+ choose('fixture-tw');
+ assert.equal(panels.find(c=>!c.hidden).dataset.countryPanel,'fixture-tw');
+ assert.equal(choices.find(c=>c.dataset.atlasChoice==='fixture-tw').hidden,false);
+ assert.equal(offers.filter(c=>!c.hidden).length,0);
+ assert.equal(cards.filter(c=>!c.hidden).length,1);
 });

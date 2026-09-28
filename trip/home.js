@@ -11,6 +11,7 @@
  const more=document.querySelector('[data-home-more]');
  const batchSize=6;
  let limit=batchSize;
+ let synchronizeDestination=null;
  const matches=()=>cards.filter(card=>(country.value==='all'||card.dataset.country===country.value)&&(theme.value==='all'||card.dataset.themes.split(' ').includes(theme.value)));
  function render(){
   const matched=matches();
@@ -19,12 +20,18 @@
   empty.hidden=matched.length!==0;
   more.hidden=matched.length<=limit;
   more.textContent=`再看 ${Math.min(batchSize,Math.max(0,matched.length-limit))} 份指南 ↓`;
-  const selected=[country.value!=='all'?country.selectedOptions[0].textContent:'',theme.value!=='all'?theme.selectedOptions[0].textContent:''].filter(Boolean).join('・');
+  const selected=[country.value!=='all'?country.selectedOptions[0]?.textContent||'':'',theme.value!=='all'?theme.selectedOptions[0].textContent:''].filter(Boolean).join('・');
   status.textContent=`${selected?selected+' · ':''}${matched.length} 份指南${matched.length>limit?`，先看 ${limit} 份`:''}`;
  }
  form.addEventListener('submit',event=>event.preventDefault());
- form.addEventListener('change',()=>{limit=batchSize;render();});
- form.addEventListener('reset',event=>{event.preventDefault();country.value='all';theme.value='all';limit=batchSize;render();});
+ form.addEventListener('change',event=>{
+  limit=batchSize;
+  if(synchronizeDestination&&event.target===country)synchronizeDestination(country.value);
+  else render();
+ });
+ form.addEventListener('reset',event=>{event.preventDefault();theme.value='all';limit=batchSize;
+  if(synchronizeDestination)synchronizeDestination('all');
+  else {country.value='all';render();}});
  document.querySelector('[data-home-reset]').addEventListener('click',()=>{form.reset();country.focus({preventScroll:true});});
  more.addEventListener('click',()=>{
   const firstNew=matches()[limit];
@@ -82,31 +89,47 @@
   return globeTask;
  }
  function moveGlobe(center,activate=true){
-  desiredView={center,countryId:selectedCountry,regionId:selectedSubregion==='all'?selectedRegion:selectedSubregion};
+  desiredView={center,countryId:selectedCountry==='all'?'':selectedCountry,regionId:selectedSubregion==='all'?selectedRegion:selectedSubregion};
   if(activate)loadGlobe();
   else if(globe)globe.setView(desiredView);
  }
  function selectCountry(id,{announce=true,move=true}={}){
   const chosen=choices.find(choice=>choice.dataset.atlasChoice===id);
-  selectedCountry=chosen?id:'';
+  const nextCountry=chosen?id:id==='all'?'all':'';
+  if(country.value!==nextCountry)limit=batchSize;
+  selectedCountry=nextCountry;
+  country.value=selectedCountry;
+  const unavailable=document.querySelector('[data-country-unavailable]');
+  if(unavailable)unavailable.hidden=selectedCountry!=='';
+  render();
   panels.forEach(panel=>{panel.hidden=panel.dataset.countryPanel!==selectedCountry;});
   choices.forEach(control=>{
    const active=control.dataset.atlasChoice===selectedCountry;
    control.setAttribute('aria-pressed',String(active));control.classList.toggle('is-selected',active);
   });
-  offers.forEach(offer=>{offer.hidden=offer.dataset.offerCountry!==selectedCountry;});
+  offers.forEach(offer=>{offer.hidden=selectedCountry!=='all'&&offer.dataset.offerCountry!==selectedCountry;});
   commerceEmpty.hidden=offers.some(offer=>!offer.hidden);
   document.querySelector('.home-affiliate-note').hidden=!commerceEmpty.hidden;
   emptyPanel.hidden=Boolean(chosen);
+  document.querySelector('[data-atlas-empty-copy]').textContent=selectedCountry==='all'
+   ?'從清單選一個國家，照片、指南與活動會一起切換。下方目前顯示所有目的地。'
+   :`${scope().label}目前沒有公開的旅行指南。你可以繼續探索地球，或看看已有的目的地。`;
+  document.querySelector('[data-atlas-return]').hidden=selectedCountry==='all';
   if(chosen&&announce)atlasStatus.textContent=`已選擇${chosen.querySelector('span').textContent}，顯示當地照片與指南入口。`;
   if(move){
    const record=config.countries.find(c=>c.id===selectedCountry);
    moveGlobe(record?.geography?.point||scope().center);
   }
  }
- function showCountries(activate=true){
+ function showCountries(activate=true,preferred){
   const matched=choices.filter(choice=>(selectedRegion==='all'||choice.dataset.countryRegion===selectedRegion)&&(selectedSubregion==='all'||choice.dataset.countrySubregion===selectedSubregion));
+  const keep=matched.some(choice=>choice.dataset.atlasChoice===selectedCountry);
+  const nextCountry=preferred??(keep?selectedCountry:matched[0]?.dataset.atlasChoice);
   const visible=new Set(expandedCountries?matched:matched.slice(0,6));
+  const selectedChoice=matched.find(choice=>choice.dataset.atlasChoice===nextCountry);
+  if(selectedChoice&&!visible.has(selectedChoice)){
+   visible.delete([...visible].at(-1));visible.add(selectedChoice);
+  }
   choices.forEach(choice=>{choice.hidden=!visible.has(choice);});
   atlasMore.hidden=matched.length<=6;
   atlasMore.textContent=expandedCountries?'收合目的地':`展開全部 ${matched.length} 個目的地`;
@@ -119,12 +142,18 @@
   back.hidden=selectedRegion==='all';
   document.querySelector('[data-atlas-count]').textContent=`${matched.length} 個目的地`;
   document.querySelector('[data-atlas-country-heading]').textContent=`${scope().label}的旅行指南`;
-  document.querySelector('[data-atlas-empty-copy]').textContent=`${scope().label}目前沒有公開的旅行指南。你可以繼續探索地球，或看看已有的目的地。`;
-  const keep=matched.some(choice=>choice.dataset.atlasChoice===selectedCountry);
-  selectCountry(keep?selectedCountry:matched[0]?.dataset.atlasChoice,{announce:false,move:false});
+  selectCountry(nextCountry,{announce:false,move:false});
   atlasStatus.textContent=`${scope().label}，${matched.length} 個已公開目的地。`;
-  moveGlobe(scope().center,activate);
+  const record=preferred&&config.countries.find(c=>c.id===preferred);
+  moveGlobe(record?.geography?.point||scope().center,activate);
  }
+ synchronizeDestination=id=>{
+  const record=config.countries.find(c=>c.id===id);
+  selectedRegion=record?.region||'all';
+  selectedSubregion=record?.subregion||'all';
+  expandedCountries=false;
+  showCountries(true,record?record.id:'all');
+ };
  choices.forEach(control=>{
   control.setAttribute('role','button');
   control.addEventListener('click',event=>{
@@ -137,8 +166,8 @@
  subButtons.forEach(button=>button.addEventListener('click',()=>{selectedRegion=button.dataset.parentRegion;selectedSubregion=button.dataset.atlasSubregion;expandedCountries=false;showCountries();}));
  back.addEventListener('click',()=>{if(selectedSubregion!=='all')selectedSubregion='all';else selectedRegion='all';expandedCountries=false;showCountries();});
  document.querySelector('[data-atlas-return]').addEventListener('click',()=>{selectedRegion='all';selectedSubregion='all';expandedCountries=true;showCountries();});
- atlasMore.addEventListener('click',()=>{expandedCountries=!expandedCountries;showCountries(false);});
- document.querySelectorAll('[data-explore-country]').forEach(link=>link.addEventListener('click',()=>{country.value=link.dataset.exploreCountry;theme.value='all';limit=batchSize;render();}));
+ atlasMore.addEventListener('click',()=>{expandedCountries=!expandedCountries;showCountries(false,selectedCountry);});
+ document.querySelectorAll('[data-explore-country]').forEach(link=>link.addEventListener('click',()=>{theme.value='all';limit=batchSize;synchronizeDestination(link.dataset.exploreCountry);}));
  enable?.addEventListener('click',()=>loadGlobe());
  resetView?.addEventListener('click',()=>moveGlobe(scope().center));
  document.querySelector('[data-region-filters]').hidden=false;
