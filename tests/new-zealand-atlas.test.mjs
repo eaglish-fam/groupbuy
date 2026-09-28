@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
-import {atlasViews,projectAtlasPoint} from '../scripts/trip-new-zealand-atlas.mjs';
+import {atlasViews,projectAtlasPoint,newZealandAtlas} from '../scripts/trip-new-zealand-atlas.mjs';
 
 const root = resolve(import.meta.dirname,'..');
 test('NZ atlas focuses both islands without moving point identities or losing article anchors',()=>{
@@ -23,6 +23,17 @@ test('NZ atlas focuses both islands without moving point identities or losing ar
   }
   assert.equal(atlasViews.north.routes[0].points.length,4,'Wellington is a separate transport continuation');
   assert.equal(atlasViews.south.routes.length,2,'inland and coastal choices remain separate');
+});
+
+
+test('NZ focus images request enough source pixels for their actual CSS magnification',()=>{
+  const html = newZealandAtlas();
+  const sizes = [...html.matchAll(/sizes="([^"]+)"/g)].map(match=>match[1]);
+  assert.deepEqual(sizes,[
+    '(max-width:600px) 92vw, 580px',
+    '(max-width:600px) 161vw, 1015px',
+    '(max-width:600px) 170.2vw, 1073px'
+  ]);
 });
 
 test('NZ atlas mouse, tap, keyboard and existing filters keep one selected island and matching cards',async()=>{

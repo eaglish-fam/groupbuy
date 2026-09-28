@@ -13,14 +13,14 @@
 
 ## 效能與內容影響
 
-地圖原版 1254px WebP 79,976 bytes；640px 16,146 bytes；960px 29,058 bytes。使用固定寬高、srcset、lazy 與 low priority；保留每頁第一張實景照片的唯一 high priority。
+地圖原版 1254px WebP 79,976 bytes；640px 16,146 bytes；960px 29,058 bytes。使用固定寬高、srcset、lazy 與 low priority；sizes 依全圖／北島／南島的 1／1.75／1.85 倍實際放大尺度選取足夠解析度；保留每頁第一張實景照片的唯一 high priority。
 
 未變更 canonical、索引政策、八篇文章內容、行程模型或對外來源事實；現有篩選器與地圖使用同一島嶼選擇狀態。地圖文字連結保留 aria-label 及鍵盤 focus；選擇鍵採 roving tabindex、降低動態效果設定受尊重；地圖明示為旅行位置示意，不能當作導航。
 
 ## 驗證
 
-- `npm run verify`：200／200 tests 通過；site 30／30、blog 499／499，SEO 0 阻擋／18 既有警告。
-- 新增兩項回歸測試：放大後所有點位與攻略錨點可用；實際 client 的滑鼠／觸控／鍵盤／島嶼點選和既有篩選器共用單一狀態，2／6／8 張卡片與選取鍵同步。
+- `npm run verify`：201／201 tests 通過；site 30／30、blog 499／499，SEO 0 阻擋／18 既有警告。
+- 新增三項回歸測試：放大視圖的響應式圖片尺寸足以涵蓋 CSS 放大；放大後所有點位與攻略錨點可用；實際 client 的滑鼠／觸控／鍵盤／島嶼點選和既有篩選器共用單一狀態，2／6／8 張卡片與選取鍵同步。
 - Eliora 的實際手機瀏覽器驗收已檢查 360／390px，文字標籤無交疊、點位可見、最小 44px 點擊範圍、無水平溢出，並實際開啟皇后鎮文章和鍵盤切換兩島。桌機亦確認五／六個點位、方向鍵切換、Tab 進入奧克蘭連結，以及回全圖八張卡片。
 
 - 真實瀏覽器驗證島形互動：SVG 的 hidden attribute 需用 `removeAttribute` 移除；實際對南島輪廓按 Enter，會選中南島並聚焦南島按鈕；直接點北島輪廓會選中北島。回歸守護區分 SVG attribute 與任意 `.hidden` property，避免假 DOM 掩蓋此問題。
