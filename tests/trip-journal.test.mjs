@@ -7,7 +7,7 @@ import {bangkokRoutes} from '../scripts/trip-bangkok-routes.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const pages=['trip/index.html','trip/guides/bangkok-with-kids/index.html'];
 test('travel journal has real static content, distinct canonical pages and no internal data',()=>{
- for(const file of pages){const html=read(file);assert.equal((html.match(/<h1>/g)||[]).length,1);assert.match(html,/鷹家遠行所/);assert.match(html,/id="main"/);assert.doesNotMatch(html,/\/Users\/|Gemini|qwen|source_sha256|AI生成|reviewed-materials/);assert.doesNotMatch(html,/id="deal-grid"/);
+ for(const file of pages){const html=read(file);assert.equal((html.match(/<h1(?:\s[^>]*)?>/g)||[]).length,1);assert.match(html,/鷹家遠行所/);assert.match(html,/id="main"/);assert.doesNotMatch(html,/\/Users\/|Gemini|qwen|source_sha256|AI生成|reviewed-materials/);assert.doesNotMatch(html,/id="deal-grid"/);
  const path='/'+file.replace(/index.html$/,'');assert.ok(html.includes(`rel="canonical" href="https://www.eaglish.store${path}"`));
  for(const m of html.matchAll(/(?:href|src)="(\/[^"?#]+)(?:[?#][^"]*)?"/g)){const p=m[1].endsWith('/')?m[1]+'index.html':m[1];assert.ok(existsSync(new URL('..'+p,import.meta.url)),file+' '+p);}
  for(const m of html.matchAll(/href="#([^"]+)"/g))assert.ok(html.includes(`id="${m[1]}"`),m[1]);

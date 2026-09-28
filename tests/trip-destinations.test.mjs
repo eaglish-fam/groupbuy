@@ -7,7 +7,7 @@ const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const paths=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',...regions.map(region=>region.route),'/trip/thailand/','/trip/thailand/bangkok/'];
 test('destination hierarchy has static text, canonical URLs, valid local assets and no private payloads',()=>{
  for(const path of paths){const html=read(path.slice(1)+'index.html');
-  assert.equal((html.match(/<h1>/g)||[]).length,1,path);
+  assert.equal((html.match(/<h1(?:\s[^>]*)?>/g)||[]).length,1,path);
   assert.ok(html.includes(`rel="canonical" href="https://www.eaglish.store${path}"`));
   assert.doesNotMatch(html,/\/Users\/|source_sha256|local_usage|Gemini|qwen|candidate_needs|AI生成|AI 生成/);
   for(const m of html.matchAll(/(?:href|src)="(\/[^"?#]+)(?:[?#][^"]*)?"/g)){const p=m[1].endsWith('/')?m[1]+'index.html':m[1];assert.ok(existsSync(new URL('..'+p,import.meta.url)),path+' '+p);}

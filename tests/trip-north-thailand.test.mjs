@@ -28,7 +28,8 @@ test('new guide is navigable with or without script and all intra-article target
  assert.equal((rai.match(/<h1>/g)||[]).length,1);
  for(const page of [rai,mai]){const ids=[...page.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length);for(const m of page.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(m[1]),m[1]);}
  for(const m of rai.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g))assert.ok(JSON.parse(m[1])['@type']);
- for(const p of ['trip/index.html','trip/thailand/index.html','sitemap.xml'])assert.match(read(p),/\/trip\/thailand\/chiang-rai\//);
+ assert.match(read('trip/index.html'),/href="\/trip\/guides\/chiang-rai-with-kids\/"/);
+ for(const p of ['trip/thailand/index.html','sitemap.xml'])assert.match(read(p),/\/trip\/thailand\/chiang-rai\//);
  assert.equal(ceiCatalog.places.length,4);for(const p of ceiCatalog.places){assert.ok(p.sources.length);assert.ok(rai.includes(`id="${p.id}"`));assert.ok(p.hours&&p.weather&&p.transport);}
 });
 test('Chiang Rai plans have valid destinations, unique route choices, and no automatic village booking',()=>{

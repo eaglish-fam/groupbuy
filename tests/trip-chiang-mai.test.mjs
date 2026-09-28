@@ -58,7 +58,7 @@ test('one source catalog drives 9 reusable places, real media, maps and current 
 });
 test('Chiang Mai guide is discoverable and has accessible static content and structured metadata',()=>{
  assert.match(read('trip/thailand/index.html'),/href="\/trip\/thailand\/chiang-mai\/"/);
- assert.match(read('trip/index.html'),/href="\/trip\/thailand\/chiang-mai\/"/);
+ assert.match(read('trip/index.html'),/href="\/trip\/guides\/chiang-mai-with-kids\/"/);
  assert.match(read('trip/thailand/chiang-mai/index.html'),/href="\/trip\/guides\/chiang-mai-with-kids\/"/);
  assert.equal((html.match(/<h1>/g)||[]).length,1);
  assert.match(html,/data-reading-nav/);assert.match(html,/role="status" aria-live="polite"/);
