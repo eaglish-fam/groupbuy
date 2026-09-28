@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {nzRegions} from '../scripts/trip-nz-visuals.mjs';
 import {regions} from '../trip/new-zealand-data.mjs';
+import {galleries} from '../trip/new-zealand-galleries.mjs';
 
 const read = path => readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const article = () => read('trip/new-zealand/christchurch/3-days/index.html');
@@ -25,7 +26,7 @@ test('reviewed Christchurch article keeps city-first photos, confirmed meal, and
 
 test('New Zealand media retains source evidence, checksums, and bounded image weight', () => {
   const media = JSON.parse(read('trip/assets/nz-media.json'));
-  assert.equal(media.length,29); // original 18 plus eleven reviewed Terra frames
+  assert.ok(media.length>=29); // Original reviewed collection plus later sourced galleries.
   assert.equal(new Set(media.map(item => item.name)).size,media.length);
   for (const item of media) {
     const image = readFileSync(new URL('../trip/assets/'+item.name+'.webp',import.meta.url));
@@ -55,4 +56,33 @@ test('New Zealand media retains source evidence, checksums, and bounded image we
   assert.match(read('trip/new-zealand/queenstown-arrowtown/index.html'),/nz-queenstown-earnslaw-v1.webp/);
   assert.match(read('trip/new-zealand/queenstown-arrowtown/index.html'),/nz-arrowtown-street-v1.webp/);
   assert.doesNotMatch(hub,/nz-wellington-zoo|nz-hamilton-zoo/);
+});
+
+test('regional photo galleries use distinct sourced images and retain explicit source gaps', () => {
+  const media = new Map(JSON.parse(read('trip/assets/nz-media.json')).map(item => [item.name,item]));
+  const legacyMedia = new Set(['nz-farm','nz-boat']);
+  const gaps = new Set([
+    'christchurch-akaroa/tram','otago/oamaru','otago/moeraki',
+    'wanaka-tekapo/cardrona','wanaka-tekapo/wanaka-lake','wanaka-tekapo/wanaka-tree',
+    'wanaka-tekapo/tekapo-lake','wanaka-tekapo/church',
+  ]);
+  let complete=0;
+  for (const region of regions) {
+    const html = read(region.route.slice(1)+'index.html');
+    for (const place of region.stops.filter(stop => !stop.alternate)) {
+      const photos = galleries[region.id]?.[place.id];
+      assert.ok(photos?.length,`${region.id}/${place.id}`);
+      assert.equal(photos.length,gaps.has(`${region.id}/${place.id}`)?1:3,`${region.id}/${place.id}`);
+      if (photos.length===3) complete++;
+      assert.ok(photos.every(item => media.get(item.name)?.source || legacyMedia.has(item.name)),`${region.id}/${place.id} source`);
+      assert.equal(new Set(photos.map(item => item.name)).size,photos.length,`${region.id}/${place.id} duplicate image`);
+      const hashes = photos.map(item => media.get(item.name)?.sha256 ?? createHash('sha256').update(readFileSync(new URL('../trip/assets/'+item.name+'.webp',import.meta.url))).digest('hex'));
+      assert.equal(new Set(hashes).size,photos.length,`${region.id}/${place.id} duplicate pixels`);
+      assert.ok(html.includes(`id="${place.id}"`),`${region.id}/${place.id} anchor`);
+      for (const item of photos) assert.ok(html.includes(`/trip/assets/${item.name}`),`${region.id}/${place.id} image`);
+    }
+  }
+  assert.equal(complete,30);
+  assert.ok(galleries['queenstown-arrowtown'].lakefront.some(item => item.name==='nz-fergburger-eating-v1'));
+  assert.ok(galleries['queenstown-arrowtown'].arrowtown.some(item => item.name==='nz-arrowtown-gold-panning-v1'));
 });

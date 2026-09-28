@@ -1,6 +1,7 @@
 import {existsSync, mkdirSync, readFileSync, writeFileSync} from 'node:fs';
 import {basename, resolve} from 'node:path';
 import {regions, byId, countryRoute, updatedAt} from '../trip/new-zealand-data.mjs';
+import {galleries} from '../trip/new-zealand-galleries.mjs';
 import {defaultSelectedStops, planCountry, planRegion} from '../trip/new-zealand-planner-model.mjs';
 import {prioritizeFirstTravelImage} from './trip-image-priority.mjs';
 import {plannerAssets, plannerEntry} from './trip-planner-entry.mjs';
@@ -17,7 +18,7 @@ const schema = value => `<script type="application/ld+json">${JSON.stringify(val
 const external = (url,label) => `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)} ↗</a>`;
 const placeLink = place => `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(place.map)}`;
 
-function photo(name,alt,priority=false,className='') {
+function photo(name,alt,priority=false,className='',sizes='(max-width:700px) 92vw, (max-width:1100px) 60vw, 720px') {
   if (!name) return '';
   const entry = media.get(name);
   const width = entry?.width ?? (name === 'nz-farm' ? 3274 : name === 'nz-boat' ? 3280 : 1440);
@@ -25,7 +26,13 @@ function photo(name,alt,priority=false,className='') {
   const desktop = existsSync(resolve(imageRoot,`${name}-1440.webp`)) ? `${name}-1440` : name;
   const variants = [640,960].filter(size => existsSync(resolve(imageRoot,`${name}-${size}.webp`))).map(size => `/trip/assets/${name}-${size}.webp ${size}w`);
   variants.push(`/trip/assets/${desktop}.webp ${Math.min(width,1440)}w`);
-  return `<img${className?` class="${esc(className)}"`:''} src="/trip/assets/${desktop}.webp" srcset="${variants.join(', ')}" sizes="(max-width:700px) 92vw, (max-width:1100px) 60vw, 720px" width="${width}" height="${height}" alt="${esc(alt)}" loading="${priority?'eager':'lazy'}" fetchpriority="${priority?'high':'low'}" decoding="async">`;
+  return `<img${className?` class="${esc(className)}"`:''} src="/trip/assets/${desktop}.webp" srcset="${variants.join(', ')}" sizes="${esc(sizes)}" width="${width}" height="${height}" alt="${esc(alt)}" loading="${priority?'eager':'lazy'}" fetchpriority="${priority?'high':'low'}" decoding="async">`;
+}
+
+function placePhotos(regionId,place) {
+  const photos = galleries[regionId]?.[place.id] ?? (place.photo ? [{name:place.photo,alt:place.photoAlt}] : []);
+  if (!photos.length) return '';
+  return `<div class="nz-place-gallery${photos.length===1?' nz-place-gallery--single':''}" aria-label="${esc(place.name)}旅行照片">${photos.map((item,index)=>`<figure class="nz-place-photo${index===0?' nz-place-photo--hero':''}${item.portrait?' nz-place-photo--portrait':''}">${photo(item.name,item.alt,false,'',index===0?'(max-width:700px) 92vw, (max-width:1100px) 60vw, 720px':'(max-width:700px) 45vw, (max-width:1100px) 29vw, 350px')}<figcaption>${esc(item.caption ?? item.alt)}</figcaption></figure>`).join('')}</div>`;
 }
 
 function safeHref(raw) {
@@ -77,7 +84,14 @@ function paragraphs(lines,anchorForH3 = () => null) {
     flushTable();
     if (value.startsWith('- ')) { flushParagraph(); list.push(value.slice(2)); continue; }
     flushList();
-    if (value.startsWith('### ')) { flushParagraph(); const title=value.slice(4); const anchor=anchorForH3(title); result.push(`<h3${anchor?` id="${anchor}"`:''}>${inline(title)}</h3>`); continue; }
+    if (value.startsWith('### ')) {
+      flushParagraph();
+      const title=value.slice(4);
+      const detail=anchorForH3(title);
+      const anchor=typeof detail==='string'?detail:detail?.id;
+      result.push(`<h3${anchor?` id="${esc(anchor)}"`:''}>${inline(title)}</h3>${typeof detail==='object'?detail?.after??'':''}`);
+      continue;
+    }
     if (value.startsWith('![')) { flushParagraph(); result.push(inline(value)); continue; }
     paragraph.push(value);
   }
@@ -159,8 +173,12 @@ function articlePage(region) {
     const id = sectionId(section,index,region);
     const place = region.stops.find(stop=>stop.id===id);
     const alias = region.id==='wanaka-tekapo' && id==='tekapo-lake' ? '<span id="church" class="nz-anchor-alias"></span>' : '';
-    const source = place ? `<div class="nz-place-meta"><span>建議停留：${esc(place.time)}</span>${external(placeLink(place),'Google Maps')}</div>${place.photo?`<figure class="nz-place-photo">${photo(place.photo,place.photoAlt)}<figcaption>${esc(place.photoAlt)}</figcaption></figure>`:''}` : '';
-    const content = id==='faq' ? renderFaq(section.lines) : paragraphs(section.lines,title => region.stops.find(stop=>title.includes(stop.heading) && stop.id!==id)?.id ?? null);
+    const source = place ? `<div class="nz-place-meta"><span>建議停留：${esc(place.time)}</span>${external(placeLink(place),'Google Maps')}</div>${placePhotos(region.id,place)}` : '';
+    const content = id==='faq' ? renderFaq(section.lines) : paragraphs(section.lines,title => {
+      const nestedPlace=region.stops.find(stop=>title.includes(stop.heading) && stop.id!==id);
+      if (!nestedPlace) return null;
+      return {id:nestedPlace.id,after:`<div class="nz-place-meta"><span>建議停留：${esc(nestedPlace.time)}</span>${external(placeLink(nestedPlace),'Google Maps')}</div>${placePhotos(region.id,nestedPlace)}`};
+    });
     return `${legacyAliasFor(id)}${alias}<section id="${id}" class="nz-copy-section"><h2>${esc(section.title)}</h2>${id==='plan'?planner('region',region):''}${source}${content}</section>`;
   }).join('');
   const body = `${head({title:manuscript.title,description,path:region.route,hero:region.hero,heroAlt:region.heroAlt,article:true})}<main id="main"><header class="article-header wrap nz-header">${breadcrumb(region.label,true)}<p class="eyebrow"><i class="dot"></i> NEW ZEALAND / ${region.island==='north'?'NORTH':'SOUTH'} ISLAND</p><h1>${esc(manuscript.title)}</h1><p class="article-lead">${inline(manuscript.intro)}</p><p class="byline">撰文・影像：鷹式一家 <span>更新 ${updatedAt.replaceAll('-','.')}</span></p><figure class="nz-hero">${photo(region.hero,region.heroAlt,true)}<figcaption>${esc(region.heroCaption ?? region.label)}</figcaption></figure></header><div class="article-layout wrap"><nav class="toc guide-nav" data-reading-nav aria-label="文章目錄"><p class="eyebrow">${esc(region.short)}</p><a href="#before">景點與玩法</a>${toc}</nav><article class="prose">${legacyAliasFor('before')}<section id="before" class="nz-choose"><h2>看景點與玩法，挑想去的地方</h2><p>從照片與玩法挑選今天想去的地方。點進各站看交通、建議停留與雨備；跨城和預約活動記得預留移動及報到時間。</p><div class="nz-photo-grid">${photos.map(stop=>`<a class="nz-photo-card${stop.photo?'':' nz-photo-card--text'}" href="#${stop.id}">${photo(stop.photo,stop.photoAlt)}<span><strong>${esc(stop.name)}</strong><small>${esc(stop.time)}</small><em>看景點詳情 ↗</em></span></a>`).join('')}</div></section>${sections}<section class="nz-next"><h2>再選下一段</h2><p>這篇以 ${esc(region.label)} 為範圍；跨區移動請回國家總覽重新分配天數。</p><a href="${countryRoute}#regions">回紐西蘭旅行總覽 ↗</a></section></article></div></main>${plannerEntry}${footer}`;

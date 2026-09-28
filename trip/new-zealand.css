@@ -34,6 +34,18 @@
 .nz-place-photo,.nz-inline-photo{margin:18px 0}
 .nz-place-photo img,.nz-inline-photo img{width:100%;max-height:440px;object-fit:cover;border-radius:12px}
 .nz-place-photo figcaption,.nz-inline-photo figcaption{font-size:13px;color:#71685f}
+.nz-place-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin:20px 0 24px}
+.nz-place-gallery .nz-place-photo{min-width:0;margin:0}
+.nz-place-gallery .nz-place-photo--hero{grid-column:1/-1}
+.nz-place-gallery .nz-place-photo--hero img{display:block;aspect-ratio:16/9;max-height:none}
+.nz-place-gallery .nz-place-photo:not(.nz-place-photo--hero) img{display:block;aspect-ratio:4/3;max-height:none}
+.nz-place-gallery .nz-place-photo--portrait img,.nz-place-gallery .nz-place-photo--hero.nz-place-photo--portrait img{object-fit:contain;aspect-ratio:4/5;background:#f2eee5}
+.nz-place-gallery .nz-place-photo--hero.nz-place-photo--portrait img{max-height:600px}
+.nz-place-gallery .nz-place-photo figcaption{margin-top:6px;line-height:1.5}
+.nz-place-gallery--single{display:block}
+.nz-place-gallery--single .nz-place-photo img{aspect-ratio:16/9}
+@media(max-width:600px){.nz-place-gallery{gap:10px}.nz-place-gallery .nz-place-photo:not(.nz-place-photo--hero) img{aspect-ratio:1/1}.nz-place-gallery .nz-place-photo figcaption{font-size:12px}}
+@media(max-width:600px){.nz-place-gallery .nz-place-photo--portrait:not(.nz-place-photo--hero) img{aspect-ratio:4/5}}
 .nz-table-scroll{overflow-x:auto}
 .nz-table-scroll table{width:100%;border-collapse:collapse;font-size:14px}
 .nz-table-scroll th,.nz-table-scroll td{border-bottom:1px solid #dcd5c9;text-align:left;padding:10px;vertical-align:top}
