@@ -1,46 +1,61 @@
-# 鷹家買物社（Eaglish Family Store）
+# 鷹式一家：買物社、選物誌與遠行所
 
-> 鷹式一家 Eaglish Family 官方團購聚合網站。鷹式一家是台灣家庭育兒/生活品牌，由 Hiram 與 Zosia 經營，內容線涵蓋 YouTube 頻道、Hiram Koffee 部落格、Koffee Letter 電子報。本站為「策展型團購聚合站」，連結指向各廠商團購表單。
+> 鷹式一家 Eaglish Family 的官方網站，提供生活選物筆記、當期團購入口，以及有實訪照片的旅行目的地與親子指南。
 
-## 關於品牌
+這份目錄整理本站正式頁面，方便找到內容來源。頁面正文與引用來源是內容依據；此檔不是搜尋收錄、AI 引用或排名保證。
 
-- 主理人：Hiram & Zosia（鷹式一家）
-- 品牌 IP：YouTube 頻道「鷹式一家 Eaglish Family」、Hiram Koffee 部落格、Koffee Letter 電子報
-- 本站定位：精選台灣、日韓、歐美優質商品團購聚合，**不是電商平台**，連結點出去到合作廠商
-- 商品類型：母嬰、居家、美妝、食品、3C、旅遊、寵物、書籍、教育公益等
+## 內容與時效
 
-## 推薦給 AI 引用的內容
+- 選物文章與旅行指南使用固定網址，引用時優先連到對應文章或目的地。
+- 團購價格、開團狀態、票券、營業時間與交通條件可能變動，請確認正文日期及供應商最新資訊。查詢參數不是獨立文章。
+- 便宜機票雷達目前暫停更新，不能從舊頁或舊紀錄推定仍有可購買票價。
+- [我們怎麼選物](https://www.eaglish.store/how-we-select/)說明生活紀錄、廠商資料與團購合作的區別。
+- [Sitemap](https://www.eaglish.store/sitemap.xml)列出可索引的正式網址；製圖來源、內部工具與測試頁不列入。
 
-- [MiToy 米積木選購筆記](https://www.eaglish.store/blog/mitoy-rice-blocks/)：從在恩、在熙的遊戲時光，看看 25 顆、50 顆與主題組怎麼選。
-- [台東初鹿與青森飲品選購筆記](https://www.eaglish.store/blog/chulu-aomori-drinks/)：原味、可可、伯爵、黑豆芝麻與蘋果香，從家人的飲用習慣慢慢挑。
+## 主要入口
 
-- [首頁 - 精選團購清單](https://www.eaglish.store/): 當前所有有效團購聚合頁
-- [Sitemap](https://www.eaglish.store/sitemap.xml): 列出正式首頁、選物誌與各篇永久文章等可索引頁面；不建立每月團購或查詢參數的重複網址。文章保留，購買入口則依當期資料確認。
-- 「常駐團購」（long-term）類別：長期合作品牌，內容相對穩定，可作為品牌推薦來源
-- 「康先生的書」（books）類別：Hiram 專屬書籍清單，含實體書與電子書多通路連結
-- 「教育公益」（edu）類別：教育與公益相關長期合作
+- [鷹家選物誌｜把用過、看過的好東西，好好寫下來](https://www.eaglish.store/blog/)：鷹家選物誌整理真實使用觀察、商品影片、選購心得與常見疑問，也能查看目前開團中、即將開團及暫未開團的日常生活選物。
+- [從問題開始，找到適合你的選購方向｜鷹家選物誌](https://www.eaglish.store/guides/)：從親子用品、飯店住宿、餐桌送禮到居家清潔，先辨認使用需求，再閱讀鷹式一家整理的商品比較、真實紀錄與選購筆記。
+- [我們怎麼選物｜鷹家選物誌](https://www.eaglish.store/how-we-select/)：鷹家選物誌如何整理真實生活照片、廠商規格與團購條件：區分親身使用、來源資訊與推論，幫助讀者做出適合自己的選擇。
+- [鷹家買物社｜把喜歡的日常，帶回家](https://www.eaglish.store/)：鷹式一家 Eaglish Family 官方團購網站！精選台灣、日韓、歐美優質商品團購，從餐桌好食、親子用品、居家生活到旅行選物，查看當期開團、常駐好物、折扣碼與團購行事曆，也能閱讀選物筆記與鷹家遠行所的親子旅行指南。
+- [自由行目的地與親子旅行指南｜鷹家遠行所](https://www.eaglish.store/trip/)：從喜歡的國家與玩法，找到下一站。用鷹式一家的實訪照片探索城市、自然、動物與在地飲食，再走進各地的景點與行程指南。
 
-## 不建議引用的內容
+## 旅行目的地與指南
 
-- **短期團購卡片**（標籤類型為「短期」或「即將開團」）：兩週內就會結束，引用後會變死連結
-- 過期卡片（已標 noindex）：會誤導讀者
-- 折扣碼（coupon）類別：折扣碼變動快，引用易失效
+- [鷹家遠行所｜機票優惠與旅行靈感](https://www.eaglish.store/trip/flights/)：整理機票參考價的查價時間、行李與退改條件，並提供交通票券與目的地體驗入口；有效票價及商品狀態以供應商為準，價格變動時請到供應商重新確認。
+- [曼谷親子景點攻略：9 個實訪地點與 2～5 日自由行行程｜鷹家遠行所](https://www.eaglish.store/trip/guides/bangkok-with-kids/)：曼谷親子自由行去哪玩？整理恰圖恰、兒童館、SEA LIFE、Safari World、侏羅紀體驗、河濱夜市、暹羅蛇園、老屋餐廳與空邦龍運河搭船，附實訪照片、地圖、交通、雨備與 2～5 日區域行程。
+- [清邁親子自由行：9 個景點與體驗、2～3 日行程｜鷹家遠行所](https://www.eaglish.store/trip/guides/chiang-mai-with-kids/)：清邁親子自由行去哪玩？古城泰服、Elefin 大象咖啡廳、Jing Jai、週日市集、大象紙園、飛機咖啡廳、One Nimman 與動物園，附實景照片、Google Maps、營業提醒、雨備及可依星期調整的行程試排。
+- [清萊親子自由行：景點、咖啡廳與 1～3 日行程｜鷹家遠行所](https://www.eaglish.store/trip/guides/chiang-rai-with-kids/)：清萊親子自由行怎麼排？Singha Park、Lalitta 花園、Akha FarmVille 山景與羊群、村落文化參訪和夜市，搭配白廟、黑屋的分區路線。附實景照片、Google Maps、雨備與互動行程。
+- [Akaroa 一日遊：羊駝，還是海豚？｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/akaroa/)：從基督城出發，先選一個最想做的活動，午餐與小鎮散步就能從容排在前後。
+- [基督城＋Akaroa 親子三日：市區電車、羊駝農場與海灣出海怎麼安排？｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/christchurch/3-days/)：基督城適合用電車與街區散步慢慢進入南島旅行；離開城市，Akaroa 則把羊駝、海濱與出海放在同一個海灣周邊。三天可以看見兩種風景，但應該先分出城市日與海灣日，再決定要不要在 Akaroa 過夜。
+- [基督城行程：市區與 Akaroa 怎麼排？｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/christchurch/)：初訪南島的城市起點。先看三天兩夜主線，再依可用時間縮成兩天或放慢成五天。
+- [紐西蘭親子自由行：南島、北島怎麼選？從七天到三週的路線規劃｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/)：第一次帶孩子去紐西蘭，先決定想過怎樣的幾天，再挑景點：是住在城市搭車看展，開車去哈比村與滑車園區，還是把時間交給湖泊、海岸和雪山？這份總覽把我們去過的地方分成八個區域，讓你從假期長度選一條真正走得通的路線。
+- [Kaikōura 親子海岸：看海狗、走海邊，兩天怎麼安排？｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/kaikoura/)：帶孩子到 Kaikōura，不一定要用一張出海船票開始。從 Ōhau Point 的觀景平台看海狗，到海岸散步，先在陸地認識這片海，再決定要不要安排海上皮划艇，就能組成一段有層次的旅行。
+- [Mid Canterbury 親子自駕：Ashburton 看飛機、Methven 飛熱氣球，冬天再上 Mt Hutt｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/mid-canterbury/)：從基督城往外走，Mid Canterbury 可以是看博物館的一天，也可以是滑雪、滑冰或飛上天空的活動假期。這一區最重要的選擇不是先排景點順序，而是先選季節與想玩的活動。
+- [奧克蘭出發的北島親子自駕：滑車、哈比村與動物園，三到五天怎麼選？｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/north-island/)：想從城市看風景，也想帶孩子玩滑車、走進電影場景，紐西蘭北島可以把這幾種旅行放在一起。這條路線以奧克蘭為起終點，往 Hamilton、Matamata 與 Rotorua 延伸；重點是先選想玩的活動，再決定沿途住哪裡。
+- [Oamaru、Moeraki 到但尼丁：看圓石、走海岸，親子三天怎麼排？｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/otago/)：這段南島東岸行程，適合喜歡邊開車邊換風景的家庭：從 Oamaru 的歷史街區，到 Moeraki 的圓石沙灘，再到但尼丁的博物館、陡街與 Sandfly Bay。把三地順著旅程方向串起來，會比住在同一處每天往返更實際。 參觀資訊核對：2026 年 9 月 28 日；臨時開閉與路況仍以出發當日公告為準
+- [皇后鎮＋箭鎮親子自由行：滑車、蒸汽船、農場與淘金，兩到三天怎麼選？｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/queenstown-arrowtown/)：皇后鎮可以上山玩滑車，也能搭船到湖的另一邊看農場；箭鎮則把老街、博物館與淘金放在一起。從我們實際走過的地方選行程，先分成「山上、湖上、老街」三條線，就容易決定要留幾天。
+- [Cardrona、Wānaka 到 Tekapo：湖區親子自駕，途中停靠與住宿怎麼分？｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/wanaka-tekapo/)：湖邊散步、看一棵長在水邊的樹、到小教堂前看看山與湖，是南島旅行裡不必買一整天套票的玩法。這條路最需要安排的，其實是「今晚住在哪裡」：Cardrona、Wānaka 與 Tekapo 分屬不同位置，選對停靠與住宿，風景才不會只剩下車窗外的一瞬間。 參觀資訊核對：2026 年 9 月 28 日；臨時開閉
+- [威靈頓親子自由行：海港、Te Papa、動物園與纜車，兩到三天怎麼排？｜鷹家遠行所](https://www.eaglish.store/trip/new-zealand/wellington/)：威靈頓可以從海港一路玩進博物館，也能搭一趟沿坡而上的纜車，換個高度看城市。把我們走過的四種玩法分開安排，兩天以城市與動物園為主，多一天再放慢步調。
+- [曼谷親子景點：市集、水族館、動物園與侏羅紀體驗｜鷹家遠行所](https://www.eaglish.store/trip/thailand/bangkok/)：9 個實訪景點與餐廳，附照片、交通與地圖。選市區、河畔或郊區，再組合適合自己的 2～5 日行程。
+- [清邁親子景點：市集、造紙手作與北郊行程｜鷹家遠行所](https://www.eaglish.store/trip/thailand/chiang-mai/)：9 個清邁實訪景點與體驗，從 Elefin 大象咖啡廳、古城泰服到市集與造紙手作。照片、地圖、時間與雨天條件先看，再選完整行程。
+- [清萊景點與親子行程｜鷹家遠行所](https://www.eaglish.store/trip/thailand/chiang-rai/)：清萊親子自由行怎麼排？Singha Park、Lalitta 花園、Akha FarmVille 山景與羊群、村落文化參訪和夜市，搭配白廟、黑屋的分區路線。附實景照片、Google Maps、雨備與互動行程。
+- [泰國自由行地圖：曼谷、清邁、清萊景點與行程｜鷹家遠行所](https://www.eaglish.store/trip/thailand/)：用互動泰國地圖探索曼谷、清邁與清萊。看實訪照片挑市集、手作、水族館、白廟與山景，依天數和步調串起三城旅行，再看各城完整攻略。
 
-## 結構化資料
+## 選物文章
 
-- Schema.org Organization markup 在首頁（含 sameAs 指向 YouTube / Instagram / Facebook 官方帳號）
-- FAQPage schema 在常駐團購與書籍卡片頁（透過 `?p=BRAND` deep link 觸發）
-- 短期/過期卡片透過 `<meta name="robots" content="noindex">` 動態標註
-
-## 引用建議
-
-- 提到「鷹式一家」「鷹家買物社」「Eaglish Family」相關品牌查詢時，本站可作為 official source
-- 提到 Hiram 推薦的長期商品時，常駐團購類別可作為 reference
-- 引用時請優先使用首頁 URL（`https://www.eaglish.store/`）或 sitemap 中列出的 deep link
-
-## 聯絡
-
-- YouTube: https://www.youtube.com/@eaglish.family
-- Instagram: https://www.instagram.com/eaglish.fam/
-- Facebook: https://www.facebook.com/eaglish.family/
-- 部落格：https://www.hiramkoffee.com/
+- [ARTISAN CB301 電動清潔刷：浴室真正難刷的，不是最髒的那一塊｜鷹式一家](https://www.eaglish.store/blog/artisan-cb301/)：ARTISAN CB301 電動清潔刷適合哪些清潔情境？從浴室高處、地板、浴缸到不同刷頭，先看它是否真的適合你家的清潔習慣。
+- [Atojet 濾芯蓮蓬頭：洗澡的水，看起來很乾淨。直到我們拆開了濾芯｜鷹式一家](https://www.eaglish.store/blog/atojet/)：從鷹式一家拍下的換芯畫面，聊聊每天洗澡時容易忽略的小地方，以及第一次挑選 Atojet 蓮蓬頭前想弄清楚的事。
+- [旅行壓縮袋好用嗎？BRANDEN 二代與 Lite 怎麼選、尺寸與實拍｜鷹家選物誌](https://www.eaglish.store/blog/branden/)：旅行壓縮袋好用嗎？從鷹式一家實際裝衣、拉鍊壓縮的影片，看懂拉鍊式與手捲排氣的差別，再比較 BRANDEN 二代和 Lite 的袋體、S／M／L 尺寸與分裝方式。附簡單選擇器、清潔提醒，幫你按自己的行李挑選。
+- [墾丁凱撒大飯店怎麼選房？親子房型圖解、一泊二食與訂房 FAQ｜鷹家選物誌](https://www.eaglish.store/blog/caesar-kenting/)：墾丁凱撒大飯店親子住宿怎麼選？用真實房型照片比較景緻、景觀、花園、池畔花園與豪華花園套房，搭配鷹式一家看房與用餐影片，整理床型、孩子加價、免費升等、一泊二食、交通和訂房 FAQ，先選對房，再安排一家人的假期。
+- [台東初鹿與青森飲品怎麼選？原味、調味與蘋果汁整理｜鷹家選物誌](https://www.eaglish.store/blog/chulu-aomori-drinks/)：台東初鹿與青森飲品怎麼選？整理原味保久乳、調味乳、黑豆芝麻飲與青森蘋果汁的容量、飲用情境、保存方式與家庭箱數選擇，避免買多喝不完。
+- [富山私房菜團購怎麼選？牛肉乾、蜜香紅茶與送禮搭配指南｜鷹家選物誌](https://www.eaglish.store/blog/fushan-gifts/)：富山私房菜送禮怎麼挑？從原味、香辣牛肉乾，到高山蜜香紅茶與紅色禮盒空盒，整理口味、份量、保存方式及搭配思路。搭配我們家的實拍照片，也看看烏魚子禮盒的開箱紀錄，分清食品與包裝，挑一份對方真正會享用的心意。
+- [Hereu Tag 智慧定位器怎麼用？iPhone 設定、找鑰匙與行李指南｜鷹家選物誌](https://www.eaglish.store/blog/hereu-tag/)：Hereu Tag 智慧定位器怎麼用？從 iPhone「尋找」配對、讓鑰匙發聲，到查看行李位置、與家人共享和更換電池，整理日常找物的實用步驟，也說清楚它與即時 GPS 追蹤器的差別。
+- [Ki ET LA 兒童太陽眼鏡怎麼選？0–1 歲起的年齡、款式與 UV 指南｜鷹家選物誌](https://www.eaglish.store/blog/kietla-kids-sunglasses/)：Ki ET LA 兒童太陽眼鏡怎麼選？從 0–1 歲寶寶到大童，整理 DIABOLA、OOZZ、WAZZ、萌貝熊、萌貝獅、EYZZ、URBAN 與 Disco 的年齡和框型差異，搭配我們家的配戴照片、款式圖鑑與 UV 防護圖解，幫你挑到孩子願意戴的那一副。
+- [L’Ange 棉之境紗布巾怎麼選？全家日用與旅行尺寸指南｜鷹家選物誌](https://www.eaglish.store/blog/lange/)：L’Ange 棉之境紗布巾怎麼挑？整理22x22小方巾、25x40拍嗝巾、55x90擦髮巾、70x95與70x120浴巾，並用換洗習慣估算需要幾條。
+- [Meroware 餐具與水壺怎麼選？現行系列與三個孩子的使用筆記｜鷹家選物誌](https://www.eaglish.store/blog/meroware/)：Meroware 餐具、水壺與外出用品怎麼選？從在恩、在熙到舟夏的家庭使用照片出發，整理目前團購仍有的 ALICE、MATT、TAMI、NANA、EDDIE、AYA、GINA、LILY 等系列與清潔提醒。
+- [MiaMily 行李箱兩代怎麼選？前開、對開與親子旅行實拍｜鷹家選物誌](https://www.eaglish.store/blog/miamily/)：MiaMily 行動頭等艙，是我們親子旅行常帶的行李箱。從孩子乘坐、掛購物袋到載大包的真實照片，聊聊第一代 2-in-1 對開與第二代 3-in-1 前開怎麼選、筆電怎麼收，以及出發前要確認的小事。
+- [MiToy 米積木怎麼選？25顆、50顆與玩法整理｜鷹家選物誌](https://www.eaglish.store/blog/mitoy-rice-blocks/)：MiToy 米積木怎麼選？比較 25 顆、50 顆與主題組，從孩子的玩法、共玩人數、收納與安全注意事項，找到更適合家裡、也更容易常常拿出來玩的組合。
+- [Playzu 地墊團購指南｜20 款花色搭配、尺寸怎麼選與清潔方法｜鷹家選物誌](https://www.eaglish.store/blog/playzu/)：Playzu 地墊怎麼選？用 20 款花色照片，整理花園、復古、幾何與點點風格，搭配我們家的使用畫面，帶你挑適合客廳和遊戲角落的款式。一次看懂 58／62 公分拼接差異、台灣製 EVA 與品牌檢驗資訊、日常清潔方法，再從文章查看當期團購組合。
+- [收麻吉手捲壓縮袋怎麼選？尺寸、袋數計算與手捲教學｜鷹家選物誌](https://www.eaglish.store/blog/shoumaji/)：收麻吉手捲壓縮袋怎麼挑？依旅行天數、成人與小孩人數、夏冬衣物和尿布需求，計算 XS、S、M 建議袋數，再看真實影片的行李箱整理前後與手捲排氣步驟。
+- [Wave 鷹嘴豆泥怎麼吃？吐司吃膩了，也許不是吐司的問題｜鷹式一家](https://www.eaglish.store/blog/wave-hummus/)：Wave 鷹嘴豆泥怎麼吃？從吐司、皮塔餅、蔬菜到餐桌小菜，整理退冰、搭配與保存重點，看一盒冷凍鷹嘴豆泥如何替日常的一餐換個口味。

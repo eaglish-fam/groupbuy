@@ -1,102 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://www.eaglish.store/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/blog/</loc>
-    <lastmod>2026-09-24</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/guides/</loc>
-    <lastmod>2026-09-18</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/how-we-select/</loc>
-    <lastmod>2026-09-15</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/christchurch/</loc>
-    <lastmod>2026-09-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/akaroa/</loc>
-    <lastmod>2026-09-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/christchurch/3-days/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/thailand/</loc>
-    <lastmod>2026-09-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/thailand/bangkok/</loc>
-    <lastmod>2026-09-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/north-island/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/wellington/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/mid-canterbury/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/kaikoura/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/otago/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/queenstown-arrowtown/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/new-zealand/wanaka-tekapo/</loc>
-    <lastmod>2026-09-28</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/guides/bangkok-with-kids/</loc>
-    <lastmod>2026-09-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/guides/chiang-mai-with-kids/</loc>
-    <lastmod>2026-09-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/guides/chiang-rai-with-kids/</loc>
-    <lastmod>2026-09-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/thailand/chiang-rai/</loc>
-    <lastmod>2026-09-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/thailand/chiang-mai/</loc>
-    <lastmod>2026-09-27</lastmod>
-  </url>
-  <url>
-    <loc>https://www.eaglish.store/trip/flights/</loc>
-    <lastmod>2026-09-14</lastmod>
-  </url>
-  <url>
     <loc>https://www.eaglish.store/blog/artisan-cb301/</loc>
     <lastmod>2026-09-11</lastmod>
   </url>
@@ -123,6 +27,9 @@
   <url>
     <loc>https://www.eaglish.store/blog/hereu-tag/</loc>
     <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/blog/</loc>
   </url>
   <url>
     <loc>https://www.eaglish.store/blog/kietla-kids-sunglasses/</loc>
@@ -155,5 +62,74 @@
   <url>
     <loc>https://www.eaglish.store/blog/wave-hummus/</loc>
     <lastmod>2026-09-11</lastmod>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/guides/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/how-we-select/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/flights/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/guides/bangkok-with-kids/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/guides/chiang-mai-with-kids/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/guides/chiang-rai-with-kids/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/akaroa/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/christchurch/3-days/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/christchurch/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/kaikoura/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/mid-canterbury/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/north-island/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/otago/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/queenstown-arrowtown/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/wanaka-tekapo/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/new-zealand/wellington/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/thailand/bangkok/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/thailand/chiang-mai/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/thailand/chiang-rai/</loc>
+  </url>
+  <url>
+    <loc>https://www.eaglish.store/trip/thailand/</loc>
   </url>
 </urlset>

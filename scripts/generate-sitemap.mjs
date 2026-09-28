@@ -1,46 +1,37 @@
 #!/usr/bin/env node
-// Canonical document URLs only. Product query links remain shareable but canonicalise to /.
-import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
-import { resolve } from 'node:path';
-import { execFileSync } from 'node:child_process';
-import {regions} from '../trip/new-zealand-data.mjs';
-const root = resolve(import.meta.dirname, '..');
-const origin = 'https://www.eaglish.store';
-const pages = [
-  {path:'/',file:'index.html'},
-  {path:'/blog/',file:'blog/index.html'},
-  {path:'/guides/',file:'guides/index.html'},
-  {path:'/how-we-select/',file:'how-we-select/index.html'},
-  {path:'/trip/',file:'trip/index.html'},
-  ...['new-zealand/','new-zealand/christchurch/','new-zealand/akaroa/','new-zealand/christchurch/3-days/','thailand/','thailand/bangkok/'].map(p=>({path:'/trip/'+p,file:'trip/'+p+'index.html'})),
-  ...regions.filter(region=>region.route!=='/trip/new-zealand/christchurch/3-days/').map(region=>({path:region.route,file:region.route.slice(1)+'index.html'})),
-  {path:'/trip/guides/bangkok-with-kids/',file:'trip/guides/bangkok-with-kids/index.html'},
-  {path:'/trip/guides/chiang-mai-with-kids/',file:'trip/guides/chiang-mai-with-kids/index.html'},
-  {path:'/trip/guides/chiang-rai-with-kids/',file:'trip/guides/chiang-rai-with-kids/index.html'},
-  {path:'/trip/thailand/chiang-rai/',file:'trip/thailand/chiang-rai/index.html'},
-  {path:'/trip/thailand/chiang-mai/',file:'trip/thailand/chiang-mai/index.html'},
-  {path:'/trip/flights/',file:'trip/flights/index.html'},
-  ...readdirSync(resolve(root,'blog'),{withFileTypes:true})
-    .filter(d=>d.isDirectory()&&existsSync(resolve(root,'blog',d.name,'index.html')))
-    .map(d=>({path:'/blog/'+d.name+'/',file:'blog/'+d.name+'/index.html'})),
-];
-function lastmod(file){
-  if(file.startsWith('blog/')&&file.endsWith('/index.html')){
-    const html=readFileSync(resolve(root,file),'utf8');
-    const schemaDate=html.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})"/)?.[1];
-    if(schemaDate)return schemaDate;
-  }
-  const dirty=execFileSync('git',['status','--porcelain','--',file],{cwd:root,encoding:'utf8'}).trim();
-  if(dirty)return new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei'}).format(new Date());
-  const committed=execFileSync('git',['log','-1','--format=%cs','--',file],{cwd:root,encoding:'utf8'}).trim();
-  return committed||new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Taipei'}).format(new Date());
+// Canonical document URLs only. Query links canonicalise to the parent document.
+import {readFileSync,writeFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
+import {collectIndexablePages} from './site-seo-inventory.mjs';
+const root=resolve(import.meta.dirname,'..');
+const origin='https://www.eaglish.store';
+const validDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'')&&Number.isFinite(Date.parse(value+'T00:00:00Z'))&&new Date(value+'T00:00:00Z').toISOString().slice(0,10)===value;
+
+// Never substitute the build clock for a missing content modification date.
+export function supportedLastmod({file,html='',dirty=false,committed=''}){
+ if(file.startsWith('blog/')&&file.endsWith('/index.html')){
+  const schemaDate=html.match(/"dateModified"\s*:\s*"(\d{4}-\d{2}-\d{2})"/)?.[1];
+  if(validDate(schemaDate))return schemaDate;
+ }
+ if(dirty)return undefined;
+ return validDate(committed)?committed:undefined;
 }
-const lines=pages.map(p=>{
-  const url=origin+p.path;
-  const html=readFileSync(resolve(root,p.file),'utf8');
-  const canonical=(html.match(/<link\b[^>]*>/gi)||[]).find(t=>/rel=["']canonical["']/i.test(t))?.match(/href=["']([^"']+)/i)?.[1];
-  if(canonical!==url||/<meta\b[^>]*content=["'][^"']*noindex/i.test(html)||/[?#]/.test(p.path))throw Error('Non-indexable sitemap document: '+p.path);
-  return '  <url>\n    <loc>'+url+'</loc>\n    <lastmod>'+lastmod(p.file)+'</lastmod>\n  </url>';
-});
-writeFileSync(resolve(root,'sitemap.xml'),'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+lines.join('\n')+'\n</urlset>\n');
-console.log('[sitemap] '+pages.length+' canonical documents; no duplicate query URLs');
+
+export function generateSitemap(siteRoot=root){
+ const pages=collectIndexablePages(siteRoot);
+ const lines=pages.map(page=>{
+  const url=origin+page.path;
+  const html=readFileSync(resolve(siteRoot,page.file),'utf8');
+  const dirty=Boolean(execFileSync('git',['status','--porcelain','--',page.file],{cwd:siteRoot,encoding:'utf8'}).trim());
+  const committed=dirty?'':execFileSync('git',['log','-1','--format=%cs','--',page.file],{cwd:siteRoot,encoding:'utf8'}).trim();
+  const date=supportedLastmod({file:page.file,html,dirty,committed});
+  return '  <url>\n    <loc>'+url+'</loc>\n'+(date?'    <lastmod>'+date+'</lastmod>\n':'')+'  </url>';
+ });
+ const xml='<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+lines.join('\n')+'\n</urlset>\n';
+ writeFileSync(resolve(siteRoot,'sitemap.xml'),xml);
+ console.log('[sitemap] '+pages.length+' canonical documents; lastmod only from article metadata or clean Git history');
+ return xml;
+}
+if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))generateSitemap();

@@ -18,7 +18,7 @@ html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
     <meta property="og:site_name" content="鷹家買物社">
     <meta property="og:title" content="鷹家買物社｜把喜歡的日常，帶回家">
     <meta property="og:description" content="當期團購、生活選物筆記與鷹家遠行所旅行指南，從日常到旅途，把喜歡分享給你。">
-    <meta property="og:url" content="https://www.eaglish.store">
+    <meta property="og:url" content="https://www.eaglish.store/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="zh_TW">
     <meta property="og:image" content="https://www.eaglish.store/logo-eaglish-text.png">
@@ -26,7 +26,7 @@ html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
     <link rel="manifest" href="/icons/site.webmanifest">
     <meta name="agd-partner-manual-verification">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"鷹家買物社","alternateName":["鷹式一家","Eaglish Family"],"url":"https://www.eaglish.store/","logo":"https://www.eaglish.store/logo-eaglish-text.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.eaglish.store/#organization","name":"鷹家買物社","alternateName":["鷹式一家","Eaglish Family"],"url":"https://www.eaglish.store/","logo":"https://www.eaglish.store/logo-eaglish-text.png"}</script>
   </head>`);
 html=html.replace(/<!-- travel-entry:start -->[\s\S]*?<!-- travel-entry:end -->/,renderHomepageTravelEntry());
 if(!html.includes('id="travel-entry"'))throw Error('Homepage travel entry insertion failed');

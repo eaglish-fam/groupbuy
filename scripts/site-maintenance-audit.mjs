@@ -80,7 +80,7 @@ export function auditSite(root = DEFAULT_ROOT) {
 
   const canonical = linkHref(html, 'canonical');
   check('canonical', canonical === `${config.site.canonicalOrigin}/`, canonical ? `Canonical is ${canonical}.` : 'Homepage has no canonical link.', 'warning');
-  check('open-graph-url', matchContent(html, 'property', 'og:url') === config.site.canonicalOrigin, 'Open Graph URL uses the canonical origin.');
+  check('open-graph-url', matchContent(html, 'property', 'og:url') === `${config.site.canonicalOrigin}/`, 'Open Graph URL matches the canonical homepage URL.');
   check('open-graph-image', /^https:\/\//.test(matchContent(html, 'property', 'og:image') || ''), 'Open Graph image is an absolute HTTPS URL.');
 
   const verification = matchContent(html, 'name', 'google-site-verification') || '';

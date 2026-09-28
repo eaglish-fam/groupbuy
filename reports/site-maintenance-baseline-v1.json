@@ -99,7 +99,7 @@
       "id": "open-graph-url",
       "passed": true,
       "severity": "blocking",
-      "detail": "Open Graph URL uses the canonical origin."
+      "detail": "Open Graph URL matches the canonical homepage URL."
     },
     {
       "id": "open-graph-image",
