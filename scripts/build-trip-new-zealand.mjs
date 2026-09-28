@@ -4,6 +4,7 @@ import {regions, byId, countryRoute, updatedAt} from '../trip/new-zealand-data.m
 import {defaultSelectedStops, planCountry, planRegion} from '../trip/new-zealand-planner-model.mjs';
 import {prioritizeFirstTravelImage} from './trip-image-priority.mjs';
 import {plannerAssets, plannerEntry} from './trip-planner-entry.mjs';
+import {newZealandAtlas} from './trip-new-zealand-atlas.mjs';
 
 const origin = 'https://www.eaglish.store';
 const root = resolve(import.meta.dirname, '..');
@@ -166,20 +167,6 @@ function articlePage(region) {
   return prioritizeFirstTravelImage(body);
 }
 
-function map() {
-  const labels = {
-    'north-island': {x:35,y:18,text:'奧克蘭／Rotorua'},
-    wellington: {x:5,y:47,text:'威靈頓'},
-    'christchurch-akaroa': {x:5,y:57,text:'基督城／Akaroa'},
-    kaikoura: {x:59,y:53,text:'Kaikōura'},
-    'mid-canterbury': {x:59,y:63,text:'Mid Canterbury'},
-    'wanaka-tekapo': {x:59,y:73,text:'Wānaka／Tekapo'},
-    otago: {x:59,y:83,text:'Otago'},
-    'queenstown-arrowtown': {x:5,y:88,text:'皇后鎮'}
-  };
-  const dots = regions.map(region=>{ const label=labels[region.id]; return `<a href="${region.route}" aria-label="${esc(region.label)}攻略"><line x1="${region.map[0]}" y1="${region.map[1]}" x2="${label.x+(label.x<region.map[0]?16:-1)}" y2="${label.y-1}" class="nz-map-leader"></line><circle cx="${region.map[0]}" cy="${region.map[1]}" r="2.6"></circle><text x="${label.x}" y="${label.y}" font-size="2.8">${esc(label.text)}</text></a>`; }).join('');
-  return `<div class="nz-map-pair"><svg viewBox="0 0 100 100" role="img" aria-label="紐西蘭南北島與八個區域的示意位置；下方有同等文字入口"><path d="M25 6 C20 13 24 20 19 27 L25 37 33 39 40 50 44 45 39 34 35 27 36 16Z" class="nz-map-island"></path><path d="M54 47 L46 54 47 61 39 69 33 82 28 89 36 91 43 82 51 76 55 65 58 56Z" class="nz-map-island"></path>${dots}</svg><p>示意地圖，只表示相對位置，不作導航。點地圖文字或下方卡片進入攻略。</p></div>`;
-}
 
 function countryPage() {
   const manuscript = parseManuscript('new-zealand-family-travel-overview.md');
@@ -192,7 +179,7 @@ function countryPage() {
   const oldAnchors = Array.from({length:10},(_,index)=>`<span id="region-${index+1}" class="nz-anchor-alias"></span>`).join('');
   const cards = regions.map(region=>`<a class="nz-region-card" href="${region.route}" data-island-card="${region.island}">${photo(region.hero,region.heroAlt ?? `${region.label} 實景照片待核對`)}<span class="nz-region-card-copy"><small>${region.island==='north'?'北島':'南島'} · ${esc(region.short)}</small><strong>${esc(region.label)}</strong><span>${esc(region.summary)}</span><em>看完整攻略 ↗</em></span></a>`).join('');
   const toc = manuscript.sections.map((section,index)=>`<a href="#${sectionId(section,index,null)}">${esc(section.title)}</a>`).join('');
-  const body = `${head({title:manuscript.title,description,path:countryRoute,hero:'nz-christchurch-tram',heroAlt:'一家人在基督城復古電車前合照',article:false})}<main id="main"><header class="article-header wrap nz-header">${breadcrumb('紐西蘭',false)}<p class="eyebrow"><i class="dot"></i> 🇳🇿 New Zealand / 旅行總覽</p><h1>${esc(manuscript.title)}</h1><p class="article-lead">${inline(manuscript.intro)}</p><p class="byline">撰文・影像：鷹式一家 <span>更新 ${updatedAt.replaceAll('-','.')}</span></p><div class="nz-country-hero"><figure>${photo('nz-christchurch-tram','一家人在基督城復古電車前合照',true)}<figcaption>南島 · 基督城電車</figcaption></figure><figure>${photo('nz-rotorua-luge','Rotorua Skyline 纜椅旅行畫格')}<figcaption>北島 · Rotorua</figcaption></figure><figure>${photo('nz-queenstown-lake','皇后鎮湖畔旅行畫格')}<figcaption>南島 · 皇后鎮</figcaption></figure></div></header><div class="article-layout wrap"><nav class="toc guide-nav" data-reading-nav aria-label="文章目錄"><p class="eyebrow">紐西蘭旅行總覽</p><a href="#regions">八個區域</a>${toc}</nav><article class="prose"><section id="regions" class="nz-choose"><span id="nz-places" class="nz-anchor-alias"></span>${oldAnchors}<h2>先選北島、南島，再看照片挑區域</h2><p>依玩法與交通選，不把八個區域塞進同一趟短旅行。地圖上的點與下方文字卡通往同一頁。</p>${map()}<div class="nz-island-filters" role="group" aria-label="按島嶼篩選區域"><button type="button" data-island-filter="all" aria-pressed="true">全部</button><button type="button" data-island-filter="north" aria-pressed="false">北島</button><button type="button" data-island-filter="south" aria-pressed="false">南島</button></div><div class="nz-region-grid">${cards}</div></section>${sections}</article></div></main>${plannerEntry}${footer}`;
+  const body = `${head({title:manuscript.title,description,path:countryRoute,hero:'nz-christchurch-tram',heroAlt:'一家人在基督城復古電車前合照',article:false})}<main id="main"><header class="article-header wrap nz-header">${breadcrumb('紐西蘭',false)}<p class="eyebrow"><i class="dot"></i> 🇳🇿 New Zealand / 旅行總覽</p><h1>${esc(manuscript.title)}</h1><p class="article-lead">${inline(manuscript.intro)}</p><p class="byline">撰文・影像：鷹式一家 <span>更新 ${updatedAt.replaceAll('-','.')}</span></p><div class="nz-country-hero"><figure>${photo('nz-christchurch-tram','一家人在基督城復古電車前合照',true)}<figcaption>南島 · 基督城電車</figcaption></figure><figure>${photo('nz-rotorua-luge','Rotorua Skyline 纜椅旅行畫格')}<figcaption>北島 · Rotorua</figcaption></figure><figure>${photo('nz-queenstown-lake','皇后鎮湖畔旅行畫格')}<figcaption>南島 · 皇后鎮</figcaption></figure></div></header><div class="article-layout wrap"><nav class="toc guide-nav" data-reading-nav aria-label="文章目錄"><p class="eyebrow">紐西蘭旅行總覽</p><a href="#regions">八個區域</a>${toc}</nav><article class="prose"><section id="regions" class="nz-choose"><span id="nz-places" class="nz-anchor-alias"></span>${oldAnchors}<h2>先選北島、南島，再看照片挑區域</h2><p>依玩法與交通選，不把八個區域塞進同一趟短旅行。地圖上的點與下方文字卡通往同一頁。</p>${newZealandAtlas()}<div class="nz-island-filters" role="group" aria-label="按島嶼篩選區域"><button type="button" data-island-filter="all" aria-pressed="true">全部</button><button type="button" data-island-filter="north" aria-pressed="false">北島</button><button type="button" data-island-filter="south" aria-pressed="false">南島</button></div><div class="nz-region-grid">${cards}</div></section>${sections}</article></div></main>${plannerEntry}${footer}`;
   return prioritizeFirstTravelImage(body);
 }
 

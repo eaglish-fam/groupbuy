@@ -1,0 +1,17 @@
+{
+  "asset": "new-zealand-atlas.webp",
+  "kind": "generated_travel_map_illustration",
+  "created": "2026-09-28",
+  "styleReference": "thailand-atlas.webp",
+  "geographyReference": "https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/ne_50m_admin_0_countries.geojson",
+  "geographyMethod": "Natural Earth 1:50m New Zealand polygons, local equirectangular scale at 41 degrees south; both islands use the same scale.",
+  "generation": "OpenAI image generation, second revision guided by the actual coastline reference to correct relative island size.",
+  "sourcePreservation": "Original generated PNG and geographical reference retained in the authorized Eliora NZ project map-revision directory.",
+  "usage": "Decorative schematic for the travel hub, with separately rendered HTML links and pin coordinates. Not a firsthand travel photograph or navigational map.",
+  "responsiveWidths": [
+    640,
+    960,
+    1254
+  ],
+  "focusViews": "All, North Island and South Island reuse this one raster via CSS scaling/clipping. Article pins and schematic route polylines use the same scale and translation as the image; labels are separate callouts."
+}

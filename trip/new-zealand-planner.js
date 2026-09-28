@@ -123,15 +123,58 @@ if (form) {
 }
 
 const filters = [...document.querySelectorAll('[data-island-filter]')];
-if (filters.length) {
+const atlas = document.querySelector('[data-nz-atlas]');
+if (filters.length || atlas) {
+  const controls = atlas ? [...atlas.querySelectorAll('[data-atlas-select]')] : [];
+  const labels = {all:'紐西蘭全圖',north:'北島放大圖',south:'南島放大圖'};
   function show(island) {
-    for (const button of filters) {
-      const active = button.dataset.islandFilter === island;
+    if (!Object.hasOwn(labels,island)) return;
+    for (const button of filters) button.setAttribute('aria-pressed',String(button.dataset.islandFilter===island));
+    for (const card of document.querySelectorAll('[data-island-card]')) card.hidden = island!=='all' && card.dataset.islandCard!==island;
+    if (!atlas) return;
+    for (const button of controls) {
+      const active = button.dataset.atlasSelect===island;
       button.setAttribute('aria-pressed',String(active));
+      if (button.tagName==='BUTTON') button.setAttribute('tabindex',active?'0':'-1');
     }
-    for (const card of document.querySelectorAll('[data-island-card]')) {
-      card.hidden = island !== 'all' && card.dataset.islandCard !== island;
-    }
+    for (const view of atlas.querySelectorAll('[data-atlas-view]')) view.hidden = view.dataset.atlasView!==island;
+    for (const description of atlas.querySelectorAll('[data-atlas-description]')) description.hidden = description.dataset.atlasDescription!==island;
+    atlas.querySelector('.nz-atlas').dataset.atlasActive = island;
+    const count = [...document.querySelectorAll('[data-island-card]')].filter(card=>!card.hidden).length;
+    atlas.querySelector('[data-atlas-status]').textContent = `${labels[island]} · ${count} 篇區域攻略，點地名閱讀`;
   }
   for (const button of filters) button.addEventListener('click',() => show(button.dataset.islandFilter));
+  for (const control of controls) {
+    control.addEventListener('click',()=>show(control.dataset.atlasSelect));
+    if (control.tagName==='BUTTON') {
+      control.addEventListener('pointerenter',event=>{
+        if (event.pointerType==='mouse') show(control.dataset.atlasSelect);
+      });
+      control.addEventListener('focus',()=>show(control.dataset.atlasSelect));
+      control.addEventListener('keydown',event=>{
+        const order = ['all','north','south'];
+        const current = order.indexOf(control.dataset.atlasSelect);
+        const next = {ArrowRight:(current+1)%3,ArrowLeft:(current+2)%3,Home:0,End:2}[event.key];
+        if (next!==undefined) {
+          event.preventDefault();
+          atlas.querySelector(`button[data-atlas-select="${order[next]}"]`).focus();
+        }
+      });
+    } else {
+      control.addEventListener('keydown',event=>{
+        if (event.key==='Enter' || event.key===' ') {
+          event.preventDefault();
+          const selected = control.dataset.atlasSelect;
+          show(selected);
+          atlas.querySelector(`button[data-atlas-select="${selected}"]`).focus();
+        }
+      });
+    }
+  }
+  if (atlas) {
+    atlas.querySelector('.nz-atlas-controls').hidden = false;
+    // SVGElement does not reflect a .hidden assignment into its hidden attribute.
+    atlas.querySelector('.nz-atlas-islands').removeAttribute('hidden');
+  }
+  show('all');
 }
