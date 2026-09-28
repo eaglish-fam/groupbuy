@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 32,
+    "pages": 39,
     "blocking": 0,
-    "warnings": 20,
-    "total": 20
+    "warnings": 18,
+    "total": 18
   },
   "findings": [
     {
@@ -73,13 +73,6 @@
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
-      "file": "trip/new-zealand/index.html",
-      "index": 19778
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/christchurch/index.html",
       "index": 5930
     },
@@ -89,13 +82,6 @@
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/akaroa/index.html",
       "index": 4585
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
-      "file": "trip/new-zealand/christchurch/3-days/index.html",
-      "index": 27687
     },
     {
       "level": "warn",

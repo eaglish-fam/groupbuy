@@ -3,36 +3,54 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {nzRegions} from '../scripts/trip-nz-visuals.mjs';
-const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const article=()=>read('trip/new-zealand/christchurch/3-days/index.html');
-test('Christchurch leads with its own photo and real city stops, before logistics',()=>{
- const html=article();const early=html.split('id="itinerary"')[0];
- assert.ok((early.match(/<img /g)||[]).length>=5);
- assert.match(html,/<figure class="route-portrait"><img src="\/trip\/assets\/nz-christchurch-tram.webp"/);
- assert.match(html,/id="tram"/);assert.match(html,/id="new-regent"/);
- assert.ok(html.indexOf('基督城｜電車')<html.indexOf('Akaroa｜海灣'));
- assert.match(html,/property="og:image" content="https:\/\/www.eaglish.store\/trip\/assets\/nz-christchurch-tram.jpg"/);
+import {regions} from '../trip/new-zealand-data.mjs';
+
+const read = path => readFileSync(new URL('../'+path,import.meta.url),'utf8');
+const article = () => read('trip/new-zealand/christchurch/3-days/index.html');
+
+test('reviewed Christchurch article keeps city-first photos, confirmed meal, and stable anchors', () => {
+  const html = article();
+  const early = html.split('id="itinerary"')[0];
+  assert.ok((early.match(/<img /g) || []).length >= 5);
+  assert.match(html, /<figure class="nz-hero"><img src="\/trip\/assets\/nz-christchurch-tram.webp"/);
+  assert.match(html, /id="tram"/);
+  assert.match(html, /id="new-regent"/); // old deep link remains usable
+  assert.ok(html.indexOf('基督城市區電車') < html.indexOf('Akaroa Dolphins'));
+  assert.match(html, /property="og:image" content="https:\/\/www.eaglish.store\/trip\/assets\/nz-christchurch-tram.webp"/);
+  assert.match(html, /Bully Hayes Restaurant &amp; Bar|Bully Hayes Restaurant & Bar/);
+  assert.match(html, /https:\/\/maps.app.goo.gl\/jakzvS5oCc3fzL45A/);
+  assert.doesNotMatch(html, /59 Beach Road|並非我們已試吃推薦|實景照片待核對/);
+  assert.match(html, /nz-photo-card--text/); // no unverified replacement imagery
 });
-test('user-confirmed restaurant and source-bound video frames do not inherit the old shop identity',()=>{
- const html=article();
- assert.match(html,/Bully Hayes Restaurant &amp; Bar|Bully Hayes Restaurant & Bar/);
- assert.match(html,/https:\/\/maps.app.goo.gl\/jakzvS5oCc3fzL45A/);
- assert.doesNotMatch(html,/59 Beach Road|並非我們已試吃推薦/);
- for(const name of ['akaroa-walk','akaroa-museum','akaroa-lunch'])assert.ok(html.includes('nz-'+name+'.webp'));
-});
-test('NZ media has real-source provenance, verified checksums and bounded image weight',()=>{
- const media=JSON.parse(read('trip/assets/nz-media.json'));
- assert.equal(media.length,18);assert.equal(new Set(media.map(m=>m.name)).size,18);
- for(const m of media){
-  const image=readFileSync(new URL('../trip/assets/'+m.name+'.webp',import.meta.url));
-  assert.equal(createHash('sha256').update(image).digest('hex'),m.sha256);
-  assert.ok(m.width<=1440);assert.ok(m.height>0);assert.ok(m.bytes<400000);
-  assert.match(m.source,/^https:\/\/www\.(instagram|youtube)\.com\//);
-  if(m.kind==='video-frame')assert.ok(m.source.endsWith('&t='+m.second+'s'));
-  assert.equal(m.path,undefined);
- }
- assert.equal(nzRegions.length,10);
- const hub=read('trip/new-zealand/index.html');
- assert.doesNotMatch(hub,/Milford Sound|Mt Cook|Oamaru Blue Penguin Colony|nz-nz-lake-cruise/);
- for(const region of nzRegions){assert.ok(hub.includes(region.name));assert.ok(hub.includes(region.image+'.webp'));}
+
+test('New Zealand media retains source evidence, checksums, and bounded image weight', () => {
+  const media = JSON.parse(read('trip/assets/nz-media.json'));
+  assert.equal(media.length,29); // original 18 plus eleven reviewed Terra frames
+  assert.equal(new Set(media.map(item => item.name)).size,media.length);
+  for (const item of media) {
+    const image = readFileSync(new URL('../trip/assets/'+item.name+'.webp',import.meta.url));
+    assert.equal(createHash('sha256').update(image).digest('hex'),item.sha256,item.name);
+    assert.ok(item.width <= 1440 && item.height > 0,item.name);
+    assert.ok(item.bytes < 400000,item.name);
+    assert.match(item.source,/^https:\/\/www\.(instagram|youtube)\.com\//);
+    if (item.kind.includes('video-frame')) assert.ok(item.source.endsWith('&t='+item.second+'s'),item.name);
+    assert.equal(item.path,undefined);
+  }
+  assert.equal(nzRegions.length,10); // legacy visual catalog is still available
+  const hub = read('trip/new-zealand/index.html');
+  assert.doesNotMatch(hub,/Milford Sound|Mt Cook|Oamaru Blue Penguin Colony|nz-nz-lake-cruise/);
+  for (const region of regions) {
+    assert.ok(hub.includes(`href="${region.route}"`),region.id);
+    assert.ok(hub.includes(region.hero+'.webp'),region.id);
+    const guide = read(region.route.slice(1)+'index.html');
+    assert.ok(guide.includes(`rel="canonical" href="https://www.eaglish.store${region.route}"`),region.id);
+    assert.doesNotMatch(guide,/實景照片待核對|專屬實景照片待核對/,region.id);
+  }
+  assert.match(read('trip/new-zealand/north-island/index.html'),/href="\/trip\/new-zealand\/wellington\/">威靈頓親子兩到三天<\/a>/);
+  assert.match(read('trip/new-zealand/wellington/index.html'),/nz-wellington-te-papa-v1.webp/);
+  assert.match(read('trip/new-zealand/wellington/index.html'),/nz-wellington-cable-car-v1.webp/);
+  assert.match(read('trip/new-zealand/queenstown-arrowtown/index.html'),/nz-queenstown-skyline-luge-v1.webp/);
+  assert.match(read('trip/new-zealand/queenstown-arrowtown/index.html'),/nz-queenstown-earnslaw-v1.webp/);
+  assert.match(read('trip/new-zealand/queenstown-arrowtown/index.html'),/nz-arrowtown-street-v1.webp/);
+  assert.doesNotMatch(hub,/nz-wellington-zoo|nz-hamilton-zoo/);
 });

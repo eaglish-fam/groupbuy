@@ -2,8 +2,9 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {places,itineraries,nzRoute} from '../scripts/build-trip-destinations.mjs';
+import {regions} from '../trip/new-zealand-data.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const paths=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',nzRoute,'/trip/thailand/','/trip/thailand/bangkok/'];
+const paths=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',...regions.map(region=>region.route),'/trip/thailand/','/trip/thailand/bangkok/'];
 test('destination hierarchy has static text, canonical URLs, valid local assets and no private payloads',()=>{
  for(const path of paths){const html=read(path.slice(1)+'index.html');
   assert.equal((html.match(/<h1>/g)||[]).length,1,path);
@@ -15,22 +16,22 @@ test('destination hierarchy has static text, canonical URLs, valid local assets 
   for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))assert.doesNotThrow(()=>JSON.parse(m[1]));
  }
 });
-test('eleven place cards distinguish visited sources and contain direct maps plus disclosure',()=>{
+test('reviewed Christchurch catalog remains traceable while the canonical guide uses the new regional article',()=>{
  const html=read(nzRoute.slice(1)+'index.html');
  assert.equal(places.length,11);assert.equal(places.filter(p=>p.visited).length,7);
- for(const p of places){assert.ok(html.includes(`id="${p.id}"`));assert.ok(html.includes(p.mapsUrl||encodeURIComponent(p.query)));assert.ok(p.source.startsWith('https://'));}
- assert.equal((html.match(/<summary>展開景點介紹與行前提醒/g)||[]).length,11);
- assert.match(html,/Drummonds Jetty/);assert.match(html,/海外旅客另有票種/);
- assert.match(html,/不是下水與海豚共游/);assert.doesNotMatch(html,/近100%|95%|保證看到|最低價/);
- assert.match(html,/klook\.com\/activity\/7758-/);
+ for(const p of places)assert.ok(p.source.startsWith('https://'));
+ assert.match(html,/Shamarra Alpacas/);assert.match(html,/Akaroa Dolphins/);
+ assert.match(html,/Drummonds Jetty/);assert.match(html,/65 Beach Road/);
+ assert.match(html,/data-nz-planner/);assert.match(html,/id="plan"/);
+ assert.doesNotMatch(html,/近100%|95%|保證看到|最低價/);
 });
-test('itinerary variants have correct nights, unique stops and resolvable cards',()=>{
+test('legacy two/three/five-day material remains represented by meaningful anchors',()=>{
  const ids=new Set(places.map(p=>p.id));
  for(const r of itineraries){const n={two:2,three:3,five:5}[r.id];assert.equal(r.days.length,n);assert.equal(r.days.filter(d=>d[3]!=='—').length,n-1);const stops=r.days.flatMap(d=>d[4]);assert.equal(new Set(stops).size,stops.length);for(const s of stops)assert.ok(ids.has(s));}
  const html=read(nzRoute.slice(1)+'index.html');
- for(const id of ['two','three','five'])assert.ok(html.includes(`data-plan-panel="${id}"`));
- assert.doesNotMatch(html,/<section[^>]+data-plan-panel[^>]+hidden/,'no-JS route content is available');
- const js=read('trip/itinerary.js');assert.match(js,/hashchange/);assert.match(js,/aria-current/);
+ for(const id of ['plan-two','plan-three','plan-five','itinerary'])assert.ok(html.includes(`id="${id}"`));
+ assert.match(html,/name="days"/);assert.match(html,/data-nz-plan-output/);
+ assert.match(html,/兩到三日行程/);
 });
 test('trip remains an isolated destination, not a newly exposed shop entry',()=>{
  assert.doesNotMatch(read('index.html'),/href="\/trip\//);

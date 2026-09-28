@@ -1,9 +1,10 @@
 import {readFile,stat} from 'node:fs/promises';
 import {resolve} from 'node:path';
 import sharp from 'sharp';
+import {regions} from '../trip/new-zealand-data.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const pages=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/','/trip/new-zealand/christchurch/3-days/','/trip/thailand/','/trip/thailand/bangkok/','/trip/guides/bangkok-with-kids/','/trip/thailand/chiang-mai/','/trip/guides/chiang-mai-with-kids/','/trip/guides/chiang-rai-with-kids/','/trip/thailand/chiang-rai/'];
+const pages=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',...regions.map(region=>region.route),'/trip/thailand/','/trip/thailand/bangkok/','/trip/guides/bangkok-with-kids/','/trip/thailand/chiang-mai/','/trip/guides/chiang-mai-with-kids/','/trip/guides/chiang-rai-with-kids/','/trip/thailand/chiang-rai/'];
 const maxBytes=width=>width<=640?120_000:width<=960?220_000:400_000;
 let checked=0;
 for(const page of pages){

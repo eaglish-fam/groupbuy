@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {resolve} from 'node:path';
+import {regions} from '../trip/new-zealand-data.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const read=path=>readFileSync(resolve(root,path),'utf8');
@@ -11,6 +12,7 @@ const pages=[
  ['trip/new-zealand/christchurch/index.html','nz-christchurch-tram'],
  ['trip/new-zealand/akaroa/index.html','nz-farm'],
  ['trip/new-zealand/christchurch/3-days/index.html','nz-christchurch-tram'],
+ ...regions.filter(region=>region.route!=='/trip/new-zealand/christchurch/3-days/').map(region=>[region.route.slice(1)+'index.html',region.hero]),
  ['trip/thailand/index.html','thailand-atlas'],
  ['trip/thailand/bangkok/index.html','bkk-bangkok-family'],
  ['trip/guides/bangkok-with-kids/index.html','bkk-bangkok-family'],

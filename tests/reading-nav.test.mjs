@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync, readdirSync} from 'node:fs';
+import {regions} from '../trip/new-zealand-data.mjs';
 const html = readFileSync(new URL('../blog/caesar-kenting/index.html', import.meta.url), 'utf8');
 test('Caesar reading navigation has one opt-in source and every section in document order', () => {
   assert.equal((html.match(/data-reading-nav/g) || []).length, 1);
@@ -30,4 +31,16 @@ test('mobile reading tab uses the approved compact size without the arrow', () =
   const css = readFileSync(new URL('../blog/reading-nav.css', import.meta.url), 'utf8');
   assert.match(css, /@media\(max-width:1199px\)[\s\S]*?\.reading-nav__tab\{width:36px;padding-left:7px;padding-right:3px;align-items:flex-start\}/);
   assert.match(css, /@media\(max-width:1199px\)[\s\S]*?\.reading-nav__chevron\{display:none\}/);
+});
+
+test('all nine New Zealand pages opt into the same reading navigation', () => {
+  for (const path of ['/trip/new-zealand/',...regions.map(region=>region.route)]) {
+    const page = readFileSync(new URL(`..${path}index.html`, import.meta.url),'utf8');
+    assert.equal((page.match(/data-reading-nav/g)||[]).length,1,path);
+    assert.match(page,/href="\/blog\/reading-nav\.css"/,path);
+    assert.match(page,/defer src="\/blog\/reading-nav\.js"/,path);
+    const nav = page.match(/<nav[^>]*data-reading-nav[^>]*>([\s\S]*?)<\/nav>/)?.[1];
+    assert.ok(nav,path);
+    for (const [,anchor] of nav.matchAll(/href="#([^"]+)"/g)) assert.match(page,new RegExp(`id="${anchor}"`),`${path} #${anchor}`);
+  }
 });

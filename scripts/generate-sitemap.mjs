@@ -3,6 +3,7 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { execFileSync } from 'node:child_process';
+import {regions} from '../trip/new-zealand-data.mjs';
 const root = resolve(import.meta.dirname, '..');
 const origin = 'https://www.eaglish.store';
 const pages = [
@@ -12,6 +13,7 @@ const pages = [
   {path:'/how-we-select/',file:'how-we-select/index.html'},
   {path:'/trip/',file:'trip/index.html'},
   ...['new-zealand/','new-zealand/christchurch/','new-zealand/akaroa/','new-zealand/christchurch/3-days/','thailand/','thailand/bangkok/'].map(p=>({path:'/trip/'+p,file:'trip/'+p+'index.html'})),
+  ...regions.filter(region=>region.route!=='/trip/new-zealand/christchurch/3-days/').map(region=>({path:region.route,file:region.route.slice(1)+'index.html'})),
   {path:'/trip/guides/bangkok-with-kids/',file:'trip/guides/bangkok-with-kids/index.html'},
   {path:'/trip/guides/chiang-mai-with-kids/',file:'trip/guides/chiang-mai-with-kids/index.html'},
   {path:'/trip/guides/chiang-rai-with-kids/',file:'trip/guides/chiang-rai-with-kids/index.html'},

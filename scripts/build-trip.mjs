@@ -2,6 +2,7 @@ import {writeFileSync,mkdirSync,readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {buildDestinations} from './build-trip-destinations.mjs';
+import {buildNewZealand} from './build-trip-new-zealand.mjs';
 import {buildChiangRai} from './build-trip-chiang-rai.mjs';
 import {buildChiangMai} from './build-trip-chiang-mai.mjs';
 import {bangkokCatalog,bangkokGuide,scene,overviewCard,placeSection,film,esc,media,gallery} from './trip-bangkok-places.mjs';
@@ -37,4 +38,5 @@ writeFileSync(resolve(root,'trip/assets/bkk-media.json'),JSON.stringify(Object.e
 buildDestinations(root);
 buildChiangMai(root);
 buildChiangRai(root);
+buildNewZealand();
 console.log('Built place-first Bangkok guide and shared destination cards.');

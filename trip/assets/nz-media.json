@@ -196,5 +196,93 @@
     "height": 810,
     "bytes": 66296,
     "sha256": "2b4da28dfc115b3fb004656189295695161daf814ed6de2ba3c5b31f9548aea8"
+  },
+  {
+"name": "nz-kaikoura-ohau-seals-v1", "source": "https://www.youtube.com/watch?v=tMUSkF_RAkM&t=591s",
+    "caption": "Ōhau Point 岩岸與海狗", "alt": "凱庫拉 Ōhau Point 岩岸與潮水間聚集的海狗",
+    "second": 591, "kind": "family-video-frame", "width": 1280, "height": 635, "bytes": 101124,
+    "sha256": "0567305852d412970c4a468fb755679787f0392a969c0e9d23f33c0c8354be08",
+    "originalSha256": "b077a8b6a48a003fa6e203d8ee21ce7f689e86bc773278c586f3bc0549efedd8",
+    "reviewNote": "遠距拍攝；不得暗示可進入保護區或靠近海狗。"
+  },
+  {
+    "name": "nz-kaikoura-ohau-seals-close-v1", "source": "https://www.youtube.com/watch?v=tMUSkF_RAkM&t=589s",
+    "caption": "Ōhau Point 岩石上休息的海狗", "alt": "凱庫拉 Ōhau Point 岩石上休息的兩隻海狗與周圍岩岸",
+    "second": 589, "kind": "family-video-frame", "width": 1280, "height": 635, "bytes": 94060,
+    "sha256": "ad096ba542643ef2d31706a9a1a9e4a737c28b1860eeb89732e7c2cd74c7e071",
+    "originalSha256": "ed94ce46a1fc7af6c1b2561cc720d6dd677042b6812e73f7687a908c26805d8e",
+    "reviewNote": "海狗主體在畫面右側；宜作內文配圖。"
+  },
+  {
+    "name": "nz-mid-canterbury-mt-hutt-ski-v1", "source": "https://www.youtube.com/watch?v=I8xPzKWtVYk&t=388s",
+    "caption": "Mt Hutt 家庭滑雪", "alt": "家人在 Mt Hutt 雪道上陪孩子練習滑雪",
+    "second": 388, "kind": "family-video-frame", "width": 1280, "height": 720, "bytes": 42790,
+    "sha256": "daa3594a120f86f7d294e63e5a7e9565ac09bd658cce7f71b0a2443a0ea484c6",
+    "originalSha256": "315a45ca076025286cf73ea32619e8217f984d5e384d00ce165f435361f20e2f",
+    "reviewNote": "一般雪道活動，不代表直升機滑雪或特定業者產品。"
+  },
+  {
+    "name": "nz-mid-canterbury-staveley-ice-v1", "source": "https://www.youtube.com/watch?v=I8xPzKWtVYk&t=1547s",
+    "caption": "Staveley 歷史冰季滑冰", "alt": "孩子戴安全帽，在 Staveley 戶外冰場推著椅子練習滑冰",
+    "second": 1547, "kind": "family-video-frame", "width": 1280, "height": 635, "bytes": 47986,
+    "sha256": "4b99a800fc2c2c198f1ed645466fecaf4940e216f020b94628a173dae6e4588e",
+    "originalSha256": "8efe1085b2a8321bb5fae556b440abb83ba0e0081de83c9d74d2e6c91cbf0b54",
+    "reviewNote": "歷史季節照片；背景有其他遊客，刊前需確認肖像取捨。"
+  },
+  {
+    "name": "nz-mid-canterbury-discovery-jet-v1", "source": "https://www.youtube.com/watch?v=WkOcj6xOdmU&t=1s",
+    "caption": "Rakaia Gorge 噴射快艇", "alt": "家人穿救生衣坐在 Rakaia Gorge 地區的噴射快艇上",
+    "second": 1, "kind": "family-video-frame", "width": 1280, "height": 635, "bytes": 50504,
+    "sha256": "5714228c7c709fcc5d7c0fb5e2b0e7a3ef74c5825a82d47e7aef6f6a4c490cec",
+    "originalSha256": "42be31fce6f43e0be0e6c44655f096b1bf6f5312ddb75114d2e0151bbccbcc7c",
+    "reviewNote": "集合點依業者當期通知，不把 Terrace Downs 當登船點。"
+  },
+  {
+    "name": "nz-mid-canterbury-ashburton-plane-v1", "source": "https://www.youtube.com/watch?v=KuoPmOcz_pQ&t=971s",
+    "caption": "Ashburton 小飛機", "alt": "Ashburton 機場草地上的小飛機，機艙罩開啟準備飛行",
+    "second": 971, "kind": "family-video-frame", "width": 1280, "height": 635, "bytes": 36336,
+    "sha256": "878ab7d70ed52f30b45ea9239236405074161cf168716fefd0ad90b156741130",
+    "originalSha256": "dd06661a8067f3f8cbdefef309c058edd9bc21fac19871ffb9b60b2f1a520c2f",
+    "reviewNote": "畫面不單獨證明體驗營運者；飛行與旁邊博物館分開。"
+  },
+  {
+    "name": "nz-wellington-te-papa-v1", "source": "https://www.youtube.com/watch?v=Y3ad6Z2NACk&t=330s",
+    "caption": "Te Papa 入口", "alt": "紐西蘭國家博物館 Te Papa Tongarewa 的入口招牌與玻璃門廳",
+    "second": 330, "kind": "family-video-frame", "width": 1280, "height": 550, "bytes": 48392,
+    "sha256": "e23e1d2bcc4ba8c56818ce9028bb91750a7eb9123f76a5949e9eb65d994199ce",
+    "originalSha256": "5f2f386f55a076648ba298fd9e2f1ba9602f15773e56fd4529d924dfbf0de52c",
+    "reviewNote": "畫面為入口，非館內展品；刊前核對場館影像使用權。"
+  },
+  {
+    "name": "nz-wellington-cable-car-v1", "source": "https://www.youtube.com/watch?v=Y3ad6Z2NACk&t=2175s",
+    "caption": "Wellington Cable Car", "alt": "威靈頓紅色纜車從彩色燈光隧道駛進車站",
+    "second": 2175, "kind": "family-video-frame", "width": 1280, "height": 640, "bytes": 68194,
+    "sha256": "98ecf432e2c699f533e975193eb58ab8691c9709dbcda015556b12b1ba444366",
+    "originalSha256": "988bf3149e7a4e1a5712a9afc5e197cf2b8e3c55844f90373d229e3e782ad603",
+    "reviewNote": "紅色軌道車，不是吊廂；畫面由對向車廂拍攝。"
+  },
+  {
+    "name": "nz-queenstown-skyline-luge-v1", "source": "https://www.youtube.com/watch?v=ksl8ZBTtKjE&t=197s",
+    "caption": "Queenstown Skyline 滑坡車", "alt": "從高處看 Queenstown Skyline 滑坡車彎道與車輛",
+    "second": 197, "kind": "family-video-frame", "width": 1280, "height": 640, "bytes": 149838,
+    "sha256": "ea4745e0ffe145fdc9cc319ac672ed6d892da7261faf800c74436dd4af6f432b",
+    "originalSha256": "99105cd4be1819d8ac7499e0f8886f3197dd46ef80ca1ad39871870a6e7c3288",
+    "reviewNote": "左側施工屬歷史影格，不推論當前狀態。"
+  },
+  {
+    "name": "nz-queenstown-earnslaw-v1", "source": "https://www.youtube.com/watch?v=ksl8ZBTtKjE&t=537s",
+    "caption": "TSS Earnslaw 甲板", "alt": "家人在 TSS Earnslaw 蒸汽船甲板上，後方可見煙囪與瓦卡蒂普湖",
+    "second": 537, "kind": "family-video-frame", "width": 1280, "height": 640, "bytes": 33152,
+    "sha256": "49e35bb803d60d0bb8f6c6bc8fbbe51832cc61d2372ebe4bcb125d583be87289",
+    "originalSha256": "a227cf2a06902fc005620e6cd994b4fe74d2e21456544fe542e57d9f0a579b5b",
+    "reviewNote": "非 Walter Peak 農場畫面；背景有其他遊客，刊前審肖像。"
+  },
+  {
+    "name": "nz-arrowtown-street-v1", "source": "https://www.youtube.com/watch?v=ksl8ZBTtKjE&t=1014s",
+    "caption": "Arrowtown 街景", "alt": "Arrowtown 秋葉下的街道、低矮店屋與行人",
+    "second": 1014, "kind": "family-video-frame", "width": 1280, "height": 640, "bytes": 111924,
+    "sha256": "b05573c6b1d563d239efd2f9aaa5d2bc652d8b09a6aa205a04c5a93fea88b2f0",
+    "originalSha256": "78493c34803425ee3d9e941b41dd7838e81834c1a48f46cce8a4d266ea4bdb8e",
+    "reviewNote": "連續實拍街景，未使用電影畫面；路人可辨識，刊前審肖像。"
   }
 ]
