@@ -206,6 +206,46 @@ export const galleries = {
         "portrait": false
       }
     ],
+    "te-papa": [
+      {
+        "name": "nz-wellington-te-papa-v1",
+        "alt": "紐西蘭國家博物館 Te Papa Tongarewa 的入口招牌與玻璃門廳",
+        "caption": "紐西蘭國家博物館 Te Papa Tongarewa 的入口招牌與玻璃門廳",
+        "portrait": false
+      },
+      {
+        "name": "nz-wellington-te-papa-380s-v1",
+        "alt": "Te Papa 館內展示櫃中的書面史料展件",
+        "caption": "Te Papa 館內展示櫃中的書面史料展件",
+        "portrait": false
+      },
+      {
+        "name": "nz-wellington-te-papa-900s-v1",
+        "alt": "Te Papa 戰爭主題展覽的巨型人物場景",
+        "caption": "Te Papa 戰爭主題展覽的巨型人物場景",
+        "portrait": false
+      }
+    ],
+    "wellington-zoo": [
+      {
+        "name": "nz-wellington-wellington-zoo-1538s-v1",
+        "alt": "Wellington Zoo 入口外牆與園名",
+        "caption": "Wellington Zoo 入口外牆與園名",
+        "portrait": false
+      },
+      {
+        "name": "nz-wellington-wellington-zoo-1640s-v1",
+        "alt": "家人在 Wellington Zoo 長臂猿展區標示旁參觀",
+        "caption": "家人在 Wellington Zoo 長臂猿展區標示旁參觀",
+        "portrait": false
+      },
+      {
+        "name": "nz-wellington-wellington-zoo-1700s-v1",
+        "alt": "Wellington Zoo 的 Te Ao Māhina 夜行展區入口",
+        "caption": "Wellington Zoo 的 Te Ao Māhina 夜行展區入口",
+        "portrait": false
+      }
+    ],
     "cable-car": [
       {
         "name": "nz-wellington-cable-car-v1",

@@ -26,7 +26,7 @@ export const regions = [
     summary: '周日市集、Te Papa、動物園與 Cable Car，市區和跨島日分開。',
     stops: [
       {id:'harbour-market',name:'周日港口市集',heading:'周日港口市集',area:'harbour',time:'1～2 小時',duration:90,map:'Harbourside Market Wellington',photo:'nz-wellington-harbour',photoAlt:'威靈頓海港的旅行畫格',weekdays:[0],open:'07:30',close:'13:00'},
-      {id:'te-papa',name:'Te Papa',heading:'Te Papa',area:'harbour',time:'2～3 小時',duration:150,map:'Museum of New Zealand Te Papa Tongarewa',photo:null,open:'10:00',close:'18:00',closedDates:['12-25']},
+      {id:'te-papa',name:'Te Papa',heading:'Te Papa',area:'harbour',time:'2～3 小時',duration:150,map:'Museum of New Zealand Te Papa Tongarewa',photo:'nz-wellington-te-papa-v1',photoAlt:'紐西蘭國家博物館 Te Papa Tongarewa 的入口招牌與玻璃門廳',open:'10:00',close:'18:00',closedDates:['12-25']},
       {id:'wellington-zoo',name:'Wellington Zoo',heading:'Wellington Zoo',area:'zoo',time:'約半天',duration:180,map:'Wellington Zoo',photo:null},
       {id:'cable-car',name:'Cable Car',heading:'Cable Car',area:'central',time:'1～1.5 小時',duration:75,map:'Wellington Cable Car Lambton Quay',photo:'nz-wellington-cable-car-v1',photoAlt:'威靈頓紅色纜車從彩色燈光隧道駛進車站'}
     ]
