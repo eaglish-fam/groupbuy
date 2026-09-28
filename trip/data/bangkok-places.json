@@ -141,6 +141,14 @@
     {
       "id":"th-bangkok-jurassic-world-experience",
       "anchor":"jurassic",
+      "relatedReading":{
+        "title":"行程排好，再慢慢整理行李",
+        "description":"如果也在準備這趟旅行的衣物收納，可以接著看我們的打包筆記：比較拉鍊式與手捲式，再按自己的衣物和行李箱挑尺寸。",
+        "links":[
+          {"slug":"branden","label":"BRANDEN：二代、Lite 與尺寸怎麼選"},
+          {"slug":"shoumaji","label":"收麻吉：手捲方式與袋數估算"}
+        ]
+      },
       "name":"Jurassic World 侏羅紀世界體驗",
       "englishName":"Jurassic World: The Experience Bangkok",
       "area":"Asiatique・昭披耶河畔",
