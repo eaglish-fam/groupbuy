@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="./design.css" />
     <link rel="stylesheet" href="./mobile-grid.css?v=2" />
     <link rel="stylesheet" href="./complete-content.css?v=3" />
+    <link rel="stylesheet" href="./travel-entry.css" />
     <script defer src="./papaparse.min.js"></script>
     <script defer src="/product-content.js?v=20260916-miamily-astra-v1"></script>
     <script defer src="./editor-picks.js"></script>
@@ -54,7 +55,7 @@
       </div>
     </header>
     <nav class="content-nav" aria-label="所有網站內容">
-      <a href="#catalog">開團好物</a><a href="/blog/">選物部落格 ↗</a
+      <a href="#catalog">開團好物</a><a href="/blog/">選物部落格</a><a href="/trip/">旅行指南</a
       ><a href="#calendar">團購行事曆</a><a href="#coupon">折扣碼</a
       ><a href="#kang-books">康先生的書</a><a href="#edu">教育公益</a
       ><a href="#journal">生活筆記</a><a href="#latestVideo">最新影片</a
@@ -76,9 +77,10 @@
           <p class="hero-description">
             一頓期待的早餐，一個順手的小物。<br />從餐桌到旅途，陪你找到生活裡的剛剛好。
           </p>
-          <a class="button primary" href="#catalog"
-            >看看現在開什麼團 <span>↗</span></a
-          >
+          <div class="hero-entry-actions">
+            <a class="button primary" href="#catalog">看看現在開什麼團 <span aria-hidden="true">↗</span></a>
+            <a class="hero-travel-link" href="/trip/">找下一趟旅行 <span aria-hidden="true">→</span></a>
+          </div>
           <div class="hero-footnote">
             <span class="rule"></span> 鷹式一家的生活選物提案
           </div>
@@ -205,6 +207,9 @@
           </div>
         </div>
       </section>
+      <!-- travel-entry:start -->
+      <section class="travel-entry wrap"><h2>鷹家遠行所</h2><a href="/trip/">探索旅行指南 →</a></section>
+      <!-- travel-entry:end -->
       <section class="calendar-section wrap" id="calendar">
         <header class="section-heading">
           <div>
@@ -481,7 +486,7 @@
       />
       <p>從日常出發，把喜歡分享給你。</p>
       <div>
-        <a href="/blog/">選物誌</a><a href="/guides/">選購指南</a><a href="/how-we-select/">我們怎麼選物</a><a href="#shopping-notice">購物須知</a
+        <a href="/blog/">選物部落格</a><a href="/trip/">旅行指南・鷹家遠行所</a><a href="/guides/">選購指南</a><a href="/how-we-select/">我們怎麼選物</a><a href="#shopping-notice">購物須知</a
         ><a
           href="https://www.youtube.com/@eaglish.family"
           target="_blank"

@@ -1,8 +1,9 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import {readSnapshot,snapshotCards} from './catalog-snapshot.mjs';
+import {renderHomepageTravelEntry} from './homepage-travel-entry.mjs';
 const root = new URL('../', import.meta.url);
-const release = '20260916-miamily-astra-v1';
+const release = '20260928-travel-entry-v5';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
   .replace('content="noindex,nofollow"', 'content="index,follow,max-image-preview:large"')
@@ -11,12 +12,12 @@ html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
   .replaceAll('href="./', 'href="/design/')
   .replaceAll('src="./', 'src="/design/')
   .replace(/content="從餐桌、居家到旅行，跟著鷹式一家發現生活選物、當期團購與真實使用筆記。"/,
-    'content="鷹式一家 Eaglish Family 官方團購網站！精選台灣、日韓、歐美優質商品團購，從餐桌好食、親子用品、居家生活到旅行選物，查看當期開團、常駐好物、折扣碼與團購行事曆，也能閱讀鷹家選物誌的使用筆記。"')
+    'content="鷹式一家 Eaglish Family 官方團購網站！精選台灣、日韓、歐美優質商品團購，從餐桌好食、親子用品、居家生活到旅行選物，查看當期開團、常駐好物、折扣碼與團購行事曆，也能閱讀選物筆記與鷹家遠行所的親子旅行指南。"')
   .replace('</head>', `<link rel="canonical" href="https://www.eaglish.store/">
     <meta name="google-site-verification" content="FdPBW_xSaPXriw8r-beUzCvUXbh0J4BqT-0ADmKbdSY">
     <meta property="og:site_name" content="鷹家買物社">
     <meta property="og:title" content="鷹家買物社｜把喜歡的日常，帶回家">
-    <meta property="og:description" content="當期團購、常駐好物、折扣碼與鷹家選物誌，從日常出發，把喜歡分享給你。">
+    <meta property="og:description" content="當期團購、生活選物筆記與鷹家遠行所旅行指南，從日常到旅途，把喜歡分享給你。">
     <meta property="og:url" content="https://www.eaglish.store">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="zh_TW">
@@ -27,6 +28,8 @@ html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
     <meta name="agd-partner-manual-verification">
     <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"鷹家買物社","alternateName":["鷹式一家","Eaglish Family"],"url":"https://www.eaglish.store/","logo":"https://www.eaglish.store/logo-eaglish-text.png"}</script>
   </head>`);
+html=html.replace(/<!-- travel-entry:start -->[\s\S]*?<!-- travel-entry:end -->/,renderHomepageTravelEntry());
+if(!html.includes('id="travel-entry"'))throw Error('Homepage travel entry insertion failed');
 const snapshot=readSnapshot();
 html=html.replace('正在讀取最新團購…','商品選購目錄')
  .replace('<div class="product-grid" id="products" aria-busy="true">\n            <div class="loading">正在為你整理今天的好物…</div>\n          </div>',`<div class="product-grid" id="products" aria-busy="false" data-snapshot-date="${snapshot.observedAt.slice(0,10)}">${snapshotCards(snapshot)}</div>`)

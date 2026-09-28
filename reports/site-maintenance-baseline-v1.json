@@ -87,7 +87,7 @@
       "id": "meta-description",
       "passed": true,
       "severity": "blocking",
-      "detail": "Meta description length is 102."
+      "detail": "Meta description length is 109."
     },
     {
       "id": "canonical",
@@ -135,7 +135,7 @@
       "id": "image-alt",
       "passed": true,
       "severity": "warning",
-      "detail": "0 of 26 static image(s) lack alt text."
+      "detail": "0 of 28 static image(s) lack alt text."
     },
     {
       "id": "iframe-title",

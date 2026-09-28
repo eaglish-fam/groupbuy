@@ -7,7 +7,7 @@
     <title>鷹家買物社｜把喜歡的日常，帶回家</title>
     <meta
       name="description"
-      content="鷹式一家 Eaglish Family 官方團購網站！精選台灣、日韓、歐美優質商品團購，從餐桌好食、親子用品、居家生活到旅行選物，查看當期開團、常駐好物、折扣碼與團購行事曆，也能閱讀鷹家選物誌的使用筆記。"
+      content="鷹式一家 Eaglish Family 官方團購網站！精選台灣、日韓、歐美優質商品團購，從餐桌好食、親子用品、居家生活到旅行選物，查看當期開團、常駐好物、折扣碼與團購行事曆，也能閱讀選物筆記與鷹家遠行所的親子旅行指南。"
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -15,22 +15,23 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&family=Noto+Serif+TC:wght@500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/design/design.css?v=20260916-miamily-astra-v1" />
-    <link rel="stylesheet" href="/design/mobile-grid.css?v=20260916-miamily-astra-v1" />
-    <link rel="stylesheet" href="/design/complete-content.css?v=20260916-miamily-astra-v1" />
-    <script defer src="/design/papaparse.min.js?v=20260916-miamily-astra-v1"></script>
-    <script defer src="/product-content.js?v=20260916-miamily-astra-v1"></script>
-    <script defer src="/design/editor-picks.js?v=20260916-miamily-astra-v1"></script>
-    <script defer src="/design/design.js?v=20260916-miamily-astra-v1"></script>
-    <script defer src="/design/mobile-grid.js?v=20260916-miamily-astra-v1"></script>
-    <script defer src="/design/complete-content.js?v=20260916-miamily-astra-v1"></script>
-  <link rel="stylesheet" href="/release.css?v=20260916-miamily-astra-v1">
-<script defer src="/site-runtime.js?v=20260916-miamily-astra-v1"></script>
+    <link rel="stylesheet" href="/design/design.css?v=20260928-travel-entry-v5" />
+    <link rel="stylesheet" href="/design/mobile-grid.css?v=20260928-travel-entry-v5" />
+    <link rel="stylesheet" href="/design/complete-content.css?v=20260928-travel-entry-v5" />
+    <link rel="stylesheet" href="/design/travel-entry.css?v=20260928-travel-entry-v5" />
+    <script defer src="/design/papaparse.min.js?v=20260928-travel-entry-v5"></script>
+    <script defer src="/product-content.js?v=20260928-travel-entry-v5"></script>
+    <script defer src="/design/editor-picks.js?v=20260928-travel-entry-v5"></script>
+    <script defer src="/design/design.js?v=20260928-travel-entry-v5"></script>
+    <script defer src="/design/mobile-grid.js?v=20260928-travel-entry-v5"></script>
+    <script defer src="/design/complete-content.js?v=20260928-travel-entry-v5"></script>
+  <link rel="stylesheet" href="/release.css?v=20260928-travel-entry-v5">
+<script defer src="/site-runtime.js?v=20260928-travel-entry-v5"></script>
 <link rel="canonical" href="https://www.eaglish.store/">
     <meta name="google-site-verification" content="FdPBW_xSaPXriw8r-beUzCvUXbh0J4BqT-0ADmKbdSY">
     <meta property="og:site_name" content="鷹家買物社">
     <meta property="og:title" content="鷹家買物社｜把喜歡的日常，帶回家">
-    <meta property="og:description" content="當期團購、常駐好物、折扣碼與鷹家選物誌，從日常出發，把喜歡分享給你。">
+    <meta property="og:description" content="當期團購、生活選物筆記與鷹家遠行所旅行指南，從日常到旅途，把喜歡分享給你。">
     <meta property="og:url" content="https://www.eaglish.store">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="zh_TW">
@@ -65,7 +66,7 @@
       </div>
     </header>
     <nav class="content-nav" aria-label="所有網站內容">
-      <a href="#catalog">開團好物</a><a href="/blog/">選物部落格 ↗</a
+      <a href="#catalog">開團好物</a><a href="/blog/">選物部落格</a><a href="/trip/">旅行指南</a
       ><a href="#calendar">團購行事曆</a><a href="#coupon">折扣碼</a
       ><a href="#kang-books">康先生的書</a><a href="#edu">教育公益</a
       ><a href="#journal">生活筆記</a><a href="#latestVideo">最新影片</a
@@ -87,9 +88,10 @@
           <p class="hero-description">
             一頓期待的早餐，一個順手的小物。<br />從餐桌到旅途，陪你找到生活裡的剛剛好。
           </p>
-          <a class="button primary" href="#catalog"
-            >看看現在開什麼團 <span>↗</span></a
-          >
+          <div class="hero-entry-actions">
+            <a class="button primary" href="#catalog">看看現在開什麼團 <span aria-hidden="true">↗</span></a>
+            <a class="hero-travel-link" href="/trip/">找下一趟旅行 <span aria-hidden="true">→</span></a>
+          </div>
           <div class="hero-footnote">
             <span class="rule"></span> 鷹式一家的生活選物提案
           </div>
@@ -358,6 +360,21 @@
           </div>
         </div>
       </section>
+      <section class="travel-entry wrap" id="travel-entry" aria-labelledby="travel-entry-title">
+  <div class="travel-entry-copy">
+   <p class="eyebrow">鷹家遠行所 · 旅行指南</p>
+   <h2 id="travel-entry-title">下一趟，<br>想一起去哪裡？</h2>
+   <p>把一家人走過的風景，整理成你的下一站。<br>從實訪照片找靈感，再看景點、交通與行程。</p>
+   <a class="button primary" href="/trip/">探索所有目的地 <span aria-hidden="true">→</span></a>
+  </div>
+  <div class="travel-entry-places"><a class="travel-entry-place" href="/trip/thailand/">
+   <div class="travel-entry-photo"><img src="/trip/assets/cm-thai-dress-family.webp" srcset="/trip/assets/cm-thai-dress-family-640.webp 640w, /trip/assets/cm-thai-dress-family-960.webp 960w, /trip/assets/cm-thai-dress-family.webp 1280w" sizes="(max-width: 700px) calc((100vw - 52px) / 2), (max-width: 1000px) calc((100vw - 100px) / 2), 350px" width="1280" height="853" alt="一家四口穿著泰服，站在清邁塔佩門的紅磚城牆前合照" style="object-position:50% 62%" loading="lazy" fetchpriority="low" decoding="async"></div>
+   <div class="travel-entry-caption"><span>THAILAND</span><h3>泰國 <span aria-hidden="true">→</span></h3><p>3 份城市・區域指南</p></div>
+  </a><a class="travel-entry-place" href="/trip/new-zealand/">
+   <div class="travel-entry-photo"><img src="/trip/assets/nz-wanaka-tree.webp" srcset="/trip/assets/nz-wanaka-tree-640.webp 640w, /trip/assets/nz-wanaka-tree-960.webp 960w, /trip/assets/nz-wanaka-tree.webp 1440w" sizes="(max-width: 700px) calc((100vw - 52px) / 2), (max-width: 1000px) calc((100vw - 100px) / 2), 350px" width="1440" height="960" alt="一家人在 Wānaka 湖畔合照，後方是湖中樹與群山" style="object-position:50% 60%" loading="lazy" fetchpriority="low" decoding="async"></div>
+   <div class="travel-entry-caption"><span>NEW ZEALAND</span><h3>紐西蘭 <span aria-hidden="true">→</span></h3><p>8 份城市・區域指南</p></div>
+  </a></div>
+ </section>
       <section class="calendar-section wrap" id="calendar">
         <header class="section-heading">
           <div>
@@ -634,7 +651,7 @@
       />
       <p>從日常出發，把喜歡分享給你。</p>
       <div>
-        <a href="/blog/">選物誌</a><a href="/guides/">選購指南</a><a href="/how-we-select/">我們怎麼選物</a><a href="#shopping-notice">購物須知</a
+        <a href="/blog/">選物部落格</a><a href="/trip/">旅行指南・鷹家遠行所</a><a href="/guides/">選購指南</a><a href="/how-we-select/">我們怎麼選物</a><a href="#shopping-notice">購物須知</a
         ><a
           href="https://www.youtube.com/@eaglish.family"
           target="_blank"

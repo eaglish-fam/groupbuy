@@ -33,8 +33,8 @@ test('legacy two/three/five-day material remains represented by meaningful ancho
  assert.match(html,/name="days"/);assert.match(html,/data-nz-plan-output/);
  assert.match(html,/兩到三日行程/);
 });
-test('trip remains an isolated destination, not a newly exposed shop entry',()=>{
- assert.doesNotMatch(read('index.html'),/href="\/trip\//);
+test('travel discovery is exposed on the shop homepage after publication approval',()=>{
+ assert.match(read('index.html'),/href="\/trip\/">旅行指南<\/a\s*>/);
  for(const path of paths)assert.ok(read('sitemap.xml').includes('<loc>https://www.eaglish.store'+path+'</loc>'));
 });
 test('on-page travel photos use lighter web variants and retain source JPEGs',()=>{

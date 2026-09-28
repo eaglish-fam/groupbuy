@@ -10,7 +10,8 @@ const appsScript = readFileSync(new URL('../flights-pipeline/apps-script/Code.gs
 test('flights stays available by direct URL without a shop or journal entry', () => {
   for (const page of ['../index.html', '../design/index.html', '../blog/index.html']) {
     const pageHtml = readFileSync(new URL(page, import.meta.url), 'utf8');
-    assert.doesNotMatch(pageHtml, /href=["'][^"']*\/(?:flights|trip)(?:\/|[?#"'])/i, page);
+    // Travel discovery is now authorized on the homepage; the flight tool remains paused.
+    assert.doesNotMatch(pageHtml, /href=["'][^"']*\/flights(?:\/|[?#"'])/i, page);
   }
   assert.match(html, /id="deal-grid"/);
   assert.match(html, /src="\/flights\/flights\.js/);
