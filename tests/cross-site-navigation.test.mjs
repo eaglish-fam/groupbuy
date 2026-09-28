@@ -28,7 +28,8 @@ test('every public page puts one three-site switcher after its footer, with no r
  for(const label of ['買物社','選物誌','遠行所'])assert.match(store,new RegExp(`>${label}</a>`));
  const storeFooter=store.match(/<footer class="wrap">([\s\S]*?)<\/footer>/)?.[1];
  assert.ok(storeFooter);
- assert.doesNotMatch(storeFooter,/旅行指南・鷹家遠行所/,'travel link is not duplicated beside the shared switcher');
+ assert.match(storeFooter,/<a href="\/blog\/">選物部落格<\/a>/,'the existing journal footer link remains');
+ assert.match(storeFooter,/<a href="\/trip\/">旅行指南・鷹家遠行所<\/a>/,'the existing travel footer link remains');
 });
 
 test('only the three-site switcher stays at the desktop bottom, with travel headers sticky',()=>{
