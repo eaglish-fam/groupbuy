@@ -26,6 +26,17 @@ test('every public page puts one three-site switcher after its footer, with no r
  assert.ok(store.indexOf('<header class="site-header">')<store.indexOf('<!-- site-navigation:start -->'));
  assert.doesNotMatch(store,/<nav class="mobile-nav"|id="mobile-saved"/);
  for(const label of ['買物社','選物誌','遠行所'])assert.match(store,new RegExp(`>${label}</a>`));
+ const storeFooter=store.match(/<footer class="wrap">([\s\S]*?)<\/footer>/)?.[1];
+ assert.ok(storeFooter);
+ assert.doesNotMatch(storeFooter,/旅行指南・鷹家遠行所/,'travel link is not duplicated beside the shared switcher');
+});
+
+test('only the three-site switcher stays at the desktop bottom, with travel headers sticky',()=>{
+ const css=readFileSync(resolve(root,'site-navigation.css'),'utf8');
+ assert.match(css,/\.site-switcher\{[^}]*position:fixed;left:0;right:0;bottom:0/);
+ assert.match(css,/body>header\.home-masthead,body>header\.masthead\.wrap\{position:sticky;top:0/);
+ assert.doesNotMatch(css,/\.home-footer[^\n]*position:fixed|\.footer[^\n]*position:fixed/);
+ assert.match(css,/@media\(max-width:700px\)[^{]*\{body\{padding-bottom:calc\(56px/);
 });
 
 test('Bangkok Jurassic related reading goes to two real journal articles after travel details',()=>{
