@@ -35,6 +35,10 @@ function placePhotos(regionId,place) {
   return `<div class="nz-place-gallery${photos.length===1?' nz-place-gallery--single':''}" aria-label="${esc(place.name)}旅行照片">${photos.map((item,index)=>`<figure class="nz-place-photo${index===0?' nz-place-photo--hero':''}${item.portrait?' nz-place-photo--portrait':''}">${photo(item.name,item.alt,false,'',index===0?'(max-width:700px) 92vw, (max-width:1100px) 60vw, 720px':'(max-width:700px) 45vw, (max-width:1100px) 29vw, 350px')}<figcaption>${esc(item.caption ?? item.alt)}</figcaption></figure>`).join('')}</div>`;
 }
 
+function placeCover(regionId,place) {
+  return galleries[regionId]?.[place.id]?.[0] ?? (place.photo ? {name:place.photo,alt:place.photoAlt} : null);
+}
+
 function safeHref(raw) {
   const manuscript = raw.replace(/^\.\//,'');
   if (markdownRoutes.has(manuscript)) return markdownRoutes.get(manuscript);
@@ -163,7 +167,7 @@ const legacyChristchurch = {
 function articlePage(region) {
   const manuscript = parseManuscript(region.manuscript);
   const description = manuscript.intro.slice(0,150);
-  const photos = region.stops.filter(stop=>!stop.alternate).sort((a,b)=>Number(Boolean(b.photo))-Number(Boolean(a.photo))).slice(0,6);
+  const photos = region.stops.filter(stop=>!stop.alternate).sort((a,b)=>Number(Boolean(placeCover(region.id,b)))-Number(Boolean(placeCover(region.id,a)))).slice(0,6);
   const toc = manuscript.sections.map((section,index)=>`<a href="#${sectionId(section,index,region)}">${esc(section.title)}</a>`).join('');
   const modernIds = new Set(['before',...manuscript.sections.map((section,index)=>sectionId(section,index,region)),...region.stops.map(stop=>stop.id)]);
   const legacyAliasFor = target => region.id==='christchurch-akaroa'
@@ -181,7 +185,7 @@ function articlePage(region) {
     });
     return `${legacyAliasFor(id)}${alias}<section id="${id}" class="nz-copy-section"><h2>${esc(section.title)}</h2>${id==='plan'?planner('region',region):''}${source}${content}</section>`;
   }).join('');
-  const body = `${head({title:manuscript.title,description,path:region.route,hero:region.hero,heroAlt:region.heroAlt,article:true})}<main id="main"><header class="article-header wrap nz-header">${breadcrumb(region.label,true)}<p class="eyebrow"><i class="dot"></i> NEW ZEALAND / ${region.island==='north'?'NORTH':'SOUTH'} ISLAND</p><h1>${esc(manuscript.title)}</h1><p class="article-lead">${inline(manuscript.intro)}</p><p class="byline">撰文・影像：鷹式一家 <span>更新 ${updatedAt.replaceAll('-','.')}</span></p><figure class="nz-hero">${photo(region.hero,region.heroAlt,true)}<figcaption>${esc(region.heroCaption ?? region.label)}</figcaption></figure></header><div class="article-layout wrap"><nav class="toc guide-nav" data-reading-nav aria-label="文章目錄"><p class="eyebrow">${esc(region.short)}</p><a href="#before">景點與玩法</a>${toc}</nav><article class="prose">${legacyAliasFor('before')}<section id="before" class="nz-choose"><h2>看景點與玩法，挑想去的地方</h2><p>從照片與玩法挑選今天想去的地方。點進各站看交通、建議停留與雨備；跨城和預約活動記得預留移動及報到時間。</p><div class="nz-photo-grid">${photos.map(stop=>`<a class="nz-photo-card${stop.photo?'':' nz-photo-card--text'}" href="#${stop.id}">${photo(stop.photo,stop.photoAlt)}<span><strong>${esc(stop.name)}</strong><small>${esc(stop.time)}</small><em>看景點詳情 ↗</em></span></a>`).join('')}</div></section>${sections}<section class="nz-next"><h2>再選下一段</h2><p>這篇以 ${esc(region.label)} 為範圍；跨區移動請回國家總覽重新分配天數。</p><a href="${countryRoute}#regions">回紐西蘭旅行總覽 ↗</a></section></article></div></main>${plannerEntry}${footer}`;
+  const body = `${head({title:manuscript.title,description,path:region.route,hero:region.hero,heroAlt:region.heroAlt,article:true})}<main id="main"><header class="article-header wrap nz-header">${breadcrumb(region.label,true)}<p class="eyebrow"><i class="dot"></i> NEW ZEALAND / ${region.island==='north'?'NORTH':'SOUTH'} ISLAND</p><h1>${esc(manuscript.title)}</h1><p class="article-lead">${inline(manuscript.intro)}</p><p class="byline">撰文・影像：鷹式一家 <span>更新 ${updatedAt.replaceAll('-','.')}</span></p><figure class="nz-hero">${photo(region.hero,region.heroAlt,true)}<figcaption>${esc(region.heroCaption ?? region.label)}</figcaption></figure></header><div class="article-layout wrap"><nav class="toc guide-nav" data-reading-nav aria-label="文章目錄"><p class="eyebrow">${esc(region.short)}</p><a href="#before">景點與玩法</a>${toc}</nav><article class="prose">${legacyAliasFor('before')}<section id="before" class="nz-choose"><h2>看景點與玩法，挑想去的地方</h2><p>從照片與玩法挑選今天想去的地方。點進各站看交通、建議停留與雨備；跨城和預約活動記得預留移動及報到時間。</p><div class="nz-photo-grid">${photos.map(stop=>{const cover=placeCover(region.id,stop);return `<a class="nz-photo-card${cover?'':' nz-photo-card--text'}" href="#${stop.id}">${photo(cover?.name,cover?.alt)}<span><strong>${esc(stop.name)}</strong><small>${esc(stop.time)}</small><em>看景點詳情 ↗</em></span></a>`}).join('')}</div></section>${sections}<section class="nz-next"><h2>再選下一段</h2><p>這篇以 ${esc(region.label)} 為範圍；跨區移動請回國家總覽重新分配天數。</p><a href="${countryRoute}#regions">回紐西蘭旅行總覽 ↗</a></section></article></div></main>${plannerEntry}${footer}`;
   return prioritizeFirstTravelImage(body);
 }
 

@@ -21,7 +21,7 @@ test('reviewed Christchurch article keeps city-first photos, confirmed meal, and
   assert.match(html, /Bully Hayes Restaurant &amp; Bar|Bully Hayes Restaurant & Bar/);
   assert.match(html, /https:\/\/maps.app.goo.gl\/jakzvS5oCc3fzL45A/);
   assert.doesNotMatch(html, /59 Beach Road|並非我們已試吃推薦|實景照片待核對/);
-  assert.match(html, /nz-photo-card--text/); // no unverified replacement imagery
+  assert.match(html, /href="#ninja-valley"><img src="\/trip\/assets\/nz-christchurch-akaroa-ninja-valley-2585s-v1.webp"/);
 });
 
 test('New Zealand media retains source evidence, checksums, and bounded image weight', () => {
@@ -85,4 +85,21 @@ test('regional photo galleries use distinct sourced images and retain explicit s
   assert.equal(complete,30);
   assert.ok(galleries['queenstown-arrowtown'].lakefront.some(item => item.name==='nz-fergburger-eating-v1'));
   assert.ok(galleries['queenstown-arrowtown'].arrowtown.some(item => item.name==='nz-arrowtown-gold-panning-v1'));
+});
+
+test('regional preview cards use their place gallery covers when legacy photo fields are empty', () => {
+  let galleryBackedCards = 0;
+  for (const region of regions) {
+    const html = read(region.route.slice(1)+'index.html');
+    const cards = [...html.matchAll(/<a class="nz-photo-card([^"]*)" href="#([^"]+)">([\s\S]*?)<\/a>/g)];
+    assert.ok(cards.length,`${region.id} preview cards`);
+    for (const [,classes,placeId,body] of cards) {
+      const cover = galleries[region.id]?.[placeId]?.[0];
+      if (!cover) continue;
+      galleryBackedCards++;
+      assert.ok(!classes.includes('nz-photo-card--text'),`${region.id}/${placeId} is not a text card`);
+      assert.ok(body.includes(`src="/trip/assets/${cover.name}`),`${region.id}/${placeId} cover`);
+    }
+  }
+  assert.ok(galleryBackedCards >= 11);
 });

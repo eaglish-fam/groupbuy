@@ -39,7 +39,7 @@
 .nz-place-gallery .nz-place-photo--hero{grid-column:1/-1}
 .nz-place-gallery .nz-place-photo--hero img{display:block;aspect-ratio:16/9;max-height:none}
 .nz-place-gallery .nz-place-photo:not(.nz-place-photo--hero) img{display:block;aspect-ratio:4/3;max-height:none}
-.nz-place-gallery .nz-place-photo--portrait img,.nz-place-gallery .nz-place-photo--hero.nz-place-photo--portrait img{object-fit:contain;aspect-ratio:4/5;background:#f2eee5}
+.nz-place-gallery .nz-place-photo--portrait img,.nz-place-gallery .nz-place-photo--hero.nz-place-photo--portrait img{object-fit:cover;aspect-ratio:4/5}
 .nz-place-gallery .nz-place-photo--hero.nz-place-photo--portrait img{max-height:600px}
 .nz-place-gallery .nz-place-photo figcaption{margin-top:6px;line-height:1.5}
 .nz-place-gallery--single{display:block}
