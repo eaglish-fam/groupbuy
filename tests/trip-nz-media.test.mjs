@@ -50,7 +50,7 @@ test('New Zealand media retains source evidence, checksums, and bounded image we
     assert.doesNotMatch(guide,/有核對來源的景點附實景；其餘先用文字介紹/,region.id);
   }
   assert.match(read('trip/new-zealand/north-island/index.html'),/href="\/trip\/new-zealand\/wellington\/">威靈頓親子兩到三天<\/a>/);
-  assert.match(read('trip/new-zealand/wellington/index.html'),/nz-wellington-te-papa-v1.webp/);
+  assert.doesNotMatch(read('trip/new-zealand/wellington/index.html'),/nz-wellington-(?:te-papa|wellington-zoo)-/);
   assert.match(read('trip/new-zealand/wellington/index.html'),/nz-wellington-cable-car-v1.webp/);
   assert.match(read('trip/new-zealand/queenstown-arrowtown/index.html'),/nz-queenstown-skyline-luge-v1.webp/);
   assert.match(read('trip/new-zealand/queenstown-arrowtown/index.html'),/nz-queenstown-earnslaw-v1.webp/);
@@ -66,11 +66,17 @@ test('regional photo galleries use distinct sourced images and retain explicit s
     'wanaka-tekapo/cardrona','wanaka-tekapo/wanaka-lake','wanaka-tekapo/wanaka-tree',
     'wanaka-tekapo/tekapo-lake','wanaka-tekapo/church',
   ]);
+  const rightsHolds = new Set(['wellington/te-papa','wellington/wellington-zoo']);
   let complete=0;
   for (const region of regions) {
     const html = read(region.route.slice(1)+'index.html');
     for (const place of region.stops.filter(stop => !stop.alternate)) {
       const photos = galleries[region.id]?.[place.id];
+      if (rightsHolds.has(`${region.id}/${place.id}`)) {
+        assert.equal(photos,undefined,`${region.id}/${place.id} must remain text-only pending venue permission`);
+        assert.ok(html.includes(`id="${place.id}"`),`${region.id}/${place.id} anchor`);
+        continue;
+      }
       assert.ok(photos?.length,`${region.id}/${place.id}`);
       assert.equal(photos.length,gaps.has(`${region.id}/${place.id}`)?1:3,`${region.id}/${place.id}`);
       if (photos.length===3) complete++;
@@ -82,7 +88,7 @@ test('regional photo galleries use distinct sourced images and retain explicit s
       for (const item of photos) assert.ok(html.includes(`/trip/assets/${item.name}`),`${region.id}/${place.id} image`);
     }
   }
-  assert.equal(complete,30);
+  assert.equal(complete,28);
   assert.ok(galleries['queenstown-arrowtown'].lakefront.some(item => item.name==='nz-fergburger-eating-v1'));
   assert.ok(galleries['queenstown-arrowtown'].arrowtown.some(item => item.name==='nz-arrowtown-gold-panning-v1'));
 });
