@@ -1,24 +1,13 @@
-/* Shared brand navigation; page-specific menus remain independently usable. */
-.site-switcher{color:#494139;background:#f2eee5;border-bottom:1px solid #dcd5c9;font-family:'Noto Sans TC',sans-serif;position:relative;z-index:45}
-.site-switcher-inner{max-width:1280px;margin:0 auto;padding:0 48px;display:flex;justify-content:flex-end;gap:0}
-.site-switcher a{display:flex;align-items:center;justify-content:center;gap:9px;min-height:49px;padding:9px 24px;text-decoration:none;color:inherit;font-size:13px;line-height:1.5;border-bottom:2px solid transparent;white-space:nowrap}
-.site-switcher a small{font-size:10px;color:#70665b}
-.site-switcher a[aria-current]{border-bottom-color:#784b39;background:#eae2d5;color:#643f2d}
+/* One quiet site switcher after the page footer; on phones it replaces the store's utility dock. */
+.site-switcher{color:#544b42;background:#f5f1e9;border-top:1px solid #ded6ca;font-family:'Noto Sans TC',sans-serif;position:relative;z-index:25}
+.site-switcher-inner{max-width:1280px;margin:0 auto;padding:0 48px;display:flex;justify-content:center;gap:0}
+.site-switcher a{display:flex;align-items:center;justify-content:center;min-width:130px;min-height:49px;padding:10px 20px;text-decoration:none;color:inherit;font-size:13px;line-height:1.5;border-top:2px solid transparent;white-space:nowrap}
+.site-switcher a[aria-current]{border-top-color:#784b39;color:#784b39;font-weight:700}
 .site-switcher a:hover{background:#eae2d5}
-.site-switcher a:focus-visible,.site-travel-return a:focus-visible,.site-travel-return button:focus-visible{outline:3px solid #784b39;outline-offset:-4px}
-.site-travel-return[hidden]{display:none!important}
-.site-travel-return{position:sticky;top:0;z-index:30;margin:0;background:#fffaf1;color:#494139;border-bottom:1px solid #cfc2af;box-shadow:0 3px 12px #4941390a;font-family:'Noto Sans TC',sans-serif}
-.site-travel-return-inner{max-width:1280px;margin:auto;padding:0 48px;display:flex;align-items:center;justify-content:space-between;gap:12px}
-.site-travel-return a{display:flex;align-items:center;gap:12px;min-width:0;min-height:52px;padding:8px 0;text-decoration:none;color:#714a34;font-size:12px;line-height:1.6;flex:1}
-.site-travel-return a>span:last-child{display:flex;align-items:center;gap:14px;min-width:0}
-.site-travel-return strong{white-space:nowrap;font-size:12px;font-weight:700}
-.site-travel-return [data-travel-return-title]{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:#665b4e;min-width:0}
-.site-return-arrow{font-size:20px;flex:none}
-.site-travel-return button{flex:none;min-width:44px;min-height:44px;padding:7px;border:0;background:transparent;color:#70665b;cursor:pointer;font:24px/1 sans-serif}
-html.site-return-active{scroll-padding-top:calc(var(--site-return-height,52px) + var(--site-next-header-height,0px) + 24px)}
-html.site-return-active body>.journal-chrome,html.site-return-active body>.site-header{top:var(--site-return-height,52px)}
+.site-switcher a:focus-visible{outline:3px solid #784b39;outline-offset:-4px}
 a.skip:focus,a.skip-link:focus{z-index:1000}
-@media(max-width:700px){.site-switcher-inner{padding:0 12px;justify-content:center}.site-switcher a{flex:1;min-width:0;padding:10px 6px;font-size:12px;gap:0}.site-switcher a small{display:none}.site-travel-return-inner{padding:0 18px;gap:6px}.site-travel-return a{gap:9px;min-height:59px}.site-travel-return a>span:last-child{display:block;min-width:0}.site-travel-return strong{display:block;font-size:11px}.site-travel-return [data-travel-return-title]{display:block;font-size:11px;max-width:100%}}
+@media(max-width:700px){body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}.site-switcher{position:fixed;left:0;right:0;bottom:0;z-index:40;box-shadow:0 -4px 20px #0000000a;background:#faf8f3f5;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-bottom:env(safe-area-inset-bottom)}.site-switcher-inner{padding:0 8px}.site-switcher a{flex:1;min-width:0;min-height:56px;padding:9px 4px;font-size:14px}.journal-chrome .masthead>a:not(.brand){display:none}.trip-plan-entry{bottom:calc(72px + env(safe-area-inset-bottom))!important}.reading-nav__panel{bottom:max(72px,env(safe-area-inset-bottom))!important}}
+@media print{.site-switcher{display:none!important}body{padding-bottom:0!important}}
 /* Optional contextual reading suggestion, never a floating purchase control. */
 aside.site-reading-note{padding:22px 24px;margin:28px 0;background:#f2eee5;border:1px solid #dcd5c9;border-left:3px solid #a9785e;border-radius:5px;color:#494139}
 aside.site-reading-note>p{font-size:14px;line-height:1.9;margin:0 0 12px}

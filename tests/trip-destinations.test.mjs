@@ -34,7 +34,9 @@ test('legacy two/three/five-day material remains represented by meaningful ancho
  assert.match(html,/兩到三日行程/);
 });
 test('travel discovery is exposed on the shop homepage after publication approval',()=>{
- assert.match(read('index.html'),/href="\/trip\/">旅行指南<\/a\s*>/);
+ const home=read('index.html');
+ assert.match(home,/class="hero-travel-link" href="\/trip\/"/);
+ assert.match(home,/<nav class="site-switcher"[\s\S]*?<a href="\/trip\/" data-site-section="travel" aria-label="鷹家遠行所">遠行所<\/a>/);
  for(const path of paths)assert.ok(read('sitemap.xml').includes('<loc>https://www.eaglish.store'+path+'</loc>'));
 });
 test('on-page travel photos use lighter web variants and retain source JPEGs',()=>{

@@ -19,7 +19,8 @@ test('homepage travel entry shares real country routes and responsive photos wit
  assert.ok(page.indexOf('id="catalog"')<page.indexOf('id="travel-entry"'));
  assert.ok(page.indexOf('id="travel-entry"')<page.indexOf('id="calendar"'));
  const nav=page.match(/<nav class="content-nav"[\s\S]*?<\/nav>/)[0];
- assert.deepEqual([...nav.matchAll(/href="([^"]+)"/g)].slice(0,3).map(m=>m[1]),['#catalog','/blog/','/trip/']);
+ assert.deepEqual([...nav.matchAll(/href="([^"]+)"/g)].slice(0,3).map(m=>m[1]),['#catalog','#calendar','#coupon']);
+ assert.match(page,/<nav class="site-switcher"[\s\S]*?aria-label="鷹家選物誌">選物誌<\/a>[\s\S]*?aria-label="鷹家遠行所">遠行所<\/a>/);
  assert.match(page,/<a class="hero-travel-link" href="\/trip\/">/);
  assert.match(page,/<link rel="canonical" href="https:\/\/www.eaglish.store\/">/);
 });

@@ -7,7 +7,7 @@ import {collectIndexablePages} from '../scripts/site-seo-inventory.mjs';
 import {renderRelatedJournal} from '../scripts/related-journal.mjs';
 const root=resolve(import.meta.dirname,'..');
 
-test('every public page has one keyboard-first three-site switcher with its own current section',()=>{
+test('every public page puts one three-site switcher after its footer, with no return strip',()=>{
  const pages=collectIndexablePages(root);
  assert.equal(pages.length,39);
  for(const page of pages){
@@ -17,13 +17,15 @@ test('every public page has one keyboard-first three-site switcher with its own 
   assert.equal((html.match(/<!-- site-navigation:start -->/g)||[]).length,1,page.path);
   for(const href of ['/', '/blog/', '/trip/'])assert.match(nav,new RegExp(`<a href="${href.replaceAll('/','\\/')}" data-site-section=`),page.path);
   assert.equal((nav.match(/aria-current="location"/g)||[]).length,1,page.path);
-  const skip=html.match(/<a\b[^>]*class="skip"[^>]*>/)?.index;
-  if(skip!==undefined)assert.ok(skip<html.indexOf('<!-- site-navigation:start -->'),`${page.path} skip remains first`);
-  for(const type of ['css','js']){
-   const hash=createHash('sha256').update(readFileSync(resolve(root,`site-navigation.${type}`))).digest('hex').slice(0,12);
-   assert.ok(html.includes(`/site-navigation.${type}?v=${hash}`),`${page.path} ${type} cache current`);
-  }
+  assert.ok(html.lastIndexOf('</footer>')<html.indexOf('<!-- site-navigation:start -->'),`${page.path} switcher follows footer`);
+  assert.doesNotMatch(html,/site-travel-return|site-navigation\.js|回到旅行/);
+  const hash=createHash('sha256').update(readFileSync(resolve(root,'site-navigation.css'))).digest('hex').slice(0,12);
+  assert.ok(html.includes(`/site-navigation.css?v=${hash}`),`${page.path} stylesheet cache current`);
  }
+ const store=readFileSync(resolve(root,'index.html'),'utf8');
+ assert.ok(store.indexOf('<header class="site-header">')<store.indexOf('<!-- site-navigation:start -->'));
+ assert.doesNotMatch(store,/<nav class="mobile-nav"|id="mobile-saved"/);
+ for(const label of ['買物社','選物誌','遠行所'])assert.match(store,new RegExp(`>${label}</a>`));
 });
 
 test('Bangkok Jurassic related reading goes to two real journal articles after travel details',()=>{

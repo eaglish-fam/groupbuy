@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import {readSnapshot,snapshotCards} from './catalog-snapshot.mjs';
 import {renderHomepageTravelEntry} from './homepage-travel-entry.mjs';
 const root = new URL('../', import.meta.url);
-const release = '20260928-travel-entry-v5';
+const release = '20260928-site-nav-v8';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
   .replace('content="noindex,nofollow"', 'content="index,follow,max-image-preview:large"')

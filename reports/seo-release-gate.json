@@ -11,126 +11,126 @@
       "category": "images",
       "message": "Image exceeds 350KB (454KB): /assets/branden/gen2-1.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/branden/index.html",
-      "index": 8202
+      "index": 7323
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (375KB): /assets/caesar-kenting/journal/pool-detail.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/caesar-kenting/index.html",
-      "index": 19468
+      "index": 18589
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "blog/index.html",
-      "index": 6189
+      "index": 5216
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 13912
+      "index": 12939
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 14648
+      "index": 13675
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 15408
+      "index": 14435
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "blog/index.html",
-      "index": 16109
+      "index": 15136
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 4656
+      "index": 3733
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 37136
+      "index": 36155
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 37136
+      "index": 36155
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "trip/flights/index.html",
-      "index": 9637
+      "index": 8758
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/flights/index.html",
-      "index": 9962
+      "index": 9083
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 71431
+      "index": 70526
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/index.html",
-      "index": 88116
+      "index": 87237
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/akaroa/index.html",
-      "index": 6038
+      "index": 5133
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/new-zealand/christchurch/index.html",
-      "index": 7393
+      "index": 6488
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/bangkok/index.html",
-      "index": 15145
+      "index": 14240
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/thailand/index.html",
-      "index": 25501
+      "index": 24596
     }
   ]
 }

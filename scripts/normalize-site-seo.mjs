@@ -9,7 +9,7 @@ import {collectIndexablePages,metaContent,attribute,decodeHtml,siteOrigin} from 
 const root=resolve(import.meta.dirname,'..');
 const write=process.argv.includes('--write');
 const runtimeVersion=createHash('sha256').update(readFileSync(resolve(root,'site-runtime.js'))).digest('hex').slice(0,12);
-const navigationVersions=Object.fromEntries(['css','js'].map(type=>[type,createHash('sha256').update(readFileSync(resolve(root,`site-navigation.${type}`))).digest('hex').slice(0,12)]));
+const navigationVersion=createHash('sha256').update(readFileSync(resolve(root,'site-navigation.css'))).digest('hex').slice(0,12);
 const escape=value=>String(value).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll('<','&lt;').replaceAll('>','&gt;');
 function upsert(html,key,value,name='property'){
  const tags=html.match(/<meta\b[^>]*>/gi)||[];
@@ -22,9 +22,9 @@ for(const page of collectIndexablePages(root)){
  let html=page.html;
  const navigation=renderSiteNavigation(page.path);
  const navigationMarker=/<!-- site-navigation:start -->[\s\S]*?<!-- site-navigation:end -->/g;
- if(navigationMarker.test(html))html=html.replace(navigationMarker,navigation);
- else html=html.replace(/(<body\b[^>]*>)(\s*<a\b[^>]*class=["']skip["'][^>]*>[\s\S]*?<\/a>)?/i,(_,body,skip='')=>body+skip+navigation);
- const assets=`<!-- site-navigation-assets:start --><link rel="stylesheet" href="/site-navigation.css?v=${navigationVersions.css}"><script defer src="/site-navigation.js?v=${navigationVersions.js}"></script><!-- site-navigation-assets:end -->`;
+ html=html.replace(navigationMarker,'');
+ html=html.replace('</body>',navigation+'</body>');
+ const assets=`<!-- site-navigation-assets:start --><link rel="stylesheet" href="/site-navigation.css?v=${navigationVersion}"><!-- site-navigation-assets:end -->`;
  const assetMarker=/<!-- site-navigation-assets:start -->[\s\S]*?<!-- site-navigation-assets:end -->/g;
  html=assetMarker.test(html)?html.replace(assetMarker,assets):html.replace('</head>',assets+'\n</head>');
  // Content-based version changes whenever analytics changes, on every public page.

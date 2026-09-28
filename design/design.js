@@ -447,7 +447,6 @@ $("#show-all-products").onclick = () => {
   render();
 };
 $("#saved-open").onclick = showSaved;
-$("#mobile-saved").onclick = showSaved;
 $("#search-open").onclick = () => {
   $("#catalog").scrollIntoView();
   $("#search").focus({ preventScroll: true });
