@@ -45,6 +45,8 @@ test('New Zealand media retains source evidence, checksums, and bounded image we
     const guide = read(region.route.slice(1)+'index.html');
     assert.ok(guide.includes(`rel="canonical" href="https://www.eaglish.store${region.route}"`),region.id);
     assert.doesNotMatch(guide,/實景照片待核對|專屬實景照片待核對/,region.id);
+    assert.match(guide,/從照片與玩法挑選今天想去的地方。點進各站看交通、建議停留與雨備；跨城和預約活動記得預留移動及報到時間。/,region.id);
+    assert.doesNotMatch(guide,/有核對來源的景點附實景；其餘先用文字介紹/,region.id);
   }
   assert.match(read('trip/new-zealand/north-island/index.html'),/href="\/trip\/new-zealand\/wellington\/">威靈頓親子兩到三天<\/a>/);
   assert.match(read('trip/new-zealand/wellington/index.html'),/nz-wellington-te-papa-v1.webp/);
