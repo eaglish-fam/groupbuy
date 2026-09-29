@@ -1,5 +1,5 @@
 /* A small, self-hosted headline subset shared by 買物社、選物誌、遠行所. */
-@font-face{font-family:"Eaglish Heading Serif";src:url("/assets/fonts/noto-serif-tc-headings-v1.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap}
+@font-face{font-family:"Eaglish Heading Serif";src:url("/assets/fonts/noto-serif-tc-headings-v2.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap}
 :root{--serif:"Eaglish Heading Serif","Songti TC","PMingLiU",serif}
 h1,h2,h3{font-family:var(--serif)}
 /* One persistent three-site switcher; the ordinary footer stays in document flow. */

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "observedAt": "2026-09-24T02:38:21.710Z",
+  "observedAt": "2026-09-29T03:30:26.337Z",
   "source": "https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/",
   "items": [
     {
@@ -226,6 +226,14 @@
       "category": "母嬰",
       "article": null,
       "image": null
+    },
+    {
+      "id": "eben-kombucha",
+      "brand": "EBEN康普茶",
+      "description": "從初釀、雙柚到水果風味，看看口味與組合，再到品牌團購頁確認當期品項。",
+      "category": "食品",
+      "article": null,
+      "image": "/assets/eben/cover.webp"
     },
     {
       "id": "caesar-kenting",

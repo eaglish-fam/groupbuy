@@ -39,14 +39,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 41089
+      "index": 41725
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 41089
+      "index": 41725
     },
     {
       "level": "warn",
@@ -74,7 +74,7 @@
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/index.html",
-      "index": 86962
+      "index": 86961
     },
     {
       "level": "warn",
