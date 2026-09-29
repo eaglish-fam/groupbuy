@@ -2,6 +2,25 @@
   "schema": "eaglish.blog-cover-identity/v1",
   "effectiveDate": "2026-09-14",
   "articles": {
+    "/blog/eben-kombucha/": {
+      "identity": "EBEN 生康普茶",
+      "image": "/assets/eben/blog-cover.webp",
+      "imageSha256": "4c9acc1eb891762bbf1a0b9fbd1c9590713e6bdc9a60c2485943f8c41e4e4344",
+      "source": "/assets/eben/blog-cover-source.html",
+      "sourceSha256": "9ebf2866773b32e407672e521837b370f7d2288fd4afb0c97f73d9e551ac0857",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "4c9acc1eb891762bbf1a0b9fbd1c9590713e6bdc9a60c2485943f8c41e4e4344",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true
+      }
+    },
     "/blog/lange/": {
       "identity": "紗布巾",
       "image": "/assets/lange/cover.webp",

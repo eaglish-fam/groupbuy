@@ -9,7 +9,7 @@ const root=resolve(import.meta.dirname,'..');
 
 test('every public page puts one three-site switcher after its footer, with no return strip',()=>{
  const pages=collectIndexablePages(root);
- assert.equal(pages.length,39);
+ assert.equal(pages.length,40);
  for(const page of pages){
   const html=page.html;
   const nav=html.match(/<!-- site-navigation:start -->([\s\S]*?)<!-- site-navigation:end -->/)?.[1];

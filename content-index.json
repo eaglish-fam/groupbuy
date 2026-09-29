@@ -19,7 +19,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "b76dc824a4e63b018b7f92c4e0ba14f93e4d73e9d252ba931170f475354a7e31"
+      "sourceHash": "19318bae14a0735c7a467ee80eb230d88a8efc72a35ec71abd0c35a755859f5e"
     },
     {
       "slug": "atojet",
@@ -38,7 +38,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "d52d743ee1db7a7d7247cccd2658fa75a0dc1b17309d1425bb0cdcd472b1ae64"
+      "sourceHash": "f69b264c3544ca6e8be3fa01c7372a211bacbca2458b4f866f436d73baf6f4eb"
     },
     {
       "slug": "branden",
@@ -57,7 +57,7 @@
       "cluster": null,
       "published": "2026-09-24",
       "modified": "2026-09-24",
-      "sourceHash": "3c41266edefef748678b25722495042452e1a26a102e65d63195d8baaa41836a"
+      "sourceHash": "0dcc901c837af9e3d6877b463a242b87d8aadd11f75db78cee79eee2d275d08c"
     },
     {
       "slug": "caesar-kenting",
@@ -79,7 +79,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "f6f28badf1bd8a221ea2ea69c55f514ee944c9322e49fc9ffc751d349faa3574"
+      "sourceHash": "83430ff52d5446efe5806622b04ff6ffd72f54b4f00c7e6e65b96a9516018e61"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -101,7 +101,27 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "cc1c6256b7541ec85273fde2358197898d7fa9262afadcd355f1a52ec2736429"
+      "sourceHash": "9ca76522ab5ed0d2c7478f116e4e5ed7bbb23a1b400f63dd8578c425f012da25"
+    },
+    {
+      "slug": "eben-kombucha",
+      "url": "https://www.eaglish.store/blog/eben-kombucha/",
+      "title": "康普茶是什麼？EBEN 生康普茶的茶香、双柚與海邊實拍｜鷹家選物誌",
+      "productNames": [
+        "EBEN康普茶"
+      ],
+      "productId": "eben-kombucha",
+      "mode": "product",
+      "intent": "product:eben-kombucha",
+      "topics": [
+        "康普茶",
+        "EBEN 生康普茶",
+        "双柚康普茶"
+      ],
+      "cluster": null,
+      "published": "2026-09-29",
+      "modified": "2026-09-29",
+      "sourceHash": "7075844b4f3a231a268f75c00da8c5ab6a8448aaad82aef03374462386f25771"
     },
     {
       "slug": "fushan-gifts",
@@ -123,7 +143,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "ae18efe847215c658dd70c8851b21719c2ddedd239e917a360c4dffcdf555dc9"
+      "sourceHash": "44ae10705283d0a5cb13abe6700c2bdb0966dc48bc7ca7cec81306b09371654d"
     },
     {
       "slug": "hereu-tag",
@@ -145,7 +165,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "9a12d9945787d61eb2ad4b3e1a6a8ee022a1df9dbef9061511ee004d766a7e32"
+      "sourceHash": "c1ec17cecac3528d07d997fa6787920b7e0b02829b9d93a50c0306e80efa4691"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -168,7 +188,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "8f2ab08d1c1e9261dda9a4a273d5348ecccba611cddee772e76075ff4d1628f6"
+      "sourceHash": "328045b0b7f03619d8828f69d9089f0be9b0c65237459cf718dc7c9fd86ed4ea"
     },
     {
       "slug": "lange",
@@ -189,7 +209,7 @@
       "cluster": "family",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "30602edf03e61b3c7f633f2338f38365915a7497ea8377e07a5fa55c466d90dd"
+      "sourceHash": "ce1759bbec306184f48db697a9b88287e178e1cc8bfd29e2748a8affac1886ef"
     },
     {
       "slug": "meroware",
@@ -208,7 +228,7 @@
       "cluster": "family",
       "published": "2026-09-09",
       "modified": "2026-09-11",
-      "sourceHash": "f3697fd93d61caae938ebec935011d1fc2fe37e025e1993661143e64d4535a54"
+      "sourceHash": "e8d26ae28a7522deca24ec21741bec0126ab49127e80a822067059fb7f838da7"
     },
     {
       "slug": "miamily",
@@ -229,7 +249,7 @@
       "cluster": "travel",
       "published": "2026-09-16",
       "modified": "2026-09-16",
-      "sourceHash": "55aceb0a0b5e7a790333acbfe6ac025c4946b6949bc73c804115a87e92c128b7"
+      "sourceHash": "8ed8a4d3f9943c656be0f9dfcfbb829222da0252590a8978890e3e34074b0d31"
     },
     {
       "slug": "mitoy-rice-blocks",
@@ -248,7 +268,7 @@
       "cluster": "family",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "15dd02e700428148e1cfe10bcade96332f78093c746378295a21c1dd8886a1ea"
+      "sourceHash": "05d9737489c99605f38ac5fcc87b7e3776ad9602e0cf04b05484d80ed57492ca"
     },
     {
       "slug": "playzu",
@@ -271,7 +291,7 @@
       "cluster": "family",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "7340adb21ed06fd248e07b7f2cd01910556c7a9ea46e815d2ffd3fa2a3234ad6"
+      "sourceHash": "6f93e0e09cb05ab6bea36d0a371edd27ac164703878f34a0cc2e79dcaa15ed41"
     },
     {
       "slug": "shoumaji",
@@ -292,7 +312,7 @@
       "cluster": "travel",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "466fb5a819ee678251f130700fc2e97d7f39260cb91bd07d7761f01762339ad6"
+      "sourceHash": "15a8d8fa53d7ea5a764c81042a151c2be012689e1f167e262e9420f6e3ded047"
     },
     {
       "slug": "wave-hummus",
@@ -311,7 +331,7 @@
       "cluster": "table",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "c6a29a5aa7f510bacdf54a8767725850f46610437f6213964254c93c7623b1a9"
+      "sourceHash": "2a671a0c63ebcc399ae31dff02452ad480eee40864d2a24ec1ee998af3f6001f"
     }
   ]
 }

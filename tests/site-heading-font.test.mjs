@@ -18,12 +18,12 @@ for(const section of ['blog','trip','guides','how-we-select']){
 
 test('three-site headline font covers public Chinese headings without remote font requests',()=>{
  const glyphs=new Set(readFileSync(resolve(root,'assets/fonts/heading-glyphs.txt'),'utf8'));
- const font=readFileSync(resolve(root,'assets/fonts/noto-serif-tc-headings-v2.woff2'));
+ const font=readFileSync(resolve(root,'assets/fonts/noto-serif-tc-headings-v3.woff2'));
  assert.equal(font.toString('ascii',0,4),'wOF2');
  assert.ok(font.byteLength<256*1024,'shared headline font should stay under 256 KiB');
  const css=readFileSync(resolve(root,'site-navigation.css'),'utf8');
  assert.match(css,/font-display:swap/);
- assert.match(css,/noto-serif-tc-headings-v2\.woff2/);
+ assert.match(css,/noto-serif-tc-headings-v3\.woff2/);
  let checked=0;
  for(const path of publicPages){
   const html=readFileSync(resolve(root,path),'utf8');

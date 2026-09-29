@@ -1,6 +1,6 @@
 {
   "counts": {
-    "pages": 39,
+    "pages": 40,
     "blocking": 0,
     "warnings": 14,
     "total": 14
@@ -25,28 +25,28 @@
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "blog/index.html",
-      "index": 4695
+      "index": 4698
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 3452
+      "index": 3524
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 41691
+      "index": 41755
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 41691
+      "index": 41755
     },
     {
       "level": "warn",
