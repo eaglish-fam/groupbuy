@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "observedAt": "2026-09-29T03:30:26.337Z",
+  "observedAt": "2026-09-29T03:41:43.200Z",
   "source": "https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/",
   "items": [
     {
@@ -230,7 +230,7 @@
     {
       "id": "eben-kombucha",
       "brand": "EBEN康普茶",
-      "description": "從初釀、雙柚到水果風味，看看口味與組合，再到品牌團購頁確認當期品項。",
+      "description": "從既有照片認識初釀、雙柚與水果風味；當期品項和組合以品牌團購頁為準。",
       "category": "食品",
       "article": null,
       "image": "/assets/eben/cover.webp"
