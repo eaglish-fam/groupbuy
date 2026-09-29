@@ -5,3 +5,15 @@
 body[data-article-key="eben"] .offer-bar{--offer-bottom:calc(72px + env(safe-area-inset-bottom,0px))}
 
 .fermentation-figure{margin:1.6rem -20px 2rem}.fermentation-figure img{display:block;width:100%;height:auto;border-radius:10px}.fermentation-figure a{display:block}.fermentation-figure a:focus-visible{outline:3px solid #805941;outline-offset:4px}.fermentation-figure figcaption{padding:10px 20px 0;font-size:.87rem;line-height:1.7;color:#655b4d}.fermentation-figure figcaption span{display:block;font-size:.76rem;color:#847462;margin-top:3px}@media(max-width:700px){.fermentation-figure{margin:1.4rem -16px 1.8rem}.fermentation-figure img{border-radius:5px}.fermentation-figure figcaption{padding:10px 12px 0}}
+
+/* Native ordered list remains readable even before styles load. */
+.choice-links{margin:2rem 0;padding:1.25rem 1.4rem;border:1px solid #dfd4c5;border-radius:8px;background:#f5f1e8;scroll-margin-top:110px}
+.choice-links__title{display:block;margin-bottom:.65rem;font-size:1rem;font-weight:600;letter-spacing:.12em;color:#74503e}
+.choice-links ol{display:block;margin:0;padding:0 0 0 2rem;list-style:decimal-leading-zero}
+.choice-links li{display:list-item;padding-left:.45rem;margin:0;border-bottom:1px solid #dfd4c5}
+.choice-links li:last-child{border-bottom:0}
+.choice-links li::marker{color:#875d48;font-size:.9rem;font-variant-numeric:tabular-nums}
+.choice-links li a{display:flex;align-items:center;min-height:48px;padding:.65rem 0;box-sizing:border-box;line-height:1.5;text-decoration:none;color:inherit;font-size:1rem}
+.choice-links li a:hover{text-decoration:underline;color:#875d48}
+.choice-links li a:focus-visible{outline:2px solid #875d48;outline-offset:3px;border-radius:2px}
+@media(max-width:700px){.choice-links{padding:1rem 1.1rem}.choice-links li a{min-height:50px}}

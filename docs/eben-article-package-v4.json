@@ -1151,7 +1151,7 @@
     }
   ],
   "reviewEvidence": {
-    "htmlSha256": "aaa4e8b81cb4c8a60dffeff615465855480049619d813671485bc7c0b3f7d620",
+    "htmlSha256": "183d23400b72dc64bd0c96d984dae074c85b26af2a42f0711fded69f1ebd0242",
     "bodyExtraction": {
       "selector": ".article-body",
       "excludedSelectors": [
@@ -1172,7 +1172,8 @@
       "酒精段落正確歸因 EBEN 0–0.2% 並區分品類變異；自釀>1%為可能性，研究方法限制留於來源帳。",
       "慢開瓶及不搖晃屬氣泡飲操作建議；不可歸因為FAQ沉澱段原文，FAQ另寫稍微搖晃。",
       "既有商品卡資產500×375，此次沿用且未修改；文章首圖為独立1600×1000資產。",
-      "2026-09-29 兩張ImageGen概念圖取代三格純文字：酵母產生酒精及CO2，醋酸菌在有氧下利用部分酒精；保留残糖與微量酒精文字，不當成真實商品／居家釀造操作證據。"
+      "2026-09-29 兩張ImageGen概念圖取代三格純文字：酵母產生酒精及CO2，醋酸菌在有氧下利用部分酒精；保留残糖與微量酒精文字，不當成真實商品／居家釀造操作證據。",
+      "2026-09-29 目錄改為原生有序清單，8 項編號逐列顯示；同步列表標題及摘要，移除舊海邊標題。"
     ],
     "validationScope": "JSON package and consumer HTML phrase scan only; layout, navigation, publication authority and full npm verify owned by main task.",
     "packageValidation": {
@@ -1180,7 +1181,7 @@
       "editorialCount": 1591,
       "consumerHtmlChecked": true,
       "errors": [],
-      "checkedHtmlSha256": "aaa4e8b81cb4c8a60dffeff615465855480049619d813671485bc7c0b3f7d620"
+      "checkedHtmlSha256": "183d23400b72dc64bd0c96d984dae074c85b26af2a42f0711fded69f1ebd0242"
     }
   }
 }
