@@ -11,7 +11,7 @@
       if (!heading) return null;
       const target = section.id ? section : heading.id ? heading : section;
       if (!target.id) target.id = `reading-chapter-${index + 1}`;
-      return { target, label: heading.textContent.trim().replace(/\s+/g, ' ') };
+      return { target, label: heading.dataset.tocLabel || heading.textContent.trim().replace(/\s+/g, ' ') };
     }).filter(Boolean);
     if (!chapters.length) return null;
     const nav = document.createElement('nav');

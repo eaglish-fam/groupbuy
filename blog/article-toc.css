@@ -1,0 +1,7 @@
+/* The inline chapter navigation follows BRANDEN on every journal article. */
+.article-body nav:is(.choice-links,.guide-nav[data-reading-nav],.reading-nav-source,.age-links,.pattern-links){display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin:28px 0;padding:0;border:0;border-radius:0;background:none;box-shadow:none}
+.article-body nav:is(.choice-links,.guide-nav[data-reading-nav],.reading-nav-source,.age-links,.pattern-links) > a{display:inline-flex;align-items:center;box-sizing:border-box;min-height:44px;margin:0;padding:8px 13px;border:1px solid var(--line,#dedace);border-radius:0;background:transparent;color:var(--green,#36594f);font-size:14px;line-height:1.45;text-decoration:none;overflow-wrap:anywhere}
+.article-body nav:is(.choice-links,.guide-nav[data-reading-nav],.reading-nav-source,.age-links,.pattern-links) > a:hover{background:#f0eee4;text-decoration:none}
+.article-body nav:is(.choice-links,.guide-nav[data-reading-nav],.reading-nav-source,.age-links,.pattern-links) > a:focus-visible{outline:2px solid var(--green,#36594f);outline-offset:3px}
+.article-body nav.reading-nav-source > .reading-nav-source__title{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
+@media(max-width:600px){.article-body nav:is(.choice-links,.guide-nav[data-reading-nav],.reading-nav-source,.age-links,.pattern-links){gap:10px}.article-body nav:is(.choice-links,.guide-nav[data-reading-nav],.reading-nav-source,.age-links,.pattern-links) > a{font-size:13px}}

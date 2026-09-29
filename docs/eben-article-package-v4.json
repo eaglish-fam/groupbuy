@@ -1151,7 +1151,7 @@
     }
   ],
   "reviewEvidence": {
-    "htmlSha256": "183d23400b72dc64bd0c96d984dae074c85b26af2a42f0711fded69f1ebd0242",
+    "htmlSha256": "b69a77401abc68c5ab7a3069229c844682cc8647ab819b5ba8b47be5cf37df18",
     "bodyExtraction": {
       "selector": ".article-body",
       "excludedSelectors": [
@@ -1173,7 +1173,8 @@
       "慢開瓶及不搖晃屬氣泡飲操作建議；不可歸因為FAQ沉澱段原文，FAQ另寫稍微搖晃。",
       "既有商品卡資產500×375，此次沿用且未修改；文章首圖為独立1600×1000資產。",
       "2026-09-29 兩張ImageGen概念圖取代三格純文字：酵母產生酒精及CO2，醋酸菌在有氧下利用部分酒精；保留残糖與微量酒精文字，不當成真實商品／居家釀造操作證據。",
-      "2026-09-29 目錄改為原生有序清單，8 項編號逐列顯示；同步列表標題及摘要，移除舊海邊標題。"
+      "2026-09-29 目錄改為原生有序清單，8 項編號逐列顯示；同步列表標題及摘要，移除舊海邊標題。",
+      "2026-09-29 目錄依 Hiram 後續回饋改回 BRANDEN 個別按鈕；全選物誌使用共用樣式，側邊閱讀導航維持編號。"
     ],
     "validationScope": "JSON package and consumer HTML phrase scan only; layout, navigation, publication authority and full npm verify owned by main task.",
     "packageValidation": {
@@ -1181,7 +1182,7 @@
       "editorialCount": 1591,
       "consumerHtmlChecked": true,
       "errors": [],
-      "checkedHtmlSha256": "183d23400b72dc64bd0c96d984dae074c85b26af2a42f0711fded69f1ebd0242"
+      "checkedHtmlSha256": "b69a77401abc68c5ab7a3069229c844682cc8647ab819b5ba8b47be5cf37df18"
     }
   }
 }
