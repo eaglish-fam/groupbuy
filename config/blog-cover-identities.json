@@ -5,13 +5,13 @@
     "/blog/eben-kombucha/": {
       "identity": "EBEN 生康普茶",
       "image": "/assets/eben/blog-cover.webp",
-      "imageSha256": "4c9acc1eb891762bbf1a0b9fbd1c9590713e6bdc9a60c2485943f8c41e4e4344",
+      "imageSha256": "3cca1dda428fe97d4bd0521e149e0b6ed5834fada1ec317f540309f0390ff0f7",
       "source": "/assets/eben/blog-cover-source.html",
-      "sourceSha256": "9ebf2866773b32e407672e521837b370f7d2288fd4afb0c97f73d9e551ac0857",
+      "sourceSha256": "db4e7ccf6aab0e91c2d62ec9a4656a5c93aa612f5b02b464f1be43f630ad4f28",
       "review": {
         "identityVisible": true,
         "realPhotoPreserved": true,
-        "imageSha256": "4c9acc1eb891762bbf1a0b9fbd1c9590713e6bdc9a60c2485943f8c41e4e4344",
+        "imageSha256": "3cca1dda428fe97d4bd0521e149e0b6ed5834fada1ec317f540309f0390ff0f7",
         "viewportWidths": [
           320,
           390,

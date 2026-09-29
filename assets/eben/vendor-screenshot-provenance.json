@@ -1,0 +1,74 @@
+[
+  {
+    "name": "vendor-first-brew",
+    "source": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDkzX-m3ueW8j-WcmOizvOmggV9QNS5qcGcuanBlZyJdXQ.jpeg?sha=5f78f8f21e9433ce",
+    "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+    "observedAt": "2026-09-29T06:58:54.400Z",
+    "capture": {
+      "width": 960,
+      "y": 385,
+      "height": 510
+    },
+    "method": "browser screenshot of official image detail; no retouching"
+  },
+  {
+    "name": "vendor-double-citrus",
+    "source": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDkzX-m3ueW8j-WcmOizvOmggV9QNS5qcGcuanBlZyJdXQ.jpeg?sha=5f78f8f21e9433ce",
+    "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+    "observedAt": "2026-09-29T06:58:54.478Z",
+    "capture": {
+      "width": 960,
+      "y": 920,
+      "height": 550
+    },
+    "method": "browser screenshot of official image detail; no retouching"
+  },
+  {
+    "name": "vendor-roselle",
+    "source": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDkzX-m3ueW8j-WcmOizvOmggV9QNS5qcGcuanBlZyJdXQ.jpeg?sha=5f78f8f21e9433ce",
+    "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+    "observedAt": "2026-09-29T06:58:54.562Z",
+    "capture": {
+      "width": 960,
+      "y": 1460,
+      "height": 565
+    },
+    "method": "browser screenshot of official image detail; no retouching"
+  },
+  {
+    "name": "vendor-plum",
+    "source": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDkzX-m3ueW8j-WcmOizvOmggV9QNS5qcGcuanBlZyJdXQ.jpeg?sha=5f78f8f21e9433ce",
+    "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+    "observedAt": "2026-09-29T06:58:54.642Z",
+    "capture": {
+      "width": 960,
+      "y": 2000,
+      "height": 630
+    },
+    "method": "browser screenshot of official image detail; no retouching"
+  },
+  {
+    "name": "vendor-classic",
+    "source": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMTEwX-m3ueW8j-WcmOizvOmggS0wNS5qcGcuanBlZyJdXQ.jpeg?sha=c2c8136a7ed69dc5",
+    "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+    "observedAt": "2026-09-29T06:58:55.168Z",
+    "capture": {
+      "width": 960,
+      "y": 0,
+      "height": 2407
+    },
+    "method": "browser screenshot of official image detail; no retouching"
+  },
+  {
+    "name": "vendor-tea",
+    "source": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDY4X-m3ueW8j-WcmOizvOmggV9QMi5qcGcuanBlZyJdXQ.jpeg?sha=a930abeaa1e6b2f0",
+    "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+    "observedAt": "2026-09-29T06:58:55.685Z",
+    "capture": {
+      "width": 960,
+      "y": 0,
+      "height": 1190
+    },
+    "method": "browser screenshot of official image detail; no retouching"
+  }
+]

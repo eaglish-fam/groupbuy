@@ -17,3 +17,15 @@
 ## 編輯與發布邊界
 
 本文主文是消費者可讀的生活選物筆記；研究與舊素材的排除理由只留在此內部回條。此稿為本機發行候選。文章頁、選物誌列表、產品卡、SEO 與 sitemap 需一起驗證，公開發布需以本次文章的明確授權執行。當期團購照片修正與 Sheet 更新屬於本次使用者直接要求的修復。
+
+## 2026-09-29 消費者視角重寫
+
+- 沿用原 research；針對新增「為什麼喝／發酵原理／酒精／商品款式」補讀與查核，不將舊資料回條冒充新研究。
+- 實際沿用 pipeline 3.5.0 與 article-package/v4；完整 HTML 與 package 公開欄位同步檢查。
+- EBEN FAQ https://www.ebenkombucha.com.tw/pages/kombucha-faq 官方圖片為 0–0.2%，不可將使用者提到的0.02–0.2%套成品類通則。正文只寫品牌歸因的0–0.2%、市售變異、自釀可能超過1%。
+- 原始商售檢測 https://pmc.ncbi.nlm.nih.gov/articles/PMC8838605/ 顯示不同產品乙醇有差異，不能把品牌FAQ範圍套所有產品。自釀研究 https://pmc.ncbi.nlm.nih.gov/articles/PMC9141729/ 有超過1%的樣本，但直接酒精計可能受基質干擾，未把最大值當典型上限。
+- 保存／需避酒者資訊：https://www.canada.ca/en/health-canada/services/publications/food-nutrition/ethanol-non-alcoholic-fermented-beverages.html 。發酵原理與裝瓶後變化：https://www.ttb.gov/regulated-commodities/beverage-alcohol/kombucha 。人體研究：https://www.nature.com/articles/s41598-024-80281-w ，不將研究結果當EBEN成品療效。
+- 當期廠商圖支持三款主選口味及石榴紅、四款經典系列，六張實際截圖共覆蓋八款。沒有核定「雙效」定義，文章不虛構雙效健康宣稱。
+- 12張實際圖片在320／390／768／1440皆正常；兩支影片點擊建立各自播放器、原平台連結保留，無水平溢出。購買按鈕移至底部三站導覽上方，避免遮住。
+- 正文1620編輯計數；v4 package及最終HTML消費者文字檢查通過。npm run verify 242/242。
+- 本輪沒有部署正式站、修改Sheet或上傳新圖至Drive。Tailscale候選以站內資產包交付，新版封面不回退到舊版Drive封面。

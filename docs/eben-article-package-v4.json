@@ -13,43 +13,46 @@
       "includedModels": [
         "初釀",
         "双柚",
-        "完熟梅"
+        "完熟梅",
+        "石榴紅",
+        "百香葡紅",
+        "小青檸",
+        "完熟蘋果",
+        "百香芒果"
       ],
       "variantsKeptTogether": [
         "同品牌不同口味"
       ],
-      "excludedSiblings": [],
+      "excludedSiblings": [
+        "未在本文介紹的其他 EBEN 口味與聯名系列"
+      ],
       "legacyOnly": [
         "2025 Instagram 舊價與舊活動"
       ]
     }
   },
   "brief": {
-    "intent": "informational",
-    "primaryQuery": "康普茶",
-    "readerJob": "知道康普茶是什麼並按茶香或果香選 EBEN 口味",
-    "angle": "三張自有海邊實拍與兩支家人試喝影片，回答味道、口味與保存",
-    "title": "康普茶是什麼？EBEN 生康普茶的茶香、双柚與海邊實拍",
-    "h1": "康普茶是什麼？海邊那一瓶，從 EBEN 生康普茶開始。",
-    "metaDescription": "康普茶是帶茶香與微氣泡的發酵茶飲。從鷹式一家海邊實拍、兩支家庭試喝影片，認識 EBEN 生康普茶的初釀、双柚與完熟梅，並看懂保存、口味與當期團購怎麼確認。",
-    "openingAnswer": "EBEN 生康普茶是以茶為基底的發酵茶飲，帶茶香、酸感與細微氣泡；初釀偏茶香、双柚偏柑橘，先從平常喜歡的味道選。",
+    "intent": "commercial_investigation",
+    "primaryQuery": "EBEN 康普茶口味怎麼選",
+    "readerJob": "先認識康普茶的茶香與氣泡，再依 EBEN 茶底、果香、酸甜、糖量與冷藏需求挑口味和組合",
+    "angle": "從發酵原理與飲料選擇切入，用官方八款商品图和自有试喝／海边照片帮助选择，并回答酒精与保存",
+    "title": "第一次喝康普茶？EBEN 生康普茶口味、酒精含量與選購指南｜鷹家選物誌",
+    "h1": "第一次喝康普茶？EBEN 生康普茶，這樣挑才對味。",
+    "metaDescription": "第一次喝康普茶怎麼選？認識茶葉發酵、微量酒精與冷藏方式，搭配 EBEN 初釀、双柚、完熟梅商品圖和家人試喝影片，比較茶底與酸甜，再挑當期團購組合。",
+    "openingAnswer": "康普茶是茶、糖與菌種發酵而成的茶飲，帶酸甜、茶香和氣泡。第一次選 EBEN 生康普茶，喜歡烏龍茶可從初釀開始；愛柑橘選双柚，喜歡梅子選完熟梅。再依酸甜偏好、糖量與冷藏空間挑組合，比一次買很多更容易找到喜歡的味道。",
     "relatedQuestions": [
-      "康普茶和氣泡茶有何不同？",
-      "EBEN 第一次喝選哪個口味？",
-      "康普茶該怎麼保存？",
-      "孩子或孕婦可以喝嗎？"
+      "康普茶怎麼發酵？",
+      "為什麼喝康普茶？",
+      "EBEN 初釀、双柚、完熟梅怎麼選？",
+      "康普茶有酒精嗎？",
+      "如何冷藏與留意咖啡因？",
+      "低卡是否等於無糖、第一次買幾瓶？"
     ]
   },
   "sources": [
     {
       "id": "brand-about",
       "url": "https://www.ebenkombucha.com.tw/pages/about-ebenkombucha",
-      "kind": "official",
-      "observedAt": "2026-09-29"
-    },
-    {
-      "id": "brand-citrus",
-      "url": "https://www.ebenkombucha.com.tw/products/groupbuy_doublecitrus",
       "kind": "official",
       "observedAt": "2026-09-29"
     },
@@ -78,95 +81,558 @@
       "observedAt": "2026-09-29"
     },
     {
-      "id": "mohw",
-      "url": "https://www.mohw.gov.tw/cp-2704-76599-1.html",
-      "kind": "regulatory",
+      "id": "brand-faq",
+      "kind": "official",
+      "url": "https://www.ebenkombucha.com.tw/pages/kombucha-faq",
+      "locator": "https://www.ebenkombucha.com.tw/pages/kombucha-faq",
       "observedAt": "2026-09-29"
+    },
+    {
+      "id": "brand-flavors",
+      "kind": "official",
+      "url": "https://www.ebenkombucha.com.tw/pages/what-is-raw-kombucha",
+      "locator": "https://www.ebenkombucha.com.tw/pages/what-is-raw-kombucha",
+      "observedAt": "2026-09-29"
+    },
+    {
+      "id": "ttb-kombucha",
+      "kind": "government",
+      "url": "https://www.ttb.gov/regulated-commodities/beverage-alcohol/kombucha",
+      "locator": "https://www.ttb.gov/regulated-commodities/beverage-alcohol/kombucha",
+      "observedAt": "2026-09-29"
+    },
+    {
+      "id": "health-canada-ethanol",
+      "kind": "government",
+      "url": "https://www.canada.ca/en/health-canada/services/publications/food-nutrition/ethanol-non-alcoholic-fermented-beverages.html",
+      "locator": "https://www.canada.ca/en/health-canada/services/publications/food-nutrition/ethanol-non-alcoholic-fermented-beverages.html",
+      "observedAt": "2026-09-29"
+    },
+    {
+      "id": "commercial-analysis-2022",
+      "kind": "primary_research",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8838605/",
+      "locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8838605/",
+      "observedAt": "2026-09-29"
+    },
+    {
+      "id": "bc-ethanol-study",
+      "kind": "primary_research",
+      "url": "https://www.sciencedirect.com/science/article/pii/S0362028X22057106",
+      "locator": "https://www.sciencedirect.com/science/article/pii/S0362028X22057106",
+      "observedAt": "2026-09-29"
+    },
+    {
+      "id": "homemade-study-2022",
+      "kind": "primary_research",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9141729/",
+      "locator": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9141729/",
+      "observedAt": "2026-09-29"
+    },
+    {
+      "id": "human-study-2024",
+      "kind": "primary_research",
+      "url": "https://www.nature.com/articles/s41598-024-80281-w",
+      "locator": "https://www.nature.com/articles/s41598-024-80281-w",
+      "observedAt": "2026-09-29"
+    },
+    {
+      "id": "research-v4",
+      "kind": "editorial_research",
+      "locator": "/Users/zosia/Agents/eliora/workspace/projects/eben-blog-preview-20260929/research-v4.md",
+      "observedAt": "2026-09-29"
+    },
+    {
+      "id": "vendor-first-brew-source",
+      "kind": "official",
+      "url": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDkzX-m3ueW8j-WcmOizvOmggV9QNS5qcGcuanBlZyJdXQ.jpeg?sha=5f78f8f21e9433ce",
+      "locator": "assets/eben/vendor-screenshot-provenance.json#vendor-first-brew",
+      "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+      "observedAt": "2026-09-29T06:58:54.400Z"
+    },
+    {
+      "id": "vendor-double-citrus-source",
+      "kind": "official",
+      "url": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDkzX-m3ueW8j-WcmOizvOmggV9QNS5qcGcuanBlZyJdXQ.jpeg?sha=5f78f8f21e9433ce",
+      "locator": "assets/eben/vendor-screenshot-provenance.json#vendor-double-citrus",
+      "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+      "observedAt": "2026-09-29T06:58:54.478Z"
+    },
+    {
+      "id": "vendor-roselle-source",
+      "kind": "official",
+      "url": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDkzX-m3ueW8j-WcmOizvOmggV9QNS5qcGcuanBlZyJdXQ.jpeg?sha=5f78f8f21e9433ce",
+      "locator": "assets/eben/vendor-screenshot-provenance.json#vendor-roselle",
+      "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+      "observedAt": "2026-09-29T06:58:54.562Z"
+    },
+    {
+      "id": "vendor-plum-source",
+      "kind": "official",
+      "url": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDkzX-m3ueW8j-WcmOizvOmggV9QNS5qcGcuanBlZyJdXQ.jpeg?sha=5f78f8f21e9433ce",
+      "locator": "assets/eben/vendor-screenshot-provenance.json#vendor-plum",
+      "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+      "observedAt": "2026-09-29T06:58:54.642Z"
+    },
+    {
+      "id": "vendor-classic-source",
+      "kind": "official",
+      "url": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMTEwX-m3ueW8j-WcmOizvOmggS0wNS5qcGcuanBlZyJdXQ.jpeg?sha=c2c8136a7ed69dc5",
+      "locator": "assets/eben/vendor-screenshot-provenance.json#vendor-classic",
+      "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+      "observedAt": "2026-09-29T06:58:55.168Z"
+    },
+    {
+      "id": "vendor-tea-source",
+      "kind": "official",
+      "url": "https://cdn-general.cybassets.com/media/W1siZiIsIjI2MTEyL2F0dGFjaGVkX3Bob3Rvcy8xNzg5OTcwMDY4X-m3ueW8j-WcmOizvOmggV9QMi5qcGcuanBlZyJdXQ.jpeg?sha=a930abeaa1e6b2f0",
+      "locator": "assets/eben/vendor-screenshot-provenance.json#vendor-tea",
+      "page": "https://www.ebenkombucha.com.tw/events/eaglishfam",
+      "observedAt": "2026-09-29T06:58:55.685Z"
     }
   ],
   "claims": [
     {
-      "id": "c1",
-      "text": "康普茶為以茶為基底的發酵飲品，具有茶香、酸感與氣泡。",
+      "id": "fermented-tea",
+      "text": "康普茶由茶、糖、酵母與細菌共生菌群發酵而成。",
+      "type": "confirmed_product_fact",
       "sourceIds": [
-        "brand-about"
-      ]
+        "ttb-kombucha"
+      ],
+      "location": "brewing",
+      "evidenceNote": "品類原理，不是 EBEN 配方全表。"
     },
     {
-      "id": "c2",
-      "text": "EBEN 初釀與双柚分別對應烏龍茶香與柑橘風味。",
+      "id": "fermentation-products",
+      "text": "酵母產生乙醇與二氧化碳，細菌利用乙醇形成酸；製程會影響殘糖、酸度與酒精。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "ttb-kombucha",
+        "commercial-analysis-2022",
+        "homemade-study-2022"
+      ],
+      "location": "brewing",
+      "evidenceNote": "科學來源描述發酵原理，非每瓶均具固定數值。"
+    },
+    {
+      "id": "taiwan-tea",
+      "text": "EBEN 標示使用台灣茶。",
+      "type": "vendor_claim",
       "sourceIds": [
         "brand-about",
-        "brand-citrus"
-      ]
+        "vendor-tea-source"
+      ],
+      "location": "benefits"
     },
     {
-      "id": "c3",
-      "text": "海邊三張照片為鷹式一家提供的實拍，照片中可見双柚瓶身及冰桶。",
+      "id": "no-flavor-sweetener",
+      "text": "EBEN 當期宣傳圖標示不添加香料與代糖。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-tea-source"
+      ],
+      "location": "benefits"
+    },
+    {
+      "id": "added-probiotic",
+      "text": "EBEN 官方及瓶身標示含益生菌。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "brand-faq",
+        "vendor-tea-source"
+      ],
+      "location": "benefits",
+      "evidenceNote": "未轉成成品疾病療效；菌株研究不等於 EBEN 成品試驗。"
+    },
+    {
+      "id": "health-evidence",
+      "text": "康普茶人體研究仍有限，不能作為 EBEN 減重或治療腸胃問題的保證。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "human-study-2024",
+        "research-v4"
+      ],
+      "location": "benefits",
+      "evidenceNote": "人體研究樣本小、介入短、使用產品非 EBEN。"
+    },
+    {
+      "id": "flavor-first-brew",
+      "text": "初釀以台灣有機烏龍茶發酵。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-first-brew-source"
+      ],
+      "location": "flavors"
+    },
+    {
+      "id": "flavor-double-citrus",
+      "text": "双柚以有機綠茶發酵，搭配葡萄柚與黃金柚。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-double-citrus-source"
+      ],
+      "location": "flavors"
+    },
+    {
+      "id": "flavor-mature-ume",
+      "text": "完熟梅以有機綠茶發酵，搭配有機梅。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-plum-source"
+      ],
+      "location": "flavors"
+    },
+    {
+      "id": "flavor-pome-roselle",
+      "text": "石榴紅以有機綠茶发酵，搭配紅石榴與洛神花。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-roselle-source"
+      ],
+      "location": "flavors"
+    },
+    {
+      "id": "flavor-passion-grape",
+      "text": "百香葡紅為當期經典系列款式，圖示紅茶、葡萄與百香果。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-classic-source"
+      ],
+      "location": "flavors"
+    },
+    {
+      "id": "flavor-lemony-calamansi",
+      "text": "小青檸為當期經典系列款式，圖示綠茶與柑橘配方。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-classic-source"
+      ],
+      "location": "flavors"
+    },
+    {
+      "id": "flavor-just-apple",
+      "text": "完熟蘋果為當期經典系列款式，圖示烏龍茶與蘋果。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-classic-source"
+      ],
+      "location": "flavors"
+    },
+    {
+      "id": "flavor-passion-mango",
+      "text": "百香芒果為當期經典系列款式，圖示綠茶、芒果與百香果。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-classic-source"
+      ],
+      "location": "flavors"
+    },
+    {
+      "id": "flavor-score",
+      "text": "品牌圖標示初釀酸甜均2/5、双柚酸4/5甜2/5、完熟梅酸3/5甜2/5。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "vendor-first-brew-source",
+        "vendor-double-citrus-source",
+        "vendor-plum-source"
+      ],
+      "location": "flavors",
+      "evidenceNote": "風味评分不是糖克數；不作客觀排名。"
+    },
+    {
+      "id": "owned-scenes",
+      "text": "海邊照片呈現双柚瓶身、黃色冰桶與飲用情境。",
+      "type": "first_party_observation",
       "sourceIds": [
         "owned-photos"
-      ]
+      ],
+      "location": "beach"
     },
     {
-      "id": "c4",
-      "text": "兩支家人試喝影片為自有影像，Instagram 影片是較早期內容。",
+      "id": "owned-video",
+      "text": "兩段自有影片呈現家人試喝 EBEN。",
+      "type": "first_party_observation",
       "sourceIds": [
         "owned-youtube",
         "owned-instagram"
-      ]
+      ],
+      "location": "videos",
+      "evidenceNote": "既有影片不作當期價格或健康功效來源。"
     },
     {
-      "id": "c5",
-      "text": "產品依瓶身標示冷藏、成分及適用提醒。",
+      "id": "eben-alcohol",
+      "text": "EBEN 官方 FAQ 說明其生康普茶有0–0.2%微量酒精。",
+      "type": "vendor_claim",
       "sourceIds": [
-        "brand-about",
+        "brand-faq"
+      ],
+      "location": "alcohol",
+      "evidenceNote": "已視讀官方 FAQ 圖片；非0.02–0.2%，未取得本批檢驗，不能擴及其他品牌。"
+    },
+    {
+      "id": "alcohol-varies",
+      "text": "不同康普茶製程和保存條件使乙醇含量不同，需看各產品標示。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "commercial-analysis-2022",
+        "bc-ethanol-study"
+      ],
+      "location": "alcohol",
+      "evidenceNote": "商售研究不含 EBEN，不將研究值寫作 EBEN 數值。"
+    },
+    {
+      "id": "homemade-alcohol",
+      "text": "自釀康普茶酒精可能超過1%。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "homemade-study-2022",
+        "research-v4"
+      ],
+      "location": "alcohol",
+      "evidenceNote": "只保留可能性；此篇直接酒精計法有基質干擾限制，不采用4.95%作典型值或精確上限。"
+    },
+    {
+      "id": "bottle-fermentation",
+      "text": "裝瓶後持續發酵可能令酒精上升。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "ttb-kombucha",
+        "health-canada-ethanol"
+      ],
+      "location": "alcohol"
+    },
+    {
+      "id": "avoid-alcohol",
+      "text": "需要避開酒精及孕期等情況應確認產品資料並詢問醫療人員。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "health-canada-ethanol"
+      ],
+      "location": "alcohol",
+      "evidenceNote": "不把無酒精行銷用語當成絕對零乙醇或孕幼安全保證。"
+    },
+    {
+      "id": "cold-storage",
+      "text": "EBEN 要求0–7°C冷藏、勿冷凍，到貨後儘快冷藏。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "brand-faq",
         "brand-event"
-      ]
+      ],
+      "location": "serving"
     },
     {
-      "id": "c6",
-      "text": "一般飲品不應被描述為有未核准的健康功效。",
+      "id": "caffeine",
+      "text": "EBEN FAQ 标示咖啡因5–11mg/100mL；290mL按比例換算14.5–31.9mg。",
+      "type": "vendor_claim",
       "sourceIds": [
-        "mohw"
-      ]
+        "brand-faq"
+      ],
+      "location": "serving",
+      "evidenceNote": "數學換算為每100mL數值×2.9，不是本批每瓶實測。"
+    },
+    {
+      "id": "sugar-label",
+      "text": "EBEN 含糖，低卡、無添加代糖與品牌甜度评分不等於無糖。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "brand-faq",
+        "vendor-tea-source"
+      ],
+      "location": "questions",
+      "evidenceNote": "糖量需看各款營養標示。"
+    },
+    {
+      "id": "current-combos",
+      "text": "2026-09-29團購頁列290mL單口味12入與低卡／經典綜合20入。",
+      "type": "current_offer_fact",
+      "sourceIds": [
+        "brand-event"
+      ],
+      "location": "questions",
+      "evidenceNote": "當期快照；發布或回訪前重新核對供應。"
     }
   ],
   "coverage": [
     {
-      "factId": "c1",
-      "summary": "康普茶為以茶為基底的發酵飲品，具有茶香、酸感與氣泡。",
-      "disposition": "body"
+      "factId": "fermented-tea",
+      "summary": "康普茶由茶、糖、酵母與細菌共生菌群發酵而成。",
+      "disposition": "body",
+      "location": "brewing"
     },
     {
-      "factId": "c2",
-      "summary": "EBEN 初釀與双柚分別對應烏龍茶香與柑橘風味。",
-      "disposition": "body"
+      "factId": "fermentation-products",
+      "summary": "酵母產生乙醇與二氧化碳，細菌利用乙醇形成酸；製程會影響殘糖、酸度與酒精。",
+      "disposition": "body",
+      "location": "brewing"
     },
     {
-      "factId": "c3",
-      "summary": "海邊三張照片為鷹式一家提供的實拍，照片中可見双柚瓶身及冰桶。",
-      "disposition": "body"
+      "factId": "taiwan-tea",
+      "summary": "EBEN 標示使用台灣茶。",
+      "disposition": "body",
+      "location": "benefits"
     },
     {
-      "factId": "c4",
-      "summary": "兩支家人試喝影片為自有影像，Instagram 影片是較早期內容。",
-      "disposition": "body"
+      "factId": "no-flavor-sweetener",
+      "summary": "EBEN 當期宣傳圖標示不添加香料與代糖。",
+      "disposition": "body",
+      "location": "benefits"
     },
     {
-      "factId": "c5",
-      "summary": "產品依瓶身標示冷藏、成分及適用提醒。",
-      "disposition": "body"
+      "factId": "added-probiotic",
+      "summary": "EBEN 官方及瓶身標示含益生菌。",
+      "disposition": "body",
+      "location": "benefits"
     },
     {
-      "factId": "c6",
-      "summary": "一般飲品不應被描述為有未核准的健康功效。",
-      "disposition": "faq"
+      "factId": "health-evidence",
+      "summary": "康普茶人體研究仍有限，不能作為 EBEN 減重或治療腸胃問題的保證。",
+      "disposition": "body",
+      "location": "benefits"
+    },
+    {
+      "factId": "flavor-first-brew",
+      "summary": "初釀以台灣有機烏龍茶發酵。",
+      "disposition": "body",
+      "location": "flavors"
+    },
+    {
+      "factId": "flavor-double-citrus",
+      "summary": "双柚以有機綠茶發酵，搭配葡萄柚與黃金柚。",
+      "disposition": "body",
+      "location": "flavors"
+    },
+    {
+      "factId": "flavor-mature-ume",
+      "summary": "完熟梅以有機綠茶發酵，搭配有機梅。",
+      "disposition": "body",
+      "location": "flavors"
+    },
+    {
+      "factId": "flavor-pome-roselle",
+      "summary": "石榴紅以有機綠茶发酵，搭配紅石榴與洛神花。",
+      "disposition": "body",
+      "location": "flavors"
+    },
+    {
+      "factId": "flavor-passion-grape",
+      "summary": "百香葡紅為當期經典系列款式，圖示紅茶、葡萄與百香果。",
+      "disposition": "body",
+      "location": "flavors"
+    },
+    {
+      "factId": "flavor-lemony-calamansi",
+      "summary": "小青檸為當期經典系列款式，圖示綠茶與柑橘配方。",
+      "disposition": "body",
+      "location": "flavors"
+    },
+    {
+      "factId": "flavor-just-apple",
+      "summary": "完熟蘋果為當期經典系列款式，圖示烏龍茶與蘋果。",
+      "disposition": "body",
+      "location": "flavors"
+    },
+    {
+      "factId": "flavor-passion-mango",
+      "summary": "百香芒果為當期經典系列款式，圖示綠茶、芒果與百香果。",
+      "disposition": "body",
+      "location": "flavors"
+    },
+    {
+      "factId": "flavor-score",
+      "summary": "品牌圖標示初釀酸甜均2/5、双柚酸4/5甜2/5、完熟梅酸3/5甜2/5。",
+      "disposition": "body",
+      "location": "flavors"
+    },
+    {
+      "factId": "owned-scenes",
+      "summary": "海邊照片呈現双柚瓶身、黃色冰桶與飲用情境。",
+      "disposition": "body",
+      "location": "beach"
+    },
+    {
+      "factId": "owned-video",
+      "summary": "兩段自有影片呈現家人試喝 EBEN。",
+      "disposition": "body",
+      "location": "videos"
+    },
+    {
+      "factId": "eben-alcohol",
+      "summary": "EBEN 官方 FAQ 說明其生康普茶有0–0.2%微量酒精。",
+      "disposition": "body",
+      "location": "alcohol"
+    },
+    {
+      "factId": "alcohol-varies",
+      "summary": "不同康普茶製程和保存條件使乙醇含量不同，需看各產品標示。",
+      "disposition": "body",
+      "location": "alcohol"
+    },
+    {
+      "factId": "homemade-alcohol",
+      "summary": "自釀康普茶酒精可能超過1%。",
+      "disposition": "body",
+      "location": "alcohol"
+    },
+    {
+      "factId": "bottle-fermentation",
+      "summary": "裝瓶後持續發酵可能令酒精上升。",
+      "disposition": "body",
+      "location": "alcohol"
+    },
+    {
+      "factId": "avoid-alcohol",
+      "summary": "需要避開酒精及孕期等情況應確認產品資料並詢問醫療人員。",
+      "disposition": "body",
+      "location": "alcohol"
+    },
+    {
+      "factId": "cold-storage",
+      "summary": "EBEN 要求0–7°C冷藏、勿冷凍，到貨後儘快冷藏。",
+      "disposition": "body",
+      "location": "serving"
+    },
+    {
+      "factId": "caffeine",
+      "summary": "EBEN FAQ 标示咖啡因5–11mg/100mL；290mL按比例換算14.5–31.9mg。",
+      "disposition": "body",
+      "location": "serving"
+    },
+    {
+      "factId": "sugar-label",
+      "summary": "EBEN 含糖，低卡、無添加代糖與品牌甜度评分不等於無糖。",
+      "disposition": "faq",
+      "location": "questions"
+    },
+    {
+      "factId": "current-combos",
+      "summary": "2026-09-29團購頁列290mL單口味12入與低卡／經典綜合20入。",
+      "disposition": "faq",
+      "location": "questions"
+    },
+    {
+      "factId": "double-effect",
+      "summary": "雙效的具體定義",
+      "disposition": "omitted",
+      "reason": "官方可讀文字尚無明確定義，文章未使用此詞。"
+    },
+    {
+      "factId": "exact-history",
+      "summary": "西元前220年與精確起源地",
+      "disposition": "omitted",
+      "reason": "未取得原始史料，正文採製程說明。"
     },
     {
       "factId": "legacy-price",
-      "summary": "舊影片價格不代表當期",
+      "summary": "2025影片舊價與舊活動",
       "disposition": "omitted",
-      "reason": "拍攝日期與本期不同"
+      "reason": "未當成本期供應資訊。"
+    },
+    {
+      "factId": "numeric-nutrition",
+      "summary": "各款糖克數與熱量",
+      "disposition": "omitted",
+      "reason": "本稿引導讀者看瓶身，未以風味圖取代營養標示。"
     }
   ],
   "media": [
@@ -175,60 +641,232 @@
       "path": "/assets/eben/blog-cover.webp",
       "purpose": "cover",
       "identityStatus": "confirmed",
-      "shows": "海邊橫幅實拍與「海邊那一瓶康普茶」標題",
-      "alt": "EBEN 生康普茶海邊實拍封面",
-      "basis": "鷹式一家原始實拍或自有影片逐格檢視，與瓶身可見品牌相符",
-      "sourceId": "owned-photos"
+      "shows": "EBEN 生康普茶口味挑選封面，右側人物手持双柚康普茶",
+      "alt": "EBEN 生康普茶口味挑選封面，右側人物手持双柚康普茶",
+      "basis": "owner-supplied-photo composited with editorial title；實看新封面，人物與双柚瓶身來源沿用已授權原始實拍",
+      "sourceId": "owned-photos",
+      "caption": "",
+      "section": "hero",
+      "width": 1600,
+      "height": 1000,
+      "productIds": [
+        "eben-kombucha",
+        "eben-double-citrus"
+      ]
     },
     {
-      "id": "sip",
-      "path": "/assets/eben/beach-sip.webp",
-      "purpose": "editorial_scene",
-      "identityStatus": "confirmed",
-      "shows": "海邊石岸飲用 EBEN",
-      "alt": "海邊石岸飲用 EBEN 康普茶",
-      "basis": "鷹式一家原始實拍或自有影片逐格檢視，與瓶身可見品牌相符",
-      "sourceId": "owned-photos"
-    },
-    {
-      "id": "cooler",
-      "path": "/assets/eben/double-citrus-cooler.webp",
+      "id": "vendor-tea",
+      "path": "/assets/eben/vendor-tea.webp",
       "purpose": "product_evidence",
       "identityStatus": "confirmed",
-      "shows": "冰桶與双柚瓶身",
-      "alt": "冰桶裡的 EBEN 康普茶與双柚瓶身",
-      "basis": "鷹式一家原始實拍或自有影片逐格檢視，與瓶身可見品牌相符",
-      "sourceId": "owned-photos"
+      "sourceId": "vendor-tea-source",
+      "basis": "authorized_vendor_media；逐張視讀官方商品圖截圖並核對同名瓶身與茶底，出處見 vendor-screenshot-provenance.json",
+      "alt": "EBEN 石榴紅瓶身與台灣茶釀造、無添加香料及代糖的品牌說明",
+      "caption": "喜歡茶與果香，可以先看茶底和成分。沒有代糖，不代表沒有糖。 圖／EBEN",
+      "section": "benefits",
+      "width": 960,
+      "height": 1190,
+      "shows": "EBEN 石榴紅瓶身與台灣茶釀造、無添加香料及代糖的品牌說明",
+      "productIds": [
+        "eben-kombucha",
+        "eben-pome-roselle"
+      ]
     },
     {
-      "id": "portrait",
-      "path": "/assets/eben/beach-portrait.webp",
-      "purpose": "editorial_scene",
+      "id": "vendor-first-brew",
+      "path": "/assets/eben/vendor-first-brew.webp",
+      "purpose": "product_evidence",
       "identityStatus": "confirmed",
-      "shows": "海邊拿著 EBEN 瓶身",
-      "alt": "海邊手持 EBEN 康普茶",
-      "basis": "鷹式一家原始實拍或自有影片逐格檢視，與瓶身可見品牌相符",
-      "sourceId": "owned-photos"
+      "sourceId": "vendor-first-brew-source",
+      "basis": "authorized_vendor_media；逐張視讀官方商品圖截圖並核對同名瓶身與茶底，出處見 vendor-screenshot-provenance.json",
+      "alt": "初釀康普茶瓶身、烏龍茶底及廠商酸甜風味圖",
+      "caption": "初釀的濃度、酸度與甜度，品牌均標為 2／5。 圖／EBEN",
+      "section": "flavors",
+      "width": 960,
+      "height": 510,
+      "shows": "初釀康普茶瓶身、烏龍茶底及廠商酸甜風味圖",
+      "productIds": [
+        "eben-kombucha",
+        "eben-first-brew"
+      ]
+    },
+    {
+      "id": "vendor-double-citrus",
+      "path": "/assets/eben/vendor-double-citrus.webp",
+      "purpose": "product_evidence",
+      "identityStatus": "confirmed",
+      "sourceId": "vendor-double-citrus-source",
+      "basis": "authorized_vendor_media；逐張視讀官方商品圖截圖並核對同名瓶身與茶底，出處見 vendor-screenshot-provenance.json",
+      "alt": "双柚康普茶瓶身、葡萄柚與黃金柚配方及酸甜圖",
+      "caption": "双柚：品牌標示酸度 4／5、甜度 2／5。 圖／EBEN",
+      "section": "flavors",
+      "width": 960,
+      "height": 550,
+      "shows": "双柚康普茶瓶身、葡萄柚與黃金柚配方及酸甜圖",
+      "productIds": [
+        "eben-kombucha",
+        "eben-double-citrus"
+      ]
+    },
+    {
+      "id": "vendor-plum",
+      "path": "/assets/eben/vendor-plum.webp",
+      "purpose": "product_evidence",
+      "identityStatus": "confirmed",
+      "sourceId": "vendor-plum-source",
+      "basis": "authorized_vendor_media；逐張視讀官方商品圖截圖並核對同名瓶身與茶底，出處見 vendor-screenshot-provenance.json",
+      "alt": "完熟梅康普茶瓶身、綠茶與有機梅配方及酸甜圖",
+      "caption": "完熟梅：品牌標示酸度 3／5、甜度 2／5。風味分數不等於糖含量。 圖／EBEN",
+      "section": "flavors",
+      "width": 960,
+      "height": 630,
+      "shows": "完熟梅康普茶瓶身、綠茶與有機梅配方及酸甜圖",
+      "productIds": [
+        "eben-kombucha",
+        "eben-mature-ume"
+      ]
+    },
+    {
+      "id": "vendor-roselle",
+      "path": "/assets/eben/vendor-roselle.webp",
+      "purpose": "product_evidence",
+      "identityStatus": "confirmed",
+      "sourceId": "vendor-roselle-source",
+      "basis": "authorized_vendor_media；逐張視讀官方商品圖截圖並核對同名瓶身與茶底，出處見 vendor-screenshot-provenance.json",
+      "alt": "石榴紅康普茶瓶身與紅石榴、洛神花風味",
+      "caption": "石榴紅：綠茶底搭配紅石榴與洛神花。 圖／EBEN",
+      "section": "flavors",
+      "width": 960,
+      "height": 565,
+      "shows": "石榴紅康普茶瓶身與紅石榴、洛神花風味",
+      "productIds": [
+        "eben-kombucha",
+        "eben-pome-roselle"
+      ]
+    },
+    {
+      "id": "vendor-classic",
+      "path": "/assets/eben/vendor-classic.webp",
+      "purpose": "comparison",
+      "identityStatus": "confirmed",
+      "sourceId": "vendor-classic-source",
+      "basis": "authorized_vendor_media；逐張視讀官方商品圖截圖並核對同名瓶身與茶底，出處見 vendor-screenshot-provenance.json",
+      "alt": "百香葡紅、小青檸、完熟蘋果、百香芒果四款商品與風味比較",
+      "caption": "經典系列四款茶底與果香；點圖可放大閱讀。 圖／EBEN",
+      "section": "flavors",
+      "width": 960,
+      "height": 2407,
+      "shows": "百香葡紅、小青檸、完熟蘋果、百香芒果四款商品與風味比較",
+      "productIds": [
+        "eben-kombucha",
+        "eben-passion-grape",
+        "eben-lemony-calamansi",
+        "eben-just-apple",
+        "eben-passion-mango"
+      ]
     },
     {
       "id": "youtube",
       "path": "/assets/eben/video-youtube-poster.webp",
       "purpose": "editorial_scene",
       "identityStatus": "confirmed",
-      "shows": "家人餐桌試喝的影片第 8 秒",
-      "alt": "家人在餐桌前試喝 EBEN 康普茶",
+      "shows": "YouTube 影片截圖：家人坐在餐桌前，面前排著多瓶 EBEN 康普茶",
+      "alt": "YouTube 影片截圖：家人坐在餐桌前，面前排著多瓶 EBEN 康普茶",
       "basis": "鷹式一家原始實拍或自有影片逐格檢視，與瓶身可見品牌相符",
-      "sourceId": "owned-youtube"
+      "sourceId": "owned-youtube",
+      "caption": "家人一起試喝 EBEN，不同口味輪流喝看看。到 YouTube 看 ↗",
+      "section": "videos",
+      "width": 720,
+      "height": 1280,
+      "productIds": [
+        "eben-kombucha"
+      ]
     },
     {
       "id": "instagram",
       "path": "/assets/eben/video-instagram-poster.webp",
       "purpose": "editorial_scene",
       "identityStatus": "confirmed",
-      "shows": "家人試喝双柚的影片第 41 秒",
-      "alt": "家人在餐桌試喝双柚康普茶",
+      "shows": "Instagram 影片截圖：家人在餐桌試喝双柚康普茶",
+      "alt": "Instagram 影片截圖：家人在餐桌試喝双柚康普茶",
       "basis": "鷹式一家原始實拍或自有影片逐格檢視，與瓶身可見品牌相符",
-      "sourceId": "owned-instagram"
+      "sourceId": "owned-instagram",
+      "caption": "另一段試喝，看看大家最後挑了哪一杯。到 Instagram 看 ↗",
+      "section": "videos",
+      "width": 720,
+      "height": 1280,
+      "productIds": [
+        "eben-kombucha"
+      ]
+    },
+    {
+      "id": "sip",
+      "path": "/assets/eben/beach-sip.webp",
+      "purpose": "editorial_scene",
+      "identityStatus": "confirmed",
+      "shows": "鷹式一家在海邊石岸坐著，拿起一瓶 EBEN 康普茶飲用",
+      "alt": "鷹式一家在海邊石岸坐著，拿起一瓶 EBEN 康普茶飲用",
+      "basis": "鷹式一家原始實拍或自有影片逐格檢視，與瓶身可見品牌相符",
+      "sourceId": "owned-photos",
+      "caption": "海邊休息時，冰涼喝一口康普茶。",
+      "section": "beach",
+      "width": 719,
+      "height": 1280,
+      "productIds": [
+        "eben-kombucha"
+      ]
+    },
+    {
+      "id": "cooler",
+      "path": "/assets/eben/double-citrus-cooler.webp",
+      "purpose": "product_evidence",
+      "identityStatus": "confirmed",
+      "shows": "打開黃色冰桶，裡面有 EBEN 康普茶，手裡拿的是双柚口味",
+      "alt": "打開黃色冰桶，裡面有 EBEN 康普茶，手裡拿的是双柚口味",
+      "basis": "鷹式一家原始實拍或自有影片逐格檢視，與瓶身可見品牌相符",
+      "sourceId": "owned-photos",
+      "caption": "冰桶裡的幾瓶；照片中拿起的是双柚。",
+      "section": "beach",
+      "width": 853,
+      "height": 1280,
+      "productIds": [
+        "eben-kombucha",
+        "eben-double-citrus"
+      ]
+    },
+    {
+      "id": "portrait",
+      "path": "/assets/eben/beach-portrait.webp",
+      "purpose": "editorial_scene",
+      "identityStatus": "confirmed",
+      "shows": "鷹式一家坐在海邊石岸，面向鏡頭展示手中的 EBEN 康普茶",
+      "alt": "鷹式一家坐在海邊石岸，面向鏡頭展示手中的 EBEN 康普茶",
+      "basis": "鷹式一家原始實拍或自有影片逐格檢視，與瓶身可見品牌相符",
+      "sourceId": "owned-photos",
+      "caption": "手中的這瓶，是帶柑橘香的双柚。",
+      "section": "beach",
+      "width": 1280,
+      "height": 853,
+      "productIds": [
+        "eben-kombucha",
+        "eben-double-citrus"
+      ]
+    },
+    {
+      "id": "product-card",
+      "path": "/assets/eben/cover.webp",
+      "sourceId": "owned-photos",
+      "basis": "既有商品卡：自有人像與 EBEN 真實瓶身的組圖；只登記實際既有資產，不把新文章首圖替代商品卡。",
+      "purpose": "cover",
+      "productIds": [
+        "eben-kombucha"
+      ],
+      "shows": "左側人物持瓶、右側多瓶 EBEN 與台灣茶及無香料代糖文字",
+      "section": "product_card",
+      "alt": "EBEN 生康普茶商品卡圖片",
+      "identityStatus": "confirmed",
+      "width": 500,
+      "height": 375
     }
   ],
   "mediaCoverage": [
@@ -238,12 +876,96 @@
       "disposition": "matched_media",
       "mediaIds": [
         "cover",
+        "vendor-tea",
+        "vendor-first-brew",
+        "vendor-double-citrus",
+        "vendor-plum",
+        "vendor-roselle",
+        "vendor-classic",
+        "youtube",
+        "instagram",
         "sip",
         "cooler",
         "portrait",
-        "youtube",
-        "instagram"
-      ]
+        "product-card"
+      ],
+      "location": "article"
+    },
+    {
+      "productId": "eben-first-brew",
+      "publicName": "初釀",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "vendor-first-brew"
+      ],
+      "location": "flavors"
+    },
+    {
+      "productId": "eben-double-citrus",
+      "publicName": "双柚",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "cover",
+        "vendor-double-citrus",
+        "cooler",
+        "portrait"
+      ],
+      "location": "flavors"
+    },
+    {
+      "productId": "eben-mature-ume",
+      "publicName": "完熟梅",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "vendor-plum"
+      ],
+      "location": "flavors"
+    },
+    {
+      "productId": "eben-pome-roselle",
+      "publicName": "石榴紅",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "vendor-tea",
+        "vendor-roselle"
+      ],
+      "location": "flavors"
+    },
+    {
+      "productId": "eben-passion-grape",
+      "publicName": "百香葡紅",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "vendor-classic"
+      ],
+      "location": "flavors"
+    },
+    {
+      "productId": "eben-lemony-calamansi",
+      "publicName": "小青檸",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "vendor-classic"
+      ],
+      "location": "flavors"
+    },
+    {
+      "productId": "eben-just-apple",
+      "publicName": "完熟蘋果",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "vendor-classic"
+      ],
+      "location": "flavors"
+    },
+    {
+      "productId": "eben-passion-mango",
+      "publicName": "百香芒果",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "vendor-classic"
+      ],
+      "location": "flavors"
     }
   ],
   "releaseCandidate": {
@@ -258,11 +980,18 @@
     "productLookupKey": "EBEN康普茶",
     "assetPaths": [
       "/assets/eben/blog-cover.webp",
+      "/assets/eben/vendor-tea.webp",
+      "/assets/eben/vendor-first-brew.webp",
+      "/assets/eben/vendor-double-citrus.webp",
+      "/assets/eben/vendor-plum.webp",
+      "/assets/eben/vendor-roselle.webp",
+      "/assets/eben/vendor-classic.webp",
+      "/assets/eben/video-youtube-poster.webp",
+      "/assets/eben/video-instagram-poster.webp",
       "/assets/eben/beach-sip.webp",
       "/assets/eben/double-citrus-cooler.webp",
       "/assets/eben/beach-portrait.webp",
-      "/assets/eben/video-youtube-poster.webp",
-      "/assets/eben/video-instagram-poster.webp"
+      "/assets/eben/cover.webp"
     ]
   },
   "technicalSeo": {
@@ -275,7 +1004,7 @@
     "dateModified": "2026-09-29",
     "social": {
       "ogImage": "https://www.eaglish.store/assets/eben/blog-cover.webp",
-      "ogImageAlt": "海邊實拍與 EBEN 生康普茶封面",
+      "ogImageAlt": "EBEN 生康普茶口味挑選封面，右側人物手持双柚康普茶",
       "width": 1600,
       "height": 1000,
       "twitterCard": "summary_large_image"
@@ -284,50 +1013,136 @@
       "Article",
       "BreadcrumbList"
     ],
-    "crawlableOfferFallback": "/"
+    "crawlableOfferFallback": "/",
+    "canonical": "https://www.eaglish.store/blog/eben-kombucha/"
   },
-  "bodyText": "餐桌筆記 ／ 那杯帶茶香的氣泡 康普茶是什麼？ 海邊那一瓶， 從 EBEN 生康普茶開始。 三張我們拍的照片，兩支家人試喝影片。 先認識茶香與口味，再決定要不要帶一箱回家。 鷹式一家 · 2026.09.29 先喝一口，再談喜歡哪一瓶。 康普茶，是什麼味道？ 康普茶是以茶為基底、經發酵製成的飲品，喝起來有茶香、酸感與細微氣泡；它不是一般甜茶，也不必把它當成有特定健康功效的飲料。EBEN 以台灣茶製作生康普茶，初釀偏茶香，双柚有柑橘調，完熟梅則走果香路線。若你第一次喝，可以先從自己平常喜歡的茶或水果風味選起。 我們帶著 EBEN 到海邊拍照：石岸上，一瓶双柚在手裡，旁邊的小冰桶放著其他口味。這些照片能告訴你的，是我們怎麼帶它出門、瓶子和飲料的真實樣子；它們不能替你保證每個人口中的酸甜比例。因此，我們又把家人一起試喝的兩段影片放在下方，讓你看到更接近開瓶當下的反應。 看海邊實拍 怎麼挑口味 看家人試喝 冰涼喝與保存 常見問題 01 ／ 我們的海邊照片 一瓶拿在手上， 一箱放在冰桶裡。 封面那張是我們坐在石岸上拿著双柚的畫面。沒有把瓶身另外合成進風景，也沒有用示意圖代替實物。直幅照片更靠近開瓶喝的瞬間；另一張則讓你看見小冰桶裡放著幾瓶不同風味。 海邊的一口，先看到飲用情境。 冰桶裡的幾瓶；照片中拿起的是双柚。 坐下來慢慢喝，這是我們自己的海邊實拍。 飲品需要依瓶身標示冷藏；出門時帶冰桶只是移動時的做法，不能把照片當成常溫放置或保冷時間的保證。喝之前也別忘了看保存期限、口味與瓶身標示。 02 ／ 從熟悉的味道開始 你想先喝茶香， 還是先喝果香？ 如果你平常喜歡烏龍茶，可以先看「初釀」；想從柑橘香氣入門，可看「双柚」；偏好梅子果香，則看「完熟梅」。這是依品牌的口味描述整理的選擇方向，實際酸度、甜感仍以個人口味和當批產品為準。 01 / TEA 初釀 讓茶香站在前面。品牌以烏龍茶描述這款的基調；喜歡單喝茶的人，可以從這瓶開始。 02 / CITRUS 双柚 品牌以綠茶、黃金柚與葡萄柚描述這款。照片裡拿著的正是双柚，清新的柑橘方向很容易理解。 03 / FRUIT 完熟梅 想要果香更明顯，可以看梅子路線。先選你平常喜歡的味道，再核對當期頁面實際供應的組合。 我們沒有為每款打分數，也沒有把一個人的偏好寫成全家都會喜歡。家人同桌試喝時，各自挑的那瓶就不一樣；買整箱前，先看口味能否搭配、每組瓶數與廠商最新說明。 03 ／ 兩段真實影片 同桌試一輪， 比文案更容易想像。 第一段是這次開團前拍的家人試喝；第二段是先前拍的另一輪試喝紀錄。影片畫面可以看見瓶身、倒飲和當時的反應。第二段拍攝較早，若畫面中出現舊價格、舊活動或任何功效文字，請不要把它當成這次團購資訊；最新品項與條件只以當期廠商頁為準。 ▶ 這次的家庭試喝。 到 YouTube 看 ↗ ▶ 先前的家庭試喝紀錄。 到 Instagram 看 ↗ 點擊後才載入影片平台；若裝置或網路無法播放，可用卡片下方的原平台連結。 04 ／ 喝之前的小提醒 先冰涼， 再把那杯留給自己。 發酵茶飲和汽水、一般茶飲喝起來不一樣。有些人會喜歡酸感與氣泡，有些人希望更偏甜；最直接的做法是先選熟悉的口味，再用自己的舌頭判斷。開瓶前按照標示冷藏，取出後留意瓶蓋與液面狀態，開瓶慢一點，倒入杯子看一看、聞一聞，再喝。 雙柚在海邊照片裡很上相，但我們更在意的是喝完後你會不會想再拿一瓶。若是第一次接觸康普茶、對酸味敏感，先少量試試即可。成分、糖分、咖啡因、發酵相關標示以及特定族群是否適合飲用，都請看手上的瓶身或詢問廠商；不要只憑這篇照片判斷。 在家可以配一頓平常的飯，或在午後想換口味時冰涼喝。它是飲品，不需要替健康做出什麼承諾。你喜歡它的茶香和微氣泡，就已經是很充分的理由。 05 ／ 下單前常問 把需要確認的， 留在下單之前。 康普茶就是一般的氣泡茶嗎？ 不完全一樣。康普茶是茶經發酵後形成的飲品，味道通常有酸感、茶香與氣泡；不同品牌、口味與批次仍會有差異。這篇介紹 EBEN 的飲用情境，不替所有康普茶下相同的口味結論。 EBEN 第一次喝，先挑哪一款？ 愛喝烏龍茶可先看初釀；平常喜歡柑橘香，可看双柚；喜歡梅子果香，可看完熟梅。這是口味方向，不是客觀排名。當期有哪些款式與組合，結帳前再看廠商頁。 小孩、孕婦或特殊飲食需求可以喝嗎？ 本文不能替任何人判定適飲。康普茶屬發酵茶飲，個別產品的成分、糖分、咖啡因與發酵相關資訊，應以瓶身與廠商最新標示為準；有特殊需求時先向專業人員或廠商確認。 照片裡用冰桶，能放在外面多久？ 照片只記錄我們帶飲料出門的情境，無法推算安全保冷時間。請依產品標示保存；需要外出攜帶時，維持冷藏條件並盡快飲用。 挑喜歡的那一瓶就好。 先選口味， 再看這次怎麼組。 這次提供哪些風味、瓶數、價格與配送條件，以廠商當期團購頁為準。舊影片和這篇文章都不替賣場即時資訊背書。 正在確認最新團購… 正在確認當期購買入口。 請到 團購首頁 查看最新入口。 繼續逛逛鷹家的其他選物 ↗ 海邊照片與兩支影片來自鷹式一家；口味資料參考 EBEN 品牌介紹 及 双柚商品說明 。本文含團購連結，購買可能讓我們獲得回饋。 回到鷹家選物誌",
+  "bodyText": "想喝茶香，也想要氣泡？康普茶是茶、糖與菌種發酵而成的茶飲，帶酸甜、茶香和氣泡。第一次選 EBEN 生康普茶，喜歡烏龍茶可從初釀開始；愛柑橘選双柚，喜歡梅子選完熟梅。再依酸甜偏好、糖量與冷藏空間挑組合，比一次買很多更容易找到喜歡的味道。下午想換一杯飲料，或吃飯時想搭點清爽的氣泡，康普茶都是可以試試的選擇。這篇從它怎麼釀、喝起來有什麼不同，帶你看到 EBEN 的瓶身、口味和家人試喝，再把酒精、咖啡因與保存方式一起弄清楚。 01 ／ 認識康普茶茶和糖，怎麼變成酸甜氣泡？泡好的茶加入糖、酵母與細菌共生的菌群（SCOBY），就能開始發酵。酵母把糖轉成酒精與二氧化碳，醋酸菌再利用酒精產生有機酸，形成康普茶的酸味；部分二氧化碳留在飲料裡，喝起來就有氣泡。因此，糖除了帶來甜味，也是發酵原料；發酵完仍可能有殘糖與微量酒精。茶種、菌群、溫度與時間不同，成品的酸甜和酒精含量也會不同。茶＋糖＋菌群酵母發酵產生酒精與氣泡細菌利用酒精形成有機酸與酸味 02 ／ 換一種飲料選擇為什麼想喝康普茶？如果喜歡茶香，又想要汽水般的氣泡口感，康普茶把兩者放在同一瓶裡。EBEN 以台灣茶釀製，搭配不同果汁風味，品牌標示不添加香料與代糖；喜歡柚子、梅子的人，也有熟悉的味道可以入門。另一個常見原因是對發酵食品與益生菌感興趣。EBEN 標示添加益生菌，但康普茶對人體健康的研究仍有限，不能把一瓶飲料當成減重或治療腸胃問題的方法。選購時，口味、每份糖量與熱量，比「喝了就會變健康」更值得仔細看。 03 ／ 找到喜歡的風味EBEN 口味怎麼選？想先認識茶底，選初釀；喜歡明亮柑橘酸香，選双柚；愛梅子風味，選完熟梅。廠商風味圖把双柚的酸度標得比初釀、完熟梅高，怕酸的人可先從初釀看起。初釀：先喝烏龍茶香以台灣有機烏龍茶發酵。喜歡茶味、不想先被水果香氣帶走，可從這款開始。双柚：葡萄柚與黃金柚的酸香綠茶底搭配葡萄柚、黃金柚，是我們海邊照片裡拿著的口味。喜歡柑橘、接受酸感的人，可以先看這瓶。完熟梅：綠茶底搭配梅子喜歡梅子果香，可從完熟梅開始；如果在意酸味，品牌風味圖提供了和双柚比較的方向。想換口味，還有這些選擇低卡系列還有綠茶、紅石榴與洛神花搭配的石榴紅；經典系列則有百香葡紅、小青檸、完熟蘋果、百香芒果。猶豫時可看綜合組，先比較各款的茶底、果香與瓶數。展開看石榴紅與經典系列商品圖 04 ／ 家人一起喝看看哪一杯最對味？看家人的試喝反應把幾種口味倒進杯子輪流喝，看看大家怎麼選。影片裡有瓶身、倒飲和入口後的反應，你可以一邊看，一邊想自己平常喜歡茶香還是果香。 05 ／ 海邊的冰涼休息時間把双柚放進冰桶，帶去海邊喝我們這次帶的是双柚，黃色冰桶裡也放了幾瓶不同口味。坐下來休息時，拿出一瓶冰涼的茶飲；出門前先冷藏，路上搭配保冷用品，喝之前仍要維持低溫。 06 ／ 買之前看懂酒精含量康普茶有酒精嗎？市售與自釀不一樣康普茶發酵會產生酒精。EBEN 官方 FAQ 說明其產品有 0–0.2% 微量酒精；這是該品牌的說明，不是所有康普茶都落在同一範圍，也不能把「無酒精飲料」理解成絕對 0%。市售產品的酒精含量會因製程和保存條件而異，請看各產品標示。自釀的菌種、糖量、時間與溫度更難一致，有可能超過 1%；裝瓶後若仍在發酵，酒精也可能繼續增加。聞起來不酒、喝起來不醉，都不能用來判斷濃度。需要完全避開酒精的人，請先核對產品檢驗與標示。孕期、備孕或有用藥與飲食限制時，先詢問醫療人員；不要用自釀成品代替已確認酒精含量的飲料。 07 ／ 到貨後怎麼喝冷藏、慢開瓶，冰涼喝依 EBEN 說明，放在 0–7°C 冷藏，避免高溫與冷凍；到貨後盡快放進冰箱。開瓶前不要搖晃，慢慢轉開瓶蓋釋放氣體，倒進杯中喝；開封後依瓶身指示盡快飲用。康普茶仍是茶飲。EBEN FAQ 標示咖啡因約 5–11 mg／100 mL，一瓶 290 mL 換算約 14.5–31.9 mg；對咖啡因敏感、晚間容易睡不著的人，記得把它算進當天攝取量。 08 ／ 下單前常問糖量、瓶數與冷藏空間，怎麼拿捏？低卡等於無糖嗎？不等於。請看各口味營養標示的每份容量、糖量與熱量；「甜度 2／5」是風味描述，不是每瓶糖量，也不能用無添加代糖推論為無糖。第一次買，選單一口味還是綜合組？已知道喜歡哪款可選單一口味；還想比較就看綜合組。當期有 290 mL 單一口味 12 入與綜合 20 入，先估計喝的速度與冰箱空間，再選組合。小孩也能一起喝嗎？先留意微量酒精、咖啡因及糖量。幼兒的日常飲水仍以白開水為主；有適飲疑問可向兒科或營養專業人員確認。 挑到喜歡的口味，再看當期團購組合想先試茶香就看初釀，喜歡柑橘選双柚，梅子派看完熟梅。進入團購頁比較當期供應、組合與配送，買剛好喝得完、冰箱也放得下的數量。",
   "answerBlocks": [
     {
-      "question": "康普茶是什麼？",
-      "answer": "康普茶是以茶為基底、經發酵製成的飲品，喝起來有茶香、酸感與細微氣泡；不要把它當成具有特定健康功效的飲料。",
+      "question": "想喝茶香，也想要氣泡？",
+      "answer": "康普茶是茶、糖與菌種發酵而成的茶飲，帶酸甜、茶香和氣泡。第一次選 EBEN 生康普茶，喜歡烏龍茶可從初釀開始；愛柑橘選双柚，喜歡梅子選完熟梅。再依酸甜偏好、糖量與冷藏空間挑組合，比一次買很多更容易找到喜歡的味道。",
       "claimIds": [
-        "c1",
-        "c6"
+        "fermented-tea",
+        "flavor-first-brew",
+        "flavor-double-citrus",
+        "flavor-mature-ume"
       ]
     },
     {
-      "question": "EBEN 第一次喝怎麼挑？",
-      "answer": "喜歡烏龍茶可先看初釀，偏好柑橘香可看双柚，喜歡梅子果香可看完熟梅；實際酸甜仍以個人感受及產品標示為準。",
+      "question": "EBEN 口味怎麼選？",
+      "answer": "想先認識茶底，選初釀；喜歡明亮柑橘酸香，選双柚；愛梅子風味，選完熟梅。廠商風味圖把双柚的酸度標得比初釀、完熟梅高，怕酸的人可先從初釀看起。",
       "claimIds": [
-        "c2"
+        "flavor-first-brew",
+        "flavor-double-citrus",
+        "flavor-mature-ume",
+        "flavor-score"
+      ]
+    },
+    {
+      "question": "康普茶有酒精嗎？市售與自釀不一樣",
+      "answer": "康普茶發酵會產生酒精。EBEN 官方 FAQ 說明其產品有 0–0.2% 微量酒精；這是該品牌的說明，不是所有康普茶都落在同一範圍，也不能把「無酒精飲料」理解成絕對 0%。",
+      "claimIds": [
+        "eben-alcohol",
+        "alcohol-varies"
+      ]
+    },
+    {
+      "question": "低卡等於無糖嗎？",
+      "answer": "不等於。請看各口味營養標示的每份容量、糖量與熱量；「甜度 2／5」是風味描述，不是每瓶糖量，也不能用無添加代糖推論為無糖。",
+      "claimIds": [
+        "sugar-label"
+      ]
+    },
+    {
+      "question": "第一次買，選單一口味還是綜合組？",
+      "answer": "已知道喜歡哪款可選單一口味；還想比較就看綜合組。當期有 290 mL 單一口味 12 入與綜合 20 入，先估計喝的速度與冰箱空間，再選組合。",
+      "claimIds": [
+        "current-combos"
+      ]
+    },
+    {
+      "question": "小孩也能一起喝嗎？",
+      "answer": "先留意微量酒精、咖啡因及糖量。幼兒的日常飲水仍以白開水為主；有適飲疑問可向兒科或營養專業人員確認。",
+      "claimIds": [
+        "avoid-alcohol",
+        "caffeine",
+        "sugar-label"
       ]
     }
   ],
   "categoryCoverage": [
     {
-      "question": "它是什麼飲品？",
-      "disposition": "body"
+      "question": "康普茶怎麼釀、有什麼風味？",
+      "disposition": "body",
+      "location": "brewing"
     },
     {
-      "question": "口味怎麼選？",
-      "disposition": "body"
+      "question": "為什麼選這類飲品、健康研究能說到哪？",
+      "disposition": "body",
+      "location": "benefits"
     },
     {
-      "question": "有真實照片嗎？",
-      "disposition": "body"
+      "question": "八種口味如何依茶底果香酸甜選？",
+      "disposition": "body",
+      "location": "flavors"
     },
     {
-      "question": "有試喝影片嗎？",
-      "disposition": "body"
+      "question": "真實商品圖與試喝情境如何看？",
+      "disposition": "body",
+      "location": "videos"
     },
     {
-      "question": "如何保存？",
-      "disposition": "body"
+      "question": "品牌酒精說明與一般／自釀有何不同？",
+      "disposition": "body",
+      "location": "alcohol"
     },
     {
-      "question": "當期團購怎麼確認？",
-      "disposition": "body"
+      "question": "如何保存、咖啡因多少？",
+      "disposition": "body",
+      "location": "serving"
+    },
+    {
+      "question": "低卡是否無糖、瓶數及適飲如何考慮？",
+      "disposition": "faq",
+      "location": "questions"
+    },
+    {
+      "question": "當期購買入口與供應在哪確認？",
+      "disposition": "body",
+      "location": "purchase"
     }
-  ]
+  ],
+  "reviewEvidence": {
+    "htmlSha256": "3817a3dfb49a4f8556d839a86f5c8a586f9ec910933728178bc3ae6fe3344963",
+    "bodyExtraction": {
+      "selector": ".article-body",
+      "excludedSelectors": [
+        "nav",
+        "button",
+        "figcaption",
+        "footer",
+        ".byline",
+        "#offer-status",
+        "noscript",
+        ".more"
+      ],
+      "method": "Playwright DOM textContent, normalized whitespace; details content and section labels included",
+      "note": "保留 section-label、H2/H3、FAQ summary 和收合內容；排除 #offer-status 屬購買按鈕的狀態標籤，noscript/.more 為網站導覽。"
+    },
+    "publicationApproved": false,
+    "semanticNotes": [
+      "酒精段落正確歸因 EBEN 0–0.2% 並區分品類變異；自釀>1%為可能性，研究方法限制留於來源帳。",
+      "慢開瓶及不搖晃屬氣泡飲操作建議；不可歸因為FAQ沉澱段原文，FAQ另寫稍微搖晃。",
+      "既有商品卡資產500×375，此次沿用且未修改；文章首圖為独立1600×1000資產。"
+    ],
+    "validationScope": "JSON package and consumer HTML phrase scan only; layout, navigation, publication authority and full npm verify owned by main task.",
+    "packageValidation": {
+      "schema": "eaglish.article-package-validation/v1",
+      "status": "ready",
+      "editorialCount": 1620,
+      "consumerHtmlChecked": true,
+      "errors": [],
+      "checkedHtmlSha256": "3817a3dfb49a4f8556d839a86f5c8a586f9ec910933728178bc3ae6fe3344963"
+    }
+  }
 }

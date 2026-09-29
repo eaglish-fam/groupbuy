@@ -16,6 +16,13 @@ Hiram 提供的三張海邊原始照片先上傳至同一個 Eben Drive 資料�
 - `beach-sip.webp`：原檔 Drive ID `1oYSP6mz8cYxl0KpaH2vvYNEyfzmTwMXk`。
 - `double-citrus-cooler.webp`：原檔 Drive ID `1W8iWU2eoE5QPqYSfyauXIq2cq9tuqpTE`。
 - `beach-portrait.webp`：原檔 Drive ID `1-yqthmA25YvicQVMKdz-yhOk2q3cuFIn`。
-- `blog-cover.webp`：以上一張橫幅實拍與標題排版製作；Drive ID `1gmLUplRTWvrrqu1Z939I9aYZlT_kXfuV`，排版來源記於 `blog-cover-source.html`。
+- `blog-cover.webp`：以上一張橫幅實拍與標題排版製作；目前為消費者視角修訂版，排版來源為 `blog-cover-source.html`。Drive ID `1gmLUplRTWvrrqu1Z939I9aYZlT_kXfuV` 是初版歷史檔，不再作為新版封面 fallback。
 - `video-youtube-poster.webp`：鷹式一家 YouTube Short `CP4VrwcyUxs` 第 8 秒截圖；Drive ID `1Q3F6AdjbWfFQPQkfAMLYmBGXIbQ7PovR`。
 - `video-instagram-poster.webp`：鷹式一家 Instagram Reel `DIbVzxRTMlF` 第 41 秒截圖；Drive ID `1Zq1F_iZYagLrNk_B98Of0ww8TsCKgGm1`。舊片其餘畫面可能有舊活動或功效字樣，文章沒有把它用於當期宣稱。
+
+## 消費者視角修訂（2026-09-29）
+
+- 首圖改為左右獨立區塊，右側實拍以人物與手中瓶子為中心；封面由可重現的 HTML/CSS 排版截圖輸出，人物與產品未重繪。
+- `vendor-first-brew.webp`、`vendor-double-citrus.webp`、`vendor-plum.webp`、`vendor-roselle.webp`、`vendor-classic.webp`、`vendor-tea.webp` 為當期團購頁實際商品圖的瀏覽器局部截圖，保存完整瓶身及相鄰配方／風味資訊。
+- 每張來源 URL、觀察日期與截圖範圍見 `vendor-screenshot-provenance.json`。截圖排除網站浮動選單，未改寫圖中文字或產品外觀。
+- 新增截圖隨網站候選保存在 assets，Tailscale 預覽內嵌同一批實際檔案避免子資源載入問題；未寫入 Google Sheet 或冒稱已上傳 Drive。既有照片與影片海報仍保留 Drive fallback。

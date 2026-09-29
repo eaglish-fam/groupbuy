@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-09-29T06:05:51.103Z",
+  "generatedAt": "2026-09-29T07:05:03.403Z",
   "status": "ready",
   "summary": {
     "checks": 531,
@@ -821,12 +821,12 @@
     {
       "id": "blog:eben-kombucha:index.html:title",
       "passed": true,
-      "detail": "Title length 33."
+      "detail": "Title length 35."
     },
     {
       "id": "blog:eben-kombucha:index.html:description",
       "passed": true,
-      "detail": "Description length 77."
+      "detail": "Description length 73."
     },
     {
       "id": "blog:eben-kombucha:index.html:canonical",
@@ -846,7 +846,7 @@
     {
       "id": "blog:eben-kombucha:index.html:search-phrase",
       "passed": true,
-      "detail": "Title and H1 include 康普茶是什麼？."
+      "detail": "Title and H1 include ."
     },
     {
       "id": "blog:eben-kombucha:index.html:schema",
