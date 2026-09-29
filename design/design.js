@@ -100,8 +100,8 @@ function normalize(rows, upcoming = false) {
       const brand = r["品牌"].trim();
       const localImage = ProductContent.entry(brand)?.cardImage || ProductContent.entry(brand)?.image || "";
       const sheetImage = imageUrl(r["圖片網址"] || r.image);
-      const primaryImages = ProductContent.entry(brand)?.id === "eben-kombucha"
-        ? [sheetImage, localImage] : [localImage, sheetImage];
+      const driveFirst = ProductContent.entry(brand)?.id === "eben-kombucha" && sheetImage;
+      const primaryImages = driveFirst ? [sheetImage] : [localImage, sheetImage];
       const urls = [
         ...primaryImages,
         ...String(r["附加圖片"] || "")
@@ -115,6 +115,7 @@ function normalize(rows, upcoming = false) {
         description: r["商品描述"] || "",
         url: safe(r["連結"]),
         images: [...new Set(urls)],
+        fallbackImage: driveFirst ? localImage : "",
         category: r["分類"] || "其他",
         country: r["國家"] || "",
         start: ProductContent.date(r["開團日期"]),
@@ -230,7 +231,7 @@ function card(p) {
     )
     .join("");
   const firstImage = p.images[0] || "";
-  const backupImage = p.images[1] || "";
+  const backupImage = p.fallbackImage || p.images[1] || "";
   const cardImage = /^https:\/\/lh3\.googleusercontent\.com\/d\/[^\s]+\=w\d+$/.test(firstImage)
     ? firstImage.replace(/=w\d+$/, '=w480') : firstImage;
   const imageWidth = window.EntryImageWidths?.[firstImage] || 0;
@@ -343,7 +344,7 @@ function openDetail(index, refreshing = false) {
   if (!refreshing) track("open_details_modal", { group_name: p.brand, event_category: "engagement" });
   $("#product-dialog").dataset.productKey = p.key;
   const photo = p.images.length
-    ? `<div class="detail-photo"><img id="detail-image" src="${esc(p.images[0])}"${p.images[1] ? ` data-fallback-src="${esc(p.images[1])}"` : ""} alt="${esc(p.brand)}"><div class="gallery-controls" ${p.images.length < 2 ? "hidden" : ""}><button id="photo-prev" aria-label="上一張商品圖片">←</button><span id="photo-count">1 / ${p.images.length}</span><button id="photo-next" aria-label="下一張商品圖片">→</button></div></div>`
+    ? `<div class="detail-photo"><img id="detail-image" src="${esc(p.images[0])}"${p.fallbackImage || p.images[1] ? ` data-fallback-src="${esc(p.fallbackImage || p.images[1])}"` : ""} alt="${esc(p.brand)}"><div class="gallery-controls" ${p.images.length < 2 ? "hidden" : ""}><button id="photo-prev" aria-label="上一張商品圖片">←</button><span id="photo-count">1 / ${p.images.length}</span><button id="photo-next" aria-label="下一張商品圖片">→</button></div></div>`
     : "";
   $("#detail").innerHTML =
     `<div class="detail-layout">${photo}<div class="detail-copy"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${p.status.label}</span><h2 id="detail-title">${esc(p.brand)}</h2><p>${esc(p.description)}</p>${timedCampaign(p) ? `<p class="date-line">${countdownMarkup(p)}</p>` : ""}${p.coupon && p.status.key === "open" ? `<p>折扣碼：<strong>${esc(p.coupon)}</strong> <button class="text-link" id="copy-coupon">複製</button></p>` : ""}${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">前往廠商賣場選購 ↗</a>` : "<p>目前暫不提供訂購入口。</p>"}${p.article?.article ? `<p><a class="text-link" href="${esc(p.article.article)}">閱讀完整生活筆記 ↗</a></p>` : ""}<p class="small">商品、配送與售後由廠商提供，詳情以當期賣場為準。</p></div></div><div class="detail-sections">${[
@@ -374,7 +375,7 @@ function openDetail(index, refreshing = false) {
   function change(n) {
     frame = (frame + n + p.images.length) % p.images.length;
     const image = $("#detail-image");
-    image.dataset.fallbackSrc = p.images[(frame + 1) % p.images.length] || "";
+    image.dataset.fallbackSrc = p.fallbackImage || p.images[(frame + 1) % p.images.length] || "";
     delete image.dataset.fallbackAttempted;
     image.src = p.images[frame];
     $("#photo-count").textContent = `${frame + 1} / ${p.images.length}`;
