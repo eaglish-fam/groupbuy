@@ -15,7 +15,7 @@
     chuluAomori:{id:'chulu-aomori-drinks',brands:["台東初鹿&青森蘋果汁"],article:'/blog/chulu-aomori-drinks/',title:"早餐的那一杯，留給家人喜歡的味道。",excerpt:"原味、可可、伯爵、黑豆芝麻與蘋果香，從家人的飲用習慣慢慢挑。",category:"餐桌上的日常",image:'/assets/chulu-aomori-drinks/flavored.webp',published:'2026-09-10'},
     atojet:{id:'atojet-home-shower',brands:['Atojet 濾芯蓮蓬頭'],article:'/blog/atojet/',title:'洗澡的水，看起來很乾淨。直到我們拆開了濾芯。',excerpt:'一段真實的換芯紀錄，一點關於浴室日常用水的留意。',category:'居家生活',image:'/assets/atojet/vendor-shower.webp',published:'2026-09-08'},
     wave:{id:'wave-hummus',brands:['Wave 鷹嘴豆泥'],article:'/blog/wave-hummus/',title:'吐司吃膩了，也許不是吐司的問題。',excerpt:'一盒鷹嘴豆泥，從抹、沾到拌，替普通的一餐換一種心情。',category:'餐桌日常',image:'/assets/wave/family.webp',published:'2026-09-08'},
-    eben:{id:'eben-kombucha',brands:['EBEN康普茶'],article:null,title:'EBEN 生康普茶',excerpt:'從既有照片認識初釀、雙柚與水果風味；當期品項和組合以品牌團購頁為準。',category:'餐桌飲品',image:'/assets/eben/cover.webp',published:'2026-09-29'},
+    eben:{id:'eben-kombucha',brands:['EBEN康普茶'],article:null,title:'EBEN 生康普茶',excerpt:'把日常那杯飲料，換成有茶香的微氣泡。EBEN 以台灣茶葉釀製生康普茶，初釀有烏龍茶香、双柚帶柑橘香、完熟梅酸甜清爽；冰涼喝，午後或配餐都很合適。',category:'餐桌飲品',image:'/assets/eben/cover.webp',published:'2026-09-29'},
     artisanCb301:{id:'artisan-cb301',brands:['ARTISAN浴室清潔＆小腿按摩器'],article:'/blog/artisan-cb301/',title:'浴室真正難刷的，通常不是最髒的那一塊。',excerpt:'高處、角落和總要彎下腰的地方，才是讓人一拖再拖的原因。',category:'居家清潔',image:'/assets/artisan-cb301/blog-cover-v2.webp',published:'2026-09-08',videoPolicy:'none'},
     meroware:{id:'meroware-parenting',brands:['Meroware 美學育兒用品'],article:'/blog/meroware/',title:'從第一口，到自己吃。',excerpt:'在恩、在熙到舟夏，幾件陪我們家走過不同用餐階段的餐桌小物。',category:'親子餐桌',image:'/assets/meroware/blog-cover-v1.webp',published:'2026-09-09'}
   };
