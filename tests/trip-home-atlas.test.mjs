@@ -53,6 +53,8 @@ test('ten destinations reuse atlas, region filters, panels and guide options wit
  assert.match(html,/home-globe-preview/);
  const config=JSON.parse(html.match(/id="home-globe-config">([\s\S]*?)<\/script>/)[1]);
  assert.equal(config.countries.length,10);
+ assert.equal(config.initialRegion,'all');
+ assert.match(html,/data-atlas-scope>世界<\/span>/);
  assert.equal(config.regions.find(r=>r.id==='asia').children.length,5);
  assert.doesNotMatch(html,/<script[^>]+src="[^"]*globe\.js|<link[^>]+globe-land/);
  assert.doesNotMatch(html,/NaN|Infinity/);
@@ -104,11 +106,12 @@ test('region and subregion browsing scales to ten countries, clears empty region
  const singles={'[data-home-filters]':form,'[data-home-guides]':grid,'.home-atlas':el()};
  for(const name of ['home-status','home-empty','home-more','home-reset','atlas-more','atlas-status','commerce-empty','region-filters','atlas-empty','atlas-back','atlas-scope','atlas-count','atlas-country-heading','atlas-empty-copy','atlas-return','subregions','atlas-breadcrumb','country-unavailable'])singles[`[data-${name}]`]=el();
  singles['.home-affiliate-note']=el();
- singles['#home-globe-config']={textContent:JSON.stringify({regions:allRegions,countries:catalog.countries,initialRegion:'asia'})};
+ singles['#home-globe-config']={textContent:JSON.stringify({regions:allRegions,countries:catalog.countries,initialRegion:'all'})};
  const lists={'[data-atlas-choice]':choices,'[data-country-panel]':panels,'[data-atlas-region]':regions,'[data-atlas-subregion]':subButtons,'[data-subregion-group]':subGroups,'[data-offer-country]':offers,'[data-explore-country]':explore};
  runInNewContext(read('trip/home.js'),{document:{querySelector:s=>singles[s]||null,querySelectorAll:s=>lists[s]||[]}});
  const click=control=>control.events.click({preventDefault(){}});
- assert.equal(choices.filter(c=>!c.hidden).length,3); // Thailand, Japan, Taiwan.
+ assert.equal(regions.find(r=>r.attrs['aria-pressed']==='true').dataset.atlasRegion,'all');
+ assert.equal(choices.filter(c=>!c.hidden).length,6); // World starts with the first six destinations.
  assert.equal(panels.filter(c=>!c.hidden).length,1);
  assert.equal(singles['.home-affiliate-note'].hidden,false);
  click(subButtons.find(b=>b.dataset.atlasSubregion==='east-asia'));
