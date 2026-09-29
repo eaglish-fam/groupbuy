@@ -1,0 +1,30 @@
+{
+  "tool": "built-in image_gen",
+  "prompts": [
+    "Use case: scientific-educational. Create a beautiful lively editorial watercolor infographic for a Taiwanese family lifestyle website explaining kombucha, image 1 of a coordinated pair. Landscape 3:2, warm ivory paper #faf8f1, hand-painted amber tea, sage green leaves, terracotta accents, fine dark brown ink. Mobile-first, large clear illustrations and minimal BIG Traditional Chinese text only. Title exact:「康普茶，從一杯甜茶開始」. Show a tea pot with tea leaves and amber tea, spoon with sugar crystals, and a little bowl of starter tea with a beige SCOBY cellulose pellicle; three ingredients flow with clear curved arrows into a large glass fermentation jar with amber tea, beige pellicle near surface, breathable cloth cover, no sealed lid. Label ingredients exactly「茶」「糖」「菌群」. Label large jar「開始發酵」. Visually engaging generous whitespace, elegant mature magazine illustration, not childish, not textbook boxes. Tea leaves and small illustrated bubbles add movement. No brand, no product bottle, no fruit added, no timers, no quantities, no alcohol-free or health claims. This is conceptual diagram not home brewing instructions. Do not add any text beyond five specified labels and title.",
+    "Use case: scientific-educational. Create a beautiful lively editorial watercolor infographic for a Taiwanese family lifestyle website explaining kombucha, image 2 of a coordinated pair. Landscape 3:2, warm ivory paper #faf8f1, hand-painted amber tea, sage green, terracotta accents, fine dark brown ink. Mobile-first, minimal BIG Traditional Chinese text, elegant magazine style rather than boxes. Title exact:「氣泡與酸味，原來這樣來」. Two distinct stages joined by a large sweeping arrow: left a magnifying-glass-style circle showing budding yeast (oval cells) next to sugar crystals, then arrows to small amber ethanol drops and CO₂ bubbles. Labels exact:「酵母」「糖 → 酒精＋氣泡」. Right magnified rod-shaped acetic acid bacteria, receiving amber ethanol drops, small air/oxygen icon coming from above, arrow ending at amber teacup with tiny rising bubbles and small organic-acid droplets. Labels exact:「醋酸菌」「部分酒精 → 有機酸」. Bottom tiny but legible sentence exact:「酸甜、微氣泡與茶香，就在發酵中慢慢形成。」 No alcohol-free implication, no total disappearance of alcohol or sugar, no health claims, no brand, no laboratory photorealism. The chemical stages are conceptual, not to scale. Keep all typography big and easily legible at mobile width, with visible margins."
+  ],
+  "createdAt": "2026-09-29",
+  "kind": "conceptual-fermentation-illustrations",
+  "productEvidence": false,
+  "sourceChecks": [
+    "https://www.ttb.gov/regulated-commodities/beverage-alcohol/kombucha",
+    "https://www.ebenkombucha.com.tw/pages/kombucha-faq"
+  ],
+  "assets": [
+    {
+      "path": "/assets/eben/kombucha-ingredients-diagram.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "e3dafc81b60c917d259f2ac20f7219d664f12521b427c991ffc0ff27003a02cf",
+      "bytes": 289844
+    },
+    {
+      "path": "/assets/eben/kombucha-fermentation-diagram.webp",
+      "width": 1536,
+      "height": 1024,
+      "sha256": "ed0dfa3387846e4b78f4a91b2f0da3f60e2a534c14fb6fd02576d5ba589103b8",
+      "bytes": 321406
+    }
+  ]
+}

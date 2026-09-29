@@ -26,3 +26,7 @@ Hiram 提供的三張海邊原始照片先上傳至同一個 Eben Drive 資料�
 - `vendor-first-brew.webp`、`vendor-double-citrus.webp`、`vendor-plum.webp`、`vendor-roselle.webp`、`vendor-classic.webp`、`vendor-tea.webp` 為當期團購頁實際商品圖的瀏覽器局部截圖，保存完整瓶身及相鄰配方／風味資訊。
 - 每張來源 URL、觀察日期與截圖範圍見 `vendor-screenshot-provenance.json`。截圖排除網站浮動選單，未改寫圖中文字或產品外觀。
 - 新增截圖隨網站候選保存在 assets，Tailscale 預覽內嵌同一批實際檔案避免子資源載入問題；未寫入 Google Sheet 或冒稱已上傳 Drive。既有照片與影片海報仍保留 Drive fallback。
+
+## ImageGen 發酵解說圖（2026-09-29）
+
+Hiram 明確要求將發酵段落圖像化。`kombucha-ingredients-diagram.webp` 與 `kombucha-fermentation-diagram.webp` 由內建 ImageGen 生成，為一般原理解說，非商品實拍或自釀操作指南。圖上保留「部分酒精」與有氧轉化概念，旁邊正文保留殘糖與微量酒精限制。兩圖均1536×1024，網頁完整呈現、延後載入，支援點圖放大。提示詞、科學來源及輸出雜湊見 `fermentation-diagrams-provenance.json`。
