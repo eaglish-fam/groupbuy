@@ -33,10 +33,8 @@ export function normalizeSnapshot(csv,observedAt=new Date().toISOString()){
 }
 export function snapshotCards(snapshot){
   const e=content.escape;
-  const responsive=image=>/^\/assets\/[a-z0-9/_-]+\.webp$/i.test(image)
-    ?` srcset="${e(image.replace(/\.webp$/,'-480.webp'))} 480w, ${e(image.replace(/\.webp$/,'-960.webp'))} 960w, ${e(image)} 1600w" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"`:'';
   return snapshot.items.map(p=>`<article class="product-card" id="product-${e(p.id)}" data-snapshot-card>
-    ${p.image?`<div class="product-picture">${p.article?`<a href="${e(p.article)}" class="image-open">`:''}<img src="${e(p.image)}"${responsive(p.image)} width="1000" height="750" alt="${e(p.brand)}" loading="lazy" decoding="async" fetchpriority="low">${p.article?'</a>':''}</div>`:''}
+    ${p.image?`<div class="product-picture">${p.article?`<a href="${e(p.article)}" class="image-open">`:''}<img src="${e(p.image)}" width="1000" height="750" alt="${e(p.brand)}" loading="lazy" decoding="async" fetchpriority="low">${p.article?'</a>':''}</div>`:''}
     <div class="product-body"><span class="status">${e(p.category)}</span><h3>${e(p.brand)}</h3><p class="product-description">${e(p.description||'先從使用需求出發，再確認適合的品項。')}</p>
     <div class="product-bottom">${p.article?`<a class="card-reading" href="${e(p.article)}">${e(p.brand)}選購筆記 ↗</a>`:'<a class="card-reading" href="/guides/">先看選購方向 ↗</a>'}
     </div></div></article>`).join('\n');
