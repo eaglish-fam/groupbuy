@@ -108,7 +108,7 @@
    control.setAttribute('aria-pressed',String(active));control.classList.toggle('is-selected',active);
   });
   offers.forEach(offer=>{offer.hidden=selectedCountry!=='all'&&offer.dataset.offerCountry!==selectedCountry;});
-  commerceEmpty.hidden=offers.some(offer=>!offer.hidden);
+  commerceEmpty.hidden=offers.some(offer=>!offer.hidden&&offer.dataset.planningOnly!=='true');
   document.querySelector('.home-affiliate-note').hidden=!commerceEmpty.hidden;
   emptyPanel.hidden=Boolean(chosen);
   document.querySelector('[data-atlas-empty-copy]').textContent=selectedCountry==='all'

@@ -1,0 +1,186 @@
+{
+  "path": "/trip/guides/cebu-bohol-with-kids/",
+  "hero": "photo-06",
+  "countryId": "philippines",
+  "tocTitle": "宿霧、薄荷島親子攻略",
+  "author": "鷹式一家",
+  "updatedAt": "2026-09-30",
+  "eyebrow": "CEBU · BOHOL / FAMILY GUIDE",
+  "chooseId": "choose",
+  "videoId": "films",
+  "sectionMap": {
+    "先選想玩的：山景、動物與海上體驗，分區挑": {
+      "id": "choose",
+      "label": "先選想玩的"
+    },
+    "宿霧與薄荷島，分成兩段安排": {
+      "id": "islands",
+      "label": "宿霧、薄荷島怎麼分"
+    },
+    "家庭 buggy：坐在一起，從泥土路看丘陵": {
+      "id": "buggy",
+      "label": "家庭 buggy"
+    },
+    "巧克力山：從高處看一座接一座的山丘": {
+      "id": "hills",
+      "label": "巧克力山"
+    },
+    "Bilar 眼鏡猴觀察：在枝葉間慢慢找": {
+      "id": "tarsier",
+      "label": "Bilar 眼鏡猴"
+    },
+    "Loboc 午餐船：吃飯與看河景，一起安排": {
+      "id": "loboc",
+      "label": "Loboc 午餐船"
+    },
+    "麥哲倫十字架：留給宿霧市區的文化停留": {
+      "id": "cross",
+      "label": "麥哲倫十字架"
+    },
+    "Lila 鯨鯊：我們當年的體驗，與現在的安排不同": {
+      "id": "whale-shark",
+      "label": "看鯨鯊怎麼安排"
+    },
+    "吃哪餐、怎麼順路：Panglao 自由選餐，內陸先排午餐": {
+      "id": "dining",
+      "label": "吃哪餐、怎麼順路"
+    },
+    "住哪一側比較適合：住宿也是行程起點": {
+      "id": "stay",
+      "label": "住哪一側比較適合"
+    },
+    "機票、跨島與接送：把到達時間一起算進旅行": {
+      "id": "transport",
+      "label": "機票、跨島與接送"
+    },
+    "親子旅行常見問題": {
+      "id": "faq",
+      "label": "親子旅行常見問題"
+    },
+    "行程試排：一至兩個完整薄荷島遊玩日": {
+      "id": "plan",
+      "label": "行程試排"
+    },
+    "完整影片與延伸閱讀": {
+      "id": "films",
+      "label": "完整影片與延伸閱讀"
+    },
+    "文章目錄": {
+      "omit": true
+    }
+  },
+  "cards": [
+    {
+      "target": "buggy",
+      "image": "photo-02",
+      "name": "家庭 buggy",
+      "region": "Carmen 周邊",
+      "reason": "一起坐車走進丘陵與泥土路",
+      "duration": "建議 1～1.5 小時起"
+    },
+    {
+      "target": "hills",
+      "image": "photo-06",
+      "name": "巧克力山",
+      "region": "薄荷島內陸",
+      "reason": "看連綿山丘，拍全景與合照",
+      "duration": "建議 45～60 分鐘"
+    },
+    {
+      "target": "tarsier",
+      "image": "photo-08",
+      "name": "眼鏡猴觀察（Bilar）",
+      "region": "Villa Aurora, Bilar",
+      "reason": "放慢腳步，在枝葉間找小動物",
+      "duration": "建議 30～45 分鐘，另留等候"
+    },
+    {
+      "target": "loboc",
+      "image": "frame-13",
+      "name": "Loboc 午餐船",
+      "region": "Loboc",
+      "reason": "坐下吃飯，也看看河岸",
+      "duration": "建議 1.5～2 小時，含候船用餐"
+    },
+    {
+      "target": "cross",
+      "image": "photo-01",
+      "name": "麥哲倫十字架",
+      "region": "Cebu City",
+      "reason": "看十字架與天花板壁畫",
+      "duration": "建議 20～30 分鐘，交通另計"
+    },
+    {
+      "target": "whale-shark",
+      "image": "frame-27",
+      "name": "Lila 鯨鯊",
+      "region": "薄荷島 Lila",
+      "reason": "歷史體驗與現在的參與條件",
+      "duration": "先確認互動季、許可與兒童安排"
+    }
+  ],
+  "topics": [
+    {
+      "target": "choose",
+      "image": "photo-02",
+      "label": "景點：怎麼玩",
+      "labelLines": [
+        "景點",
+        "怎麼玩"
+      ],
+      "position": "50% 65%"
+    },
+    {
+      "target": "dining",
+      "image": "frame-20",
+      "label": "餐廳：吃什麼",
+      "labelLines": [
+        "餐廳",
+        "吃什麼"
+      ],
+      "position": "70% 50%"
+    },
+    {
+      "target": "stay",
+      "image": "frame-24",
+      "label": "飯店：住哪裡",
+      "labelLines": [
+        "飯店",
+        "住哪裡"
+      ],
+      "position": "40% 50%"
+    }
+  ],
+  "mediaMap": {
+    "media/v4/webp/06-chocolate-hills-family.webp": "photo-06",
+    "media/v4/webp/02-buggy-raincoats.webp": "photo-02",
+    "media/v4/webp/03-kids-helmet.webp": "photo-03",
+    "media/v4/webp/04-family-buggy.webp": "photo-04",
+    "media/v4/webp/05-buggy-rain.webp": "photo-05",
+    "media/v4/webp/07-chocolate-hills-landscape.webp": "photo-07",
+    "media/v4/webp/09-chocolate-hills-stairs.webp": "frame-09",
+    "media/v4/webp/10-chocolate-hills-father-view.webp": "frame-10",
+    "media/v4/webp/08-tarsier-family.webp": "photo-08",
+    "media/v4/webp/11-tarsier-visit-courtyard.webp": "frame-11",
+    "media/v4/webp/12-tarsier-leaf-closeup.webp": "frame-12",
+    "media/v4/webp/13-loboc-river-restaurant-boat.webp": "frame-13",
+    "media/v4/webp/14-loboc-lunch-plate.webp": "frame-14",
+    "media/v4/webp/15-loboc-family-lunch.webp": "frame-15",
+    "media/v4/webp/01-magellans-cross-family.webp": "photo-01",
+    "media/v4/webp/27-lila-whale-shark.webp": "frame-27",
+    "media/v4/webp/28-lila-family-boat.webp": "frame-28",
+    "media/v4/webp/30-lila-swimmer-and-whale.webp": "frame-30",
+    "media/v4/webp/29-lila-child-by-boat.webp": "frame-29",
+    "media/v4/webp/18-mist-family-net-space.webp": "frame-18",
+    "media/v4/webp/17-mist-pasta-plate.webp": "frame-17",
+    "media/v4/webp/16-mist-fish-plate.webp": "frame-16",
+    "media/v4/webp/19-mist-child-fries-drink.webp": "frame-19",
+    "media/v4/webp/20-ubeco-dinner-spread.webp": "frame-20",
+    "media/v4/webp/21-ubeco-name-and-interior.webp": "frame-21",
+    "media/v4/webp/22-ubeco-family-pasta.webp": "frame-22",
+    "media/v4/webp/23-ubeco-rice-egg-closeup.webp": "frame-23",
+    "media/v4/webp/24-molly-pool-overview.webp": "frame-24",
+    "media/v4/webp/31-henann-brand-pool.webp": "frame-31"
+  },
+  "articleType": "destination"
+}

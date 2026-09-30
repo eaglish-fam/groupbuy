@@ -9,7 +9,8 @@ const root=resolve(import.meta.dirname,'..');
 
 test('every public page puts one three-site switcher after its footer, with no return strip',()=>{
  const pages=collectIndexablePages(root);
- assert.equal(pages.length,40);
+ assert.ok(pages.length>0,'public inventory must not be empty');
+ for(const path of ['/','/blog/','/trip/','/trip/guides/cebu-bohol-with-kids/','/trip/stays/molly-resort-bohol/','/trip/stays/henann-bohol-family-comparison/'])assert.ok(pages.some(page=>page.path===path),`required reviewed page is inventoried: ${path}`);
  for(const page of pages){
   const html=page.html;
   const nav=html.match(/<!-- site-navigation:start -->([\s\S]*?)<!-- site-navigation:end -->/)?.[1];

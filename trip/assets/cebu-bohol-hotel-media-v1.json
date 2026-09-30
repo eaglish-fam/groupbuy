@@ -1,0 +1,100 @@
+[
+  {
+    "id": "molly-stair-circulation",
+    "sourceId": "youtube-QmngtzfPVDk",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-stay-molly-stair-circulation-v1.webp",
+    "width": 1920,
+    "height": 864,
+    "alt": "家人在 Molly 的樓梯與上層開放式走道移動。",
+    "caption": "樓梯接上客房外的開放式走道。",
+    "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+    "derivedSha256": "d6a0bcac81d2efa8078d74a28e01ff3dcec222d97dfd81c45e8d189997be2cde",
+    "presentationTimestamp": 13740727,
+    "timeBase": "1/60000",
+    "actualSeconds": 229.01211666666666,
+    "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+    "crop": {
+      "x": 0,
+      "y": 108,
+      "w": 1920,
+      "h": 864
+    },
+    "contentEditApplied": false,
+    "branchAttribution": null,
+    "sourceManifestSha256": "a809538c4de10a15ff2c83c0ce66405768780dd881e0e7a96c33a4bb3ebfcf14",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-stay-molly-stair-circulation-v1-640.webp",
+        "width": 640,
+        "height": 288,
+        "bytes": 13684,
+        "sha256": "fccfbcf78fba0f0674780cb4308618bdc6cc2f5bb5a5c134200646b3488bb226"
+      },
+      {
+        "file": "/trip/assets/ph-stay-molly-stair-circulation-v1-960.webp",
+        "width": 960,
+        "height": 432,
+        "bytes": 24118,
+        "sha256": "4b74a869d61bcd458ff389ab7ff268e289d6173ec1d7f839ae067c680fdbf385"
+      },
+      {
+        "file": "/trip/assets/ph-stay-molly-stair-circulation-v1-1440.webp",
+        "width": 1440,
+        "height": 648,
+        "bytes": 37482,
+        "sha256": "68edd14dae7673a6229d7c6eb96c4984600a0bbd7adb30c1060f511dd6580a0b"
+      }
+    ]
+  },
+  {
+    "id": "henann-brand-open-corridor",
+    "sourceId": "youtube-QmngtzfPVDk",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-stay-henann-brand-open-corridor-v1.webp",
+    "width": 1920,
+    "height": 864,
+    "alt": "家人在 Henann 品牌住宿的開放式走廊前行，旁邊是中庭。",
+    "caption": "走廊沿著中庭延伸，是我們當年的住宿片段。",
+    "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+    "derivedSha256": "b6bcb4c9c112e31416be9bc8d039bf70c9b760d2fb4117498478545ffa9faba3",
+    "presentationTimestamp": 34020987,
+    "timeBase": "1/60000",
+    "actualSeconds": 567.01645,
+    "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+    "crop": {
+      "x": 0,
+      "y": 108,
+      "w": 1920,
+      "h": 864
+    },
+    "contentEditApplied": false,
+    "branchAttribution": "henann-brand-only",
+    "sourceManifestSha256": "a809538c4de10a15ff2c83c0ce66405768780dd881e0e7a96c33a4bb3ebfcf14",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-stay-henann-brand-open-corridor-v1-640.webp",
+        "width": 640,
+        "height": 288,
+        "bytes": 16156,
+        "sha256": "4aea835968a1ee8f4fd46e24a021988a3708d4c3419bd1706884607281f26eb3"
+      },
+      {
+        "file": "/trip/assets/ph-stay-henann-brand-open-corridor-v1-960.webp",
+        "width": 960,
+        "height": 432,
+        "bytes": 27392,
+        "sha256": "ac8cd5ddedd0b75e747e8cec7b26afa246d89b60dbad4cb91095e6acb1d31987"
+      },
+      {
+        "file": "/trip/assets/ph-stay-henann-brand-open-corridor-v1-1440.webp",
+        "width": 1440,
+        "height": 648,
+        "bytes": 42366,
+        "sha256": "6a68ee8398481fb405d83c2e856c6bbf52907de0ab77ec3a5b675a55ff7cf469"
+      }
+    ]
+  }
+]

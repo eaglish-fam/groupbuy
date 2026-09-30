@@ -1,0 +1,644 @@
+[
+  {
+    "id": "photo-01",
+    "sourceId": "photo-01",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-01-magellans-cross-family.webp",
+    "width": 1024,
+    "height": 1280,
+    "alt": "兩位成人與兩位孩子在大型十字架前合照，上方是壁畫天花板。",
+    "caption": "一家人在十字架與壁畫下合照。",
+    "position": "53% 67%",
+    "originalSha256": "b2b24a4670d2ac3c0c5633d7ee8e9a074b6908de6c3dd5757ffd381546f1daff",
+    "derivedSha256": "51c8aaf948c8ae87265f5db0d5777bce8e2dfac15ff7445e4493ee5daf310dc8",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-01-magellans-cross-family-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 58654,
+        "sha256": "113bd003e18490dde85bd982252e5937e0e21dba98546da691441418a23bf81e"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-01-magellans-cross-family-960.webp",
+        "width": 960,
+        "height": 1200,
+        "bytes": 100612,
+        "sha256": "f00160d86d143b7e228b0403be60c1f5a24a0ab717def372cfe1b31890c73cba"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-01-magellans-cross-family.webp",
+        "width": 1024,
+        "height": 1280,
+        "bytes": 189360,
+        "sha256": "51c8aaf948c8ae87265f5db0d5777bce8e2dfac15ff7445e4493ee5daf310dc8"
+      }
+    ]
+  },
+  {
+    "id": "photo-02",
+    "sourceId": "photo-02",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-02-buggy-raincoats.webp",
+    "width": 1024,
+    "height": 1280,
+    "alt": "一家四口穿紫色雨衣、戴安全帽坐在藍色四輪越野車上，後方是山丘與椰子樹。",
+    "caption": "戴上安全帽、穿好雨衣，一家人坐上藍色越野車。",
+    "position": "55% 56%",
+    "originalSha256": "e57649415e6f00616d8d681c044ae813b3ea32fc9fc351e4bb25d098cebaa922",
+    "derivedSha256": "00e4e319ba4bfebe7ecd461f7c07f570fa5d20cf7a79103366754d786ba5c3e2",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-02-buggy-raincoats-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 112388,
+        "sha256": "99ec9384024eaf0d6787edfca9e9e4ff4a3fa88431238ffee1b3d9705797edbd"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-02-buggy-raincoats-960.webp",
+        "width": 960,
+        "height": 1200,
+        "bytes": 201540,
+        "sha256": "3d5c307df0771090fffe8a6ba68a2812dcff249a503b0924d290593eb1a2f3c0"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-02-buggy-raincoats.webp",
+        "width": 1024,
+        "height": 1280,
+        "bytes": 317484,
+        "sha256": "00e4e319ba4bfebe7ecd461f7c07f570fa5d20cf7a79103366754d786ba5c3e2"
+      }
+    ]
+  },
+  {
+    "id": "photo-03",
+    "sourceId": "photo-03",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-03-kids-helmet.webp",
+    "width": 1280,
+    "height": 853,
+    "alt": "兩位孩子共同拿著紅色安全帽，背景可見兩位成人與綠色山丘。",
+    "caption": "孩子們拿著紅色安全帽，留下出遊的近距離小表情。",
+    "position": "50% 62%",
+    "originalSha256": "49236e54c525bb93b614547870075f301d21fb736539dbedd3a4ad0c6fcb6a66",
+    "derivedSha256": "e71e7e39f52d284a272ea496cbc52f1085f66adf194edcb892bf2e90cf0dd8a2",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-03-kids-helmet-640.webp",
+        "width": 640,
+        "height": 426,
+        "bytes": 22260,
+        "sha256": "f1777365a1c6a8ef2d18f9c699e130c680ab512892875a8838003146f05aa6b9"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-03-kids-helmet-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 34550,
+        "sha256": "13eaeae855ee699a7c7a6d054fb6b675f933257cd3b18f50d259b969c4d1abe1"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-03-kids-helmet.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 70976,
+        "sha256": "e71e7e39f52d284a272ea496cbc52f1085f66adf194edcb892bf2e90cf0dd8a2"
+      }
+    ]
+  },
+  {
+    "id": "photo-04",
+    "sourceId": "photo-04",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-04-family-buggy.webp",
+    "width": 1024,
+    "height": 1280,
+    "alt": "兩位成人與兩位孩子站在藍色越野車左側，後方是綠色山丘與彩色字母裝置。",
+    "caption": "一家人在藍色越野車旁合照，孩子們也擺出自己的姿勢。",
+    "position": "33% 59%",
+    "originalSha256": "c6a4ab0b2824eac7b20ddec619fa3dd162b3ee6913cfe26773fcfdadab3238e2",
+    "derivedSha256": "3ddc44d2cd3024054978cdb47886755ed2a635ef74c695d8a8d2e815e48f3c79",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-04-family-buggy-640.webp",
+        "width": 640,
+        "height": 800,
+        "bytes": 65546,
+        "sha256": "f5e7079de54ab89533f98dd5c0b2e308a2766e3f0b3605a0e85a7798793909f3"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-04-family-buggy-960.webp",
+        "width": 960,
+        "height": 1200,
+        "bytes": 115314,
+        "sha256": "1094fcc13373577aa2d2959b3cc6eae1fbee05ee74384c18ace0c2f0cfbbd0ef"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-04-family-buggy.webp",
+        "width": 1024,
+        "height": 1280,
+        "bytes": 206140,
+        "sha256": "3ddc44d2cd3024054978cdb47886755ed2a635ef74c695d8a8d2e815e48f3c79"
+      }
+    ]
+  },
+  {
+    "id": "photo-05",
+    "sourceId": "photo-05",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-05-buggy-rain.webp",
+    "width": 1280,
+    "height": 853,
+    "alt": "雨中一家四口穿紫色雨衣坐在藍色越野車內，車身與路面濕亮。",
+    "caption": "雨絲落在越野車與路面上，一家人穿著雨衣留下合照。",
+    "position": "49% 52%",
+    "originalSha256": "8126377352becb04ec308ec3723ebe2745f574bd57d1671836e0039e84f986f3",
+    "derivedSha256": "b44cea35bcb4cdd2134b6f0cbddb819c0dcd7b15d00418e13350b865f6e7fe55",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-05-buggy-rain-640.webp",
+        "width": 640,
+        "height": 426,
+        "bytes": 41746,
+        "sha256": "81d41f964ff33106936d2491dcbba5f4fd69eb5803eedeaa9cccab807713cdef"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-05-buggy-rain-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 68866,
+        "sha256": "140f5eb6799837b7edf33a8c1d4f00d3181f8ed58be07d719dfd42f16e224d51"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-05-buggy-rain.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 152288,
+        "sha256": "b44cea35bcb4cdd2134b6f0cbddb819c0dcd7b15d00418e13350b865f6e7fe55"
+      }
+    ]
+  },
+  {
+    "id": "photo-06",
+    "sourceId": "photo-06",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-06-chocolate-hills-family.webp",
+    "width": 1280,
+    "height": 853,
+    "alt": "一家四口站在觀景台左側的紅色欄杆旁，右側展開大片綠色圓丘景觀。",
+    "caption": "一家人在觀景台合照，身後是綿延的綠色圓丘。",
+    "position": "26% 60%",
+    "originalSha256": "cc0af23df0f181371c0a11702186316139ca5d1bdf84bb510eb929760aa796e1",
+    "derivedSha256": "3f5543992b4ca62ca469705ed9edb110a229a07bccab8b8a0cd4eac9d526bbe5",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-06-chocolate-hills-family-640.webp",
+        "width": 640,
+        "height": 426,
+        "bytes": 30658,
+        "sha256": "4676f2e279245a83039b71a8ed3154747226c9cfffec9c9c9f01b2fc9b119eb2"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-06-chocolate-hills-family-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 54440,
+        "sha256": "88c3d35953b4275a41e93d54201242ceb3279a740f1c8b5a4680347693ced506"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-06-chocolate-hills-family.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 131044,
+        "sha256": "3f5543992b4ca62ca469705ed9edb110a229a07bccab8b8a0cd4eac9d526bbe5"
+      }
+    ]
+  },
+  {
+    "id": "photo-07",
+    "sourceId": "photo-07",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-07-chocolate-hills-landscape.webp",
+    "width": 1280,
+    "height": 853,
+    "alt": "厚雲下的連綿綠色圓丘與樹林，前景是一座較大的山丘。",
+    "caption": "多雲天空下，綠色圓丘一座接著一座延伸到遠方。",
+    "position": "37% 61%",
+    "originalSha256": "16db86168ed936d060875ba0140771dfc1214be1efe8efaaa2b7c9cc9d820c83",
+    "derivedSha256": "b7232b90ab6fb803d5bf76f86667de747ff594d810ecbaeee24eafc6cdce52a4",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-07-chocolate-hills-landscape-640.webp",
+        "width": 640,
+        "height": 426,
+        "bytes": 27674,
+        "sha256": "519043a26ede2119dd00a50add58e5ec4db9aad3df56b19c3ddd2e12ead0d04f"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-07-chocolate-hills-landscape-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 50686,
+        "sha256": "99b1f010f6ba2153b03e28c53276e84eb2142d960c963faf5c0e3f6e91abbf18"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-07-chocolate-hills-landscape.webp",
+        "width": 1280,
+        "height": 853,
+        "bytes": 139408,
+        "sha256": "b7232b90ab6fb803d5bf76f86667de747ff594d810ecbaeee24eafc6cdce52a4"
+      }
+    ]
+  },
+  {
+    "id": "photo-08",
+    "sourceId": "photo-08",
+    "kind": "user-supplied-photo",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-08-tarsier-family.webp",
+    "width": 960,
+    "height": 1280,
+    "alt": "左上葉片旁有一隻大眼褐色小動物，右下兩位成人與兩位孩子在植物環繞的步道合照。",
+    "caption": "葉片間的小小動物與右側的家人，一起留在同一張照片裡。",
+    "position": "49% 56%",
+    "originalSha256": "55872687867e08f9e4f0ae3b71834bfb1bc4dc00fd1220f3d30de14f388a48f9",
+    "derivedSha256": "b266f8c51b436bd0501626051cfad4ae3885600fdea64c0408841c31c204e1e1",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-08-tarsier-family-640.webp",
+        "width": 640,
+        "height": 853,
+        "bytes": 58512,
+        "sha256": "2bc887ee03eec163c351e37036cc063ae00084fc7d09530ce805b8d428d31aeb"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-08-tarsier-family.webp",
+        "width": 960,
+        "height": 1280,
+        "bytes": 160464,
+        "sha256": "b266f8c51b436bd0501626051cfad4ae3885600fdea64c0408841c31c204e1e1"
+      }
+    ]
+  },
+  {
+    "id": "frame-09",
+    "sourceId": "youtube-QmngtzfPVDk",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-09-chocolate-hills-stairs.webp",
+    "width": 1920,
+    "height": 1080,
+    "alt": "穿白色上衣的成人與孩子沿著欄杆階梯向上走。",
+    "caption": "沿著欄杆階梯往上走，家人走在通往觀景處的路上。",
+    "position": "68% 53%",
+    "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+    "derivedSha256": "d37bc089ec630017327acaba8876ca7f8c44c77c213cf2132b0c6db93bbe0f19",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+    "actualSeconds": 475.007867,
+    "timecode": "07:55.007867",
+    "presentationTimestamp": 28500472,
+    "timeBase": "1/60000",
+    "burnedText": "Chocolate Hills 巧克力山",
+    "letterbox": false,
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-09-chocolate-hills-stairs-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 34792,
+        "sha256": "b87b5315140495efe941f7d17e02aa45030f7f8b6db4b14b23644675a50d751b"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-09-chocolate-hills-stairs-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 62136,
+        "sha256": "0a117faa821f293fb164a746e6fca83a4d7e29d4d1c7b302c3a522705eb10935"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-09-chocolate-hills-stairs-1440.webp",
+        "width": 1440,
+        "height": 810,
+        "bytes": 97072,
+        "sha256": "7c23cb28b1657f903f455e20c325eaffbea16241e8585b771557ccf99f6dfaba"
+      }
+    ]
+  },
+  {
+    "id": "frame-10",
+    "sourceId": "youtube-QmngtzfPVDk",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-10-chocolate-hills-father-view.webp",
+    "width": 1920,
+    "height": 1080,
+    "alt": "白色上衣成人站在紅色欄杆前，背後是連綿圓丘與多雲天空。",
+    "caption": "站在紅色欄杆旁，身後的綠色山丘一路延伸。",
+    "position": "56% 55%",
+    "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+    "derivedSha256": "b90758a8e451b21bf47f18555b9618e79685a5736880a3b7467bb74943d78929",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+    "actualSeconds": 479.011867,
+    "timecode": "07:59.011867",
+    "presentationTimestamp": 28740712,
+    "timeBase": "1/60000",
+    "burnedText": "因為它這邊到了",
+    "letterbox": false,
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-10-chocolate-hills-father-view-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 17580,
+        "sha256": "10cd2f37a77dafcf4856e5c565e455014c3e273e7dd5a5e09007164d73b31ce0"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-10-chocolate-hills-father-view-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 29886,
+        "sha256": "38a0e8f336d94894c2ad357be932948f16e7c8a3efa976d824dc0e1a7a322f0e"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-10-chocolate-hills-father-view-1440.webp",
+        "width": 1440,
+        "height": 810,
+        "bytes": 48278,
+        "sha256": "0b6c6371fe4d75c634e35c6e34a11ebc0609bdff615a49bab41c6e285299ce4c"
+      }
+    ]
+  },
+  {
+    "id": "frame-11",
+    "sourceId": "youtube-QmngtzfPVDk",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-11-tarsier-visit-courtyard.webp",
+    "width": 1920,
+    "height": 1080,
+    "alt": "黑色上衣成人和白色上衣孩子站在眼鏡猴參觀片段中的草地旁，後方有動物圖像。",
+    "caption": "家人在有植物與動物圖像的入口空間停留。",
+    "position": "51% 56%",
+    "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+    "derivedSha256": "8197ce08cbfb6bfa1eff6d93563a742d63d9835f85129a53b90c5559c699b121",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+    "actualSeconds": 505.0045,
+    "timecode": "08:25.004500",
+    "presentationTimestamp": 30300270,
+    "timeBase": "1/60000",
+    "burnedText": "現在要來看這叫什麼猴啊",
+    "letterbox": false,
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-11-tarsier-visit-courtyard-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 44998,
+        "sha256": "1ed971df6f7b144d76a70337d3319a8448db1efe42d64f6a5e042e8f933eb1ec"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-11-tarsier-visit-courtyard-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 88430,
+        "sha256": "69d762591c371651fd0b121d2de5c208843bc646051e7241bdb00df03656b035"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-11-tarsier-visit-courtyard-1440.webp",
+        "width": 1440,
+        "height": 810,
+        "bytes": 144258,
+        "sha256": "ebefccfbce9cf07a477cf96bc94701332961200b68bcc30b9948312674def861"
+      }
+    ]
+  },
+  {
+    "id": "frame-12",
+    "sourceId": "youtube-QmngtzfPVDk",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-12-tarsier-leaf-closeup.webp",
+    "width": 1920,
+    "height": 1080,
+    "alt": "褐色小型大眼動物停在葉片下的枝條，鏡頭呈現牠的側面與耳朵。",
+    "caption": "葉片下的小小動物，近距離畫面能看清耳朵與身上的毛。",
+    "position": "38% 49%",
+    "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+    "derivedSha256": "9acac06a5fdf1650526c94b4d50cec74f13af0146de956a0074bfa351e37bc98",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+    "actualSeconds": 512.0115,
+    "timecode": "08:32.011500",
+    "presentationTimestamp": 30720690,
+    "timeBase": "1/60000",
+    "burnedText": null,
+    "letterbox": true,
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-12-tarsier-leaf-closeup-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 14026,
+        "sha256": "dab3ba60b4be56e67dbc9c7171bdd6f9b9e7bcbebef00e7f622a6fb7bab9c129"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-12-tarsier-leaf-closeup-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 23722,
+        "sha256": "a93b31c57c523a2f18a1f7728511a3d53081d953c065348be7b5b2168878e85c"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-12-tarsier-leaf-closeup-1440.webp",
+        "width": 1440,
+        "height": 810,
+        "bytes": 36928,
+        "sha256": "e1f45189fcb3888a6124a1d467a35cd24069e098eb0c5ac3eef7a8bea5dd756d"
+      }
+    ]
+  },
+  {
+    "id": "frame-13",
+    "sourceId": "youtube-QmngtzfPVDk",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-13-loboc-river-restaurant-boat.webp",
+    "width": 1920,
+    "height": 1080,
+    "alt": "綠色河面上有一艘帶屋頂的餐飲船，岸邊是樹木與建物。",
+    "caption": "從船邊望出去，河面上還有另一艘有屋頂的餐飲船。",
+    "position": "49% 56%",
+    "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+    "derivedSha256": "f7f1981378370f08a17f414723fbc38811998d38d76e898b7a4e40ec7f2c384b",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+    "actualSeconds": 547.013133,
+    "timecode": "09:07.013133",
+    "presentationTimestamp": 32820788,
+    "timeBase": "1/60000",
+    "burnedText": "別艘的海上餐廳",
+    "letterbox": true,
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-13-loboc-river-restaurant-boat-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 26550,
+        "sha256": "a9961f040be3d29342b2d7b6724cec151720141d826f13271615547994bf00c9"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-13-loboc-river-restaurant-boat-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 49282,
+        "sha256": "237577ec2f8627cd32510e183e4e1d9a2b692468c5945244ace500e1d88ce32d"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-13-loboc-river-restaurant-boat-1440.webp",
+        "width": 1440,
+        "height": 810,
+        "bytes": 79188,
+        "sha256": "74c56da69a2f06f64c6fe3f5aa482fa2f5c2103fc85467f1b6bd5df1717603d6"
+      }
+    ]
+  },
+  {
+    "id": "frame-14",
+    "sourceId": "youtube-QmngtzfPVDk",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-14-loboc-lunch-plate.webp",
+    "width": 1920,
+    "height": 1080,
+    "alt": "白色餐盤裡有米飯、蝦與數樣菜色，放在船上午餐的桌面。",
+    "caption": "船上午餐的餐盤裡有米飯、蝦與其他菜色。",
+    "position": "53% 56%",
+    "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+    "derivedSha256": "6e29d2029191b98df5924972246642c0defcca6d600e73fb3dd3f511d5304fec",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+    "actualSeconds": 542.008133,
+    "timecode": "09:02.008133",
+    "presentationTimestamp": 32520488,
+    "timeBase": "1/60000",
+    "burnedText": null,
+    "letterbox": true,
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-14-loboc-lunch-plate-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 22732,
+        "sha256": "86d577263f4fc4f91783ea72428f1085cb10d975cb23cc95332e2abebf2ffc72"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-14-loboc-lunch-plate-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 39186,
+        "sha256": "21722494e327e1a7181416c8c9c76df3127c1e8796b7485552712ccd1bb2c207"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-14-loboc-lunch-plate-1440.webp",
+        "width": 1440,
+        "height": 810,
+        "bytes": 59060,
+        "sha256": "2232fe43c9ceb72c2d90a574a224b7764ea525350c83ec70bef364c9249f813d"
+      }
+    ]
+  },
+  {
+    "id": "frame-15",
+    "sourceId": "youtube-QmngtzfPVDk",
+    "kind": "owned-video-frame",
+    "creator": "鷹式一家",
+    "file": "/trip/assets/ph-cebu-bohol-15-loboc-family-lunch.webp",
+    "width": 1920,
+    "height": 1080,
+    "alt": "一家四口坐在有屋頂的船上餐桌旁一起吃午餐。",
+    "caption": "一家人在有屋頂的船上座位一起用餐。",
+    "position": "54% 51%",
+    "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+    "derivedSha256": "7b170ad26e3a49e4c209e96fee8f9238e5565f20cf120f5543c5d7fdbbf5fb01",
+    "cropApplied": false,
+    "contentEditApplied": false,
+    "reviewedAt": "2026-09-30",
+    "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+    "actualSeconds": 543.009133,
+    "timecode": "09:03.009133",
+    "presentationTimestamp": 32580548,
+    "timeBase": "1/60000",
+    "burnedText": null,
+    "letterbox": true,
+    "variants": [
+      {
+        "file": "/trip/assets/ph-cebu-bohol-15-loboc-family-lunch-640.webp",
+        "width": 640,
+        "height": 360,
+        "bytes": 24280,
+        "sha256": "cd9c52b71df2fc7e80d86ba590012de9a525d917072b340aff03b2b7cd0fec0f"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-15-loboc-family-lunch-960.webp",
+        "width": 960,
+        "height": 540,
+        "bytes": 41180,
+        "sha256": "50b36c5e78f5cbd91c047b9f76edd209d008812e7375e4fe94b4181ffcc4064a"
+      },
+      {
+        "file": "/trip/assets/ph-cebu-bohol-15-loboc-family-lunch-1440.webp",
+        "width": 1440,
+        "height": 810,
+        "bytes": 62018,
+        "sha256": "08ebe16e3bd094afc71ca50d540b08dd9e53b9f59043085fc9ab0eba40925b38"
+      }
+    ]
+  }
+]

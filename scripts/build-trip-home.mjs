@@ -30,7 +30,11 @@ export function validateTravelHomeCatalog(catalog,{checkAssets=true}={}){
  for(const item of [...catalog.countries,...catalog.guides]){
   if(!['name','englishName','summary'].every(key=>isText(item[key])))fail(`${item.id} requires name, englishName and summary`);
   if(!isRoute(item.href))fail(`${item.id} requires a local travel route`);
-  if(routes.has(item.href))fail(`duplicate route ${item.href}`);
+  if(routes.has(item.href)){
+   const country=sets.countries.get(item.countryId);
+   const singleGuideEntry=country?.entryKind==='single-guide'&&country.guideIds?.length===1&&country.guideIds[0]===item.id&&country.href===item.href;
+   if(!singleGuideEntry)fail(`duplicate route ${item.href}`);
+  }
   routes.add(item.href);
   const image=item.image;
   if(!image||!/^\/trip\/assets\/[a-zA-Z0-9_-]+\.webp$/.test(image.src)||!isText(image.alt)||!Number.isInteger(image.width)||image.width<1||!Number.isInteger(image.height)||image.height<1)fail(`${item.id} requires a WebP image, alt and positive dimensions`);
@@ -40,6 +44,7 @@ export function validateTravelHomeCatalog(catalog,{checkAssets=true}={}){
  for(const guide of catalog.guides){
   if(!sets.countries.has(guide.countryId))fail(`${guide.id} references unknown country ${guide.countryId}`);
   if(!Array.isArray(guide.suitableFor)||guide.suitableFor.some(id=>!sets.themes.has(id))||new Set(guide.suitableFor).size!==guide.suitableFor.length)fail(`${guide.id} has invalid themes`);
+  if(guide.planningLinks&&(!Array.isArray(guide.planningLinks)||guide.planningLinks.some(l=>!/^[a-z0-9-]+$/.test(l.target)||!isText(l.label))||new Set(guide.planningLinks.map(l=>l.target)).size!==guide.planningLinks.length))fail(`${guide.id} has invalid planning links`);
  }
  for(const country of catalog.countries){
   if(country.subregion&&!regionsForCatalog(catalog).find(r=>r.id===country.region)?.children.some(child=>child.id===country.subregion))fail(`${country.id} references unknown subregion ${country.subregion}`);
@@ -81,6 +86,10 @@ function commerce(catalog){
  }).join('')}</div><details class="home-offer-check"><summary>預訂前核對</summary><p>${esc(offer.whatToCheck)}</p></details></div>`).join('')}</div><p class="home-commerce-empty" data-commerce-empty hidden>從各地指南挑活動，確認季節、交通與同行家人的需要，再安排預約。</p><a href="#guides" class="home-text-link">先從玩法找靈感 <span aria-hidden="true">↓</span></a><p class="home-affiliate-note">${esc(travelHomeCommerce.disclosure)}</p></article><article class="home-plan-card"><span class="home-plan-number" aria-hidden="true">02 / A PLACE TO STAY</span><h3>住得順路，玩得從容。</h3><p>先看每天想去哪裡，再選落腳的區域。少搬一次行李，也能多留一段旅行時間。</p><ul class="home-stay-tips"><li>把交通與主要景點放在一起看</li><li>確認家庭房型、停車與退改條件</li><li>跨城日，留好移動與休息時間</li></ul><a href="#guides" class="home-text-link">從當地指南安排住宿區域 <span aria-hidden="true">↓</span></a></article><article class="home-plan-card home-plan-flights"><span class="home-plan-number" aria-hidden="true">03 / THE WAY THERE</span><p class="home-paused-status">暫停更新</p><h3>便宜機票雷達</h3><p>好價格，也是出發的理由。機票雷達目前暫停更新，先把想去的地方放進旅行清單。</p><p class="home-flight-note">出發日期確定後，再向航空公司或訂票平台核對票價、行李與退改條件。</p><a href="#destinations" class="home-text-link">先看看想去的地方 <span aria-hidden="true">↑</span></a></article></div></section>`;
 }
 
+function guidePlanning(catalog){
+ return catalog.guides.filter(g=>g.planningLinks?.length).map(g=>`<nav class="home-guide-planning" data-offer-country="${esc(g.countryId)}" data-planning-only="true" aria-label="${esc(g.name)}旅行安排"><p class="home-eyebrow">${esc(g.name)} · 從實訪指南開始</p><ul>${g.planningLinks.map(l=>`<li><a class="home-text-link" href="${esc(g.href)}#${esc(l.target)}">${esc(l.label)} <span aria-hidden="true">↗</span></a></li>`).join('')}</ul></nav>`).join('');
+}
+
 function guideCard(guide,countries,themes){
  return `<article class="home-guide" data-guide-id="${esc(guide.id)}" data-country="${esc(guide.countryId)}" data-themes="${guide.suitableFor.map(esc).join(' ')}"><a class="home-guide-link" href="${esc(guide.href)}"><div class="home-guide-photo">${renderTravelPhoto(guide.image,'(max-width: 700px) calc(100vw - 40px), (max-width: 1100px) calc(50vw - 42px), 378px')}</div><div class="home-guide-copy"><p class="home-guide-meta">${esc(countries.get(guide.countryId).name)}<span aria-hidden="true"> / </span><span lang="en">${esc(guide.englishName)}</span></p><h3>${esc(guide.name)}<span aria-hidden="true">↗</span></h3><p class="home-guide-summary">${esc(guide.summary)}</p><ul class="home-guide-tags" aria-label="旅行玩法">${guide.suitableFor.map(id=>`<li>${esc(themes.get(id).label)}</li>`).join('')}</ul></div></a></article>`;
 }
@@ -99,7 +108,7 @@ export function renderTravelHome(catalog=travelHomeCatalog){
 <body class="travel-home"><a class="skip" href="#main">跳到主要內容</a><header class="home-masthead home-wrap"><a class="home-brand" href="/trip/" aria-label="鷹家遠行所首頁"><img src="/flights/assets/faraway-wordmark.svg" width="220" height="65" alt="鷹家遠行所"></a><p class="home-brand-note">把走過的地方，整理成你的下一站。</p><nav aria-label="主要導覽"><a href="#destinations">目的地</a><a href="#guides">找玩法</a><a href="#planning">安排旅程</a></nav></header>
 <main id="main"><section class="home-destinations home-wrap" id="destinations" aria-labelledby="home-title"><header class="home-intro"><div><p class="home-eyebrow">${esc(catalog.hero.eyebrow)}</p><h1 id="home-title">${esc(catalog.hero.title)}</h1></div><p class="home-lead">${esc(catalog.hero.description)}</p></header>${atlas(catalog)}</section>
 <section class="home-discover" id="guides" aria-labelledby="guides-title"><div class="home-wrap"><span id="routes" class="home-route-anchor" aria-hidden="true"></span><header class="home-section-heading"><div><p class="home-eyebrow">FIND YOUR KIND OF JOURNEY</p><h2 id="guides-title">從喜歡的玩法，<br>找到下一站。</h2></div><p>山湖、街巷，或孩子期待的動物。<br>先找到想做的事，再走進當地的指南。</p></header><form class="home-filters" data-home-filters hidden aria-label="篩選旅行指南"><div class="home-filter"><label for="home-country-filter">目的地</label><select id="home-country-filter" name="country"><option value="all">所有國家</option><option value="" data-country-unavailable disabled hidden>此區域尚無目的地</option>${catalog.countries.map(country=>`<option value="${esc(country.id)}">${esc(country.name)}</option>`).join('')}</select></div><div class="home-filter"><label for="home-theme-filter">想怎麼玩</label><select id="home-theme-filter" name="theme"><option value="all">所有玩法</option>${catalog.themes.map(theme=>`<option value="${esc(theme.id)}">${esc(theme.label)}</option>`).join('')}</select></div><button class="home-reset" type="reset">清除篩選</button></form><div class="home-results-heading"><p data-home-status role="status" aria-live="polite" aria-atomic="true">${catalog.guides.length} 份城市・區域指南</p><span>實訪照片 · 景點 · 行程安排</span></div><div class="home-guide-grid" data-home-guides>${catalog.guides.map(guide=>guideCard(guide,countries,themes)).join('')}</div><div class="home-empty" data-home-empty hidden><h3>這個組合還沒有指南</h3><p>換個玩法，或看看其他目的地。</p><button class="home-button" type="button" data-home-reset>查看所有指南</button></div><div class="home-more"><button class="home-button" type="button" data-home-more hidden>看更多指南 <span aria-hidden="true">↓</span></button></div></div></section>
-${commerce(catalog)}
+${commerce(catalog).replace('</header><div class="home-planning-grid">','</header>'+guidePlanning(catalog)+'<div class="home-planning-grid">')}
 <section class="home-about home-wrap" id="about" aria-labelledby="about-title"><div><p class="home-eyebrow">FROM OUR FAMILY TO YOURS</p><h2 id="about-title">從一家人的旅途，<br>到你自己的行程。</h2></div><div><p>我們是鷹式一家。把一起走過的街道、看過的風景，整理成可以拿來規劃旅行的指南。</p><p>從實訪照片挑喜歡的地方，再查交通、停留時間與行前提醒。把感興趣的留下來，也為自己的旅程留一點空白。</p><a class="home-text-link" href="#destinations">挑一個想去的地方 <span aria-hidden="true">↑</span></a></div></section></main>
 <footer class="home-footer"><div class="home-wrap"><a class="home-brand" href="/trip/" aria-label="鷹家遠行所首頁"><img src="/flights/assets/faraway-wordmark.svg" width="220" height="65" alt="鷹家遠行所"></a><p>© 鷹式一家 Eaglish Family</p><nav aria-label="頁尾導覽"><a href="/">鷹家買物社 ↗</a><a href="/blog/">鷹家選物誌 ↗</a></nav></div></footer></body></html>`;
 }

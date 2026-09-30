@@ -105,11 +105,22 @@ test('outbound travel records one referral, never purchase or affiliate query pa
 });
 
 test('local, Tailscale, design, lab and noindex pages never initialize GA or emit travel hits',()=>{
- for(const options of [{hostname:'localhost'},{hostname:'zosia-mini.tailb3e7be.ts.net'},{path:'/design/'},{path:'/lab/demo.html'},{robots:'noindex,follow'}]){
+ for(const options of [{hostname:'localhost'},{hostname:'preview.example.ts.net'},{path:'/design/'},{path:'/lab/demo.html'},{robots:'noindex,follow'}]){
   const r=runtime(options);r.click('https://www.eaglish.store/trip/');
   r.listeners.change[0]({target:{id:'home-country-filter'}});
   assert.equal(r.scripts.length,0);assert.equal(r.events().length,0);
  }
+});
+
+test('ordinary Skyscanner referrals use exact HTTPS hosts, country identity and no private query',()=>{
+ const r=runtime({path:'/trip/guides/cebu-bohol-with-kids/'});
+ const matches={'[data-country]':{dataset:{country:'philippines'}}};
+ for(const host of ['www.skyscanner.com.tw','skyscanner.com.tw'])r.click(`https://${host}/?private_email=person@example.com#token`,matches);
+ assert.equal(r.events().length,2);
+ for(const event of r.events()){assert.equal(event[1],'outbound_travel_click');assert.equal(event[2].provider,'skyscanner');assert.equal(event[2].country_id,'philippines');assert.equal(event[2].source_surface,'travel_article');assert.doesNotMatch(JSON.stringify(event),/person@|token|private_email|purchase|affiliate/);}
+ for(const url of ['https://evil.skyscanner.com.tw/','https://skyscanner.com.tw.evil.test/','https://evil.test/skyscanner.com.tw','http://www.skyscanner.com.tw/'])r.click(url,matches);
+ assert.equal(r.events().length,2);
+ for(const options of [{hostname:'localhost'},{hostname:'preview.example.ts.net'},{robots:'noindex,nofollow'}]){const local=runtime({...options,path:'/trip/guides/cebu-bohol-with-kids/'});local.click('https://www.skyscanner.com.tw/',matches);assert.equal(local.events().length,0);assert.equal(local.scripts.length,0);}
 });
 
 test('every sitemap page includes exactly one shared runtime and no parallel inline GA tag',()=>{

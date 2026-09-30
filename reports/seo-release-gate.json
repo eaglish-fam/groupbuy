@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 40,
+    "pages": 43,
     "blocking": 0,
-    "warnings": 14,
-    "total": 14
+    "warnings": 17,
+    "total": 17
   },
   "findings": [
     {
@@ -72,9 +72,30 @@
     {
       "level": "warn",
       "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "trip/guides/cebu-bohol-with-kids/index.html",
+      "index": 5424
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "trip/guides/cebu-bohol-with-kids/index.html",
+      "index": 6091
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "trip/guides/cebu-bohol-with-kids/index.html",
+      "index": 6817
+    },
+    {
+      "level": "warn",
+      "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/index.html",
-      "index": 86961
+      "index": 90580
     },
     {
       "level": "warn",

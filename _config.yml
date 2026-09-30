@@ -1,0 +1,15 @@
+# GitHub Pages publishes built pages, not build inputs or local review tools.
+exclude:
+  - node_modules
+  - vendor
+  - scripts
+  - tests
+  - docs
+  - reports
+  - AGENTS.md
+  - trip/content
+  - trip/data/cebu-bohol-hotel-publication-v1.json
+  - trip/assets/cebu-bohol-media.json
+  - trip/assets/cebu-bohol-media-v2.json
+  - trip/assets/cebu-bohol-media-v3.json
+  - trip/assets/cebu-bohol-hotel-media-v1.json

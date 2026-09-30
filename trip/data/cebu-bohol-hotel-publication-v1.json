@@ -1,0 +1,1858 @@
+{
+  "workId": "cebu-bohol-blog-20260930",
+  "sourcePackSha256": "60bb68aa03619110efb7c4a50afd20db9a429cc5f96439234c201ae41e82e96b",
+  "publicationAuthorized": false,
+  "review": {
+    "terraFactStatus": "pending-new-article-hash-review",
+    "elioraQualityStatus": "initial-text-direction-accepted-final-hash-review-pending",
+    "browserTested": false,
+    "responsiveTested": false
+  },
+  "factAudit": {
+    "path": "terra-hotel-final-fact-audit-v3.json",
+    "sha256": "96e74e881b2de1a7e299ce46590a80f8a3987c86d5a60c20efccc68535c73cec",
+    "status": "PASS_FACT_AUDIT_FOR_BOUND_HASHES",
+    "sourcePackSha256": "60bb68aa03619110efb7c4a50afd20db9a429cc5f96439234c201ae41e82e96b"
+  },
+  "pages": [
+    {
+      "id": "cebu-bohol-with-kids",
+      "file": "alma-article-v6.md",
+      "slug": "/trip/guides/cebu-bohol-with-kids/",
+      "articleType": "guide",
+      "heroId": "photo-06",
+      "path": "alma-article-v6.md",
+      "sha256": "eefc57b1ea31b7c32b6377d6115f80984c57183b4f144384ce540c11d71f35d6",
+      "title": "宿霧、薄荷島親子自由行：景點、餐廳與住宿，跨島怎麼排？",
+      "description": "從鷹式一家實訪的巧克力山、buggy、Bilar眼鏡猴、Loboc午餐船與Lila鯨鯊，搭配MIST、Ubeco及薄荷島住宿，按兩島交通、用餐和休息安排親子旅行。",
+      "author": "鷹式一家",
+      "updated": "2026-09-30",
+      "canonical": "https://www.eaglish.store/trip/guides/cebu-bohol-with-kids/",
+      "robots": "noindex,nofollow",
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "reviewRating": null,
+      "analyticsEnabled": false,
+      "plannerEnabled": true,
+      "hero": {
+        "id": "photo-06",
+        "path": "media/v4/webp/06-chocolate-hills-family.webp",
+        "sha256": "3f5543992b4ca62ca469705ed9edb110a229a07bccab8b8a0cd4eac9d526bbe5",
+        "bytes": 131044,
+        "width": 1280,
+        "height": 853,
+        "alt": "一家四口站在巧克力山觀景平台的紅色欄杆旁，身後延伸大片綠色丘陵。",
+        "caption": "我們在巧克力山的合照。家人在左邊，綠色山丘一路延伸到右邊。",
+        "sourcePackage": "luca-media-plan-v4.json",
+        "sourceVideoId": null,
+        "sourceSeconds": null,
+        "presentationTimestamp": null,
+        "timeBase": null,
+        "role": "hero",
+        "loading": "eager",
+        "fetchPriority": "high",
+        "objectFit": "contain",
+        "branchAttribution": null
+      },
+      "sections": [
+        {
+          "id": "choose",
+          "ordinal": 1,
+          "label": "先選想玩的：山景、動物與海上體驗，分區挑",
+          "tocLabel": "01 先選想玩的",
+          "startLine": 38,
+          "endLine": 55,
+          "mediaIds": [],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "islands",
+          "ordinal": 2,
+          "label": "宿霧與薄荷島，分成兩段安排",
+          "tocLabel": "02 宿霧、薄荷島怎麼分",
+          "startLine": 55,
+          "endLine": 72,
+          "mediaIds": [],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "buggy",
+          "ordinal": 3,
+          "label": "家庭 buggy：坐在一起，從泥土路看丘陵",
+          "tocLabel": "03 家庭 buggy",
+          "startLine": 72,
+          "endLine": 104,
+          "mediaIds": [
+            "photo-02",
+            "photo-03",
+            "photo-04",
+            "photo-05"
+          ],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "hills",
+          "ordinal": 4,
+          "label": "巧克力山：從高處看一座接一座的山丘",
+          "tocLabel": "04 巧克力山",
+          "startLine": 104,
+          "endLine": 128,
+          "mediaIds": [
+            "photo-07",
+            "frame-09",
+            "frame-10"
+          ],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "tarsier",
+          "ordinal": 5,
+          "label": "Bilar 眼鏡猴觀察：在枝葉間慢慢找",
+          "tocLabel": "05 Bilar 眼鏡猴",
+          "startLine": 128,
+          "endLine": 150,
+          "mediaIds": [
+            "photo-08",
+            "frame-11",
+            "frame-12"
+          ],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "loboc",
+          "ordinal": 6,
+          "label": "Loboc 午餐船：吃飯與看河景，一起安排",
+          "tocLabel": "06 Loboc 午餐船",
+          "startLine": 150,
+          "endLine": 176,
+          "mediaIds": [
+            "frame-13",
+            "frame-14",
+            "frame-15"
+          ],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "cross",
+          "ordinal": 7,
+          "label": "麥哲倫十字架：留給宿霧市區的文化停留",
+          "tocLabel": "07 麥哲倫十字架",
+          "startLine": 176,
+          "endLine": 190,
+          "mediaIds": [
+            "photo-01"
+          ],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "whale-shark",
+          "ordinal": 8,
+          "label": "Lila 鯨鯊：我們當年的體驗，與現在的安排不同",
+          "tocLabel": "08 看鯨鯊怎麼安排",
+          "startLine": 190,
+          "endLine": 224,
+          "mediaIds": [
+            "frame-27",
+            "frame-28",
+            "frame-30",
+            "frame-29"
+          ],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "dining",
+          "ordinal": 9,
+          "label": "吃哪餐、怎麼順路：Panglao 自由選餐，內陸先排午餐",
+          "tocLabel": "09 吃哪餐、怎麼順路",
+          "startLine": 224,
+          "endLine": 288,
+          "mediaIds": [
+            "frame-18",
+            "frame-17",
+            "frame-16",
+            "frame-19",
+            "frame-20",
+            "frame-21",
+            "frame-22",
+            "frame-23"
+          ],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "stay",
+          "ordinal": 10,
+          "label": "住哪一側比較適合：住宿也是行程起點",
+          "tocLabel": "10 住哪一側比較適合",
+          "startLine": 288,
+          "endLine": 321,
+          "mediaIds": [
+            "frame-24",
+            "frame-31"
+          ],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "transport",
+          "ordinal": 11,
+          "label": "機票、跨島與接送：把到達時間一起算進旅行",
+          "tocLabel": "11 機票、跨島與接送",
+          "startLine": 321,
+          "endLine": 347,
+          "mediaIds": [],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "faq",
+          "ordinal": 12,
+          "label": "親子旅行常見問題",
+          "tocLabel": "12 親子旅行常見問題",
+          "startLine": 347,
+          "endLine": 383,
+          "mediaIds": [],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "plan",
+          "ordinal": 13,
+          "label": "行程試排：一至兩個完整薄荷島遊玩日",
+          "tocLabel": "13 行程試排",
+          "startLine": 383,
+          "endLine": 421,
+          "mediaIds": [],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        },
+        {
+          "id": "films",
+          "ordinal": 14,
+          "label": "完整影片與延伸閱讀",
+          "tocLabel": "14 完整影片與延伸閱讀",
+          "startLine": 421,
+          "endLine": 430,
+          "mediaIds": [],
+          "sourceRefs": [
+            "alma-sources-map-v4.md",
+            "alma-hotel-sources-map-v3.md"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "id": "photo-06",
+          "path": "media/v4/webp/06-chocolate-hills-family.webp",
+          "sha256": "3f5543992b4ca62ca469705ed9edb110a229a07bccab8b8a0cd4eac9d526bbe5",
+          "bytes": 131044,
+          "width": 1280,
+          "height": 853,
+          "alt": "一家四口站在巧克力山觀景平台的紅色欄杆旁，身後延伸大片綠色丘陵。",
+          "caption": "我們在巧克力山的合照。家人在左邊，綠色山丘一路延伸到右邊。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": null,
+          "sourceSeconds": null,
+          "presentationTimestamp": null,
+          "timeBase": null,
+          "role": "hero",
+          "loading": "eager",
+          "fetchPriority": "high",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "photo-02",
+          "path": "media/v4/webp/02-buggy-raincoats.webp",
+          "sha256": "00e4e319ba4bfebe7ecd461f7c07f570fa5d20cf7a79103366754d786ba5c3e2",
+          "bytes": 317484,
+          "width": 1024,
+          "height": 1280,
+          "alt": "一家四口穿紫色雨衣、戴安全帽坐在藍色 buggy 上，後方是山丘與椰子樹。",
+          "caption": "雨衣、安全帽都穿戴好，全家一起坐上 buggy。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": null,
+          "sourceSeconds": null,
+          "presentationTimestamp": null,
+          "timeBase": null,
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "photo-03",
+          "path": "media/v4/webp/03-kids-helmet.webp",
+          "sha256": "e71e7e39f52d284a272ea496cbc52f1085f66adf194edcb892bf2e90cf0dd8a2",
+          "bytes": 70976,
+          "width": 1280,
+          "height": 853,
+          "alt": "兩個孩子一起拿著紅色安全帽，後方可見家人與丘陵。",
+          "caption": "buggy 行程途中，導遊幫我們拍照；拿著安全帽的拍法，是孩子自己的創意。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": null,
+          "sourceSeconds": null,
+          "presentationTimestamp": null,
+          "timeBase": null,
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "photo-04",
+          "path": "media/v4/webp/04-family-buggy.webp",
+          "sha256": "3ddc44d2cd3024054978cdb47886755ed2a635ef74c695d8a8d2e815e48f3c79",
+          "bytes": 206140,
+          "width": 1024,
+          "height": 1280,
+          "alt": "一家四口站在藍色 buggy 旁合照，後方是場地招牌與綠色丘陵。",
+          "caption": "山丘前，和 buggy 一起留下全家合照。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": null,
+          "sourceSeconds": null,
+          "presentationTimestamp": null,
+          "timeBase": null,
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "photo-05",
+          "path": "media/v4/webp/05-buggy-rain.webp",
+          "sha256": "b44cea35bcb4cdd2134b6f0cbddb819c0dcd7b15d00418e13350b865f6e7fe55",
+          "bytes": 152288,
+          "width": 1280,
+          "height": 853,
+          "alt": "雨中一家四口穿雨衣坐在藍色 buggy 裡，車頂與道路濕亮。",
+          "caption": "雨絲留在照片裡。活動後多留一段換乾衣服的時間，再接下一站。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": null,
+          "sourceSeconds": null,
+          "presentationTimestamp": null,
+          "timeBase": null,
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "photo-07",
+          "path": "media/v4/webp/07-chocolate-hills-landscape.webp",
+          "sha256": "b7232b90ab6fb803d5bf76f86667de747ff594d810ecbaeee24eafc6cdce52a4",
+          "bytes": 139408,
+          "width": 1280,
+          "height": 853,
+          "alt": "多雲天空下，綠色巧克力山與樹林延伸到遠方。",
+          "caption": "先找最近的一座，再看看更遠的山丘藏在哪裡。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": null,
+          "sourceSeconds": null,
+          "presentationTimestamp": null,
+          "timeBase": null,
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-09",
+          "path": "media/v4/webp/09-chocolate-hills-stairs.webp",
+          "sha256": "d37bc089ec630017327acaba8876ca7f8c44c77c213cf2132b0c6db93bbe0f19",
+          "bytes": 193644,
+          "width": 1920,
+          "height": 1080,
+          "alt": "爸爸跟在孩子後方走上巧克力山階梯，兩側有欄杆與植物。",
+          "caption": "孩子走在前面，爸爸跟在後面，一起往觀景台走。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 475.007867,
+          "presentationTimestamp": 28500472,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-10",
+          "path": "media/v4/webp/10-chocolate-hills-father-view.webp",
+          "sha256": "b90758a8e451b21bf47f18555b9618e79685a5736880a3b7467bb74943d78929",
+          "bytes": 94616,
+          "width": 1920,
+          "height": 1080,
+          "alt": "康先生站在巧克力山觀景平台的紅色欄杆旁，後方是丘陵。",
+          "caption": "走上來後，留時間看景與拍照。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 479.011867,
+          "presentationTimestamp": 28740712,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "photo-08",
+          "path": "media/v4/webp/08-tarsier-family.webp",
+          "sha256": "b266f8c51b436bd0501626051cfad4ae3885600fdea64c0408841c31c204e1e1",
+          "bytes": 160464,
+          "width": 960,
+          "height": 1280,
+          "alt": "眼鏡猴停在左上方葉片旁，一家四口站在右下方的園內步道。",
+          "caption": "家人一起入鏡，眼鏡猴就藏在上方枝葉間。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": null,
+          "sourceSeconds": null,
+          "presentationTimestamp": null,
+          "timeBase": null,
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-11",
+          "path": "media/v4/webp/11-tarsier-visit-courtyard.webp",
+          "sha256": "8197ce08cbfb6bfa1eff6d93563a742d63d9835f85129a53b90c5559c699b121",
+          "bytes": 295290,
+          "width": 1920,
+          "height": 1080,
+          "alt": "秀秀與孩子站在 Bohol Tarsier Conservation Area 的綠色入口字樣前。",
+          "caption": "入口畫面與 [影片 08:22 的參觀段落](https://www.youtube.com/watch?v=QmngtzfPVDk&t=502s)，可以接著看。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 505.0045,
+          "presentationTimestamp": 30300270,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-12",
+          "path": "media/v4/webp/12-tarsier-leaf-closeup.webp",
+          "sha256": "813839012f2041c6eb691a66ef8c98faa51cb9ba257c0ce91a3c1a901f4fbac8",
+          "bytes": 72846,
+          "width": 1920,
+          "height": 864,
+          "alt": "眼鏡猴停在葉片與枝條間的近景。",
+          "caption": "小小的身影停在枝葉間。在現場輕聲觀察，按指引保持距離、關掉閃光燈。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 512.0115,
+          "presentationTimestamp": 30720690,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-13",
+          "path": "media/v4/webp/13-loboc-river-restaurant-boat.webp",
+          "sha256": "9a274ca1e445c158df37f59b3d194c7f0a993ce345b022984823302898d8b045",
+          "bytes": 160844,
+          "width": 1920,
+          "height": 864,
+          "alt": "Loboc 河上另一艘有頂篷、座位與乘客的餐飲船，後方是河岸。",
+          "caption": "另一艘餐飲船沿河駛過，兩岸都是綠意。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 547.013133,
+          "presentationTimestamp": 32820788,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-14",
+          "path": "media/v4/webp/14-loboc-lunch-plate.webp",
+          "sha256": "f773f99de3431aa16df2f640d9e682c1894304083a940abcc723c4efd709eb5f",
+          "bytes": 114158,
+          "width": 1920,
+          "height": 864,
+          "alt": "船上午餐餐盤近景，可見蝦、白飯、炸物與串物。",
+          "caption": "白飯、蝦與炸物，當年船上午餐的一盤。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 542.008133,
+          "presentationTimestamp": 32520488,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-15",
+          "path": "media/v4/webp/15-loboc-family-lunch.webp",
+          "sha256": "6dcef1a5b973c8a8dff8f8a61a8dcecde618231f3be41dd13f1c64b61b16a27f",
+          "bytes": 117704,
+          "width": 1920,
+          "height": 864,
+          "alt": "一家四口圍坐船上餐桌用餐，旁邊是開放的河岸視野。",
+          "caption": "一家人坐下來吃飯，是內陸行程中的另一種節奏。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 543.009133,
+          "presentationTimestamp": 32580548,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "photo-01",
+          "path": "media/v4/webp/01-magellans-cross-family.webp",
+          "sha256": "51c8aaf948c8ae87265f5db0d5777bce8e2dfac15ff7445e4493ee5daf310dc8",
+          "bytes": 189360,
+          "width": 1024,
+          "height": 1280,
+          "alt": "一家四口在麥哲倫十字架前合照，上方是亭內壁畫。",
+          "caption": "合照之外，也記得抬頭看看天花板。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": null,
+          "sourceSeconds": null,
+          "presentationTimestamp": null,
+          "timeBase": null,
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-27",
+          "path": "media/v4/webp/27-lila-whale-shark.webp",
+          "sha256": "2d4d39d8c914f4a7b2b7f032cd4d6caee35579274ebe3db051975a5d5a62394a",
+          "bytes": 65936,
+          "width": 1920,
+          "height": 1080,
+          "alt": "水下鯨鯊側身游過，上方可見船體與水面。",
+          "caption": "水下的鯨鯊身上，一點一點的斑紋很清楚。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 682.0146666666667,
+          "presentationTimestamp": 40920880,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-28",
+          "path": "media/v4/webp/28-lila-family-boat.webp",
+          "sha256": "5781a356516b284ecf2ea4865f7a2c54a3ac066f2d48ef2aef688463b8310890",
+          "bytes": 168092,
+          "width": 1920,
+          "height": 1080,
+          "alt": "家人與船員坐在小船上，周圍是海面與其他船隻。",
+          "caption": "先搭船出海，也可以選擇在船上觀看。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 613.0124,
+          "presentationTimestamp": 36780744,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-30",
+          "path": "media/v4/webp/30-lila-swimmer-and-whale.webp",
+          "sha256": "a39747067e6a4eb8bc3ddcfdd5114668b1ecf873c0270a69b0c24eafb88671c3",
+          "bytes": 91830,
+          "width": 1920,
+          "height": 1080,
+          "alt": "成人與孩子在水下，周圍是藍色海水。",
+          "caption": "我們當年的水下體驗；現在參與要依新的距離與互動規範。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 688.0039833333333,
+          "presentationTimestamp": 41280239,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-29",
+          "path": "media/v4/webp/29-lila-child-by-boat.webp",
+          "sha256": "4e466c0dae32cd8d6fff02fe90f79c9bafdc2232ab4568c6cc16afbe4f56b25c",
+          "bytes": 134122,
+          "width": 1920,
+          "height": 864,
+          "alt": "戴面鏡的孩子在船邊水面，旁邊有成人手臂扶著。",
+          "caption": "船邊的孩子，有成人陪在身旁。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 628.0107166666667,
+          "presentationTimestamp": 37680643,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-18",
+          "path": "media/v4/webp/18-mist-family-net-space.webp",
+          "sha256": "4b209c859d186700647065197b40b913f38c5a4473d6ffb0510b3d0f06806fc0",
+          "bytes": 197824,
+          "width": 1920,
+          "height": 1080,
+          "alt": "孩子在 MIST 網繩空間裡，旁邊有木地板、靠枕與用餐座位。",
+          "caption": "木地板旁的網繩空間，也是孩子停下來看看的一角。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 195.01148333333333,
+          "presentationTimestamp": 11700689,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-17",
+          "path": "media/v4/webp/17-mist-pasta-plate.webp",
+          "sha256": "446eb0af522fe85c04f6d5d2d0558788cbe019d2a667b45a63633d4f928b7b67",
+          "bytes": 101746,
+          "width": 1920,
+          "height": 864,
+          "alt": "白色盤中的麵條與帶殼貝類近景。",
+          "caption": "我們當時點的麵，盤裡也有帶殼的貝類。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 218.00111666666666,
+          "presentationTimestamp": 13080067,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-16",
+          "path": "media/v4/webp/16-mist-fish-plate.webp",
+          "sha256": "71587b6da06bd4a0b899fee0c7373271772a91df9ee8f8cdd5f1b6a6bc4ebf70",
+          "bytes": 105418,
+          "width": 1920,
+          "height": 864,
+          "alt": "帶皮魚料理與配菜盛在白色盤中。",
+          "caption": "另一盤是魚料理，和麵分開上桌。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 219.00211666666667,
+          "presentationTimestamp": 13140127,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-19",
+          "path": "media/v4/webp/19-mist-child-fries-drink.webp",
+          "sha256": "b5ef1e97acacce98fd888c47456ead027c1b03cabd6f052eaba06ee9a99e53b5",
+          "bytes": 77988,
+          "width": 1920,
+          "height": 864,
+          "alt": "孩子坐在 MIST 木桌旁，桌上有薯條與飲品。",
+          "caption": "午餐桌邊，還有薯條與一杯飲品。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 216.0158,
+          "presentationTimestamp": 12960948,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-20",
+          "path": "media/v4/webp/20-ubeco-dinner-spread.webp",
+          "sha256": "e142f890a1b7639af8af01a484165d852cbf66bbae8dca532740be4cf20099e5",
+          "bytes": 102514,
+          "width": 1920,
+          "height": 864,
+          "alt": "Ubeco 餐桌上有麵盤、飯類、薯條、麵包與飲品。",
+          "caption": "晚餐的餐桌，麵與飯都在上面。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 314.0137,
+          "presentationTimestamp": 18840822,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-21",
+          "path": "media/v4/webp/21-ubeco-name-and-interior.webp",
+          "sha256": "03480204427d458a8923ba7c598abbadfa03302c81d81a6af1f15e3038f23fa0",
+          "bytes": 119946,
+          "width": 1920,
+          "height": 1080,
+          "alt": "家人走入 Ubeco 用餐空間，牆面海報可見店名。",
+          "caption": "進門後，牆上的海報也寫著 Ubeco。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 304.0037,
+          "presentationTimestamp": 18240222,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-22",
+          "path": "media/v4/webp/22-ubeco-family-pasta.webp",
+          "sha256": "c58f0aef0a9cf7667c5324de3ce98183ebc6b79a6ce001daf29a5e8c5e0c4d61",
+          "bytes": 62908,
+          "width": 1920,
+          "height": 864,
+          "alt": "秀秀與孩子坐在 Ubeco 餐桌旁，秀秀正在吃麵。",
+          "caption": "一天的活動後，坐下來把晚餐吃完。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 320.00301666666667,
+          "presentationTimestamp": 19200181,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-23",
+          "path": "media/v4/webp/23-ubeco-rice-egg-closeup.webp",
+          "sha256": "d428bcb19ac216b40155c2441b4fa8a82de13931cf8dba5c0b2569b695f6862d",
+          "bytes": 82370,
+          "width": 1920,
+          "height": 1080,
+          "alt": "Ubeco 的米飯餐盤，上方放著煎蛋。",
+          "caption": "除了麵，也點了一盤上面有煎蛋的米飯。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 332.01501666666667,
+          "presentationTimestamp": 19920901,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-24",
+          "path": "media/v4/webp/24-molly-pool-overview.webp",
+          "sha256": "a9132002d3bd30630f1f9c03e59d29e02f71d05b3f38d7c0c8de4ff7b395840f",
+          "bytes": 146870,
+          "width": 1920,
+          "height": 1080,
+          "alt": "Molly Resort Bohol 的長形泳池、客房陽台與池邊躺椅。",
+          "caption": "到達後先安頓，再留一段泳池時間。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 249.01543333333333,
+          "presentationTimestamp": 14940926,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-31",
+          "path": "media/v4/webp/31-henann-brand-pool.webp",
+          "sha256": "7d6dd0a53b44cec7c6b0f913e9755b721a508d2f9425eff9e2eb58ee0181775a",
+          "bytes": 299994,
+          "width": 1920,
+          "height": 1080,
+          "alt": "我們當年 Henann 品牌住宿的客房建築與泳池。",
+          "caption": "泳池與休息，也要在行程裡留得出時間。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 568.0007666666667,
+          "presentationTimestamp": 34080046,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        }
+      ],
+      "galleryGroups": [
+        {
+          "sectionId": "buggy",
+          "mediaIds": [
+            "photo-02",
+            "photo-03",
+            "photo-04",
+            "photo-05"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        },
+        {
+          "sectionId": "hills",
+          "mediaIds": [
+            "photo-07",
+            "frame-09",
+            "frame-10"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        },
+        {
+          "sectionId": "tarsier",
+          "mediaIds": [
+            "photo-08",
+            "frame-11",
+            "frame-12"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        },
+        {
+          "sectionId": "loboc",
+          "mediaIds": [
+            "frame-13",
+            "frame-14",
+            "frame-15"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        },
+        {
+          "sectionId": "cross",
+          "mediaIds": [
+            "photo-01"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        },
+        {
+          "sectionId": "whale-shark",
+          "mediaIds": [
+            "frame-27",
+            "frame-28",
+            "frame-30",
+            "frame-29"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        },
+        {
+          "sectionId": "dining",
+          "mediaIds": [
+            "frame-18",
+            "frame-17",
+            "frame-16",
+            "frame-19",
+            "frame-20",
+            "frame-21",
+            "frame-22",
+            "frame-23"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        },
+        {
+          "sectionId": "stay",
+          "mediaIds": [
+            "frame-24",
+            "frame-31"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        }
+      ],
+      "faq": [
+        {
+          "question": "一天能玩完薄荷島四種內陸體驗嗎？",
+          "answerMarkdown": "可詢問緊湊路線，但要一起看 buggy 長度、Bilar 園區安排與午餐船場次。想悠閒或保留午睡，先選山景加一種活動；四種都想玩，留兩個完整日較容易。"
+        },
+        {
+          "question": "Lila 鯨鯊可以直接加在內陸日嗎？",
+          "answerMarkdown": "先看互動季、合法業者與兒童安排，再算接送和活動整段時間。這篇的內陸試排不預設可以訂到鯨鯊；確定可參加後另留一段，不把它塞進已排滿的山景、buggy 與午餐船之間。條件不合就留飯店休息。"
+        },
+        {
+          "question": "孩子一定要下水看鯨鯊嗎？",
+          "answerMarkdown": "我們當年有孩子留在船上看。這次能否不下水、留船需誰陪同、孩子能用什麼救生裝備，都要向合法業者確認，不用勉強全家做同樣的選擇。"
+        },
+        {
+          "question": "小小孩能坐 buggy、推車能上觀景台嗎？",
+          "answerMarkdown": "兩件事分開問：buggy 用孩子年齡、身高確認乘坐方案；觀景台詢問階梯與推車安排。家中有人不適合乘車或登階，可以由成人分組，或縮減活動。"
+        },
+        {
+          "question": "不選午餐船，可以改吃 MIST 或 Ubeco 嗎？",
+          "answerMarkdown": "在 Panglao 活動或回到住宿區時可以考慮；一整天在內陸，就先就近安排陸上午餐，不為了回 Panglao 吃飯多跑一趟。MIST 與 Ubeco 的介紹見 [餐廳段落](#dining)。"
+        },
+        {
+          "question": "想在飯店游泳，需要多留一天嗎？",
+          "answerMarkdown": "可以先把抵達後的下午留給游泳、換衣服與吃飯，完整遊玩日再去內陸。若想多用飯店設施，就少排一兩站或另留休息日；兩床房間、海灘位置和池區選擇，可接著看[住宿介紹](#stay)。"
+        },
+        {
+          "question": "宿霧可以當天往返薄荷島嗎？",
+          "answerMarkdown": "先算兩端接送、報到及來回船班，再看剩多少時間。想進內陸又帶孩子，建議住在薄荷島，留完整日玩；當天往返就縮減景點，保留回程餘裕。"
+        },
+        {
+          "question": "孩子的渡輪票怎麼買？",
+          "answerMarkdown": "用實際生日、艙等向船公司核價，準備年齡及同行監護所需文件。[OceanJet 兒童票政策](https://www.oceanjet.net/news-and-updates/updated-policy-for-infant-and-minor)"
+        }
+      ],
+      "relatedLinks": [
+        {
+          "label": "看 Molly 親子住宿：房間、泳池與抵達日",
+          "url": "/trip/stays/molly-resort-bohol/"
+        },
+        {
+          "label": "看 Henann 三館親子比較：海灘、房型與泳池",
+          "url": "/trip/stays/henann-bohol-family-comparison/"
+        },
+        {
+          "label": "看我們的 Henann 住宿 Reels",
+          "url": "https://www.facebook.com/reel/383978093985047"
+        }
+      ],
+      "branchAttribution": null,
+      "source": "trip/content/philippines/cebu-bohol-with-kids.md",
+      "config": {
+        "path": "/trip/guides/cebu-bohol-with-kids/",
+        "hero": "photo-06",
+        "countryId": "philippines",
+        "tocTitle": "宿霧、薄荷島親子攻略",
+        "author": "鷹式一家",
+        "updatedAt": "2026-09-30",
+        "eyebrow": "CEBU · BOHOL / FAMILY GUIDE",
+        "chooseId": "choose",
+        "videoId": "films",
+        "sectionMap": {
+          "先選想玩的：山景、動物與海上體驗，分區挑": {
+            "id": "choose",
+            "label": "先選想玩的"
+          },
+          "宿霧與薄荷島，分成兩段安排": {
+            "id": "islands",
+            "label": "宿霧、薄荷島怎麼分"
+          },
+          "家庭 buggy：坐在一起，從泥土路看丘陵": {
+            "id": "buggy",
+            "label": "家庭 buggy"
+          },
+          "巧克力山：從高處看一座接一座的山丘": {
+            "id": "hills",
+            "label": "巧克力山"
+          },
+          "Bilar 眼鏡猴觀察：在枝葉間慢慢找": {
+            "id": "tarsier",
+            "label": "Bilar 眼鏡猴"
+          },
+          "Loboc 午餐船：吃飯與看河景，一起安排": {
+            "id": "loboc",
+            "label": "Loboc 午餐船"
+          },
+          "麥哲倫十字架：留給宿霧市區的文化停留": {
+            "id": "cross",
+            "label": "麥哲倫十字架"
+          },
+          "Lila 鯨鯊：我們當年的體驗，與現在的安排不同": {
+            "id": "whale-shark",
+            "label": "看鯨鯊怎麼安排"
+          },
+          "吃哪餐、怎麼順路：Panglao 自由選餐，內陸先排午餐": {
+            "id": "dining",
+            "label": "吃哪餐、怎麼順路"
+          },
+          "住哪一側比較適合：住宿也是行程起點": {
+            "id": "stay",
+            "label": "住哪一側比較適合"
+          },
+          "機票、跨島與接送：把到達時間一起算進旅行": {
+            "id": "transport",
+            "label": "機票、跨島與接送"
+          },
+          "親子旅行常見問題": {
+            "id": "faq",
+            "label": "親子旅行常見問題"
+          },
+          "行程試排：一至兩個完整薄荷島遊玩日": {
+            "id": "plan",
+            "label": "行程試排"
+          },
+          "完整影片與延伸閱讀": {
+            "id": "films",
+            "label": "完整影片與延伸閱讀"
+          },
+          "文章目錄": {
+            "omit": true
+          }
+        },
+        "cards": [
+          {
+            "target": "buggy",
+            "image": "photo-02",
+            "name": "家庭 buggy",
+            "region": "Carmen 周邊",
+            "reason": "一起坐車走進丘陵與泥土路",
+            "duration": "建議 1～1.5 小時起"
+          },
+          {
+            "target": "hills",
+            "image": "photo-06",
+            "name": "巧克力山",
+            "region": "薄荷島內陸",
+            "reason": "看連綿山丘，拍全景與合照",
+            "duration": "建議 45～60 分鐘"
+          },
+          {
+            "target": "tarsier",
+            "image": "photo-08",
+            "name": "眼鏡猴觀察（Bilar）",
+            "region": "Villa Aurora, Bilar",
+            "reason": "放慢腳步，在枝葉間找小動物",
+            "duration": "建議 30～45 分鐘，另留等候"
+          },
+          {
+            "target": "loboc",
+            "image": "frame-13",
+            "name": "Loboc 午餐船",
+            "region": "Loboc",
+            "reason": "坐下吃飯，也看看河岸",
+            "duration": "建議 1.5～2 小時，含候船用餐"
+          },
+          {
+            "target": "cross",
+            "image": "photo-01",
+            "name": "麥哲倫十字架",
+            "region": "Cebu City",
+            "reason": "看十字架與天花板壁畫",
+            "duration": "建議 20～30 分鐘，交通另計"
+          },
+          {
+            "target": "whale-shark",
+            "image": "frame-27",
+            "name": "Lila 鯨鯊",
+            "region": "薄荷島 Lila",
+            "reason": "歷史體驗與現在的參與條件",
+            "duration": "先確認互動季、許可與兒童安排"
+          }
+        ],
+        "topics": [
+          {
+            "target": "choose",
+            "image": "photo-02",
+            "label": "景點：怎麼玩",
+            "labelLines": [
+              "景點",
+              "怎麼玩"
+            ],
+            "position": "50% 65%"
+          },
+          {
+            "target": "dining",
+            "image": "frame-20",
+            "label": "餐廳：吃什麼",
+            "labelLines": [
+              "餐廳",
+              "吃什麼"
+            ],
+            "position": "70% 50%"
+          },
+          {
+            "target": "stay",
+            "image": "frame-24",
+            "label": "飯店：住哪裡",
+            "labelLines": [
+              "飯店",
+              "住哪裡"
+            ],
+            "position": "40% 50%"
+          }
+        ],
+        "mediaMap": {
+          "media/v4/webp/06-chocolate-hills-family.webp": "photo-06",
+          "media/v4/webp/02-buggy-raincoats.webp": "photo-02",
+          "media/v4/webp/03-kids-helmet.webp": "photo-03",
+          "media/v4/webp/04-family-buggy.webp": "photo-04",
+          "media/v4/webp/05-buggy-rain.webp": "photo-05",
+          "media/v4/webp/07-chocolate-hills-landscape.webp": "photo-07",
+          "media/v4/webp/09-chocolate-hills-stairs.webp": "frame-09",
+          "media/v4/webp/10-chocolate-hills-father-view.webp": "frame-10",
+          "media/v4/webp/08-tarsier-family.webp": "photo-08",
+          "media/v4/webp/11-tarsier-visit-courtyard.webp": "frame-11",
+          "media/v4/webp/12-tarsier-leaf-closeup.webp": "frame-12",
+          "media/v4/webp/13-loboc-river-restaurant-boat.webp": "frame-13",
+          "media/v4/webp/14-loboc-lunch-plate.webp": "frame-14",
+          "media/v4/webp/15-loboc-family-lunch.webp": "frame-15",
+          "media/v4/webp/01-magellans-cross-family.webp": "photo-01",
+          "media/v4/webp/27-lila-whale-shark.webp": "frame-27",
+          "media/v4/webp/28-lila-family-boat.webp": "frame-28",
+          "media/v4/webp/30-lila-swimmer-and-whale.webp": "frame-30",
+          "media/v4/webp/29-lila-child-by-boat.webp": "frame-29",
+          "media/v4/webp/18-mist-family-net-space.webp": "frame-18",
+          "media/v4/webp/17-mist-pasta-plate.webp": "frame-17",
+          "media/v4/webp/16-mist-fish-plate.webp": "frame-16",
+          "media/v4/webp/19-mist-child-fries-drink.webp": "frame-19",
+          "media/v4/webp/20-ubeco-dinner-spread.webp": "frame-20",
+          "media/v4/webp/21-ubeco-name-and-interior.webp": "frame-21",
+          "media/v4/webp/22-ubeco-family-pasta.webp": "frame-22",
+          "media/v4/webp/23-ubeco-rice-egg-closeup.webp": "frame-23",
+          "media/v4/webp/24-molly-pool-overview.webp": "frame-24",
+          "media/v4/webp/31-henann-brand-pool.webp": "frame-31"
+        },
+        "articleType": "destination"
+      }
+    },
+    {
+      "id": "molly-resort-bohol",
+      "file": "alma-hotel-molly-v3.md",
+      "slug": "/trip/stays/molly-resort-bohol/",
+      "articleType": "hotel",
+      "heroId": "frame-24",
+      "path": "alma-hotel-molly-v3.md",
+      "sha256": "f2916c42aa9e06ad331614a3f57454daec13fdd3d24484cf502486b8a3868736",
+      "title": "Molly Resort Bohol 親子住宿：房間、泳池與抵達日怎麼安排？",
+      "description": "看鷹式一家住過的 Molly Resort Bohol 兩床房間、長形泳池與上下樓動線，搭配 MIST、Ubeco，安排薄荷島抵達後的吃飯、入住與休息。",
+      "author": "鷹式一家",
+      "updated": "2026-09-30",
+      "canonical": "https://www.eaglish.store/trip/stays/molly-resort-bohol/",
+      "robots": "noindex,nofollow",
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "reviewRating": null,
+      "analyticsEnabled": false,
+      "plannerEnabled": false,
+      "hero": {
+        "id": "frame-24",
+        "path": "media/v4/webp/24-molly-pool-overview.webp",
+        "sha256": "a9132002d3bd30630f1f9c03e59d29e02f71d05b3f38d7c0c8de4ff7b395840f",
+        "bytes": 146870,
+        "width": 1920,
+        "height": 1080,
+        "alt": "Molly Resort Bohol 的長形泳池、客房陽台與池邊躺椅。",
+        "caption": "長形泳池旁是客房陽台與躺椅，下午可以留在飯店玩水、休息。",
+        "sourcePackage": "luca-media-plan-v4.json",
+        "sourceVideoId": "youtube-QmngtzfPVDk",
+        "sourceSeconds": 249.01543333333333,
+        "presentationTimestamp": 14940926,
+        "timeBase": "1/60000",
+        "role": "hero",
+        "loading": "eager",
+        "fetchPriority": "high",
+        "objectFit": "contain",
+        "branchAttribution": null
+      },
+      "sections": [
+        {
+          "id": "room",
+          "ordinal": 1,
+          "label": "兩張床的房間，一家人怎麼睡？",
+          "tocLabel": "01 兩床房間",
+          "startLine": 31,
+          "endLine": 43,
+          "mediaIds": [
+            "frame-25"
+          ],
+          "sourceRefs": [
+            "S01",
+            "S02"
+          ]
+        },
+        {
+          "id": "pool",
+          "ordinal": 2,
+          "label": "客房旁的長形泳池，留一個下午玩水",
+          "tocLabel": "02 泳池與玩水時間",
+          "startLine": 43,
+          "endLine": 57,
+          "mediaIds": [
+            "frame-26"
+          ],
+          "sourceRefs": [
+            "S01",
+            "S02"
+          ]
+        },
+        {
+          "id": "circulation",
+          "ordinal": 3,
+          "label": "上樓接開放式走道，行李與推車一起安排",
+          "tocLabel": "03 樓梯與行李動線",
+          "startLine": 57,
+          "endLine": 69,
+          "mediaIds": [
+            "molly-stair-circulation"
+          ],
+          "sourceRefs": [
+            "S02"
+          ]
+        },
+        {
+          "id": "arrival",
+          "ordinal": 4,
+          "label": "MIST 吃午餐、Molly 安頓，晚餐再選 Ubeco",
+          "tocLabel": "04 抵達日與吃飯",
+          "startLine": 69,
+          "endLine": 79,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S01",
+            "S03"
+          ]
+        },
+        {
+          "id": "choice",
+          "ordinal": 5,
+          "label": "想兼顧景點與飯店休息，可以這樣安排",
+          "tocLabel": "05 適合怎麼排行程",
+          "startLine": 79,
+          "endLine": 89,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S01",
+            "S03"
+          ]
+        },
+        {
+          "id": "faq",
+          "ordinal": 6,
+          "label": "住宿常見的三個問題",
+          "tocLabel": "06 住宿常見問題",
+          "startLine": 89,
+          "endLine": 105,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S01",
+            "S02",
+            "S03"
+          ]
+        },
+        {
+          "id": "related",
+          "ordinal": 7,
+          "label": "看實際住宿，再接上整趟旅行",
+          "tocLabel": "07 影片與行程",
+          "startLine": 105,
+          "endLine": 114,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S01"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "id": "frame-24",
+          "path": "media/v4/webp/24-molly-pool-overview.webp",
+          "sha256": "a9132002d3bd30630f1f9c03e59d29e02f71d05b3f38d7c0c8de4ff7b395840f",
+          "bytes": 146870,
+          "width": 1920,
+          "height": 1080,
+          "alt": "Molly Resort Bohol 的長形泳池、客房陽台與池邊躺椅。",
+          "caption": "長形泳池旁是客房陽台與躺椅，下午可以留在飯店玩水、休息。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 249.01543333333333,
+          "presentationTimestamp": 14940926,
+          "timeBase": "1/60000",
+          "role": "hero",
+          "loading": "eager",
+          "fetchPriority": "high",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-25",
+          "path": "media/v4/webp/25-molly-room-family.webp",
+          "sha256": "80274cb65a1f37e82ed2ad254c722625d73f070d715691120f4f7b4c0fa5dc4e",
+          "bytes": 94726,
+          "width": 1920,
+          "height": 864,
+          "alt": "Molly 房間內的兩張床、木色床頭牆與行李。",
+          "caption": "我們入住的兩床房間，床頭牆面與行李空間都能一起看。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 237.00343333333333,
+          "presentationTimestamp": 14220206,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "frame-26",
+          "path": "media/v4/webp/26-molly-pool-family.webp",
+          "sha256": "2ac50c2258f67eaa46ead70f1df6c2fe6d71337c54cdd9b511c522a521070d80",
+          "bytes": 247662,
+          "width": 1920,
+          "height": 1080,
+          "alt": "秀秀與孩子在 Molly 泳池邊，後方可見 6FT 深度標示。",
+          "caption": "家人在池邊的畫面；後方這一處標示 6FT。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 255.00475,
+          "presentationTimestamp": 15300285,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        },
+        {
+          "id": "molly-stair-circulation",
+          "path": "media/hotels-v1/webp/molly-stair-circulation.webp",
+          "sha256": "d6a0bcac81d2efa8078d74a28e01ff3dcec222d97dfd81c45e8d189997be2cde",
+          "bytes": 73104,
+          "width": 1920,
+          "height": 864,
+          "alt": "家人在 Molly 的樓梯與上層開放式走道移動。",
+          "caption": "樓梯接上客房外的開放式走道。",
+          "sourcePackage": "media/hotels-v1/provenance.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 229.01211666666666,
+          "presentationTimestamp": 13740727,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": null
+        }
+      ],
+      "galleryGroups": [
+        {
+          "sectionId": "room",
+          "mediaIds": [
+            "frame-25"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        },
+        {
+          "sectionId": "pool",
+          "mediaIds": [
+            "frame-26"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        },
+        {
+          "sectionId": "circulation",
+          "mediaIds": [
+            "molly-stair-circulation"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        }
+      ],
+      "faq": [
+        {
+          "question": "Molly 的房間是什麼配置？",
+          "answerMarkdown": "我們入住的是兩張床的房間，照片中也看得到木色床頭牆與行李。可以先用這個配置規劃全家的睡法，再向飯店選擇符合人數與床位需求的房型。"
+        },
+        {
+          "question": "從 Molly 去海灘，怎麼安排？",
+          "answerMarkdown": "先選想去的海灘，用地圖確認路線，再把飯店接送與回程一起安排。若打算帶孩子每天往返海邊，可以在訂房詢價時一併提出。"
+        },
+        {
+          "question": "抵達當天怎麼排比較輕鬆？",
+          "answerMarkdown": "先搭船、接車與吃飯，入住後留在飯店休息或游泳。我們這趟就是這樣安排；巧克力山、Bilar 與 Loboc 則放在完整的薄荷島遊玩日。"
+        }
+      ],
+      "relatedLinks": [
+        {
+          "label": "總攻略的餐廳段落",
+          "url": "/trip/guides/cebu-bohol-with-kids/#dining"
+        },
+        {
+          "label": "宿霧、薄荷島親子自由行總攻略",
+          "url": "/trip/guides/cebu-bohol-with-kids/"
+        },
+        {
+          "label": "Henann 三館的海灘、床位與池區選擇",
+          "url": "/trip/stays/henann-bohol-family-comparison/"
+        }
+      ],
+      "branchAttribution": null,
+      "source": "trip/content/philippines/alma-hotel-molly-v3.md",
+      "config": {
+        "path": "/trip/stays/molly-resort-bohol/",
+        "articleType": "hotel",
+        "hero": "frame-24",
+        "countryId": "philippines",
+        "tocTitle": "Molly 親子住宿",
+        "author": "鷹式一家",
+        "updatedAt": "2026-09-30",
+        "eyebrow": "BOHOL / FAMILY STAY",
+        "sectionMap": {
+          "兩張床的房間，一家人怎麼睡？": {
+            "id": "room",
+            "label": "兩床房間"
+          },
+          "客房旁的長形泳池，留一個下午玩水": {
+            "id": "pool",
+            "label": "泳池與玩水時間"
+          },
+          "上樓接開放式走道，行李與推車一起安排": {
+            "id": "circulation",
+            "label": "樓梯與行李動線"
+          },
+          "MIST 吃午餐、Molly 安頓，晚餐再選 Ubeco": {
+            "id": "arrival",
+            "label": "抵達日與吃飯"
+          },
+          "想兼顧景點與飯店休息，可以這樣安排": {
+            "id": "choice",
+            "label": "適合怎麼排行程"
+          },
+          "住宿常見的三個問題": {
+            "id": "faq",
+            "label": "住宿常見問題"
+          },
+          "看實際住宿，再接上整趟旅行": {
+            "id": "related",
+            "label": "影片與行程"
+          }
+        },
+        "mediaMap": {
+          "media/v4/webp/24-molly-pool-overview.webp": "frame-24",
+          "media/v4/webp/25-molly-room-family.webp": "frame-25",
+          "media/v4/webp/26-molly-pool-family.webp": "frame-26",
+          "media/hotels-v1/webp/molly-stair-circulation.webp": "molly-stair-circulation"
+        },
+        "cards": [],
+        "related": [
+          {
+            "label": "總攻略的餐廳段落",
+            "href": "/trip/guides/cebu-bohol-with-kids/#dining"
+          },
+          {
+            "label": "宿霧、薄荷島親子自由行總攻略",
+            "href": "/trip/guides/cebu-bohol-with-kids/"
+          },
+          {
+            "label": "Henann 三館的海灘、床位與池區選擇",
+            "href": "/trip/stays/henann-bohol-family-comparison/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "henann-bohol-family-comparison",
+      "file": "alma-hotel-henann-comparison-v2.md",
+      "slug": "/trip/stays/henann-bohol-family-comparison/",
+      "articleType": "hotel",
+      "heroId": "frame-31",
+      "path": "alma-hotel-henann-comparison-v2.md",
+      "sha256": "0063c8fd12c20ed19620a8639c77dd4b1a360b3db7473f8f43c576cefc48243e",
+      "title": "薄荷島 Henann 三館怎麼選？Alona、Tawala、Premier 親子住宿比較",
+      "description": "整理薄荷島 Henann Alona Beach、Tawala、Premier Coast 的海灘位置、兩臥室家庭房、床位、早餐與泳池，依一家人的住宿需求選館。",
+      "author": "鷹式一家",
+      "updated": "2026-09-30",
+      "canonical": "https://www.eaglish.store/trip/stays/henann-bohol-family-comparison/",
+      "robots": "noindex,nofollow",
+      "schemaTypes": [
+        "Article",
+        "BreadcrumbList"
+      ],
+      "reviewRating": null,
+      "analyticsEnabled": false,
+      "plannerEnabled": false,
+      "hero": {
+        "id": "frame-31",
+        "path": "media/v4/webp/31-henann-brand-pool.webp",
+        "sha256": "7d6dd0a53b44cec7c6b0f913e9755b721a508d2f9425eff9e2eb58ee0181775a",
+        "bytes": 299994,
+        "width": 1920,
+        "height": 1080,
+        "alt": "我們當年 Henann 品牌住宿的客房建築、泳池、遮陽傘與躺椅。",
+        "caption": "我們在 Henann 住宿時留下的池景。",
+        "sourcePackage": "luca-media-plan-v4.json",
+        "sourceVideoId": "youtube-QmngtzfPVDk",
+        "sourceSeconds": 568.0007666666667,
+        "presentationTimestamp": 34080046,
+        "timeBase": "1/60000",
+        "role": "hero",
+        "loading": "eager",
+        "fetchPriority": "high",
+        "objectFit": "contain",
+        "branchAttribution": "henann-brand-only"
+      },
+      "sections": [
+        {
+          "id": "compare",
+          "ordinal": 1,
+          "label": "三館各有什麼選擇重點？",
+          "tocLabel": "01 先看三館差異",
+          "startLine": 32,
+          "endLine": 44,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S04",
+            "S05",
+            "S08",
+            "S09",
+            "S12",
+            "S14"
+          ]
+        },
+        {
+          "id": "beach",
+          "ordinal": 2,
+          "label": "Alona、Premier 在海濱，Tawala 從園區前往海灘",
+          "tocLabel": "02 海灘與位置",
+          "startLine": 44,
+          "endLine": 54,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S06",
+            "S08",
+            "S11"
+          ]
+        },
+        {
+          "id": "rooms",
+          "ordinal": 3,
+          "label": "兩臥室家庭房與池景一般房，床位一次看",
+          "tocLabel": "03 家庭房與床位",
+          "startLine": 54,
+          "endLine": 72,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S04",
+            "S09",
+            "S12",
+            "S13"
+          ]
+        },
+        {
+          "id": "breakfast",
+          "ordinal": 4,
+          "label": "家庭房早餐：Alona 列四成人，Premier 列兩成人",
+          "tocLabel": "04 家庭房早餐人數",
+          "startLine": 72,
+          "endLine": 87,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S04",
+            "S12"
+          ]
+        },
+        {
+          "id": "pools",
+          "ordinal": 5,
+          "label": "各館泳池與開放時間",
+          "tocLabel": "05 泳池與開放時間",
+          "startLine": 87,
+          "endLine": 103,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S05",
+            "S10",
+            "S14"
+          ]
+        },
+        {
+          "id": "our-stay",
+          "ordinal": 6,
+          "label": "我們在 Henann：游泳之後，坐下來休息",
+          "tocLabel": "06 我們的住宿片段",
+          "startLine": 103,
+          "endLine": 119,
+          "mediaIds": [
+            "henann-brand-open-corridor",
+            "frame-32"
+          ],
+          "sourceRefs": [
+            "S01",
+            "S02"
+          ]
+        },
+        {
+          "id": "faq",
+          "ordinal": 7,
+          "label": "選館前常見的三個問題",
+          "tocLabel": "07 選館問題",
+          "startLine": 119,
+          "endLine": 135,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S04",
+            "S05",
+            "S08",
+            "S12"
+          ]
+        },
+        {
+          "id": "related",
+          "ordinal": 8,
+          "label": "選好住宿，再接上薄荷島行程",
+          "tocLabel": "08 官網與行程",
+          "startLine": 135,
+          "endLine": 146,
+          "mediaIds": [],
+          "sourceRefs": [
+            "S01",
+            "S06",
+            "S08",
+            "S11"
+          ]
+        }
+      ],
+      "media": [
+        {
+          "id": "frame-31",
+          "path": "media/v4/webp/31-henann-brand-pool.webp",
+          "sha256": "7d6dd0a53b44cec7c6b0f913e9755b721a508d2f9425eff9e2eb58ee0181775a",
+          "bytes": 299994,
+          "width": 1920,
+          "height": 1080,
+          "alt": "我們當年 Henann 品牌住宿的客房建築、泳池、遮陽傘與躺椅。",
+          "caption": "我們在 Henann 住宿時留下的池景。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 568.0007666666667,
+          "presentationTimestamp": 34080046,
+          "timeBase": "1/60000",
+          "role": "hero",
+          "loading": "eager",
+          "fetchPriority": "high",
+          "objectFit": "contain",
+          "branchAttribution": "henann-brand-only"
+        },
+        {
+          "id": "henann-brand-open-corridor",
+          "path": "media/hotels-v1/webp/henann-brand-open-corridor.webp",
+          "sha256": "b6bcb4c9c112e31416be9bc8d039bf70c9b760d2fb4117498478545ffa9faba3",
+          "bytes": 80414,
+          "width": 1920,
+          "height": 864,
+          "alt": "家人在 Henann 品牌住宿的開放式走廊前行，旁邊是中庭。",
+          "caption": "走廊沿著中庭延伸，是我們當年的住宿片段。",
+          "sourcePackage": "media/hotels-v1/provenance.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 567.01645,
+          "presentationTimestamp": 34020987,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": "henann-brand-only"
+        },
+        {
+          "id": "frame-32",
+          "path": "media/v4/webp/32-henann-brand-rest.webp",
+          "sha256": "9d65e00794166c7c09238d99623ecc4c0f0fcfea5eddbb0a41a2d6899345eb59",
+          "bytes": 66854,
+          "width": 1920,
+          "height": 864,
+          "alt": "秀秀與孩子坐在沙發上休息。",
+          "caption": "先坐一會兒，讓一家人休息。",
+          "sourcePackage": "luca-media-plan-v4.json",
+          "sourceVideoId": "youtube-QmngtzfPVDk",
+          "sourceSeconds": 565.01445,
+          "presentationTimestamp": 33900867,
+          "timeBase": "1/60000",
+          "role": "support",
+          "loading": "lazy",
+          "fetchPriority": "low",
+          "objectFit": "contain",
+          "branchAttribution": "henann-brand-only"
+        }
+      ],
+      "galleryGroups": [
+        {
+          "sectionId": "our-stay",
+          "mediaIds": [
+            "henann-brand-open-corridor",
+            "frame-32"
+          ],
+          "layout": "large-primary-with-responsive-support",
+          "preserveAspectRatio": true
+        }
+      ],
+      "faq": [
+        {
+          "question": "住 Tawala，可以怎麼使用海灘區？",
+          "answerMarkdown": "住客可免費使用海灘區與躺椅，官網估計步行約兩分鐘，也有視供應提供的海灘接駁。若另想使用其他館的池區，訂房時提供池區名稱，一併確認使用安排。"
+        },
+        {
+          "question": "想全家分兩間臥室，先看哪兩種房？",
+          "answerMarkdown": "先比較 Alona Family Room 與 Premier Family Room with Beach View。兩者主臥都是 queen 加單人床，次臥兩張單人床；Alona 約 52㎡，Premier 為 62.4㎡含 6.4㎡陽台。房型頁的成人早餐人數分別為四人與兩人。"
+        },
+        {
+          "question": "怎麼依孩子的需求選館？",
+          "answerMarkdown": "先決定睡法：要兩間臥室，就看 Alona 或 Premier 家庭房；偏好池景一般房，就看 Tawala Deluxe。接著選海灘往返與玩水安排，依孩子年齡確認池區；Alona Christina’s 的適用年齡是 16 歲以上。"
+        }
+      ],
+      "relatedLinks": [
+        {
+          "label": "Molly Resort Bohol 親子住宿",
+          "url": "/trip/stays/molly-resort-bohol/"
+        },
+        {
+          "label": "宿霧、薄荷島親子自由行總攻略",
+          "url": "/trip/guides/cebu-bohol-with-kids/"
+        },
+        {
+          "label": "看我們的 Henann 住宿 Reels",
+          "url": "https://www.facebook.com/reel/383978093985047"
+        }
+      ],
+      "branchAttribution": {
+        "firsthand": "brand_only",
+        "selfStayedBranch": null,
+        "officialComparedBranches": [
+          "Henann Resort Alona Beach",
+          "Henann Tawala Resort",
+          "Henann Premier Coast Resort"
+        ]
+      },
+      "source": "trip/content/philippines/alma-hotel-henann-comparison-v2.md",
+      "config": {
+        "path": "/trip/stays/henann-bohol-family-comparison/",
+        "articleType": "hotel",
+        "hero": "frame-31",
+        "countryId": "philippines",
+        "tocTitle": "Henann 三館親子比較",
+        "author": "鷹式一家",
+        "updatedAt": "2026-09-30",
+        "eyebrow": "BOHOL / FAMILY STAY",
+        "sectionMap": {
+          "三館各有什麼選擇重點？": {
+            "id": "compare",
+            "label": "先看三館差異"
+          },
+          "Alona、Premier 在海濱，Tawala 從園區前往海灘": {
+            "id": "beach",
+            "label": "海灘與位置"
+          },
+          "兩臥室家庭房與池景一般房，床位一次看": {
+            "id": "rooms",
+            "label": "家庭房與床位"
+          },
+          "家庭房早餐：Alona 列四成人，Premier 列兩成人": {
+            "id": "breakfast",
+            "label": "家庭房早餐人數"
+          },
+          "各館泳池與開放時間": {
+            "id": "pools",
+            "label": "泳池與開放時間"
+          },
+          "我們在 Henann：游泳之後，坐下來休息": {
+            "id": "our-stay",
+            "label": "我們的住宿片段"
+          },
+          "選館前常見的三個問題": {
+            "id": "faq",
+            "label": "選館問題"
+          },
+          "選好住宿，再接上薄荷島行程": {
+            "id": "related",
+            "label": "官網與行程"
+          }
+        },
+        "mediaMap": {
+          "media/v4/webp/31-henann-brand-pool.webp": "frame-31",
+          "media/hotels-v1/webp/henann-brand-open-corridor.webp": "henann-brand-open-corridor",
+          "media/v4/webp/32-henann-brand-rest.webp": "frame-32"
+        },
+        "cards": [],
+        "related": [
+          {
+            "label": "Molly Resort Bohol 親子住宿",
+            "href": "/trip/stays/molly-resort-bohol/"
+          },
+          {
+            "label": "宿霧、薄荷島親子自由行總攻略",
+            "href": "/trip/guides/cebu-bohol-with-kids/"
+          }
+        ]
+      }
+    }
+  ]
+}

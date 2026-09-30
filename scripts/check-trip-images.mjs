@@ -1,4 +1,5 @@
 import {readFile,stat} from 'node:fs/promises';
+import {existsSync,readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import sharp from 'sharp';
 import {regions} from '../trip/new-zealand-data.mjs';
@@ -6,6 +7,9 @@ import {regions} from '../trip/new-zealand-data.mjs';
 const root=resolve(import.meta.dirname,'..');
 const pages=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',...regions.map(region=>region.route),'/trip/thailand/','/trip/thailand/bangkok/','/trip/guides/bangkok-with-kids/','/trip/thailand/chiang-mai/','/trip/guides/chiang-mai-with-kids/','/trip/guides/chiang-rai-with-kids/','/trip/thailand/chiang-rai/'];
 const maxBytes=width=>width<=640?120_000:width<=960?220_000:400_000;
+pages.push('/trip/guides/cebu-bohol-with-kids/');
+const hotelReceipt=resolve(root,'trip/data/cebu-bohol-hotel-publication-v1.json');
+if(existsSync(hotelReceipt))pages.push(...JSON.parse(readFileSync(hotelReceipt)).pages.filter(p=>p.articleType==='hotel').map(p=>p.slug));
 let checked=0;
 for(const page of pages){
  const html=await readFile(resolve(root,page.slice(1),'index.html'),'utf8');

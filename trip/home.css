@@ -218,3 +218,8 @@ body.travel-home{--ink:#494139;--paper:#fcfaf5;--line:#dcd5c9;--muted:#70665b;--
 .travel-home .home-unmapped-panel button{align-self:start;min-height:44px;margin-top:24px;border:0;background:none;border-bottom:1px solid #a7b3a2;font-size:13px;color:#3f665c;padding:6px 0}
 @media(max-width:700px){.travel-home .home-atlas-explore>.home-region-filters{padding-inline:12px;gap:0}.travel-home .home-region-filters button{font-size:12px;padding-inline:10px}.travel-home .home-globe-stage{aspect-ratio:640/440}.travel-home .home-globe-toolbar{gap:3px 9px;padding-inline:12px}.travel-home .home-globe-toolbar span{font-size:10px}.travel-home .home-subregion-group button{font-size:12px;padding-inline:9px}.travel-home .home-unmapped-panel{min-height:270px;padding:28px 22px}.travel-home .home-unmapped-panel h3{font-size:28px}}
 @media(prefers-reduced-motion:reduce){.travel-home .home-globe-canvas,.travel-home .home-globe-stage.is-travelling .home-globe-canvas{filter:none;transition:none}}
+/* Guide-specific planning is an ordinary internal path, not an affiliate offer. */
+.travel-home .home-guide-planning{border:1px solid #dcd5c9;background:#faf7f0;padding:20px;margin:0 0 24px}
+.travel-home .home-guide-planning ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px;list-style:none;padding:0;margin:8px 0 0}
+.travel-home .home-guide-planning a{display:inline-flex;min-height:44px;align-items:center;line-height:1.6}
+@media(max-width:700px){.travel-home .home-guide-planning ul{grid-template-columns:1fr}}

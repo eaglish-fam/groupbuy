@@ -148,7 +148,8 @@
     }
     const provider = /(^|\.)klook\.com$/.test(u.hostname) ? 'klook'
       : /(^|\.)kkday\.com$/.test(u.hostname) ? 'kkday'
-      : /(^|\.)agoda\.com$/.test(u.hostname) ? 'agoda' : '';
+      : /(^|\.)agoda\.com$/.test(u.hostname) ? 'agoda'
+      : u.protocol==='https:' && ['www.skyscanner.com.tw','skyscanner.com.tw'].includes(u.hostname) ? 'skyscanner' : '';
     if (provider && location.pathname.startsWith('/trip/')) {
       track('outbound_travel_click', {
         country_id: countryFor(a) || 'unknown', provider, destination_host: u.hostname,

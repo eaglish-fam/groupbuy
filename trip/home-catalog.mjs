@@ -3,6 +3,7 @@
 // Image sources are documented in trip/assets/*-media.json. Reuse the same image
 // record wherever a cover is shared, so cards and responsive markup stay in sync.
 const images = {
+  philippines: {src:'/trip/assets/ph-cebu-bohol-06-chocolate-hills-family.webp',alt:'一家四口在巧克力山紅色欄杆旁合照，後方延伸綠色山丘',width:1280,height:853,position:'26% 60%'},
   thailand: {src:'/trip/assets/cm-thai-dress-family.webp',alt:'一家四口穿著泰服，站在清邁塔佩門的紅磚城牆前合照',width:1280,height:853,position:'50% 62%'},
   newZealand: {src:'/trip/assets/nz-wanaka-tree.webp',alt:'一家人在 Wānaka 湖畔合照，後方是湖中樹與群山',width:1440,height:960,position:'50% 60%'},
   bangkok: {src:'/trip/assets/bkk-bangkok-family.webp',alt:'鷹式一家五人帶著推車，在曼谷的商店步道合照',width:1024,height:1280,position:'50% 62%'},
@@ -43,9 +44,21 @@ export const travelHomeCatalog = {
       image:images.newZealand,
       guideIds:['north-island','wellington','christchurch-akaroa','mid-canterbury','kaikoura','otago','queenstown-arrowtown','wanaka-tekapo'],
     },
+    {
+      id:'philippines',name:'菲律賓',englishName:'Philippines',href:'/trip/guides/cebu-bohol-with-kids/',entryKind:'single-guide',
+      region:'asia',subregion:'southeast-asia',regionLabel:'亞洲',geography:{point:[123.8854,10.3157],isoNumeric:'608'},
+      summary:'從宿霧與薄荷島的實訪景點、Panglao 餐廳與住宿，接好跨島、用餐和休息。',
+      image:images.philippines,guideIds:['cebu-bohol'],
+    },
   ],
   // Curated discovery order balances countries. Country views use guideIds above.
   guides: [
+    {
+      id:'cebu-bohol',countryId:'philippines',name:'宿霧與薄荷島',englishName:'Cebu · Bohol',href:'/trip/guides/cebu-bohol-with-kids/',
+      summary:'看山、觀察動物、挑 MIST 與 Ubeco，再從實住照片安排飯店休息與跨島交通。',
+      planningLinks:[{target:'choose',label:'宿霧、薄荷島景點與玩法'},{target:'dining',label:'Panglao 餐廳與內陸午餐'},{target:'stay',label:'薄荷島實住經驗與住宿區域'},{target:'transport',label:'機票比較、跨島與接送'}],
+      image:images.philippines,suitableFor:['nature','animals','city','food'],
+    },
     {
       id:'bangkok',countryId:'thailand',name:'曼谷',englishName:'Bangkok',href:'/trip/guides/bangkok-with-kids/',
       summary:'搭運河長尾船、逛市集，再選一段水族館與河畔活動。',

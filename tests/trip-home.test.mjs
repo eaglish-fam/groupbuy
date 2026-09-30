@@ -121,7 +121,8 @@ test('progressive controller handles a new country, empty intersections, reset, 
   assert.equal(visible().length, 6);
   assert.equal(empty.hidden, true);
   events.more();
-  assert.equal(visible().length, records.length);
+  assert.equal(visible().length, Math.min(12,records.length));
   assert.equal(focusedGuide, records[6].id);
+  if(records.length>12){assert.equal(more.hidden,false);events.more();assert.equal(visible().length,records.length);assert.equal(focusedGuide,records[12].id);}
   assert.equal(more.hidden, true);
 });

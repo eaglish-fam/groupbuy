@@ -1,0 +1,18 @@
+{
+  "sourceOwner": "Alma",
+  "sourceArtifact": "alma-article-v6.md",
+  "sha256": "eefc57b1ea31b7c32b6377d6115f80984c57183b4f144384ce540c11d71f35d6",
+  "sourceMapArtifact": "alma-hotel-sources-map-v3.md",
+  "sourceMapSha256": "0b4dcb54345c25c6dea4b30a100d263473ffc2ed9910900180776e18beb23fcd",
+  "freezeArtifact": "alma-hotel-publication-pack-v3.json",
+  "freezeSha256": "60bb68aa03619110efb7c4a50afd20db9a429cc5f96439234c201ae41e82e96b",
+  "importedAt": "2026-09-30T13:02:05.131Z",
+  "contentChanges": false,
+  "factAcceptance": "PASS_FACT_AUDIT_FOR_BOUND_HASHES",
+  "factAudit": {
+    "path": "terra-hotel-final-fact-audit-v3.json",
+    "sha256": "96e74e881b2de1a7e299ce46590a80f8a3987c86d5a60c20efccc68535c73cec",
+    "status": "PASS_FACT_AUDIT_FOR_BOUND_HASHES",
+    "sourcePackSha256": "60bb68aa03619110efb7c4a50afd20db9a429cc5f96439234c201ae41e82e96b"
+  }
+}

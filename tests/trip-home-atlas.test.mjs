@@ -17,6 +17,8 @@ const fixtures=[
 ];
 function tenCountryCatalog(){
  const catalog=structuredClone(travelHomeCatalog);
+ catalog.countries=catalog.countries.filter(c=>c.id!=='philippines');
+ catalog.guides=catalog.guides.filter(g=>g.countryId!=='philippines');
  for(const [id,name,region,regionLabel,isoNumeric,point] of fixtures){
   const countryId='fixture-'+id,guideId=countryId+'-guide';
   catalog.countries.push({...structuredClone(catalog.countries[0]),id:countryId,name,englishName:id,href:`/trip/${countryId}/`,region,regionLabel,subregion:region==='asia'?'east-asia':region==='europe'?({'uk':'northern-europe','fr':'western-europe','it':'southern-europe'}[id]):region==='oceania'?'australasia':'north-america',geography:{isoNumeric,point},guideIds:[guideId]});

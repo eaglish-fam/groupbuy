@@ -42,7 +42,10 @@
 
   const desktop = matchMedia('(min-width: 1200px)');
   const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)');
-  const chrome = document.querySelector('.journal-chrome');
+  // This guide opts into the measured travel masthead; existing journals keep
+  // their chrome and other travel pages are unchanged (no styling class reuse).
+  const chrome = document.querySelector('.journal-chrome') ||
+    document.querySelector('body.cb-guide > header.masthead.wrap');
   const article = source.closest('article') || document.querySelector('main');
   const root = document.createElement('aside');
   root.className = 'reading-nav';
@@ -194,8 +197,15 @@
     if (location.hash !== link.hash) history.pushState(null, '', link.hash);
     // Use one measured offset instead of accumulating scroll-padding and scroll-margin.
     const padding = parseFloat(getComputedStyle(entry.target).paddingTop) || 0;
-    const y = scrollY + entry.target.getBoundingClientRect().top + padding - headerBottom() - 16;
-    scrollTo({top: y, behavior: reducedMotion.matches ? 'instant' : 'smooth'});
+    // A one-pixel buffer on this guide prevents fractional layout rounding
+    // from leaving less than the required 16px below its sticky masthead.
+    const guideRoundingBuffer = document.body.classList.contains('cb-guide') ? 1 : 0;
+    const y = scrollY + entry.target.getBoundingClientRect().top + padding - headerBottom() - 16 - guideRoundingBuffer;
+    // This long, source-ratio guide loads many images while a distant chapter
+    // enters view. WebKit can anchor those loads during a smooth scroll and
+    // finish above the heading. Use one direct jump here; the existing TOC
+    // arrival animation and every other guide's scrolling stay unchanged.
+    scrollTo({top: y, behavior: reducedMotion.matches || guideRoundingBuffer ? 'instant' : 'smooth'});
     const heading = entry.target.querySelector('h2') || entry.target;
     if (!heading.hasAttribute('tabindex')) {
       heading.setAttribute('tabindex', '-1');
@@ -205,6 +215,22 @@
     heading.setAttribute('data-reading-nav-target', '');
     heading.addEventListener('blur', () => heading.removeAttribute('data-reading-nav-target'), {once: true});
     heading.focus({preventScroll: true});
+    // This source-ratio guide can be entered before its headline font finishes.
+    // Correct that one pending jump once; a later user gesture always cancels it.
+    if (document.body.classList.contains('cb-guide') && document.fonts?.status === 'loading') {
+      let cancelled = false;
+      const inputs = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
+      const cleanup = () => inputs.forEach(type => document.removeEventListener(type, cancel));
+      const cancel = () => { cancelled = true; cleanup(); };
+      inputs.forEach(type => document.addEventListener(type, cancel, {passive: true, once: true}));
+      document.fonts.ready.then(() => {
+        cleanup();
+        if (cancelled || document.activeElement !== heading || location.hash !== link.hash) return;
+        const settledY = scrollY + heading.getBoundingClientRect().top - headerBottom() - 17;
+        scrollTo({top: settledY, behavior: 'instant'});
+        schedule();
+      });
+    }
     schedule();
   }
   source.addEventListener('click', jump);

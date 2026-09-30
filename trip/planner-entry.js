@@ -5,6 +5,9 @@
   const heading = plan.querySelector('h2');
   const footer = document.querySelector('footer');
   const nav = document.querySelector('.reading-nav');
+  // Only this guide opts in: its stacked topic links and inline chapter list
+  // already offer navigation, so the floating launcher must not cover them.
+  const inlineGuideNav = [...document.querySelectorAll('body.cb-guide :is(.cb-topic-entries,.cb-toc)')];
   let queued = false;
   const visible = el => {
     if (!el) return false;
@@ -17,7 +20,8 @@
     const rect = focus && focus !== document.body && focus !== entry ? focus.getBoundingClientRect() : null;
     // Reserve the launcher's whole touch area, including its focus ring and safe area.
     const obscuresFocus = rect && rect.right > window.innerWidth - 90 && rect.bottom > window.innerHeight - 110 && rect.top < window.innerHeight;
-    entry.hidden = visible(plan) || visible(footer) || Boolean(nav?.classList.contains('is-open')) || Boolean(obscuresFocus);
+    const inlineNavigationShown = inlineGuideNav.some(el => visible(el) && (!el.classList.contains('cb-toc') || window.innerWidth < 1200));
+    entry.hidden = visible(plan) || visible(footer) || inlineNavigationShown || Boolean(nav?.classList.contains('is-open')) || Boolean(obscuresFocus);
   }
   function schedule() {
     if (!queued) { queued = true; requestAnimationFrame(update); }

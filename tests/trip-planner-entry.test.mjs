@@ -18,16 +18,19 @@ for (const [city,end] of [['chiang-mai','video'],['chiang-rai','films']]) {
 }
 test('launcher visibility, focus and reduced-motion jump',()=>{
   const callbacks={}, entry={hidden:false,addEventListener:(event,fn)=>callbacks[event]=fn};
-  let planTop=2000, footerTop=5000, open=false, focus=null, behavior=null, hash='';
+  let planTop=2000, footerTop=5000, inlineTop=3000, open=false, focus=null, behavior=null, hash='';
   const heading={setAttribute:(key,value)=>assert.deepEqual([key,value],['tabindex','-1']),focus:()=>{focus=heading;}};
   const plan={getBoundingClientRect:()=>({top:planTop,bottom:planTop+1000}),querySelector:()=>heading,scrollIntoView:options=>{behavior=options.behavior;}};
   const footer={getBoundingClientRect:()=>({top:footerTop,bottom:footerTop+200})};
   const nav={classList:{contains:()=>open}};
-  const document={body:{},activeElement:null,querySelector:selector=>({'[data-plan-entry]':entry,'footer':footer,'.reading-nav':nav}[selector]),getElementById:()=>plan,addEventListener:(name,fn)=>callbacks[name]=fn};
+  const inline={getBoundingClientRect:()=>({top:inlineTop,bottom:inlineTop+200}),classList:{contains:()=>false}};
+  const document={body:{},activeElement:null,querySelector:selector=>({'[data-plan-entry]':entry,'footer':footer,'.reading-nav':nav}[selector]),querySelectorAll:selector=>{assert.equal(selector,'body.cb-guide :is(.cb-topic-entries,.cb-toc)');return [inline];},getElementById:()=>plan,addEventListener:(name,fn)=>callbacks[name]=fn};
   const location={hash};
   const context={document,location,history:{pushState:(_a,_b,value)=>location.hash=value},window:{innerHeight:844,innerWidth:390,addEventListener:(name,fn)=>callbacks[name]=fn},requestAnimationFrame:fn=>fn(),MutationObserver:class{constructor(fn){callbacks.mutation=fn;}observe(){}},matchMedia:()=>({matches:true})};
   vm.runInNewContext(read('trip/planner-entry.js'),context);
   assert.equal(entry.hidden,false);
+  inlineTop=500;callbacks.scroll();assert.equal(entry.hidden,true);
+  inlineTop=3000;callbacks.scroll();assert.equal(entry.hidden,false);
   planTop=300;callbacks.scroll();assert.equal(entry.hidden,true);
   planTop=2000;callbacks.scroll();assert.equal(entry.hidden,false);
   open=true;callbacks.mutation();assert.equal(entry.hidden,true);
