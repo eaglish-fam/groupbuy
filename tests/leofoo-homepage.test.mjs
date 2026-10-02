@@ -84,7 +84,10 @@ test('Leofoo display grouping retains the three actual normalized products and d
 test('Leofoo homepage markup keeps exact links, modal defaults and accessibility sizing contracts', () => {
   assert.match(source, /data-detail="\$\{products\.indexOf\(product\)\}"/);
   assert.doesNotMatch(source, /data-detail="-1"/);
-  assert.match(source, />前往方案 A<\/a>/);
+  assert.match(source, /href="\/blog\/leofoo\/#plans">比較三種方案<\/a>/);
+  assert.doesNotMatch(source, />前往方案 A<\/a>/);
+  assert.doesNotMatch(source, /data-leofoo-plans|function openLeofooPlans/);
+  assert.match(readFileSync(resolve(root, 'blog/leofoo/index.html'), 'utf8'), /<section id="plans">/);
   assert.match(source, /href="\/blog\/leofoo\/">閱讀選房指南<\/a>/);
   assert.match(source, /p\.article\?\.id === "leofoo"[\s\S]*?name === "方案詳情"/);
   const loadSource = source.slice(source.indexOf('async function performLoad()'), source.indexOf('function load()'));
@@ -170,8 +173,16 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
       { index: 1, brand: '六福莊住宿 B｜經典探險', actual: true },
       { index: 2, brand: '六福莊住宿 C｜FUN肆玩樂季', actual: true },
     ]);
-    assert.equal(await page.locator('#product-leofoo [data-buy-key]').innerText(), '前往方案 A');
-    assert.equal(new URL(await page.locator('#product-leofoo [data-buy-key]').getAttribute('href')).href, urls.A);
+    assert.equal(await page.locator('#product-leofoo [data-buy-key]').count(), 0);
+    assert.equal(await page.locator('#product-leofoo .card-primary-action a').innerText(), '比較三種方案');
+    assert.equal(await page.locator('#product-leofoo .card-primary-action a').getAttribute('href'), '/blog/leofoo/#plans');
+    // The existing plan buttons retain the original rich details and exact booking links.
+    for (const code of ['A', 'B', 'C']) {
+      await page.locator(`#product-leofoo [data-plan-code="${code}"]`).click();
+      assert.equal(await page.locator('#detail-title').innerText(), brands[code]);
+      assert.equal(await page.locator('#detail [data-buy-key]').getAttribute('href'), urls[code]);
+      await page.keyboard.press('Escape');
+    }
     assert.equal(await page.locator('#product-leofoo a.card-reading').getAttribute('href'), '/blog/leofoo/');
     assert.equal(await page.locator('#result-count').innerText(), '1 件選物');
     assert.match(await page.locator('#browse-progress').innerText(), /1／1/);
@@ -247,7 +258,8 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
         return index >= 0 && products[index] != null;
       })));
       assert.equal(await page.locator('#product-leofoo .status').innerText(), '仍有方案開團');
-      assert.equal(await page.locator('#product-leofoo [data-buy-key]').count(), code === 'A' ? 0 : 1);
+      assert.equal(await page.locator('#product-leofoo [data-buy-key]').count(), 0);
+      assert.equal(await page.locator('#product-leofoo .card-primary-action a').getAttribute('href'), '/blog/leofoo/#plans');
     }
 
     missingCode = '';

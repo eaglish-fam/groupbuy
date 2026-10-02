@@ -263,8 +263,6 @@ function leofooCard(p, plans, matchedPlans) {
     ? plans.find(plan => plan && saved.has(plan.key)) || p
     : p;
   const saveIndex = products.indexOf(saveProduct);
-  const primaryA = plans[0];
-  const primaryAAvailable = primaryA?.status.key === "open" && matchedPlans.includes(primaryA);
   const calendarProduct = matchedPlans.find(plan => plan.status.key === "open") || matchedPlans[0] || p;
   const calendarIndex = products.indexOf(calendarProduct);
   const activeTimedPlan = matchedPlans.find(timedCampaign);
@@ -289,7 +287,7 @@ function leofooCard(p, plans, matchedPlans) {
     <div class="product-bottom">${activeTimedPlan ? `<p class="date-line">${countdownMarkup(activeTimedPlan)}</p>` : ""}
     <a class="card-reading" href="/blog/leofoo/">閱讀選房指南</a>
     ${calendarProduct.start || calendarProduct.end ? `<button class="card-calendar" data-calendar-product="${calendarIndex}">加入行事曆</button>` : ""}
-    <div class="card-primary-action">${primaryAAvailable ? `<a class="button primary" href="${esc(primaryA.url)}" data-buy-key="${esc(primaryA.key)}" target="_blank" rel="noopener noreferrer">前往方案 A</a>` : `<button class="button secondary" data-save="${saveIndex}">${saved.has(saveProduct.key) ? "已收藏 ✓" : "先收藏"}</button>`}</div>
+    <div class="card-primary-action"><a class="button primary" href="/blog/leofoo/#plans">比較三種方案</a></div>
     </div></div></article>`;
 }
 function card(p, leofooPlans = [], matchedLeofooPlans = []) {
