@@ -2,7 +2,7 @@ import {initialState,reduceAtlas,atlasNavigation,topLevels,categoryNames,selectP
 import {syncPlanningOffers} from './atlas-planning.mjs';
 import {atlasCamera} from './atlas-globe-camera.mjs';
 import {displayTimecode,reviewRelationLabels} from './atlas-review-browser.mjs';
-import {createGlobeLifecycle} from './atlas-globe-lifecycle.mjs';
+import {createGlobeLifecycle,bindGlobePageLifecycle} from './atlas-globe-lifecycle.mjs';
 import {startPhotoGrids,layoutPhotoGrids} from './photo-frame-grid.mjs';
 import {photoContexts} from '../scripts/trip-photo-contexts-r22.mjs';
 import {canonicalTripPhoto} from './photo-source-identity.mjs';
@@ -71,10 +71,12 @@ const lifecycle=createGlobeLifecycle({
  onState:syncGlobeStatus,
  onError:({stage,attempt})=>console.warn('atlas-globe',{revision:config.candidateRevision||'r21',stage,attempt})
 });
-async function updateGlobe(){
+async function updateGlobe({force=false}={}){
  try{
-  globe=lifecycle.controller||await lifecycle.ensure();
-  if(globe)globe.setView(atlasCamera(state,geometry.globe,catalog,regions));
+  await lifecycle.ensure();
+  // An interrupted, older promise must never replace the restored controller.
+  globe=lifecycle.controller;
+  if(globe)globe.setView(atlasCamera(state,geometry.globe,catalog,regions),{force});
   syncGlobeStatus({phase:lifecycle.phase,error:$('#globe-stage').dataset.globeError});
  }catch(error){console.warn('atlas-globe',{revision:config.candidateRevision||'r21',stage:error.stage||'camera'});}
 }
@@ -159,9 +161,9 @@ document.addEventListener('click',event=>{const b=event.target.closest('[data-ac
 document.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)&&event.target.matches('[data-map-county]')){event.preventDefault();dispatch(state.regionId?{type:'county',id:event.target.dataset.mapCounty}:{type:'region',id:event.target.dataset.region});}});
 $('#back').addEventListener('click',()=>dispatch({type:'back'}));
 $('#recenter-map').addEventListener('click',()=>globe?.recenter());
-$('#retry-globe').addEventListener('click',async()=>{globe=await lifecycle.retry();});
+$('#retry-globe').addEventListener('click',async()=>{await lifecycle.retry();globe=lifecycle.controller;});
 $('#more-records')?.addEventListener('click',()=>{state={...state,expandedResults:true};render();});
-window.addEventListener('pagehide',()=>lifecycle.destroy(),{once:true});
+bindGlobePageLifecycle(lifecycle,window,()=>updateGlobe({force:true}));
 $('#category')?.addEventListener('change',e=>dispatch({type:'category',id:e.target.value}));
 $('#place-detail')?.addEventListener('close',()=>{detailPlaceId=null;restoreDetailFocus();});
  $('#theme')?.addEventListener('change',e=>dispatch({type:'theme',id:e.target.value}));
