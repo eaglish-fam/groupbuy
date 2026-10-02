@@ -1,0 +1,281 @@
+{
+  "schema": "eaglish.leofoo-responsive-images/v1",
+  "quality": 72,
+  "effort": 6,
+  "crop": false,
+  "originalsPreserved": true,
+  "images": [
+    {
+      "source": "/assets/leofoo/cover.webp",
+      "sourceWidth": 1600,
+      "sourceHeight": 1000,
+      "sourceBytes": 191616,
+      "sourceSha256": "1300254cec1ad3dd6e6d0d47c4f6ab626efccf7f23771acd0c7f2ffd1690de55",
+      "sizes": "(max-width: 700px) 100vw, (max-width: 1119px) calc(100vw - 80px), 1040px",
+      "variants": [
+        {
+          "path": "/assets/leofoo/cover-fast-480.webp",
+          "width": 480,
+          "height": 300,
+          "bytes": 21112,
+          "sha256": "03ac84fd4ea1391c74ea034de57cad786926f738f5324eda32adf29d8b03a8c7"
+        },
+        {
+          "path": "/assets/leofoo/cover-fast-800.webp",
+          "width": 800,
+          "height": 500,
+          "bytes": 48740,
+          "sha256": "c7700c973d4a8af9eaeaceae5188385014f1cc6962f17c61352615932ab09ebd"
+        },
+        {
+          "path": "/assets/leofoo/cover-fast-1200.webp",
+          "width": 1200,
+          "height": 750,
+          "bytes": 81894,
+          "sha256": "5ba73e02fa0398c5ff7a6107d3ab75ca84a440a69c17bf9417c0cc073d0c85c4"
+        }
+      ]
+    },
+    {
+      "source": "/assets/leofoo/congo.webp",
+      "sourceWidth": 1400,
+      "sourceHeight": 933,
+      "sourceBytes": 76284,
+      "sourceSha256": "b41f360f2186dbf2406c156e8b8a7672a61c159cc1abb08f5a318c04f85088a3",
+      "sizes": "(max-width: 760px) calc(100vw - 44px), (max-width: 1007px) calc((100vw - 112px) / 2), 448px",
+      "variants": [
+        {
+          "path": "/assets/leofoo/congo-fast-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 10486,
+          "sha256": "c026f7be17666702077c1ae3d8cc946439d35e08eb48f9bc5b150181c9ba2f2c"
+        },
+        {
+          "path": "/assets/leofoo/congo-fast-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 20822,
+          "sha256": "b7799414d1c55a52082aa9e6e4433a41fa94da1649ce0a6ef3db5c89e9fdb948"
+        },
+        {
+          "path": "/assets/leofoo/congo-fast-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 34416,
+          "sha256": "850160d17f5eabc9c5f5f9ed5f5938b3d1e674b1ab4f10059af8c58483990e17"
+        }
+      ]
+    },
+    {
+      "source": "/assets/leofoo/kenya.webp",
+      "sourceWidth": 1400,
+      "sourceHeight": 933,
+      "sourceBytes": 127974,
+      "sourceSha256": "f57eb8f63f07cc612b430a565aefa2c7d5bedb4c0a21d6eb36180a063905550b",
+      "sizes": "(max-width: 760px) calc(100vw - 44px), (max-width: 1007px) calc((100vw - 112px) / 2), 448px",
+      "variants": [
+        {
+          "path": "/assets/leofoo/kenya-fast-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 16972,
+          "sha256": "555398ef1a24fb65093d1285466c78670993409b11d81a5a14774b732f942673"
+        },
+        {
+          "path": "/assets/leofoo/kenya-fast-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 33842,
+          "sha256": "b93e582ad4394d5a1ddd63a983126a24fcd54f68a7fb9c2a5bfe250287a77a1f"
+        },
+        {
+          "path": "/assets/leofoo/kenya-fast-1200.webp",
+          "width": 1200,
+          "height": 800,
+          "bytes": 57524,
+          "sha256": "115806bc337700683985a92f3fdd10d94c2f68ce73b185f7598cc6ffec60e5fb"
+        }
+      ]
+    },
+    {
+      "source": "/assets/leofoo/family-room.webp",
+      "sourceWidth": 1280,
+      "sourceHeight": 610,
+      "sourceBytes": 36036,
+      "sourceSha256": "5a2a6acf3c97b9e39666e0b8de9d0cc9e2da2bddcd182393309084013a9ccf38",
+      "sizes": "(max-width: 760px) calc(100vw - 44px), (max-width: 1007px) calc(100vw - 88px), 920px",
+      "variants": [
+        {
+          "path": "/assets/leofoo/family-room-fast-480.webp",
+          "width": 480,
+          "height": 229,
+          "bytes": 7764,
+          "sha256": "e08a4f16bfb6008a4fdc87d4b1b146346e4c4eba56d77e779a7bcb0a5d70f27b"
+        },
+        {
+          "path": "/assets/leofoo/family-room-fast-800.webp",
+          "width": 800,
+          "height": 381,
+          "bytes": 14316,
+          "sha256": "b44e2f9ab806f6e1cc678b560403a603025dc9b298bbf995fef8b2572863ef91"
+        },
+        {
+          "path": "/assets/leofoo/family-room-fast-1200.webp",
+          "width": 1200,
+          "height": 572,
+          "bytes": 21556,
+          "sha256": "02ddd47ab8ee7d632c79629055fa4ad157bc8e2328a37b973db06ac6a56c92f4"
+        }
+      ]
+    },
+    {
+      "source": "/assets/leofoo/meerkats.webp",
+      "sourceWidth": 1280,
+      "sourceHeight": 610,
+      "sourceBytes": 247304,
+      "sourceSha256": "db3a34a4ee7d5187d3af15931dec1310030b89dcd24ed8ffff03904c3ed2d040",
+      "sizes": "(max-width: 760px) calc(100vw - 44px), (max-width: 1007px) calc((100vw - 112px) / 2), 448px",
+      "variants": [
+        {
+          "path": "/assets/leofoo/meerkats-fast-480.webp",
+          "width": 480,
+          "height": 229,
+          "bytes": 36212,
+          "sha256": "e8adfc7957ea03b093ced4aea90c4346662a9f8b40199a0a8818dc13a8f20dea"
+        },
+        {
+          "path": "/assets/leofoo/meerkats-fast-800.webp",
+          "width": 800,
+          "height": 381,
+          "bytes": 82550,
+          "sha256": "775550228502579587a45c837431fc6d9c6d623ffd68917a3d077dc08726fe4d"
+        },
+        {
+          "path": "/assets/leofoo/meerkats-fast-1200.webp",
+          "width": 1200,
+          "height": 572,
+          "bytes": 139612,
+          "sha256": "c943e40b3e1a65e85a9128dec8df11f4dba7f25a8e6d87dfe1114525738d949e"
+        }
+      ]
+    },
+    {
+      "source": "/assets/leofoo/hotel-walkway-v2.webp",
+      "sourceWidth": 1280,
+      "sourceHeight": 610,
+      "sourceBytes": 52092,
+      "sourceSha256": "1f83784f1e7e70273f5d282d9b3274ab85edf2449a55dcfa433c41a81cee51ac",
+      "sizes": "(max-width: 760px) calc(100vw - 44px), (max-width: 1007px) calc((100vw - 112px) / 2), 448px",
+      "variants": [
+        {
+          "path": "/assets/leofoo/hotel-walkway-v2-fast-480.webp",
+          "width": 480,
+          "height": 229,
+          "bytes": 11760,
+          "sha256": "c02f349279ee146a8bbe4b38708039d9fe49548129e215c6c62a3a0176eea7d1"
+        },
+        {
+          "path": "/assets/leofoo/hotel-walkway-v2-fast-800.webp",
+          "width": 800,
+          "height": 381,
+          "bytes": 20688,
+          "sha256": "95ec0473c85d1927aba9887bfaabed3bc6abfc4d958b3bd05da5037bfa1dd205"
+        },
+        {
+          "path": "/assets/leofoo/hotel-walkway-v2-fast-1200.webp",
+          "width": 1200,
+          "height": 572,
+          "bytes": 31884,
+          "sha256": "b3deb5d598d1b03c106c2c634dc3f4fd1956ca32ac5ff4475db6d51a47cc9378"
+        }
+      ]
+    },
+    {
+      "source": "/assets/leofoo/hippo-experience.webp",
+      "sourceWidth": 800,
+      "sourceHeight": 533,
+      "sourceBytes": 119662,
+      "sourceSha256": "1045b1e12e11f2592f569595834ecafca45e3f5eff851b36e94ce9839534a55b",
+      "sizes": "(max-width: 760px) calc(100vw - 44px), (max-width: 1007px) calc((100vw - 112px) / 2), 448px",
+      "variants": [
+        {
+          "path": "/assets/leofoo/hippo-experience-fast-480.webp",
+          "width": 480,
+          "height": 320,
+          "bytes": 29756,
+          "sha256": "70314c0ac8914e59d74f29eb24cc9f186f1de5e4c4cdbdc7574beca79ed0e09a"
+        },
+        {
+          "path": "/assets/leofoo/hippo-experience-fast-800.webp",
+          "width": 800,
+          "height": 533,
+          "bytes": 79604,
+          "sha256": "b88f9454426308869e8fcd8041965809494ce5f66ee6200d40c073c7a80988ce"
+        }
+      ]
+    },
+    {
+      "source": "/assets/leofoo/family-adventure.webp",
+      "sourceWidth": 1280,
+      "sourceHeight": 720,
+      "sourceBytes": 166188,
+      "sourceSha256": "e5d0dda6c081d5b6fb6a17075443480a043f33a764e3bd594f0df8001ed87536",
+      "sizes": "(max-width: 760px) calc(100vw - 44px), (max-width: 1007px) calc((100vw - 112px) / 2), 448px",
+      "variants": [
+        {
+          "path": "/assets/leofoo/family-adventure-fast-480.webp",
+          "width": 480,
+          "height": 270,
+          "bytes": 22356,
+          "sha256": "30e517178392c362e3ce3ea6ed1457676db6761d7d26e987a87d836e40de7d6e"
+        },
+        {
+          "path": "/assets/leofoo/family-adventure-fast-800.webp",
+          "width": 800,
+          "height": 450,
+          "bytes": 50510,
+          "sha256": "ce2af80c9d68dd28f34da968878fab98c326e9368ee8b7d4c8b4f504837581f9"
+        },
+        {
+          "path": "/assets/leofoo/family-adventure-fast-1200.webp",
+          "width": 1200,
+          "height": 675,
+          "bytes": 86518,
+          "sha256": "4bb800a6608f3b4f27df0682d20ded74ecce1fb667e8e08d7423dd3fb8e1e43e"
+        }
+      ]
+    },
+    {
+      "source": "/assets/leofoo/park-train.webp",
+      "sourceWidth": 1280,
+      "sourceHeight": 610,
+      "sourceBytes": 76004,
+      "sourceSha256": "6825f77e407c8319221057faf2af8fdc7a3dbdd4f7c0e915eff83fe847badd87",
+      "sizes": "(max-width: 760px) calc(100vw - 44px), (max-width: 1007px) calc(100vw - 88px), 920px",
+      "variants": [
+        {
+          "path": "/assets/leofoo/park-train-fast-480.webp",
+          "width": 480,
+          "height": 229,
+          "bytes": 14112,
+          "sha256": "7cd76ae523d052268905d72e7b790b789008e8362b77a28ce807919587e2f806"
+        },
+        {
+          "path": "/assets/leofoo/park-train-fast-800.webp",
+          "width": 800,
+          "height": 381,
+          "bytes": 26798,
+          "sha256": "5d2bd5c8912ed072623edffac15a76887297f888182f28e6d3605c38df80cd10"
+        },
+        {
+          "path": "/assets/leofoo/park-train-fast-1200.webp",
+          "width": 1200,
+          "height": 572,
+          "bytes": 42308,
+          "sha256": "5e3e462263b463ac9906f18e0e50253da2e8f25eb41dff4ede2bc769b03a67ae"
+        }
+      ]
+    }
+  ]
+}

@@ -4,6 +4,7 @@
   "version": "1.0.0",
   "description": "鷹家 Fun 生買物社 - 團購頁",
   "scripts": {
+    "optimize:leofoo": "node scripts/optimize-leofoo-images.mjs",
     "build:homepage": "node scripts/build-homepage.mjs && node scripts/optimize-entry-images.mjs",
     "refresh:catalog": "node scripts/catalog-snapshot.mjs --refresh",
     "build:content": "node scripts/build-content-hubs.mjs",
