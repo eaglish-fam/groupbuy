@@ -50,6 +50,7 @@ html=html.replace('正在讀取最新團購…','商品選購目錄')
  .replace('<p class="source-status" id="source-status" aria-live="polite"></p>',`<p class="source-status" id="source-status" aria-live="polite">先閱讀商品介紹與選購筆記；即時開團狀態載入後更新。目錄整理：${snapshot.observedAt.slice(0,10)}。</p>`);
 if(!html.includes('data-snapshot-card'))throw Error('Homepage snapshot insertion failed');
 html = html.replace(/((?:src|href)="\/[^"]+\.(?:js|css))(?:\?[^"]*)?"/g, '$1?v=' + release + '"');
+html = html.replace(`src="/design/design.js?v=${release}"`, 'src="/design/design.js?v=20261002-leofoo-card-only"');
 if (html.includes('noindex') || html.includes('獨立設計提案') || !html.includes('id="original-notice"')) throw Error('Invalid production homepage');
 writeFileSync(new URL('index.html', root), html.replace(/[ \t]+$/gm, ''));
 console.log('Built production homepage from design/index.html');
