@@ -33,7 +33,12 @@ export function mapFirstTravelHome(template){
  const introduction=opening.match(/<h1 id="home-title">[^<]+<\/h1><p>[^<]+<\/p>/g);
  if(introduction?.length!==1)throw Error('Expected one brief home introduction');
  const intro=`<section class="home-introduction home-wrap" aria-labelledby="home-title">${introduction[0]}</section>`;
- return template.slice(0,openingStart)+intro+template.slice(mapStart,planningStart)
+ const map=template.slice(mapStart,planningStart);
+ // Keep the frozen reviewed snapshot; the live home needs only the main intro.
+ const duplicateIntro='<div class="atlas-intro"><h2 id="atlas-heading">從一片風景，開始遠行。</h2><p>先選地區，再找到想去的國家。</p></div>';
+ if(map.split(duplicateIntro).length!==2||map.split('aria-labelledby="atlas-heading"').length!==2)throw Error('Expected one reviewed atlas introduction and accessible name');
+ const destinations=map.replace(duplicateIntro,'').replace('aria-labelledby="atlas-heading"','aria-label="目的地地圖"');
+ return template.slice(0,openingStart)+intro+destinations
   +opening.replace(introduction[0],'').replace('<img ','<img data-primary-travel-photo ')
   +template.slice(featuredStart,mapStart)+template.slice(planningStart);
 }

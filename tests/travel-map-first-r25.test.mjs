@@ -15,16 +15,19 @@ test('home has one brief H1 then the actual map before any promoted photo or art
  assert.doesNotMatch(main.slice(0,map),/<img\b|class="home-guide"|home-opening-photo/);
  assert.equal((main.match(/\sid="home-title"/g)||[]).length,1);
  assert.equal((main.match(/\sid="destinations"/g)||[]).length,1);
+ assert.doesNotMatch(main,/從一片風景，開始遠行。|先選地區，再找到想去的國家。|aria-labelledby="atlas-heading"|class="atlas-intro"/);
+ assert.match(main,/<section class="home-destinations home-wrap" id="destinations" aria-label="目的地地圖">/);
  assert.equal((main.slice(featured,planning).match(/class="home-guide"/g)||[]).length,6);
 });
-test('module reorder preserves all approved copy, links, images, frame positions and map bytes',()=>{
+test('module reorder preserves approved content except the removed duplicate introduction and its ARIA reference',()=>{
  const actual=mapFirstTravelHome(template);
+ const reviewedTemplate=template.replace('<div class="atlas-intro"><h2 id="atlas-heading">從一片風景，開始遠行。</h2><p>先選地區，再找到想去的國家。</p></div>','').replace('aria-labelledby="atlas-heading"','aria-label="目的地地圖"');
  const inventory=html=>[...html.matchAll(/<(?:h[1-4]|p|figcaption|img|a)\b[^>]*(?:>[\s\S]*?<\/(?:h[1-4]|p|figcaption|a)>|>)/g)].map(m=>m[0].replace(' data-primary-travel-photo','')).sort();
- assert.deepEqual(inventory(actual),inventory(template));
+ assert.deepEqual(inventory(actual),inventory(reviewedTemplate));
  const frames=html=>[...html.matchAll(/<div class="r22-photo-frame"[^>]*>/g)].map(m=>m[0]).sort();
  assert.deepEqual(frames(actual),frames(template));
  const mapStart='<section class="home-destinations home-wrap"';
- const beforeMap=template.slice(template.indexOf(mapStart),template.indexOf('<section class="home-planning home-wrap"'));
+ const beforeMap=reviewedTemplate.slice(reviewedTemplate.indexOf(mapStart),reviewedTemplate.indexOf('<section class="home-planning home-wrap"'));
  const afterMap=actual.slice(actual.indexOf(mapStart),actual.indexOf('<section class="home-opening home-wrap"'));
  assert.ok(beforeMap.length>100000);assert.equal(afterMap,beforeMap);
  assert.equal(actual.split('{{ATLAS_CONFIG}}').length,2);
