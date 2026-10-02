@@ -18,6 +18,7 @@ for(const section of ['blog','trip','guides','how-we-select']){
 
 test('three-site headline font covers public Chinese headings without remote font requests',()=>{
  const glyphs=new Set(readFileSync(resolve(root,'assets/fonts/heading-glyphs.txt'),'utf8'));
+ const travelGlyphs=new Set(readFileSync(resolve(root,'assets/fonts/travel-heading-glyphs-r24.txt'),'utf8'));
  const font=readFileSync(resolve(root,'assets/fonts/noto-serif-tc-headings-v8.woff2'));
  assert.equal(font.toString('ascii',0,4),'wOF2');
  assert.ok(font.byteLength<256*1024,'shared headline font should stay under 256 KiB');
@@ -31,11 +32,16 @@ test('three-site headline font covers public Chinese headings without remote fon
   checked++;
   assert.match(html,/\/site-navigation\.css\?v=/,path);
   assert.doesNotMatch(html,/fonts\.googleapis\.com|fonts\.gstatic\.com/,path);
+  const scoped=path==='trip/index.html'||path==='trip/guides/cebu-bohol-with-kids/index.html';
+  const atlasStart=html.indexOf('<div class="atlas-component"'),atlasEnd=html.indexOf('<section class="home-planning');
+  if(scoped)assert.match(html,/\/trip\/heading-theme-r24\.css/);
+  if(atlasStart>=0)assert.match(readFileSync(resolve(root,'trip/atlas-component.css'),'utf8'),/\.atlas-component h1,\.atlas-component h2,\.atlas-component h3\{font-family:'Songti TC'/);
   for(const heading of html.matchAll(/<h[1-3]\b[^>]*>([\s\S]*?)<\/h[1-3]>/gi)){
+   if(atlasStart>=0&&heading.index>atlasStart&&heading.index<atlasEnd)continue;
    const text=heading[1].replace(/<[^>]*>/g,'');
    for(const char of text){
     if(char.codePointAt(0)>=0x3400&&char.codePointAt(0)<=0x9fff)
-     assert.ok(glyphs.has(char),`${path} has an uncovered heading character: ${char}`);
+     assert.ok((scoped?travelGlyphs:glyphs).has(char),`${path} has an uncovered heading character: ${char}`);
    }
   }
  }

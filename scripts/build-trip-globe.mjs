@@ -19,6 +19,10 @@ writeFileSync(new URL('trip/globe-land.json',root),data+'\n');
 const notices=['d3-geo','d3-array','internmap','topojson-client','world-atlas'].map(name=>`${name}\n${readFileSync(new URL(`node_modules/${name}/LICENSE`,root),'utf8')}`).join('\n\n');
 writeFileSync(new URL('trip/globe-licenses.txt',root),notices);
 await build({entryPoints:[fileURLToPath(new URL('trip/globe-source.mjs',root))],outfile:fileURLToPath(new URL('trip/globe.js',root)),bundle:true,minify:true,format:'esm',platform:'browser',target:['es2020'],legalComments:'eof',banner:{js:`/*!\n${notices}\n*/`}});
+// Keep the renderer separate. The light navigation no longer fans out to five
+// helper requests, and the original source modules remain inspectable.
+await build({entryPoints:[fileURLToPath(new URL('trip/atlas-ui.mjs',root))],outfile:fileURLToPath(new URL('trip/atlas-ui-bundle.mjs',root)),bundle:true,minify:true,format:'esm',platform:'browser',target:['es2020'],external:['./globe.js','./globe.js?*'],legalComments:'eof'});
+await build({entryPoints:[fileURLToPath(new URL('trip/cebu-presentation-r21.mjs',root))],outfile:fileURLToPath(new URL('trip/cebu-presentation-r21-bundle.mjs',root)),bundle:true,minify:true,format:'esm',platform:'browser',target:['es2020'],legalComments:'eof'});
 const sizes={};
 for(const name of ['globe.js','globe-land.json']){
  const bytes=readFileSync(new URL('trip/'+name,root));

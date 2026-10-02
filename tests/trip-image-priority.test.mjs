@@ -8,7 +8,7 @@ import {travelHomeCatalog} from '../trip/home-catalog.mjs';
 const root=resolve(import.meta.dirname,'..');
 const read=path=>readFileSync(resolve(root,path),'utf8');
 const pages=[
- ['trip/index.html',travelHomeCatalog.countries[0].image.src.split('/').at(-1).replace(/\.webp$/,'')],
+ ['trip/index.html',travelHomeCatalog.guides.find(g=>g.id==='cebu-bohol').image.src.split('/').at(-1).replace(/\.webp$/,'')],
  ['trip/new-zealand/index.html','nz-christchurch-tram'],
  ['trip/new-zealand/christchurch/index.html','nz-christchurch-tram'],
  ['trip/new-zealand/akaroa/index.html','nz-farm'],
