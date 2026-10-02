@@ -1,5 +1,5 @@
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else{root.LeofooGuide=api;api.mount();}})(typeof globalThis!=='undefined'?globalThis:this,function(){
-  const plans={A:{brand:'六福莊住宿 A｜樂園無限玩',url:'https://pse.is/9p7sug',end:'2026-10-08T23:59:59+08:00'},B:{brand:'六福莊住宿 B｜經典探險',url:'https://pse.is/9p7svd',end:'2026-10-08T23:59:59+08:00'},C:{brand:'六福莊住宿 C｜FUN肆玩樂季',url:'https://pse.is/9p7svv',end:'2026-10-08T23:59:59+08:00'}};
+  const plans={A:{brand:'六福莊住宿 A｜樂園無限玩',url:'https://pse.is/9p7sug',end:'2026-10-07T23:59:59+08:00'},B:{brand:'六福莊住宿 B｜經典探險',url:'https://pse.is/9p7svd',end:'2026-10-07T23:59:59+08:00'},C:{brand:'六福莊住宿 C｜FUN肆玩樂季',url:'https://pse.is/9p7svv',end:'2026-10-07T23:59:59+08:00'}};
   const csv='https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/gviz/tq?tqx=out:csv&headers=1&sheet=%E7%8F%BE%E6%AD%A3%E9%96%8B%E5%9C%98';
   function choose({people,stairs,view,trip}){
     const count=Number(people),many=count>4,over=count>6,avoid=stairs==='avoid',slow=trip==='slow';

@@ -72,7 +72,7 @@ test('Leofoo display grouping retains the three actual normalized products and d
     連結: urls[code],
     類型: '短期',
     開團日期: '2026-10-02',
-    結束日期: '2026-10-08',
+    結束日期: '2026-10-07',
   }));
   const duplicateCampaign = productContent.campaignFor([...rows, rows[0]], 'leofoo', '2026-10-02');
   applyLeofooCampaignStatus(products, duplicateCampaign);
@@ -125,7 +125,7 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
   const requestedTabs = [];
   const header = ['品牌', '商品ID', '連結', '類型', '開團日期', '結束日期', '商品描述', '方案詳情', '圖片網址', '分類'];
   const planRows = Object.entries(brands).map(([code, brand]) => [
-    brand, `leofoo-${code.toLowerCase()}`, urls[code], '短期', '2026-10-02', '2026-10-08',
+    brand, `leofoo-${code.toLowerCase()}`, urls[code], '短期', '2026-10-02', '2026-10-07',
     `${code} 方案說明`, `${code} 方案完整細節`, '/assets/leofoo/product-card.webp', '親子旅行',
   ]);
   const csv = rows => rows.map(row => row.map(value => `"${String(value).replaceAll('"', '""')}"`).join(',')).join('\n');

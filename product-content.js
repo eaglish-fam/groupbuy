@@ -54,8 +54,8 @@
         const matches=rows.filter(r=>String(r['品牌']||'').trim()===brand);
         const row=matches.length===1?matches[0]:null;
         const expectedUrl={A:'https://pse.is/9p7sug',B:'https://pse.is/9p7svd',C:'https://pse.is/9p7svv'}[code];
-        // The vendor's revised campaign document governs this Oct 2–8 offer.
-        const expectedEnd='2026-10-08';
+        // Hiram confirmed one campaign cutoff for all three booking links.
+        const expectedEnd='2026-10-07';
         const verified=row && row['連結']===expectedUrl && date(row['開團日期'])==='2026-10-02' && date(row['結束日期'])===expectedEnd;
         return [code,campaignRow(verified?row:null,now)];
       }));
