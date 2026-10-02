@@ -87,7 +87,10 @@ test('Leofoo homepage markup keeps exact links, modal defaults and accessibility
   assert.match(source, />前往方案 A<\/a>/);
   assert.match(source, /href="\/blog\/leofoo\/">閱讀選房指南<\/a>/);
   assert.match(source, /p\.article\?\.id === "leofoo"[\s\S]*?name === "方案詳情"/);
-  assert.match(source, /\[\.\.\.main, \.\.\.extra\]\.map\(p => p\.source\)/);
+  const loadSource = source.slice(source.indexOf('async function performLoad()'), source.indexOf('function load()'));
+  assert.match(loadSource, /const rows = await fetchRows\("現正開團"\)/);
+  assert.doesNotMatch(loadSource, /即將開團/);
+  assert.ok(loadSource.indexOf('ProductContent.campaignFor(rows, "leofoo")') < loadSource.indexOf('normalize(rows)'));
   assert.match(css, /\.leofoo-plan-titles\s*\{[\s\S]*?gap:\s*8px/);
   assert.match(css, /\.leofoo-plan-title\s*\{[\s\S]*?min-height:\s*44px/);
   assert.match(css, /\.leofoo-plan-title:focus-visible/);
@@ -119,6 +122,7 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
   const base = `http://127.0.0.1:${server.address().port}`;
   let duplicateA = false;
   let missingCode = '';
+  const requestedTabs = [];
   const header = ['品牌', '商品ID', '連結', '類型', '開團日期', '結束日期', '商品描述', '方案詳情', '圖片網址', '分類'];
   const planRows = Object.entries(brands).map(([code, brand]) => [
     brand, `leofoo-${code.toLowerCase()}`, urls[code], '短期', '2026-10-02', '2026-10-08',
@@ -133,10 +137,11 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
   await context.route('**/*', async route => {
     const url = new URL(route.request().url());
     if (url.hostname === 'docs.google.com') {
+      requestedTabs.push(url.searchParams.get('sheet'));
       const availablePlans = planRows.filter((_, index) => ['A', 'B', 'C'][index] !== missingCode);
-      const rows = url.searchParams.get('sheet') === '即將開團'
-        ? []
-        : [...availablePlans, ...(duplicateA ? [planRows[0]] : []), ['其他商品', 'other', 'https://example.invalid/other', '長期', '', '', '其他說明', '', '', '其他']];
+      // Match Google gviz: an unknown sheet name can silently mirror sheet 0.
+      // The homepage must therefore never request a guessed secondary tab.
+      const rows = [...availablePlans, ...(duplicateA ? [planRows[0]] : []), ['其他商品', 'other', 'https://example.invalid/other', '長期', '', '', '其他說明', '', '', '其他']];
       return route.fulfill({ contentType: 'text/csv', body: csv([header, ...rows]) });
     }
     if (url.origin === base) return route.continue();
@@ -151,6 +156,7 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
   try {
     await page.goto(`${base}/?p=${encodeURIComponent('六福莊')}`, { waitUntil: 'domcontentloaded' });
     await page.locator('#product-leofoo').waitFor();
+    assert.deepEqual([...new Set(requestedTabs)], ['現正開團']);
     assert.equal(await page.locator('#products .leofoo-card').count(), 1);
     assert.equal(await page.locator('#product-leofoo .leofoo-plan-title').count(), 3);
     assert.deepEqual(await page.locator('#product-leofoo .leofoo-plan-title').allTextContents(), [
@@ -249,6 +255,8 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
     await page.evaluate(() => load());
     assert.equal(await page.locator('#product-leofoo [data-buy-key]').count(), 0);
     assert.equal(await page.locator('#product-leofoo .leofoo-plan-title').count(), 3);
+    assert.equal(await page.evaluate(() => products.find(product => product.brand === '六福莊住宿 A｜樂園無限玩').status.key), 'unknown');
+    assert.deepEqual([...new Set(requestedTabs)], ['現正開團']);
     assert.deepEqual(pageErrors, []);
   } finally {
     await context.close();

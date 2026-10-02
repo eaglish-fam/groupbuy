@@ -596,22 +596,11 @@ async function fetchRows(tab) {
 }
 async function performLoad() {
   try {
-    const result = await Promise.allSettled([
-      fetchRows("現正開團"),
-      fetchRows("即將開團"),
-    ]);
-    if (result[0].status !== "fulfilled") throw result[0].reason;
-    const main = normalize(result[0].value),
-      extra =
-        result[1].status === "fulfilled"
-          ? normalize(result[1].value, true)
-          : [];
-    const leofooCampaign = ProductContent.campaignFor(
-      [...main, ...extra].map(p => p.source),
-      "leofoo",
-    );
-    const seen = new Set(main.map((p) => p.key));
-    const combined = [...main, ...extra.filter((p) => !seen.has(p.key))];
+    const rows = await fetchRows("現正開團");
+    // The Sheet has one canonical product tab. Verify its raw rows before
+    // coalescing so genuine duplicate brands still fail closed.
+    const leofooCampaign = ProductContent.campaignFor(rows, "leofoo");
+    const combined = normalize(rows);
     products = [];
     // A product may also have an identical coupon row. Coalesce only identical
     // identity, destination, dates, status and code; conflicting records stay blocked.
@@ -651,10 +640,7 @@ async function performLoad() {
       '<option value="">全部分類</option>' +
       cats.map((c) => `<option>${esc(c)}</option>`).join("");
     $("#category").value = category;
-    $("#source-status").textContent =
-      result[1].status === "rejected"
-        ? "即將開團資料暫時無法讀取；目前顯示已取得的商品。"
-        : "";
+    $("#source-status").textContent = "";
     render();
     window.dispatchEvent(new Event("catalog-ready"));
     updateSaved();
