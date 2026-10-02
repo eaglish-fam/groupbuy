@@ -14,8 +14,28 @@ export function renderTravelHomeR24(){
  if(template.split('{{ATLAS_CONFIG}}').length!==2)throw Error('Expected one atlas config slot');
  // The shared destination writer promotes the first image once. The reviewed
  // snapshot already contained a preload, so remove that before the normal pass.
- return inlineTravelStyles(template.replace('{{ATLAS_CONFIG}}',JSON.stringify(config).replaceAll('<','\\u003c'))
+ return inlineTravelStyles(mapFirstTravelHome(template).replace('{{ATLAS_CONFIG}}',JSON.stringify(config).replaceAll('<','\\u003c'))
   .replace(/<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>/g,''));
+}
+// Reorder the reviewed top-level modules in the actual document, without
+// reserializing the map, photos, copy or embedded data. Fail closed if a later
+// template revision changes these boundaries; never silently drop a module.
+export function mapFirstTravelHome(template){
+ const markers=['<section class="home-opening home-wrap"','<section class="home-featured home-wrap"','<section class="home-destinations home-wrap"','<section class="home-planning home-wrap"'];
+ const positions=markers.map(marker=>{
+  const start=template.indexOf(marker);
+  if(start<0||template.indexOf(marker,start+marker.length)>=0)throw Error('Expected one reviewed home module: '+marker);
+  return start;
+ });
+ if(!positions.every((start,i)=>i===0||start>positions[i-1]))throw Error('Unexpected reviewed home module order');
+ const [openingStart,featuredStart,mapStart,planningStart]=positions;
+ const opening=template.slice(openingStart,featuredStart);
+ const introduction=opening.match(/<h1 id="home-title">[^<]+<\/h1><p>[^<]+<\/p>/g);
+ if(introduction?.length!==1)throw Error('Expected one brief home introduction');
+ const intro=`<section class="home-introduction home-wrap" aria-labelledby="home-title">${introduction[0]}</section>`;
+ return template.slice(0,openingStart)+intro+template.slice(mapStart,planningStart)
+  +opening.replace(introduction[0],'').replace('<img ','<img data-primary-travel-photo ')
+  +template.slice(featuredStart,mapStart)+template.slice(planningStart);
 }
 // Preserve reviewed deterministic first paint without a preview host dependency.
 // Current shared CSS is read from this checkout; other sites are never replaced.

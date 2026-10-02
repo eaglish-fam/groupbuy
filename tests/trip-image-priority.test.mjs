@@ -36,7 +36,15 @@ test('travel entry pages preload their first visual using the same responsive so
   assert.match(preload[0],/fetchpriority="high"/);
   const preloadSource=preload[0].match(/href="([^"]+)"/)[1];
   assert.ok(existsSync(resolve(root,'.'+preloadSource)),`${path}: missing preload fallback`);
-  const image=html.match(new RegExp(`<img [^>]*src="[^"]*${id}[^>]+>`))[0];
+  // The map-first homepage contains earlier inert destination-panel copies.
+  // Verify its explicit visible primary, not a hidden image with the same src.
+  const image=path==='trip/index.html'
+   ?html.match(/<img\b[^>]*\bdata-primary-travel-photo\b[^>]*>/)?.[0]
+   :html.match(new RegExp(`<img [^>]*src="[^"]*${id}[^>]+>`))[0];
+  if(path==='trip/index.html'){
+   assert.equal((html.match(/<img\b[^>]*\bdata-primary-travel-photo\b[^>]*>/g)||[]).length,1);
+   assert.match(image,new RegExp(`src="[^"]*${id}[^\"]*"`));
+  }
   assert.match(image,/loading="eager" fetchpriority="high"/);
   assert.equal(preload[0].match(/imagesrcset="([^"]+)"/)[1],image.match(/srcset="([^"]+)"/)[1]);
   assert.equal(preload[0].match(/imagesizes="([^"]+)"/)[1],image.match(/sizes="([^"]+)"/)[1]);

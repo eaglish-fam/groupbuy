@@ -224,10 +224,13 @@ body.travel-home{--ink:#494139;--paper:#fcfaf5;--line:#dcd5c9;--muted:#70665b;--
 .travel-home .home-guide-planning ul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:6px 20px;list-style:none;padding:0;margin:8px 0 0}
 .travel-home .home-guide-planning a{display:inline-flex;min-height:44px;align-items:center;line-height:1.6}
 @media(max-width:700px){.travel-home .home-guide-planning ul{grid-template-columns:1fr}}
-/* R21 bounded homepage: opening photo, six finished guides, then the explorer. */
+/* Reviewed homepage modules; R25 places the explorer before photos and guides. */
 .travel-home .home-masthead{position:sticky;top:0;background:#fcfaf5;z-index:20;min-height:88px}
 .travel-home .home-opening{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center;padding-block:32px}
-.travel-home .home-opening h1{font-family:var(--serif);color:#15366a;font-size:clamp(30px,3.2vw,44px);line-height:1.5;letter-spacing:0}
+.travel-home :is(.home-opening,.home-introduction) h1{font-family:var(--serif);color:#15366a;font-size:clamp(30px,3.2vw,44px);line-height:1.5;letter-spacing:0}
+.travel-home .home-introduction{padding-block:24px 0}
+.travel-home .home-introduction>p{max-width:680px;font-size:16px;line-height:1.85;color:#494139;margin:12px 0 0}
+.travel-home .atlas-component :is(#top-levels button,#counties button[data-action="country"],#breadcrumbs button,button.globe-region-label,#map-heading,#atlas-heading){font-family:var(--serif);font-weight:500;font-synthesis:none}
 .travel-home .home-opening-copy>p{font-size:16px;line-height:1.85;color:#494139;margin:18px 0}
 .travel-home .home-opening-link{display:inline-flex;align-items:center;min-height:44px;padding:8px 0;text-decoration:none;color:#15366a;border-bottom:1px solid #bdc9bc;font-size:15px}
 .travel-home .home-opening-photo{margin:0}.travel-home .home-opening-photo img{width:100%;height:auto}
@@ -259,7 +262,9 @@ body.travel-home{--ink:#494139;--paper:#fcfaf5;--line:#dcd5c9;--muted:#70665b;--
 @media(max-width:700px){
  .travel-home .home-masthead{min-height:92px;padding-block:12px 8px}
  .travel-home .home-opening{grid-template-columns:1fr;gap:20px;padding-block:24px 22px}
- .travel-home .home-opening h1{font-size:30px}
+ .travel-home :is(.home-opening,.home-introduction) h1{font-size:30px}
+ .travel-home .home-introduction{padding-top:20px}
+ .travel-home .home-introduction>p{font-size:15px}
  .travel-home .home-opening-copy>p{font-size:15px;margin:12px 0}
  .travel-home .home-opening-link{font-size:14px}
  .travel-home .home-featured{padding-block:12px 28px}
