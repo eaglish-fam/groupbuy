@@ -1,0 +1,66 @@
+/* Loaded only by the authorized Cebu/Bohol pilot; hotel and other pages keep
+   their existing template. Content/media and chronological DOM are unchanged. */
+.cb-guide{--serif:"Eaglish Heading Serif","Songti TC","PMingLiU",serif;--travel-heading:#15366a}
+.cb-guide .masthead{position:sticky;top:0;z-index:20;background:#fcfaf5;min-height:88px}
+.cb-guide .masthead .home-wordmark{width:176px;height:auto;display:block}
+.cb-guide .footer .home-wordmark{width:145px;height:auto}
+.cb-guide .cb-header{max-width:856px;display:grid;grid-template-columns:minmax(0,1fr);padding-top:28px}
+.cb-guide .cb-header>.breadcrumbs{grid-row:1;margin:0 0 12px}
+.cb-guide .cb-header>.eyebrow{grid-row:2;font-size:10px;letter-spacing:.08em;margin:0 0 8px}
+.cb-guide .cb-header>h1{grid-row:3;font-family:var(--serif);font-size:clamp(28px,3.4vw,40px);line-height:1.5;letter-spacing:0;color:#15366a}
+.cb-guide .cb-header>.byline{grid-row:4;margin:14px 0 22px}
+.cb-guide .cb-header>.cb-hero{grid-row:5;margin:0}
+.cb-guide .cb-header>.article-lead{grid-row:6;margin:22px 0 0;font-size:18px;line-height:1.85;color:#494139}
+.cb-guide .cb-header>.cb-topic-entries{grid-row:7;margin-top:24px}
+.cb-guide .article-layout{max-width:856px;display:block;padding-top:32px;padding-bottom:44px}
+.cb-guide .r21-toc{border:0;border-top:1px solid #dcd5c9;border-bottom:1px solid #dcd5c9;margin:0 0 32px;padding:8px 0}
+.cb-guide .r21-toc>summary{min-height:44px;padding:8px 0;font-size:16px;color:#15366a;cursor:pointer}
+.cb-guide .cb-toc{position:static;display:flex;flex-wrap:wrap;gap:10px;max-height:none;overflow:visible;border:0;padding:12px 0 8px;font-size:14px}
+.cb-guide .cb-toc>.eyebrow{width:100%;margin:0 0 4px;font-size:12px}
+.cb-guide .cb-toc>a{display:inline-flex;min-height:44px;padding:8px 13px;margin:0;gap:8px;border:1px solid #dcd5c9;border-radius:0;background:transparent;color:#15366a;font-size:14px;line-height:1.45}
+.cb-guide .prose{font-size:18px;line-height:1.85}
+.cb-guide .prose section{margin-bottom:40px;scroll-margin-top:120px}
+.cb-guide .prose h2{font:500 28px/1.55 var(--serif);margin:0 0 18px;color:#15366a}
+.cb-guide .prose h3{font:600 22px/1.6 var(--serif);margin:26px 0 14px;color:#15366a;border-left:0;padding-left:0}
+.cb-guide .prose h4{font-size:18px;line-height:1.6;margin:22px 0 12px;color:#15366a}
+.cb-guide .prose p{font-size:18px;line-height:1.85;margin:0 0 20px}
+.cb-guide .prose .cb-gallery{margin:22px 0;gap:20px}
+.cb-guide .prose .cb-gallery figcaption{font-size:13px;line-height:1.7;margin-top:8px}
+.cb-guide .prose .cb-editorial-photo{margin:0}
+.cb-guide .prose .video-end{background:transparent;border-top:1px solid #dcd5c9;border-radius:0;padding:26px 0 0}
+.cb-guide .prose .cb-photo-cards{gap:14px}
+.cb-guide .prose .cb-table-scroll{margin:20px 0}
+.cb-guide .prose .cb-table-scroll table{font-size:15px}
+.cb-guide .prose .cb-planner{font-size:16px;line-height:1.8}
+.cb-guide :is(h1,h2,h3,h4){font-family:var(--serif);color:#15366a}
+@media(max-width:700px){
+ .cb-guide .masthead{min-height:78px;padding-block:10px;gap:8px}
+ .cb-guide .masthead .home-wordmark{width:144px}
+ .cb-guide .masthead nav{font-size:11px;gap:12px}
+ .cb-guide .cb-header{padding-top:22px}
+ .cb-guide .cb-header>h1{font-size:28px;line-height:1.5}
+ .cb-guide .cb-header>.byline{font-size:11px;margin:12px 0 18px}
+ .cb-guide .article-layout{padding-top:26px;padding-bottom:32px}
+ .cb-guide .cb-toc>a{font-size:13px}
+ .cb-guide .prose h2{font-size:25px}
+ .cb-guide .prose h3{font-size:21px}
+ .cb-guide .prose section{margin-bottom:34px}
+ .cb-guide .prose .cb-gallery-single{width:100%;margin-left:0}
+ .cb-guide .prose .cb-gallery-single figcaption{padding-inline:0}
+}
+
+/* R22 overrides the earlier source-ratio/contain display, never the source raster. */
+.cb-guide .r22-photo-frame{position:relative;width:100%;aspect-ratio:var(--photo-ratio);overflow:hidden;padding:0;border:0;background:transparent}
+.cb-guide .r22-photo-frame>img{position:absolute;inset:0;display:block;width:100%!important;height:100%!important;max-height:none;aspect-ratio:auto;object-fit:cover!important;object-position:var(--photo-position)!important;border-radius:0}
+.cb-guide .r22-compound{display:grid;grid-template-columns:8fr 15fr;gap:10px;align-items:start}
+.cb-guide .cb-gallery[data-photo-grid]{position:relative;display:grid;grid-template-columns:var(--photo-columns);align-items:start;gap:14px}
+.cb-guide .cb-gallery[data-photo-grid]>.cb-editorial-photo{margin:0;width:auto;min-width:0;justify-self:stretch}
+.cb-guide .cb-gallery[data-photo-grid]>.cb-editorial-photo:has([data-photo-compound]){grid-column:1/-1}
+.cb-guide .cb-gallery-single[data-photo-grid]{grid-template-columns:1fr}
+.cb-guide .cb-photo-cards .r22-photo-frame{flex:none}
+.cb-guide .prose .cb-photo-cards[data-photo-grid]{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:start;gap:14px}
+.cb-guide .prose .cb-photo-cards[data-photo-grid]>a{height:auto;min-width:0;align-self:start}
+@media(max-width:700px){
+ .cb-guide .cb-gallery[data-photo-grid]{gap:12px}
+ .cb-guide .prose .cb-gallery-single[data-photo-grid]{width:100%;margin-left:0}
+}

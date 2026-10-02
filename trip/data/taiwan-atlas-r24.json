@@ -1,0 +1,4801 @@
+{
+  "data": {
+    "version": "taiwan-public/v1",
+    "geography": {
+      "version": "tw-tourism-regions/v1",
+      "classification": "tourism_navigation_not_legal_region_boundaries",
+      "idPolicy": "internal_editorial_ids_not_government_codes",
+      "countries": [
+        {
+          "id": "tw",
+          "name": "台灣",
+          "englishName": "Taiwan",
+          "flag": "🇹🇼"
+        }
+      ],
+      "regions": [
+        {
+          "id": "tw-north",
+          "countryId": "tw",
+          "name": "北部",
+          "kind": "core",
+          "sourceUrl": "https://www.taiwan.net.tw/m1.aspx?sNo=0000501",
+          "checkedOn": "2026-09-30"
+        },
+        {
+          "id": "tw-central",
+          "countryId": "tw",
+          "name": "中部",
+          "kind": "core",
+          "sourceUrl": "https://www.taiwan.net.tw/m1.aspx?sNo=0000502",
+          "checkedOn": "2026-09-30"
+        },
+        {
+          "id": "tw-south",
+          "countryId": "tw",
+          "name": "南部",
+          "kind": "core",
+          "sourceUrl": "https://www.taiwan.net.tw/m1.aspx?sNo=0000503",
+          "checkedOn": "2026-09-30"
+        },
+        {
+          "id": "tw-east",
+          "countryId": "tw",
+          "name": "東部",
+          "kind": "core",
+          "sourceUrl": "https://www.taiwan.net.tw/m1.aspx?sNo=0000504",
+          "checkedOn": "2026-09-30"
+        },
+        {
+          "id": "tw-offshore",
+          "countryId": "tw",
+          "name": "離島",
+          "kind": "supplementary",
+          "sourceUrl": "https://www.taiwan.net.tw/m1.aspx?sNo=0000505",
+          "checkedOn": "2026-09-30"
+        }
+      ],
+      "counties": [
+        {
+          "id": "tw-taipei-city",
+          "countryId": "tw",
+          "regionId": "tw-north",
+          "name": "臺北市",
+          "aliases": [
+            "台北市"
+          ]
+        },
+        {
+          "id": "tw-new-taipei-city",
+          "countryId": "tw",
+          "regionId": "tw-north",
+          "name": "新北市",
+          "aliases": []
+        },
+        {
+          "id": "tw-keelung-city",
+          "countryId": "tw",
+          "regionId": "tw-north",
+          "name": "基隆市",
+          "aliases": []
+        },
+        {
+          "id": "tw-yilan-county",
+          "countryId": "tw",
+          "regionId": "tw-north",
+          "name": "宜蘭縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-taoyuan-city",
+          "countryId": "tw",
+          "regionId": "tw-north",
+          "name": "桃園市",
+          "aliases": []
+        },
+        {
+          "id": "tw-hsinchu-county",
+          "countryId": "tw",
+          "regionId": "tw-north",
+          "name": "新竹縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-hsinchu-city",
+          "countryId": "tw",
+          "regionId": "tw-north",
+          "name": "新竹市",
+          "aliases": []
+        },
+        {
+          "id": "tw-miaoli-county",
+          "countryId": "tw",
+          "regionId": "tw-central",
+          "name": "苗栗縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-taichung-city",
+          "countryId": "tw",
+          "regionId": "tw-central",
+          "name": "臺中市",
+          "aliases": [
+            "台中市"
+          ]
+        },
+        {
+          "id": "tw-changhua-county",
+          "countryId": "tw",
+          "regionId": "tw-central",
+          "name": "彰化縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-nantou-county",
+          "countryId": "tw",
+          "regionId": "tw-central",
+          "name": "南投縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-yunlin-county",
+          "countryId": "tw",
+          "regionId": "tw-central",
+          "name": "雲林縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-chiayi-county",
+          "countryId": "tw",
+          "regionId": "tw-south",
+          "name": "嘉義縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-chiayi-city",
+          "countryId": "tw",
+          "regionId": "tw-south",
+          "name": "嘉義市",
+          "aliases": []
+        },
+        {
+          "id": "tw-tainan-city",
+          "countryId": "tw",
+          "regionId": "tw-south",
+          "name": "臺南市",
+          "aliases": [
+            "台南市"
+          ]
+        },
+        {
+          "id": "tw-kaohsiung-city",
+          "countryId": "tw",
+          "regionId": "tw-south",
+          "name": "高雄市",
+          "aliases": []
+        },
+        {
+          "id": "tw-pingtung-county",
+          "countryId": "tw",
+          "regionId": "tw-south",
+          "name": "屏東縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-hualien-county",
+          "countryId": "tw",
+          "regionId": "tw-east",
+          "name": "花蓮縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-taitung-county",
+          "countryId": "tw",
+          "regionId": "tw-east",
+          "name": "臺東縣",
+          "aliases": [
+            "台東縣"
+          ]
+        },
+        {
+          "id": "tw-penghu-county",
+          "countryId": "tw",
+          "regionId": "tw-offshore",
+          "name": "澎湖縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-kinmen-county",
+          "countryId": "tw",
+          "regionId": "tw-offshore",
+          "name": "金門縣",
+          "aliases": []
+        },
+        {
+          "id": "tw-lienchiang-county",
+          "countryId": "tw",
+          "regionId": "tw-offshore",
+          "name": "連江縣",
+          "aliases": [
+            "馬祖",
+            "連江縣（馬祖）"
+          ]
+        }
+      ]
+    },
+    "places": [
+      {
+        "id": "place-tw-bambi-land",
+        "name": "斑比山丘 Bambi Land",
+        "aliases": [
+          "斑比山丘休閒農場",
+          "Bambiland"
+        ],
+        "countyIds": [
+          "tw-yilan-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [
+          "親子",
+          "動物互動"
+        ],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.instagram.com/eaglish.fam/p/Dd37cVTE2kT/"
+        ],
+        "articleUrl": null,
+        "address": "宜蘭縣冬山鄉下湖路285號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E6%96%91%E6%AF%94%E5%B1%B1%E4%B8%98+Bambi+Land+%E5%AE%9C%E8%98%AD%E7%B8%A3%E5%86%AC%E5%B1%B1%E9%84%89%E4%B8%8B%E6%B9%96%E8%B7%AF285%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E6%96%91%E6%AF%94%E5%B1%B1%E4%B8%98+Bambi+Land+%E5%AE%9C%E8%98%AD%E7%B8%A3%E5%86%AC%E5%B1%B1%E9%84%89%E4%B8%8B%E6%B9%96%E8%B7%AF285%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "斑比山丘 Bambi Land 宜蘭縣冬山鄉下湖路285號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-bambi-land-ed23f3da5e5c.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "斑比山丘園內的梅花鹿與餵食場域"
+        },
+        "visitLinks": [
+          {
+            "label": "哥哥與妹妹相隔七年的餵動物記錄",
+            "url": "https://www.instagram.com/eaglish.fam/p/Dd37cVTE2kT/",
+            "kind": "social_post"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "宜蘭冬山的動物互動景點，以看動物、餵動物為重點。我們隔了七年再訪，這次換剛會走路的妹妹來體驗。",
+        "planningNote": null,
+        "officialUrl": "https://www.bambiland.com.tw/map.html",
+        "detail": {
+          "heading": "斑比山丘 Bambi Land",
+          "paragraphs": [
+            "在恩剛會走路時，我們曾帶他來斑比山丘。七年後再來，換成帶妹妹舟夏餵動物；這是一站以親子動物互動為主的冬山行程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "宜蘭縣"
+            },
+            {
+              "label": "地址",
+              "value": "宜蘭縣冬山鄉下湖路285號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-caesar-kenting",
+        "name": "墾丁凱撒大飯店",
+        "aliases": [
+          "Caesar Park Hotel Kenting"
+        ],
+        "countyIds": [
+          "tw-pingtung-county"
+        ],
+        "category": "hotel",
+        "secondaryCategories": [],
+        "tags": [
+          "親子",
+          "度假飯店"
+        ],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.eaglish.store/blog/caesar-kenting/"
+        ],
+        "articleUrl": "https://www.eaglish.store/blog/caesar-kenting/",
+        "address": "屏東縣恆春鎮墾丁路6號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%A2%BE%E4%B8%81%E5%87%B1%E6%92%92%E5%A4%A7%E9%A3%AF%E5%BA%97+%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%81%86%E6%98%A5%E9%8E%AE%E5%A2%BE%E4%B8%81%E8%B7%AF6%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%A2%BE%E4%B8%81%E5%87%B1%E6%92%92%E5%A4%A7%E9%A3%AF%E5%BA%97+%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%81%86%E6%98%A5%E9%8E%AE%E5%A2%BE%E4%B8%81%E8%B7%AF6%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "墾丁凱撒大飯店 屏東縣恆春鎮墾丁路6號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-caesar-kenting-25a58a251617.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "墾丁凱撒飯店的泳池、木棧橋與棕櫚庭園"
+        },
+        "visitLinks": [
+          {
+            "label": "墾丁凱撒：房型與飯店用餐介紹",
+            "url": "https://www.eaglish.store/blog/caesar-kenting/",
+            "kind": "article"
+          }
+        ],
+        "articleState": "available",
+        "whatToExpect": "墾丁路上的度假飯店，房型與飯店用餐可一起納入住宿規劃。我們的飯店介紹包含現場看房與用餐過程。",
+        "planningNote": null,
+        "officialUrl": "https://kenting.caesarpark.com.tw/",
+        "detail": {
+          "heading": "墾丁凱撒大飯店",
+          "paragraphs": [
+            "住宿選擇可從房型與用餐安排一起考慮。這次介紹包含凱撒看房與飯店內用餐，現有文章也連結到影片中的看房片段。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "屏東縣"
+            },
+            {
+              "label": "地址",
+              "value": "屏東縣恆春鎮墾丁路6號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-compass-kenting",
+        "name": "發現西餐廳 COMPASS",
+        "aliases": [
+          "Compass西餐廳"
+        ],
+        "countyIds": [
+          "tw-pingtung-county"
+        ],
+        "category": "restaurant",
+        "secondaryCategories": [],
+        "tags": [
+          "飯店餐廳",
+          "自助餐"
+        ],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.eaglish.store/blog/caesar-kenting/"
+        ],
+        "articleUrl": null,
+        "address": "屏東縣恆春鎮墾丁路6號，墾丁凱撒大飯店2樓",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E7%99%BC%E7%8F%BE%E8%A5%BF%E9%A4%90%E5%BB%B3+COMPASS+%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%81%86%E6%98%A5%E9%8E%AE%E5%A2%BE%E4%B8%81%E8%B7%AF6%E8%99%9F%EF%BC%8C%E5%A2%BE%E4%B8%81%E5%87%B1%E6%92%92%E5%A4%A7%E9%A3%AF%E5%BA%972%E6%A8%93+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E7%99%BC%E7%8F%BE%E8%A5%BF%E9%A4%90%E5%BB%B3+COMPASS+%E5%B1%8F%E6%9D%B1%E7%B8%A3%E6%81%86%E6%98%A5%E9%8E%AE%E5%A2%BE%E4%B8%81%E8%B7%AF6%E8%99%9F%EF%BC%8C%E5%A2%BE%E4%B8%81%E5%87%B1%E6%92%92%E5%A4%A7%E9%A3%AF%E5%BA%972%E6%A8%93+%E5%8F%B0%E7%81%A3",
+          "query": "發現西餐廳 COMPASS 屏東縣恆春鎮墾丁路6號，墾丁凱撒大飯店2樓 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-compass-kenting-7c8278daefad.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "發現西餐廳的藍色牆面與用餐空間"
+        },
+        "visitLinks": [
+          {
+            "label": "凱撒住宿介紹中的 COMPASS 晚餐",
+            "url": "https://www.eaglish.store/blog/caesar-kenting/",
+            "kind": "article"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "位在墾丁凱撒二樓的西餐廳，可與住宿一起安排晚餐。我們這次在館內用餐，把晚餐也留在同一趟墾丁行程裡。",
+        "planningNote": null,
+        "officialUrl": "https://kenting.caesarpark.com.tw/cuisine-detail/compass-restaurant/",
+        "detail": {
+          "heading": "發現西餐廳 COMPASS",
+          "paragraphs": [
+            "發現西餐廳 COMPASS 位在墾丁凱撒大飯店二樓。這次的飯店介紹收錄了晚餐過程，方便把住宿與用餐放在一起規劃。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "屏東縣"
+            },
+            {
+              "label": "地址",
+              "value": "屏東縣恆春鎮墾丁路6號，墾丁凱撒大飯店2樓"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-dihua",
+        "name": "迪化街（大稻埕街區）",
+        "aliases": [],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [
+          "老街散步"
+        ],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.instagram.com/eaglish.fam/p/DdrBtJ7k8iE/",
+          "https://www.instagram.com/eaglish.fam/p/DdEVKLEE36c/"
+        ],
+        "articleUrl": null,
+        "address": "臺北市大同區迪化街一段",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E8%BF%AA%E5%8C%96%E8%A1%97%EF%BC%88%E5%A4%A7%E7%A8%BB%E5%9F%95%E8%A1%97%E5%8D%80%EF%BC%89+%E8%87%BA%E5%8C%97%E5%B8%82%E5%A4%A7%E5%90%8C%E5%8D%80%E8%BF%AA%E5%8C%96%E8%A1%97%E4%B8%80%E6%AE%B5+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E8%BF%AA%E5%8C%96%E8%A1%97%EF%BC%88%E5%A4%A7%E7%A8%BB%E5%9F%95%E8%A1%97%E5%8D%80%EF%BC%89+%E8%87%BA%E5%8C%97%E5%B8%82%E5%A4%A7%E5%90%8C%E5%8D%80%E8%BF%AA%E5%8C%96%E8%A1%97%E4%B8%80%E6%AE%B5+%E5%8F%B0%E7%81%A3",
+          "query": "迪化街（大稻埕街區） 臺北市大同區迪化街一段 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-dihua-0dcae9692ff0.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "迪化街實訪照片中的紅磚拱廊與老店招牌"
+        },
+        "visitLinks": [
+          {
+            "label": "帶阿婆平日逛迪化街",
+            "url": "https://www.instagram.com/eaglish.fam/p/DdrBtJ7k8iE/",
+            "kind": "social_post"
+          },
+          {
+            "label": "帶朋友從大稻埕認識台北",
+            "url": "https://www.instagram.com/eaglish.fam/p/DdEVKLEE36c/",
+            "kind": "social_post"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "從老街建築與沿街商店認識大稻埕，適合步行逛街。我們曾帶阿婆與外國朋友來走走，選擇不同於年節人潮的逛法。",
+        "planningNote": null,
+        "officialUrl": "https://www.taiwan.net.tw/m1.aspx?id=r108&sNo=0001016",
+        "detail": {
+          "heading": "迪化街（大稻埕街區）",
+          "paragraphs": [
+            "迪化街這一站以沿街散步、逛店與看老街為主。我們帶阿婆來時，特別選平日、離節慶較遠的時間；另一次則帶朋友從這裡開始認識台北。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            },
+            {
+              "label": "地址",
+              "value": "臺北市大同區迪化街一段"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-goodtime",
+        "name": "好時光舊物倉庫",
+        "aliases": [],
+        "countyIds": [
+          "tw-new-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [
+          "古著選物探店"
+        ],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.instagram.com/eaglish.fam/reel/Ddl3fgAypD3/",
+          "https://www.facebook.com/reel/1783424332802144/"
+        ],
+        "articleUrl": null,
+        "address": "新店區屈尺里新烏路二段189號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%A5%BD%E6%99%82%E5%85%89%E8%88%8A%E7%89%A9%E5%80%89%E5%BA%AB+%E6%96%B0%E5%BA%97%E5%8D%80%E5%B1%88%E5%B0%BA%E9%87%8C%E6%96%B0%E7%83%8F%E8%B7%AF%E4%BA%8C%E6%AE%B5189%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%A5%BD%E6%99%82%E5%85%89%E8%88%8A%E7%89%A9%E5%80%89%E5%BA%AB+%E6%96%B0%E5%BA%97%E5%8D%80%E5%B1%88%E5%B0%BA%E9%87%8C%E6%96%B0%E7%83%8F%E8%B7%AF%E4%BA%8C%E6%AE%B5189%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "好時光舊物倉庫 新店區屈尺里新烏路二段189號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-goodtime-1e985d09f0b1.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "好時光舊物倉庫實訪的皮衣陳列與店內空間"
+        },
+        "visitLinks": [
+          {
+            "label": "古著尋寶與那件襯衫",
+            "url": "https://www.instagram.com/eaglish.fam/reel/Ddl3fgAypD3/",
+            "kind": "social_post"
+          },
+          {
+            "label": "好時光舊物倉庫的逛店短片",
+            "url": "https://www.facebook.com/reel/1783424332802144/",
+            "kind": "social_post"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "新店往烏來路上的古著與舊物店，適合慢慢翻找復古衣服。我們帶舟夏來逛，最後康先生挑了一件襯衫。",
+        "planningNote": null,
+        "officialUrl": null,
+        "detail": {
+          "heading": "好時光舊物倉庫",
+          "paragraphs": [
+            "店裡的舊物與衣服是這次尋寶的重點。康先生很喜歡這裡的衣服，最後買了一件襯衫；喜歡古著的人，可以把這站放進新烏路沿線行程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市"
+            },
+            {
+              "label": "地址",
+              "value": "新店區屈尺里新烏路二段189號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-ningxia",
+        "name": "寧夏夜市",
+        "aliases": [
+          "寧夏觀光夜市"
+        ],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [
+          "夜市美食"
+        ],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.instagram.com/eaglish.fam/reel/DdOo_HATOdq/",
+          "https://www.facebook.com/reel/1395159908728076/"
+        ],
+        "articleUrl": null,
+        "address": "臺北市大同區寧夏路（南京西路與民生西路間）",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%AF%A7%E5%A4%8F%E5%A4%9C%E5%B8%82+%E8%87%BA%E5%8C%97%E5%B8%82%E5%A4%A7%E5%90%8C%E5%8D%80%E5%AF%A7%E5%A4%8F%E8%B7%AF%EF%BC%88%E5%8D%97%E4%BA%AC%E8%A5%BF%E8%B7%AF%E8%88%87%E6%B0%91%E7%94%9F%E8%A5%BF%E8%B7%AF%E9%96%93%EF%BC%89+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%AF%A7%E5%A4%8F%E5%A4%9C%E5%B8%82+%E8%87%BA%E5%8C%97%E5%B8%82%E5%A4%A7%E5%90%8C%E5%8D%80%E5%AF%A7%E5%A4%8F%E8%B7%AF%EF%BC%88%E5%8D%97%E4%BA%AC%E8%A5%BF%E8%B7%AF%E8%88%87%E6%B0%91%E7%94%9F%E8%A5%BF%E8%B7%AF%E9%96%93%EF%BC%89+%E5%8F%B0%E7%81%A3",
+          "query": "寧夏夜市 臺北市大同區寧夏路（南京西路與民生西路間） 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-ningxia-6c3bc5ea5cd7.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "寧夏夜市實訪拍到的菠蘿麵包攤位招牌"
+        },
+        "visitLinks": [
+          {
+            "label": "和美國朋友第一次逛寧夏夜市",
+            "url": "https://www.instagram.com/eaglish.fam/reel/DdOo_HATOdq/",
+            "kind": "social_post"
+          },
+          {
+            "label": "寧夏夜市初體驗短片",
+            "url": "https://www.facebook.com/reel/1395159908728076/",
+            "kind": "social_post"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "沿寧夏路邊走邊找小吃，安排一段台北的夜市逛吃行程。我們和在印尼認識的美國朋友，一起完成第一次到訪。",
+        "planningNote": null,
+        "officialUrl": "https://media.taiwan.net.tw/zh-tw/portal/travel/details/attraction_379000000a_001560",
+        "detail": {
+          "heading": "寧夏夜市",
+          "paragraphs": [
+            "這次我們和兩位美國朋友一起來寧夏夜市，也是我們一家第一次到訪。地點在寧夏路南京西路與民生西路之間，行程重點是沿街逛吃。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            },
+            {
+              "label": "地址",
+              "value": "臺北市大同區寧夏路（南京西路與民生西路間）"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-cksmh",
+        "name": "中正紀念堂",
+        "aliases": [
+          "國立中正紀念堂"
+        ],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [
+          "文化地標"
+        ],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.instagram.com/eaglish.fam/p/DdEVKLEE36c/"
+        ],
+        "articleUrl": null,
+        "address": "臺北市中正區中山南路21號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E4%B8%AD%E6%AD%A3%E7%B4%80%E5%BF%B5%E5%A0%82+%E8%87%BA%E5%8C%97%E5%B8%82%E4%B8%AD%E6%AD%A3%E5%8D%80%E4%B8%AD%E5%B1%B1%E5%8D%97%E8%B7%AF21%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E4%B8%AD%E6%AD%A3%E7%B4%80%E5%BF%B5%E5%A0%82+%E8%87%BA%E5%8C%97%E5%B8%82%E4%B8%AD%E6%AD%A3%E5%8D%80%E4%B8%AD%E5%B1%B1%E5%8D%97%E8%B7%AF21%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "中正紀念堂 臺北市中正區中山南路21號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-cksmh-0e2518dc0ec3.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "中正紀念堂的白色主體建築與藍瓦屋頂"
+        },
+        "visitLinks": [
+          {
+            "label": "帶朋友走進中正紀念堂",
+            "url": "https://www.instagram.com/eaglish.fam/p/DdEVKLEE36c/",
+            "kind": "social_post"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "台北市區的地標散步選項，可走進園區看建築與公共空間。我們帶外國朋友到訪，也讓這一站連起城市與歷史。",
+        "planningNote": null,
+        "officialUrl": "https://www.cksmh.gov.tw/",
+        "detail": {
+          "heading": "中正紀念堂",
+          "paragraphs": [
+            "中正紀念堂位在中山南路。我們帶朋友親自走進園區，對方對這裡的歷史特別有興趣；這一站可與市區其他地標分開安排停留。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            },
+            {
+              "label": "地址",
+              "value": "臺北市中正區中山南路21號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-sanxia",
+        "name": "三峽老街",
+        "aliases": [],
+        "countyIds": [
+          "tw-new-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [
+          "老街散步"
+        ],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.instagram.com/eaglish.fam/p/DdEVKLEE36c/",
+          "https://www.youtube.com/watch?v=olMHsgcbCMs"
+        ],
+        "articleUrl": null,
+        "address": "新北市三峽區民權街37–147號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E5%B3%BD%E8%80%81%E8%A1%97+%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%89%E5%B3%BD%E5%8D%80%E6%B0%91%E6%AC%8A%E8%A1%9737%E2%80%93147%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E4%B8%89%E5%B3%BD%E8%80%81%E8%A1%97+%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%89%E5%B3%BD%E5%8D%80%E6%B0%91%E6%AC%8A%E8%A1%9737%E2%80%93147%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "三峽老街 新北市三峽區民權街37–147號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-sanxia-18b670dd42a6.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "三峽老街的紅磚街屋、拱窗與沿街招牌"
+        },
+        "visitLinks": [
+          {
+            "label": "三峽老街的老建築散步",
+            "url": "https://www.instagram.com/eaglish.fam/p/DdEVKLEE36c/",
+            "kind": "social_post"
+          },
+          {
+            "label": "入住大板根前逛三峽老街",
+            "url": "https://www.youtube.com/watch?v=olMHsgcbCMs&t=182s",
+            "kind": "video",
+            "startSeconds": 182
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "沿老街看老建築、逛店與找吃的，能和三峽住宿行程相接。我們曾在大板根入住前先來散步，再到附近用餐。",
+        "planningNote": null,
+        "officialUrl": "https://newtaipei.travel/zh-tw/attractions/detail/109664",
+        "detail": {
+          "heading": "三峽老街",
+          "paragraphs": [
+            "這次先在三峽老街走走，再前往大板根住宿。厚道飲食店也是同趟用餐的一站；想把街區散步與住宿分成前後段，可參考這樣的安排。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市"
+            },
+            {
+              "label": "地址",
+              "value": "新北市三峽區民權街37–147號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-taipei101",
+        "name": "台北101",
+        "aliases": [],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [
+          "城市地標"
+        ],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.instagram.com/eaglish.fam/p/DdEVKLEE36c/"
+        ],
+        "articleUrl": null,
+        "address": "臺北市信義區市府路45號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97101+%E8%87%BA%E5%8C%97%E5%B8%82%E4%BF%A1%E7%BE%A9%E5%8D%80%E5%B8%82%E5%BA%9C%E8%B7%AF45%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%8F%B0%E5%8C%97101+%E8%87%BA%E5%8C%97%E5%B8%82%E4%BF%A1%E7%BE%A9%E5%8D%80%E5%B8%82%E5%BA%9C%E8%B7%AF45%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "台北101 臺北市信義區市府路45號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-taipei101-8e018956e1f9.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "臺北101塔身與街區建築"
+        },
+        "visitLinks": [
+          {
+            "label": "帶朋友上台北101看城市",
+            "url": "https://www.instagram.com/eaglish.fam/p/DdEVKLEE36c/",
+            "kind": "social_post"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "登高換個角度看台北，把街區散步延伸成城市景觀體驗。我們帶朋友上台北101，從不同高度認識這座城市。",
+        "planningNote": null,
+        "officialUrl": "https://www.taipei-101.com.tw/zh/",
+        "detail": {
+          "heading": "台北101",
+          "paragraphs": [
+            "這次台北行程除了老街與地面上的地標，也帶朋友上台北101看城市。若想在同一趟認識台北的不同面貌，可以把登高觀景列為另一站。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            },
+            {
+              "label": "地址",
+              "value": "臺北市信義區市府路45號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-houdao",
+        "name": "厚道飲食店（三峽店）",
+        "aliases": [],
+        "countyIds": [
+          "tw-new-taipei-city"
+        ],
+        "category": "restaurant",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=olMHsgcbCMs"
+        ],
+        "articleUrl": null,
+        "address": "新北市三峽區長福街10號2樓",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%8E%9A%E9%81%93%E9%A3%B2%E9%A3%9F%E5%BA%97%EF%BC%88%E4%B8%89%E5%B3%BD%E5%BA%97%EF%BC%89+%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%89%E5%B3%BD%E5%8D%80%E9%95%B7%E7%A6%8F%E8%A1%9710%E8%99%9F2%E6%A8%93+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%8E%9A%E9%81%93%E9%A3%B2%E9%A3%9F%E5%BA%97%EF%BC%88%E4%B8%89%E5%B3%BD%E5%BA%97%EF%BC%89+%E6%96%B0%E5%8C%97%E5%B8%82%E4%B8%89%E5%B3%BD%E5%8D%80%E9%95%B7%E7%A6%8F%E8%A1%9710%E8%99%9F2%E6%A8%93+%E5%8F%B0%E7%81%A3",
+          "query": "厚道飲食店（三峽店） 新北市三峽區長福街10號2樓 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-houdao-c59f1f2bd21d.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "厚道飲食店實訪桌上的排骨飯"
+        },
+        "visitLinks": [
+          {
+            "label": "厚道飲食店：老街散步後用餐",
+            "url": "https://www.youtube.com/watch?v=olMHsgcbCMs&t=378s",
+            "kind": "video",
+            "startSeconds": 378
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "三峽老街附近的用餐選項，適合逛街後坐下吃一餐。我們帶兩個孩子來厚道飲食店，品嚐這次印象中的古早味。",
+        "planningNote": null,
+        "officialUrl": "https://www.sanxias.com.tw/portal_c1_cnt_page.php?button_num=c1&cnt_id=341899&folder_id=93181&owner_num=c1_54081&search_word=&up_page=",
+        "detail": {
+          "heading": "厚道飲食店（三峽店）",
+          "paragraphs": [
+            "這次逛三峽老街時，我們在厚道飲食店用餐，影片留下了點餐與吃飯的片段。地點在長福街二樓，可與老街散步接在同一段行程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市"
+            },
+            {
+              "label": "地址",
+              "value": "新北市三峽區長福街10號2樓"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-dabangen",
+        "name": "大板根森林溫泉酒店",
+        "aliases": [],
+        "countyIds": [
+          "tw-new-taipei-city"
+        ],
+        "category": "hotel",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=olMHsgcbCMs"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E6%9D%BF%E6%A0%B9%E6%A3%AE%E6%9E%97%E6%BA%AB%E6%B3%89%E9%85%92%E5%BA%97+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%A4%A7%E6%9D%BF%E6%A0%B9%E6%A3%AE%E6%9E%97%E6%BA%AB%E6%B3%89%E9%85%92%E5%BA%97+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "大板根森林溫泉酒店 新北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-dabangen-2a4907c382e7.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "大板根森林溫泉酒店客房的床鋪、吧台與座椅"
+        },
+        "visitLinks": [
+          {
+            "label": "大板根的步道與恐龍造景",
+            "url": "https://www.youtube.com/watch?v=olMHsgcbCMs&t=574s",
+            "kind": "video",
+            "startSeconds": 574
+          },
+          {
+            "label": "這次入住的四人房",
+            "url": "https://www.youtube.com/watch?v=olMHsgcbCMs&t=878s",
+            "kind": "video",
+            "startSeconds": 878
+          },
+          {
+            "label": "回房間一起泡湯",
+            "url": "https://www.youtube.com/watch?v=olMHsgcbCMs&t=1319s",
+            "kind": "video",
+            "startSeconds": 1319
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "把森林步道、恐龍造景與溫泉住宿放在同一趟親子行程。我們帶孩子走園區、看房，再回房間一起泡湯。",
+        "planningNote": null,
+        "officialUrl": "https://www.taiwan.net.tw/m1.aspx?id=3514&sNo=0001016",
+        "detail": {
+          "heading": "大板根森林溫泉酒店",
+          "paragraphs": [
+            "這次先走園區步道、看恐龍造景，再入住四人房。影片也收錄房內泡湯與另一間親子房的參觀，適合比較戶外探索與房型的不同重點。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-hotel-pin",
+        "name": "品文旅礁溪",
+        "aliases": [],
+        "countyIds": [
+          "tw-yilan-county"
+        ],
+        "category": "hotel",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=XpqY8O9-x40"
+        ],
+        "articleUrl": null,
+        "address": "宜蘭縣礁溪鄉健康二街21巷2號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%93%81%E6%96%87%E6%97%85%E7%A4%81%E6%BA%AA+%E5%AE%9C%E8%98%AD%E7%B8%A3%E7%A4%81%E6%BA%AA%E9%84%89%E5%81%A5%E5%BA%B7%E4%BA%8C%E8%A1%9721%E5%B7%B72%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%93%81%E6%96%87%E6%97%85%E7%A4%81%E6%BA%AA+%E5%AE%9C%E8%98%AD%E7%B8%A3%E7%A4%81%E6%BA%AA%E9%84%89%E5%81%A5%E5%BA%B7%E4%BA%8C%E8%A1%9721%E5%B7%B72%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "品文旅礁溪 宜蘭縣礁溪鄉健康二街21巷2號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-hotel-pin-aa1fc0c936b3.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "品文旅礁溪客房的木製上下鋪與洞洞護欄"
+        },
+        "visitLinks": [
+          {
+            "label": "品文旅：小閣樓房型",
+            "url": "https://www.youtube.com/watch?v=XpqY8O9-x40&t=606s",
+            "kind": "video",
+            "startSeconds": 606
+          },
+          {
+            "label": "孩子做披薩 DIY",
+            "url": "https://www.youtube.com/watch?v=XpqY8O9-x40&t=689s",
+            "kind": "video",
+            "startSeconds": 689
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "小閣樓房型與披薩手作，是我們在礁溪這次住宿的亮點。哥哥們探索上下層的睡覺空間，也親手做了披薩。",
+        "planningNote": null,
+        "officialUrl": "https://www.hotel-pin.com/pin-tw/contact/7/11/60",
+        "detail": {
+          "heading": "品文旅礁溪",
+          "paragraphs": [
+            "這次一家五口入住小閣樓房型，兄弟倆對上層空間很有興趣。住宿期間還參加披薩 DIY，把自己動手做與一起吃，排進同一段飯店時間。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "宜蘭縣"
+            },
+            {
+              "label": "地址",
+              "value": "宜蘭縣礁溪鄉健康二街21巷2號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-qingshui",
+        "name": "清水地熱公園",
+        "aliases": [],
+        "countyIds": [
+          "tw-yilan-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=XpqY8O9-x40"
+        ],
+        "articleUrl": null,
+        "address": "宜蘭縣大同鄉三星路八段501巷150號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E6%B8%85%E6%B0%B4%E5%9C%B0%E7%86%B1%E5%85%AC%E5%9C%92+%E5%AE%9C%E8%98%AD%E7%B8%A3%E5%A4%A7%E5%90%8C%E9%84%89%E4%B8%89%E6%98%9F%E8%B7%AF%E5%85%AB%E6%AE%B5501%E5%B7%B7150%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E6%B8%85%E6%B0%B4%E5%9C%B0%E7%86%B1%E5%85%AC%E5%9C%92+%E5%AE%9C%E8%98%AD%E7%B8%A3%E5%A4%A7%E5%90%8C%E9%84%89%E4%B8%89%E6%98%9F%E8%B7%AF%E5%85%AB%E6%AE%B5501%E5%B7%B7150%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "清水地熱公園 宜蘭縣大同鄉三星路八段501巷150號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-qingshui-ba4d334896a2.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "清水地熱公園煮食池的蒸氣、池邊與設施"
+        },
+        "visitLinks": [
+          {
+            "label": "清水地熱：準備食材與煮蛋",
+            "url": "https://www.youtube.com/watch?v=XpqY8O9-x40&t=1027s",
+            "kind": "video",
+            "startSeconds": 1027
+          },
+          {
+            "label": "一起吃雞蛋與玉米",
+            "url": "https://www.youtube.com/watch?v=XpqY8O9-x40&t=1195s",
+            "kind": "video",
+            "startSeconds": 1195
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "以地熱煮雞蛋、玉米，把等待變成一起動手的親子活動。我們跟朋友帶食材與器具來，煮好後就在現場分享。",
+        "planningNote": null,
+        "officialUrl": "https://travel.yilan.gov.tw/zh-tw/tour/47/",
+        "detail": {
+          "heading": "清水地熱公園",
+          "paragraphs": [
+            "這趟跟朋友一起來清水地熱，自備食材與器具，煮雞蛋與玉米。孩子一起等待、品嚐，行程重點是地熱煮食的過程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "宜蘭縣"
+            },
+            {
+              "label": "地址",
+              "value": "宜蘭縣大同鄉三星路八段501巷150號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-caoling",
+        "name": "舊草嶺自行車隧道",
+        "aliases": [
+          "草嶺隧道自行車道"
+        ],
+        "countyIds": [
+          "tw-new-taipei-city",
+          "tw-yilan-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=XpqY8O9-x40"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E8%88%8A%E8%8D%89%E5%B6%BA%E8%87%AA%E8%A1%8C%E8%BB%8A%E9%9A%A7%E9%81%93+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E8%88%8A%E8%8D%89%E5%B6%BA%E8%87%AA%E8%A1%8C%E8%BB%8A%E9%9A%A7%E9%81%93+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "query": "舊草嶺自行車隧道 新北市 宜蘭縣 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-caoling-d1c0f7304ca6.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "舊草嶺自行車隧道的石砌出口與騎乘通道"
+        },
+        "visitLinks": [
+          {
+            "label": "舊草嶺隧道的自行車路線",
+            "url": "https://www.youtube.com/watch?v=XpqY8O9-x40&t=1394s",
+            "kind": "video",
+            "startSeconds": 1394
+          },
+          {
+            "label": "一家人騎進隧道",
+            "url": "https://www.youtube.com/watch?v=XpqY8O9-x40&t=1563s",
+            "kind": "video",
+            "startSeconds": 1563
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "穿過舊草嶺隧道的自行車行程，沿途經過新北與宜蘭的交界。我們一家一起騎乘，從隧道裡看另一種東北角風景。",
+        "planningNote": null,
+        "officialUrl": "https://www.necoast-nsa.gov.tw/Attraction-Content.aspx?a=197&area=148%2C152%2C157%2C159%2C163%2C166&cat=&fromCnt=0&l=1&listid=106&p=1&q=",
+        "detail": {
+          "heading": "舊草嶺自行車隧道",
+          "paragraphs": [
+            "這次一家人在租車說明後，騎進舊草嶺自行車隧道，經過新北與宜蘭交界。從影片可看到隧道內的騎乘過程，適合了解這類路線的行程樣貌。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市／宜蘭縣"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-dalee",
+        "name": "大立百貨空中樂園",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/eqodWZ11T4g"
+        ],
+        "articleUrl": null,
+        "address": "高雄市前金區五福三路59號頂樓",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E7%AB%8B%E7%99%BE%E8%B2%A8%E7%A9%BA%E4%B8%AD%E6%A8%82%E5%9C%92+%E9%AB%98%E9%9B%84%E5%B8%82%E5%89%8D%E9%87%91%E5%8D%80%E4%BA%94%E7%A6%8F%E4%B8%89%E8%B7%AF59%E8%99%9F%E9%A0%82%E6%A8%93+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%A4%A7%E7%AB%8B%E7%99%BE%E8%B2%A8%E7%A9%BA%E4%B8%AD%E6%A8%82%E5%9C%92+%E9%AB%98%E9%9B%84%E5%B8%82%E5%89%8D%E9%87%91%E5%8D%80%E4%BA%94%E7%A6%8F%E4%B8%89%E8%B7%AF59%E8%99%9F%E9%A0%82%E6%A8%93+%E5%8F%B0%E7%81%A3",
+          "query": "大立百貨空中樂園 高雄市前金區五福三路59號頂樓 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-dalee-9cbc67b94bfd.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "大立空中樂園的懸空遊具與周圍遊樂設施"
+        },
+        "visitLinks": [
+          {
+            "label": "大立空中樂園：媽媽陪孩子搭設施",
+            "url": "https://www.youtube.com/shorts/eqodWZ11T4g",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "在百貨頂樓搭遊樂設施，把高雄市區行程加上一段遊玩時間。我們帶孩子來大立，連大人也一起挑戰高處的刺激。",
+        "planningNote": null,
+        "officialUrl": "https://www.talee.com.tw/tw/guide/floor",
+        "detail": {
+          "heading": "大立百貨空中樂園",
+          "paragraphs": [
+            "大立百貨空中樂園位在五福三路百貨頂樓。這次孩子搭遊樂設施，媽媽也陪著玩；重點是市區裡一段不同於逛街的遊樂體驗。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            },
+            {
+              "label": "地址",
+              "value": "高雄市前金區五福三路59號頂樓"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-ruifeng",
+        "name": "瑞豐夜市",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/StJL_HC2QFs"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E7%91%9E%E8%B1%90%E5%A4%9C%E5%B8%82+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E7%91%9E%E8%B1%90%E5%A4%9C%E5%B8%82+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "瑞豐夜市 高雄市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-ruifeng-ec1f564511c4.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "瑞豐夜市入口燈箱招牌"
+        },
+        "visitLinks": [
+          {
+            "label": "瑞豐夜市：小吃與攤位遊戲",
+            "url": "https://www.youtube.com/shorts/StJL_HC2QFs",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "邊吃小吃、邊玩攤位遊戲的高雄夜市行程。我們在瑞豐夜市找吃的，孩子也停下來玩，逛吃之外多了一段遊戲時間。",
+        "planningNote": null,
+        "officialUrl": "https://khh.travel/zh-tw/attractions/detail/1246/",
+        "detail": {
+          "heading": "瑞豐夜市",
+          "paragraphs": [
+            "這次瑞豐夜市行程串起小吃與攤位遊戲。適合把晚餐與夜市走走排在同一段，實訪短片也呈現了家人各自被不同攤位吸引的過程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-miaokou",
+        "name": "基隆廟口夜市",
+        "aliases": [],
+        "countyIds": [
+          "tw-keelung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/-YT_2yGMs2c"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%9F%BA%E9%9A%86%E5%BB%9F%E5%8F%A3%E5%A4%9C%E5%B8%82+%E5%9F%BA%E9%9A%86%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%9F%BA%E9%9A%86%E5%BB%9F%E5%8F%A3%E5%A4%9C%E5%B8%82+%E5%9F%BA%E9%9A%86%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "基隆廟口夜市 基隆市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-miaokou-cfb54d558bc1.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "基隆廟口夜市的街道與攤位招牌"
+        },
+        "visitLinks": [
+          {
+            "label": "基隆廟口：豆花與羹湯逛吃",
+            "url": "https://www.youtube.com/shorts/-YT_2yGMs2c",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "在基隆廟口邊走邊找小吃，這趟有豆花與羹湯的吃食片段。適合把夜市逛吃排成一家人在基隆行程中的一站。",
+        "planningNote": null,
+        "officialUrl": "https://www.klcg.gov.tw/tw/tourism/2624-314320.html",
+        "detail": {
+          "heading": "基隆廟口夜市",
+          "paragraphs": [
+            "我們這次到基隆廟口找吃的，短片留下了吃豆花、喝羹湯的片段。行程以沿街逛吃為主，可依同行家人的口味分段停留。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "基隆市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-qingnian",
+        "name": "鳳山青年夜市",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/qGNcRUa9NlI"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E9%B3%B3%E5%B1%B1%E9%9D%92%E5%B9%B4%E5%A4%9C%E5%B8%82+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E9%B3%B3%E5%B1%B1%E9%9D%92%E5%B9%B4%E5%A4%9C%E5%B8%82+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "鳳山青年夜市 高雄市 台灣"
+        },
+        "photo": null,
+        "visitLinks": [
+          {
+            "label": "鳳山青年夜市的逛吃與遊玩",
+            "url": "https://www.youtube.com/shorts/qGNcRUa9NlI",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "鳳山的晚間逛吃選項，這次從攤位小吃一路逛到遊戲體驗。我們到青年夜市吃東西，也陪孩子一起玩。",
+        "planningNote": null,
+        "officialUrl": "https://takao.kcg.gov.tw/public/ebook/40/pdf/takao-no18_40_1640316097.pdf",
+        "detail": {
+          "heading": "鳳山青年夜市",
+          "paragraphs": [
+            "短片留下這趟青年夜市的吃食與遊玩片段，適合把夜市當作鳳山行程裡的晚間停留，依家人想吃、想玩的項目安排。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-houli",
+        "name": "后里馬場",
+        "aliases": [],
+        "countyIds": [
+          "tw-taichung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/APLU1ThpRj0"
+        ],
+        "articleUrl": null,
+        "address": "臺中市后里區寺山路41號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%90%8E%E9%87%8C%E9%A6%AC%E5%A0%B4+%E8%87%BA%E4%B8%AD%E5%B8%82%E5%90%8E%E9%87%8C%E5%8D%80%E5%AF%BA%E5%B1%B1%E8%B7%AF41%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%90%8E%E9%87%8C%E9%A6%AC%E5%A0%B4+%E8%87%BA%E4%B8%AD%E5%B8%82%E5%90%8E%E9%87%8C%E5%8D%80%E5%AF%BA%E5%B1%B1%E8%B7%AF41%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "后里馬場 臺中市后里區寺山路41號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-houli-a1c7d1229d14.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "后里馬場馬廄裡的白馬"
+        },
+        "visitLinks": [
+          {
+            "label": "孩子在后里馬場接觸馬匹",
+            "url": "https://www.youtube.com/shorts/APLU1ThpRj0",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "到后里馬場近距離看馬，讓孩子有接觸馬匹的機會。我們帶孩子來，短片也留下了他面對馬時的反應。",
+        "planningNote": null,
+        "officialUrl": "https://media.taiwan.net.tw/zh-tw/portal/travel/details/attraction_387000000a_000065",
+        "detail": {
+          "heading": "后里馬場",
+          "paragraphs": [
+            "馬匹互動是這次后里馬場的重點，孩子在現場嘗試接近馬。地點在后里區寺山路，可放進以動物為主的親子行程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺中市"
+            },
+            {
+              "label": "地址",
+              "value": "臺中市后里區寺山路41號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-leofoo",
+        "name": "六福村主題遊樂園",
+        "aliases": [
+          "六福村"
+        ],
+        "countyIds": [
+          "tw-hsinchu-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/JEHksDKsLzc",
+          "https://www.youtube.com/shorts/IQjjuant67A",
+          "https://www.youtube.com/shorts/-2HIwfpqlrg",
+          "https://www.youtube.com/watch?v=i5yGptoSF0M"
+        ],
+        "articleUrl": null,
+        "address": "新竹縣關西鎮仁安里拱子溝60號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%85%AD%E7%A6%8F%E6%9D%91%E4%B8%BB%E9%A1%8C%E9%81%8A%E6%A8%82%E5%9C%92+%E6%96%B0%E7%AB%B9%E7%B8%A3%E9%97%9C%E8%A5%BF%E9%8E%AE%E4%BB%81%E5%AE%89%E9%87%8C%E6%8B%B1%E5%AD%90%E6%BA%9D60%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%85%AD%E7%A6%8F%E6%9D%91%E4%B8%BB%E9%A1%8C%E9%81%8A%E6%A8%82%E5%9C%92+%E6%96%B0%E7%AB%B9%E7%B8%A3%E9%97%9C%E8%A5%BF%E9%8E%AE%E4%BB%81%E5%AE%89%E9%87%8C%E6%8B%B1%E5%AD%90%E6%BA%9D60%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "六福村主題遊樂園 新竹縣關西鎮仁安里拱子溝60號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-leofoo-e3595ef3ed78.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "六福村實訪拍到的動物展示場域"
+        },
+        "visitLinks": [
+          {
+            "label": "六福村：看完表演後走動物區",
+            "url": "https://www.youtube.com/watch?v=i5yGptoSF0M&t=491s",
+            "kind": "video",
+            "startSeconds": 491
+          },
+          {
+            "label": "六福村的遊樂設施與親子遊玩",
+            "url": "https://www.youtube.com/shorts/JEHksDKsLzc",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "遊樂設施與動物園區可按孩子興趣分開安排。我們多次帶孩子到六福村，玩設施、看動物，也參加過當時的活動。",
+        "planningNote": null,
+        "officialUrl": "https://www.leofoovillage.com/Infos/",
+        "detail": {
+          "heading": "六福村主題遊樂園",
+          "paragraphs": [
+            "這次先參加表演，再按孩子想看的動物區走；其他到訪短片則有遊樂設施與動物互動。可以把看動物與玩設施分成兩種重點，不必一次排滿。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新竹縣"
+            },
+            {
+              "label": "地址",
+              "value": "新竹縣關西鎮仁安里拱子溝60號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-wusheng",
+        "name": "武聖夜市",
+        "aliases": [],
+        "countyIds": [
+          "tw-tainan-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/JKHR-bdvDaY"
+        ],
+        "articleUrl": null,
+        "address": "臺南市中西區武聖路69巷42號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E6%AD%A6%E8%81%96%E5%A4%9C%E5%B8%82+%E8%87%BA%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E6%AD%A6%E8%81%96%E8%B7%AF69%E5%B7%B742%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E6%AD%A6%E8%81%96%E5%A4%9C%E5%B8%82+%E8%87%BA%E5%8D%97%E5%B8%82%E4%B8%AD%E8%A5%BF%E5%8D%80%E6%AD%A6%E8%81%96%E8%B7%AF69%E5%B7%B742%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "武聖夜市 臺南市中西區武聖路69巷42號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-wusheng-d2f05f2f3d2c.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "武聖夜市實訪的熱湯與碗裝餐點"
+        },
+        "visitLinks": [
+          {
+            "label": "武聖夜市：找小吃、玩遊戲",
+            "url": "https://www.youtube.com/shorts/JKHR-bdvDaY",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "台南晚上的逛吃與遊戲選項。我們來武聖夜市找小吃，孩子也停下來玩攤位遊戲，把吃飯和遊玩接成一段。",
+        "planningNote": null,
+        "officialUrl": "https://marketoffice.tainan.gov.tw/News_Content.aspx?Create=1&n=44651&s=8747428",
+        "detail": {
+          "heading": "武聖夜市",
+          "paragraphs": [
+            "這趟武聖夜市行程以小吃與遊戲為主，地點在武聖路巷內。實訪短片呈現一家人從找吃的到玩攤位的過程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺南市"
+            },
+            {
+              "label": "地址",
+              "value": "臺南市中西區武聖路69巷42號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-taipei-zoo",
+        "name": "臺北市立動物園",
+        "aliases": [
+          "木柵動物園"
+        ],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/9XnuZj8eAlw"
+        ],
+        "articleUrl": null,
+        "address": "臺北市文山區新光路二段30號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92+%E8%87%BA%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B530%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E8%87%BA%E5%8C%97%E5%B8%82%E7%AB%8B%E5%8B%95%E7%89%A9%E5%9C%92+%E8%87%BA%E5%8C%97%E5%B8%82%E6%96%87%E5%B1%B1%E5%8D%80%E6%96%B0%E5%85%89%E8%B7%AF%E4%BA%8C%E6%AE%B530%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "臺北市立動物園 臺北市文山區新光路二段30號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-taipei-zoo-f5d0aefc758e.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "臺北市立動物園實訪的鳥類解說牌"
+        },
+        "visitLinks": [
+          {
+            "label": "臺北動物園的親子動物觀察",
+            "url": "https://www.youtube.com/shorts/9XnuZj8eAlw",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "以看動物、觀察牠們的動作為主的親子行程。我們帶孩子逛臺北市立動物園，在園區裡一起找不同的動物。",
+        "planningNote": null,
+        "officialUrl": "https://www.zoo.gov.taipei/Content_List.aspx?n=D3D73224734CFEAF",
+        "detail": {
+          "heading": "臺北市立動物園",
+          "paragraphs": [
+            "園區位在文山區新光路二段。這次實訪以動物觀察為主，短片留下了家人邊走邊看的互動，可作為動物園行程的遊玩靈感。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            },
+            {
+              "label": "地址",
+              "value": "臺北市文山區新光路二段30號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-twtc1",
+        "name": "台北世貿一館",
+        "aliases": [],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/uc8LJJdaQ_A"
+        ],
+        "articleUrl": null,
+        "address": "臺北市信義路五段5號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E5%8C%97%E4%B8%96%E8%B2%BF%E4%B8%80%E9%A4%A8+%E8%87%BA%E5%8C%97%E5%B8%82%E4%BF%A1%E7%BE%A9%E8%B7%AF%E4%BA%94%E6%AE%B55%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%8F%B0%E5%8C%97%E4%B8%96%E8%B2%BF%E4%B8%80%E9%A4%A8+%E8%87%BA%E5%8C%97%E5%B8%82%E4%BF%A1%E7%BE%A9%E8%B7%AF%E4%BA%94%E6%AE%B55%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "台北世貿一館 臺北市信義路五段5號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-twtc1-bc27853e4bbe.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "台北世貿一館實訪展場的攤位與參觀人潮"
+        },
+        "visitLinks": [
+          {
+            "label": "在世貿一館逛婦幼展",
+            "url": "https://www.youtube.com/shorts/uc8LJJdaQ_A",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "信義區的展覽場館，我們曾來逛婦幼展，看看當次展覽的現場。適合先選有興趣的展覽，再安排這一站。",
+        "planningNote": "先選當期展覽，再查主辦單位的入場資訊。",
+        "officialUrl": "https://www.twtc.com.tw/contact-us",
+        "detail": {
+          "heading": "台北世貿一館",
+          "paragraphs": [
+            "我們曾在台北世貿一館逛婦幼展，短片收錄了家人逛展的片段。地點位在信義路五段，造訪重點會隨展覽檔期改變。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            },
+            {
+              "label": "地址",
+              "value": "臺北市信義路五段5號"
+            },
+            {
+              "label": "行程提醒",
+              "value": "先選當期展覽，再查主辦單位的入場資訊。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-qixing",
+        "name": "七星山主峰",
+        "aliases": [],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/ItnVym3i93Q"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E4%B8%83%E6%98%9F%E5%B1%B1%E4%B8%BB%E5%B3%B0+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E4%B8%83%E6%98%9F%E5%B1%B1%E4%B8%BB%E5%B3%B0+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "七星山主峰 臺北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-qixing-4a341d50732c.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "七星山步道、草坡與山脊"
+        },
+        "visitLinks": [
+          {
+            "label": "一家人登上七星山主峰",
+            "url": "https://www.youtube.com/shorts/ItnVym3i93Q",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "登上七星山主峰，把上山過程與登頂景觀接成一次親子登山。我們一家走到山頂，也留下孩子一路爬山的片段。",
+        "planningNote": null,
+        "officialUrl": "https://www.ymsnp.gov.tw/ch/specialreport/geology-and-landforms/1079",
+        "detail": {
+          "heading": "七星山主峰",
+          "paragraphs": [
+            "這趟行程的重點是一起上山並抵達主峰。孩子一路走到登頂，短片收錄了上山與到頂的反應；規劃時可先以家人的步行能力決定行程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-shida",
+        "name": "師大夜市／師大龍泉商圈",
+        "aliases": [
+          "師大夜市",
+          "師大龍泉商圈"
+        ],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/AWAR3NO4Q_c"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%B8%AB%E5%A4%A7%E5%A4%9C%E5%B8%82%EF%BC%8F%E5%B8%AB%E5%A4%A7%E9%BE%8D%E6%B3%89%E5%95%86%E5%9C%88+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%B8%AB%E5%A4%A7%E5%A4%9C%E5%B8%82%EF%BC%8F%E5%B8%AB%E5%A4%A7%E9%BE%8D%E6%B3%89%E5%95%86%E5%9C%88+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "師大夜市／師大龍泉商圈 臺北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-shida-f893da616907.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "師大商圈實訪的鹹酥雞餐點"
+        },
+        "visitLinks": [
+          {
+            "label": "師大商圈：吃東西與逛店",
+            "url": "https://www.youtube.com/shorts/AWAR3NO4Q_c",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "在師大夜市與龍泉商圈逛店、吃東西，把用餐與街區散步接在一起。我們這趟也讓孩子停下來挑喜歡的東西。",
+        "planningNote": null,
+        "officialUrl": "https://www.travel.taipei/ja/attraction/details/3730",
+        "detail": {
+          "heading": "師大夜市／師大龍泉商圈",
+          "paragraphs": [
+            "這次在師大一帶吃東西、逛店，短片也留下孩子挑選物品的片段。可以把這站當作台北市區的用餐與逛街安排。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-ntsec",
+        "name": "國立臺灣科學教育館",
+        "aliases": [
+          "科教館"
+        ],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/_mcOGmRQwpw",
+          "https://www.youtube.com/shorts/Cb0FTaBGDvU"
+        ],
+        "articleUrl": null,
+        "address": "臺北市士林區士商路189號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%9C%8B%E7%AB%8B%E8%87%BA%E7%81%A3%E7%A7%91%E5%AD%B8%E6%95%99%E8%82%B2%E9%A4%A8+%E8%87%BA%E5%8C%97%E5%B8%82%E5%A3%AB%E6%9E%97%E5%8D%80%E5%A3%AB%E5%95%86%E8%B7%AF189%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%9C%8B%E7%AB%8B%E8%87%BA%E7%81%A3%E7%A7%91%E5%AD%B8%E6%95%99%E8%82%B2%E9%A4%A8+%E8%87%BA%E5%8C%97%E5%B8%82%E5%A3%AB%E6%9E%97%E5%8D%80%E5%A3%AB%E5%95%86%E8%B7%AF189%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "國立臺灣科學教育館 臺北市士林區士商路189號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-ntsec-208858609a4c.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "科教館實訪的恐龍互動展示"
+        },
+        "visitLinks": [
+          {
+            "label": "科教館的恐龍與互動遊玩",
+            "url": "https://www.youtube.com/shorts/_mcOGmRQwpw",
+            "kind": "video"
+          },
+          {
+            "label": "另一趟科教館探索記錄",
+            "url": "https://www.youtube.com/shorts/Cb0FTaBGDvU",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "用互動內容與恐龍相關展出開啟科學探索。我們曾帶孩子到科教館遊玩，從動手參與到看展，找各自有興趣的內容。",
+        "planningNote": "出發前查看館方當期展覽與活動。",
+        "officialUrl": "https://www.ntsec.gov.tw/",
+        "detail": {
+          "heading": "國立臺灣科學教育館",
+          "paragraphs": [
+            "兩段到訪短片分別留下恐龍相關展出與互動遊玩的片段。行程可從孩子感興趣的題目開始，讓看展與動手參與交替安排。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            },
+            {
+              "label": "地址",
+              "value": "臺北市士林區士商路189號"
+            },
+            {
+              "label": "行程提醒",
+              "value": "出發前查看館方當期展覽與活動。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-lihpao",
+        "name": "麗寶樂園",
+        "aliases": [],
+        "countyIds": [
+          "tw-taichung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/jyfYVV-Jg88",
+          "https://www.youtube.com/watch?v=B7tFbHsWwew"
+        ],
+        "articleUrl": null,
+        "address": "臺中市后里區福容路8號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E9%BA%97%E5%AF%B6%E6%A8%82%E5%9C%92+%E8%87%BA%E4%B8%AD%E5%B8%82%E5%90%8E%E9%87%8C%E5%8D%80%E7%A6%8F%E5%AE%B9%E8%B7%AF8%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E9%BA%97%E5%AF%B6%E6%A8%82%E5%9C%92+%E8%87%BA%E4%B8%AD%E5%B8%82%E5%90%8E%E9%87%8C%E5%8D%80%E7%A6%8F%E5%AE%B9%E8%B7%AF8%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "麗寶樂園 臺中市后里區福容路8號 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-lihpao-cbcd3fe9dee5.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "麗寶樂園園內的黃色遊樂建築與入口空間"
+        },
+        "visitLinks": [
+          {
+            "label": "麗寶斷軌挑戰短片",
+            "url": "https://www.youtube.com/shorts/jyfYVV-Jg88",
+            "kind": "video"
+          },
+          {
+            "label": "麗寶完整旅行中的斷軌體驗",
+            "url": "https://www.youtube.com/watch?v=B7tFbHsWwew&t=1150s",
+            "kind": "video",
+            "startSeconds": 1150
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "台中后里的遊樂園行程，能依家人喜歡的刺激程度選玩法。我們到麗寶玩設施，也留下大人挑戰斷軌的反應。",
+        "planningNote": null,
+        "officialUrl": "https://www.lihpaoresort.com/",
+        "detail": {
+          "heading": "麗寶樂園",
+          "paragraphs": [
+            "這次全家到麗寶遊玩，影片包含挑戰斷軌的過程。想玩設施與想看家人反應，可以從不同片段了解這趟行程，不必讓每個人都選一樣的玩法。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺中市"
+            },
+            {
+              "label": "地址",
+              "value": "臺中市后里區福容路8號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-bitan",
+        "name": "碧潭風景區",
+        "aliases": [
+          "碧潭"
+        ],
+        "countyIds": [
+          "tw-new-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/jbRGvhdwS6w"
+        ],
+        "articleUrl": null,
+        "address": "新北市新店區新店路",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E7%A2%A7%E6%BD%AD%E9%A2%A8%E6%99%AF%E5%8D%80+%E6%96%B0%E5%8C%97%E5%B8%82%E6%96%B0%E5%BA%97%E5%8D%80%E6%96%B0%E5%BA%97%E8%B7%AF+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E7%A2%A7%E6%BD%AD%E9%A2%A8%E6%99%AF%E5%8D%80+%E6%96%B0%E5%8C%97%E5%B8%82%E6%96%B0%E5%BA%97%E5%8D%80%E6%96%B0%E5%BA%97%E8%B7%AF+%E5%8F%B0%E7%81%A3",
+          "query": "碧潭風景區 新北市新店區新店路 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-bitan-ab7d5dc748f6.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "碧潭水面上的遊船與岸邊船隊"
+        },
+        "visitLinks": [
+          {
+            "label": "碧潭水上腳踏船的親子體驗",
+            "url": "https://www.youtube.com/shorts/jbRGvhdwS6w",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "踩水上腳踏船，從水面換個角度看新店河岸。我們和孩子一起上船、一起踩，讓碧潭散步多了一段水上體驗。",
+        "planningNote": null,
+        "officialUrl": "https://newtaipei.travel/zh-tw/attractions/detail/109613",
+        "detail": {
+          "heading": "碧潭風景區",
+          "paragraphs": [
+            "這次在碧潭踩水上腳踏船，家人坐在同一艘船上一起出力。行程重點是水上遊玩與河岸景觀，也可與附近的步行安排分開規劃。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市"
+            },
+            {
+              "label": "地址",
+              "value": "新北市新店區新店路"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-fgs",
+        "name": "佛光山寺園區",
+        "aliases": [
+          "佛光山"
+        ],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/O5UGHBcTb0M"
+        ],
+        "articleUrl": null,
+        "address": "高雄市大樹區興田里興田路153號",
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E4%BD%9B%E5%85%89%E5%B1%B1%E5%AF%BA%E5%9C%92%E5%8D%80+%E9%AB%98%E9%9B%84%E5%B8%82%E5%A4%A7%E6%A8%B9%E5%8D%80%E8%88%88%E7%94%B0%E9%87%8C%E8%88%88%E7%94%B0%E8%B7%AF153%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E4%BD%9B%E5%85%89%E5%B1%B1%E5%AF%BA%E5%9C%92%E5%8D%80+%E9%AB%98%E9%9B%84%E5%B8%82%E5%A4%A7%E6%A8%B9%E5%8D%80%E8%88%88%E7%94%B0%E9%87%8C%E8%88%88%E7%94%B0%E8%B7%AF153%E8%99%9F+%E5%8F%B0%E7%81%A3",
+          "query": "佛光山寺園區 高雄市大樹區興田里興田路153號 台灣"
+        },
+        "photo": null,
+        "visitLinks": [
+          {
+            "label": "跟阿婆逛佛光山寺園區",
+            "url": "https://www.youtube.com/shorts/O5UGHBcTb0M",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "沿佛光山寺園區看建築、佛像與景觀，是高雄大樹一帶的散步選項。我們跟著阿婆來，從不同角度認識這個園區。",
+        "planningNote": null,
+        "officialUrl": "https://www.fgs.org.tw/career/career_global_tw_n.aspx?area_no=0101",
+        "detail": {
+          "heading": "佛光山寺園區",
+          "paragraphs": [
+            "這次阿婆帶我們到佛光山寺園區，行程以看建築、佛像與園區景觀為主。適合把步行參觀排成大樹行程的一站。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            },
+            {
+              "label": "地址",
+              "value": "高雄市大樹區興田里興田路153號"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-fuhang",
+        "name": "阜杭豆漿",
+        "aliases": [],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "restaurant",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/xrjavMDfL3A"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E9%98%9C%E6%9D%AD%E8%B1%86%E6%BC%BF+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E9%98%9C%E6%9D%AD%E8%B1%86%E6%BC%BF+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "阜杭豆漿 臺北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-fuhang-bc6c59876ffb.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "阜杭豆漿實訪的鹹豆漿與油條"
+        },
+        "visitLinks": [
+          {
+            "label": "阜杭豆漿：第一次吃鹹豆漿與燒餅油條",
+            "url": "https://www.youtube.com/shorts/xrjavMDfL3A?t=29s",
+            "kind": "video",
+            "startSeconds": 29
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "以鹹豆漿與燒餅油條開始台北的一餐。我們第一次來阜杭豆漿，這次選了這兩樣，也體驗了現場排隊。",
+        "planningNote": null,
+        "officialUrl": "https://www.travel.taipei/d_upload_ttn/cms/file/A0/B0/C0/D0/E1/F947/02b0d88e-9510-4520-9048-18aed46f9e90.pdf",
+        "detail": {
+          "heading": "阜杭豆漿",
+          "paragraphs": [
+            "這次到阜杭豆漿，點了鹹豆漿與燒餅油條。短片收錄排隊與吃早餐的過程，適合想把傳統早餐放進台北行程的人。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-lehua",
+        "name": "樂華夜市",
+        "aliases": [],
+        "countyIds": [
+          "tw-new-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/N1r_9CkgK-k"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E6%A8%82%E8%8F%AF%E5%A4%9C%E5%B8%82+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E6%A8%82%E8%8F%AF%E5%A4%9C%E5%B8%82+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "樂華夜市 新北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-lehua-51ca04525ed7.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "樂華夜市實訪中的白雪公豬刈包攤位招牌"
+        },
+        "visitLinks": [
+          {
+            "label": "帶舟夏逛樂華夜市",
+            "url": "https://www.youtube.com/shorts/N1r_9CkgK-k",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "在永和安排一段夜市走走，邊逛攤位、找吃的，也陪孩子玩遊戲。我們帶舟夏來樂華夜市，把一家人的晚上留在街頭。",
+        "planningNote": null,
+        "officialUrl": "https://www.newtaipeimarket.ntpc.gov.tw/tc/mapDetail.aspx?chk=431b0cc8-5ed7-414d-9b08-448a8077d7f9&id=54&mid=26&param=pn%3D1%26mid%3D26%26id%3D74",
+        "detail": {
+          "heading": "樂華夜市",
+          "paragraphs": [
+            "這次樂華夜市行程有逛攤位、買東西與遊戲片段。想把晚餐和飯後散步接在一起，可以把這一站放進永和行程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-daqiu",
+        "name": "大坵島",
+        "aliases": [],
+        "countyIds": [
+          "tw-lienchiang-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/TIa87Bnspfk",
+          "https://www.youtube.com/watch?v=pUoNpHyWl-A&t=2210s"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%A4%A7%E5%9D%B5%E5%B3%B6+%E9%80%A3%E6%B1%9F%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%A4%A7%E5%9D%B5%E5%B3%B6+%E9%80%A3%E6%B1%9F%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "query": "大坵島 連江縣 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-daqiu-3ab4edf6f45f.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "大坵島岸邊道路上的兩隻梅花鹿與海面"
+        },
+        "visitLinks": [
+          {
+            "label": "馬祖完整影片：登上大坵看梅花鹿",
+            "url": "https://www.youtube.com/watch?v=pUoNpHyWl-A&t=2210s",
+            "kind": "video"
+          },
+          {
+            "label": "大坵島看鹿與步行短片",
+            "url": "https://www.youtube.com/shorts/TIa87Bnspfk",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "搭船登島看梅花鹿，沿步道走一段大坵。我們依家人體力分組，有人先回碼頭，有人繼續走，再一起搭船回去。",
+        "planningNote": "登島需配合當日船班；先確認北竿橋仔港的往返安排。",
+        "officialUrl": "https://www.matsu-nsa.gov.tw/zh-TW/attractions/1456",
+        "detail": {
+          "heading": "大坵島",
+          "paragraphs": [
+            "大坵這一站串起搭船、看梅花鹿與島上步行。這次部分家人提早回碼頭，另一人繼續走，行程並沒有要求每個人都繞完全島。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "連江縣"
+            },
+            {
+              "label": "行程提醒",
+              "value": "登島需配合當日船班；先確認北竿橋仔港的往返安排。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-xindian-ferry",
+        "name": "新店渡渡口人力擺渡",
+        "aliases": [],
+        "countyIds": [
+          "tw-new-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/shorts/QJRrgdfRe84"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E6%96%B0%E5%BA%97%E6%B8%A1%E6%B8%A1%E5%8F%A3%E4%BA%BA%E5%8A%9B%E6%93%BA%E6%B8%A1+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E6%96%B0%E5%BA%97%E6%B8%A1%E6%B8%A1%E5%8F%A3%E4%BA%BA%E5%8A%9B%E6%93%BA%E6%B8%A1+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "新店渡渡口人力擺渡 新北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-xindian-ferry-dcd34abc1168.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "新店渡口的人力擺渡船與水面"
+        },
+        "visitLinks": [
+          {
+            "label": "新店人力擺渡：過河與雨中回程",
+            "url": "https://www.youtube.com/shorts/QJRrgdfRe84",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "搭人力擺渡過新店溪，親眼看船夫划船，讓渡河本身成為一段體驗。我們這次過河後遇雨，也提早安排回程。",
+        "planningNote": null,
+        "officialUrl": "https://www.ca.ntpc.gov.tw/new/home.jsp?id=b9cc1a9bf4ecaca5",
+        "detail": {
+          "heading": "新店渡渡口人力擺渡",
+          "paragraphs": [
+            "這次從新店搭人力擺渡到對岸，再因下雨提早回程。當次走法是從新店捷運站往碧潭吊橋方向，再沿路走到渡口。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-aeeh",
+        "name": "航空教育展示館",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=Di3ztLCIU6c"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E8%88%AA%E7%A9%BA%E6%95%99%E8%82%B2%E5%B1%95%E7%A4%BA%E9%A4%A8+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E8%88%AA%E7%A9%BA%E6%95%99%E8%82%B2%E5%B1%95%E7%A4%BA%E9%A4%A8+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "航空教育展示館 高雄市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-aeeh-60925a652b81.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "航空教育展示館的C-130飛機展示"
+        },
+        "visitLinks": [
+          {
+            "label": "航空教育展示館：飛機與座艙",
+            "url": "https://www.youtube.com/watch?v=Di3ztLCIU6c",
+            "kind": "video"
+          },
+          {
+            "label": "進入展示機看座位",
+            "url": "https://www.youtube.com/watch?v=Di3ztLCIU6c&t=141s",
+            "kind": "video",
+            "startSeconds": 141
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "到岡山近看飛機展示，也看看展示機內的座艙與座位。我們帶孩子到航空教育展示館，把飛機從天空拉近到眼前。",
+        "planningNote": null,
+        "officialUrl": "https://www.aeeh.com.tw/tw/index.asp?au_id=6",
+        "detail": {
+          "heading": "航空教育展示館",
+          "paragraphs": [
+            "這次行程以飛機展示為主，影片還收錄進入展示機內、看看座位與座艙的片段。喜歡飛機的家庭，可以把這站當作觀機之外的另一種探索。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-dongshan-market",
+        "name": "冬山夜市（太和夜市）",
+        "aliases": [
+          "太和夜市",
+          "冬山夜市"
+        ],
+        "countyIds": [
+          "tw-yilan-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=z07oMlyI7ew"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%86%AC%E5%B1%B1%E5%A4%9C%E5%B8%82%EF%BC%88%E5%A4%AA%E5%92%8C%E5%A4%9C%E5%B8%82%EF%BC%89+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%86%AC%E5%B1%B1%E5%A4%9C%E5%B8%82%EF%BC%88%E5%A4%AA%E5%92%8C%E5%A4%9C%E5%B8%82%EF%BC%89+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "query": "冬山夜市（太和夜市） 宜蘭縣 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-dongshan-market-120ba80636b4.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "冬山夜市實訪拍到的現做點心攤位"
+        },
+        "visitLinks": [
+          {
+            "label": "冬山夜市：陪朋友擺攤與孩子賣氣球",
+            "url": "https://www.youtube.com/watch?v=z07oMlyI7ew&t=252s",
+            "kind": "video",
+            "startSeconds": 252
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "宜蘭的夜市逛吃選項，我們還跟朋友來擺過攤。從抽攤位、卸貨到孩子賣氣球，這趟多看見了夜市開張的一面。",
+        "planningNote": null,
+        "officialUrl": "https://travel.dongshan.gov.tw/tourist_spot_view.asp?id=58",
+        "detail": {
+          "heading": "冬山夜市（太和夜市）",
+          "paragraphs": [
+            "這次到冬山夜市，先陪朋友準備攤位，再帶孩子賣氣球，途中也逛攤位、買東西。影片把夜市的消費與擺攤兩種視角放在同一趟行程裡。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "宜蘭縣"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-airplane-lane",
+        "name": "松山飛機巷",
+        "aliases": [],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=EcrgMNSQy8I"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E6%9D%BE%E5%B1%B1%E9%A3%9B%E6%A9%9F%E5%B7%B7+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E6%9D%BE%E5%B1%B1%E9%A3%9B%E6%A9%9F%E5%B7%B7+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "松山飛機巷 臺北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-airplane-lane-edd1a0e7a820.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "松山飛機巷的低空飛機與機場圍欄"
+        },
+        "visitLinks": [
+          {
+            "label": "松山飛機巷：看落地飛機與路邊環境",
+            "url": "https://www.youtube.com/watch?v=EcrgMNSQy8I&t=418s",
+            "kind": "video",
+            "startSeconds": 418
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "在松山機場跑道旁看飛機落地，近距離感受飛機經過。我們到飛機巷觀機，也注意到路邊車流對帶孩子的影響。",
+        "planningNote": "觀機時留意車流，與道路保持安全距離。",
+        "officialUrl": "https://www.travel.taipei/file/2425/",
+        "detail": {
+          "heading": "松山飛機巷",
+          "paragraphs": [
+            "這次從松山飛機巷看飛機落地，家人對距離很近的飛機很有印象。現場也是有車流的道路，帶孩子觀機時，站的位置是重要的安排。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            },
+            {
+              "label": "行程提醒",
+              "value": "觀機時留意車流，與道路保持安全距離。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-t2-north-deck",
+        "name": "桃園機場第二航廈北側觀景台",
+        "aliases": [],
+        "countyIds": [
+          "tw-taoyuan-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=EcrgMNSQy8I"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E6%A1%83%E5%9C%92%E6%A9%9F%E5%A0%B4%E7%AC%AC%E4%BA%8C%E8%88%AA%E5%BB%88%E5%8C%97%E5%81%B4%E8%A7%80%E6%99%AF%E5%8F%B0+%E6%A1%83%E5%9C%92%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E6%A1%83%E5%9C%92%E6%A9%9F%E5%A0%B4%E7%AC%AC%E4%BA%8C%E8%88%AA%E5%BB%88%E5%8C%97%E5%81%B4%E8%A7%80%E6%99%AF%E5%8F%B0+%E6%A1%83%E5%9C%92%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "桃園機場第二航廈北側觀景台 桃園市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-t2-north-deck-4a389ae5392c.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "桃園機場第二航廈北側觀景台所見的飛機與跑道"
+        },
+        "visitLinks": [
+          {
+            "label": "第二航廈北側觀景台與當時的積木展示",
+            "url": "https://www.youtube.com/watch?v=EcrgMNSQy8I&t=1100s",
+            "kind": "video",
+            "startSeconds": 1100
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "從桃園機場第二航廈北側看飛機動態，感受機場的忙碌。我們這次也停下來玩當時的積木展示，再繼續觀機。",
+        "planningNote": null,
+        "officialUrl": "https://www.taoyuan-airport.com/explorethefun/",
+        "detail": {
+          "heading": "桃園機場第二航廈北側觀景台",
+          "paragraphs": [
+            "這次走到第二航廈北側觀景台看飛機，孩子也在當時的積木展示停留。可把這站當作機場觀機行程，積木部分則是這次到訪的內容。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "桃園市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-lakeshore-hsinchu-hubin",
+        "name": "煙波大飯店新竹湖濱館",
+        "aliases": [
+          "煙波大飯店新竹湖濱舘"
+        ],
+        "countyIds": [
+          "tw-hsinchu-city"
+        ],
+        "category": "hotel",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=aQug5kvDatg"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E7%85%99%E6%B3%A2%E5%A4%A7%E9%A3%AF%E5%BA%97%E6%96%B0%E7%AB%B9%E6%B9%96%E6%BF%B1%E9%A4%A8+%E6%96%B0%E7%AB%B9%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E7%85%99%E6%B3%A2%E5%A4%A7%E9%A3%AF%E5%BA%97%E6%96%B0%E7%AB%B9%E6%B9%96%E6%BF%B1%E9%A4%A8+%E6%96%B0%E7%AB%B9%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "煙波大飯店新竹湖濱館 新竹市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-lakeshore-hsinchu-hubin-c59dfa87a33a.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "煙波大飯店新竹湖濱館的室內泳池與池畔空間"
+        },
+        "visitLinks": [
+          {
+            "label": "煙波新竹湖濱館：入住與房間介紹",
+            "url": "https://www.youtube.com/watch?v=aQug5kvDatg&t=616s",
+            "kind": "video",
+            "startSeconds": 616
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "新竹湖濱館的家庭住宿選項，這次包含房間、泳池與早餐的體驗。我們再次入住煙波，把飯店時間留給一家人。",
+        "planningNote": null,
+        "officialUrl": "https://hsinchu.lakeshore.com.tw/about/location",
+        "detail": {
+          "heading": "煙波大飯店新竹湖濱館",
+          "paragraphs": [
+            "這次新竹行程入住煙波大飯店新竹湖濱館，影片包含入住與房間介紹，飯店體驗也有泳池與早餐。規劃住宿時，可把飯店內活動另留一段時間。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新竹市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-neiwan-old-street",
+        "name": "內灣老街",
+        "aliases": [],
+        "countyIds": [
+          "tw-hsinchu-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=aQug5kvDatg"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%85%A7%E7%81%A3%E8%80%81%E8%A1%97+%E6%96%B0%E7%AB%B9%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%85%A7%E7%81%A3%E8%80%81%E8%A1%97+%E6%96%B0%E7%AB%B9%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "query": "內灣老街 新竹縣 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-neiwan-old-street-63831e9c33cc.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "內灣老街的內灣戲院建築"
+        },
+        "visitLinks": [
+          {
+            "label": "改道內灣老街，跟在地朋友一起逛",
+            "url": "https://www.youtube.com/watch?v=aQug5kvDatg&t=46s",
+            "kind": "video",
+            "startSeconds": 46
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "逛老街、找吃的，把新竹行程留一段給街區散步。我們改變原本安排，跟著在地朋友到內灣，邊走邊看。",
+        "planningNote": null,
+        "officialUrl": "https://spotlightaward.taiwan.net.tw/tourpage.php?id=955f987d-dd7c-4934-9208-aeba26d6bae7&tag=1",
+        "detail": {
+          "heading": "內灣老街",
+          "paragraphs": [
+            "這次原本安排的地方沒開，於是改到內灣老街，跟在地朋友一起逛。這一站以街區走走與找吃的為主，可和新竹其他行程接在一起。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新竹縣"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-sanfu-farm",
+        "name": "三富休閒農場",
+        "aliases": [],
+        "countyIds": [
+          "tw-yilan-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [
+          "hotel",
+          "restaurant"
+        ],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=zOMsrQ6z2xc"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E4%B8%89%E5%AF%8C%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E4%B8%89%E5%AF%8C%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "query": "三富休閒農場 宜蘭縣 台灣"
+        },
+        "photo": null,
+        "visitLinks": [
+          {
+            "label": "三富住宿與星砂 DIY",
+            "url": "https://www.youtube.com/watch?v=zOMsrQ6z2xc&t=887s",
+            "kind": "video",
+            "startSeconds": 887
+          },
+          {
+            "label": "三富夜間生態導覽",
+            "url": "https://www.youtube.com/watch?v=zOMsrQ6z2xc&t=1246s",
+            "kind": "video",
+            "startSeconds": 1246
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "白天手作、晚上生態探索，是這趟農場行程的重點。我們在三富住宿，參加星砂 DIY，也安排了夜間生態導覽。",
+        "planningNote": null,
+        "officialUrl": "https://www.sanfufarm.com.tw/location.html",
+        "detail": {
+          "heading": "三富休閒農場",
+          "paragraphs": [
+            "這次在三富休閒農場住宿，行程包含星砂 DIY 與夜間生態導覽。家人分開照顧孩子與參加活動，把手作和戶外觀察分成不同時段。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "宜蘭縣"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-shengyang-farm",
+        "name": "勝洋休閒農場",
+        "aliases": [],
+        "countyIds": [
+          "tw-yilan-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=zOMsrQ6z2xc"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%8B%9D%E6%B4%8B%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%8B%9D%E6%B4%8B%E4%BC%91%E9%96%92%E8%BE%B2%E5%A0%B4+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "query": "勝洋休閒農場 宜蘭縣 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-shengyang-farm-1fe2c60366a3.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "勝洋休閒農場的水生植物池與岸邊植栽"
+        },
+        "visitLinks": [
+          {
+            "label": "宜蘭行程中的勝洋休閒農場",
+            "url": "https://www.youtube.com/watch?v=zOMsrQ6z2xc&t=65s",
+            "kind": "video",
+            "startSeconds": 65
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "宜蘭農場行程裡的手作停留，我們到勝洋做 DIY，也在農場走走。適合把自己動手與戶外活動放在同一段安排。",
+        "planningNote": null,
+        "officialUrl": "https://travel.yilan.gov.tw/zh-tw/attraction/288/",
+        "detail": {
+          "heading": "勝洋休閒農場",
+          "paragraphs": [
+            "這次宜蘭行程先到勝洋休閒農場，留下手作與現場活動的片段。若想在農場行程中留一段動手做的時間，可以從這站開始比較。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "宜蘭縣"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-yehliu-ocean-world",
+        "name": "野柳海洋世界",
+        "aliases": [],
+        "countyIds": [
+          "tw-new-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=gHPjbPJPZhQ"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E9%87%8E%E6%9F%B3%E6%B5%B7%E6%B4%8B%E4%B8%96%E7%95%8C+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E9%87%8E%E6%9F%B3%E6%B5%B7%E6%B4%8B%E4%B8%96%E7%95%8C+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "野柳海洋世界 新北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-yehliu-ocean-world-7ddc83902fe0.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "野柳海洋世界水族缸的魚群與珊瑚造景"
+        },
+        "visitLinks": [
+          {
+            "label": "野柳海洋世界的親子遊玩",
+            "url": "https://www.youtube.com/watch?v=gHPjbPJPZhQ&t=432s",
+            "kind": "video",
+            "startSeconds": 432
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "把海洋生物展示與表演排進北海岸行程，孩子也有互動遊玩的時間。我們這趟看完海洋世界，再前往金山用餐。",
+        "planningNote": null,
+        "officialUrl": "https://www.oceanworld.com.tw/load_page/get_journey_content/14",
+        "detail": {
+          "heading": "野柳海洋世界",
+          "paragraphs": [
+            "這次野柳海洋世界行程包含海洋生物展示與表演，影片也提到兒童可玩的區域。接著我們到金山吃福緣火鍋，可把參觀與用餐分成前後兩站。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-drfoot-footschool",
+        "name": "台灣足鞋健康知識館",
+        "aliases": [],
+        "countyIds": [
+          "tw-yilan-county"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=CI8K07bkQuQ"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%8F%B0%E7%81%A3%E8%B6%B3%E9%9E%8B%E5%81%A5%E5%BA%B7%E7%9F%A5%E8%AD%98%E9%A4%A8+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%8F%B0%E7%81%A3%E8%B6%B3%E9%9E%8B%E5%81%A5%E5%BA%B7%E7%9F%A5%E8%AD%98%E9%A4%A8+%E5%AE%9C%E8%98%AD%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "query": "台灣足鞋健康知識館 宜蘭縣 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-drfoot-footschool-d00ff65fe9b5.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "台灣足鞋健康知識館的足鞋互動展示"
+        },
+        "visitLinks": [
+          {
+            "label": "足鞋健康知識館的參訪與講解",
+            "url": "https://www.youtube.com/watch?v=CI8K07bkQuQ&t=161s",
+            "kind": "video",
+            "startSeconds": 161
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "透過導覽與 DIY 認識足鞋知識，讓孩子從互動開始探索。我們到宜蘭的知識館，跟著講解看不同的足鞋內容。",
+        "planningNote": null,
+        "officialUrl": "https://footschool.drfoot.com.tw/3",
+        "detail": {
+          "heading": "台灣足鞋健康知識館",
+          "paragraphs": [
+            "這次參訪除了測量，也有人帶著講解，行程包含導覽與 DIY。重點是認識足鞋知識的過程，適合把它作為一段知識型親子參訪。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "宜蘭縣"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-yongchun-market",
+        "name": "臺北市公有永春市場",
+        "aliases": [],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=9GAK0pb21wM"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E8%87%BA%E5%8C%97%E5%B8%82%E5%85%AC%E6%9C%89%E6%B0%B8%E6%98%A5%E5%B8%82%E5%A0%B4+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E8%87%BA%E5%8C%97%E5%B8%82%E5%85%AC%E6%9C%89%E6%B0%B8%E6%98%A5%E5%B8%82%E5%A0%B4+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "臺北市公有永春市場 臺北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-yongchun-market-fca841dace0b.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "永春市場的蔬果攤、遮棚與市場通道"
+        },
+        "visitLinks": [
+          {
+            "label": "跟阿婆逛永春市場、選當天的菜",
+            "url": "https://www.youtube.com/watch?v=9GAK0pb21wM&t=86s",
+            "kind": "video",
+            "startSeconds": 86
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "跟著阿婆逛市場、討論菜單與採買，把台北日常放進旅程。我們在永春市場看攤位，也一起選要煮的菜。",
+        "planningNote": null,
+        "officialUrl": "https://www.tcma.gov.taipei/News_Content.aspx?n=1A4C7120ABFD0F9F&s=52D5C81885209CE3&sms=26C5BF03E7963F4E",
+        "detail": {
+          "heading": "臺北市公有永春市場",
+          "paragraphs": [
+            "這次阿婆帶我們逛熟悉的永春市場，一邊看攤位、一邊討論當天想吃什麼。適合想認識台北生活採買的人，把市場逛逛作為另一種街區行程。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-modo-cafe",
+        "name": "Mōdo Café",
+        "aliases": [],
+        "countyIds": [
+          "tw-taipei-city"
+        ],
+        "category": "restaurant",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=ZFrXruGOuDY"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=M%C5%8Ddo+Caf%C3%A9+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=M%C5%8Ddo+Caf%C3%A9+%E8%87%BA%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "Mōdo Café 臺北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-modo-cafe-04b43a1c6fd5.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "Mōdo Café入口的實體店名牌與階梯"
+        },
+        "visitLinks": [
+          {
+            "label": "Mōdo Café：松德路上的咖啡與餐點",
+            "url": "https://www.youtube.com/watch?v=ZFrXruGOuDY&t=808s",
+            "kind": "video",
+            "startSeconds": 808
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "松德路上的咖啡與餐點停留，適合在台北市區行程間坐下休息。我們利用接孩子前的空檔，到 Mōdo Café 吃東西。",
+        "planningNote": null,
+        "officialUrl": "https://www.im-church.org/expansion",
+        "detail": {
+          "heading": "Mōdo Café",
+          "paragraphs": [
+            "這次在接孩子前到 Mōdo Café 停留，坐下喝咖啡、吃餐點。影片也介紹它在松德路的位置，適合與附近行程接成一段。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "臺北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-fuyuan-jinshan-hotpot",
+        "name": "福緣火鍋",
+        "aliases": [],
+        "countyIds": [
+          "tw-new-taipei-city"
+        ],
+        "category": "restaurant",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=gHPjbPJPZhQ"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E7%A6%8F%E7%B7%A3%E7%81%AB%E9%8D%8B+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E7%A6%8F%E7%B7%A3%E7%81%AB%E9%8D%8B+%E6%96%B0%E5%8C%97%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "福緣火鍋 新北市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-fuyuan-jinshan-hotpot-da7d69adeff0.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "福緣火鍋實訪的鍋物與夾取食材"
+        },
+        "visitLinks": [
+          {
+            "label": "北海岸行程中的福緣火鍋用餐",
+            "url": "https://www.youtube.com/watch?v=gHPjbPJPZhQ&t=771s",
+            "kind": "video",
+            "startSeconds": 771
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "在金山坐下吃一餐火鍋，可和北海岸親子遊玩接在一起。我們到野柳海洋世界後，再到福緣火鍋用餐。",
+        "planningNote": null,
+        "officialUrl": "https://foodtracer.health.ntpc.gov.tw/WebUPD/foodtracer/wmg2025/%E4%B8%96%E7%95%8C%E5%A3%AF%E5%B9%B4%E9%81%8B%E5%8B%95%E6%9C%83%E9%A4%90%E9%A3%B2%E6%A5%AD%E8%80%85%E7%A8%BD%E6%9F%A5%E7%B5%90%E6%9E%9C.pdf",
+        "detail": {
+          "heading": "福緣火鍋",
+          "paragraphs": [
+            "這趟先到野柳海洋世界，再去金山的福緣火鍋。若行程想把看海洋生物與一家人用餐分成兩段，可以把這兩站一起考慮。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新北市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-kuan-lai-shun-zuoying",
+        "name": "寬來順早餐店",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "restaurant",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=Da-piWnJSRQ"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%AF%AC%E4%BE%86%E9%A0%86%E6%97%A9%E9%A4%90%E5%BA%97+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%AF%AC%E4%BE%86%E9%A0%86%E6%97%A9%E9%A4%90%E5%BA%97+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "寬來順早餐店 高雄市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-kuan-lai-shun-zuoying-fbfb10a1ab9f.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "寬來順早餐店實訪的糕餅餐櫃與點心"
+        },
+        "visitLinks": [
+          {
+            "label": "寬來順早餐：高雄行程的第一站",
+            "url": "https://www.youtube.com/watch?v=Da-piWnJSRQ",
+            "kind": "video"
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "從左營的一餐早餐開始高雄行程，我們帶孩子來寬來順，之後再去蓮池潭。這一趟選平日，避開自己預期的連假人潮。",
+        "planningNote": null,
+        "officialUrl": "https://takao.kcg.gov.tw/article/702",
+        "detail": {
+          "heading": "寬來順早餐店",
+          "paragraphs": [
+            "這次高雄行程先在寬來順吃早餐，再前往蓮池潭龍虎塔。康先生帶家人重訪小時候的早餐記憶，安排時選擇了非連假的平日。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-lotus-pond-dragon-tiger",
+        "name": "蓮池潭龍虎塔",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=Da-piWnJSRQ"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E8%93%AE%E6%B1%A0%E6%BD%AD%E9%BE%8D%E8%99%8E%E5%A1%94+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E8%93%AE%E6%B1%A0%E6%BD%AD%E9%BE%8D%E8%99%8E%E5%A1%94+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "蓮池潭龍虎塔 高雄市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-lotus-pond-dragon-tiger-b84154769651.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "蓮池潭龍虎塔內的立體彩色雕塑"
+        },
+        "visitLinks": [
+          {
+            "label": "蓮池潭龍虎塔的湖畔與塔內參訪",
+            "url": "https://www.youtube.com/watch?v=Da-piWnJSRQ&t=310s",
+            "kind": "video",
+            "startSeconds": 310
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "到蓮池潭看龍虎塔與湖畔建築，我們這趟也走進塔內看圖像。街區散步之外，多了一段近看建築的參訪。",
+        "planningNote": null,
+        "officialUrl": "https://spotlightaward.taiwan.net.tw/tourpage.php?id=91c04d69-673c-44ee-953f-bc247022f091&tag=3",
+        "detail": {
+          "heading": "蓮池潭龍虎塔",
+          "paragraphs": [
+            "這次帶家人到蓮池潭，走進龍虎塔，看看塔內的圖像與建築。同行有嬰兒時，我們當次把推車停下，改用背帶繼續走。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-shoushan-zoo",
+        "name": "壽山動物園",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=Da-piWnJSRQ"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E5%A3%BD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E5%A3%BD%E5%B1%B1%E5%8B%95%E7%89%A9%E5%9C%92+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "壽山動物園 高雄市 台灣"
+        },
+        "photo": null,
+        "visitLinks": [
+          {
+            "label": "壽山動物園：進園與步行",
+            "url": "https://www.youtube.com/watch?v=Da-piWnJSRQ&t=475s",
+            "kind": "video",
+            "startSeconds": 475
+          },
+          {
+            "label": "鳥園與這次調整路線的經過",
+            "url": "https://www.youtube.com/watch?v=Da-piWnJSRQ&t=808s",
+            "kind": "video",
+            "startSeconds": 808
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "看動物、走鳥園，讓高雄行程多一段園區探索。我們這次依孩子的反應調整路線，沒有要求把所有區域一次走完。",
+        "planningNote": null,
+        "officialUrl": "https://zoo.kcg.gov.tw/zh-tw/tour-information/",
+        "detail": {
+          "heading": "壽山動物園",
+          "paragraphs": [
+            "這次到壽山動物園，走園區、進鳥園，後來依孩子的反應提早離開，改去美術館。行程可以留調整空間，不必把全園走完當作唯一目標。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-kaohsiung-museum-fine-arts",
+        "name": "高雄市立美術館",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=Da-piWnJSRQ"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%9B%84%E5%B8%82%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A8+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E9%AB%98%E9%9B%84%E5%B8%82%E7%AB%8B%E7%BE%8E%E8%A1%93%E9%A4%A8+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "高雄市立美術館 高雄市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-kaohsiung-museum-fine-arts-62fdc3c229f3.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "高雄市立美術館實訪展廳中的雕塑與展台"
+        },
+        "visitLinks": [
+          {
+            "label": "高雄美術館：從動物園轉往看展",
+            "url": "https://www.youtube.com/watch?v=Da-piWnJSRQ&t=910s",
+            "kind": "video",
+            "startSeconds": 910
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "在高雄行程裡留一段看展與閱讀作品的時間。我們從動物園轉到美術館，讓一家人的節奏慢下來，換個方式探索。",
+        "planningNote": "當期展覽與攝影規定依館方公告。",
+        "officialUrl": "https://ud.kmfa.gov.tw/",
+        "detail": {
+          "heading": "高雄市立美術館",
+          "paragraphs": [
+            "這次到美術館看展，是動物園之後臨時增加的一站。主館以看展與閱讀為主，同行孩子若想動手參與，也可另外考慮兒童美術館。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            },
+            {
+              "label": "行程提醒",
+              "value": "當期展覽與攝影規定依館方公告。"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-kaohsiung-childrens-museum",
+        "name": "高雄兒童美術館",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "attraction",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=Da-piWnJSRQ"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E9%AB%98%E9%9B%84%E5%85%92%E7%AB%A5%E7%BE%8E%E8%A1%93%E9%A4%A8+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E9%AB%98%E9%9B%84%E5%85%92%E7%AB%A5%E7%BE%8E%E8%A1%93%E9%A4%A8+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "高雄兒童美術館 高雄市 台灣"
+        },
+        "photo": null,
+        "visitLinks": [
+          {
+            "label": "從主館轉到高雄兒童美術館",
+            "url": "https://www.youtube.com/watch?v=Da-piWnJSRQ&t=1059s",
+            "kind": "video",
+            "startSeconds": 1059
+          },
+          {
+            "label": "這次兒童美術館的互動體驗",
+            "url": "https://www.youtube.com/watch?v=Da-piWnJSRQ&t=1517s",
+            "kind": "video",
+            "startSeconds": 1517
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "以互動方式接近美術，讓孩子有動手參與的空間。我們逛完主館後到兒童美術館，孩子對互動內容更有興趣。",
+        "planningNote": null,
+        "officialUrl": "https://www.kmfa.gov.tw/AboutUs/AboutKcmfa/CreateChildhood.htm",
+        "detail": {
+          "heading": "高雄兒童美術館",
+          "paragraphs": [
+            "這次從高雄美術館主館轉到兒童美術館，家人感受到兩種不同的參訪節奏：主館需要閱讀與看展，兒童館的互動內容更吸引孩子參與。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-yonshin-fudopia",
+        "name": "永心浮島",
+        "aliases": [],
+        "countyIds": [
+          "tw-kaohsiung-city"
+        ],
+        "category": "restaurant",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=Da-piWnJSRQ"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E6%B0%B8%E5%BF%83%E6%B5%AE%E5%B3%B6+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E6%B0%B8%E5%BF%83%E6%B5%AE%E5%B3%B6+%E9%AB%98%E9%9B%84%E5%B8%82+%E5%8F%B0%E7%81%A3",
+          "query": "永心浮島 高雄市 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-yonshin-fudopia-adde0547fe4b.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "永心浮島的建築外觀、店名招牌與戶外座位"
+        },
+        "visitLinks": [
+          {
+            "label": "永心浮島：用餐環境",
+            "url": "https://www.youtube.com/watch?v=Da-piWnJSRQ&t=1268s",
+            "kind": "video",
+            "startSeconds": 1268
+          },
+          {
+            "label": "這次點的小點與炸物",
+            "url": "https://www.youtube.com/watch?v=Da-piWnJSRQ&t=1358s",
+            "kind": "video",
+            "startSeconds": 1358
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "在高雄城市行程裡坐下用餐，吃小點與炸物。我們到永心浮島吃飯，也留下家人分享當次餐點口感的片段。",
+        "planningNote": null,
+        "officialUrl": "https://takao.kcg.gov.tw/article/3412",
+        "detail": {
+          "heading": "永心浮島",
+          "paragraphs": [
+            "這次高雄行程到永心浮島用餐，家人聊到這裡的環境，也分享了當次小點與炸物的口感。適合把這一站當作城市遊玩後坐下吃一餐的選項。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "高雄市"
+            }
+          ]
+        }
+      },
+      {
+        "id": "place-tw-leofoo-resort-guanshi",
+        "name": "關西六福莊生態度假旅館",
+        "aliases": [],
+        "countyIds": [
+          "tw-hsinchu-county"
+        ],
+        "category": "hotel",
+        "secondaryCategories": [],
+        "tags": [],
+        "recordKind": "place",
+        "sourceLinks": [
+          "https://www.youtube.com/watch?v=i5yGptoSF0M"
+        ],
+        "articleUrl": null,
+        "address": null,
+        "maps": {
+          "search": "https://www.google.com/maps/search/?api=1&query=%E9%97%9C%E8%A5%BF%E5%85%AD%E7%A6%8F%E8%8E%8A%E7%94%9F%E6%85%8B%E5%BA%A6%E5%81%87%E6%97%85%E9%A4%A8+%E6%96%B0%E7%AB%B9%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "directions": "https://www.google.com/maps/dir/?api=1&destination=%E9%97%9C%E8%A5%BF%E5%85%AD%E7%A6%8F%E8%8E%8A%E7%94%9F%E6%85%8B%E5%BA%A6%E5%81%87%E6%97%85%E9%A4%A8+%E6%96%B0%E7%AB%B9%E7%B8%A3+%E5%8F%B0%E7%81%A3",
+          "query": "關西六福莊生態度假旅館 新竹縣 台灣"
+        },
+        "photo": {
+          "src": "/trip/assets/taiwan-place-cards-r24/place-tw-leofoo-resort-guanshi-2f11ef84583b.webp",
+          "width": 480,
+          "height": 480,
+          "position": [
+            50,
+            50
+          ],
+          "alt": "關西六福莊的客房建築、棧道與斑馬活動區"
+        },
+        "visitLinks": [
+          {
+            "label": "再次入住關西六福莊",
+            "url": "https://www.youtube.com/watch?v=i5yGptoSF0M&t=233s",
+            "kind": "video",
+            "startSeconds": 233
+          },
+          {
+            "label": "這次住宿與動物體驗的回顧",
+            "url": "https://www.youtube.com/watch?v=i5yGptoSF0M&t=1776s",
+            "kind": "video",
+            "startSeconds": 1776
+          }
+        ],
+        "articleState": "in_preparation",
+        "whatToExpect": "以住宿與動物觀察為主的生態度假行程，能和六福村分段安排。我們帶孩子多次入住，這次又回到他們喜歡的動物飯店。",
+        "planningNote": null,
+        "officialUrl": "https://www.leofooresort.com.tw/zh-TW/about/introduction",
+        "detail": {
+          "heading": "關西六福莊生態度假旅館",
+          "paragraphs": [
+            "孩子對六福莊一直念念不忘，這次一家人再來住宿，也把六福村排進行程。影片分享了房間感受與當次動物體驗，適合分開比較住宿、園區與活動。"
+          ],
+          "planningFacts": [
+            {
+              "label": "區域",
+              "value": "新竹縣"
+            }
+          ]
+        }
+      }
+    ],
+    "placeExperience": "r24-working",
+    "regionalFilms": [
+      {
+        "videoId": "pUoNpHyWl-A",
+        "title": "馬祖親子旅行：南竿、北竿與大坵看鹿",
+        "countyIds": [
+          "tw-lienchiang-county"
+        ],
+        "introduction": "帶孩子走南竿、北竿與大坵，從坑道、繼光餅到海邊聚落，再搭船登島看梅花鹿。這趟沿著吃飯、散步與孩子的體力調整行程，也記錄了往返島嶼的過程。",
+        "fullUrl": "https://www.youtube.com/watch?v=pUoNpHyWl-A",
+        "fullLinkLabel": "看馬祖完整親子旅行",
+        "contentType": "full_film",
+        "chapters": [
+          {
+            "kind": "video_chapter",
+            "label": "南竿北海坑道：歷史實訪",
+            "description": "看看這趟走訪的坑道空間。",
+            "startSeconds": 895,
+            "endSeconds": 1033.12,
+            "url": "https://www.youtube.com/watch?v=pUoNpHyWl-A&t=895s",
+            "planningNotice": {
+              "label": "北海坑道內部整修",
+              "text": "官方公告：2026/10/01–2027/03/31 進行內部整修工程；安排行程前查看官方公告。",
+              "sourceUrl": "https://matsu-nsa.gov.tw/zh-TW"
+            }
+          },
+          {
+            "kind": "video_chapter",
+            "label": "超群繼光餅：買餅與現場品嚐",
+            "description": "這趟買繼光餅，也吃了繼光餅漢堡。",
+            "startSeconds": 1149,
+            "endSeconds": 1518.8,
+            "url": "https://www.youtube.com/watch?v=pUoNpHyWl-A&t=1149s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "津沙聚落：聚落與海邊散步",
+            "description": "走進津沙聚落，再到海邊走走。",
+            "startSeconds": 1521,
+            "endSeconds": 1694.62,
+            "url": "https://www.youtube.com/watch?v=pUoNpHyWl-A&t=1521s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "津沙小館：聚落散步後用餐",
+            "description": "在聚落走完後，到津沙小館吃一餐。",
+            "startSeconds": 1838,
+            "endSeconds": 1889.38,
+            "url": "https://www.youtube.com/watch?v=pUoNpHyWl-A&t=1838s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "大坵島：梅花鹿與島上步行",
+            "description": "登島看梅花鹿，依家人體力分組步行，再回碼頭搭船。",
+            "startSeconds": 2210,
+            "endSeconds": 2634.84,
+            "url": "https://www.youtube.com/watch?v=pUoNpHyWl-A&t=2210s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "塘后道沙灘：孩子玩沙",
+            "description": "吃飽後到沙灘走走，讓孩子留一段時間玩沙。",
+            "startSeconds": 2798,
+            "endSeconds": 2900,
+            "url": "https://www.youtube.com/watch?v=pUoNpHyWl-A&t=2798s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "芹壁聚落：石屋與海景",
+            "description": "沿石屋聚落散步，看建築，也看海。",
+            "startSeconds": 3068,
+            "endSeconds": 3315.04,
+            "url": "https://www.youtube.com/watch?v=pUoNpHyWl-A&t=3068s"
+          }
+        ]
+      },
+      {
+        "videoId": "M3Faazw7Tts",
+        "title": "金門親子旅行：沙灘、坑道與潮間帶",
+        "countyIds": [
+          "tw-kinmen-county"
+        ],
+        "introduction": "從歐厝沙灘玩到翟山坑道，再等潮水、步行登上建功嶼。這趟也走訪馬山、逛沙美老街、到畜產試驗所看動物，把海邊遊玩與不同的金門生活場景接在一起。",
+        "fullUrl": "https://www.youtube.com/watch?v=M3Faazw7Tts",
+        "fullLinkLabel": "看金門完整親子旅行",
+        "contentType": "full_film",
+        "chapters": [
+          {
+            "kind": "video_chapter",
+            "label": "歐厝沙灘：玩沙與看海",
+            "description": "這次到海邊遊玩，當時潮水未退，沒有看到沙灘戰車。",
+            "startSeconds": 292,
+            "endSeconds": 486.8,
+            "url": "https://www.youtube.com/watch?v=M3Faazw7Tts&t=292s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "翟山坑道：步行走訪",
+            "description": "跟著家人走進坑道，看看這段實訪的內部空間。",
+            "startSeconds": 704,
+            "endSeconds": 838.8,
+            "url": "https://www.youtube.com/watch?v=M3Faazw7Tts&t=704s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "建功嶼：等潮水後登島",
+            "description": "等待潮水後步行登島，走完再沿路回去。",
+            "startSeconds": 1175,
+            "endSeconds": 1418.26,
+            "url": "https://www.youtube.com/watch?v=M3Faazw7Tts&t=1175s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "馬山觀測所與播音站：觀測與播音",
+            "description": "這次參訪觀測所與播音區，也留下家人播音的片段。",
+            "startSeconds": 1576,
+            "endSeconds": 1752.08,
+            "url": "https://www.youtube.com/watch?v=M3Faazw7Tts&t=1576s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "沙美老街：街區走走",
+            "description": "到沙美老街散步，看看這一段街區。",
+            "startSeconds": 2006,
+            "endSeconds": 2087.42,
+            "url": "https://www.youtube.com/watch?v=M3Faazw7Tts&t=2006s"
+          },
+          {
+            "kind": "video_chapter",
+            "label": "金門縣畜產試驗所：看動物與遊戲區",
+            "description": "這次到訪看動物，也在遊戲區停留。",
+            "startSeconds": 2331,
+            "endSeconds": 2544.44,
+            "url": "https://www.youtube.com/watch?v=M3Faazw7Tts&t=2331s"
+          }
+        ]
+      }
+    ]
+  },
+  "catalog": {
+    "hero": {
+      "eyebrow": "EAGLISH FAMILY TRAVEL",
+      "title": "下一趟，想一起去哪裡？",
+      "description": "從我們走過的城市、山湖與海岸，找到一家人想玩的地方。先選目的地，再把喜歡的景點排進旅程。"
+    },
+    "themes": [
+      {
+        "id": "nature",
+        "label": "山湖與海岸",
+        "description": "沿著湖畔、山景與海岸，找一段親近自然的旅程。"
+      },
+      {
+        "id": "animals",
+        "label": "動物與農場",
+        "description": "從海岸觀察到農場參訪，找到孩子感興趣的活動。"
+      },
+      {
+        "id": "city",
+        "label": "城市與文化",
+        "description": "走進街區、博物館與特色建築，慢慢認識一座城市。"
+      },
+      {
+        "id": "food",
+        "label": "市集與美食",
+        "description": "從市集、小店到湖畔用餐，安排旅途中的一餐。"
+      }
+    ],
+    "countries": [
+      {
+        "id": "thailand",
+        "name": "泰國",
+        "englishName": "Thailand",
+        "href": "/trip/thailand/",
+        "region": "asia",
+        "subregion": "southeast-asia",
+        "regionLabel": "亞洲",
+        "geography": {
+          "point": [
+            100.5,
+            15
+          ],
+          "isoNumeric": "764"
+        },
+        "summary": "從曼谷的運河與市集，到清邁古城、清萊花園，挑一座城市開始。",
+        "image": {
+          "src": "/trip/assets/cm-thai-dress-family.webp",
+          "alt": "一家四口穿著泰服，站在清邁塔佩門的紅磚城牆前合照",
+          "width": 1280,
+          "height": 853,
+          "position": "50% 62%"
+        },
+        "guideIds": [
+          "bangkok",
+          "chiang-mai",
+          "chiang-rai"
+        ]
+      },
+      {
+        "id": "new-zealand",
+        "name": "紐西蘭",
+        "englishName": "New Zealand",
+        "href": "/trip/new-zealand/",
+        "region": "oceania",
+        "subregion": "australasia",
+        "regionLabel": "大洋洲",
+        "geography": {
+          "point": [
+            172.8,
+            -43.2
+          ],
+          "isoNumeric": "554"
+        },
+        "summary": "北島的城市與戶外活動，南島的湖泊、海岸與農場，先選一段喜歡的風景。",
+        "image": {
+          "src": "/trip/assets/nz-wanaka-tree.webp",
+          "alt": "一家人在 Wānaka 湖畔合照，後方是湖中樹與群山",
+          "width": 1440,
+          "height": 960,
+          "position": "50% 60%"
+        },
+        "guideIds": [
+          "north-island",
+          "wellington",
+          "christchurch-akaroa",
+          "mid-canterbury",
+          "kaikoura",
+          "otago",
+          "queenstown-arrowtown",
+          "wanaka-tekapo"
+        ]
+      },
+      {
+        "id": "philippines",
+        "name": "菲律賓",
+        "englishName": "Philippines",
+        "href": "/trip/guides/cebu-bohol-with-kids/",
+        "entryKind": "single-guide",
+        "region": "asia",
+        "subregion": "southeast-asia",
+        "regionLabel": "亞洲",
+        "geography": {
+          "point": [
+            123.8854,
+            10.3157
+          ],
+          "isoNumeric": "608"
+        },
+        "summary": "從宿霧與薄荷島的實訪景點、Panglao 餐廳與住宿，接好跨島、用餐和休息。",
+        "image": {
+          "src": "/trip/assets/ph-cebu-bohol-06-chocolate-hills-family.webp",
+          "alt": "一家四口在巧克力山紅色欄杆旁合照，後方延伸綠色山丘",
+          "width": 1280,
+          "height": 853,
+          "position": "26% 60%"
+        },
+        "guideIds": [
+          "cebu-bohol"
+        ]
+      }
+    ],
+    "guides": [
+      {
+        "id": "cebu-bohol",
+        "countryId": "philippines",
+        "name": "宿霧與薄荷島",
+        "englishName": "Cebu · Bohol",
+        "href": "/trip/guides/cebu-bohol-with-kids/",
+        "summary": "看山、觀察動物、挑 MIST 與 Ubeco，再從實住照片安排飯店休息與跨島交通。",
+        "planningLinks": [
+          {
+            "target": "choose",
+            "label": "宿霧、薄荷島景點與玩法"
+          },
+          {
+            "target": "dining",
+            "label": "Panglao 餐廳與內陸午餐"
+          },
+          {
+            "target": "stay",
+            "label": "薄荷島實住經驗與住宿區域"
+          },
+          {
+            "target": "transport",
+            "label": "機票比較、跨島與接送"
+          }
+        ],
+        "image": {
+          "src": "/trip/assets/ph-cebu-bohol-06-chocolate-hills-family.webp",
+          "alt": "一家四口在巧克力山紅色欄杆旁合照，後方延伸綠色山丘",
+          "width": 1280,
+          "height": 853,
+          "position": "26% 60%"
+        },
+        "suitableFor": [
+          "nature",
+          "animals",
+          "city",
+          "food"
+        ]
+      },
+      {
+        "id": "bangkok",
+        "countryId": "thailand",
+        "name": "曼谷",
+        "englishName": "Bangkok",
+        "href": "/trip/guides/bangkok-with-kids/",
+        "summary": "搭運河長尾船、逛市集，再選一段水族館與河畔活動。",
+        "image": {
+          "src": "/trip/assets/bkk-bangkok-family.webp",
+          "alt": "鷹式一家五人帶著推車，在曼谷的商店步道合照",
+          "width": 1024,
+          "height": 1280,
+          "position": "50% 62%"
+        },
+        "suitableFor": [
+          "city",
+          "food",
+          "animals"
+        ]
+      },
+      {
+        "id": "queenstown-arrowtown",
+        "countryId": "new-zealand",
+        "name": "皇后鎮與箭鎮",
+        "englishName": "Queenstown · Arrowtown",
+        "href": "/trip/new-zealand/queenstown-arrowtown/",
+        "summary": "在湖畔散步，搭蒸汽船、玩滑車，再去箭鎮走老街與淘金。",
+        "image": {
+          "src": "/trip/assets/nz-queenstown-lake.webp",
+          "alt": "孩子與家人在皇后鎮湖邊玩耍，後方可見碼頭與船隻",
+          "width": 1440,
+          "height": 810
+        },
+        "suitableFor": [
+          "nature",
+          "city",
+          "food"
+        ]
+      },
+      {
+        "id": "chiang-mai",
+        "countryId": "thailand",
+        "name": "清邁",
+        "englishName": "Chiang Mai",
+        "href": "/trip/guides/chiang-mai-with-kids/",
+        "summary": "換上泰服走古城，逛市集、找咖啡廳，也留時間體驗造紙手作。",
+        "image": {
+          "src": "/trip/assets/cm-thai-dress-family.webp",
+          "alt": "一家四口穿著泰服，站在清邁塔佩門的紅磚城牆前合照",
+          "width": 1280,
+          "height": 853,
+          "position": "50% 62%"
+        },
+        "suitableFor": [
+          "city",
+          "food",
+          "animals"
+        ]
+      },
+      {
+        "id": "wanaka-tekapo",
+        "countryId": "new-zealand",
+        "name": "Wānaka、Tekapo 與 Cardrona",
+        "englishName": "Wānaka · Tekapo · Cardrona",
+        "href": "/trip/new-zealand/wanaka-tekapo/",
+        "summary": "沿途停看 Cardrona，走到 Wānaka 湖邊，再看 Tekapo 湖與好牧羊人教堂。",
+        "image": {
+          "src": "/trip/assets/nz-wanaka-tree.webp",
+          "alt": "一家人在 Wānaka 湖畔合照，後方是湖中樹與群山",
+          "width": 1440,
+          "height": 960,
+          "position": "50% 60%"
+        },
+        "suitableFor": [
+          "nature"
+        ]
+      },
+      {
+        "id": "chiang-rai",
+        "countryId": "thailand",
+        "name": "清萊",
+        "englishName": "Chiang Rai",
+        "href": "/trip/guides/chiang-rai-with-kids/",
+        "summary": "看白廟建築、走瀑布花園，到山景農場看羊，晚上再逛夜市。",
+        "image": {
+          "src": "/trip/assets/cr-white-temple.webp",
+          "alt": "一家四口在清萊白廟 Wat Rong Khun 前合照",
+          "width": 960,
+          "height": 1200,
+          "position": "50% 58%"
+        },
+        "suitableFor": [
+          "city",
+          "nature",
+          "animals",
+          "food"
+        ]
+      },
+      {
+        "id": "christchurch-akaroa",
+        "countryId": "new-zealand",
+        "name": "基督城與 Akaroa",
+        "englishName": "Christchurch · Akaroa",
+        "href": "/trip/new-zealand/christchurch/3-days/",
+        "summary": "搭復古電車探索市區，再到 Akaroa 看海灣、參訪羊駝農場或出海。",
+        "image": {
+          "src": "/trip/assets/nz-christchurch-tram.webp",
+          "alt": "一家人在基督城復古電車前合照",
+          "width": 1440,
+          "height": 961
+        },
+        "suitableFor": [
+          "city",
+          "nature",
+          "animals"
+        ]
+      },
+      {
+        "id": "north-island",
+        "countryId": "new-zealand",
+        "name": "奧克蘭與北島自駕",
+        "englishName": "Auckland · Rotorua · Matamata · Hamilton",
+        "href": "/trip/new-zealand/north-island/",
+        "summary": "從奧克蘭觀景出發，按區域選 Rotorua 滑車、Hobbiton 與 Hamilton 動物園。",
+        "image": {
+          "src": "/trip/assets/nz-rotorua-luge.webp",
+          "alt": "Rotorua Skyline 園區搭乘纜椅的旅行畫格",
+          "width": 1440,
+          "height": 810
+        },
+        "suitableFor": [
+          "city",
+          "nature",
+          "animals"
+        ]
+      },
+      {
+        "id": "wellington",
+        "countryId": "new-zealand",
+        "name": "威靈頓",
+        "englishName": "Wellington",
+        "href": "/trip/new-zealand/wellington/",
+        "summary": "沿海港散步、逛周日市集，搭纜車，走進 Te Papa 與動物園。",
+        "image": {
+          "src": "/trip/assets/nz-wellington-harbour.webp",
+          "alt": "威靈頓海港的旅行畫格",
+          "width": 1440,
+          "height": 810
+        },
+        "suitableFor": [
+          "city",
+          "food",
+          "animals"
+        ]
+      },
+      {
+        "id": "mid-canterbury",
+        "countryId": "new-zealand",
+        "name": "Mid Canterbury",
+        "englishName": "Ashburton · Methven · Rakaia Gorge",
+        "href": "/trip/new-zealand/mid-canterbury/",
+        "summary": "從 Ashburton 的博物館，到 Methven、Mt Hutt 與 Rakaia Gorge，按季節挑玩法。",
+        "image": {
+          "src": "/trip/assets/nz-mid-canterbury-mt-hutt-ski-v1.webp",
+          "alt": "家人在 Mt Hutt 雪道上陪孩子練習滑雪",
+          "width": 1280,
+          "height": 720
+        },
+        "suitableFor": [
+          "nature",
+          "city"
+        ]
+      },
+      {
+        "id": "kaikoura",
+        "countryId": "new-zealand",
+        "name": "凱庫拉",
+        "englishName": "Kaikōura",
+        "href": "/trip/new-zealand/kaikoura/",
+        "summary": "在岩岸看海狗、沿海岸散步，再依海況選擇皮划艇活動。",
+        "image": {
+          "src": "/trip/assets/nz-kaikoura-ohau-seals-v1.webp",
+          "alt": "凱庫拉 Ōhau Point 岩岸與潮水間聚集的海狗",
+          "width": 1280,
+          "height": 635
+        },
+        "suitableFor": [
+          "nature",
+          "animals"
+        ]
+      },
+      {
+        "id": "otago",
+        "countryId": "new-zealand",
+        "name": "Otago 東岸",
+        "englishName": "Oamaru · Moeraki · Dunedin",
+        "href": "/trip/new-zealand/otago/",
+        "summary": "走 Oamaru 歷史街區、看 Moeraki 圓石，再到但尼丁逛博物館與海灣。",
+        "image": {
+          "src": "/trip/assets/nz-oamaru-precinct.webp",
+          "alt": "一家人在 Oamaru 維多利亞歷史街區漫步",
+          "width": 1440,
+          "height": 959
+        },
+        "suitableFor": [
+          "nature",
+          "city"
+        ]
+      }
+    ]
+  },
+  "regions": [
+    {
+      "id": "asia",
+      "label": "亞洲",
+      "english": "ASIA",
+      "center": [
+        112,
+        22
+      ],
+      "children": [
+        {
+          "id": "east-asia",
+          "label": "東亞",
+          "center": [
+            126,
+            32
+          ]
+        },
+        {
+          "id": "southeast-asia",
+          "label": "東南亞",
+          "center": [
+            110,
+            8
+          ]
+        },
+        {
+          "id": "south-asia",
+          "label": "南亞",
+          "center": [
+            78,
+            20
+          ]
+        },
+        {
+          "id": "west-asia",
+          "label": "西亞・中東",
+          "center": [
+            46,
+            28
+          ]
+        },
+        {
+          "id": "central-asia",
+          "label": "中亞",
+          "center": [
+            68,
+            42
+          ]
+        }
+      ]
+    },
+    {
+      "id": "oceania",
+      "label": "大洋洲",
+      "english": "OCEANIA",
+      "center": [
+        155,
+        -25
+      ],
+      "children": [
+        {
+          "id": "australasia",
+          "label": "澳洲・紐西蘭",
+          "center": [
+            160,
+            -32
+          ]
+        },
+        {
+          "id": "pacific-islands",
+          "label": "太平洋島嶼",
+          "center": [
+            -170,
+            -15
+          ]
+        }
+      ]
+    },
+    {
+      "id": "europe",
+      "label": "歐洲",
+      "english": "EUROPE",
+      "center": [
+        16,
+        48
+      ],
+      "children": [
+        {
+          "id": "northern-europe",
+          "label": "北歐",
+          "center": [
+            15,
+            62
+          ]
+        },
+        {
+          "id": "western-europe",
+          "label": "西歐",
+          "center": [
+            4,
+            48
+          ]
+        },
+        {
+          "id": "southern-europe",
+          "label": "南歐",
+          "center": [
+            17,
+            39
+          ]
+        },
+        {
+          "id": "eastern-europe",
+          "label": "東歐",
+          "center": [
+            30,
+            50
+          ]
+        }
+      ]
+    },
+    {
+      "id": "americas",
+      "label": "美洲",
+      "english": "AMERICAS",
+      "center": [
+        -90,
+        15
+      ],
+      "children": [
+        {
+          "id": "north-america",
+          "label": "北美洲",
+          "center": [
+            -105,
+            40
+          ]
+        },
+        {
+          "id": "central-america",
+          "label": "中美洲・加勒比",
+          "center": [
+            -84,
+            17
+          ]
+        },
+        {
+          "id": "south-america",
+          "label": "南美洲",
+          "center": [
+            -60,
+            -15
+          ]
+        }
+      ]
+    },
+    {
+      "id": "africa",
+      "label": "非洲",
+      "english": "AFRICA",
+      "center": [
+        22,
+        5
+      ],
+      "children": [
+        {
+          "id": "north-africa",
+          "label": "北非",
+          "center": [
+            15,
+            28
+          ]
+        },
+        {
+          "id": "east-africa",
+          "label": "東非",
+          "center": [
+            38,
+            0
+          ]
+        },
+        {
+          "id": "west-central-africa",
+          "label": "西非・中非",
+          "center": [
+            7,
+            5
+          ]
+        },
+        {
+          "id": "southern-africa",
+          "label": "南部非洲",
+          "center": [
+            25,
+            -25
+          ]
+        }
+      ]
+    }
+  ],
+  "geometry": {
+    "globe": {
+      "type": "FeatureCollection",
+      "version": "COUNTY_MOI_1090820",
+      "crs": "EPSG:3824",
+      "simplification": {
+        "algorithm": "source-vertex Douglas–Peucker",
+        "toleranceDegrees": 0.0002,
+        "decimalRounding": false,
+        "allRingsRetained": true
+      },
+      "fullBounds": [
+        114.35928247200002,
+        10.371347663000051,
+        124.56114950000006,
+        26.385278130000074
+      ],
+      "coreBounds": [
+        118.13797245900003,
+        21.756143532000067,
+        122.10915075700007,
+        26.385278130000074
+      ],
+      "mainlandBounds": [
+        119.9968969580001,
+        21.756143532000067,
+        122.10915075700007,
+        25.63338178500004
+      ],
+      "mainlandPoint": [
+        121.05302385750008,
+        23.694762658500053
+      ],
+      "mainlandPointCounty": "tw-nantou-county",
+      "features": [
+        {
+          "type": "Feature",
+          "id": "tw-taipei-city",
+          "properties": {
+            "id": "tw-taipei-city",
+            "name": "臺北市",
+            "regionId": "tw-north",
+            "code": "63000",
+            "ringCount": 1,
+            "originalPoints": 8473,
+            "renderedPoints": 478,
+            "bounds": [
+              121.45714093900006,
+              24.960502697000038,
+              121.66593430800003,
+              25.21017520500004
+            ],
+            "coreBounds": [
+              121.45714093900006,
+              24.960502697000038,
+              121.66593430800003,
+              25.21017520500004
+            ],
+            "labelPoint": [
+              121.56153762350004,
+              25.08533895100004
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-new-taipei-city",
+          "properties": {
+            "id": "tw-new-taipei-city",
+            "name": "新北市",
+            "regionId": "tw-north",
+            "code": "65000",
+            "ringCount": 2,
+            "originalPoints": 32024,
+            "renderedPoints": 2658,
+            "bounds": [
+              121.28268039500006,
+              24.67319375900007,
+              122.007494458,
+              25.300305479000087
+            ],
+            "coreBounds": [
+              121.28268039500006,
+              24.67319375900007,
+              122.007494458,
+              25.300305479000087
+            ],
+            "labelPoint": [
+              121.64508742650003,
+              24.98674961900008
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-keelung-city",
+          "properties": {
+            "id": "tw-keelung-city",
+            "name": "基隆市",
+            "regionId": "tw-north",
+            "code": "10017",
+            "ringCount": 7,
+            "originalPoints": 7002,
+            "renderedPoints": 537,
+            "bounds": [
+              121.62678621100008,
+              25.05247269700004,
+              122.10915075700007,
+              25.63338178500004
+            ],
+            "coreBounds": [
+              121.62678621100008,
+              25.05247269700004,
+              122.10915075700007,
+              25.63338178500004
+            ],
+            "labelPoint": [
+              121.7174794935001,
+              25.114519001000048
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-yilan-county",
+          "properties": {
+            "id": "tw-yilan-county",
+            "name": "宜蘭縣",
+            "regionId": "tw-north",
+            "code": "10002",
+            "ringCount": 102,
+            "originalPoints": 33835,
+            "renderedPoints": 1919,
+            "bounds": [
+              121.31765886400001,
+              24.309426208000048,
+              124.56114950000006,
+              25.92913772500009
+            ],
+            "coreBounds": [
+              121.31765886400001,
+              24.309426208000048,
+              121.96602789100007,
+              24.98843581600005
+            ],
+            "labelPoint": [
+              121.64184337750004,
+              24.648931012000048
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-taoyuan-city",
+          "properties": {
+            "id": "tw-taoyuan-city",
+            "name": "桃園市",
+            "regionId": "tw-north",
+            "code": "68000",
+            "ringCount": 1,
+            "originalPoints": 15371,
+            "renderedPoints": 1201,
+            "bounds": [
+              120.98202546100003,
+              24.586456827000063,
+              121.47998818300005,
+              25.12361560700009
+            ],
+            "coreBounds": [
+              120.98202546100003,
+              24.586456827000063,
+              121.47998818300005,
+              25.12361560700009
+            ],
+            "labelPoint": [
+              121.23100682200004,
+              24.855036217000077
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-hsinchu-county",
+          "properties": {
+            "id": "tw-hsinchu-county",
+            "name": "新竹縣",
+            "regionId": "tw-north",
+            "code": "10004",
+            "ringCount": 1,
+            "originalPoints": 15069,
+            "renderedPoints": 1063,
+            "bounds": [
+              120.92522125600004,
+              24.427375744000138,
+              121.41232290700006,
+              24.94638910400007
+            ],
+            "coreBounds": [
+              120.92522125600004,
+              24.427375744000138,
+              121.41232290700006,
+              24.94638910400007
+            ],
+            "labelPoint": [
+              121.16877208150005,
+              24.686882424000103
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-hsinchu-city",
+          "properties": {
+            "id": "tw-hsinchu-city",
+            "name": "新竹市",
+            "regionId": "tw-north",
+            "code": "10018",
+            "ringCount": 1,
+            "originalPoints": 4027,
+            "renderedPoints": 293,
+            "bounds": [
+              120.87452940000003,
+              24.71259658700007,
+              121.03353589200006,
+              24.854813765000138
+            ],
+            "coreBounds": [
+              120.87452940000003,
+              24.71259658700007,
+              121.03353589200006,
+              24.854813765000138
+            ],
+            "labelPoint": [
+              120.95403264600004,
+              24.783705176000105
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-miaoli-county",
+          "properties": {
+            "id": "tw-miaoli-county",
+            "name": "苗栗縣",
+            "regionId": "tw-central",
+            "code": "10005",
+            "ringCount": 1,
+            "originalPoints": 8460,
+            "renderedPoints": 790,
+            "bounds": [
+              120.62185385400005,
+              24.28851612400007,
+              121.26263296700006,
+              24.741091053000048
+            ],
+            "coreBounds": [
+              120.62185385400005,
+              24.28851612400007,
+              121.26263296700006,
+              24.741091053000048
+            ],
+            "labelPoint": [
+              120.94224341050005,
+              24.514803588500058
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-taichung-city",
+          "properties": {
+            "id": "tw-taichung-city",
+            "name": "臺中市",
+            "regionId": "tw-central",
+            "code": "66000",
+            "ringCount": 1,
+            "originalPoints": 10346,
+            "renderedPoints": 1120,
+            "bounds": [
+              120.45655266000006,
+              23.998557382000058,
+              121.45200501700003,
+              24.44148940900004
+            ],
+            "coreBounds": [
+              120.45655266000006,
+              23.998557382000058,
+              121.45200501700003,
+              24.44148940900004
+            ],
+            "labelPoint": [
+              120.95427883850004,
+              24.22002339550005
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-changhua-county",
+          "properties": {
+            "id": "tw-changhua-county",
+            "name": "彰化縣",
+            "regionId": "tw-central",
+            "code": "10007",
+            "ringCount": 1,
+            "originalPoints": 6469,
+            "renderedPoints": 749,
+            "bounds": [
+              120.2203552200001,
+              23.78561319000005,
+              120.68394791600008,
+              24.207186205000085
+            ],
+            "coreBounds": [
+              120.2203552200001,
+              23.78561319000005,
+              120.68394791600008,
+              24.207186205000085
+            ],
+            "labelPoint": [
+              120.45215156800009,
+              23.996399697500067
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-nantou-county",
+          "properties": {
+            "id": "tw-nantou-county",
+            "name": "南投縣",
+            "regionId": "tw-central",
+            "code": "10008",
+            "ringCount": 1,
+            "originalPoints": 17400,
+            "renderedPoints": 1775,
+            "bounds": [
+              120.61549033900008,
+              23.43541038300009,
+              121.34969556100009,
+              24.24587331300006
+            ],
+            "coreBounds": [
+              120.61549033900008,
+              23.43541038300009,
+              121.34969556100009,
+              24.24587331300006
+            ],
+            "labelPoint": [
+              120.98259295000008,
+              23.840641848000075
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-yunlin-county",
+          "properties": {
+            "id": "tw-yunlin-county",
+            "name": "雲林縣",
+            "regionId": "tw-central",
+            "code": "10009",
+            "ringCount": 6,
+            "originalPoints": 10371,
+            "renderedPoints": 1401,
+            "bounds": [
+              119.9968969580001,
+              23.435707123000043,
+              120.73615724500007,
+              23.86622234500004
+            ],
+            "coreBounds": [
+              119.9968969580001,
+              23.435707123000043,
+              120.73615724500007,
+              23.86622234500004
+            ],
+            "labelPoint": [
+              120.42529421150005,
+              23.68527120050004
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-chiayi-county",
+          "properties": {
+            "id": "tw-chiayi-county",
+            "name": "嘉義縣",
+            "regionId": "tw-south",
+            "code": "10010",
+            "ringCount": 10,
+            "originalPoints": 14472,
+            "renderedPoints": 1815,
+            "bounds": [
+              120.11805319100006,
+              23.21478445200006,
+              120.95751490300006,
+              23.63591295300006
+            ],
+            "coreBounds": [
+              120.11805319100006,
+              23.21478445200006,
+              120.95751490300006,
+              23.63591295300006
+            ],
+            "labelPoint": [
+              120.53778404700006,
+              23.42534870250006
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-chiayi-city",
+          "properties": {
+            "id": "tw-chiayi-city",
+            "name": "嘉義市",
+            "regionId": "tw-south",
+            "code": "10020",
+            "ringCount": 1,
+            "originalPoints": 1932,
+            "renderedPoints": 223,
+            "bounds": [
+              120.38915221400009,
+              23.439557556000068,
+              120.509371515,
+              23.518429800000035
+            ],
+            "coreBounds": [
+              120.38915221400009,
+              23.439557556000068,
+              120.509371515,
+              23.518429800000035
+            ],
+            "labelPoint": [
+              120.44926186450004,
+              23.47899367800005
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-tainan-city",
+          "properties": {
+            "id": "tw-tainan-city",
+            "name": "臺南市",
+            "regionId": "tw-south",
+            "code": "67000",
+            "ringCount": 1,
+            "originalPoints": 9628,
+            "renderedPoints": 1030,
+            "bounds": [
+              120.02690556700009,
+              22.887506100000053,
+              120.6562675780001,
+              23.413741868000045
+            ],
+            "coreBounds": [
+              120.02690556700009,
+              22.887506100000053,
+              120.6562675780001,
+              23.413741868000045
+            ],
+            "labelPoint": [
+              120.34158657250009,
+              23.15062398400005
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-kaohsiung-city",
+          "properties": {
+            "id": "tw-kaohsiung-city",
+            "name": "高雄市",
+            "regionId": "tw-south",
+            "code": "64000",
+            "ringCount": 17,
+            "originalPoints": 18202,
+            "renderedPoints": 1817,
+            "bounds": [
+              114.35928247200002,
+              10.371347663000051,
+              121.0490304430001,
+              23.471713519000048
+            ],
+            "coreBounds": [
+              120.1746653780001,
+              22.46847671900008,
+              121.0490304430001,
+              23.471713519000048
+            ],
+            "labelPoint": [
+              120.6118479105001,
+              22.970095119000064
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-pingtung-county",
+          "properties": {
+            "id": "tw-pingtung-county",
+            "name": "屏東縣",
+            "regionId": "tw-south",
+            "code": "10013",
+            "ringCount": 10,
+            "originalPoints": 9446,
+            "renderedPoints": 1316,
+            "bounds": [
+              120.35314470500009,
+              21.756143532000067,
+              120.90418495100005,
+              22.885178108000048
+            ],
+            "coreBounds": [
+              120.35314470500009,
+              21.756143532000067,
+              120.90418495100005,
+              22.885178108000048
+            ],
+            "labelPoint": [
+              120.66350010150006,
+              22.390388891500066
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-hualien-county",
+          "properties": {
+            "id": "tw-hualien-county",
+            "name": "花蓮縣",
+            "regionId": "tw-east",
+            "code": "10015",
+            "ringCount": 1,
+            "originalPoints": 18768,
+            "renderedPoints": 1653,
+            "bounds": [
+              120.98656461900009,
+              23.09778067600007,
+              121.77405669200004,
+              24.37055273900006
+            ],
+            "coreBounds": [
+              120.98656461900009,
+              23.09778067600007,
+              121.77405669200004,
+              24.37055273900006
+            ],
+            "labelPoint": [
+              121.38031065550007,
+              23.734166707500066
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-taitung-county",
+          "properties": {
+            "id": "tw-taitung-county",
+            "name": "臺東縣",
+            "regionId": "tw-east",
+            "code": "10014",
+            "ringCount": 10,
+            "originalPoints": 17069,
+            "renderedPoints": 2010,
+            "bounds": [
+              120.73905203100003,
+              21.942511678000074,
+              121.61640099600004,
+              23.443813754000075
+            ],
+            "coreBounds": [
+              120.73905203100003,
+              21.942511678000074,
+              121.61640099600004,
+              23.443813754000075
+            ],
+            "labelPoint": [
+              121.11757356150002,
+              22.836810949500062
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-penghu-county",
+          "properties": {
+            "id": "tw-penghu-county",
+            "name": "澎湖縣",
+            "regionId": "tw-offshore",
+            "code": "10016",
+            "ringCount": 296,
+            "originalPoints": 42969,
+            "renderedPoints": 5430,
+            "bounds": [
+              119.31429438700002,
+              23.186564029000067,
+              119.7269789930001,
+              23.810694694000063
+            ],
+            "coreBounds": [
+              119.31429438700002,
+              23.186564029000067,
+              119.7269789930001,
+              23.810694694000063
+            ],
+            "labelPoint": [
+              119.58159463700002,
+              23.592431388500046
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-kinmen-county",
+          "properties": {
+            "id": "tw-kinmen-county",
+            "name": "金門縣",
+            "regionId": "tw-offshore",
+            "code": "09020",
+            "ringCount": 43,
+            "originalPoints": 6733,
+            "renderedPoints": 903,
+            "bounds": [
+              118.13797245900003,
+              24.16025806600004,
+              119.47920615500004,
+              24.999616759000048
+            ],
+            "coreBounds": [
+              118.13797245900003,
+              24.16025806600004,
+              119.47920615500004,
+              24.999616759000048
+            ],
+            "labelPoint": [
+              118.3780715745001,
+              24.459893535000077
+            ]
+          }
+        },
+        {
+          "type": "Feature",
+          "id": "tw-lienchiang-county",
+          "properties": {
+            "id": "tw-lienchiang-county",
+            "name": "連江縣",
+            "regionId": "tw-offshore",
+            "code": "09007",
+            "ringCount": 183,
+            "originalPoints": 20341,
+            "renderedPoints": 1862,
+            "bounds": [
+              119.908897282,
+              25.940998015000048,
+              120.51174267100009,
+              26.385278130000074
+            ],
+            "coreBounds": [
+              119.908897282,
+              25.940998015000048,
+              120.51174267100009,
+              26.385278130000074
+            ],
+            "labelPoint": [
+              119.93704127700005,
+              26.15656273400006
+            ]
+          }
+        }
+      ],
+      "mainlandBodyBounds": [
+        120.02690556700009,
+        21.895599675000085,
+        122.00749234200009,
+        25.300305479000087
+      ]
+    }
+  },
+  "privateAtlas": null,
+  "productionRevision": "taiwan-r24-20261002"
+}

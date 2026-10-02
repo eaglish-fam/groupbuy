@@ -39,9 +39,15 @@ test('single-guide country entrance is explicit and does not permit unrelated du
  assert.equal(country.href,guide.href);assert.equal(country.entryKind,'single-guide');assert.equal(validateTravelHomeCatalog(travelHomeCatalog),true);
  const invalid=structuredClone(travelHomeCatalog);invalid.countries.find(c=>c.id==='philippines').entryKind='hub';assert.throws(()=>validateTravelHomeCatalog(invalid),/duplicate route/);
 });
-test('only the Cebu guide opts its travel masthead into measured reading navigation',()=>{
+test('Cebu opts into its reviewed in-flow TOC and photo-aware first-jump controller',()=>{
  const readingNav=read('blog/reading-nav.js');
- assert.match(html,/<body class="bkk-guide cb-guide" data-country="philippines">/);
+ assert.match(html,/<body class="bkk-guide cb-guide" data-country="philippines" data-travel-theme="masthead-blue">/);
+ assert.match(html,/<details class="r21-toc"><summary>本篇目錄<\/summary>/);
+ assert.match(html,/src="\/trip\/cebu-presentation-r21-bundle\.mjs\?v=r24-20261002"/);
+ assert.doesNotMatch(html,/src="\/blog\/reading-nav\.js|class="trip-plan-entry"/);
+ const controller=read('trip/cebu-presentation-r21.mjs');
+ assert.match(controller,/layoutPhotoGrids\(\);const masthead/);
+ assert.match(controller,/document\.fonts\.ready\.then/);
  assert.match(readingNav,/querySelector\('\.journal-chrome'\) \|\|\s*document\.querySelector\('body\.cb-guide > header\.masthead\.wrap'\)/);
  assert.doesNotMatch(html,/<header class="[^"]*journal-chrome/);
  assert.match(readingNav,/padding - headerBottom\(\) - 16/);
@@ -52,7 +58,7 @@ test('only the Cebu guide opts its travel masthead into measured reading navigat
  assert.match(readingNav,/document\.fonts\.ready\.then/);
  assert.match(readingNav,/cancelled \|\| document\.activeElement !== heading/);
 });
-test('unloaded editorial images reserve their source ratio so the first TOC jump stays stable',()=>{
+test('unloaded editorial images retain source dimensions and reserve reviewed cover frames',()=>{
  const css=read('trip/cebu-bohol.css');
  assert.match(css,/\.cb-guide \.cb-hero img\{[^}]*aspect-ratio:var\(--cb-photo-ratio\)/);
  assert.match(css,/\.cb-guide \.cb-gallery img\{[^}]*aspect-ratio:var\(--cb-photo-ratio\)/);
@@ -61,6 +67,9 @@ test('unloaded editorial images reserve their source ratio so the first TOC jump
   assert.ok(tag[0].includes(`--cb-photo-ratio:${width}/${height}`));
  }
  assert.match(css,/\.cb-photo-cards img\{[^}]*aspect-ratio:1\/1/);
+ assert.match(read('trip/cebu-presentation-r21.css'),/aspect-ratio:var\(--photo-ratio\)/);
+ assert.match(read('trip/cebu-presentation-r21.css'),/object-fit:cover/);
+ assert.equal((html.match(/data-photo-frame=/g)||[]).length,36);
 });
 test('v3 active-picture frames use new URLs, retain crop provenance, and leave photos identical',()=>{
  const current=JSON.parse(read('trip/assets/cebu-bohol-media.json'));

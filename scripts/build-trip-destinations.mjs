@@ -3,7 +3,7 @@ import {resolve} from 'node:path';
 import {visualOverview,cityStory,nzAtlas} from './trip-nz-visuals.mjs';
 import {cardsSection as bangkokPlaceCards,scene as bangkokScene} from './trip-bangkok-places.mjs';
 import {prioritizeFirstTravelImage} from './trip-image-priority.mjs';
-import {renderTravelHome} from './build-trip-home.mjs';
+import {renderTravelHomeR24} from './render-travel-home-r24.mjs';
 import {chiangRaiFeature} from './build-trip-chiang-rai.mjs';
 import {feature as chiangMaiFeature} from './trip-chiang-mai.mjs';
 import {thailandHub,thailandAssets} from './trip-thailand-hub.mjs';
@@ -69,7 +69,7 @@ export function buildDestinations(root){
  const write=(path,html)=>{
   mkdirSync(resolve(root,path.slice(1)),{recursive:true});writeFileSync(resolve(root,path.slice(1),'index.html'),prioritizeFirstTravelImage(html));
  };
- write('/trip/',renderTravelHome());
+ write('/trip/',renderTravelHomeR24());
  const intro=(title,lead,path,crumbs,en)=>`<main id="main"><header class="article-header wrap destination-heading">${breadcrumbs(crumbs)}<p class="eyebrow"><i class="dot"></i> ${en}</p><h1>${title}</h1><p class="article-lead">${lead}</p></header>`;
  const hub=(path,title,lead,crumbs,en,body,bangkokImage=false)=>write(path,head(title,lead,path,{bangkokImage})+crumbSchema(crumbs.map(([n,p])=>[n,p||path]))+intro(title,lead,path,crumbs,en)+body+'</main>'+footer);
  hub(nz,'紐西蘭自由行：從北島到南島的旅行靈感','從城市電車、港灣到湖畔與農場，整理鷹式一家多趟旅程走過的地方。先選區域，再排適合你的天數。',[['紐西蘭',null]],'NEW ZEALAND',`${nzAtlas(image)}<section class="section wrap">${feature()}</section>`);

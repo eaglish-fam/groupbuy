@@ -1,5 +1,6 @@
 import {geoOrthographic,geoPath,geoGraticule10,geoDistance} from 'd3-geo';
 import {feature} from 'topojson-client';
+import {mountUnifiedGlobe} from './unified-globe-source.mjs';
 
 const clamp=(value,min,max)=>Math.max(min,Math.min(max,value));
 const longitude=value=>((value+180)%360+360)%360-180;
@@ -11,7 +12,8 @@ const isPoint=value=>Array.isArray(value)&&value.length===2&&value.every(Number.
  * region may be {id,center:[longitude,latitude]} or a region ID. selectedCountry
  * may be the catalog ID or record. Explicit setView centers take precedence.
  */
-export async function mountGlobe(host,{countries=[],region,selectedCountry,onSelect}={}){
+export async function mountGlobe(host,{countries=[],region,selectedCountry,onSelect,view,signal,onExplore,onRegion,onCounty}={}){
+ if(view)return mountUnifiedGlobe(host,{countries,view,signal,onSelect,onExplore,onRegion,onCounty});
  if(!host||typeof host.appendChild!=='function')throw new Error('Globe host is required');
  const canvas=document.createElement('canvas');
  const context=canvas.getContext('2d');
