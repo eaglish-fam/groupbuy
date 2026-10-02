@@ -58,6 +58,7 @@ function syncGlobeStatus({phase,error}){
  const fallback=host.querySelector('[data-globe-fallback]');
  fallback.hidden=ready;fallback.textContent=failed?'互動地球暫時無法載入；目的地與旅行紀錄仍可閱讀。':'互動地球準備中；目的地與旅行紀錄已可使用。';
  $('#globe-note').textContent=failed?fallback.textContent:ready?(state.top==='taiwan'?'點選地區放大，或看世界地圖。':'拖曳旋轉地球，或點選國家。'):fallback.textContent;
+ $('#globe-note').hidden=ready&&state.top!=='taiwan';
  $('#retry-globe').hidden=!failed;$('#retry-globe').disabled=phase==='loading';
  $('#recenter-map').disabled=!ready;
  if(failed){delete host.dataset.globeReady;host.dataset.globeError=error;globe=null;}
