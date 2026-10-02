@@ -15,6 +15,7 @@ export function renderTravelHomeR24(){
  // The shared destination writer promotes the first image once. The reviewed
  // snapshot already contained a preload, so remove that before the normal pass.
  return inlineTravelStyles(mapFirstTravelHome(template).replace('{{ATLAS_CONFIG}}',JSON.stringify(config).replaceAll('<','\\u003c'))
+  .replace('/trip/atlas-ui-bundle.mjs?v=r24-20261002','/trip/atlas-ui-bundle.mjs?v=r27-20261002')
   .replace(/<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>/g,''));
 }
 // Reorder the reviewed top-level modules in the actual document, without
