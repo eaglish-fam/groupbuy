@@ -15,7 +15,8 @@ const articles=readdirSync(new URL('blog/',root),{withFileTypes:true}).filter(x=
  const schema=[...html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)].flatMap(m=>{const v=JSON.parse(m[1]);return v['@graph']||[v];}).find(v=>v['@type']==='Article');
  const cluster=clusters.find(c=>c.articles.includes(x.name));
  const links=cluster?.articles.filter(slug=>slug!==x.name).map(slug=>entries.find(p=>p.article===`/blog/${slug}/`)).filter(Boolean)||[];
- const related=`<!-- related-reading:start --><nav class="related-reading" aria-label="延伸選購筆記"><h2>接著，從你的需要繼續挑</h2><p><a href="/guides/${cluster?'#'+cluster.id:''}">${e(cluster?.title||'選購指南')}</a> · <a href="/how-we-select/">我們怎麼選物</a>${entry?` · <a href="/#product-${e(entry.id)}">回到${e(entry.brands[0])}商品介紹</a>`:''}</p><ul>${links.map(p=>`<li><a href="${p.article}">${e(p.brands[0])}｜${e(p.title)}</a></li>`).join('')}</ul></nav><!-- related-reading:end -->`;
+ const catalogueLink=entry?.planBrands?'/?p='+encodeURIComponent(entry.brands[0].replace(/飯店$/,'')):'/#product-'+(entry?.id||'');
+ const related=`<!-- related-reading:start --><nav class="related-reading" aria-label="延伸選購筆記"><h2>接著，從你的需要繼續挑</h2><p><a href="/guides/${cluster?'#'+cluster.id:''}">${e(cluster?.title||'選購指南')}</a> · <a href="/how-we-select/">我們怎麼選物</a>${entry?` · <a href="${e(catalogueLink)}">回到${e(entry.brands[0])}商品介紹</a>`:''}</p><ul>${links.map(p=>`<li><a href="${p.article}">${e(p.brands[0])}｜${e(p.title)}</a></li>`).join('')}</ul></nav><!-- related-reading:end -->`;
  html=html.replace(/<!-- related-reading:start -->[\s\S]*?<!-- related-reading:end -->/g,'');
  if(!html.includes('</main>'))throw Error('Missing article main: '+x.name);
  html=html.replace('</main>',related+'</main>');

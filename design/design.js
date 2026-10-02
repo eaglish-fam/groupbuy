@@ -4,6 +4,12 @@ const $ = (s) => document.querySelector(s),
   safe = (s) => ProductContent.safeUrl(s);
 const sheet = "1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU";
 const PAGE_SIZE = 12;
+const LEOFOO_PLANS = [
+  { code: "A", brand: "六福莊住宿 A｜樂園無限玩", label: "A｜二天一夜・樂園" },
+  { code: "B", brand: "六福莊住宿 B｜經典探險", label: "B｜二天一夜・動物體驗" },
+  { code: "C", brand: "六福莊住宿 C｜FUN肆玩樂季", label: "C｜三天二夜・晚餐 DIY" },
+];
+const LEOFOO_FAMILY_ALIASES = new Set(["六福莊", "六福莊飯店"]);
 const catalogueFallback = document.querySelector('[data-snapshot-card]') ? $("#products").innerHTML : "";
 const SAVED_KEY = ["www.eaglish.store", "eaglish.store"].includes(location.hostname) ? "eaglish-saved-v2" : "eaglish-design-saved-v2";
 let loadingPromise = null, refreshedAt = 0, verifiedDay = "", buying = false;
@@ -206,7 +212,88 @@ function updateCountdowns() {
   });
   updateTodayClosing();
 }
-function card(p) {
+function leofooPlanFor(product) {
+  return LEOFOO_PLANS.find(plan => plan.brand === product?.brand);
+}
+// Group only the rendered catalogue entries. Every action retains an actual
+// normalized product object and its original index in `products`.
+function groupLeofooForDisplay(list, catalogue) {
+  const plans = LEOFOO_PLANS.map(plan => catalogue.find(p => p.brand === plan.brand));
+  const matchedPlans = list.filter(leofooPlanFor);
+  if (!matchedPlans.length)
+    return list.map(product => ({ product, leofooPlans: [], matchedLeofooPlans: [] }));
+  let inserted = false;
+  return list.flatMap(product => {
+    if (!leofooPlanFor(product)) return [{ product, leofooPlans: [] }];
+    if (inserted) return [];
+    inserted = true;
+    return [{
+      product: plans[0] || matchedPlans[0],
+      leofooPlans: plans,
+      matchedLeofooPlans: matchedPlans,
+    }];
+  });
+}
+function applyLeofooCampaignStatus(catalogue, campaign) {
+  const states = {
+    open: { key: "open", label: "限時開團" },
+    upcoming: { key: "upcoming", label: "即將開團" },
+    closed: { key: "closed", label: "本次已結團" },
+    unavailable: { key: "unknown", label: "商品資料待確認" },
+  };
+  for (const product of catalogue) {
+    const plan = leofooPlanFor(product);
+    if (!plan) continue;
+    const status = states[campaign.plans?.[plan.code]?.state] || states.unavailable;
+    product.status = { ...product.status, ...status, long: false };
+  }
+}
+function leofooGroupStatus(plans) {
+  if (plans.some(plan => plan.status.key === "open"))
+    return { key: "open", label: "仍有方案開團" };
+  if (plans.some(plan => plan.status.key === "upcoming"))
+    return { key: "upcoming", label: "即將開團" };
+  if (plans.some(plan => plan.status.key === "unknown"))
+    return { key: "unknown", label: "方案資料待確認" };
+  return { key: "closed", label: "本次已結團" };
+}
+function leofooCard(p, plans, matchedPlans) {
+  const idx = products.indexOf(p);
+  const saveProduct = currentStatus === "saved"
+    ? plans.find(plan => plan && saved.has(plan.key)) || p
+    : p;
+  const saveIndex = products.indexOf(saveProduct);
+  const primaryA = plans[0];
+  const primaryAAvailable = primaryA?.status.key === "open" && matchedPlans.includes(primaryA);
+  const calendarProduct = matchedPlans.find(plan => plan.status.key === "open") || matchedPlans[0] || p;
+  const calendarIndex = products.indexOf(calendarProduct);
+  const activeTimedPlan = matchedPlans.find(timedCampaign);
+  const groupStatus = leofooGroupStatus(matchedPlans);
+  const firstImage = p.images[0] || "";
+  const backupImage = p.fallbackImage || p.images[1] || "";
+  const cardImage = /^https:\/\/lh3\.googleusercontent\.com\/d\/[^\s]+\=w\d+$/.test(firstImage)
+    ? firstImage.replace(/=w\d+$/, '=w480') : firstImage;
+  const imageWidth = window.EntryImageWidths?.[firstImage] || 0;
+  const responsive = /^\/assets\/[a-z0-9\/_-]+\.webp$/i.test(firstImage) && imageWidth > 480
+    ? ` srcset="${esc(firstImage.replace(/\.webp$/, '-480.webp'))} 480w${imageWidth > 960 ? `, ${esc(firstImage.replace(/\.webp$/, '-960.webp'))} 960w` : ''}, ${esc(firstImage)} ${imageWidth}w" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"` : '';
+  const planButtons = LEOFOO_PLANS.map((plan, planIndex) => {
+    const product = plans[planIndex];
+    return product
+      ? `<button class="leofoo-plan-title" data-plan-code="${plan.code}" data-detail="${products.indexOf(product)}" aria-label="查看${esc(plan.label)}方案詳情">${esc(plan.label)}</button>`
+      : `<button class="leofoo-plan-title" data-plan-code="${plan.code}" disabled aria-label="${esc(plan.label)}，方案資料待確認"><span>${esc(plan.label)}</span><small>資料待確認</small></button>`;
+  }).join("");
+  return `<article class="product-card leofoo-card" id="product-leofoo" data-product-key="${esc(p.key)}">
+    <div class="product-picture"><button class="image-open" data-detail="${idx}" aria-label="查看 ${esc(p.brand)} 詳情">${firstImage ? `<img src="${esc(cardImage)}"${responsive}${backupImage ? ` data-fallback-src="${esc(backupImage)}"` : ''} alt="六福莊住宿三種方案" loading="lazy" decoding="async" fetchpriority="low" width="1000" height="750">` : "<span>六福莊住宿方案</span>"}</button><button class="save" data-save="${saveIndex}" aria-label="收藏 ${esc(saveProduct.brand)}" aria-pressed="${saved.has(saveProduct.key)}">${bookmark}</button></div>
+    <div class="product-body"><div class="product-meta"><span class="status ${groupStatus.key}">${esc(groupStatus.label)}</span><span>${esc(p.category.split(/[,，]/)[0])}${p.country ? " / " + esc(p.country) : ""}</span></div>
+    <h3>六福莊住宿｜三種方案</h3><div class="leofoo-plan-titles" aria-label="選擇六福莊住宿方案">${planButtons}</div><p class="product-description">${esc(p.description)}</p>
+    <div class="product-bottom">${activeTimedPlan ? `<p class="date-line">${countdownMarkup(activeTimedPlan)}</p>` : ""}
+    <a class="card-reading" href="/blog/leofoo/">閱讀選房指南</a>
+    ${calendarProduct.start || calendarProduct.end ? `<button class="card-calendar" data-calendar-product="${calendarIndex}">加入行事曆</button>` : ""}
+    <div class="card-primary-action">${primaryAAvailable ? `<a class="button primary" href="${esc(primaryA.url)}" data-buy-key="${esc(primaryA.key)}" target="_blank" rel="noopener noreferrer">前往方案 A</a>` : `<button class="button secondary" data-save="${saveIndex}">${saved.has(saveProduct.key) ? "已收藏 ✓" : "先收藏"}</button>`}</div>
+    </div></div></article>`;
+}
+function card(p, leofooPlans = [], matchedLeofooPlans = []) {
+  if (leofooPlans.length === LEOFOO_PLANS.length) return leofooCard(p, leofooPlans, matchedLeofooPlans);
   const idx = products.indexOf(p);
   const label =
     p.kind === "book"
@@ -273,20 +360,21 @@ function render() {
   );
   const order = $("#sort").value;
   list = sortCatalog(list, currentStatus, order);
+  const displayList = groupLeofooForDisplay(list, products);
   $("#result-count").textContent =
-    `${list.length} 件選物${category ? "・" + category : ""}`;
+    `${displayList.length} 件選物${category ? "・" + category : ""}`;
   $("#products").innerHTML = list.length
-    ? list.slice(0, limit).map(card).join("")
+    ? displayList.slice(0, limit).map(item => card(item.product, item.leofooPlans, item.matchedLeofooPlans)).join("")
     : `<div class="loading">${currentStatus === "saved" ? "還沒有符合條件的收藏。點商品右上角的書籤，就能留在這裡。" : currentStatus === "upcoming" && !query && !category ? "目前沒有已公布的即將開團商品。先逛逛開團中的好物吧。" : "沒有符合條件的商品，試試其他關鍵字或分類。"}<br><button class="text-link" id="reset-filters">查看全部開團商品</button></div>`;
   $("#products").setAttribute("aria-busy", "false");
-  $("#load-more").hidden = list.length <= limit;
-  const remaining = Math.max(0, list.length - limit);
+  $("#load-more").hidden = displayList.length <= limit;
+  const remaining = Math.max(0, displayList.length - limit);
   $("#load-more").textContent =
     `再看 ${Math.min(PAGE_SIZE, remaining)} 件好物 ＋`;
   $("#show-all-products").hidden = remaining === 0;
-  $("#show-all-products").textContent = `一次看全部 ${list.length} 件`;
-  $("#browse-progress").textContent = list.length
-    ? `已展示 ${Math.min(limit, list.length)}／${list.length} 件${remaining ? `，還有 ${remaining} 件等你逛` : "，已全部展示"}`
+  $("#show-all-products").textContent = `一次看全部 ${displayList.length} 件`;
+  $("#browse-progress").textContent = displayList.length
+    ? `已展示 ${Math.min(limit, displayList.length)}／${displayList.length} 件${remaining ? `，還有 ${remaining} 件等你逛` : "，已全部展示"}`
     : "";
   document.querySelectorAll("[data-category]").forEach((b) => {
     b.setAttribute("aria-pressed", String(b.dataset.category === category));
@@ -355,8 +443,12 @@ function openDetail(index, refreshing = false) {
     ]
       .filter((x) => x[1])
       .map(
-        ([name, content]) =>
-          `<details ${name === "貼心說明" ? "open" : ""}><summary>${name}</summary><p>${linkedText(content)}</p></details>`,
+        ([name, content]) => {
+          const initiallyOpen = p.article?.id === "leofoo"
+            ? name === "方案詳情"
+            : name === "貼心說明";
+          return `<details ${initiallyOpen ? "open" : ""}><summary>${name}</summary><p>${linkedText(content)}</p></details>`;
+        },
       )
       .join(
         "",
@@ -514,6 +606,10 @@ async function performLoad() {
         result[1].status === "fulfilled"
           ? normalize(result[1].value, true)
           : [];
+    const leofooCampaign = ProductContent.campaignFor(
+      [...main, ...extra].map(p => p.source),
+      "leofoo",
+    );
     const seen = new Set(main.map((p) => p.key));
     const combined = [...main, ...extra.filter((p) => !seen.has(p.key))];
     products = [];
@@ -529,6 +625,7 @@ async function performLoad() {
     const counts = new Map();
     products.forEach(p => counts.set(p.key, (counts.get(p.key) || 0) + 1));
     products.forEach(p => { if (counts.get(p.key) > 1) p.status = { ...p.status, key: "unknown", label: "商品資料待確認" }; });
+    applyLeofooCampaignStatus(products, leofooCampaign);
     // Migrate brand-only favourites once; retain original storage for rollback.
     try {
       if (!localStorage.getItem(SAVED_KEY + "-migrated")) {
@@ -657,6 +754,11 @@ window.addEventListener("catalog-ready", () => {
   if (articleId) {
     const matches = products.filter(p => p.article?.id === articleId);
     if (matches.length === 1) return openDetail(products.indexOf(matches[0]));
+    if (articleId === "leofoo" && matches.some(leofooPlanFor)) {
+      query = "六福莊"; $("#search").value = query; setStatus("all");
+      $("#catalog").scrollIntoView();
+      return;
+    }
     // Missing or ambiguous campaigns do not inherit a checkout from another product.
     if (matches.length > 1) { query=matches[0].brand.toLowerCase(); $("#search").value=query; setStatus("all"); }
     $("#catalog").scrollIntoView();
@@ -668,6 +770,10 @@ window.addEventListener("catalog-ready", () => {
   if (exact >= 0) return openDetail(exact);
   const matches = products.filter(p => p.brand === key);
   if (matches.length === 1) openDetail(products.indexOf(matches[0]));
+  else if (LEOFOO_FAMILY_ALIASES.has(key) && products.some(leofooPlanFor)) {
+    query = "六福莊"; $("#search").value = query; setStatus("all");
+    $("#catalog").scrollIntoView();
+  }
   else if (matches.length > 1) {
     query = key.toLowerCase(); $("#search").value = key; setStatus("all");
     $("#catalog").scrollIntoView();

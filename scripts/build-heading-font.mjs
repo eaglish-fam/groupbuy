@@ -4,7 +4,7 @@ import {tmpdir} from 'node:os';
 import {execFileSync} from 'node:child_process';
 const root=resolve(import.meta.dirname,'..'),[python,source,version='5',sourceKind='variable']=process.argv.slice(2);
 if(!python||!source)throw Error('Supply installed fontTools Python and upstream Noto Serif TC variable TTF');
-if(!/^[4567]$/.test(version)||!['variable','instanced-500'].includes(sourceKind))throw Error('Specify reviewed font version and source kind');
+if(!/^[45678]$/.test(version)||!['variable','instanced-500'].includes(sourceKind))throw Error('Specify reviewed font version and source kind');
 const glyphs=new Set(readFileSync(resolve(root,'assets/fonts/heading-glyphs.txt'),'utf8'));
 function walk(path){for(const entry of readdirSync(resolve(root,path),{withFileTypes:true})){const p=path+'/'+entry.name;if(entry.isDirectory())walk(p);else if(entry.name==='index.html')collect(p);}}
 function collect(path){const html=readFileSync(resolve(root,path),'utf8');if(/name="robots" content="noindex/.test(html))return;for(const [,heading] of html.matchAll(/<h[1-3]\b[^>]*>([\s\S]*?)<\/h[1-3]>/gi))for(const char of heading.replace(/<[^>]*>/g,''))glyphs.add(char);}

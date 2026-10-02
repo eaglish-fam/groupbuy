@@ -19,7 +19,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "c97182eab93c5d8da0439930757a919df815a7218f7b5d5af76b7b7f7ba358e8"
+      "sourceHash": "9bf965c9b31d81ad90d17ec891b8f6aab9fd6dd9a59209f2aa73a59089ad3789"
     },
     {
       "slug": "atojet",
@@ -38,7 +38,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "ba80ea5d579f592460e570d606b2cce873df4480b7ca1ddea027b50097f64560"
+      "sourceHash": "709bf09af13034ade89e87b886978852ca810b61951002440315ac0c50c59228"
     },
     {
       "slug": "branden",
@@ -57,7 +57,7 @@
       "cluster": null,
       "published": "2026-09-24",
       "modified": "2026-09-24",
-      "sourceHash": "b16de81e2ed9ec29faccedaec21060c8019e29b855448c20caf815dc4c9df181"
+      "sourceHash": "873ea44cc495b39c495d6abc96eb66d39be4f13cdb47d8a98cd66765a1a7b8e3"
     },
     {
       "slug": "caesar-kenting",
@@ -79,7 +79,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "49fad19dd49549a7e46ea0b020114da71722dc80493d9bf36b93326077480a41"
+      "sourceHash": "906ea5d76498d5a05b9975662dc446673988a1afe995f7781c5aba9caf37e45c"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -101,7 +101,7 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "e3843b7591357230858a0efc96182dbd1f08a25a1be03585bab704b44304e048"
+      "sourceHash": "1edac51f8f078da4a534ff6468379fb2c757d192079df5ca617395c5b68d1775"
     },
     {
       "slug": "eben-kombucha",
@@ -121,7 +121,7 @@
       "cluster": null,
       "published": "2026-09-29",
       "modified": "2026-09-29",
-      "sourceHash": "b2b4b70b46dbdffe350ddb02ae143998926fb340cf110f2aaa4f69959482005c"
+      "sourceHash": "84e08d2777821a7a2ea713f27f174a360963bb138ad102726c01d32eb9708915"
     },
     {
       "slug": "fushan-gifts",
@@ -143,7 +143,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "6f3a3ba0744c1e9fe54584c437725ef7f785cb633fa3eca6228163226a3d3490"
+      "sourceHash": "4e69784e39b32b6621d66dfb7552c1999fc885ac0cfc564af3e64d4652af1206"
     },
     {
       "slug": "hereu-tag",
@@ -165,7 +165,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "0499b86d4f6c2f7c5f13e15fe7f460de9332f43a54561f1502fa3d06dfc9d56b"
+      "sourceHash": "7543e8523c3e624982b55fb184aeb7d592cfaad60233b5dd059eb3d5c9d5d92e"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -188,7 +188,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "c971357c48d5ef45440e11e3e514e6f2f09e454738eaf75aad56363944e11b25"
+      "sourceHash": "6e193377e9a49afe4cba4479487b1226c985a09b6bda6c7e335de58a0ad872aa"
     },
     {
       "slug": "lange",
@@ -209,7 +209,32 @@
       "cluster": "family",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "923b4d921cb2a5ff0264e2420d6f1fded356eaedd5c48ef9b1d70d6b6b73fecf"
+      "sourceHash": "73dbcaca074b5266d5d20a6ee44f1e0d6239a6e4278617e012d2f44f44f3d791"
+    },
+    {
+      "slug": "leofoo",
+      "url": "https://www.eaglish.store/blog/leofoo/",
+      "title": "六福莊房型怎麼選？剛果、肯亞與 A／B／C 方案比較｜鷹家選物誌",
+      "productNames": [
+        "六福莊飯店",
+        "六福莊住宿 A｜樂園無限玩",
+        "六福莊住宿 B｜經典探險",
+        "六福莊住宿 C｜FUN肆玩樂季"
+      ],
+      "productId": "leofoo",
+      "mode": "product",
+      "intent": "product:leofoo",
+      "topics": [
+        "六福莊房型",
+        "剛果肯亞差別",
+        "六福莊親子住宿",
+        "六福莊動物體驗",
+        "六福莊團購"
+      ],
+      "cluster": "travel",
+      "published": "2026-10-02",
+      "modified": "2026-10-02",
+      "sourceHash": "a04e774c100863c3ccecb190b7461a4cd465cbd25d1fd9cf00394f02a450307c"
     },
     {
       "slug": "meroware",
@@ -228,7 +253,7 @@
       "cluster": "family",
       "published": "2026-09-09",
       "modified": "2026-09-11",
-      "sourceHash": "6860e1732c4e183330255bd8e91c51c166ea6132a503f4baa64dbe743afdb6bb"
+      "sourceHash": "d018c180103e76dcf935b998d2955f296785b5c39dfce368ab4f37abe58c9824"
     },
     {
       "slug": "miamily",
@@ -249,7 +274,7 @@
       "cluster": "travel",
       "published": "2026-09-16",
       "modified": "2026-09-16",
-      "sourceHash": "bce6c397da84af595f9b32e2ed050e166941ef6bbf895c7a1f60d2d4ce47884d"
+      "sourceHash": "385e7de6ae796ea7c894faa6e0c72f1cf2fbbdf457545da37a6fd1945946e642"
     },
     {
       "slug": "mitoy-rice-blocks",
@@ -268,7 +293,7 @@
       "cluster": "family",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "72acf0467bfdae0a179a8888660231582e6bdb712ebfd09f00c964a03d2e0d58"
+      "sourceHash": "b0c5cc03f17d9b5224327b08574b8ebea7722af3a617fefc647943e429bcf2a5"
     },
     {
       "slug": "playzu",
@@ -291,7 +316,7 @@
       "cluster": "family",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "6a22b0f75729956bb8defc3f197f3167aeaeda7ca14a318ddfe169ab34361312"
+      "sourceHash": "463add6513257bde718c4662289949049b182078291fc8c0b1795afefdbfc428"
     },
     {
       "slug": "shoumaji",
@@ -312,7 +337,7 @@
       "cluster": "travel",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "22003c9ba9ee6633e4e7aecc992fbdb17954c6e746f408795da3335f3da0f251"
+      "sourceHash": "e3ed9394928d0dfa78174bb0d3248cea1c1ed2ed5877d9a2d80124357c185c50"
     },
     {
       "slug": "wave-hummus",
@@ -331,7 +356,7 @@
       "cluster": "table",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "f33ae3dad3be37f32696c3bfab178d0ce54559a635c96e88ecb622bc875d7935"
+      "sourceHash": "1ce0375afac7fc93cc67572f1c08d7bbcb8483e2ff01ccee8ecf8f93d0ad3893"
     }
   ]
 }

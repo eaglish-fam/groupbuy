@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="240" viewBox="0 0 720 240" role="img" aria-labelledby="title desc">
+  <title id="title">六福莊選房的兩個維度</title><desc id="desc">先選剛果或肯亞的房間空間，再選藍天、草原或綠地的景觀。</desc>
+  <rect width="720" height="240" rx="8" fill="#eeeee4"/>
+  <g fill="#183d2f" text-anchor="middle" font-family="PingFang TC, sans-serif">
+    <text x="175" y="58" fill="#985b39" font-size="24">01　先選空間</text>
+    <text x="175" y="111" font-size="34">剛果／肯亞</text>
+    <text x="175" y="160" font-size="23">單層或樓中樓</text>
+    <text x="175" y="198" font-size="23">人數、床位與樓梯</text>
+    <text x="360" y="137" font-size="38" fill="#985b39">＋</text>
+    <text x="545" y="58" fill="#985b39" font-size="24">02　再選景觀</text>
+    <text x="545" y="111" font-size="30">藍天／草原／綠地</text>
+    <text x="545" y="160" font-size="23">外側或內側動物區</text>
+    <text x="545" y="198" font-size="23">留意木棧道與動物活動</text>
+  </g>
+</svg>

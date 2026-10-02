@@ -1,39 +1,15 @@
 {
   "version": 1,
-  "observedAt": "2026-09-29T05:00:53.650Z",
+  "observedAt": "2026-10-02T05:01:29.233Z",
   "source": "https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/",
   "items": [
     {
-      "id": "lange",
-      "brand": "L'Ange 棉之境",
-      "description": "洗臉、拍嗝、擦髮、洗澡和旅行自帶浴巾，先看尺寸，再照家裡的換洗習慣估數量。",
-      "category": "母嬰, 居家",
-      "article": "/blog/lange/",
-      "image": "/assets/lange/cover.webp"
-    },
-    {
-      "id": "branden",
-      "brand": "Branden 壓縮袋",
-      "description": "從真實打包影片看拉鍊式壓縮袋，再按袋身、重量、開口與尺寸挑選。",
-      "category": "旅遊",
-      "article": "/blog/branden/",
-      "image": "/assets/branden/product-card.webp"
-    },
-    {
-      "id": "hereu-tag",
-      "brand": "hereu 智慧定位器",
-      "description": "從 iPhone 設定到鑰匙、行李的找回方法，替常找不到的東西留一個線索。",
-      "category": "旅遊",
-      "article": "/blog/hereu-tag/",
-      "image": "/assets/hereu-tag/cover.webp"
-    },
-    {
-      "id": "atojet-home-shower",
-      "brand": "Atojet 濾芯蓮蓬頭",
-      "description": "一段真實的換芯紀錄，一點關於浴室日常用水的留意。",
-      "category": "居家",
-      "article": "/blog/atojet/",
-      "image": "/assets/atojet/vendor-shower.webp"
+      "id": "eben-kombucha",
+      "brand": "EBEN康普茶",
+      "description": "從茶香與果香挑口味，搭配商品圖、家人試喝、微量酒精與冷藏說明，再選適合的團購組合。",
+      "category": "食品",
+      "article": "/blog/eben-kombucha/",
+      "image": "/assets/eben/cover.webp"
     },
     {
       "id": "playzu",
@@ -50,30 +26,6 @@
       "category": "母嬰",
       "article": "/blog/kietla-kids-sunglasses/",
       "image": "/assets/kietla/cover-style-v2.webp"
-    },
-    {
-      "id": "artisan-cb301",
-      "brand": "ARTISAN浴室清潔＆小腿按摩器",
-      "description": "高處、角落和總要彎下腰的地方，才是讓人一拖再拖的原因。",
-      "category": "居家",
-      "article": "/blog/artisan-cb301/",
-      "image": "/assets/artisan-cb301/blog-cover-v2.webp"
-    },
-    {
-      "id": "fushan-gifts",
-      "brand": "富山私房菜｜常溫品",
-      "description": "原味、香辣牛肉乾、蜜香紅茶與禮盒空盒，先挑口味，再裝一份心意。",
-      "category": "食品",
-      "article": "/blog/fushan-gifts/",
-      "image": "/assets/fushan/product-card.webp"
-    },
-    {
-      "id": "fushan-frozen",
-      "brand": "富山私房菜｜冷凍品",
-      "description": "蒲燒鰻、白燒鰻、一口吃烏魚子與冷凍料理，中秋送禮與家常加菜都方便。",
-      "category": "食品",
-      "article": null,
-      "image": "/assets/fushan-frozen/product-card.webp"
     },
     {
       "id": "5fbe2c078f7cb9c5",
@@ -112,14 +64,6 @@
       "brand": "Rieti 太陽眼鏡",
       "description": "秀秀外出必備護眼時尚單品",
       "category": "服飾",
-      "article": null,
-      "image": null
-    },
-    {
-      "id": "474d4bd57c378844",
-      "brand": "樂米電風扇",
-      "description": "外出降溫續航的好幫手！",
-      "category": "旅遊",
       "article": null,
       "image": null
     },
@@ -228,12 +172,12 @@
       "image": null
     },
     {
-      "id": "eben-kombucha",
-      "brand": "EBEN康普茶",
-      "description": "把日常那杯飲料，換成有茶香的微氣泡。EBEN 以台灣茶葉釀製生康普茶，初釀有烏龍茶香、双柚帶柑橘香、完熟梅酸甜清爽；冰涼喝，午後或配餐都很合適。",
-      "category": "食品",
-      "article": null,
-      "image": "/assets/eben/cover.webp"
+      "id": "leofoo",
+      "brand": "六福莊住宿 A｜樂園無限玩",
+      "description": "先按人數、樓梯與動物景觀選房，再比較一晚或兩晚、動物體驗、晚餐和第四位同行者的安排。",
+      "category": "旅遊",
+      "article": "/blog/leofoo/",
+      "image": "/assets/leofoo/product-card.webp"
     },
     {
       "id": "caesar-kenting",
@@ -242,6 +186,62 @@
       "category": "旅遊",
       "article": "/blog/caesar-kenting/",
       "image": "/assets/caesar-kenting/product-card.webp"
+    },
+    {
+      "id": "lange",
+      "brand": "L'Ange 棉之境",
+      "description": "洗臉、拍嗝、擦髮、洗澡和旅行自帶浴巾，先看尺寸，再照家裡的換洗習慣估數量。",
+      "category": "母嬰, 居家",
+      "article": "/blog/lange/",
+      "image": "/assets/lange/cover.webp"
+    },
+    {
+      "id": "branden",
+      "brand": "Branden 壓縮袋",
+      "description": "從真實打包影片看拉鍊式壓縮袋，再按袋身、重量、開口與尺寸挑選。",
+      "category": "旅遊",
+      "article": "/blog/branden/",
+      "image": "/assets/branden/product-card.webp"
+    },
+    {
+      "id": "hereu-tag",
+      "brand": "hereu 智慧定位器",
+      "description": "從 iPhone 設定到鑰匙、行李的找回方法，替常找不到的東西留一個線索。",
+      "category": "旅遊",
+      "article": "/blog/hereu-tag/",
+      "image": "/assets/hereu-tag/cover.webp"
+    },
+    {
+      "id": "atojet-home-shower",
+      "brand": "Atojet 濾芯蓮蓬頭",
+      "description": "一段真實的換芯紀錄，一點關於浴室日常用水的留意。",
+      "category": "居家",
+      "article": "/blog/atojet/",
+      "image": "/assets/atojet/vendor-shower.webp"
+    },
+    {
+      "id": "artisan-cb301",
+      "brand": "ARTISAN浴室清潔＆小腿按摩器",
+      "description": "高處、角落和總要彎下腰的地方，才是讓人一拖再拖的原因。",
+      "category": "居家",
+      "article": "/blog/artisan-cb301/",
+      "image": "/assets/artisan-cb301/blog-cover-v2.webp"
+    },
+    {
+      "id": "fushan-gifts",
+      "brand": "富山私房菜｜常溫品",
+      "description": "原味、香辣牛肉乾、蜜香紅茶與禮盒空盒，先挑口味，再裝一份心意。",
+      "category": "食品",
+      "article": "/blog/fushan-gifts/",
+      "image": "/assets/fushan/product-card.webp"
+    },
+    {
+      "id": "fushan-frozen",
+      "brand": "富山私房菜｜冷凍品",
+      "description": "蒲燒鰻、白燒鰻、一口吃烏魚子與冷凍料理，中秋送禮與家常加菜都方便。",
+      "category": "食品",
+      "article": null,
+      "image": "/assets/fushan-frozen/product-card.webp"
     }
   ]
 }

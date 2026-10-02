@@ -2,6 +2,20 @@
   "schema": "eaglish.blog-cover-identity/v1",
   "effectiveDate": "2026-09-14",
   "articles": {
+    "/blog/leofoo/": {
+      "identity": "六福莊",
+      "image": "/assets/leofoo/cover.webp",
+      "imageSha256": "1300254cec1ad3dd6e6d0d47c4f6ab626efccf7f23771acd0c7f2ffd1690de55",
+      "source": "/assets/leofoo/cover-source.html",
+      "sourceSha256": "b3da5616f5c3ee8262587d0873897e723b79d3210bf205a594c9572ac5826b13",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "1300254cec1ad3dd6e6d0d47c4f6ab626efccf7f23771acd0c7f2ffd1690de55",
+        "viewportWidths": [320, 390, 768, 1440],
+        "mobileCardLegible": true
+      }
+    },
     "/blog/eben-kombucha/": {
       "identity": "EBEN 生康普茶",
       "image": "/assets/eben/blog-cover.webp",

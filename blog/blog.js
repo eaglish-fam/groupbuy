@@ -46,7 +46,7 @@
   }
   function render(rows) {
     for (const card of cards) {
-      const state = BlogIndexModel.stateFor(BlogIndexModel.rowFor(rows, card.dataset.article));
+      const state = BlogIndexModel.stateForArticle(rows, card.dataset.article);
       card.dataset.state = state.shelf;
       card.querySelector('[data-status]').textContent = state.label;
       const buy = card.querySelector('[data-buy]');

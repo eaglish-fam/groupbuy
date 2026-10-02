@@ -1,6 +1,12 @@
 (function(root,factory){const api=factory(typeof module==='object'?require('../product-content.js'):root.ProductContent);if(typeof module==='object')module.exports=api;else root.BlogIndexModel=api;})(typeof globalThis!=='undefined'?globalThis:this,function(ProductContent){
   function formatDate(value){const date=ProductContent.date(value);if(!date)return '';return new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',month:'long',day:'numeric'}).format(new Date(date+'T12:00:00+08:00'));}
   function rowFor(rows,key){return ProductContent.rowForArticle(rows,key);}
+  function stateForArticle(rows,key,now=ProductContent.today()){
+    if(!ProductContent.catalog[key]?.planBrands)return stateFor(rowFor(rows,key),now);
+    const campaign=ProductContent.campaignFor(rows,key,now);
+    if(campaign.state==='open')return {shelf:'open',label:'開團中',url:campaign.url};
+    return {shelf:'journal',label:campaign.state==='closed'?'目前未開團':'團購狀態待確認'};
+  }
   function newestFirst(a,b){
     const left=ProductContent.date(a)||'0000-00-00',right=ProductContent.date(b)||'0000-00-00';
     return right.localeCompare(left);
@@ -15,5 +21,5 @@
     if((end||/長期|long/i.test(kind))&&url)return {shelf:'open',label:'開團中',url};
     return {shelf:'journal',label:'團購狀態待確認'};
   }
-  return {formatDate,rowFor,stateFor,newestFirst};
+  return {formatDate,rowFor,stateFor,stateForArticle,newestFirst};
 });

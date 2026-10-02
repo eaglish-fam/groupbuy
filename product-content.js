@@ -1,6 +1,7 @@
 /* Shared article/video contract. No Sheet writes, publishing or message sending. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.ProductContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const catalog={
+    leofoo:{id:'leofoo',brands:['六福莊飯店','六福莊住宿 A｜樂園無限玩','六福莊住宿 B｜經典探險','六福莊住宿 C｜FUN肆玩樂季'],planBrands:{A:'六福莊住宿 A｜樂園無限玩',B:'六福莊住宿 B｜經典探險',C:'六福莊住宿 C｜FUN肆玩樂季'},article:'/blog/leofoo/',title:'六福莊房型怎麼選？剛果、肯亞與三種住宿方案',excerpt:'先按人數、樓梯與動物景觀選房，再比較一晚或兩晚、動物體驗、晚餐和第四位同行者的安排。',category:'親子旅行',image:'/assets/leofoo/cover.webp',cardImage:'/assets/leofoo/product-card.webp',published:'2026-10-02'},
     branden:{id:'branden',brands:['Branden 壓縮袋'],article:'/blog/branden/',title:'旅行壓縮袋好用嗎？BRANDEN 二代與 Lite 怎麼選',excerpt:'從真實打包影片看拉鍊式壓縮袋，再按袋身、重量、開口與尺寸挑選。',category:'旅行收納',image:'/assets/branden/cover.webp',cardImage:'/assets/branden/product-card.webp',published:'2026-09-24'},
     lange:{id:'lange',brands:["L'Ange 棉之境"],article:'/blog/lange/',title:'紗布巾｜全家日用和旅行，尺寸怎麼挑？',excerpt:'洗臉、拍嗝、擦髮、洗澡和旅行自帶浴巾，先看尺寸，再照家裡的換洗習慣估數量。',category:'居家生活',image:'/assets/lange/cover.webp',published:'2026-09-17'},
     shoumaji:{id:'shoumaji',brands:['收麻吉手捲收納袋'],article:'/blog/shoumaji/',title:'收麻吉手捲壓縮袋｜旅行怎麼挑尺寸與袋數？',excerpt:'用天數、人數與衣物厚度先算 XS、S、M 袋數，再看真實影片的收納前後與手捲步驟。',category:'旅行收納',image:'/assets/shoumaji/cover.webp',published:'2026-09-17'},
@@ -48,7 +49,24 @@
   function campaignFor(rows,key,now=today()){
     const item=catalog[key];
     if(!item)return {state:'unavailable',label:'目前無法確認團購狀態'};
+    if(item.planBrands){
+      const plans=Object.fromEntries(Object.entries(item.planBrands).map(([code,brand])=>{
+        const matches=rows.filter(r=>String(r['品牌']||'').trim()===brand);
+        const row=matches.length===1?matches[0]:null;
+        const expectedUrl={A:'https://pse.is/9p7sug',B:'https://pse.is/9p7svd',C:'https://pse.is/9p7svv'}[code];
+        // The vendor's revised campaign document governs this Oct 2–8 offer.
+        const expectedEnd='2026-10-08';
+        const verified=row && row['連結']===expectedUrl && date(row['開團日期'])==='2026-10-02' && date(row['結束日期'])===expectedEnd;
+        return [code,campaignRow(verified?row:null,now)];
+      }));
+      const active=Object.values(plans).filter(p=>p.state==='open');
+      if(active.length)return {state:'open',label:'比較當期住宿方案',url:'https://www.eaglish.store'+item.article+'#plans',plans,end:active.map(p=>p.end).sort().at(-1)};
+      return {state:Object.values(plans).every(p=>p.state==='closed')?'closed':'unavailable',label:Object.values(plans).every(p=>p.state==='closed')?'本次團購已結束':'目前無法確認團購狀態',plans};
+    }
     const r=rowForArticle(rows,key);
+    return campaignRow(r,now);
+  }
+  function campaignRow(r,now){
     if(!r)return {state:'unavailable',label:'目前無法確認團購狀態'};
     const type=String(r['類型']||''),start=date(r['開團日期']),end=date(r['結束日期']),url=safeUrl(r['連結']);
     if(/結團|已結束|closed|ended/i.test(type))return {state:'closed',label:'本次團購已結束'};

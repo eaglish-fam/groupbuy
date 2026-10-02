@@ -684,6 +684,62 @@ h1 {
   line-height: 1.55;
   margin-bottom: 10px;
 }
+.leofoo-plan-titles {
+  display: grid;
+  gap: 8px;
+  margin: 0 0 14px;
+}
+.leofoo-plan-title {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 7px 10px;
+  border-left: 2px solid var(--olive);
+  border-radius: 0 3px 3px 0;
+  background: #f1efe6;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.55;
+  text-align: left;
+  overflow-wrap: anywhere;
+}
+.leofoo-plan-title:hover,
+.leofoo-plan-title:active {
+  border-left-color: var(--orange);
+  background: #ebe6da;
+  color: var(--orange);
+}
+.leofoo-plan-title:focus-visible {
+  outline-offset: 2px;
+}
+.leofoo-plan-title:disabled {
+  cursor: default;
+  opacity: 0.58;
+  border-left-color: var(--line);
+  background: #ece9e0;
+  color: var(--muted);
+}
+.leofoo-plan-title small {
+  display: block;
+  margin-top: 1px;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.leofoo-card .product-description {
+  -webkit-line-clamp: 3;
+}
+.leofoo-card .product-bottom {
+  gap: 8px;
+}
+.leofoo-card .product-bottom .card-reading,
+.leofoo-card .product-bottom .card-calendar {
+  min-height: 44px;
+  height: auto;
+}
 .product-description {
   font-size: 15px;
   color: var(--muted);
@@ -1344,6 +1400,19 @@ details iframe {
   .toast {
     bottom: 85px;
     white-space: nowrap;
+  }
+}
+@media (max-width: 700px) {
+  .leofoo-plan-titles {
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+  .leofoo-plan-title {
+    min-height: 44px;
+    padding: 6px 7px;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
   }
 }
 @media (prefers-reduced-motion: reduce) {
