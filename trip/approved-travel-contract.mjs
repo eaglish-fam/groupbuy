@@ -74,6 +74,10 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
   for(const key of ['name','englishName','flag','title','description'])text(c[key]);strings(c.intro);image(c.image);sources(c.sourceIds);faq(c.faq);
   if(!calendarDate(c.updatedOn))fail('country update date');
   if(c.packing)module(c.packing);if(c.videos)module(c.videos);if(c.related)module(c.related);if(c.planInfo)module(c.planInfo);
+  if(c.transport){const t=c.transport;text(t.heading);text(t.intro);sources(t.sourceIds);links(t.links);
+   if(!array(t.cards).length)fail('empty transport routes');
+   unique(t.cards.map(r=>{id(r.id);for(const key of ['title','routeLabel','flightLabel','durationLabel','body'])text(r[key]);return r.id;}),'transport route');
+  }
   if(c.discovery){const g=c.discovery;
    if(!['asia','oceania','europe','americas','africa'].includes(g.region))fail('discovery region');
    id(g.subregion);text(g.summary);image(g.assetId);sources(g.sourceIds);

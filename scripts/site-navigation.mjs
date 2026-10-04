@@ -1,3 +1,5 @@
+import {readFileSync} from 'node:fs';
+import {createHash} from 'node:crypto';
 // Server-rendered links remain usable without JavaScript on every public page.
 export function siteSection(pathname){
  const path=String(pathname||'/').split(/[?#]/)[0];
@@ -7,6 +9,8 @@ export function siteSection(pathname){
 }
 export function renderSiteNavigation(pathname){
  const current=siteSection(pathname);
+ const clean=String(pathname||'/').split(/[?#]/)[0],entry=['/','/blog/','/trip/'].includes(clean);
+ const fontVersion=createHash('sha256').update(readFileSync(new URL('../site-font-loader.js',import.meta.url))).digest('hex').slice(0,12);
  const sites=[['store','/','買物社','鷹家買物社'],['journal','/blog/','選物誌','鷹家選物誌'],['travel','/trip/','遠行所','鷹家遠行所']];
- return `<!-- site-navigation:start --><nav class="site-switcher" aria-label="鷹式一家三站導覽"><div class="site-switcher-inner">${sites.map(([id,href,label,name])=>`<a href="${href}" data-site-section="${id}" aria-label="${name}"${id===current?' aria-current="location"':''}>${label}</a>`).join('')}</div></nav><!-- site-navigation:end -->`;
+ return `<!-- site-navigation:start --><nav class="site-switcher" aria-label="鷹式一家三站導覽"><div class="site-switcher-inner">${sites.map(([id,href,label,name])=>`<a href="${href}" data-site-section="${id}" aria-label="${name}"${id===current?' aria-current="location"':''}>${label}</a>`).join('')}</div></nav><script defer src="/site-font-loader.js?v=${fontVersion}" data-font-entry="${entry}"></script><!-- site-navigation:end -->`;
 }

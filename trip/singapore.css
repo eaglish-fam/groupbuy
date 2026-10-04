@@ -1,6 +1,6 @@
 /* Only this guide opts in; Bangkok's approved components stay unchanged. */
 /* Additive coverage for this city's headings; keep Songti and shared v8 intact. */
-@font-face{font-family:"Eaglish Heading Serif";src:url("/assets/fonts/noto-serif-tc-singapore-v1.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap;unicode-range:U+5DDD,U+7A79,U+96F2,U+9D28,U+97F3,U+661F,U+8000,U+6A1F,U+8FF7,U+5BAE,U+64CE,U+71C8,U+822A,U+5EC8,U+6E9C,U+6F22,U+5821,U+8783,U+87F9,U+7C89,U+5764,U+6930,U+842C,U+7518,U+699C,U+592B,U+59BB,U+6F2B,U+8FEA}
+
 .sg-guide{--serif:"Songti TC","PMingLiU",serif;--paper:#fcfaf5;--line:#dcd5c9}
 .sg-guide .masthead{position:sticky;top:0;z-index:20;background:var(--paper)}
 .sg-guide .masthead nav{gap:20px;justify-content:center}

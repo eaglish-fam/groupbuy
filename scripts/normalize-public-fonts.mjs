@@ -11,7 +11,7 @@ const htmlFiles=['index.html',...['blog','trip','flights','design'].flatMap(dire
 const generatorFiles=readdirSync(new URL('scripts/',root)).filter(name=>/^build-trip.*\.mjs$/.test(name)).map(name=>'scripts/'+name);
 const cssFiles=['design/design.css','design/mobile-grid.css','blog/blog.css','articles/article.css',
   'trip/trip.css','trip/planner-entry.css','flights/flights.css','site-navigation.css','style.css',
-  'blog/lange/lange.css','blog/shoumaji/shoumaji.css'];
+  'blog/lange/lange.css','blog/shoumaji/shoumaji.css','trip/singapore.css','trip/heading-theme-r24.css'];
 
 function removeRemoteFonts(source){
   return source.replace(/<link\b[^>]*>/gi,tag=>{
@@ -26,10 +26,13 @@ function useSystemFonts(source){
     .replace(/"Songti TC", "PMingLiU",\s*(['"])Songti TC\1/g,'"Songti TC", "PMingLiU"')
     .replace(/"BiauKai", "KaiTi", "Songti TC",\s*(['"])BiauKai\1,\s*(['"])KaiTi\2/g,'"BiauKai", "KaiTi", "Songti TC"');
 }
+function removeAutomaticFonts(source){
+ return source.replace(/@font-face\s*\{[^}]*\}/gi,'').replace(/<link\b[^>]*\bas\s*=\s*["']font["'][^>]*>/gi,'');
+}
 let changed=0;
 for(const path of [...htmlFiles,...generatorFiles,...cssFiles]){
   const file=new URL(path,root),original=readFileSync(file,'utf8');
-  const updated=path.endsWith('.css')?useSystemFonts(original):removeRemoteFonts(original);
+  const updated=removeAutomaticFonts(path.endsWith('.css')?useSystemFonts(original):removeRemoteFonts(original));
   if(updated!==original){writeFileSync(file,updated);changed++;}
 }
-console.log(`Normalized public system fonts in ${changed} files; Songti TC remains the primary serif`);
+console.log(`Normalized public font triggers in ${changed} files; Songti TC remains the serif fallback, complete headings load only in phase two`);

@@ -137,7 +137,10 @@
     }
     const a = e.target.closest("a");
     if (!a || !a.href || a.hasAttribute("data-buy-key") || a.hasAttribute("data-buy")) return;
-    const u = new URL(a.href);
+    // SVG anchors expose SVGAnimatedString rather than an HTML href string.
+    const href = typeof a.href === 'string' ? a.href : a.getAttribute('href');
+    if (!href) return;
+    let u; try { u = new URL(href, location.href); } catch { return; }
     if (u.origin === location.origin && u.pathname.startsWith('/trip/') && u.pathname !== location.pathname) {
       const sourceSurface = surface(a);
       track(sourceSurface === 'travel_guide_grid' ? 'travel_guide_open' : 'travel_entry_click', {

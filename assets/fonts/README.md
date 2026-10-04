@@ -1,11 +1,53 @@
 # Shared headline font
 
+## Complete site font v1 — current two-phase controller
+
+`noto-serif-tc-complete-500-v1.woff2` is the full, non-subset Noto Serif TC
+2.003 weight-500 instance: 4,051,388 bytes, SHA-256
+`5cb64d3c5e3326c802efc4dc7f57d3a50efcd45e45635897549ec3053f1dc620`.
+`complete-site-font-v1.json` records the actual emitted cmap (20,748 codepoints,
+20,939 glyphs), exact source-cmap equality, weight and checksums. Tests check
+every public Chinese h1–h6 against these actual cmap ranges, not a desired list.
+
+Official Google Fonts source commit: `6d17dab13b85129360f9748f057c7f67c5f484d4`.
+Source: https://raw.githubusercontent.com/google/fonts/6d17dab13b85129360f9748f057c7f67c5f484d4/ofl/notoseriftc/NotoSerifTC%5Bwght%5D.ttf
+Upstream variable SHA-256: `0077e18f57c6908f4a000969880940bdb0dad057c0e8d98b49dc364c3d1b09c6`.
+Verified weight-500 TTF SHA-256: `4e964ce8ebc59027d86a21e868c5365d5efa94788dc02112d0e331f9f81f875f`.
+The included `OFL-NotoSerifTC.txt` applies. The source's internal ExtraLight
+family name is retained; the instantiated OS/2 weight and registered CSS weight
+are 500. No TTF or private Project input is needed by ordinary builds.
+
+The shared `site-font-loader.js` registers both existing aliases, `Eaglish
+Heading Serif` and `Eaglish Travel Heading Serif`, from one immutable same-origin
+font URL, only after both faces decode. System-sans body roles and Songti TC
+serif fallback are preserved. Automatic CSS font faces and font preloads are
+removed. All three entry pages (`/`, `/blog/`, `/trip/`) initially request no
+font. A warm homepage may decode an already stored font after fallback paints,
+using cache-only lookup with zero network GET; a cold cache remains deferred.
+A real main-view change unlocks background loading; non-entry pages paint
+fallback first and then request the font at low priority. Failure leaves content
+readable without a retry loop. Completed downloads reuse the secure-page Cache
+API (no worker), with normal HTTP cache as a storage-denied fallback. Only this
+immutable public font is stored; no user data or persistence permission is used.
+This avoids the observed WebKit cross-document HTTP-cache misses. Navigating
+during an unfinished download may cancel that document's
+request. There is no service worker or cross-document continuation guarantee.
+
+Ordinary builds consume the checked-in WOFF2 and manifest. Optional manual
+regeneration uses `node scripts/build-complete-site-font.mjs --python
+<isolated-fonttools-python> --source <verified-weight-500.ttf>`; it verifies the
+source hash and full cmap equality without subsetting or global installation.
+Previous font binaries remain unchanged for history, but their automatic faces
+are no longer active.
+
+## Historical subset lineage (not the current loading workflow)
+
 Approved travel v1 is an additive 37-glyph supplement for the six newly published
 Norway/Netherlands pages, using the same OFL Noto Serif TC weight-500 approach
 as Singapore. `noto-serif-tc-approved-travel-v1.woff2` is checked in; ordinary
 repository builds need no private Project, source TTF or fontTools installation.
-Only publication-enabled approved city/country adapters emit its unicode-range
-face. Shared v8, all prior font assets, Songti and every other page are unchanged.
+Before complete v1, publication-enabled approved city/country adapters emitted
+its unicode-range face. That automatic registration is now inactive.
 Rebuild with `scripts/build-approved-travel-heading-font.mjs`, an isolated
 fontTools Python and the upstream weight-500 instance. The glyph list is frozen
 in `approved-travel-heading-glyphs-v1.txt`; maximum supplement size is 24 KiB.
@@ -30,4 +72,6 @@ Version 4 (`noto-serif-tc-headings-v4.woff2`) extends the same weight-500 family
 
 The subset contains `heading-glyphs.txt` characters used by h1–h3 on public pages, plus ASCII and punctuation. It is served locally through `site-navigation.css` across 買物社、選物誌、遠行所. Body copy keeps its system sans-serif font. The source TTF is not stored in this repository.
 
-For new headings, collect public h1–h3 glyphs, instance the upstream variable font at weight 500 with fontTools, subset to WOFF2, and update the versioned filename in `site-navigation.css` so browsers receive the new glyphs.
+For new headings, run the complete-font cmap gate. Do not reactivate a subset,
+automatic font face or preload. Changes to the complete font require a new
+immutable URL, source/license/hash evidence and the two-phase loading checks.

@@ -24,7 +24,7 @@ function runtime({hostname='www.eaglish.store',path='/trip/',robots='',query='',
  vm.createContext(context);vm.runInContext(source,context);
  const events=()=>context.dataLayer?.filter(row=>row[0]==='event')||[];
  const click=(href,matches={})=>{
-  const a={href,hasAttribute:()=>false,textContent:'Read',classList:{contains:()=>false},closest:s=>matches[s]||null};
+  const a={href,getAttribute:()=>typeof href==='object'?href.baseVal:href,hasAttribute:()=>false,textContent:'Read',classList:{contains:()=>false},closest:s=>matches[s]||null};
   const target={closest:s=>s==='a'?a:matches[s]||null};
   for(const handler of listeners.click)handler({target});
  };
@@ -88,6 +88,15 @@ test('destination and theme interactions log the synchronized selection without 
  assert.equal(r.events()[4][1],'travel_destination_select');
  assert.equal(r.events()[4][2].country_id,'new-zealand');
  assert.equal(r.context.dataLayer.filter(row=>row[0]==='config').length,1);
+});
+
+test('SVG geographic anchors resolve their href attribute without throwing or exposing fragments',()=>{
+ const r=runtime({path:'/trip/netherlands/'});
+ r.click({baseVal:'/trip/guides/amsterdam-with-kids/#am-giethoorn'});
+ assert.equal(r.events().length,1);assert.equal(r.events()[0][1],'travel_entry_click');
+ assert.equal(r.events()[0][2].destination_path,'/trip/guides/amsterdam-with-kids/');
+ assert.doesNotMatch(JSON.stringify(r.events()),/am-giethoorn/);
+ assert.doesNotThrow(()=>r.click({baseVal:'http://['}));assert.equal(r.events().length,1);
 });
 
 test('outbound travel records one referral, never purchase or affiliate query parameters',()=>{

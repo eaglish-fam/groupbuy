@@ -95,7 +95,8 @@ test('publiccountygeometryandisolatedtravel fontmatchacceptedbytes',()=>{
  const geo=json('trip/taiwan-counties.json');assert.equal(geo.features.length,22);assert.equal(geo.features.reduce((n,f)=>n+f.properties.ringCount,0),697);
  assert.equal(hash(bytes('assets/fonts/noto-serif-tc-travel-r24.woff2')),release.fontSha256);
  assert.equal(bytes('assets/fonts/noto-serif-tc-travel-r24.woff2').toString('ascii',0,4),'wOF2');
- assert.match(read('trip/heading-theme-r24.css'),/font-display:swap/);
+ assert.doesNotMatch(read('trip/heading-theme-r24.css'),/@font-face\s*\{/);
+ assert.match(read('site-font-loader.js'),/Eaglish Travel Heading Serif/);
 });
 test('Cebu narratives,captions,sourceimages and links remainexact afterreviewed frames',()=>{
  const c=json('trip/data/cebu-bohol-guide.json'),media=Object.fromEntries(json('trip/assets/cebu-bohol-media.json').map(m=>[m.id,m]));
