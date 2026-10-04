@@ -6,6 +6,10 @@ export function initApprovedCountryExplorer(root) {
   const panels=all('[data-country-panel]'), cards=all('[data-country-place-city]');
   const citySelect=q('[data-country-filter-city]'), more=q('[data-country-more]');
   let theme='all', city='all', limit=6;
+  // Explicit modality avoids WebKit's programmatic :focus-visible heuristic.
+  root.dataset.countryFocusMode='keyboard';
+  function onPointer(){root.dataset.countryFocusMode='pointer';}
+  function onKey(event){if(['Tab','Enter',' '].includes(event.key))root.dataset.countryFocusMode='keyboard';}
   function filter() {
     const matching=cards.filter(card=>(city==='all'||card.dataset.countryPlaceCity===city)&&(theme==='all'||card.dataset.countryPlaceThemes.split(' ').includes(theme)));
     cards.forEach(card=>{card.hidden=!matching.includes(card)||matching.indexOf(card)>=limit;});
@@ -25,13 +29,17 @@ export function initApprovedCountryExplorer(root) {
     });
     const title=panel.querySelector('h2');
     if(q('[data-country-city-status]')) q('[data-country-city-status]').textContent='顯示'+(title?.textContent||'旅行總覽');
-    if(focus&&title) {title.setAttribute('tabindex','-1');title.focus({preventScroll:true});}
+    if(focus&&title) {
+      title.setAttribute('tabindex','-1');title.focus({preventScroll:true});
+      if(root.dataset.countryFocusMode==='keyboard')title.scrollIntoView?.({block:'nearest',behavior:'auto'});
+    }
     return true;
   }
   function onClick(event) {
     const target=event.target.closest('a,button');
     if(!target||!root.contains(target)||event.button>0||event.metaKey||event.ctrlKey||event.altKey||event.shiftKey) return;
     if(target.hasAttribute('data-country-city')) {
+      if(event.detail>0)onPointer();
       if(switchCity(target.dataset.countryCity,{focus:true})) event.preventDefault();
     } else if(target.hasAttribute('data-country-explore-city')) {
       city=target.dataset.countryExploreCity;theme='all';limit=6;filter();
@@ -57,7 +65,8 @@ export function initApprovedCountryExplorer(root) {
   q('[data-country-filters]')?.removeAttribute('hidden');
   switchCity('all');fromHash();filter();
   root.addEventListener('click',onClick);root.addEventListener('change',onChange);win.addEventListener('hashchange',fromHash);
-  return ()=>{root.removeEventListener('click',onClick);root.removeEventListener('change',onChange);win.removeEventListener('hashchange',fromHash);delete root.dataset.countryExplorerReady;panels.forEach(p=>p.hidden=false);cards.forEach(c=>c.hidden=false);q('[data-country-filters]')?.setAttribute('hidden','');if(more)more.hidden=true;};
+  root.addEventListener('pointerdown',onPointer);root.addEventListener('touchstart',onPointer,{passive:true});root.addEventListener('keydown',onKey);
+  return ()=>{root.removeEventListener('click',onClick);root.removeEventListener('change',onChange);root.removeEventListener('pointerdown',onPointer);root.removeEventListener('touchstart',onPointer);root.removeEventListener('keydown',onKey);win.removeEventListener('hashchange',fromHash);delete root.dataset.countryExplorerReady;delete root.dataset.countryFocusMode;panels.forEach(p=>p.hidden=false);cards.forEach(c=>c.hidden=false);q('[data-country-filters]')?.setAttribute('hidden','');if(more)more.hidden=true;};
 }
 export function initApprovedCountryExplorers(documentRoot=globalThis.document) {
   return [...documentRoot.querySelectorAll('[data-approved-country]')].map(initApprovedCountryExplorer);

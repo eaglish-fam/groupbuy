@@ -1,0 +1,13 @@
+/* Shared, opt-in editorial hierarchy. Body copy and approved media stay unchanged. */
+.approved-city-guide :is(h1,h2,h3,h4),.approved-country-body :is(h1,h2,h3,h4){font-family:var(--serif,"Songti TC","PMingLiU",serif);color:#494139}
+.approved-city-guide .article-header h1,.approved-country-body .th-intro h1{font-size:clamp(32px,3.2vw,44px);font-weight:500;line-height:1.45;text-wrap:balance}
+.approved-city-guide .article-header h1 span{display:block;font-size:clamp(22px,2vw,28px);font-weight:500;color:#784b39;line-height:1.6;border-left:3px solid #bb7658;padding-left:14px;margin-top:12px}
+.approved-city-guide .prose h2{font-size:clamp(26px,2.3vw,30px);font-weight:500;line-height:1.55;margin-block:32px 20px;text-wrap:balance}
+.approved-city-guide .prose section>h3{font-size:21px;font-weight:700;color:#784b39;line-height:1.55;border-left:3px solid #bb7658;padding-left:12px;margin-block:32px 16px}
+.approved-city-guide .prose .bkk-experience h3{font-size:17px;font-weight:700;color:#494139;line-height:1.65;border:0;padding:0;margin-block:0 12px}
+.approved-city-guide .prose h4,.approved-country-body h4{font-size:18px;font-weight:700;color:#784b39;line-height:1.65;margin-block:20px 10px}
+.approved-country-body :is(h2,h3){font-weight:500}
+.approved-country-body .th-panel-copy h2{scroll-margin-block:120px 96px}
+.approved-country-body[data-country-focus-mode="pointer"] .th-panel-copy h2:focus{outline:none}
+.approved-country-body[data-country-focus-mode="keyboard"] .th-panel-copy h2:focus{outline:3px solid #784b39;outline-offset:5px}
+.approved-country-body [data-country-city]:focus-visible{outline:3px solid #784b39;outline-offset:4px}
