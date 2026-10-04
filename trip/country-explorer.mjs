@@ -31,7 +31,7 @@ export function initApprovedCountryExplorer(root) {
     if(q('[data-country-city-status]')) q('[data-country-city-status]').textContent='顯示'+(title?.textContent||'旅行總覽');
     if(focus&&title) {
       title.setAttribute('tabindex','-1');title.focus({preventScroll:true});
-      if(root.dataset.countryFocusMode==='keyboard')title.scrollIntoView?.({block:'nearest',behavior:'auto'});
+      if(root.dataset.countryFocusMode==='keyboard')title.scrollIntoView?.({block:'center',behavior:'auto'});
     }
     return true;
   }
