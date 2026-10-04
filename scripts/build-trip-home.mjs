@@ -4,6 +4,7 @@ import {travelHomeCatalog} from '../trip/home-catalog.mjs';
 import {travelHomeCommerce} from '../trip/home-commerce.mjs';
 import {renderGlobePreview} from './trip-globe-preview.mjs';
 import {regionsForCatalog} from '../trip/home-regions.mjs';
+import {renderCountryEntry} from './trip-travel-entry.mjs';
 
 const origin='https://www.eaglish.store';
 const esc=value=>String(value).replaceAll('&','&amp;').replaceAll('"','&quot;').replaceAll("'",'&#39;').replaceAll('<','&lt;').replaceAll('>','&gt;');
@@ -68,7 +69,7 @@ export function renderTravelPhoto(image,sizes){
 }
 
 function countryPanel(country){
- return `<article class="home-country-panel" data-country-panel="${esc(country.id)}" aria-labelledby="country-title-${esc(country.id)}"><figure class="home-panel-photo">${renderTravelPhoto(country.image,'(max-width: 700px) calc(100vw - 40px), (max-width: 1000px) 45vw, 452px')}<figcaption>${esc(country.englishName.toUpperCase())}</figcaption></figure><div class="home-panel-copy"><p class="home-eyebrow">${esc(country.regionLabel||'旅行目的地')} · ${country.guideIds.length} 份指南</p><h3 id="country-title-${esc(country.id)}">${esc(country.name)}</h3><p>${esc(country.summary)}</p><div class="home-panel-actions"><a class="home-panel-primary" href="${esc(country.href)}">走進${esc(country.name)}<span aria-hidden="true">↗</span></a><a href="#guides" class="home-panel-secondary" data-explore-country="${esc(country.id)}">找這裡的玩法 <span aria-hidden="true">↓</span></a></div></div></article>`;
+ return renderCountryEntry(country,{photoHtml:renderTravelPhoto(country.image,'(max-width: 700px) calc(100vw - 40px), (max-width: 1000px) 45vw, 452px')+`<figcaption>${esc(country.englishName.toUpperCase())}</figcaption>`,regionLabel:regionsForCatalog({countries:[country]}).find(r=>r.id===country.region)?.label});
 }
 function atlas(catalog){
  const regions=regionsForCatalog(catalog);

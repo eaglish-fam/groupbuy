@@ -1,0 +1,19 @@
+/* Shared country/city actions, derived from the actual NZ country entry. */
+.travel-entry-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px;align-items:stretch;margin-top:20px}
+.travel-entry-actions a{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:46px;box-sizing:border-box;padding:9px 12px;border-radius:4px;font:inherit;font-size:13px;line-height:1.6;text-decoration:none}
+.travel-entry-actions .travel-entry-primary{background:#784b39;color:#fffaf3;border:1px solid #784b39}
+.travel-entry-actions .travel-entry-primary:hover{background:#603a2c}
+.travel-entry-actions .travel-entry-secondary{background:transparent;color:#784b39;border:1px solid #dcd5c9}
+.travel-entry-actions .travel-entry-secondary:hover{border-color:#784b39}
+.travel-entry-actions a:focus-visible{outline:3px solid #bb7658;outline-offset:3px}
+.travel-home .home-panel-actions.travel-entry-actions{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.travel-home .travel-country-entry .home-panel-photo{aspect-ratio:3/2}
+.travel-home .travel-country-entry .home-panel-photo>img{width:100%;height:100%;object-fit:cover;object-position:50% 50%}
+.approved-country-body .th-panel-actions.travel-entry-actions{display:grid;gap:12px;max-width:440px}
+@media(max-width:600px){.travel-entry-actions a,.travel-home .home-panel-actions.travel-entry-actions a{font-size:12px;padding:9px 10px}.travel-entry-actions{gap:10px}}
+/* Keep the complete city action on one line, including the eight-character NL label. */
+@media(max-width:360px){
+ .travel-entry-actions,.travel-home .home-panel-actions.travel-entry-actions,.approved-country-body .th-panel-actions.travel-entry-actions{gap:4px}
+ .travel-entry-actions a,.travel-home .home-panel-actions.travel-entry-actions a{padding:9px 4px;gap:2px;white-space:nowrap}
+ .travel-entry-actions a>span[aria-hidden="true"]{flex:none;font-size:8px;line-height:1}
+}

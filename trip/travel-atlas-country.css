@@ -1,0 +1,29 @@
+/* Country-only extension. Load after the shared NZ-family travel-atlas.css. */
+.travel-atlas-country{margin:26px 0;color:#494139}
+.travel-atlas--country{aspect-ratio:600/760;max-width:580px;border-radius:4px;background:#faf7f0;overflow:visible}
+.travel-atlas--single{aspect-ratio:600/560}
+.travel-atlas--country .travel-atlas-view{border-radius:inherit}
+.travel-atlas-country-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.travel-atlas-coast{fill:#eee8dc;stroke:#d4caba;stroke-width:1;stroke-linejoin:round}
+.travel-atlas-territory{fill:#d8c5a3;stroke:#9d8362;stroke-width:1.5;stroke-linejoin:round}
+.travel-atlas-inset-paper{fill:#fcfaf5}
+.travel-atlas-inset-border{fill:none;stroke:#a98d75;stroke-width:1.4}
+.travel-atlas-country-leader{fill:none;stroke:#a98d75;stroke-width:1.25;stroke-linecap:round}
+.travel-atlas-country-heading{position:absolute;left:8%;top:23%;font:clamp(16px,3.8cqw,23px) var(--serif,serif);letter-spacing:.08em;color:#784b39}
+.travel-atlas-country-heading--mainland{top:4%}
+.travel-atlas-country-heading--single{left:9%;top:5%;font-size:clamp(16px,3.8cqw,22px)}
+.travel-atlas-country-heading--single small{display:block;margin-top:3px;font:11px var(--sans,sans-serif);letter-spacing:.02em}
+.travel-atlas-inset-note{position:absolute;left:36%;top:4.2%;width:62%;color:#784b39;font-size:clamp(10px,2.4cqw,14px);line-height:1.65;text-align:right;white-space:nowrap}
+.travel-atlas-inset-note--large{left:10%;top:4.2%;width:80%}
+.travel-atlas-country .travel-atlas--country .travel-atlas-country-label{z-index:3}
+.travel-atlas-country .travel-atlas--country .travel-atlas-country-label span{font-size:clamp(13px,2.8cqw,16px);padding:7px 5px;min-height:44px;display:flex;align-items:center;justify-content:center}
+.travel-atlas-dot{position:absolute;display:flex;align-items:center;justify-content:center;width:44px;height:44px;transform:translate(-50%,-50%);z-index:2;border-radius:50%}
+.travel-atlas-dot i{width:16px;height:16px;box-sizing:border-box;border:3px solid #fff9f0;background:#bd4029;border-radius:50%;box-shadow:0 0 0 1px #bd4029}
+.travel-atlas-dot:hover i,.travel-atlas-dot:focus-visible i{box-shadow:0 0 0 4px #bd40292b}
+.travel-atlas-dot:focus-visible{outline:2px solid #784b39;outline-offset:2px}
+.travel-atlas-country-caption,.travel-atlas-country .approved-map-credit{font-size:13px;line-height:1.8;text-align:center;color:#71685f;margin:10px 0 0}
+.travel-atlas-country .travel-atlas-status{font-size:13px;color:#784b39;margin:12px 0 4px;text-align:center}
+.travel-atlas-destinations{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 14px;margin-top:8px}
+.travel-atlas-destinations a{display:inline-flex;align-items:center;min-height:44px;color:#784b39;font-size:14px;text-underline-offset:3px}
+.travel-atlas-destinations a:focus-visible{outline:2px solid #784b39;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.travel-atlas-country .travel-atlas-view{animation:none;transition:none}}

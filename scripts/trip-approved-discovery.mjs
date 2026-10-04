@@ -5,6 +5,7 @@ import {validateApprovedTravelPackage} from '../trip/approved-travel-contract.mj
 import {approvedPicture,escapeTravel,travelScriptJson} from './trip-city-approved-adapter.mjs';
 import {renderPhotoFrame} from './trip-photo-frames-r22.mjs';
 import {regionsForCatalog} from '../trip/home-regions.mjs';
+import {renderCountryEntry} from './trip-travel-entry.mjs';
 const esc=escapeTravel;
 export function renderApprovedHomePhoto(asset,sizes){
  return renderPhotoFrame(approvedPicture(asset,{sizes}),{page:'home',sequence:'approved-'+asset.assetId,assetIndex:asset.assetId,ratio:asset.width+':'+asset.height,position:asset.focalPoint});
@@ -22,7 +23,9 @@ export function prepareApprovedR24Discovery(html,data,{catalog,config}){
   const country={id:c.id,name:c.name,englishName:c.englishName,href:c.path,region:d.region,subregion:d.subregion,summary:d.summary,geography:{point:d.point,isoNumeric:d.isoNumeric},guideIds:c.cityIds,image:{src:src.url,width:photo.width,height:photo.height,alt:photo.alt},approvedPhoto:photo};
   projected.countries.push(country);
   const region=regionsForCatalog(projected).find(r=>r.id===d.region);if(!region.children.some(child=>child.id===d.subregion))throw Error('Unknown discovery subregion');
-  panels.push(`<article hidden class="home-country-panel" data-country-panel="${esc(c.id)}" aria-labelledby="country-title-${esc(c.id)}"><figure class="home-panel-photo">${approvedPicture(photo)}</figure><div class="home-panel-copy"><h3 id="country-title-${esc(c.id)}">${esc(c.name)}</h3><p>${esc(d.summary)}</p><a href="${c.path}">走進${esc(c.name)} ↗</a></div></article>`);
+  const photoHtml=approvedPicture(photo,{sizes:'(max-width:700px) calc(100vw - 40px), 452px'});
+  const cameraLandscape=photo.lineage.kind==='photo'&&photo.width*2===photo.height*3;
+  panels.push(renderCountryEntry(country,{hidden:true,regionLabel:region.label,photoHtml:cameraLandscape?photoHtml.replace('<img ','<img data-camera-hero '):photoHtml}));
   staticLinks.push(`<a href="${c.path}">${esc(c.name)}旅行總覽</a>`);
   for(const cityId of c.cityIds){
    const city=v.cities.get(cityId),a=v.assets.get(city.hero[0]),src=a.variants.find(v=>v.width===960)||a.variants.at(-1);
@@ -33,7 +36,14 @@ export function prepareApprovedR24Discovery(html,data,{catalog,config}){
   }
  }
  const once=(markup,marker,insert)=>{if(markup.split(marker).length!==2)throw Error('Expected one actual R24 marker '+marker);return markup.replace(marker,marker+insert);};
- let output=once(html,'<div id="country-panels">',panels.join(''));
+ // Regenerate reviewed legacy entries through the same helper, keeping their
+ // exact approved image markup/source and captions; not a second HTML design.
+ let output=html.replace(/<article\b[^>]*data-country-panel="([a-z-]+)"[^>]*>[\s\S]*?<\/article>/g,(markup,id)=>{
+  const country=catalog.countries.find(c=>c.id===id);if(!country)return markup;
+  const photo=markup.match(/<figure class="home-panel-photo">([\s\S]*?)<\/figure>/)?.[1];
+  return renderCountryEntry(country,{hidden:true,photoHtml:photo,regionLabel:regionsForCatalog(catalog).find(r=>r.id===country.region)?.label});
+ });
+ output=once(output,'<div id="country-panels">',panels.join(''));
  output=once(output,'<div class="home-guide-grid" data-photo-grid="guides">',cards.join(''));
  output=output.replace('<div id="country-panels">',`<noscript><nav aria-label="新增旅行目的地">${staticLinks.join(' · ')}</nav></noscript><div id="country-panels">`);
  output=output.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,(tag,raw)=>{
