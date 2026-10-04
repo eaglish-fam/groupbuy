@@ -2,7 +2,7 @@
 
 版本：2026-10-04。沿用 [canonical 編輯流程](../docs/trip-editorial-guidelines.md)與[固定城市模板](../docs/trip-city-guide-template.md)，實際清邁為構圖基準；這是同一製作 pipeline 的媒體步驟。
 
-城市名 → 真實 YouTube／IG／照片來源與權利 → 逐景點一主＋兩輔 → 官方事實與直接文案／alt／caption → 同模板接線 → 真實桌面／手機與首次跳轉 QA → 負責對話驗收 → 真正 Ezra 版本去重 Telegram 回條。缺來源、畫面或事實保留具體缺件。
+城市名 → 真實 YouTube／IG／照片來源與權利 → 逐景點一主＋兩輔 → 官方事實與直接文案／alt／caption → 同模板接線 → 真實桌面／手機與首次跳轉 QA → 負責對話候選驗收 → 既有正式發布 → 負責對話正式頁驗收 → 真正 Ezra 版本去重 Telegram 回條。啟動範圍、草稿／預覽例外與發布權限依 [canonical 第八節](../docs/trip-editorial-guidelines.md)；本檔不另建製作流程。缺來源、畫面或事實保留具體缺件。
 
 首屏固定 main + support-1 + support-2 身份，真實 width／height 決定共用分支與預留比例：三直圖桌面原比例並排，橫圖左主右輔，混合圖按來源比例分欄；手機上主圖、下兩輔圖按比例並排。2026-10-04 Hiram 滿版要求優先於歷史 g8 contain 固定框：每張實際照片填滿自己的媒體版位，同時保留完整人臉、主要人物與重要景物，caption 在照片下方。正文每景點三張互補實拍採 source-aware main+pair；短入口卡仍使用核准 3:2 裁切，桌面三欄、手機兩欄。本次只修新加坡首屏，既有正文與短卡保存。
 

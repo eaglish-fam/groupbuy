@@ -1,6 +1,6 @@
 # 城市指南共用模板 v1 · 2026-10-04
 
-Canonical 製作流程：[編輯準則](trip-editorial-guidelines.md)、[媒體 pipeline](../trip/IMAGE_PIPELINE.md)。此檔只定義同流程使用的版型，基準為清邁真實桌面與手機頁。
+Canonical 製作流程：[編輯準則](trip-editorial-guidelines.md)第八節定義一句城市請求的製作至發布流程；[媒體 pipeline](../trip/IMAGE_PIPELINE.md)定義圖片規則。此檔只定義同流程使用的版型，基準為清邁真實桌面與手機頁。
 
 | 元件 | 固定模板 | 城市資料／接線 |
 | --- | --- | --- |
@@ -22,7 +22,7 @@ Canonical 製作流程：[編輯準則](trip-editorial-guidelines.md)、[媒體 
 
 | 城市 | 當前狀態 |
 | --- | --- |
-| 新加坡 | 採用已驗收 g9 的 source-aware 滿版首屏與正文；`trip/data/singapore-public-article-v1.json`、`singapore-publication-v1.json` 與公共 build 可在乾淨 checkout 重建。g8／g9 私人歷史保留；正式發布與最終驗收以 Pages 及負責對話的實際回條為準 |
+| 新加坡 | g10 已正式發布於 [新加坡攻略](https://www.eaglish.store/trip/singapore/)，實際 main commit `3e492bf283da66e6d98dbad7c3a401997b458599`（[PR #16](https://github.com/eaglish-fam/groupbuy/pull/16)）；Pages build 完成。保留已驗收 g9 的 source-aware 滿版首屏與正文；`trip/data/singapore-public-article-v1.json`、`singapore-publication-v1.json` 與公共 build 可在乾淨 checkout 重建。g8／g9 私人歷史保留；負責對話的最終正式頁驗收以其實際回條為準，不由部署成功推定 |
 | 清邁 | 已發布版型與 late planner 的實際參照；本次 HTML 未改，未接新 helper |
 | 清萊 | 既有後置工具；未接新 helper，待獨立核准遷移 |
 | 曼谷 | legacy 前置工具；未遷移，本次未改 |
