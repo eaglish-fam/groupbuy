@@ -1,5 +1,7 @@
 # Shared headline font
 
+Singapore v1 is an additive 29-glyph supplement (`noto-serif-tc-singapore-v1.woff2`) to the unchanged shared v8 font. It uses the same upstream Noto Serif TC weight-500 instance and included OFL license. Only Singapore CSS registers its explicit unicode range; no existing page, Songti setting or older font is replaced. Rebuild it with `scripts/build-singapore-heading-font.mjs`, an installed fontTools Python and the upstream weight-500 instance. Ordinary page builds use the checked-in WOFF2 and need no fontTools or source TTF.
+
 Version 8 (`noto-serif-tc-headings-v8.woff2`) adds the 六福莊 room-choice article headings while retaining all prior glyphs, the weight-500 source instance, OFL license and 256 KiB budget. Version 7 is preserved. Build arguments: version `8`, source kind `instanced-500`.
 
 Version 7 (`noto-serif-tc-headings-v7.woff2`) includes the reader-first Bohol hotel revision headings (including 般). It retains the full prior glyph set, weight-500 source instance, OFL license and 256 KiB budget; v6 remains immutable. Songti TC is unchanged. Build arguments: version `7`, source kind `instanced-500`.

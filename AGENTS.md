@@ -30,6 +30,10 @@ Do not push, open or merge a PR, modify `main`, change GitHub Pages, DNS, CNAME,
 
 ## SEO and content rules
 
+### City-guide template adopted 2026-10-04
+
+Read and adopt `docs/trip-city-guide-template.md`, `docs/trip-editorial-guidelines.md` and `trip/IMAGE_PIPELINE.md` before city-guide changes. The actual published Chiang Mai guide is the composition baseline; Hiram's 2026-10-04 fullbleed rule supersedes the historical g8 fixed contain frames. Every photo must fill its own source-aware media frame while preserving faces, main people and important scenery. Use real dimensions to choose portrait/landscape/mixed layout and reserve aspect ratio; never fill internal bands with backdrops, generated extension, stretching or destructive crops. Singapore g9 revises this opt-in template; other published city HTML requires separate migration authority. Use `scripts/trip-city-guide-template.mjs`, shared planner-entry assets, and source-owned city data. Preserve FAQ → plan → videos; personally inspect the three actual hero images at 1440/390/320px Tailnet first opens (new tab → set viewport → goto), not just object-fit/HTTP assertions. Original active picture, dimensions and crop lineage stay traceable. A shared document update does not imply other Agent conversations reloaded it. Accountable owner acceptance precedes genuine Ezra's version-deduplicated Telegram receipt; this adds no deployment or messaging authority.
+
 For 鷹家遠行所 country hubs and city articles, follow the finalized cross-country rules in `docs/trip-editorial-guidelines.md` and read `trip/IMAGE_PIPELINE.md` before creating or revising a page. Thailand's country hub and Bangkok, Chiang Mai, and Chiang Rai articles are the approved content and visual references. Bangkok still has an earlier front-positioned planner; use the finalized late-planner placement documented in the guidelines for new pages. Adapt geography, destination data, timing, and city count to each country while retaining the approved photo-led, cream-sandstone presentation and first-image loading policy.
 
 - Preserve one canonical domain: `https://www.eaglish.store/`.

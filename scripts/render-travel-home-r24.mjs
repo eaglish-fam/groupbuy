@@ -2,6 +2,7 @@
 import {readFileSync} from 'node:fs';
 import {travelHomeCatalog} from '../trip/home-catalog.mjs';
 import {validateTravelHomeCatalog} from './build-trip-home.mjs';
+import {addSingaporeDiscovery} from './trip-singapore-discovery.mjs';
 const read=rel=>readFileSync(new URL('../'+rel,import.meta.url),'utf8');
 export function renderTravelHomeR24(){
  const config=JSON.parse(read('trip/data/taiwan-atlas-r24.json'));
@@ -14,7 +15,7 @@ export function renderTravelHomeR24(){
  if(template.split('{{ATLAS_CONFIG}}').length!==2)throw Error('Expected one atlas config slot');
  // The shared destination writer promotes the first image once. The reviewed
  // snapshot already contained a preload, so remove that before the normal pass.
- return inlineTravelStyles(mapFirstTravelHome(template).replace('{{ATLAS_CONFIG}}',JSON.stringify(config).replaceAll('<','\\u003c'))
+ return inlineTravelStyles(addSingaporeDiscovery(mapFirstTravelHome(template)).replace('{{ATLAS_CONFIG}}',JSON.stringify(config).replaceAll('<','\\u003c'))
   .replace('/trip/atlas-ui-bundle.mjs?v=r24-20261002','/trip/atlas-ui-bundle.mjs?v=r28-20261002')
   .replace(/<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>/g,''));
 }

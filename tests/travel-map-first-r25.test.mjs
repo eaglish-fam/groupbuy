@@ -17,7 +17,11 @@ test('home has one brief H1 then the actual map before any promoted photo or art
  assert.equal((main.match(/\sid="destinations"/g)||[]).length,1);
  assert.doesNotMatch(main,/從一片風景，開始遠行。|先選地區，再找到想去的國家。|aria-labelledby="atlas-heading"|class="atlas-intro"/);
  assert.match(main,/<section class="home-destinations home-wrap" id="destinations" aria-label="目的地地圖">/);
- assert.equal((main.slice(featured,planning).match(/class="home-guide"/g)||[]).length,6);
+ const guideSection=main.slice(featured,planning);
+ assert.equal((guideSection.match(/class="home-guide"/g)||[]).length,7);
+ assert.equal((guideSection.match(/data-guide-id="singapore"/g)||[]).length,1);
+ const withoutSingapore=guideSection.replace(/<article class="home-guide" data-guide-id="singapore">[\s\S]*?<\/article>/,'');
+ assert.equal((withoutSingapore.match(/class="home-guide"/g)||[]).length,6);
 });
 test('module reorder preserves approved content except the removed duplicate introduction and its ARIA reference',()=>{
  const actual=mapFirstTravelHome(template);
