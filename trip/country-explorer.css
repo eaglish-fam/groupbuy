@@ -16,12 +16,12 @@
 .approved-country-body .th-country [aria-hidden]{font-size:20px}
 .approved-country-body h1{font-family:var(--serif,serif);font-size:clamp(30px,3.5vw,48px);line-height:1.4}
 .approved-country-body .country-leads{font-size:14px;color:var(--muted);max-width:35em;flex-shrink:0}
-.approved-country-body .th-atlas{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start;padding-block:26px 30px}
+.approved-country-body .th-atlas{display:grid;grid-template-columns:minmax(0,1fr);gap:24px;align-items:start;padding-block:26px 30px}
 .approved-country-body .country-without-map{grid-template-columns:1fr}
 .approved-country-body .country-map-slot{min-width:0}
 .approved-country-body .th-explorer{min-width:0;scroll-margin-top:28px}
-.approved-country-body .th-tabs{display:flex;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:18px}
-.approved-country-body .th-tabs a{flex:1;text-align:center;text-decoration:none;padding:10px 6px;min-height:46px;font-size:14px}
+.approved-country-body .th-tabs{display:flex;flex-flow:row nowrap;gap:0;border-bottom:1px solid var(--line);margin-bottom:18px}
+.approved-country-body .th-tabs a{display:flex;align-items:center;justify-content:center;flex:1 1 0;min-width:0;width:auto;white-space:nowrap;text-align:center;text-decoration:none;padding:10px 4px;min-height:46px;font-size:clamp(12px,2.9vw,14px)}
 .approved-country-body .th-tabs a[aria-current=true]{font-weight:700;color:#a63d27;box-shadow:inset 0 -3px #bd4029}
 .approved-country-body .th-city-panel{border:1px solid var(--line);background:#fffefa;border-radius:4px;overflow:hidden;margin-bottom:20px;scroll-margin-top:28px}
 .approved-country-body .th-photo-trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:5px;padding:9px 9px 0;align-items:start}
@@ -29,7 +29,7 @@
 .approved-country-body figcaption{font-size:11px;line-height:1.65;color:var(--muted);padding:7px 9px}
 .approved-country-body .th-city-photo img{height:auto}
 .approved-country-body .th-panel-copy{padding:23px 26px}
-.approved-country-body .th-panel-copy h2{font-size:26px;line-height:1.5;margin-bottom:12px}
+.approved-country-body .th-panel-copy h2{font-size:26px;line-height:1.5;margin-bottom:12px;text-wrap:balance}
 .approved-country-body .th-panel-copy p{font-size:14px;color:var(--muted);max-width:70ch}
 .approved-country-body .th-text-link{display:inline-flex;align-items:center;min-height:44px;color:#943d2a;font-size:14px}
 .approved-country-body .th-panel-actions{display:flex;gap:20px;margin-top:17px;flex-wrap:wrap}
@@ -77,4 +77,4 @@
 .approved-country-body .th-plan-result{background:#fcfaf5;padding:22px 24px;border:1px solid var(--line);border-radius:3px;min-height:250px}
 @media(max-width:1000px){.approved-country-body .th-atlas{gap:24px}.approved-country-body .th-heading{display:block}.approved-country-body .country-leads{max-width:70ch;margin-top:12px}.approved-country-body .th-planner{grid-template-columns:minmax(0,280px) minmax(0,1fr);padding:24px;gap:24px}}
 @media(max-width:760px){.approved-country-body .th-atlas{grid-template-columns:1fr;gap:19px}.approved-country-body .th-compare{grid-template-columns:1fr;gap:0}.approved-country-body .th-compare>a{padding:13px 0;border-bottom:1px solid var(--line)}.approved-country-body .th-section{padding-block:36px}.approved-country-body .th-section h2{font-size:26px}.approved-country-body .th-planner{grid-template-columns:1fr;padding:20px;gap:22px}.approved-country-body .th-panel-copy{padding:20px}}
-@media(max-width:600px){.approved-country-body .th-place-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.approved-country-body .th-place-copy{padding:12px}.approved-country-body .th-place h3{font-size:15px}.approved-country-body .th-chips{gap:6px}.approved-country-body .th-chips button{padding:9px 12px;font-size:12px}.approved-country-body .th-tabs a{flex-basis:50%}.approved-country-body .th-photo-trio figcaption{padding:5px 2px;font-size:10px}.approved-country-body .th-form-row{grid-template-columns:1fr}}
+@media(max-width:600px){.approved-country-body .th-place-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.approved-country-body .th-place-copy{padding:12px}.approved-country-body .th-place h3{font-size:15px}.approved-country-body .th-chips{gap:6px}.approved-country-body .th-chips button{padding:9px 12px;font-size:12px}.approved-country-body .th-photo-trio figcaption{padding:5px 2px;font-size:10px}.approved-country-body .th-form-row{grid-template-columns:1fr}}

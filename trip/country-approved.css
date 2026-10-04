@@ -14,20 +14,24 @@
 .approved-country .trip-plan-entry{bottom:calc(72px + env(safe-area-inset-bottom,0px))}
 .approved-country .th-atlas{align-items:start}
 .approved-country .approved-geographic-map{margin-block:0}
-.approved-map-views{display:grid;grid-template-columns:minmax(0,1fr);gap:16px;align-items:start}
-.approved-map-views:has(.approved-map-view+.approved-map-view){grid-template-columns:minmax(0,1fr) minmax(130px,.6fr)}
-.approved-map-view+.approved-map-view{border:1px solid #dcd5c9;padding:10px;background:#f2eee5}
-.approved-map-view h3{font-size:15px;line-height:1.5;margin:0 0 8px}
+.approved-map-views{display:grid;grid-template-columns:minmax(0,1fr);gap:12px;align-items:start;max-width:440px}
+.approved-map-views[data-map-count="2"]{grid-template-columns:repeat(2,minmax(0,1fr));max-width:600px}
+.approved-map-view{min-width:0;border:1px solid #dcd5c9;padding:10px;background:#f2eee5;border-radius:6px}
+.approved-map-view h3{font-size:14px;line-height:1.5;margin:0 0 8px;min-height:42px}
 .approved-map-view svg{display:block;width:100%;height:auto}
-.approved-map-view p,.approved-geographic-map>p,.approved-map-connections{font-size:13px;line-height:1.8}
+.approved-map-view p,.approved-geographic-map>p{font-size:13px;line-height:1.8}
 .approved-map-view a:focus-visible circle{stroke:#494139;stroke-width:6}
 .approved-map-credit{color:#6d6559}
-.approved-map-connections{margin:12px 0;padding:0;list-style:none;display:grid;gap:5px}
-.approved-map-connections li{padding:5px 0;border-top:1px solid #dcd5c9}
-.approved-map-connections small{display:block;color:#6d6559}
+.approved-country .approved-geographic-map nav{gap:8px 16px}
+.approved-geographic-map nav a{display:inline-flex;align-items:center;min-height:44px;font-size:13px}
 .approved-reference-plan{margin-top:24px;border-top:1px solid #dcd5c9;padding-top:16px}
 .approved-reference-plan summary{cursor:pointer;min-height:44px;font-size:18px}
 .approved-reference-plan ol{padding-left:24px}
 .approved-reference-plan li{margin-block:16px;line-height:1.8}
 .approved-reference-plan h3{font-size:15px;margin:0}
-@media(max-width:760px){.approved-map-views:has(.approved-map-view+.approved-map-view){grid-template-columns:minmax(0,1fr)}.approved-map-view+.approved-map-view{width:65%;justify-self:end}.approved-country .approved-geographic-map nav{gap:8px 12px}.approved-country .approved-geographic-map{margin-block:0}}
+.approved-transport-routes{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin-block:20px}
+.approved-transport-routes article{min-width:0;background:#faf7f0;border:1px solid #dcd5c9;border-radius:6px;padding:18px}
+.approved-transport-routes h3{font-size:19px;margin:0 0 12px}
+.approved-transport-sequence{font-size:13px;overflow-wrap:anywhere}
+@media(max-width:760px){.approved-transport-routes{grid-template-columns:minmax(0,1fr);gap:12px}.approved-transport-routes article{padding:16px}}
+@media(max-width:760px){.approved-map-view{padding:8px}.approved-map-view h3{font-size:12px}.approved-map-view p{font-size:11px;line-height:1.6}.approved-country .approved-geographic-map nav{gap:4px 12px}.approved-country .approved-geographic-map{margin-block:0}}

@@ -15,6 +15,42 @@
   },
   "sources": [
     {
+      "id": "g7-avinor-lyr-oct4",
+      "kind": "official",
+      "url": "https://www.avinor.no/api/v1/flights/arrival/LYR?dateTime=2026-10-04",
+      "rights": "官方航班資料之事實整理；不引用影像。",
+      "checkedOn": "2026-10-04",
+      "label": "Avinor 長年鎮抵達航班",
+      "locator": "2026-10-04 SAS SK4492 OSL–LYR; current schedule, not family historical reservation"
+    },
+    {
+      "id": "g7-avinor-lyr-oct5",
+      "kind": "official",
+      "url": "https://www.avinor.no/api/v1/flights/arrival/LYR?dateTime=2026-10-05",
+      "rights": "官方航班資料之事實整理；不引用影像。",
+      "checkedOn": "2026-10-04",
+      "label": "Avinor 長年鎮抵達航班",
+      "locator": "2026-10-05 SAS SK4496 OSL–LYR; SK4414 OSL–TOS–LYR"
+    },
+    {
+      "id": "g7-avinor-tos-oct5",
+      "kind": "official",
+      "url": "https://www.avinor.no/api/v1/flights/arrival/TOS?dateTime=2026-10-05",
+      "rights": "官方航班資料之事實整理；不引用影像。",
+      "checkedOn": "2026-10-04",
+      "label": "Avinor 特羅姆瑟抵達航班",
+      "locator": "2026-10-05 SK4414 OSL–TOS 10:00–11:50 Europe/Oslo"
+    },
+    {
+      "id": "g7-avinor-tos-depart-oct5",
+      "kind": "official",
+      "url": "https://www.avinor.no/api/v1/flights/departure/TOS?dateTime=2026-10-05",
+      "rights": "官方航班資料之事實整理；不引用影像。",
+      "checkedOn": "2026-10-04",
+      "label": "Avinor 特羅姆瑟出發航班",
+      "locator": "2026-10-05 SK4414 TOS–LYR 12:30–14:10 Europe/Oslo; same number, aircraft not inferred"
+    },
+    {
       "id": "g1-s01",
       "kind": "official",
       "url": "https://en.visitsvalbard.com/visitor-information/faq",
@@ -6262,45 +6298,38 @@
             ]
           }
         ],
-        "connections": [
+        "connections": []
+      },
+      "transport": {
+        "heading": "怎麼飛到斯瓦巴",
+        "intro": "我們搭 SAS 前往斯瓦巴，抵達長年鎮 Longyearbyen（LYR）。",
+        "sourceIds": ["g1-s02", "g7-avinor-lyr-oct4", "g7-avinor-lyr-oct5", "g7-avinor-tos-oct5", "g7-avinor-tos-depart-oct5"],
+        "cards": [
           {
-            "fromLabel": "奧斯陸",
-            "toLabel": "斯瓦巴",
-            "label": "依實際班次安排",
-            "mode": "flight",
-            "sourceIds": [
-              "g1-s02",
-              "n14",
-              "n12"
-            ]
+            "id": "sas-oslo-nonstop",
+            "title": "Oslo 直飛",
+            "routeLabel": "Oslo OSL → Longyearbyen LYR",
+            "flightLabel": "SAS SK4492／SK4496",
+            "durationLabel": "約3小時",
+            "body": "從奧斯陸直接飛到長年鎮，直飛航班包含 SK4492、SK4496，約3小時。"
           },
           {
-            "fromLabel": "斯瓦巴",
-            "toLabel": "特羅姆瑟",
-            "label": "依實際班次安排",
-            "mode": "flight",
-            "sourceIds": [
-              "g1-s02",
-              "n14",
-              "n12"
-            ]
-          },
-          {
-            "fromLabel": "特羅姆瑟",
-            "toLabel": "奧斯陸",
-            "label": "國際航班銜接",
-            "mode": "flight",
-            "sourceIds": [
-              "g1-s02",
-              "n14",
-              "n12"
-            ]
+            "id": "sas-oslo-via-tromso",
+            "title": "經停 Tromsø",
+            "routeLabel": "Oslo OSL → Tromsø TOS → Longyearbyen LYR",
+            "flightLabel": "SAS SK4414",
+            "durationLabel": "全程約4小時10分鐘",
+            "body": "SK4414 經停特羅姆瑟：Oslo → Tromsø 約1小時50分鐘，Tromsø → Longyearbyen 約1小時40分鐘，含經停全程約4小時10分鐘。"
           }
+        ],
+        "links": [
+          {"label": "查詢 SAS 航班", "url": "https://www.sas.no/flyreiser/oslo/longyearbyen"},
+          {"label": "長年鎮機場航班", "url": "https://www.avinor.no/en/airport/Svalbard/flight-times/"}
         ]
       },
       "presentation": {
         "overviewTitle": "先看位置，再選城市與區域",
-        "overviewText": "奧斯陸與特羅姆瑟在挪威本土；斯瓦巴是遠離本土的群島，這篇以 Longyearbyen 長年鎮為活動基地。北上的交通要按航段安排。 奧斯陸、特羅姆瑟和長年鎮之間，以可確認的航段串接。每次換基地都留移動日，把退房、機場、飛行、接駁與入住完整算進去。",
+        "overviewText": "奧斯陸與特羅姆瑟在挪威本土；斯瓦巴是遠離本土的群島，這篇以 Longyearbyen 長年鎮為活動基地。每次換基地都留移動日，把退房、機場、飛行、接駁與入住完整算進去。",
         "destinationNotes": [],
         "citySummaries": [
           {
