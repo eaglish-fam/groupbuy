@@ -13,6 +13,7 @@
 | 實用資料變成預設dl/dd | 最終整版回歸漏掉此元件；mobile CSS失效具體原因未證實 | facts/story元件單一來源critical style，桌機與手機親看標題、底色、細線、label/value間距、長文字換行 |
 | 行程前置／入口不一致 | 沿舊城市版本拼接，shared helper未完整採用 | FAQ→#plan→完整影片；同一58×58兩行入口、focus、sticky／底部安全區避讓 |
 | g8 首圖左右空帶 | contain保人物卻未適配固定橫框；Root把完整人物誤當構圖合格 | 滿版與完整人物同時必要。真實比例決定框與共用排列，照片內部空帶退回；親看像素，不只看object-fit與尺寸 |
+| g10 新增首頁新加坡卡上下空帶 | Root 正式首頁實圖發現：文章圖片標記與固定3:2入口框受到首頁contain樣式作用；新增首頁入口未逐圖驗收 | g12 單卡改接首頁既有R22來源感知圖框，使用原圖1280×720比例，保留瀑布、屋頂與植栽；1440／390／320實圖及真實導流逐項驗收，其他卡與已核正文保持原樣。最終正式驗收仍由Root親做 |
 | 公開建置依賴本機私有packet | 私人候選可驗收，卻未達跨機可維護發布 | 公共安全內容與來源資料隨repo版本固定；乾淨checkout可重建同一頁；private流程與正式可索引發布分開 |
 
 ## 一句城市名進入同一 pipeline
@@ -36,3 +37,5 @@ Canonical 更新到 existing docs/trip-editorial-guidelines.md，圖片細則保
 下列 `review/`、`briefs/` 名稱是內部 Project 的相對追溯名稱，並非本公開 repository 的檔案或可下載連結；私人原片、派工回條及完整審核紀錄保留在原 Project。
 
 人類修正：Eliora B 負責對話中 2026-10-03／04 的圖片及文字；Root g8桌機首圖照片留白（review/root-g8-desktop-hero-v1.png）；g9實際滿版 desktop/mobile review（review/root-g9-cua-review-v1.json）；相同正文與125資產proof（review/root-g9-integrity-v1.json）；Root受影響scope重驗（review/root-g9-final-acceptance-v1.json）；Hiram當前核准發布與一句話要求（briefs/hiram-publication-and-one-line-pipeline-authority-v1.json）。原因未證實的事件保持未知；source hash與review status不當成美感pass。
+
+Root 在 g10 正式首頁找到的新增卡片空帶另留 review/root-g10-production-home-card-v2.png；g12 只回修這張首頁入口與同一驗收條款釐清，保留 g10 已發布文章、媒體及 g11 主線規範，不把首頁缺陷寫成已核正文或語意修正失效。
