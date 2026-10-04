@@ -1,6 +1,8 @@
 import {photoContexts} from './trip-photo-contexts-r22.mjs';
 const source=tag=>tag.match(/\bsrc="([^"]+)"/)?.[1];
 const frame=(image,c,ratio=c.ratio,position=c.position)=>`<div class="r22-photo-frame" data-photo-frame="${ratio}" data-photo-context="${c.page}:${c.sequence}" data-photo-asset="${c.assetIndex}" style="--photo-ratio:${ratio.replace(':','/')};--photo-position:${position[0]}% ${position[1]}%">${image}</div>`;
+// Let newly approved home entries use the same frame without changing the frozen context map.
+export const renderPhotoFrame=frame;
 function balancedDivEnd(html,start){
  const tags=/<\/?div\b[^>]*>/g;tags.lastIndex=start;let depth=0;
  for(let m;(m=tags.exec(html));){depth+=m[0].startsWith('</')?-1:1;if(depth===0)return tags.lastIndex;}

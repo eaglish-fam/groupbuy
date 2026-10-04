@@ -59,6 +59,20 @@ test('travel homepage has a usable static approved Singapore guide and schema wi
  const schema=JSON.parse(html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/)[1]);assert(schema.hasPart.some(p=>p.url==='https://www.eaglish.store/trip/singapore/'));
  assert(html.includes('data-photo-grid="guides"'));assert(html.includes('id="globe-stage"'));
 });
+test('new home entry preserves approved source identity and uses the shared source-ratio frame',()=>{
+ const html=renderTravelHomeR24(),entry=html.match(/<article class="home-guide" data-guide-id="singapore">[\s\S]*?<\/article>/)[0];
+ const card=model.navigationView.cards.find(c=>c.target==='jewel');
+ const photo=model.article.sections.flatMap(s=>s.images).find(i=>i.assetId===card.assetId);
+ assert(entry.includes(`data-photo-asset="${photo.assetId}"`));
+ assert(entry.includes(`data-photo-frame="${photo.width}:${photo.height}"`));
+ assert(entry.includes('data-photo-context="home:singapore"'));
+ assert(entry.includes(`width="${photo.width}" height="${photo.height}"`));
+ assert(entry.includes(`alt="${card.alt}"`));
+ for(const v of photo.variants)assert(entry.includes(`${v.url} ${v.width}w`));
+ assert(entry.includes('<div class="home-guide-photo"><div class="r22-photo-frame"'));
+ assert(!entry.includes('style="aspect-ratio:3/2"'));
+ assert(entry.includes('loading="lazy" fetchpriority="low"'));
+});
 test('built Singapore is part of public indexable inventory',()=>{
  assert(collectIndexablePages(root).some(p=>p.path==='/trip/singapore/'));
 });
