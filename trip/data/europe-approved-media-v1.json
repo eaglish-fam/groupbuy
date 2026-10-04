@@ -1,0 +1,5157 @@
+{
+  "schema": "eaglish.approved-travel-media/v1",
+  "sources": [
+    {
+      "id": "photo-oslo-natural-history-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DBJbsTJTzbf/?img_index=5",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "一家人在恐龍展區合照",
+      "locator": "photo 5"
+    },
+    {
+      "id": "photo-oslo-natural-history-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=241.0074s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "進館前，爸爸教孩子使用相機",
+      "locator": "PTS 7230223, timebase 1/30000"
+    },
+    {
+      "id": "photo-oslo-natural-history-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=361.0273s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "館內動物標本展區",
+      "locator": "PTS 10830820, timebase 1/30000"
+    },
+    {
+      "id": "photo-oslo-historical-museum-1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=571.0038s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "推開 Historical Museum 的木門",
+      "locator": "PTS 17130113, timebase 1/30000"
+    },
+    {
+      "id": "photo-oslo-historical-museum-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=615.0144s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "館內錢幣展品",
+      "locator": "PTS 18450432, timebase 1/30000"
+    },
+    {
+      "id": "photo-oslo-historical-museum-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=680.0127s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "展示櫃中的古劍",
+      "locator": "PTS 20400380, timebase 1/30000"
+    },
+    {
+      "id": "photo-oslo-fram-1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=1051.0166s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "Fram 三角形館舍前的旅行記錄",
+      "locator": "PTS 31530499, timebase 1/30000"
+    },
+    {
+      "id": "photo-oslo-fram-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=841.0068s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "走入船內，沿著狹窄木梯參觀",
+      "locator": "PTS 25230205, timebase 1/30000"
+    },
+    {
+      "id": "photo-oslo-fram-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=931.0301s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "媽媽和孩子一起看北極熊展示",
+      "locator": "PTS 27930903, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-town-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAqN9_wqPoA/?img_index=1",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "長年鎮街道上的家庭合照",
+      "locator": "photo 1"
+    },
+    {
+      "id": "photo-svalbard-town-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J1vU82ZafwM&t=809.0082s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "孩子探索綠色長頸動物造型遊具",
+      "locator": "PTS 24270246, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-town-3",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAijImsKK2V/?img_index=6",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "從山坡看長年鎮與海灣",
+      "locator": "photo 6"
+    },
+    {
+      "id": "photo-svalbard-dog-cart-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAqN9_wqPoA/?img_index=3",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "一家人和狗隊在犬舍旁合照",
+      "locator": "photo 3"
+    },
+    {
+      "id": "photo-svalbard-dog-cart-2",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAqN9_wqPoA/?img_index=4",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "跟著狗隊穿過開闊山谷",
+      "locator": "photo 4"
+    },
+    {
+      "id": "photo-svalbard-dog-cart-3",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAqN9_wqPoA/?img_index=7",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "孩子輕抱犬舍裡的幼犬",
+      "locator": "photo 7"
+    },
+    {
+      "id": "photo-svalbard-museum-1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=FlqVT1MhUNM&t=721.0203s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "前往 Svalbard Museum 所在的研究園區",
+      "locator": "PTS 21630609, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-museum-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=FlqVT1MhUNM&t=751.0169s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "在館內近看海象展示",
+      "locator": "PTS 22530508, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-museum-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=FlqVT1MhUNM&t=811.0102s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "爸爸在地質展區分享觀察",
+      "locator": "PTS 24330306, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-city-tour-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAijImsKK2V/?img_index=9",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "一家人在北極熊警示牌旁留影",
+      "locator": "photo 9"
+    },
+    {
+      "id": "photo-svalbard-city-tour-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=pCDdMw80fmA&t=301.0007s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "導覽路過資料保存設施的外部區域",
+      "locator": "PTS 9030021, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-city-tour-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=pCDdMw80fmA&t=451.0172s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "從導覽路線看山坡上的煤礦設施",
+      "locator": "PTS 13530517, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-church-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAijImsKK2V/?img_index=7",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "教堂外的家庭合照",
+      "locator": "photo 7"
+    },
+    {
+      "id": "photo-svalbard-church-2",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAijImsKK2V/?img_index=8",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "一起走進木造教堂",
+      "locator": "photo 8"
+    },
+    {
+      "id": "photo-svalbard-church-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=pCDdMw80fmA&t=211.0108s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "木椅、祭壇與明亮窗景",
+      "locator": "PTS 6330324, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-seed-vault-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAijImsKK2V/?img_index=12",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "種子庫外的家庭合照",
+      "locator": "photo 12"
+    },
+    {
+      "id": "photo-svalbard-seed-vault-2",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAijImsKK2V/?img_index=10",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "外牆上的 Svalbard Global Seed Vault 刻字",
+      "locator": "photo 10"
+    },
+    {
+      "id": "photo-svalbard-seed-vault-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=pCDdMw80fmA&t=377.0100s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "種子庫外的金屬入口與欄杆",
+      "locator": "PTS 11310299, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-glacier-cruise-1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=pCDdMw80fmA&t=1081.0133s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "從船上近看藍色冰川",
+      "locator": "PTS 32430398, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-glacier-cruise-2",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DBJbsTJTzbf/?img_index=1",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "一家人在船甲板上合照",
+      "locator": "photo 1"
+    },
+    {
+      "id": "photo-svalbard-glacier-cruise-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=pCDdMw80fmA&t=1111.0099s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "冰川附近散落的浮冰",
+      "locator": "PTS 33330297, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-polaria-1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=211.0108s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "參觀 Polaria 後，在館舍外分享感受",
+      "locator": "PTS 6330324, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-polaria-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=158.0245s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "孩子在館內探索展區",
+      "locator": "PTS 4740736, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-polaria-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=169.0022s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "透過水下玻璃看海豹游過",
+      "locator": "PTS 5070065, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-reindeer-sami-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DBJbsTJTzbf/?img_index=18",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "一家人與 Sámi 主人在帳篷前合照",
+      "locator": "photo 18"
+    },
+    {
+      "id": "photo-tromso-reindeer-sami-2",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DA3X-tCTtg9/?img_index=3",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "孩子提著飼料桶靠近馴鹿",
+      "locator": "photo 3"
+    },
+    {
+      "id": "photo-tromso-reindeer-sami-3",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DA3X-tCTtg9/?img_index=9",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "草地上的白色馴鹿近照",
+      "locator": "photo 9"
+    },
+    {
+      "id": "photo-tromso-fjellheisen-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DA3X-tCTtg9/?img_index=2",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "山頂觀景台上的家庭合照",
+      "locator": "photo 2"
+    },
+    {
+      "id": "photo-tromso-fjellheisen-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=1231.0298s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "下山後，孩子站在 Fjellheisen 站舍前",
+      "locator": "PTS 36930894, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-fjellheisen-3",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DA3X-tCTtg9/?img_index=13",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "孩子躺在山上的雪地玩耍",
+      "locator": "photo 13"
+    },
+    {
+      "id": "photo-tromso-polarmuseet-1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=1441.0062s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "爸爸在極地博物館的船舵展示前",
+      "locator": "PTS 43230187, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-polarmuseet-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=1348.0133s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "館內極地生活與狩獵情境展示",
+      "locator": "PTS 40440400, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-polarmuseet-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=1344.0093s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "當次參觀拿到的 The Polar Museum 導覽單",
+      "locator": "PTS 40320280, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-town-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAqN9_wqPoA/?img_index=10",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "孩子站在港邊彩色屋舍旁",
+      "locator": "photo 10"
+    },
+    {
+      "id": "photo-tromso-town-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=961.0267s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "沿著市區街道慢慢散步",
+      "locator": "PTS 28830802, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-town-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=1591.0228s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "一家人逛市區商店",
+      "locator": "PTS 47730683, timebase 1/30000"
+    },
+    {
+      "id": "photo-amsterdam-artis-1",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DBJbsTJTzbf/?img_index=15",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "爸爸和孩子在動物園的木造遊具區",
+      "locator": "photo 15"
+    },
+    {
+      "id": "photo-amsterdam-artis-2",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DBJbsTJTzbf/?img_index=16",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "孩子探索館內的攀爬石",
+      "locator": "photo 16"
+    },
+    {
+      "id": "photo-amsterdam-artis-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=QCM57UQ8Quo&t=56.0000s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "動物園裡活躍的大猩猩",
+      "locator": "PTS 56000, timebase 1/1000"
+    },
+    {
+      "id": "photo-giethoorn-boat-1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=zu_EW5Aa1gY&t=595.0280s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "沿著水道駛入羊角村",
+      "locator": "PTS 595028, timebase 1/1000"
+    },
+    {
+      "id": "photo-giethoorn-boat-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=zu_EW5Aa1gY&t=590.0220s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "爸爸和孩子一起享受開船時光",
+      "locator": "PTS 590022, timebase 1/1000"
+    },
+    {
+      "id": "photo-giethoorn-boat-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=zu_EW5Aa1gY&t=625.0250s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "小船從木橋下穿過",
+      "locator": "PTS 625025, timebase 1/1000"
+    },
+    {
+      "id": "photo-hans-grietje-1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=zu_EW5Aa1gY&t=1021.0210s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "在童話屋造型的餐廳前休息",
+      "locator": "PTS 1021021, timebase 1/1000"
+    },
+    {
+      "id": "photo-hans-grietje-2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=zu_EW5Aa1gY&t=931.0310s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "孩子在戶外滑索遊具上玩耍",
+      "locator": "PTS 931031, timebase 1/1000"
+    },
+    {
+      "id": "photo-hans-grietje-3",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=zu_EW5Aa1gY&t=1078.0110s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "剛送上桌的造型鬆餅",
+      "locator": "PTS 1078011, timebase 1/1000"
+    },
+    {
+      "id": "photo-oslo-tacos",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=491.0239s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "午餐時，孩子開心地吃 Tacos",
+      "locator": "PTS 14730716, timebase 1/30000"
+    },
+    {
+      "id": "photo-oslo-rail",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=151.0175s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "從機場搭鐵路前的購票記錄",
+      "locator": "PTS 4530526, timebase 1/30000"
+    },
+    {
+      "id": "photo-oslo-ferry",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=g3ndtEA754U&t=751.0169s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "坐船前往博物館半島",
+      "locator": "PTS 22530508, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-hotel-room",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J1vU82ZafwM&t=571.0038s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "住宿房間裡，媽媽幫孩子整理衣服",
+      "locator": "PTS 17130113, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-hotel-exterior",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DBJbsTJTzbf/?img_index=10",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "孩子站在旅宿館舍外",
+      "locator": "photo 10"
+    },
+    {
+      "id": "photo-svalbard-warm-hut",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAqN9_wqPoA/?img_index=8",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "狗車活動後，在小屋喝熱飲、吃餅乾",
+      "locator": "photo 8"
+    },
+    {
+      "id": "photo-svalbard-dinner-menu",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=FlqVT1MhUNM&t=661.0270s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "當次晚餐的菜單記錄",
+      "locator": "PTS 19830811, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-steak",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=FlqVT1MhUNM&t=1021.0200s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "晚餐的肉排、配菜與醬汁",
+      "locator": "PTS 30630600, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-pizza",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=pCDdMw80fmA&t=571.0038s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "導覽結束後吃披薩午餐",
+      "locator": "PTS 17130113, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-cruise-soup",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=pCDdMw80fmA&t=1261.0264s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "船行途中暖身的一碗熱湯",
+      "locator": "PTS 37830793, timebase 1/30000"
+    },
+    {
+      "id": "photo-svalbard-airport-bus",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J1vU82ZafwM&t=301.0007s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "從機場搭巴士前往長年鎮",
+      "locator": "PTS 9030021, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-airbnb-breakfast",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=61.0276s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "住在 Airbnb 時自己準備早餐",
+      "locator": "PTS 1830829, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-reindeer-meal",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=691.0237s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "馴鹿活動後品嚐熱燉食",
+      "locator": "PTS 20730710, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-first-dinner",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=871.0035s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "首日晚餐，孩子品嚐桌上的餐點",
+      "locator": "PTS 26130104, timebase 1/30000"
+    },
+    {
+      "id": "photo-tromso-second-lunch",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=dnI5aZV2gqo&t=1501.0329s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "逛完博物館後的午餐",
+      "locator": "PTS 45030986, timebase 1/30000"
+    },
+    {
+      "id": "photo-amsterdam-car-rental",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=zu_EW5Aa1gY&t=31.0310s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "在機場取租車，準備親子自駕",
+      "locator": "PTS 31031, timebase 1/1000"
+    },
+    {
+      "id": "photo-amsterdam-zoo-lunch",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=QCM57UQ8Quo&t=41.0000s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "動物園午餐時吃漢堡",
+      "locator": "PTS 41000, timebase 1/1000"
+    },
+    {
+      "id": "photo-hans-grietje-cake",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=zu_EW5Aa1gY&t=1130.0290s",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "鬆餅屋裡的蛋糕與午茶時光",
+      "locator": "PTS 1130029, timebase 1/1000"
+    },
+    {
+      "id": "photo-europe-air-transfer",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/p/DAVjXCJK3EM/?img_index=2",
+      "rights": "鷹式一家已公開之自有影像；本網站使用已核對選圖。",
+      "label": "法蘭克福機場轉機時的家庭合照",
+      "locator": "photo 2"
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "oslo-natural-history-1",
+      "width": 1440,
+      "height": 964,
+      "alt": "一家人在恐龍展區合照",
+      "caption": "一家人在恐龍展區合照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-natural-history-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "ada794ec4ec5d99a7ceb93a3a56525adc7f0a64419fd00f896904001686dd603",
+        "sourceWidth": 1440,
+        "sourceHeight": 964,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 964
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-1-body-640.webp",
+          "width": 640,
+          "height": 428,
+          "bytes": 73980,
+          "sha256": "b4827d133544d7a06fb4b38e36400a540c62a78eb67c7526e2dc3555c71b0db5"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-1-body-960.webp",
+          "width": 960,
+          "height": 643,
+          "bytes": 155642,
+          "sha256": "ab62ee0deecf72054aaf81316d4870e4802add02e33e6e8538678fed520b0ed0"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-1-body-1440.webp",
+          "width": 1440,
+          "height": 964,
+          "bytes": 357190,
+          "sha256": "f9df2e2b2fae2314de7f016a0791e0668902bbaf1068d9e8aa91068f5a97e982"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 2,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-oslo-natural-history-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 73874,
+            "sha256": "1c0aad933a0633dfa5042e1c797b43dfb5085aa27549abf36b25e7dd8c2ffdaa"
+          },
+          {
+            "url": "/trip/assets/eu-oslo-natural-history-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 155034,
+            "sha256": "4eaf3b0d5badcffd9f29b6b7f7df836fb92340e23bd79dda60c47cfa1c29f0ef"
+          },
+          {
+            "url": "/trip/assets/eu-oslo-natural-history-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 356740,
+            "sha256": "9df3fd97bdfaabf728342b3d90a09c639f3bfa32dbe425d947b7c2e1711c2865"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "oslo-natural-history-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "進館前，爸爸教孩子使用相機",
+      "caption": "進館前，爸爸教孩子使用相機",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-natural-history-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 7230223,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 91176,
+          "sha256": "d00bf525bcc30f882eeb98fdd1adbbb8573357219ded4f9418c64c2dba2543be"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 178784,
+          "sha256": "b8154eee3685053cbcfd892507f261f2ddc16f922ecfa3fdee3564a3cd48a252"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 326516,
+          "sha256": "03dd4495915bee0b8be43acb45bd0d640678d335ef4bd9e9cea8f45cc50a9d40"
+        }
+      ]
+    },
+    {
+      "assetId": "oslo-natural-history-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "館內動物標本展區",
+      "caption": "館內動物標本展區",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-natural-history-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 10830820,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32032,
+          "sha256": "4ef85206f1b95c9e48142c15b851cf4cfe9ddbd4b8cb2e46318091bcccbc6efb"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 54352,
+          "sha256": "c7e8098f7446da16bc639868e6e2a53592dcd68f98572a4ced9d501677b19702"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 85572,
+          "sha256": "cdfa860945ef72ae6bd62a24586e16ed230709c619b0ac01821ffe5ab2c28428"
+        }
+      ]
+    },
+    {
+      "assetId": "oslo-historical-museum-1",
+      "width": 2560,
+      "height": 1440,
+      "alt": "推開 Historical Museum 的木門",
+      "caption": "推開 Historical Museum 的木門",
+      "focalPoint": [
+        65,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-historical-museum-1"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 17130113,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-historical-museum-1-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 65218,
+          "sha256": "ba3301f513ea3e082a35b698eca930edf0f2e3c3ad2448a2e3263ea4f9353742"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-historical-museum-1-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 128018,
+          "sha256": "0614fcc48307051877406bac189ef5e0915f00d97eaea5c187184e63cab21038"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-historical-museum-1-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 240074,
+          "sha256": "a0576e8ad9a433b7560768f9c7be918bba6e024bf59a92806e674f49fbf91c97"
+        }
+      ],
+      "cardPhoto": {
+        "width": 2160,
+        "height": 1440,
+        "activePicture": {
+          "x": 400,
+          "y": 0,
+          "width": 2160,
+          "height": 1440
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-oslo-historical-museum-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 75382,
+            "sha256": "7e121b6e8380cd550bf89ec517df0174f971a5cb3cd29a908d1a4b5f86dffbe8"
+          },
+          {
+            "url": "/trip/assets/eu-oslo-historical-museum-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 145026,
+            "sha256": "45a65eeb4bef4760d0fd12e15cf82b91558725e6ec72b830c4044171ec585206"
+          },
+          {
+            "url": "/trip/assets/eu-oslo-historical-museum-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 272018,
+            "sha256": "1d35a02763a42f18812ca36420cb37cec8660b0e83bfd1e4420fe6aa19e390df"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "oslo-historical-museum-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "館內錢幣展品",
+      "caption": "館內錢幣展品",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-historical-museum-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 18450432,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-historical-museum-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 56036,
+          "sha256": "7c12bef7ae9798e66a745ef3512c449c40e775769efc65d50e4619f41e529c55"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-historical-museum-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 104558,
+          "sha256": "19c1da582bbcc9f6d2109d900e138ddbb3c1c4b77b24afca1a89a4e96bd196a9"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-historical-museum-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 194714,
+          "sha256": "23b853690eb45c13603d2d846116ef9f3fd50bfaa83cea2505df11a05fa6becd"
+        }
+      ]
+    },
+    {
+      "assetId": "oslo-historical-museum-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "展示櫃中的古劍",
+      "caption": "展示櫃中的古劍",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-historical-museum-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 20400380,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-historical-museum-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 28864,
+          "sha256": "9fe47f4d2eed901d80cc4147baf782f4e9c0146d27725b8c18584563a8e26681"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-historical-museum-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 53166,
+          "sha256": "e98dc58552427c302fc7cd302f1cc5999aa7af743eb52e70bf6f97f84e6fabad"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-historical-museum-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 87844,
+          "sha256": "70794e6366b9073c978ba29fd4c82332979f36ab6eefc3f302ef0e5cbf97038c"
+        }
+      ]
+    },
+    {
+      "assetId": "oslo-fram-1",
+      "width": 2560,
+      "height": 1440,
+      "alt": "Fram 三角形館舍前的旅行記錄",
+      "caption": "Fram 三角形館舍前的旅行記錄",
+      "focalPoint": [
+        56.00000000000001,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-fram-1"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 31530499,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-fram-1-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 64918,
+          "sha256": "b6a825e1f608700bee65732eb97ae26c4239049df55d6a9af21260bfaf000df5"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-fram-1-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 114136,
+          "sha256": "357396a951a72e774ba4535a1867a10e38ed5e5f4f9016b570477fa1e7516450"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-fram-1-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 191824,
+          "sha256": "9e5be67b28857d76f7ea278d941a34dd879f70b1ba929c1f61b5a2da58e4ea60"
+        }
+      ],
+      "cardPhoto": {
+        "width": 2160,
+        "height": 1440,
+        "activePicture": {
+          "x": 354,
+          "y": 0,
+          "width": 2160,
+          "height": 1440
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-oslo-fram-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 73352,
+            "sha256": "e457b5d12fc2ea0ca8d1ad84028b4f193f3219c53c1bbf179c98d85618770e82"
+          },
+          {
+            "url": "/trip/assets/eu-oslo-fram-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 126340,
+            "sha256": "70a36405a4f250e8f6f3adfea49fa2687acae11216dead29c36ac053a8d6e9c1"
+          },
+          {
+            "url": "/trip/assets/eu-oslo-fram-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 212362,
+            "sha256": "26bc5fff0b25aad0435c0412b75cc9299102e8c42e8bde5efa93d1322745b2c3"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "oslo-fram-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "走入船內，沿著狹窄木梯參觀",
+      "caption": "走入船內，沿著狹窄木梯參觀",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-fram-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 25230205,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-fram-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 44270,
+          "sha256": "9d4ce6eb69498b0097eb8432d990e5772ecca6934e8f2e9b8b5c35697e50fb1c"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-fram-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 74846,
+          "sha256": "ea3f9ac8f33646e5800fd7888479e59548e37050d473db71da2c1dc0c81100d7"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-fram-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 126554,
+          "sha256": "5689e2799ed4f30d8f131a85a917c3c860e2af3394794cb75e0749e5a7d69996"
+        }
+      ]
+    },
+    {
+      "assetId": "oslo-fram-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "媽媽和孩子一起看北極熊展示",
+      "caption": "媽媽和孩子一起看北極熊展示",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-fram-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 27930903,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-fram-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 51462,
+          "sha256": "502cf2e104959fca657acd855d5ed96f4b50e37c36a7c2c68eb5c1179a58aa17"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-fram-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 94688,
+          "sha256": "d9ca79425ff1705a2369b953d0009acd8549d19765858d4c5d626be86cb10ce9"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-fram-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 173294,
+          "sha256": "4a11d034368b725eff7c9c396041dbc17efdb27622dbb00cb91bae38319d9311"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-town-1",
+      "width": 1440,
+      "height": 960,
+      "alt": "長年鎮街道上的家庭合照",
+      "caption": "長年鎮街道上的家庭合照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-town-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "b1c59d718e2a5d8dd77466134d2f397c3fa5a8a892bca2d875a981731bdac350",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-town-1-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 83378,
+          "sha256": "948159642da07d5647ddeb89041d24ddd6560d47ae3f5edd797ef4f710967ff0"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-town-1-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 159952,
+          "sha256": "001e72e09aecfaad56ca8667c3256f226ed2b417604df80519e22bf9af6d88c7"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-town-1-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 316600,
+          "sha256": "e5e5ff37e7fc5459b889c320e4a8ffc3a2948a98d5f85ec06eb9d674a1a10c1f"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-svalbard-town-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 83378,
+            "sha256": "948159642da07d5647ddeb89041d24ddd6560d47ae3f5edd797ef4f710967ff0"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-town-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 159952,
+            "sha256": "001e72e09aecfaad56ca8667c3256f226ed2b417604df80519e22bf9af6d88c7"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-town-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 316600,
+            "sha256": "e5e5ff37e7fc5459b889c320e4a8ffc3a2948a98d5f85ec06eb9d674a1a10c1f"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "svalbard-town-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "孩子探索綠色長頸動物造型遊具",
+      "caption": "孩子探索綠色長頸動物造型遊具",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-town-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "1fa428fd424b880845e6912d3ae3147cd3ae24cfa011469540d3fa76d48e09ac",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 24270246,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-town-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 69334,
+          "sha256": "1eaa0c95a9fd32abf5d48ae31863dc39ab4894f248ef150023c0ff4c00daf32f"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-town-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 130426,
+          "sha256": "54142aacac79142a23bef309a58441ed3e6260ebb0f66d14f57da77bccca19a2"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-town-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 236220,
+          "sha256": "dfee51b414389d82b23336e81c756560ca44dd56d3d796e3e34e39d441695f55"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-town-3",
+      "width": 1440,
+      "height": 960,
+      "alt": "從山坡看長年鎮與海灣",
+      "caption": "從山坡看長年鎮與海灣",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-town-3"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "339871e6148d21af8bd77b7d9c609e4d059d082a0f7f96d855f08881b0023b3c",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-town-3-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 76600,
+          "sha256": "2c5c516a320e6758b8d97ffd832379de2b059640a55bb36d402f03b64a8e0d4d"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-town-3-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 150738,
+          "sha256": "5ee714c26e62e72ad3adc75d096d13a5caed37232e19c3a95345a8a40dbd3d91"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-town-3-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 295390,
+          "sha256": "ab2e951e7aede6eed3a8245d5a2d0c7446b061db986e8c9c3cef6acc6804e7f0"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-dog-cart-1",
+      "width": 1440,
+      "height": 961,
+      "alt": "一家人和狗隊在犬舍旁合照",
+      "caption": "一家人和狗隊在犬舍旁合照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-dog-cart-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "e33ed088a2741ea5e5f4b3166ad24198006fc98e66691e798c2e211d8d211d73",
+        "sourceWidth": 1440,
+        "sourceHeight": 961,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 961
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-dog-cart-1-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 98034,
+          "sha256": "825556c3b6c29f3eacb81a431ce21ec4c55dbb5d88d4268a06b3c4ed533ce8ef"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-dog-cart-1-body-960.webp",
+          "width": 960,
+          "height": 641,
+          "bytes": 206460,
+          "sha256": "c81d524a1a1af997120f16b676fd685b5e775094f17f7f46761f4fc90af11773"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-dog-cart-1-body-1440.webp",
+          "width": 1440,
+          "height": 961,
+          "bytes": 333786,
+          "sha256": "e9afa84ab69e35573fce3f8a3176d2681ac744c842ee0396441cf1c0f18c1e80"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-svalbard-dog-cart-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 97272,
+            "sha256": "786eb147e511d07545b0c6d3eeefee95c9cc8480c2a7a91a210113dbdcb5357b"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-dog-cart-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 204714,
+            "sha256": "ad2ee34b018fd103fe2d4666a62654f244f0dceca4fff6bce25b4f40fa6df9e5"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-dog-cart-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 331532,
+            "sha256": "eea81b1e5d49caac4064afc07f708e2787c2f45ca2345cbce31d42ee1e368e4c"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "svalbard-dog-cart-2",
+      "width": 1440,
+      "height": 960,
+      "alt": "跟著狗隊穿過開闊山谷",
+      "caption": "跟著狗隊穿過開闊山谷",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-dog-cart-2"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "6b7720f2180bf4c773a3bf83aace09fc03d4315ba1804a66e1d3bda454307c8e",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-dog-cart-2-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 78882,
+          "sha256": "a5e76ec699610ecc946aca1c6aee294af8205913f2dd5f1ef562e7f853824aef"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-dog-cart-2-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 142426,
+          "sha256": "61689a2f26f767f0f93b7eb7d1077077b3502bd3aea64a2791a2393cf30f405e"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-dog-cart-2-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 253864,
+          "sha256": "73b200d85262565d8dc88286a5dd69e52ab8f0d7a9cd044b4330667e3df16d2d"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-dog-cart-3",
+      "width": 1440,
+      "height": 960,
+      "alt": "孩子輕抱犬舍裡的幼犬",
+      "caption": "孩子輕抱犬舍裡的幼犬",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-dog-cart-3"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "557facb17cf0b7e78f7a6f72c22695c4cbc8fbe6e9ed46d4062ebdf73e1f117f",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-dog-cart-3-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 68324,
+          "sha256": "474f9e9c192da9a06984c62cd5d6be1f2ba83a82a867ac1fab60d473dca1df0b"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-dog-cart-3-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 121300,
+          "sha256": "b4a6e3063bca3c28e10029a21805fc89cb46e9c7f94382ef232f29c20931dc41"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-dog-cart-3-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 216156,
+          "sha256": "52c3dab98e616dcbf8bd29829f3de82c78869b45c3a82c8d23f84437e256269a"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-museum-1",
+      "width": 2560,
+      "height": 1440,
+      "alt": "前往 Svalbard Museum 所在的研究園區",
+      "caption": "前往 Svalbard Museum 所在的研究園區",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-museum-1"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "264ccd26d6cb833362ae94440029845f94012ba89626b6613dc259ae5df2de5b",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 21630609,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-museum-1-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 59178,
+          "sha256": "af6bd4ac90de3b530e0e6af547811e1eaadc31a26722975a21114d5c2e2400f8"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-museum-1-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 115796,
+          "sha256": "0d80823f5b3078638dc474e5e2db77dfac4045ba119f1c4294cbe900db3f70c0"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-museum-1-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 224324,
+          "sha256": "577e31bd40ebc32b3029c60d99de991a2abf86e321b75e99450c2ec3d13748d3"
+        }
+      ],
+      "cardPhoto": {
+        "width": 2160,
+        "height": 1440,
+        "activePicture": {
+          "x": 200,
+          "y": 0,
+          "width": 2160,
+          "height": 1440
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-svalbard-museum-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 67278,
+            "sha256": "945b87483c3788b8dcfda804feb8e6999eb676c036722c425713c2257f9cce3b"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-museum-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 132614,
+            "sha256": "13c7319b9b1fd6a52a872ee2a79ebaebe7e53e46f85a843c8b4e6fca4c744624"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-museum-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 245446,
+            "sha256": "431dc98abfb90c874344f092e95486d76c83b0a981db35c5a46e2e64d54b99ac"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "svalbard-museum-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "在館內近看海象展示",
+      "caption": "在館內近看海象展示",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-museum-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "264ccd26d6cb833362ae94440029845f94012ba89626b6613dc259ae5df2de5b",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 22530508,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-museum-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 49026,
+          "sha256": "710f67946e17ce4d2164ecb1866e94e154bf90b42146fc15ac44e351633af34a"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-museum-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 83002,
+          "sha256": "1ee960280fdbb86030e309c6d64d64d74aa5f7c882c000f1ff7c9035c97e48ed"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-museum-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 137716,
+          "sha256": "8b290812db834ec7715e1fb5dd98e6fcf4c06826bd79df6385ca5ac839849200"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-museum-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "爸爸在地質展區分享觀察",
+      "caption": "爸爸在地質展區分享觀察",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-museum-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "264ccd26d6cb833362ae94440029845f94012ba89626b6613dc259ae5df2de5b",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 24330306,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-museum-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 52722,
+          "sha256": "043016a509bf888640d080454ad6b9dede7bf9dd6066b231f0aadf3304ba48e8"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-museum-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 95570,
+          "sha256": "39ec645825e5b2f5ec93d292e87375badd65e12c61bf30909a5d9bf17664ae85"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-museum-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 166556,
+          "sha256": "eedc188a1b5ccd5249ee43fab54b9eecbb9a0767f5419ca8147e718ee881f23d"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-city-tour-1",
+      "width": 1440,
+      "height": 961,
+      "alt": "一家人在北極熊警示牌旁留影",
+      "caption": "一家人在北極熊警示牌旁留影",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-city-tour-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "ea5879267c1fea5676c19547a36f6233a9da0ea0efc277af038d18c6c5a3e62b",
+        "sourceWidth": 1440,
+        "sourceHeight": 961,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 961
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-city-tour-1-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 65806,
+          "sha256": "8a231d38a844e8fa4adc5c7843cb54a69cae835f757477a8e4d4021a9caae1dd"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-city-tour-1-body-960.webp",
+          "width": 960,
+          "height": 641,
+          "bytes": 140696,
+          "sha256": "088cdb0851ee830435d800256e7c3cbedea5a52795a4c2e77c2b488d477abdad"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-city-tour-1-body-1440.webp",
+          "width": 1440,
+          "height": 961,
+          "bytes": 297300,
+          "sha256": "2ddac43faeb13c0e98ecabfe707b1014c2939d1aba0a823140ed69f382f85530"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-svalbard-city-tour-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 65852,
+            "sha256": "b4d9cec388d2327c3f79710cf1c763f971a805e672ad69fd3e8d70b005e670dd"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-city-tour-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 139066,
+            "sha256": "2420b404a5644d5503cd8f1ebcb80face4e4d4e4216a0fc2fc09ec3fa90afdc3"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-city-tour-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 295152,
+            "sha256": "124602cbddddd5bc1233a7876e7ded40f398210746f1892bd7d51265903aa0c7"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "svalbard-city-tour-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "導覽路過資料保存設施的外部區域",
+      "caption": "導覽路過資料保存設施的外部區域",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-city-tour-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "5fe5c97e75464c74e79ce430589ccafa77c61f71ca3576b3874d66c410cfc016",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 9030021,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-city-tour-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 57526,
+          "sha256": "d9d896c8b3a3800e80e1a57bcd434a4f3007dd908bca0c124414b0a4f8b4398d"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-city-tour-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 102410,
+          "sha256": "d818f9b94c46575dfa5d7acd8fd23fb05ed6d346c45c32861cdb02a8c3280161"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-city-tour-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 178170,
+          "sha256": "0461f25136ca7d38fd514a750cc7e92e94927698c964f7a223d5c76f3d892301"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-city-tour-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "從導覽路線看山坡上的煤礦設施",
+      "caption": "從導覽路線看山坡上的煤礦設施",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-city-tour-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "5fe5c97e75464c74e79ce430589ccafa77c61f71ca3576b3874d66c410cfc016",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 13530517,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-city-tour-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 110344,
+          "sha256": "d2fe216024aed975667fec352861b50f87b8f68f6cf050ef36a61d438c8a2d3e"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-city-tour-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 194590,
+          "sha256": "ef40dba18ee71d6915d4d8adfb3befe81f2eac63d0cd0ff038e588aa9e36ea83"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-city-tour-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 368572,
+          "sha256": "ad4675558de83d80a999f1a325d1a20590e2d9227f10f57f16bf770233f9ef23"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-church-1",
+      "width": 1440,
+      "height": 960,
+      "alt": "教堂外的家庭合照",
+      "caption": "教堂外的家庭合照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-church-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "643459c0b53cb3e3a81685da88f08b803f614f71dfa681bc0a9ec0ded7f7b027",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-church-1-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 58430,
+          "sha256": "2752e074988d2493f4aa113114cb5b1564b82d99ea997cd6e3fe959aa2cafa13"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-church-1-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 112908,
+          "sha256": "7d23d8a9e535066e2b0ec553522e82f9eb8d92c511194a80c0c231e0114a358b"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-church-1-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 236360,
+          "sha256": "1aea56dcf88ec9829ef0724db6afcc5beaa620bff772a1cc8d59419a713e3aff"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-svalbard-church-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 58430,
+            "sha256": "2752e074988d2493f4aa113114cb5b1564b82d99ea997cd6e3fe959aa2cafa13"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-church-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 112908,
+            "sha256": "7d23d8a9e535066e2b0ec553522e82f9eb8d92c511194a80c0c231e0114a358b"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-church-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 236360,
+            "sha256": "1aea56dcf88ec9829ef0724db6afcc5beaa620bff772a1cc8d59419a713e3aff"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "svalbard-church-2",
+      "width": 1440,
+      "height": 960,
+      "alt": "一起走進木造教堂",
+      "caption": "一起走進木造教堂",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-church-2"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "41370092b5c2c4668fda8404a4eae199f1a2874dace59645539733abce3f99e6",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-church-2-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 80680,
+          "sha256": "ea07c38e07b037f6284113df52c00d3b92b7fc4df26b731a00818787e1b72c8a"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-church-2-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 155520,
+          "sha256": "7d8eddacceab23b5c8a3f802e3f07fb751e75393da3c289fb0b6ab8faac845da"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-church-2-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 329266,
+          "sha256": "f215bde25a1c38f1c77ef729d39284ce8d3431178421dff5ef2d62ecc23ad5de"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-church-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "木椅、祭壇與明亮窗景",
+      "caption": "木椅、祭壇與明亮窗景",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-church-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "5fe5c97e75464c74e79ce430589ccafa77c61f71ca3576b3874d66c410cfc016",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 6330324,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-church-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 55902,
+          "sha256": "7f557aec0e861bf0de7b15ccb12fda068e900ee537ec91d76275f5d395bcfb6c"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-church-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 92406,
+          "sha256": "7c09fd4f715c850cf7aed287198d5c1013ac62aad89c983f17fbd36dcf2c41c6"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-church-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 145112,
+          "sha256": "dc30b730fbd337e1e01661b2d148a5c39ca5ea3e38b2489fe47826f089194372"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-seed-vault-1",
+      "width": 1440,
+      "height": 960,
+      "alt": "種子庫外的家庭合照",
+      "caption": "種子庫外的家庭合照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-seed-vault-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "2fbf28d33a67bfaaad3226c8ec7cac8a204874055e1203faafd50977f40fcfac",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-seed-vault-1-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 93592,
+          "sha256": "4826249e1ccfbd0f5542eb77657a3fc0c291a61e81e72ca22ca2217d04215b79"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-seed-vault-1-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 200164,
+          "sha256": "8f99fc04da9fdebba3ea060f6ceb4993b087dd6cf255dd6d61c9acb503e6ea7b"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-seed-vault-1-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 354138,
+          "sha256": "47245b30cd401f91cd770e1cc29dfb6c6061cc2ab73ad70b5a4044627a5a6eb0"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-svalbard-seed-vault-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 93592,
+            "sha256": "4826249e1ccfbd0f5542eb77657a3fc0c291a61e81e72ca22ca2217d04215b79"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-seed-vault-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 200164,
+            "sha256": "8f99fc04da9fdebba3ea060f6ceb4993b087dd6cf255dd6d61c9acb503e6ea7b"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-seed-vault-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 354138,
+            "sha256": "47245b30cd401f91cd770e1cc29dfb6c6061cc2ab73ad70b5a4044627a5a6eb0"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "svalbard-seed-vault-2",
+      "width": 1440,
+      "height": 960,
+      "alt": "外牆上的 Svalbard Global Seed Vault 刻字",
+      "caption": "外牆上的 Svalbard Global Seed Vault 刻字",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-seed-vault-2"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "61a35699049ab8a67522ba1d4938cfb50b3a34adaacd6378b41494803d2ad34b",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-seed-vault-2-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 69154,
+          "sha256": "578818424e5ea4b384c30c7ee08b078aaa69bc18b436d3e64e5b91a849d0e410"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-seed-vault-2-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 142666,
+          "sha256": "2d24222cbcecc37314b82469a1b8a4429adddb11a6efb3cc1dbb366c7b846612"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-seed-vault-2-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 309344,
+          "sha256": "ad4536249f6373951512ac5d74cd59e941884700ad39765ffcffdaeb90a871ea"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-seed-vault-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "種子庫外的金屬入口與欄杆",
+      "caption": "種子庫外的金屬入口與欄杆",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-seed-vault-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "5fe5c97e75464c74e79ce430589ccafa77c61f71ca3576b3874d66c410cfc016",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 11310299,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-seed-vault-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 80868,
+          "sha256": "36bdda4385aa743554878bfbd03e4dc53e2431078614ef71273b2f39470b8b7a"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-seed-vault-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 164234,
+          "sha256": "39b9d92947491e52c3020cc32de8d025cf5ec82edd7103ed93effcc3f88445b9"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-seed-vault-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 323152,
+          "sha256": "4e8e21c89cd979d509747a5882222e389c123cb40b0bdc8ee32cce45cdf15263"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-glacier-cruise-1",
+      "width": 2560,
+      "height": 1440,
+      "alt": "從船上近看藍色冰川",
+      "caption": "從船上近看藍色冰川",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-glacier-cruise-1"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "5fe5c97e75464c74e79ce430589ccafa77c61f71ca3576b3874d66c410cfc016",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 32430398,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-glacier-cruise-1-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32220,
+          "sha256": "2be2b14af6adb2028a25b0f93f3a01af94adfaef26d22bbec1a01ce03c017b4b"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-glacier-cruise-1-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 56846,
+          "sha256": "10b1a2fba335942a14ba1aab05620e7243e305808253fc80bc36cd3f48875c89"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-glacier-cruise-1-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 96772,
+          "sha256": "f16d1e3907bf23453ace2a175e0e2ed90f5610e44ebce581a6fc9426a07621f5"
+        }
+      ],
+      "cardPhoto": {
+        "width": 2160,
+        "height": 1440,
+        "activePicture": {
+          "x": 200,
+          "y": 0,
+          "width": 2160,
+          "height": 1440
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-svalbard-glacier-cruise-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 34654,
+            "sha256": "bab4e36ae7c71b7043c0707707309379b126e5e814757d3f728485d799f44cd5"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-glacier-cruise-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 60442,
+            "sha256": "545e0421d8fa2a27cf01c24ccb255a3c0c15c98282aa9a1f7aad73595a6f6c86"
+          },
+          {
+            "url": "/trip/assets/eu-svalbard-glacier-cruise-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 99700,
+            "sha256": "dc106f4332c4f316b629eab75470ceff22846e6eefb3bd632fa4304cfc9802ff"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "svalbard-glacier-cruise-2",
+      "width": 1440,
+      "height": 961,
+      "alt": "一家人在船甲板上合照",
+      "caption": "一家人在船甲板上合照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-glacier-cruise-2"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "a52308bfb503798036840f22bd4bdbe44c893ab973d6adcf2dd787e7acf8d7da",
+        "sourceWidth": 1440,
+        "sourceHeight": 961,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 961
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-glacier-cruise-2-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 66476,
+          "sha256": "f8a31db0c1ada955ab4df8f384a28eb9c986bc63b0a8a68ca9ed2da65c6902b7"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-glacier-cruise-2-body-960.webp",
+          "width": 960,
+          "height": 641,
+          "bytes": 123660,
+          "sha256": "9a94e1a7b671ecec09148affb27f42686ebf05069e5febae44a878ba42bea289"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-glacier-cruise-2-body-1440.webp",
+          "width": 1440,
+          "height": 961,
+          "bytes": 230028,
+          "sha256": "0d0ffe8c29dce41a5ae12a6125407ee3eed5891b118d5570374f7513eaf93575"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-glacier-cruise-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "冰川附近散落的浮冰",
+      "caption": "冰川附近散落的浮冰",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-glacier-cruise-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "5fe5c97e75464c74e79ce430589ccafa77c61f71ca3576b3874d66c410cfc016",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 33330297,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-glacier-cruise-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 33660,
+          "sha256": "8779048ce26635ad34a55f5c99ea41e9a866dad62783e255f148ee61fc75fd41"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-glacier-cruise-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 63040,
+          "sha256": "03533494854d004024c14c303cb57846b986e240b5fd47f0d086ab6b0b3a1d09"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-glacier-cruise-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 115320,
+          "sha256": "5dcb32290e99e8e6f08e8659e4cd703b37c19d060e76c2834d0ce59a19e8178e"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-polaria-1",
+      "width": 2560,
+      "height": 1440,
+      "alt": "參觀 Polaria 後，在館舍外分享感受",
+      "caption": "參觀 Polaria 後，在館舍外分享感受",
+      "focalPoint": [
+        66,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-polaria-1"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 6330324,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-polaria-1-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 52030,
+          "sha256": "200a95e9d7d7fed79d47d044472cc8ff986b7f80b8f40a5374c04859ed98b06c"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polaria-1-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 90972,
+          "sha256": "f251d2a1f8d9486a7d65f416e5636b42bc25f549b8331f8340926a920884bb9d"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polaria-1-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 158616,
+          "sha256": "2dafebf9e12f2eebc6f00414a84b28d9c05ed04e713c04da569e3705d7a6def0"
+        }
+      ],
+      "cardPhoto": {
+        "width": 2160,
+        "height": 1440,
+        "activePicture": {
+          "x": 400,
+          "y": 0,
+          "width": 2160,
+          "height": 1440
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-tromso-polaria-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 56446,
+            "sha256": "acb9a015215f04788019a197a6d92eaeee93329587353695e50d46a2f2999a00"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-polaria-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 98674,
+            "sha256": "e0fbeaa3b0e5b0d3f01da0410fb0856ac912b57c0be4971569166222fb54c6d7"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-polaria-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 166022,
+            "sha256": "2bd2211b2741be391c69667658cf21d69587d216e73cede0680cfd7fdfccf052"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "tromso-polaria-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "孩子在館內探索展區",
+      "caption": "孩子在館內探索展區",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-polaria-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 4740736,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-polaria-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 49668,
+          "sha256": "1df9e82d475ac96427d4d99f649c9ba204f94df9d02f748b74d01fcc38d61ef3"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polaria-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 86430,
+          "sha256": "5b175fa4911e962fc51e939e145ce9ba21928a67ff81bfdf2d8d1d5da5fddc24"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polaria-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 142298,
+          "sha256": "70d5e74ca61358c0373f5ea6f29e3d056ba4952b5e7e8d71fda01e7407ef0187"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-polaria-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "透過水下玻璃看海豹游過",
+      "caption": "透過水下玻璃看海豹游過",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-polaria-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 5070065,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-polaria-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 26646,
+          "sha256": "b088a0ec00cb3ce1689f2d50cdac7a4127c1d6402df102d6d518a979a0e64fff"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polaria-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 46246,
+          "sha256": "0c6eee5cab3d0a0acb1cf401d349f7622fd1da8c92682c07a70f3ea21cd9c98a"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polaria-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 77728,
+          "sha256": "ca4b0ac621868f4ea273b6dd087ddff19109d94d5e5835b1839fb5609d4f3693"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-reindeer-sami-1",
+      "width": 1440,
+      "height": 964,
+      "alt": "一家人與 Sámi 主人在帳篷前合照",
+      "caption": "一家人與 Sámi 主人在帳篷前合照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-reindeer-sami-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "311df0a00bcb9a33886f276242f9dcfe75a7b21bf997505df207f7a8103c118f",
+        "sourceWidth": 1440,
+        "sourceHeight": 964,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 964
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-sami-1-body-640.webp",
+          "width": 640,
+          "height": 428,
+          "bytes": 111658,
+          "sha256": "8a61a2aae5ab772454eb2f687c4bac05c95526d27d2c396b9c2265eb79b98dad"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-sami-1-body-960.webp",
+          "width": 960,
+          "height": 643,
+          "bytes": 202198,
+          "sha256": "833c739e25fd57ce31a6f451ab330d0a98bf8a0d5f4fae5cd6184928b8e6e32d"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-sami-1-body-1440.webp",
+          "width": 1440,
+          "height": 964,
+          "bytes": 375952,
+          "sha256": "187fc35b9bbd0ce9f1c1d9172de129ccf88f99665b08acd7a611803b6c70163e"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 2,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-tromso-reindeer-sami-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 112070,
+            "sha256": "d34c3af7e11a5ff9c39a9470a400593a708dffdcd1a957004d7f78d52f83d318"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-reindeer-sami-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 200620,
+            "sha256": "5d9f5b3c1b603fde141d3d65ac50295ed5b83439c583363de94960c4c863f46e"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-reindeer-sami-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 373762,
+            "sha256": "ba1e65fe77068482500787d8a7dd72c3086ced434ac73378cd16354c700dec56"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "tromso-reindeer-sami-2",
+      "width": 1440,
+      "height": 960,
+      "alt": "孩子提著飼料桶靠近馴鹿",
+      "caption": "孩子提著飼料桶靠近馴鹿",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-reindeer-sami-2"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "d701ca6d59c29856ad179f2a676ab5b501fe3c96a5328fb0ff457002057bc3aa",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-sami-2-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 99878,
+          "sha256": "763e3dab30850575316ca66b7da6d1ffab3a21f2f3f9456e5e3e73eba82a76f1"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-sami-2-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 198008,
+          "sha256": "ee4b87ea24d36841003a474c5a5e30535c6881673a5aebb1b1c14436d11acc48"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-sami-2-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 378808,
+          "sha256": "2874e916a9ee0d64b910ccd23416050f099becdd544cb963a63528af768ecede"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-reindeer-sami-3",
+      "width": 1440,
+      "height": 960,
+      "alt": "草地上的白色馴鹿近照",
+      "caption": "草地上的白色馴鹿近照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-reindeer-sami-3"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "468e6ff80bf0033f120387763fd6845da29a84b320541376ba4f4f04617a8e5e",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-sami-3-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 76496,
+          "sha256": "0624816ba9752f93e47b58d3b9a9c10dc59fdb194713c330c19749daf9550557"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-sami-3-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 136390,
+          "sha256": "3a9839bf39822121b0cad181d28830b1e92aab92bf6af16f8764006b9a0a3db9"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-sami-3-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 237584,
+          "sha256": "7e95b910cea97598948a71b2f9da4c087aebc7009ccfe2a8723d0349bbff8026"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-fjellheisen-1",
+      "width": 1440,
+      "height": 960,
+      "alt": "山頂觀景台上的家庭合照",
+      "caption": "山頂觀景台上的家庭合照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-fjellheisen-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "0b6d23089e1c89a897de76a140eb8748b4330c6f03ba66e81a413c2d699f7be6",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-1-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 108886,
+          "sha256": "9cd0bcc5fcbeef42ce74a91acf26e4356abfef0d7c4e04151775f8b400f7bc19"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-1-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 190414,
+          "sha256": "f2095d95ceb7a9ab0a2f6d9a5be60b8efda3a94d49c1133d24e5a26ced56493a"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-1-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 351184,
+          "sha256": "f6d73e600729089df5bf924d1c33beecb7a33b6ab78d44a25e0fea973ef21eb4"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-tromso-fjellheisen-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 108886,
+            "sha256": "9cd0bcc5fcbeef42ce74a91acf26e4356abfef0d7c4e04151775f8b400f7bc19"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-fjellheisen-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 190414,
+            "sha256": "f2095d95ceb7a9ab0a2f6d9a5be60b8efda3a94d49c1133d24e5a26ced56493a"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-fjellheisen-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 351184,
+            "sha256": "f6d73e600729089df5bf924d1c33beecb7a33b6ab78d44a25e0fea973ef21eb4"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "tromso-fjellheisen-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "下山後，孩子站在 Fjellheisen 站舍前",
+      "caption": "下山後，孩子站在 Fjellheisen 站舍前",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-fjellheisen-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 36930894,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 73730,
+          "sha256": "a72306f6bedf2887ee1e54e1f53145aa56a640a72bc8c4ed5c52dd287cc66c13"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 134718,
+          "sha256": "a34646c9790b2e8a959c11e29b461001639cd8474ca178d7ed90487481ddeeb3"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 233646,
+          "sha256": "7ad991c8344a8d2a01567d8fd9e9b49c45dd8043333bbe3b484eb5804e04cc56"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-fjellheisen-3",
+      "width": 1440,
+      "height": 960,
+      "alt": "孩子躺在山上的雪地玩耍",
+      "caption": "孩子躺在山上的雪地玩耍",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-fjellheisen-3"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "ed99cc1c53a894029a2eb159c9bd2821ea0ca2f58e535bfc87eb3f4949910518",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-3-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 58354,
+          "sha256": "62c2b99e33103eec33fa0a957430c423308e8b18f8991de3508afddd44ae9e41"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-3-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 111008,
+          "sha256": "d8c26426a26e83417075c0fac4c686a94acf0a1c343d410967c9359ad8708b96"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-3-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 230796,
+          "sha256": "58844569b48622c9ad09529a1a20dc6347d0c13d10ff7234229a35643a8f41a7"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-polarmuseet-1",
+      "width": 2560,
+      "height": 1440,
+      "alt": "爸爸在極地博物館的船舵展示前",
+      "caption": "爸爸在極地博物館的船舵展示前",
+      "focalPoint": [
+        60,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-polarmuseet-1"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 43230187,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-polarmuseet-1-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 72504,
+          "sha256": "32a6d1a85c029b26d817f270e945180de68c4723133c77163c5f63fb64aecac1"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polarmuseet-1-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 129316,
+          "sha256": "d61cbf75595c07630f7bec8e173bd1a918105fcf998b4d802e0d8a2459ed6601"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polarmuseet-1-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 229452,
+          "sha256": "58b1cd89193493b40e9e6c3147c72583f7a537a3241ce0c29d7e9739a3efafe6"
+        }
+      ],
+      "cardPhoto": {
+        "width": 2160,
+        "height": 1440,
+        "activePicture": {
+          "x": 400,
+          "y": 0,
+          "width": 2160,
+          "height": 1440
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-tromso-polarmuseet-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 79086,
+            "sha256": "50c8f838a1e6aed0fff74396db76a604b7cc7015e4f995693ad9daf0430e1d87"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-polarmuseet-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 138086,
+            "sha256": "41358966425fb628f5a951dee56eec9fbae8d60855aecca777601ce20b2c92d6"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-polarmuseet-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 240542,
+            "sha256": "3b246116c53483b495a3013bfe1b50c17a86f05ad77cd218d5947ea558d19d32"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "tromso-polarmuseet-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "館內極地生活與狩獵情境展示",
+      "caption": "館內極地生活與狩獵情境展示",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-polarmuseet-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 40440400,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-polarmuseet-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 89028,
+          "sha256": "87a91ac76d81c26d745600ce226df5f8a680c9087191406643150d3a44b65f25"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polarmuseet-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 167330,
+          "sha256": "07223fb618f3604541e84fa63d1c88cea8b392977b43ba00be666de1d17ca856"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polarmuseet-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 303084,
+          "sha256": "4ce3dee3b6243e5552ed1f02def6d3fdeb63a716878ead3f4e471c52bd191a30"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-polarmuseet-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "當次參觀拿到的 The Polar Museum 導覽單",
+      "caption": "當次參觀拿到的 The Polar Museum 導覽單",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-polarmuseet-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 40320280,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-polarmuseet-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 33876,
+          "sha256": "200cfbb48150a5b2871c05fe4e8e58a0c2b9246a42602ccf8e83ce5c05aa7530"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polarmuseet-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 59012,
+          "sha256": "8c8b15ed112e3b9ebd3585608d8ae5745732483378ae791ee7d7e972a36ddde3"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-polarmuseet-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 98084,
+          "sha256": "0ab27358ad8a4f777edeaf6b1893246d11837da569d4411803914de060a607d3"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-town-1",
+      "width": 1440,
+      "height": 960,
+      "alt": "孩子站在港邊彩色屋舍旁",
+      "caption": "孩子站在港邊彩色屋舍旁",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-town-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "f8d62adb1a1470895a48bf2c59907858126c7d92d74b236a2eeeeaca29cbd0ab",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-town-1-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 67726,
+          "sha256": "0f0d48870eaf64ce9fbf9a756bb79f0578021ca0da7c5872382058d5d0704444"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-town-1-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 132528,
+          "sha256": "232592ec9425584b00f26299899d0cdf4a5fab5c93d6f9b85437e8530c59de83"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-town-1-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 286252,
+          "sha256": "6de3b93e45e573a9b85d3d7caaea454fa07e54d1f98462e3342bb1e6dc7db4e2"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-tromso-town-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 67726,
+            "sha256": "0f0d48870eaf64ce9fbf9a756bb79f0578021ca0da7c5872382058d5d0704444"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-town-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 132528,
+            "sha256": "232592ec9425584b00f26299899d0cdf4a5fab5c93d6f9b85437e8530c59de83"
+          },
+          {
+            "url": "/trip/assets/eu-tromso-town-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 286252,
+            "sha256": "6de3b93e45e573a9b85d3d7caaea454fa07e54d1f98462e3342bb1e6dc7db4e2"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "tromso-town-2",
+      "width": 2560,
+      "height": 1440,
+      "alt": "沿著市區街道慢慢散步",
+      "caption": "沿著市區街道慢慢散步",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-town-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 28830802,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-town-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 109086,
+          "sha256": "45b983b79fe62a9a32a29a7ca1705d6fc57cbfe589e0c3a925fc3164a971a605"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-town-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 185424,
+          "sha256": "2b70c908250816b410d6416aa81322c9459a7e62f4e00b98f55843a027c33b63"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-town-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 362952,
+          "sha256": "ecc057fc616818449fbe3143f1cb8f815f68a6f64a0e6be59706ba1a672265b0"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-town-3",
+      "width": 2560,
+      "height": 1440,
+      "alt": "一家人逛市區商店",
+      "caption": "一家人逛市區商店",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-town-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 47730683,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-town-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 84360,
+          "sha256": "e5301ea735cf58c0525821388404b45324118ec647ba4169bf6bc78db518fd1c"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-town-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 151004,
+          "sha256": "e90876b7f39f689e324bd12cec5fd2581c3328d79b2a426488f737b55939a1a8"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-town-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 255318,
+          "sha256": "66dd90797a47b54f224fa712e3a5d9c4b305f45ace72206837a5186b5baa1382"
+        }
+      ]
+    },
+    {
+      "assetId": "amsterdam-artis-1",
+      "width": 1440,
+      "height": 963,
+      "alt": "爸爸和孩子在動物園的木造遊具區",
+      "caption": "爸爸和孩子在動物園的木造遊具區",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-amsterdam-artis-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "b0447c65bdfb3d11ea989aa6346556434018c96ab281cc96e48541f66d3a5bee",
+        "sourceWidth": 1440,
+        "sourceHeight": 963,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 963
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-1-body-640.webp",
+          "width": 640,
+          "height": 428,
+          "bytes": 118208,
+          "sha256": "cd553d124817bbdc94e87a26551396df24108b32f7fce8862ac95805c7df4b22"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-1-body-960.webp",
+          "width": 960,
+          "height": 642,
+          "bytes": 217490,
+          "sha256": "3578c4f705997d284979b3e3d50f48f4e96044ef48200d8bb1b89b1ed6333a2a"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-1-body-1440.webp",
+          "width": 1440,
+          "height": 963,
+          "bytes": 392908,
+          "sha256": "473b7e9e95a8e7d303caf0f04b56c03b7dbfe483722ec83db962d91f95ad0b61"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 2,
+          "width": 1440,
+          "height": 960
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-amsterdam-artis-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 118264,
+            "sha256": "3025a58db3ed9f471faf469553e34881d124b8e0116e4f34c09e826e306ef141"
+          },
+          {
+            "url": "/trip/assets/eu-amsterdam-artis-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 214650,
+            "sha256": "8242284d185d4689a3c8cc980a6f605f315a565288230e4afda46aedeafb1cfd"
+          },
+          {
+            "url": "/trip/assets/eu-amsterdam-artis-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 392038,
+            "sha256": "01dab6973509d599d24d258cd1563a1eb0af2d5e0c41b085b839ae32eb694b0b"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "amsterdam-artis-2",
+      "width": 1440,
+      "height": 962,
+      "alt": "孩子探索館內的攀爬石",
+      "caption": "孩子探索館內的攀爬石",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-amsterdam-artis-2"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "4ac7181faab2073d761da74558da9d761aea1e6f8ffe607255e65a42ad728ad2",
+        "sourceWidth": 1440,
+        "sourceHeight": 962,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 962
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-2-body-640.webp",
+          "width": 640,
+          "height": 428,
+          "bytes": 76186,
+          "sha256": "ce2267ed625a8db30b10f988d9085777e99285d7829d255f89905dbd3f1ffc0c"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-2-body-960.webp",
+          "width": 960,
+          "height": 641,
+          "bytes": 168186,
+          "sha256": "c6168de116c284ef956ff9e2047840c01baf1e3f8df6e438cd01a6cafb5cc7f4"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-2-body-1440.webp",
+          "width": 1440,
+          "height": 962,
+          "bytes": 401550,
+          "sha256": "deacc29b6e1f9b6f66e5876e593f0d774103efbb69b477ddc4ddfc06cee9d020"
+        }
+      ]
+    },
+    {
+      "assetId": "amsterdam-artis-3",
+      "width": 1080,
+      "height": 1920,
+      "alt": "動物園裡活躍的大猩猩",
+      "caption": "動物園裡活躍的大猩猩",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-amsterdam-artis-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "cbb877c2da3224b3185d0c0dbb0576ac425ca23243174497112e274b94e8d090",
+        "sourceWidth": 1080,
+        "sourceHeight": 1920,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "pts": 56000,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-3-body-640.webp",
+          "width": 640,
+          "height": 1138,
+          "bytes": 114468,
+          "sha256": "cba49a6aff204c9e2e5f4e9f8b386bd274129ab841ef3963330f016044042ff1"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-3-body-960.webp",
+          "width": 960,
+          "height": 1707,
+          "bytes": 219274,
+          "sha256": "08237e582f3a5120930e5009e0edee1485e67514c89cb02f99f8397b0a2071a9"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-3-body-1080.webp",
+          "width": 1080,
+          "height": 1920,
+          "bytes": 357824,
+          "sha256": "51eee7456b3b2966ee9bfe590ab2990e5670e50f28109668736b0743b148ece6"
+        }
+      ]
+    },
+    {
+      "assetId": "giethoorn-boat-1",
+      "width": 1920,
+      "height": 1080,
+      "alt": "沿著水道駛入羊角村",
+      "caption": "沿著水道駛入羊角村",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-giethoorn-boat-1"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 595028,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-giethoorn-boat-1-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 94786,
+          "sha256": "974071dfadc57fd42d51ec75fdf588b139968fc8728150faf75766c45aa6eab6"
+        },
+        {
+          "url": "/trip/assets/eu-giethoorn-boat-1-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 170940,
+          "sha256": "813ba1d1e032a415a43061b2a2095d003b327057daa5e99d3274a845d8a5a045"
+        },
+        {
+          "url": "/trip/assets/eu-giethoorn-boat-1-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 290690,
+          "sha256": "3d4541c0356a2cde0ac8d0da57cdf5d496a6dffedf01df7f0733835f3459fb9b"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1620,
+        "height": 1080,
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-giethoorn-boat-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 104088,
+            "sha256": "44599b4155652a7b1bc1dca61b3e458b4151594a8043ae3bdf2e1fd40ee5a267"
+          },
+          {
+            "url": "/trip/assets/eu-giethoorn-boat-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 181724,
+            "sha256": "ed765c8a89d76ebb516f88c048d4086aeb955f2bff48acb99aa0dbfe43645d7f"
+          },
+          {
+            "url": "/trip/assets/eu-giethoorn-boat-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 304888,
+            "sha256": "018eda7fc9eb5b4f4cbd28c96fde3e539df76566202130b582baa7a714f1f2fb"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "giethoorn-boat-2",
+      "width": 1920,
+      "height": 1080,
+      "alt": "爸爸和孩子一起享受開船時光",
+      "caption": "爸爸和孩子一起享受開船時光",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-giethoorn-boat-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 590022,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-giethoorn-boat-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 46716,
+          "sha256": "bda79ab8684c9897e13409f147f110ed4f9496c3659a094f60758e34c9a2c28a"
+        },
+        {
+          "url": "/trip/assets/eu-giethoorn-boat-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 74576,
+          "sha256": "cc36d8acd751fa6ac2ed4deb217c4777d2cb7da67ab7f2e6365d5f149d8bf50c"
+        },
+        {
+          "url": "/trip/assets/eu-giethoorn-boat-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 120640,
+          "sha256": "d76511ef0725eda54a7830443ed83ed3984ee34bcc4a90c797e0dd7b34e55856"
+        }
+      ]
+    },
+    {
+      "assetId": "giethoorn-boat-3",
+      "width": 1920,
+      "height": 1080,
+      "alt": "小船從木橋下穿過",
+      "caption": "小船從木橋下穿過",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-giethoorn-boat-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 625025,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-giethoorn-boat-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 83134,
+          "sha256": "54f3316b9a5bbd90ae2390bb4db6e5675680cdd4dbb38131885360c1d1640e56"
+        },
+        {
+          "url": "/trip/assets/eu-giethoorn-boat-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 144308,
+          "sha256": "9c4f99ea5c3d5f05a4829dbb73bf61e84a5a9287d58585619286d0ef7a25caa3"
+        },
+        {
+          "url": "/trip/assets/eu-giethoorn-boat-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 235584,
+          "sha256": "699ea2e9274169fe379651f156f2d941b7cd743f02e392ae2df1f6a95939c853"
+        }
+      ]
+    },
+    {
+      "assetId": "hans-grietje-1",
+      "width": 1920,
+      "height": 1080,
+      "alt": "在童話屋造型的餐廳前休息",
+      "caption": "在童話屋造型的餐廳前休息",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-hans-grietje-1"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 1021021,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-hans-grietje-1-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 90686,
+          "sha256": "1f4ba6128244af4e982a110511f6474450074610a17ef2e9934ca9e3ec713041"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-1-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 164208,
+          "sha256": "ae10cb5bda505cde33d33296b4a6dc9fe473062491bdf0ddf89fa52fd3d75575"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-1-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 280320,
+          "sha256": "5890f1f33ab32c85164e4b854106732a4f9e7df5db2c238962b8a9565f9a7783"
+        }
+      ],
+      "cardPhoto": {
+        "width": 1620,
+        "height": 1080,
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-hans-grietje-1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 101006,
+            "sha256": "2aa95031614ffa391a4b1985bc5b7603471f808c72045b8743ccd2b7b697d982"
+          },
+          {
+            "url": "/trip/assets/eu-hans-grietje-1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 177656,
+            "sha256": "b1511d4defa369ffa9fe010bda7a14d1f69019d122d429dcea87613e151218a2"
+          },
+          {
+            "url": "/trip/assets/eu-hans-grietje-1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 296804,
+            "sha256": "879eba928ebceb845fe64b4ae57a0e115f3fccac49fa47ce60737cf8812c4f70"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "hans-grietje-2",
+      "width": 1920,
+      "height": 1080,
+      "alt": "孩子在戶外滑索遊具上玩耍",
+      "caption": "孩子在戶外滑索遊具上玩耍",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-hans-grietje-2"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 931031,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-hans-grietje-2-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 110786,
+          "sha256": "43bc5c4e5377a8811eb4ac47ac4619013c70ba7cc7a526acf6d44f8a75239d7d"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-2-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 216438,
+          "sha256": "5d9d7fa1c1c2c6663413ea9ba9a951d8ddb787fb72cc39e65c620adfabdc97b2"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-2-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 378092,
+          "sha256": "d5a3c6c0e8e87d479a615df4f5aaecebe29a07f336b7f724fbaab106a226056c"
+        }
+      ]
+    },
+    {
+      "assetId": "hans-grietje-3",
+      "width": 1920,
+      "height": 1080,
+      "alt": "剛送上桌的造型鬆餅",
+      "caption": "剛送上桌的造型鬆餅",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-hans-grietje-3"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 1078011,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-hans-grietje-3-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 81196,
+          "sha256": "943bb48155c35181b48c3c0668a83a26bf750cf6d6b3691654b4f77d70d085a8"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-3-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 147496,
+          "sha256": "cd216b2e4a02d1b2fd5909374f3f1f732cd8b8fc4649558246739aa49b1ff24a"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-3-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 258212,
+          "sha256": "253b30ec454c1d4f1b026b883fe7c6404c457025e21aaf192a05b5c60de24808"
+        }
+      ]
+    },
+    {
+      "assetId": "oslo-tacos",
+      "width": 2560,
+      "height": 1440,
+      "alt": "午餐時，孩子開心地吃 Tacos",
+      "caption": "午餐時，孩子開心地吃 Tacos",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-tacos"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 14730716,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-tacos-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 36830,
+          "sha256": "4f0001e98b33cf18e7f962292ed8e859e2b52a8fac03ea0f2ac551bf935b4b8c"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-tacos-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 60526,
+          "sha256": "af7f0de7363f6625b7255a88f4f88bc69ecb67b9583c192703d579bb8392488e"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-tacos-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 97118,
+          "sha256": "af702199e55c1f79dd158662dfdaf3efc573cecd2ff19b8463a2e7bba9f6b350"
+        }
+      ]
+    },
+    {
+      "assetId": "oslo-rail",
+      "width": 2560,
+      "height": 1440,
+      "alt": "從機場搭鐵路前的購票記錄",
+      "caption": "從機場搭鐵路前的購票記錄",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-rail"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 4530526,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-rail-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 72680,
+          "sha256": "72dd6aca95c36077dda4dcd3151e8605e28d41e8247fb1751364f54510d87e29"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-rail-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 131012,
+          "sha256": "46ce89d22285d3a717b8dc4626547f21ea47f23828a1abebcd03b05ec9b5ca93"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-rail-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 235248,
+          "sha256": "5f4b85ecbb903a039a065c21077624c2d1d9563fa8de9aa07dcf76e5620f50f4"
+        }
+      ]
+    },
+    {
+      "assetId": "oslo-ferry",
+      "width": 2560,
+      "height": 1440,
+      "alt": "坐船前往博物館半島",
+      "caption": "坐船前往博物館半島",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-ferry"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "a7245486c9807a09ae0987d483de1d03ccc4a2999428fe1df689e0cdb36d407e",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 22530508,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-ferry-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 52080,
+          "sha256": "6fc5e391ff2c6553660557b35fb8d6cc118685df815a37cf0556aef3d6880e06"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-ferry-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 90122,
+          "sha256": "13764932b2ee73871b172f3b98c8ce823cf0c6d6dc2beebe7cf06804ce18444e"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-ferry-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 148732,
+          "sha256": "d80b71f9012667bc6619f6f1ca59a63d5bc88ee74c356e6aaa77f9159c05d043"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-hotel-room",
+      "width": 2560,
+      "height": 1440,
+      "alt": "住宿房間裡，媽媽幫孩子整理衣服",
+      "caption": "住宿房間裡，媽媽幫孩子整理衣服",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-hotel-room"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "1fa428fd424b880845e6912d3ae3147cd3ae24cfa011469540d3fa76d48e09ac",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 17130113,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-hotel-room-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 43834,
+          "sha256": "a9ffaaabce8bffd9deb282f9edf6682f81cc90cccdfb0967699e69d0df870f8e"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-hotel-room-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 74564,
+          "sha256": "e2c5c4442ecaf6b223423f5f715bcd08096f9090220509657eb3d41e57196b67"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-hotel-room-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 129554,
+          "sha256": "595000a94e9c9566dc3cb17a6786cca1a6a8ecec0d53ee4a94315527b2e5840c"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-hotel-exterior",
+      "width": 1440,
+      "height": 962,
+      "alt": "孩子站在旅宿館舍外",
+      "caption": "孩子站在旅宿館舍外",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-hotel-exterior"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "9f63544ba350a43e1175d221a7ba0fda29d10c27641de5f6b8c9a1a6b3175437",
+        "sourceWidth": 1440,
+        "sourceHeight": 962,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 962
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-hotel-exterior-body-640.webp",
+          "width": 640,
+          "height": 428,
+          "bytes": 62514,
+          "sha256": "ae43c9bf37e35439a8fe7d7d81d5efe4dc4cd2b726ef0e25207baff5a1267dc2"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-hotel-exterior-body-960.webp",
+          "width": 960,
+          "height": 641,
+          "bytes": 119098,
+          "sha256": "ede7876be0f5a3b60ec43efb5bad308d93d6b0edde70a6a09d688945ec03f0ff"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-hotel-exterior-body-1440.webp",
+          "width": 1440,
+          "height": 962,
+          "bytes": 227002,
+          "sha256": "8e491b752d6664899308d48b66044287c1ca457c0925898faad4fabcb3cdf886"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-warm-hut",
+      "width": 1440,
+      "height": 960,
+      "alt": "狗車活動後，在小屋喝熱飲、吃餅乾",
+      "caption": "狗車活動後，在小屋喝熱飲、吃餅乾",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-warm-hut"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "79d907aec9918c3e94543a3b7683a473ae0f5f8643ac2f74d9330988c841a818",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-warm-hut-body-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 70070,
+          "sha256": "241053086dcc3cd7e317eff9883927413d37dc163737c24724b15690a429b40e"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-warm-hut-body-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 171230,
+          "sha256": "14bb15bd270ebf3741c0d8e75fae5ec691a969697261d2a72b892e1159da76bb"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-warm-hut-body-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 326290,
+          "sha256": "f7cfa0abe28ef28f76b40a2cdf3e905ec73c1a795a8939bac8348d7afd4e2efd"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-dinner-menu",
+      "width": 2560,
+      "height": 1440,
+      "alt": "當次晚餐的菜單記錄",
+      "caption": "當次晚餐的菜單記錄",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-dinner-menu"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "264ccd26d6cb833362ae94440029845f94012ba89626b6613dc259ae5df2de5b",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 19830811,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-dinner-menu-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 29874,
+          "sha256": "05591230f39e7a879adb729f707a575bb7fbbedded3e684ec667c4a68b589ac7"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-dinner-menu-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 47154,
+          "sha256": "ae7555c1292c333289c5f271ca2746e341ca0dc3e10110677f9c96addd1b99e4"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-dinner-menu-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 77466,
+          "sha256": "cdf91809aa7b875d8a6605b72bc6614e0c3a61c14403bbd646d210af725790a8"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-steak",
+      "width": 2560,
+      "height": 1440,
+      "alt": "晚餐的肉排、配菜與醬汁",
+      "caption": "晚餐的肉排、配菜與醬汁",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-steak"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "264ccd26d6cb833362ae94440029845f94012ba89626b6613dc259ae5df2de5b",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 30630600,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-steak-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 52022,
+          "sha256": "7781f51be3d6bd13e9846a08a8f555056cab0633b2a30bfca92366b1c144ffeb"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-steak-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 92504,
+          "sha256": "9ff51a61e12cb1579ec55e5e3eafef7552765f21c5c05f67c41b914c4690ca98"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-steak-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 166580,
+          "sha256": "6ee80088f3c57d13df96ca4f2aeb73002cedba69f873ca3cc68b7c48d50176ea"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-pizza",
+      "width": 2560,
+      "height": 1440,
+      "alt": "導覽結束後吃披薩午餐",
+      "caption": "導覽結束後吃披薩午餐",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-pizza"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "5fe5c97e75464c74e79ce430589ccafa77c61f71ca3576b3874d66c410cfc016",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 17130113,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-pizza-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 62806,
+          "sha256": "376f6dd0a40ab17bb8882f50cfdef69d70b31a5cee1549e0355d3245533f6b93"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-pizza-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 113116,
+          "sha256": "12791f5c04469946ed1ab1eb0abcb8c1fc754ebdb59cfe446b6fb6aa6f1e19a8"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-pizza-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 196332,
+          "sha256": "e513ec3a73bed5cb3f6049ebcce3aa9c11c8b2097f0fc0faa6f7be4b14ae30e1"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-cruise-soup",
+      "width": 2560,
+      "height": 1440,
+      "alt": "船行途中暖身的一碗熱湯",
+      "caption": "船行途中暖身的一碗熱湯",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-cruise-soup"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "5fe5c97e75464c74e79ce430589ccafa77c61f71ca3576b3874d66c410cfc016",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 37830793,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-cruise-soup-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 37630,
+          "sha256": "d9928439bb53ed35fc5c0a42509d5052cb57f30931fbdb248028a6064ee2cf71"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-cruise-soup-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 65884,
+          "sha256": "cbffdcf4e58821e667fda91d93ba1f590ee0af3fcf5f31cbe962b64fedd76bab"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-cruise-soup-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 107078,
+          "sha256": "8861a762808f76d2c29725c894abea8bf18b36624de9f4868becdb5cbad28a48"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-airport-bus",
+      "width": 2560,
+      "height": 1440,
+      "alt": "從機場搭巴士前往長年鎮",
+      "caption": "從機場搭巴士前往長年鎮",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-airport-bus"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "1fa428fd424b880845e6912d3ae3147cd3ae24cfa011469540d3fa76d48e09ac",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 9030021,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-airport-bus-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 51648,
+          "sha256": "e3c8cfb8d8e3c9e30f3c2b92122a0dd7d6040db7316ccd938b3c69bad6ab1466"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-airport-bus-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 87358,
+          "sha256": "acdd8cda8bb74b5f94d41530d579ff08911ca4aaf27368a292225d6cfbf14f28"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-airport-bus-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 149330,
+          "sha256": "d76e29d7c688d2652e4b83be3d2286b964a9428f9405659cd08d73ce3edb90b3"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-airbnb-breakfast",
+      "width": 2560,
+      "height": 1440,
+      "alt": "住在 Airbnb 時自己準備早餐",
+      "caption": "住在 Airbnb 時自己準備早餐",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-airbnb-breakfast"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 1830829,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-airbnb-breakfast-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 45316,
+          "sha256": "2078963c29c8e56f1b8027bdfdec1917717aa4559cba6856bf1cc0cc7deaf802"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-airbnb-breakfast-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 84358,
+          "sha256": "17f5e4484883a420a46f30441478266a6ab6054406ead2d0f0e557ffab579be9"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-airbnb-breakfast-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 164548,
+          "sha256": "f3fc2046c6f16bd75ad9412337cbd93cc2a502deae260e56c890f094665918e7"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-reindeer-meal",
+      "width": 2560,
+      "height": 1440,
+      "alt": "馴鹿活動後品嚐熱燉食",
+      "caption": "馴鹿活動後品嚐熱燉食",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-reindeer-meal"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 20730710,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-meal-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 45702,
+          "sha256": "6d63ac30af9e79f4b3b6535fb56c3c675dd72342f14196fad05b5b4cabfacddf"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-meal-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 84538,
+          "sha256": "a27324ed1b313f7c845c0965358613343910b0eadeccec8093bb21137dd778e1"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-reindeer-meal-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 151646,
+          "sha256": "50e49d4b9e599ba79a21fe1c69c81908bcf8fa82c2b68ac6276e7b81d27dbfc4"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-first-dinner",
+      "width": 2560,
+      "height": 1440,
+      "alt": "首日晚餐，孩子品嚐桌上的餐點",
+      "caption": "首日晚餐，孩子品嚐桌上的餐點",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-first-dinner"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 26130104,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-first-dinner-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 44830,
+          "sha256": "7ef0ff64dbc36dc8c951612c49057bb1ca051533bdb7131e11e24c9de9774009"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-first-dinner-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 73690,
+          "sha256": "202e1b8aa61a79c12d1a6e01a175176081fad57b8906a126ba419e2bab003907"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-first-dinner-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 121588,
+          "sha256": "7fead320683e096ac7751b94d02bfe4d06ee474dc539800e94d3f02f82979ae1"
+        }
+      ]
+    },
+    {
+      "assetId": "tromso-second-lunch",
+      "width": 2560,
+      "height": 1440,
+      "alt": "逛完博物館後的午餐",
+      "caption": "逛完博物館後的午餐",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-second-lunch"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
+        "sourceWidth": 2560,
+        "sourceHeight": 1440,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 2560,
+          "height": 1440
+        },
+        "pts": 45030986,
+        "timebase": "1/30000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-second-lunch-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 57262,
+          "sha256": "590756219f62efa7a8b187378955722984b083cf0bab534534e7708a3febe8cb"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-second-lunch-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 93512,
+          "sha256": "e0773c7fdafa71c15f203492999cf1bc3cf48ddbce4ad3ab63171541fa133e14"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-second-lunch-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 153878,
+          "sha256": "4b610d70e7f9594bcd21db59ab36a83a7db8db119508b80ee3fdd60aab2cfdc5"
+        }
+      ]
+    },
+    {
+      "assetId": "amsterdam-car-rental",
+      "width": 1920,
+      "height": 1080,
+      "alt": "在機場取租車，準備親子自駕",
+      "caption": "在機場取租車，準備親子自駕",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-amsterdam-car-rental"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 31031,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-amsterdam-car-rental-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 49498,
+          "sha256": "ba07bfa13ba1b33aae7feb73f8d0cfe2f9137fac9a71baf237975f12f12f378e"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-car-rental-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 81726,
+          "sha256": "b558a02ca3353ebd16f7769bb8e13d8664ed3cacad7a222cdaddee31303164e2"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-car-rental-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 134670,
+          "sha256": "384d2f278a37fb265ea414ccc930f416dc3638d19b94620f4bba9c62626c7dc2"
+        }
+      ]
+    },
+    {
+      "assetId": "amsterdam-zoo-lunch",
+      "width": 1080,
+      "height": 1920,
+      "alt": "動物園午餐時吃漢堡",
+      "caption": "動物園午餐時吃漢堡",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-amsterdam-zoo-lunch"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "cbb877c2da3224b3185d0c0dbb0576ac425ca23243174497112e274b94e8d090",
+        "sourceWidth": 1080,
+        "sourceHeight": 1920,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1080,
+          "height": 1920
+        },
+        "pts": 41000,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-amsterdam-zoo-lunch-body-640.webp",
+          "width": 640,
+          "height": 1138,
+          "bytes": 112944,
+          "sha256": "051984f6e7ae16277f0b0b1118d282bf2ca92ba5b1aaeaaff08e434e209d349e"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-zoo-lunch-body-960.webp",
+          "width": 960,
+          "height": 1707,
+          "bytes": 197184,
+          "sha256": "b87145e11703d1f10b624ab0a1724badc160380400ed6303ac4030adb7634ed1"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-zoo-lunch-body-1080.webp",
+          "width": 1080,
+          "height": 1920,
+          "bytes": 229162,
+          "sha256": "be6d20e77676249167a6d61ee0ce0daf7970bd68999a79932cc8bffbbb77de69"
+        }
+      ]
+    },
+    {
+      "assetId": "hans-grietje-cake",
+      "width": 1920,
+      "height": 1080,
+      "alt": "鬆餅屋裡的蛋糕與午茶時光",
+      "caption": "鬆餅屋裡的蛋糕與午茶時光",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-hans-grietje-cake"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 1130029,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-hans-grietje-cake-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 58222,
+          "sha256": "d36f04c4c76f6e9994e5648ae8888bf5ec857c2b2228b3b4c34071b0a40fd412"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-cake-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 97510,
+          "sha256": "715e75657dabf1f4628872dfaafef1d62b854187c83b0d82d553d55819e9131d"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-cake-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 158252,
+          "sha256": "1485909e7d02d2a94f7ab6992a7bb1ed9a56ed78510ad10d44454d770b88e54c"
+        }
+      ]
+    },
+    {
+      "assetId": "europe-air-transfer",
+      "width": 1440,
+      "height": 959,
+      "alt": "法蘭克福機場轉機時的家庭合照",
+      "caption": "法蘭克福機場轉機時的家庭合照",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-europe-air-transfer"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "0dabc0e6a7666a190ce60b857a58ea876adc9e76654a1eed0c7edec1b827330b",
+        "sourceWidth": 1440,
+        "sourceHeight": 959,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 959
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-europe-air-transfer-body-640.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 63866,
+          "sha256": "bc92c8096b3d4705fbeb10edebc9ec08951d8cf29f16f285fc5ca8d523f6819a"
+        },
+        {
+          "url": "/trip/assets/eu-europe-air-transfer-body-960.webp",
+          "width": 960,
+          "height": 639,
+          "bytes": 132310,
+          "sha256": "d4df704e807ce2aa1aebec08d97a6df59c719b7ff4f3a375fe2965d12e207692"
+        },
+        {
+          "url": "/trip/assets/eu-europe-air-transfer-body-1440.webp",
+          "width": 1440,
+          "height": 959,
+          "bytes": 308120,
+          "sha256": "bfb6fdca3c0d73776d9cc3c13e42159dcbef7bba7d888c36b3f2ddc65804c4fa"
+        }
+      ]
+    }
+  ],
+  "selection": {
+    "galleries": [
+      {
+        "id": "oslo-natural-history",
+        "city": "oslo",
+        "title": "自然史博物館",
+        "itemIds": [
+          "oslo-natural-history"
+        ],
+        "assetIds": [
+          "oslo-natural-history-1",
+          "oslo-natural-history-2",
+          "oslo-natural-history-3"
+        ],
+        "cardAssetId": "oslo-natural-history-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "oslo-historical-museum",
+        "city": "oslo",
+        "title": "Historical Museum",
+        "itemIds": [
+          "oslo-historical-museum"
+        ],
+        "assetIds": [
+          "oslo-historical-museum-1",
+          "oslo-historical-museum-2",
+          "oslo-historical-museum-3"
+        ],
+        "cardAssetId": "oslo-historical-museum-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "oslo-fram",
+        "city": "oslo",
+        "title": "Fram Museum",
+        "itemIds": [
+          "oslo-polar-ship"
+        ],
+        "assetIds": [
+          "oslo-fram-1",
+          "oslo-fram-2",
+          "oslo-fram-3"
+        ],
+        "cardAssetId": "oslo-fram-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "svalbard-town",
+        "city": "svalbard",
+        "title": "長年鎮散步與遊具",
+        "itemIds": [
+          "svalbard-town-walk",
+          "svalbard-playground",
+          "svalbard-shopping-street"
+        ],
+        "assetIds": [
+          "svalbard-town-1",
+          "svalbard-town-2",
+          "svalbard-town-3"
+        ],
+        "cardAssetId": "svalbard-town-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "svalbard-dog-cart",
+        "city": "svalbard",
+        "title": "輪式狗車與犬舍",
+        "itemIds": [
+          "svalbard-dog-tour",
+          "svalbard-dog-family"
+        ],
+        "assetIds": [
+          "svalbard-dog-cart-1",
+          "svalbard-dog-cart-2",
+          "svalbard-dog-cart-3"
+        ],
+        "cardAssetId": "svalbard-dog-cart-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "svalbard-museum",
+        "city": "svalbard",
+        "title": "Svalbard Museum",
+        "itemIds": [
+          "svalbard-museum"
+        ],
+        "assetIds": [
+          "svalbard-museum-1",
+          "svalbard-museum-2",
+          "svalbard-museum-3"
+        ],
+        "cardAssetId": "svalbard-museum-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "svalbard-city-tour",
+        "city": "svalbard",
+        "title": "城鎮導覽與路過景色",
+        "itemIds": [
+          "svalbard-city-tour",
+          "svalbard-world-archive",
+          "svalbard-mining-passby"
+        ],
+        "assetIds": [
+          "svalbard-city-tour-1",
+          "svalbard-city-tour-2",
+          "svalbard-city-tour-3"
+        ],
+        "cardAssetId": "svalbard-city-tour-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "svalbard-church",
+        "city": "svalbard",
+        "title": "Svalbard Church",
+        "itemIds": [
+          "svalbard-church"
+        ],
+        "assetIds": [
+          "svalbard-church-1",
+          "svalbard-church-2",
+          "svalbard-church-3"
+        ],
+        "cardAssetId": "svalbard-church-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "svalbard-seed-vault",
+        "city": "svalbard",
+        "title": "全球種子庫外觀",
+        "itemIds": [
+          "svalbard-seed-vault"
+        ],
+        "assetIds": [
+          "svalbard-seed-vault-1",
+          "svalbard-seed-vault-2",
+          "svalbard-seed-vault-3"
+        ],
+        "cardAssetId": "svalbard-seed-vault-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "svalbard-glacier-cruise",
+        "city": "svalbard",
+        "title": "冰川船行",
+        "itemIds": [
+          "svalbard-cruise",
+          "svalbard-glacier",
+          "svalbard-ice"
+        ],
+        "assetIds": [
+          "svalbard-glacier-cruise-1",
+          "svalbard-glacier-cruise-2",
+          "svalbard-glacier-cruise-3"
+        ],
+        "cardAssetId": "svalbard-glacier-cruise-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "tromso-polaria",
+        "city": "tromso",
+        "title": "Polaria",
+        "itemIds": [
+          "tromso-aquarium"
+        ],
+        "assetIds": [
+          "tromso-polaria-1",
+          "tromso-polaria-2",
+          "tromso-polaria-3"
+        ],
+        "cardAssetId": "tromso-polaria-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "tromso-reindeer-sami",
+        "city": "tromso",
+        "title": "馴鹿與 Sámi 活動",
+        "itemIds": [
+          "tromso-reindeer"
+        ],
+        "assetIds": [
+          "tromso-reindeer-sami-1",
+          "tromso-reindeer-sami-2",
+          "tromso-reindeer-sami-3"
+        ],
+        "cardAssetId": "tromso-reindeer-sami-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "tromso-fjellheisen",
+        "city": "tromso",
+        "title": "Fjellheisen 觀景",
+        "itemIds": [
+          "tromso-cable-car",
+          "tromso-mountain"
+        ],
+        "assetIds": [
+          "tromso-fjellheisen-1",
+          "tromso-fjellheisen-2",
+          "tromso-fjellheisen-3"
+        ],
+        "cardAssetId": "tromso-fjellheisen-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "tromso-polarmuseet",
+        "city": "tromso",
+        "title": "Polarmuseet",
+        "itemIds": [
+          "tromso-polarmuseet"
+        ],
+        "assetIds": [
+          "tromso-polarmuseet-1",
+          "tromso-polarmuseet-2",
+          "tromso-polarmuseet-3"
+        ],
+        "cardAssetId": "tromso-polarmuseet-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "tromso-town",
+        "city": "tromso",
+        "title": "特羅姆瑟市區散步",
+        "itemIds": [
+          "tromso-shopping",
+          "tromso-two-days"
+        ],
+        "assetIds": [
+          "tromso-town-1",
+          "tromso-town-2",
+          "tromso-town-3"
+        ],
+        "cardAssetId": "tromso-town-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "amsterdam-artis",
+        "city": "amsterdam",
+        "title": "ARTIS",
+        "itemIds": [
+          "amsterdam-zoo"
+        ],
+        "assetIds": [
+          "amsterdam-artis-1",
+          "amsterdam-artis-2",
+          "amsterdam-artis-3"
+        ],
+        "cardAssetId": "amsterdam-artis-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "giethoorn-boat",
+        "city": "amsterdam",
+        "title": "羊角村船行",
+        "itemIds": [
+          "giethoorn-boat",
+          "giethoorn-island",
+          "giethoorn-navigation"
+        ],
+        "assetIds": [
+          "giethoorn-boat-1",
+          "giethoorn-boat-2",
+          "giethoorn-boat-3"
+        ],
+        "cardAssetId": "giethoorn-boat-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      },
+      {
+        "id": "hans-grietje",
+        "city": "amsterdam",
+        "title": "Hans & Grietje 親子鬆餅屋",
+        "itemIds": [
+          "amsterdam-pancake-routing",
+          "amsterdam-pancake-play",
+          "amsterdam-pancake-meal"
+        ],
+        "assetIds": [
+          "hans-grietje-1",
+          "hans-grietje-2",
+          "hans-grietje-3"
+        ],
+        "cardAssetId": "hans-grietje-1",
+        "layout": "one_main_two_complementary_native_aspects"
+      }
+    ],
+    "heroAssetByPage": {
+      "oslo": "oslo-fram-1",
+      "svalbard": "svalbard-town-1",
+      "tromso": "tromso-fjellheisen-1",
+      "amsterdam": "giethoorn-boat-1",
+      "norway": "svalbard-glacier-cruise-1",
+      "netherlands": "hans-grietje-1"
+    }
+  }
+}

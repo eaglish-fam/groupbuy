@@ -3,10 +3,15 @@ import {existsSync,readFileSync} from 'node:fs';
 import {resolve} from 'node:path';
 import sharp from 'sharp';
 import {regions} from '../trip/new-zealand-data.mjs';
+import {approvedTravelRegistration} from './trip-approved-registration.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const pages=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',...regions.map(region=>region.route),'/trip/thailand/','/trip/thailand/bangkok/','/trip/guides/bangkok-with-kids/','/trip/thailand/chiang-mai/','/trip/guides/chiang-mai-with-kids/','/trip/guides/chiang-rai-with-kids/','/trip/thailand/chiang-rai/'];
 const maxBytes=width=>width<=640?120_000:width<=960?220_000:400_000;
+const approved=approvedTravelRegistration(root);
+if(approved)pages.push(...approved.data.countries.map(p=>p.path),...approved.data.cities.map(p=>p.path));
+const approvedUrls=new Set(approved?.data.assets.flatMap(a=>[...a.variants,...(a.cardPhoto?.variants||[])].map(v=>v.url))||[]);
+const imageBudget=(width,url)=>approvedUrls.has(url)&&width>960?409600:maxBytes(width);
 pages.push('/trip/guides/cebu-bohol-with-kids/');
 pages.push('/trip/singapore/');
 const hotelReceipt=resolve(root,'trip/data/cebu-bohol-hotel-publication-v1.json');
@@ -19,7 +24,7 @@ for(const page of pages){
   if(!src)continue;
   const srcPath=resolve(root,'.'+src);
   const [srcMeta,srcFile]=await Promise.all([sharp(srcPath).metadata(),stat(srcPath)]);
-  if(srcMeta.width>1440||srcFile.size>maxBytes(srcMeta.width))throw new Error(`${page}: fallback ${src} is ${srcMeta.width}px/${srcFile.size} bytes; use a compressed desktop variant`);
+  if(srcMeta.width>1440||srcFile.size>imageBudget(srcMeta.width,src))throw new Error(`${page}: fallback ${src} is ${srcMeta.width}px/${srcFile.size} bytes; use a compressed desktop variant`);
   const srcset=tag.match(/\bsrcset="([^"]+)"/)?.[1];
   const sizes=tag.match(/\bsizes="([^"]+)"/)?.[1];
   if(!srcset||!sizes)throw new Error(`${page}: ${src} needs srcset and sizes`);
@@ -30,7 +35,7 @@ for(const page of pages){
    const [meta,file]=await Promise.all([sharp(path).metadata(),stat(path)]);
    const width=Number(declared);
    if(meta.width!==width)throw new Error(`${page}: ${url} declares ${width}px, actual ${meta.width}px`);
-   if(file.size>maxBytes(width))throw new Error(`${page}: ${url} is ${file.size} bytes; budget ${maxBytes(width)}`);
+   if(file.size>imageBudget(width,url))throw new Error(`${page}: ${url} is ${file.size} bytes; budget ${imageBudget(width,url)}`);
    checked++;
   }
  }

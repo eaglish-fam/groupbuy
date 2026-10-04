@@ -1,0 +1,25 @@
+/* New pages opt in. Existing SG/Thai styles and reader output are unchanged. */
+.approved-city-guide .city-attraction-gallery figure,.approved-city-guide .city-module-gallery figure{margin:0;min-width:0;background:none}
+.approved-city-guide .city-attraction-gallery img,.approved-city-guide .city-module-gallery img{display:block;width:100%;height:auto;aspect-ratio:var(--photo-ratio);background:none}
+.approved-city-guide .city-attraction-gallery figcaption,.approved-city-guide .city-module-gallery figcaption{position:static;margin:7px 0 0;padding:0;background:none;font-size:12px;line-height:1.7;color:#494139}
+.approved-city-guide .city-gallery-pair,.approved-city-guide .city-module-gallery{display:grid;grid-template-columns:var(--city-pair-columns);align-items:start;gap:12px;margin-top:16px}
+.approved-city-guide .city-approved-cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.approved-city-guide .city-approved-cards img{width:100%;height:auto;aspect-ratio:3/2;object-fit:cover;background:none}
+.approved-city-guide .city-approved-cards .bkk-overview-copy{display:flex;flex-direction:column;gap:6px}
+.approved-city-guide .prose section{scroll-margin-top:145px}
+@media(max-width:700px){.approved-city-guide .city-approved-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.approved-city-guide .city-gallery-pair{gap:8px}}
+.approved-planner [hidden]{display:none!important}
+.approved-planner form{padding:20px;background:#faf7f0;border:1px solid #dcd5c9}
+.approved-plan-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.approved-plan-fields label{display:flex;flex-direction:column;gap:7px;font-size:14px}
+.approved-planner select,.approved-planner input{max-width:100%;min-width:0;min-height:44px;border:1px solid #c4bba9;padding:9px;background:#fcfaf5;color:#494139;font:inherit}
+.approved-planner button{min-height:44px;border:1px solid #c4bba9;padding:9px 13px;background:#fcfaf5;color:#494139;font:inherit;cursor:pointer}
+.approved-planner button[aria-pressed=true]{background:#784b39;color:#fff}
+.approved-planner [data-plan-days]{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0}
+.approved-plan-note,.approved-planner [data-plan-summary]{font-size:14px;line-height:1.8}
+.approved-plan-warnings{padding:16px 16px 16px 32px;background:#f2eee5;border-left:3px solid #bb7658;font-size:14px;line-height:1.8}
+.approved-plan-timeline{list-style:none;margin:16px 0;padding:0}
+.approved-plan-timeline li{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;border-top:1px solid #dcd5c9;padding:16px 0}
+.approved-plan-timeline p{margin:0 0 8px}
+.approved-planner :focus-visible{outline:3px solid #784b39;outline-offset:3px}
+@media(max-width:700px){.approved-plan-fields{grid-template-columns:minmax(0,1fr)}.approved-plan-timeline li{grid-template-columns:minmax(0,1fr);gap:5px}}

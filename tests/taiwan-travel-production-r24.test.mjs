@@ -18,11 +18,20 @@ const json=p=>JSON.parse(read(p));
 const hash=b=>createHash('sha256').update(b).digest('hex');
 const config=json('trip/data/taiwan-atlas-r24.json'),{data,catalog}=config;
 const release=json('trip/data/taiwan-atlas-release-r24.json');
+const registrationPath=new URL('../trip/data/approved-travel-registration-v1.json',import.meta.url);
+const approved=fs.existsSync(registrationPath)?json(JSON.parse(fs.readFileSync(registrationPath)).dataPath):null;
 const reduce=(s,a)=>reducePlaceExperience(s,a,data.geography,catalog,data);
 
 test('production build renders portable53 exactly with no private or preview data',()=>{
  const html=renderTravelHomeR24(),actual=JSON.parse(html.match(/<script id="atlas-config" type="application\/json">([\s\S]*?)<\/script>/)[1]);
- assert.deepEqual(actual,config);assert.equal(actual.privateAtlas,null);
+ assert.deepEqual({...actual,catalog:config.catalog},config);assert.equal(actual.privateAtlas,null);
+ assert.deepEqual(actual.catalog.hero,catalog.hero);assert.deepEqual(actual.catalog.themes,catalog.themes);
+ for(const type of ['countries','guides']){
+  const originalIds=new Set(catalog[type].map(v=>v.id));assert.deepEqual(actual.catalog[type].filter(v=>originalIds.has(v.id)),catalog[type]);
+  const additions=actual.catalog[type].filter(v=>!originalIds.has(v.id)),owners=type==='countries'?approved?.countries||[]:approved?.cities||[];
+  assert.deepEqual(additions.map(v=>v.id).sort(),owners.map(v=>v.id).sort());
+  for(const record of additions){const owner=owners.find(v=>v.id===record.id),asset=approved.assets.find(a=>a.assetId===(type==='countries'?owner.discovery.assetId:owner.hero[0]));assert.equal(record.href,owner.path);assert.deepEqual(record.approvedPhoto,asset);}
+ }
  assert.doesNotMatch(html,/\/Users\/|tailb3|\/candidates\/|noindex|artifactPath|rawSha256|rawPath|candidateRevision/);
  assert.equal(data.places.length,53);assert.deepEqual(data.places.map(p=>p.id),release.places);
  assert.deepEqual(Object.fromEntries(['attraction','restaurant','hotel'].map(c=>[c,data.places.filter(p=>p.category===c).length])),{attraction:41,restaurant:7,hotel:5});
