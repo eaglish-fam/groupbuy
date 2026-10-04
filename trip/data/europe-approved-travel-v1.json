@@ -1432,6 +1432,202 @@
   ],
   "assets": [
     {
+      "assetId": "tromso-fjellheisen-1-hero-g14",
+      "width": 1440,
+      "height": 960,
+      "alt": "一家人在特羅姆瑟山頂眺望城市與海灣",
+      "caption": "從山頂看特羅姆瑟，和一家人一起入鏡。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-tromso-fjellheisen-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "0b6d23089e1c89a897de76a140eb8748b4330c6f03ba66e81a413c2d699f7be6",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-1-hero-g14-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 108886,
+          "sha256": "9cd0bcc5fcbeef42ce74a91acf26e4356abfef0d7c4e04151775f8b400f7bc19"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-1-hero-g14-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 190414,
+          "sha256": "f2095d95ceb7a9ab0a2f6d9a5be60b8efda3a94d49c1133d24e5a26ced56493a"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-1-hero-g14-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 351184,
+          "sha256": "f6d73e600729089df5bf924d1c33beecb7a33b6ab78d44a25e0fea973ef21eb4"
+        }
+      ]
+    },
+    {
+      "assetId": "amsterdam-artis-1-hero-g14",
+      "width": 1440,
+      "height": 960,
+      "alt": "爸爸和孩子在阿姆斯特丹 ARTIS 探索木造遊具",
+      "caption": "阿姆斯特丹的親子時光，從 ARTIS 開始。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-amsterdam-artis-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "b0447c65bdfb3d11ea989aa6346556434018c96ab281cc96e48541f66d3a5bee",
+        "sourceWidth": 1440,
+        "sourceHeight": 963,
+        "activePicture": {
+          "x": 0,
+          "y": 2,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-1-hero-g14-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 118264,
+          "sha256": "3025a58db3ed9f471faf469553e34881d124b8e0116e4f34c09e826e306ef141"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-1-hero-g14-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 214650,
+          "sha256": "8242284d185d4689a3c8cc980a6f605f315a565288230e4afda46aedeafb1cfd"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-1-hero-g14-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 392038,
+          "sha256": "01dab6973509d599d24d258cd1563a1eb0af2d5e0c41b085b839ae32eb694b0b"
+        }
+      ]
+    },
+    {
+      "assetId": "oslo-natural-history-1-hero-g14",
+      "width": 1440,
+      "height": 960,
+      "alt": "一家人在奧斯陸自然史博物館的恐龍展區",
+      "caption": "在奧斯陸自然史博物館和恐龍骨架合照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-oslo-natural-history-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "ada794ec4ec5d99a7ceb93a3a56525adc7f0a64419fd00f896904001686dd603",
+        "sourceWidth": 1440,
+        "sourceHeight": 964,
+        "activePicture": {
+          "x": 0,
+          "y": 2,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-1-hero-g14-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 73874,
+          "sha256": "1c0aad933a0633dfa5042e1c797b43dfb5085aa27549abf36b25e7dd8c2ffdaa"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-1-hero-g14-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 155034,
+          "sha256": "4eaf3b0d5badcffd9f29b6b7f7df836fb92340e23bd79dda60c47cfa1c29f0ef"
+        },
+        {
+          "url": "/trip/assets/eu-oslo-natural-history-1-hero-g14-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 356740,
+          "sha256": "9df3fd97bdfaabf728342b3d90a09c639f3bfa32dbe425d947b7c2e1711c2865"
+        }
+      ]
+    },
+    {
+      "assetId": "svalbard-town-1-hero-g14",
+      "width": 1440,
+      "height": 960,
+      "alt": "一家人在長年鎮街道與雪山前合照",
+      "caption": "在長年鎮街道留下家庭合照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "photo-svalbard-town-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "b1c59d718e2a5d8dd77466134d2f397c3fa5a8a892bca2d875a981731bdac350",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-town-1-hero-g14-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 83378,
+          "sha256": "948159642da07d5647ddeb89041d24ddd6560d47ae3f5edd797ef4f710967ff0"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-town-1-hero-g14-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 159952,
+          "sha256": "001e72e09aecfaad56ca8667c3256f226ed2b417604df80519e22bf9af6d88c7"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-town-1-hero-g14-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 316600,
+          "sha256": "e5e5ff37e7fc5459b889c320e4a8ffc3a2948a98d5f85ec06eb9d674a1a10c1f"
+        }
+      ]
+    },
+    {
       "assetId": "oslo-natural-history-1",
       "width": 1440,
       "height": 964,
@@ -5821,7 +6017,7 @@
         "svalbard",
         "tromso"
       ],
-      "image": "svalbard-glacier-cruise-1",
+      "image": "tromso-fjellheisen-1-hero-g14",
       "faq": [
         {
           "question": "第一次帶孩子去挪威，三地都要排嗎？",
@@ -7154,7 +7350,7 @@
         "region": "europe",
         "subregion": "northern-europe",
         "summary": "比較奧斯陸、特羅姆瑟與斯瓦巴長年鎮的親子玩法，先選季節和目的地，再串機票、住宿與完整遊玩日。",
-        "assetId": "svalbard-glacier-cruise-1",
+        "assetId": "tromso-fjellheisen-1-hero-g14",
         "sourceIds": [
           "editorial-source-167",
           "editorial-source-120",
@@ -7308,7 +7504,7 @@
       "cityIds": [
         "amsterdam"
       ],
-      "image": "hans-grietje-1",
+      "image": "amsterdam-artis-1-hero-g14",
       "faq": [
         {
           "question": "帶孩子第一次到荷蘭，先排什麼？",
@@ -7882,7 +8078,7 @@
         "region": "europe",
         "subregion": "western-europe",
         "summary": "阿姆斯特丹城市日逛 ARTIS，羊角村另排完整日遊，Zeewolde 的童話鬆餅屋另作加選，包含往返交通、訂位與住宿考量。",
-        "assetId": "hans-grietje-1",
+        "assetId": "amsterdam-artis-1-hero-g14",
         "sourceIds": [
           "editorial-source-159",
           "editorial-source-161",
@@ -7968,8 +8164,8 @@
         "photo-oslo-fram-3"
       ],
       "hero": [
+        "oslo-natural-history-1-hero-g14",
         "oslo-fram-1",
-        "oslo-natural-history-1",
         "oslo-historical-museum-1"
       ],
       "places": [
@@ -9110,7 +9306,7 @@
         "photo-svalbard-glacier-cruise-3"
       ],
       "hero": [
-        "svalbard-town-1",
+        "svalbard-town-1-hero-g14",
         "svalbard-dog-cart-1",
         "svalbard-seed-vault-1"
       ],
@@ -10924,7 +11120,7 @@
         "photo-tromso-polarmuseet-3"
       ],
       "hero": [
-        "tromso-fjellheisen-1",
+        "tromso-fjellheisen-1-hero-g14",
         "tromso-reindeer-sami-1",
         "tromso-polaria-1"
       ],
@@ -12326,8 +12522,8 @@
         "photo-hans-grietje-3"
       ],
       "hero": [
+        "amsterdam-artis-1-hero-g14",
         "giethoorn-boat-1",
-        "amsterdam-artis-1",
         "hans-grietje-1"
       ],
       "places": [

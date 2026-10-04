@@ -1,0 +1,34 @@
+/* One atlas style family: existing NZ component and real-geometry countries. */
+.nz-map-pair{margin:26px 0 0}
+.nz-atlas,.travel-atlas{position:relative;isolation:isolate;container-type:inline-size;aspect-ratio:1;max-width:580px;width:100%;margin:auto;border:1px solid #dcd5c9;border-radius:48% 48% 4px 4px;background:#faf7f0}
+.nz-atlas-view,.travel-atlas-view{position:absolute;inset:0;border-radius:inherit}
+.travel-atlas-view[hidden],.travel-atlas-controls[hidden],.nz-atlas-view[hidden],:is(.nz-atlas-controls,.travel-atlas-controls)[hidden],.nz-atlas-islands[hidden],.nz-atlas-description[hidden]{display:none}
+.nz-atlas-image{position:absolute;inset:0;overflow:hidden;border-radius:inherit;pointer-events:none}
+.nz-atlas-image>img{display:block;width:100%;height:100%;object-fit:contain;transform-origin:0 0}
+.nz-atlas-islands{position:absolute;inset:0;width:100%;height:100%;z-index:1;fill:transparent}
+.nz-atlas-islands path{cursor:zoom-in;stroke:transparent;stroke-width:.3}
+.nz-atlas-islands path:hover,.nz-atlas-islands path:focus-visible{fill:#bb765819;stroke:#784b3966;outline:none}
+:is(.nz-atlas-controls,.travel-atlas-controls){display:flex;gap:8px;justify-content:center;margin:0 0 14px}
+:is(.nz-atlas-controls,.travel-atlas-controls) button{min-width:80px;min-height:44px;border:1px solid #dcd5c9;background:#faf7f0;border-radius:3px;color:#784b39;font:inherit;font-size:14px;cursor:pointer}
+:is(.nz-atlas-controls,.travel-atlas-controls) button[aria-pressed=true]{background:#784b39;border-color:#784b39;color:#fffefa}
+:is(.nz-atlas-controls,.travel-atlas-controls) button:focus-visible{outline:3px solid #bb7658;outline-offset:3px}
+.nz-atlas-route{stroke:#ad563d;stroke-width:.6;stroke-dasharray:1.4 1;stroke-linecap:round;stroke-linejoin:round}
+.nz-atlas-route--coast{stroke:#397984}
+.nz-atlas[data-atlas-active=north] .nz-atlas-caption,.nz-atlas[data-atlas-active=south] .nz-atlas-caption{left:9%;top:9%;font-size:clamp(15px,3.6cqw,22px)}
+.nz-atlas[data-atlas-active=north] .nz-atlas-caption{left:auto;right:7%;top:9%}
+.nz-map-pair .nz-atlas-status{font-size:13px;color:#784b39;margin:12px 0 4px}
+.nz-map-pair .nz-atlas-description{text-align:left;font-size:13px;line-height:1.8;margin:4px 0 0}
+@media(prefers-reduced-motion:no-preference){.nz-atlas-view{animation:nz-atlas-reveal .18s ease-out}@keyframes nz-atlas-reveal{from{opacity:.5}to{opacity:1}}}
+.nz-atlas-leaders{position:absolute;inset:0;width:100%;height:100%;fill:none;stroke:#a98d75;stroke-width:.22;pointer-events:none}
+.nz-atlas-caption{position:absolute;left:9%;top:29%;font-family:var(--serif,serif);font-size:clamp(15px,3.8cqw,23px);letter-spacing:.08em;transform:rotate(-6deg);color:#784b39}
+.nz-atlas-caption small{display:block;font:11px var(--sans,sans-serif);letter-spacing:.02em;margin-top:4px}
+.nz-atlas-note{font-size:11px;color:#6c6257}
+ :is(.nz-guide .prose,.travel-atlas) :is(.nz-atlas-pin,.travel-atlas-pin){position:absolute;left:var(--label-x);top:var(--label-y);width:var(--label-width);min-height:44px;display:flex;align-items:center;justify-content:center;transform:translateY(-50%);text-decoration:none;color:#494139;z-index:2}
+:is(.nz-atlas-pin,.travel-atlas-pin) i{position:absolute;left:var(--dot-x);top:calc(50% + var(--dot-y));transform:translate(-50%,-50%);width:16px;height:16px;box-sizing:border-box;border:3px solid #fff9f0;background:#bd4029;border-radius:50%;box-shadow:0 0 0 1px #bd4029}
+:is(.nz-atlas-pin,.travel-atlas-pin) span{position:relative;display:block;width:100%;box-sizing:border-box;padding:5px 7px;min-height:44px;text-align:center;font-size:15px;font-weight:700;line-height:1.4;background:#fcfaf5f2;border:1px solid #dcd5c9;box-shadow:2px 3px 0 #dcd5c955;border-radius:3px}
+:is(.nz-atlas-pin,.travel-atlas-pin) small{display:block;font-size:9px;line-height:1.4;letter-spacing:.01em;font-weight:400;margin-top:2px}
+:is(.nz-atlas-pin,.travel-atlas-pin):hover span,:is(.nz-atlas-pin,.travel-atlas-pin):focus-visible span{border-color:#bd4029;box-shadow:0 0 0 2px #bd40292b}
+:is(.nz-atlas-pin,.travel-atlas-pin):focus-visible{outline:2px solid #784b39;outline-offset:3px;border-radius:3px}
+:is(.nz-atlas-pin,.travel-atlas-pin):hover i,:is(.nz-atlas-pin,.travel-atlas-pin):focus-visible i{box-shadow:0 0 0 4px #bd40292b}
+.nz-map-pair>p{font-size:13px;margin:10px 0 0;text-align:center;color:#71685f}
+@media(max-width:600px){:is(.nz-atlas-pin,.travel-atlas-pin) span{font-size:clamp(10px,3cqw,12px);padding:5px 3px}:is(.nz-atlas-pin,.travel-atlas-pin) small{font-size:7.5px}:is(.nz-atlas-pin,.travel-atlas-pin) i{width:13px;height:13px;border-width:2px}.nz-atlas-caption small{font-size:9px}.nz-atlas[data-atlas-active=north] .nz-atlas-caption small{display:none}}

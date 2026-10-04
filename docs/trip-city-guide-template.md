@@ -5,8 +5,8 @@ Canonical 製作流程：[編輯準則](trip-editorial-guidelines.md)第八節�
 | 元件 | 固定模板 | 城市資料／接線 |
 | --- | --- | --- |
 | 首屏 | breadcrumb → 英文 eyebrow → H1 主＋次標 → 兩句 lead → 作者／更新日 | 核准 title 可依既有冒號拆行；文字、作者與日期由城市資料供應 |
-| Hero | main、support-1、support-2；真實尺寸選擇 portraits／landscapes／mixed 共用分支 | 每張照片填滿自己的原比例媒體版位，同時保留完整人臉、主要人物與重要景物；禁止照片內部空帶、補景或拉伸 |
-| 圖片版位 | 三直圖桌機按來源比例分欄並排；橫圖桌機左主右輔，混合圖按比例分欄；手機上主、下兩輔按比例配對 | 由每張 width／height 預留原比例，無固定橫框；caption 沿用核准文案放在照片下方，不遮人物 |
+| Hero | main、support-1、support-2；main 優先自有原照 3:2，support 真實尺寸選擇 portraits／landscapes／mixed 共用分支 | 首頁國家／國家城市／城市 main 共用地點身份與已核裁切；缺原照才用乾淨代表畫格。真正直式素材可採 source-aware paired 例外。每張滿版且保留完整人物；禁止內部空帶、補景或拉伸 |
+| 圖片版位 | 已核 main 3:2；真正三直圖桌機按來源比例分欄並排；橫圖桌機左主右輔，混合圖按比例分欄；手機上主、下兩輔按比例配對 | 由每張 width／height 預留已核比例，不新增 CSS 裁切；caption 放在照片下方，不遮人物。support／正文不為主圖規格重裁 |
 | 短卡 | 3:2，desktop 三欄／手機兩欄；名稱、玩法、時間 | 逐卡 approved photo、focal、place ID；長文留正文 |
 | 正文 | 每景點一主＋兩輔實拍、本文、短家族記錄、實用資料 | 當城景點、三圖原比例、官方來源與查核日期 |
 | 後段 | 飲食 → 住宿 → 交通 → 雨備 → FAQ → #plan → 影片 → 延伸 | 區域、Maps、營業、票種、影片及延伸；模組標籤共用、內容標題沿用城市核准文案 |

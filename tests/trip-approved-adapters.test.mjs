@@ -75,11 +75,17 @@ test('country renderer works with three or one destination without fake extra ci
   for(const id of country.cityIds)assert.ok(html.includes(data.cities.find(c=>c.id===id).path));
  }
 });
-test('map pins target real multi-city panels or a single-city article, not missing anchors',()=>{
+test('geographic pins and labels target package-owned guide paths; city tabs remain separate',()=>{
  const copy=structuredClone(data);
  for(const country of copy.countries)country.geographicMap={caption:'Synthetic geography',sourceIds:country.sourceIds,views:[{id:'fixture-map',label:'Synthetic map',note:'Synthetic geography only',bounds:[3,50,25,80],points:country.cityIds.map((id,i)=>({cityId:id,label:copy.cities.find(c=>c.id===id).name,point:[5+i*4,52+i*7],sourceIds:country.sourceIds}))}]};
  const single=copy.countries.find(c=>c.cityIds.length===1),html=renderApprovedCountry(copy,single.id);assert.ok(!html.includes(`href="#city-${single.cityIds[0]}"`));assert.match(html,/Natural Earth · 目的地位置示意/);
  const multi=copy.countries.find(c=>c.cityIds.length>1),other=renderApprovedCountry(copy,multi.id);for(const id of multi.cityIds)assert.ok(other.includes(`href="#city-${id}" data-country-city="${id}"`));
+ for(const [country,markup] of [[single,html],[multi,other]]){
+  const map=markup.match(/<section class="approved-geographic-map[\s\S]*?<\/section>/)?.[0];assert.ok(map);
+  assert.doesNotMatch(map,/data-country-city|href="#city-/);
+  for(const id of country.cityIds){const path=copy.cities.find(c=>c.id===id).path;assert.ok(map.split(`href="${path}"`).length>=4,'dot, label and text entry share the real guide route');}
+ }
+ const unsafe=structuredClone(copy);unsafe.countries[0].geographicMap.views[0].points[0].href='https://other.example/';assert.throws(()=>renderApprovedCountry(unsafe,unsafe.countries[0].id),/Invalid map destination/);
  const css=readFileSync(new URL('../trip/country-approved.css',import.meta.url),'utf8');assert.match(css,/\.approved-country \.th-atlas\{align-items:start\}/);
  const lateCss=readFileSync(new URL('../trip/country-explorer.css',import.meta.url),'utf8');assert.match(lateCss,/\.approved-country-body \.th-atlas\{[^}]*align-items:start/,'Late explorer stylesheet must not override top alignment');
  assert.doesNotMatch(other,/viewBox="0 0 560 92"/,'Flight legs must not form three large stacked graphics');
@@ -125,6 +131,11 @@ test('R24 seam explicitly returns reconciled projection, source-ratio home frame
  assert.equal(added.config.data.places.length,53);assert.equal(added.runtimeIntegrationRequired,false);
  for(const page of [...data.countries,...data.cities])assert.ok(added.html.includes(page.path));
  assert.match(added.html,/data-photo-context="home:approved-fixture-photo/);assert.match(added.html,/--photo-ratio:1200\/1800/);assert.match(added.html,/<noscript><nav aria-label="新增旅行目的地">/);
+ for(const country of data.countries){
+  const photo=data.assets.find(a=>a.assetId===country.discovery.assetId);
+  const card=added.html.match(new RegExp('<article[^>]*data-country-panel="'+country.id+'"[^>]*>[\\s\\S]*?</article>'))?.[0];assert.ok(card);
+  if(photo.width*2!==photo.height*3)assert.doesNotMatch(card,/<img data-camera-hero/,'A portrait fixture must not be forced into the camera landscape crop');
+ }
  const mismatch=structuredClone(config);mismatch.catalog.countries.pop();assert.throws(()=>prepareApprovedR24Discovery(original,data,{catalog:travelHomeCatalog,config:mismatch}),/Reconcile/);
  assert.throws(()=>prepareApprovedR24Discovery(original.replace('<div id="country-panels">',''),data,{catalog:travelHomeCatalog,config}),/R24 marker/);
  assert.equal(renderTravelHomeR24(),original);assert.doesNotMatch(original,/fixture-country|fixture-city|Synthetic/);

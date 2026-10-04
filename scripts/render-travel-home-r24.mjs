@@ -21,7 +21,7 @@ export function renderTravelHomeR24(){
  let html=addSingaporeDiscovery(mapFirstTravelHome(template)),projection=config;
  const approved=approvedTravelRegistration(fileURLToPath(new URL('..',import.meta.url)));
  if(approved){const added=prepareApprovedR24Discovery(html,approved.data,{catalog:travelHomeCatalog,config});html=added.html;projection=added.config;}
- return inlineTravelStyles(html.replace('{{ATLAS_CONFIG}}',JSON.stringify(projection).replaceAll('<','\\u003c'))
+ return inlineTravelStyles(html.replace('</head>','<link rel="stylesheet" href="/trip/travel-entry.css"></head>').replace('{{ATLAS_CONFIG}}',JSON.stringify(projection).replaceAll('<','\\u003c'))
   .replace('/trip/atlas-ui-bundle.mjs?v=r24-20261002','/trip/atlas-ui-bundle.mjs?v=r28-20261002')
   .replace(/<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>/g,''));
 }
@@ -53,7 +53,7 @@ export function mapFirstTravelHome(template){
 // Preserve reviewed deterministic first paint without a preview host dependency.
 // Current shared CSS is read from this checkout; other sites are never replaced.
 export function inlineTravelStyles(html){
- const allowed=new Set(['/trip/trip.css','/trip/home.css','/trip/atlas-component.css','/trip/bangkok.css','/trip/cebu-bohol.css','/trip/cebu-presentation-r21.css','/site-navigation.css','/trip/heading-theme-r24.css']);
+ const allowed=new Set(['/trip/trip.css','/trip/home.css','/trip/atlas-component.css','/trip/bangkok.css','/trip/cebu-bohol.css','/trip/cebu-presentation-r21.css','/site-navigation.css','/trip/heading-theme-r24.css','/trip/travel-entry.css']);
  return html.replace(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"<>]+)"[^>]*>/g,(tag,href)=>{
   const p=new URL(href,'https://www.eaglish.store').pathname;
   if(!allowed.has(p))return tag;
