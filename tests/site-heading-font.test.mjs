@@ -19,6 +19,9 @@ for(const section of ['blog','trip','guides','how-we-select']){
 test('three-site headline font covers public Chinese headings without remote font requests',()=>{
  const glyphs=new Set(readFileSync(resolve(root,'assets/fonts/heading-glyphs.txt'),'utf8'));
  const travelGlyphs=new Set(readFileSync(resolve(root,'assets/fonts/travel-heading-glyphs-r24.txt'),'utf8'));
+ const singaporeGlyphs=new Set(readFileSync(resolve(root,'assets/fonts/singapore-heading-glyphs-v1.txt'),'utf8'));
+ const singaporeFont=readFileSync(resolve(root,'assets/fonts/noto-serif-tc-singapore-v1.woff2'));
+ assert.equal(singaporeFont.toString('ascii',0,4),'wOF2');assert.ok(singaporeFont.byteLength<16000);
  const font=readFileSync(resolve(root,'assets/fonts/noto-serif-tc-headings-v8.woff2'));
  assert.equal(font.toString('ascii',0,4),'wOF2');
  assert.ok(font.byteLength<256*1024,'shared headline font should stay under 256 KiB');
@@ -41,7 +44,7 @@ test('three-site headline font covers public Chinese headings without remote fon
    const text=heading[1].replace(/<[^>]*>/g,'');
    for(const char of text){
     if(char.codePointAt(0)>=0x3400&&char.codePointAt(0)<=0x9fff)
-     assert.ok((scoped?travelGlyphs:glyphs).has(char),`${path} has an uncovered heading character: ${char}`);
+     assert.ok((scoped?travelGlyphs:glyphs).has(char)||(path==='trip/singapore/index.html'&&singaporeGlyphs.has(char)),`${path} has an uncovered heading character: ${char}`);
    }
   }
  }

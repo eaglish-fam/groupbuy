@@ -1,5 +1,15 @@
 # 鷹家遠行所圖片上稿規則
 
+版本：2026-10-04。沿用 [canonical 編輯流程](../docs/trip-editorial-guidelines.md)與[固定城市模板](../docs/trip-city-guide-template.md)，實際清邁為構圖基準；這是同一製作 pipeline 的媒體步驟。
+
+城市名 → 真實 YouTube／IG／照片來源與權利 → 逐景點一主＋兩輔 → 官方事實與直接文案／alt／caption → 同模板接線 → 真實桌面／手機與首次跳轉 QA → 負責對話驗收 → 真正 Ezra 版本去重 Telegram 回條。缺來源、畫面或事實保留具體缺件。
+
+首屏固定 main + support-1 + support-2 身份，真實 width／height 決定共用分支與預留比例：三直圖桌面原比例並排，橫圖左主右輔，混合圖按來源比例分欄；手機上主圖、下兩輔圖按比例並排。2026-10-04 Hiram 滿版要求優先於歷史 g8 contain 固定框：每張實際照片填滿自己的媒體版位，同時保留完整人臉、主要人物與重要景物，caption 在照片下方。正文每景點三張互補實拍採 source-aware main+pair；短入口卡仍使用核准 3:2 裁切，桌面三欄、手機兩欄。本次只修新加坡首屏，既有正文與短卡保存。
+
+照片內部的左右／上下空帶是缺陷，grid gap 與文章外側留白是正常版面間距。禁止背景顏色、黑色、模糊延伸、生成補景、拉伸或遮罩填空；也不為滿版硬切人臉。框比例不合時調整比例／排列或另選已核准素材。保留精確原始來源、active picture、focal point、dimensions、裁切與衍生 hash；多城市只替換資料及素材。
+
+首屏親自驗收 1440／390／320px 的 Tailnet 首次開頁（new tab → set viewport → goto）：逐張確認像素滿版、人物／人臉完整、caption 清晰、不遮主體、無橫向溢出。CSS object-fit 名稱、尺寸或 HTTP 200 僅輔助，不能代替實圖構圖判斷；原始與 active source、裁切紀錄及截圖隨版本保存。
+
 `npm run build:trip` 會先處理 `trip/assets/` 的原版 WebP，再生成頁面，最後檢查所有旅遊頁的圖片。這是發佈前的必要步驟；`npm run verify` 也包含它。
 
 - 新照片先確認使用權、出處、裁切與替代文字，再放入 `trip/assets/`，使用不含尺寸後綴的 `.webp` 檔名。保留原始 JPG／PNG 供回溯，但頁面不要直接載入原圖。

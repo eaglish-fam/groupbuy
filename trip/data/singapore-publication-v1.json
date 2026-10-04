@@ -1,0 +1,1447 @@
+{
+  "schema": "eaglish.singapore-publication/v1",
+  "version": "g9-approved-public-v1",
+  "articleSha256": "666ecf0894f4bac67e61f78afebbc2f4aa80505fc1b79b0e16922fc2bbb945ea",
+  "approvedContentSha256": "c1a7cd4f11211c26077989521d059e4929dfb354d2870059bdb4fdc5692e87f3",
+  "approvedMediaSha256": "c9411851e34566b5081a967ce091ba183fa8e027980afe37ad679f9f1b7a34ed",
+  "creator": "鷹式一家",
+  "assets": [
+    {
+      "assetId": "sg-yt-WnY-JLQ8TJM-000022-v2",
+      "sourceId": "yt:WnY-JLQ8TJM",
+      "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=22s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "976d4c33a6a6492fb02cfc7a5886439fcd510431beedeeaa5368a0f1665eeac7",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000022-v2-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "82c16903769432974b0ea4e8e13393a97b1b5061bca595d3e7bf2dadc9a7fa9e",
+          "bytes": 71424
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000022-v2-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "5fbd9496cfa95cdc07b9423a824c170234a6bdc8184b0749d1361567094fc68d",
+          "bytes": 115920
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000022-v2-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "623d3743e1846cc76033178d5964122233f4a23504c7cb3fa0b06fda8788d987",
+          "bytes": 156258
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-WnY-JLQ8TJM-000158-g3-v1",
+      "sourceId": "yt:WnY-JLQ8TJM",
+      "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=158s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "52db8470a92e3050d44bab551570a8ce5f783794881036a4b40945279422f5fb",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000158-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "77a6b0f41599719151b102015a7b0b18f6b225bb17f5ade0e2bea9a581e4e059",
+          "bytes": 39822
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000158-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "088fda1c3d24aef9ace76f84cdcc318812d639e4443644a113bd1b35d1051c0c",
+          "bytes": 70040
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000158-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "693f08c09f9623f701dae93fa341a82567805a8fd856b97e01d80b370a091fb1",
+          "bytes": 99612
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-WnY-JLQ8TJM-000210-v1",
+      "sourceId": "yt:WnY-JLQ8TJM",
+      "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=210s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "c6a8d25d500e0dd6e5f684e541931d60bf904fbef25d4cfee8d529c39b96e4eb",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000210-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "2d84a94126bfe13bccdefdcc9d09517ae721c0829f930cf7a5e3fe3355ebc642",
+          "bytes": 31538
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000210-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "a1d5f6acf3cfcc632be2a57e7574f5d1792fd8d5cdd3b55f1fa60c6228a413f3",
+          "bytes": 51912
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000210-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "50174031952c3b09b45b36e42de40e1853f75ee5765e5e526b8f031924c77d78",
+          "bytes": 72494
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-WnY-JLQ8TJM-000390-v1",
+      "sourceId": "yt:WnY-JLQ8TJM",
+      "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=390s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "dbe1003427e8c65e6a1342e04d3ed3eddab3aba411051bb061dcea01b35f0f73",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000390-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "417636c055b733a4d58d2e060f97a598f15cba5f7b288de35c2ff2ee0be44af1",
+          "bytes": 24918
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000390-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "186c898a2f297c3314da830a8daf8400b35196ef95bd69c03ba2fb04bd49e5bf",
+          "bytes": 42454
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000390-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "7fd8bea149d01fe28b7d3e80b40bd07a7653ce84bf628da99db54fa947c476f9",
+          "bytes": 59306
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-WnY-JLQ8TJM-000402-g3-v1",
+      "sourceId": "yt:WnY-JLQ8TJM",
+      "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=402s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "80f96c535efc93d78b5e3fba4cb97e0388e1c348b8483944186bd5ca8572bce6",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000402-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "7075c4f456b19840df720dcb5226f5aace59f4d99dbd04bc88e91c8fb65d7b83",
+          "bytes": 16018
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000402-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "116748551a4ea69d740e95239bde84022f5aa14130ed64624a6b00a2e575044f",
+          "bytes": 25464
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000402-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "7b2e18da768f4d93fa51613939049551ca2bedb9ca43e4b8c35b02b694613ec0",
+          "bytes": 36394
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-WnY-JLQ8TJM-000369-g3-v1",
+      "sourceId": "yt:WnY-JLQ8TJM",
+      "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=369s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "57469d92154925da514efadb274bd8179a42449134836687225dccca743eb4ca",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000369-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "64f29c8c6df34d26b993b9ab29b6d06a754e16c28e6337d6559e9c95ebf8ee44",
+          "bytes": 54424
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000369-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "74bb05368035ef99d1867eda595a0bcf718306d1ca545e7291d6bf62fb4d729f",
+          "bytes": 101982
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000369-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "39d98ae2448a4c06114711a25063154af404411556e7ed0442891dc1cdfc4140",
+          "bytes": 145800
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-_Bw7BihYxzM-000384-v1",
+      "sourceId": "yt:_Bw7BihYxzM",
+      "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=384s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "0b2f39b37d7bc58e154425cf4b596e1fe5030dd6c8a32fe2fa2b87496ac86de7",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000384-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "a7f18ba0334eea74f209dbcb51c67df869ec4c2c364f29ee81bf78fc4934a1e4",
+          "bytes": 59908
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000384-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "b384896e092ea1f19e713e14b66aafd8f4fea9696046a76e150b57f7378778d8",
+          "bytes": 111518
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000384-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "47bafa589fefab65dabd9e0a207f7c68ae3f58ed97004ef59da901b0072dd165",
+          "bytes": 165864
+        }
+      ]
+    },
+    {
+      "assetId": "sg-ig-DX_y4WhE3EF-06",
+      "sourceId": "ig:DX_y4WhE3EF",
+      "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "width": 1440,
+      "height": 1798,
+      "crop": [
+        0,
+        0,
+        1440,
+        1798
+      ],
+      "rawSha256": "eff46943490ad192ab4343184043c015a01f78abdd8d02c148d95353de8ca963",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-06-640.webp",
+          "width": 640,
+          "height": 799,
+          "sha256": "1694c37e3e61cd3087d2a0dbb6c913662271f74a9380c7de34a0a744fd80124e",
+          "bytes": 117864
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-06-960.webp",
+          "width": 960,
+          "height": 1199,
+          "sha256": "ead957e0ba68a90c6bab4ee14181a7b1e51d48fb6fc9be3e7afeb656502fe82d",
+          "bytes": 214364
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-06-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "sha256": "19d20744edf0178ac2c330cecc60a6cfce50839786dc80e54a24faaaef22e336",
+          "bytes": 388702
+        }
+      ]
+    },
+    {
+      "assetId": "sg-ig-DX_y4WhE3EF-07",
+      "sourceId": "ig:DX_y4WhE3EF",
+      "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "width": 1440,
+      "height": 1798,
+      "crop": [
+        0,
+        0,
+        1440,
+        1798
+      ],
+      "rawSha256": "954dad466d5de40f71c532926a09cd740ec0b08ddb267ff9bfe994403fe39847",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-07-640.webp",
+          "width": 640,
+          "height": 799,
+          "sha256": "2b2f6608d881e78e5aaaba6e1aa4b0091f7fe6c784303b51d5b1a6969f7ef341",
+          "bytes": 107294
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-07-960.webp",
+          "width": 960,
+          "height": 1199,
+          "sha256": "f24795d31b76305ded86fee3c5a89fca59ba86148afd2e7f7395273fd9b335e8",
+          "bytes": 197170
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-07-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "sha256": "89f8249c01f710f1b66d4b5b252a82ec656302a80c96c7393d4089ab46267247",
+          "bytes": 348548
+        }
+      ]
+    },
+    {
+      "assetId": "sg-ig-DX_y4WhE3EF-03",
+      "sourceId": "ig:DX_y4WhE3EF",
+      "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "width": 1440,
+      "height": 1798,
+      "crop": [
+        0,
+        0,
+        1440,
+        1798
+      ],
+      "rawSha256": "e34f78f23ae8d6301a4e406e823a9317f0e6bedac894c19baa3168f48d884db2",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-03-640.webp",
+          "width": 640,
+          "height": 799,
+          "sha256": "0094eb70c249fe0a9d37a513b1600b3c59e617bebed34348d8da05a815e28233",
+          "bytes": 114548
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-03-960.webp",
+          "width": 960,
+          "height": 1199,
+          "sha256": "f34642bde832842983de68836a3820c630881f967baaf45d203003a46a4d9a8a",
+          "bytes": 189454
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-03-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "sha256": "a55e1b4d1878f5ab5632acf0072930d4e5c513d0ec9bb9600f082fa554efdb87",
+          "bytes": 356956
+        }
+      ]
+    },
+    {
+      "assetId": "sg-ig-DX_y4WhE3EF-02",
+      "sourceId": "ig:DX_y4WhE3EF",
+      "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "width": 1440,
+      "height": 1798,
+      "crop": [
+        0,
+        0,
+        1440,
+        1798
+      ],
+      "rawSha256": "958e05ab09c5abe66f41d848f64796e9dbdf2996fc93c3679144f25ca4ec3487",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-02-640.webp",
+          "width": 640,
+          "height": 799,
+          "sha256": "6513a058e94e8b34dc4cf024e31ad0f26ad52c8bb3022439fb9f723a44e9695f",
+          "bytes": 115920
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-02-960.webp",
+          "width": 960,
+          "height": 1199,
+          "sha256": "f34b13c8e95fa9d4a97b616884bbf35455bab30f1b4dba6b377ab865b041b6a7",
+          "bytes": 189910
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-02-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "sha256": "3a26af2aa82dedede4e37861a36d3f616f1f7a95533c7aff5692e39cf9f6dfce",
+          "bytes": 348926
+        }
+      ]
+    },
+    {
+      "assetId": "sg-ig-DX_y4WhE3EF-11",
+      "sourceId": "ig:DX_y4WhE3EF",
+      "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "width": 1440,
+      "height": 1798,
+      "crop": [
+        0,
+        0,
+        1440,
+        1798
+      ],
+      "rawSha256": "f2defe2e2a2ab2175b58987c042b24668cb5b0d63fbea922d5a9dcd8314da451",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-11-640.webp",
+          "width": 640,
+          "height": 799,
+          "sha256": "5f8c1f021dc1ad022b4e101c3a1f02488e1e23b39e3e07717c069cb76492689b",
+          "bytes": 116340
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-11-960.webp",
+          "width": 960,
+          "height": 1199,
+          "sha256": "3a2a07598100ae68b63433506ab3aedbdf8ff8f3a63e1d8af0e06f29ee1d00f7",
+          "bytes": 192268
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-11-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "sha256": "d95b79ceee4c6d847ed844f81383207ea0e7509965d47c3eef55d41d5f3bb165",
+          "bytes": 346200
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-000400-g3-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=400s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "dca7026f04dab4b1dff5d14f6d682c76cee7d18b460b9e31f431cb4c97c5cd11",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000400-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "ea6cd44136f77d0d418600721f1befcade8f5e5e348002ce06bacf70248b5e57",
+          "bytes": 36512
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000400-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "b9270ea6fbbc846c449b1c49cad95857d0453fdea23b86b2555b888d8c4afe7a",
+          "bytes": 55992
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000400-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "7db0158f138aba5ef502a1891c150afc19b601cd7e5111071a107771903c5d44",
+          "bytes": 77280
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-000415-g3-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=415s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "6a7225ce3ae0bcf6aaf76ac495427cb004507fa2b05ee1c8561430cc421274cc",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000415-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "f18da91bda5ce122b0f9fe9f84d935e68b5a187c9d1e80661361e4252ae9daf0",
+          "bytes": 32194
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000415-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "698af4ea018bdabf7e8bbe69e4127c9000079c46c66c9d28c07f96df45908c29",
+          "bytes": 50882
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000415-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "b53c612f5cfab93671b37a044f933cba1064a9e0c2054017563aebb2c81e0891",
+          "bytes": 71130
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-000430-g3-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=430s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "ea75092d11ed80686ccfcc37ce3ff86f9a3fb39b90bf2dbba07f0a03e1ecc34e",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000430-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "03265b33de49221ea045a95aba7ec4910dd7a541939383f1e91751c83c48bc0e",
+          "bytes": 32952
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000430-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "09102565b67a54312975e5a0fac4a5d56d1a833545d5cafaa080bd05ba40b5de",
+          "bytes": 49820
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000430-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "247a9f2f36e80d51dfe280c27e6ec75fdafc7f25e62acf133784fbc9ea459405",
+          "bytes": 67866
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-000915-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=915s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "e14cbf138a87e080b2894e1dcc4118a46fec0057524ac6b208ac4834692605d0",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000915-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "b735b83ead8504151f86eca2d5c36dc91755fa232b4afecd90f633985af85c32",
+          "bytes": 46900
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000915-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "9d0126757047f32705ce0fb0d8eb8c6e2cc5fe237acc3d7bc2884275e24005b0",
+          "bytes": 82172
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000915-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "714ef6f6f2e1d1482ae5cba7b9be4e5a17203023372600ec0fc5d68a9bd09b31",
+          "bytes": 116118
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-000845-v2",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=845s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "1ee648d088db287bda87b30351aebcf6ec1f0c916dba5e8c2a105c382253bf5d",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000845-v2-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "e86032c573dc5e9eef77fccdb655d6a217ad0445fe69ed17e6796b6f322054f5",
+          "bytes": 24262
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000845-v2-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "5b3ceca89ceb984d2bc3375c42eb298ff6da6bd5a394265003468c1664ed7279",
+          "bytes": 37932
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000845-v2-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "a491a48092d4bf1c241722d6bf5caee88debdc1b461ebf34ce9c6f688b247006",
+          "bytes": 51370
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-000848-g3-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=848s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "7870fe1d9ed7813636e2c3f534a023b8582fdb9121bc7773d0df1e3aabec7bd6",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000848-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "d75310860db3cfc6c38d43e5ce1f1e31774b83fe74b52a1fc27c637e7677c0ad",
+          "bytes": 23982
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000848-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "adeb3c6763b0f8240b82b6cb081bd8cca019edce725ce3d594684b5ce905771c",
+          "bytes": 37482
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000848-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "cb99a6071134c8d77e3f774d91a8f1b068cab786c00c15afb0329d958fef1255",
+          "bytes": 50146
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-001010-g3-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1010s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "4656e7eab77fddafbc73524c4adf7dfa8f3b59540f796b99d25276022f2a7115",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001010-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "fc3215b8ea52545f8bd744d3edd50fb515897c539334a16a5921fe457b1b77ab",
+          "bytes": 14408
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001010-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "dcc3b61647962e123fc4d53fefb67afaf40c1dd96a572ed3d03831f51b9b691b",
+          "bytes": 22234
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001010-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "2ea46558c0a14184c1ffb417a6a0e2eb6d3f84ecd7e7f1ab33c0e3391212317f",
+          "bytes": 30742
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-001054-v2",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1054s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "003d4e1b6a8378de816c8a995ae78aa3c6718b1c5b771e3aebdec968bf2e2a1e",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001054-v2-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "d290513b4c5eab12cabc48075fd42012562318f20be2d8b5473a7bd467492a7d",
+          "bytes": 13702
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001054-v2-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "4b4abc357bcaa2380ffcd5e720f5cba671e16be2084fea859fd2d10554d24f54",
+          "bytes": 21544
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001054-v2-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "04ee6a20321b30411056e6563d0744a892333b3e935f515b0ab20e2b41ce632f",
+          "bytes": 29780
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-001300-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1300s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "2ca00b32bce85f2e5e16e889512d374c930621055736066571518441aed20d11",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001300-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "38ffc63ecfc128ad88e2f9025984e228ec1623d7cb581316ed044904c1f4a311",
+          "bytes": 12958
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001300-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "2f82a5681ffe9e9b9251df3ae5d95869a8d93fd634b996cb414d70955940bb66",
+          "bytes": 19642
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001300-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "09d702a0445b361fa9ceddc553ce28044224fbdda5500e85b3a79ec81d79eec9",
+          "bytes": 27334
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-000063-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=63s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "fe31b54d5aa8f317d348ca126ddd77ec5b84aca4f3f9745552c9252fefed4e4e",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000063-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "4e29686d038191b678c9fc0172fcddbf6c8065c94faff73c37e54a455cbc9e96",
+          "bytes": 65840
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000063-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "54e69c6660db1e11426d84f2bbf210aca6569c55e7e4bb8b344bc9fb49355adc",
+          "bytes": 127468
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000063-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "e77456b55b4fee7c59a95fbbcbca14eb5ab4f38561792d83525c522f90e3eec1",
+          "bytes": 196218
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-CV5AEHUlhc4-000118-g3-v2",
+      "sourceId": "yt:CV5AEHUlhc4",
+      "sourceUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+      "locatorUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=118s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "9b27a2796fcf3014a680f11136c970095f341af9bf5cbc76cf9e481977e742de",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000118-g3-v2-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "a72c76bdf0d8f72f6980c1e86157ff0c9659e6b4612695247aade709897b99de",
+          "bytes": 21612
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000118-g3-v2-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "4d3fb7e1d8e835ec778f53862d9c9fd5ead0b2fc1e9f8d3a2f47d0d07cc648d3",
+          "bytes": 35058
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000118-g3-v2-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "9733e3360301da0432c65d1835da4befae3df9069ea66dbb43d6c602152ac746",
+          "bytes": 48166
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-CV5AEHUlhc4-000247-v1",
+      "sourceId": "yt:CV5AEHUlhc4",
+      "sourceUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+      "locatorUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=247s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "c085920fdf6205a67beff8f003e9b2586b3e26c50d0a45c4a4602c89e6401c50",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000247-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "21eba7386bed0de818654c87f6b240ab0563ef8a998b01a9e4d85af75873e6d2",
+          "bytes": 51712
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000247-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "3c7850ba93c9519328c1d59b54a4341e3bbabd9c74883d7e7133f1efb18dad41",
+          "bytes": 88686
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000247-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "0a24b73271bc65a158f4da7aae4f8ab29ebc132c15322ed7b8118c020fcc67e7",
+          "bytes": 124870
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-000395-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=395s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "eb75859ef26cda8d5ffee6152fa759e3c831e6a9766bbe6ecb5966f2f4a3c58f",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000395-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "c029062a8b543358e7ddec1adacef255ed44bb69aeca33fedd79af0ccb0123fd",
+          "bytes": 37474
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000395-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "67ff3d6dd4ab7389770fd2670310d029970518c3be2eadfc5ad6d42f9163cb8d",
+          "bytes": 57144
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000395-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "0062cacd9bdf6b65ebf9f66bfcd8f9606fa3ed2f4495c4e134f84635e587680d",
+          "bytes": 78376
+        }
+      ]
+    },
+    {
+      "assetId": "sg-ig-DX_y4WhE3EF-01",
+      "sourceId": "ig:DX_y4WhE3EF",
+      "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "width": 1440,
+      "height": 1798,
+      "crop": [
+        0,
+        0,
+        1440,
+        1798
+      ],
+      "rawSha256": "c0fb43b18b1a5d1d870654e29933b89a4fe95f664bf324ac09930f6c0dfc3afa",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-01-640.webp",
+          "width": 640,
+          "height": 799,
+          "sha256": "d107b43e1c4bced0d4685dc2428423de7367a6036af0d8694405800bceb60d28",
+          "bytes": 90280
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-01-960.webp",
+          "width": 960,
+          "height": 1199,
+          "sha256": "61b91681c50da00b85fcb23ec3fae91d47a1fe7ce0d291883946c80f02b32a1d",
+          "bytes": 159096
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-01-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "sha256": "e9309ae0e695d708186193c4f064fe20b75160e4e6c917ba3ec5be1037254146",
+          "bytes": 268658
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-000075-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=75s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "bc0462cfcc10cf2c5216a619e219513ac62c6c744aa9aa181bf8bec00f139357",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000075-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "58280cbf9f277c9d79e1bd8cb0a4aec5bb0d2ecedd4ccac0f0583f17b4b3c6ff",
+          "bytes": 20854
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000075-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "31738fcc8bc5cedf66ec2f1e46bce266c2324ddbdbe8d2a019c534d00eda22c5",
+          "bytes": 34128
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000075-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "23334c986d99b630c2666cb84c2baa44b0f7fc6d71fb43d13c8eee5cf6b80945",
+          "bytes": 49670
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-CV5AEHUlhc4-000028-v1",
+      "sourceId": "yt:CV5AEHUlhc4",
+      "sourceUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+      "locatorUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=28s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "dd612916dc09f5df6aafbe2b7db8fb4978eb77829cd87480ab9d93a9dfdd1cdf",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000028-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "71e89b9a1a6d874e4c6a1fc3330579f9b7ae672606ca7222beab0cca2adc012b",
+          "bytes": 53286
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000028-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "b05e3773f254cf4def1c9f77800276f1d74d0145d75c2ffd5cf15dc77113db6b",
+          "bytes": 90704
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000028-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "186bf56154ba1bd99e49b57a53a88600134aa02d68fb1dd228589837498bd682",
+          "bytes": 124796
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-n7lACEL6lWw-001468-v1",
+      "sourceId": "yt:n7lACEL6lWw",
+      "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1468s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "109eb62e4ccb321bdf1caf40f632b3b68adb99e661d3e3bba99fba82a03298be",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001468-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "f27d3c7d7b200071ca847aecaa0ceae65aaa84c5ee440fc5f575582830d6b6bd",
+          "bytes": 32902
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001468-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "79c08ebc9f1cb0c2246ed77ac213cd43877da2fad964b0e4f75eaf17105f36c4",
+          "bytes": 54222
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001468-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "0e563100c0e68a1da1e7bc7591a6737e4609de6fe08e3d47698ca61ad0e863c5",
+          "bytes": 77206
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-_Bw7BihYxzM-000865-g3-v1",
+      "sourceId": "yt:_Bw7BihYxzM",
+      "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=865s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "4dece3460f00f30f5e4a5af1939599017b19291d0c8fc1ad6b7068d9db125422",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000865-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "5a69ac2b9d334f60b4e9c543d4f26480f0cf13242c9c2ebba44a1ec78c2048cd",
+          "bytes": 41220
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000865-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "c1bea0a4c294186c46dc1c90c5114824bf417981f4df265b092b1f16349e3fd8",
+          "bytes": 84518
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000865-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "b50c751ea1b21952f3f577f79e1753dc07031295b7184ec52030e6715161c634",
+          "bytes": 137834
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-_Bw7BihYxzM-000880-g3-v1",
+      "sourceId": "yt:_Bw7BihYxzM",
+      "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=880s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "d3409128ab04c7cdc9ae78a7def6adca0b72c280ca222dcc9616547a8ad29c04",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000880-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "c468d469a12ff581fc4a350835a1fedc4ace5b4b6ff7977fdedfadfba93b0479",
+          "bytes": 13920
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000880-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "f76df110197091925ceaccfc5359bb0fd14e6cd517c279f66eae30df91162efc",
+          "bytes": 21866
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000880-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "b5b80a664b2ea6964beddae2c66bba231f43f694b025636fd570d58e26f17d84",
+          "bytes": 30736
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-_Bw7BihYxzM-000918-g3-v1",
+      "sourceId": "yt:_Bw7BihYxzM",
+      "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=918s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "ab0cc994770689b8b2ed46978cc5c32f3640d49e7265298f78d2032cee94547b",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000918-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "373d8f8527d45f25f73362c508ae6a3f0f3d7f8f8cd5b4cb19eb0e8d2da625da",
+          "bytes": 26246
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000918-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "26c2260a535f0649c93fc3b101e888bd35044c070aebcecda0f2a717cccd642e",
+          "bytes": 40346
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000918-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "acf3b7ef2dc928decab5ecc8352c45332d92681ec8ff8e871ca8e812417befc7",
+          "bytes": 57922
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-_Bw7BihYxzM-002158-g3-v1",
+      "sourceId": "yt:_Bw7BihYxzM",
+      "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=2158s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "3fb8ad099ba8f1265918019ec9a154430a7d9020ae7c4b877198a2bce2d75e34",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002158-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "799cdfd504e8b75bc1babef0b59435a57c385cfe436103467f218c17818ef913",
+          "bytes": 19394
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002158-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "e92861ee96561f1a9d664ea8f8f9b502c49948a4c27a94bc9a7bccf9303807a9",
+          "bytes": 29874
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002158-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "ba3996ad0b3df957bc6610dbe3dd5896f8ecaa83ecbf332b241cfa4c6931aaed",
+          "bytes": 42760
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-_Bw7BihYxzM-002145-v1",
+      "sourceId": "yt:_Bw7BihYxzM",
+      "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=2145s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "6f3f80d727b2d969e676e17836d281d4bc203e6d5f389a49d14e216cb339c520",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002145-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "9f71ba302aa87b3a8d3922dafa53bd57a5172754246f454923e46e28736341a3",
+          "bytes": 12158
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002145-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "28402f27dadfdb098c9516cd52781578b3eea7a2f2b1b1e39a5bb986805e88c7",
+          "bytes": 25626
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002145-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "c34990a2439f66c1cbb84fc77bf6ee3e07a6619866e8f11093a20fae6e39a37a",
+          "bytes": 37858
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-_Bw7BihYxzM-002163-g3-v1",
+      "sourceId": "yt:_Bw7BihYxzM",
+      "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=2163s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "c3ace07eb8cae6a01cee3f20471f943c866519e8035360c51a87f8e9c15a88ff",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002163-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "606c9894b8414024361eeb9eccd4c98c3f6805a564dbaa62d2e333fb77823885",
+          "bytes": 21398
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002163-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "ac3a705149c80cc019250d99d43bdfb5c2e046c5072fd3fa365d1ac93250f56e",
+          "bytes": 33404
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002163-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "37dd08f3efe9cbe49a5227eb6aac39e941c28cec81fe18e174b069aeca16a9f7",
+          "bytes": 47604
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-_Bw7BihYxzM-001220-v1",
+      "sourceId": "yt:_Bw7BihYxzM",
+      "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=1220s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "c04e5e4a98f79277fbe73a7a1ab38a55f6946ecd6635aaefbbcb493b1016f771",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001220-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "5c20689dc670654e3028f4d483eb3eddc258efa0bb0d80277e840515f7c5de6a",
+          "bytes": 15750
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001220-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "ba530ca80b348856b4e6bf4464f9e9996043ab567e8e4bf28c76f6b4dfe79194",
+          "bytes": 24674
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001220-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "9dd19bf03b1cc4c22873dce72291e2890f719bf8c8ca49d5587ba95067d6929d",
+          "bytes": 33956
+        }
+      ]
+    },
+    {
+      "assetId": "sg-yt-_Bw7BihYxzM-001444-v1",
+      "sourceId": "yt:_Bw7BihYxzM",
+      "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=1444s",
+      "width": 1280,
+      "height": 720,
+      "crop": [
+        0,
+        0,
+        1280,
+        720
+      ],
+      "rawSha256": "ad97c3e6f5b12477c111edbdcc249e0c31a64319b02cc4fd0ef06a52fb12fc75",
+      "creator": "鷹式一家",
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001444-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "sha256": "29f56cc38af477632418860630261f97e51ae3f4f890d240b7320468aeaf2c72",
+          "bytes": 26060
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001444-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "sha256": "1f8cc24b3835ff490b967cb28eadb5c9ad0f90d43e8e5a9afef5098261bc43de",
+          "bytes": 40600
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001444-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "sha256": "1f2944dd1932716078b4cae06d99b98b3946462e7c4f0c9d3de56fffd6bac08e",
+          "bytes": 55946
+        }
+      ]
+    }
+  ]
+}

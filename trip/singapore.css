@@ -1,0 +1,54 @@
+/* Only this guide opts in; Bangkok's approved components stay unchanged. */
+/* Additive coverage for this city's headings; keep Songti and shared v8 intact. */
+@font-face{font-family:"Eaglish Heading Serif";src:url("/assets/fonts/noto-serif-tc-singapore-v1.woff2") format("woff2");font-style:normal;font-weight:500;font-display:swap;unicode-range:U+5DDD,U+7A79,U+96F2,U+9D28,U+97F3,U+661F,U+8000,U+6A1F,U+8FF7,U+5BAE,U+64CE,U+71C8,U+822A,U+5EC8,U+6E9C,U+6F22,U+5821,U+8783,U+87F9,U+7C89,U+5764,U+6930,U+842C,U+7518,U+699C,U+592B,U+59BB,U+6F2B,U+8FEA}
+.sg-guide{--serif:"Songti TC","PMingLiU",serif;--paper:#fcfaf5;--line:#dcd5c9}
+.sg-guide .masthead{position:sticky;top:0;z-index:20;background:var(--paper)}
+.sg-guide .masthead nav{gap:20px;justify-content:center}
+.sg-guide .brand svg{display:block;width:220px;height:65px;max-width:100%}
+.sg-guide :is(.sg-gallery,.sg-hero){display:grid;grid-template-columns:1fr;gap:18px;align-items:start}
+.sg-guide .sg-hero{grid-template-columns:repeat(3,minmax(0,1fr));max-width:none;margin-inline:auto;gap:20px}
+.sg-guide :is(.sg-gallery,.sg-hero) figure{margin:12px 0 26px;min-width:0}
+.sg-guide :is(.sg-gallery,.sg-hero) img{width:100%;height:auto;aspect-ratio:var(--photo-ratio);object-fit:contain}
+.sg-guide .sg-gallery{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sg-guide .sg-gallery.single{grid-template-columns:1fr;max-width:600px;margin-inline:auto}
+.sg-guide .sg-gallery figure[data-portrait]{max-width:360px;justify-self:center}
+/* Attraction-only lead + pair; source ratio and full active picture retained. */
+.sg-guide .sg-gallery.sg-attraction-gallery{grid-template-columns:minmax(0,1fr);gap:18px}
+.sg-guide .sg-attraction-gallery .sg-gallery-lead{display:grid;grid-template-columns:minmax(0,1fr)}
+.sg-guide .sg-attraction-gallery .sg-gallery-pair{display:grid;grid-template-columns:var(--sg-pair-columns);gap:18px;align-items:start}
+.sg-guide .sg-attraction-gallery figure{margin:0;width:100%}
+.sg-guide .sg-attraction-gallery .sg-gallery-lead figure[data-portrait]{max-width:360px;justify-self:center}
+.sg-guide .sg-attraction-gallery .sg-gallery-pair figure[data-portrait]{max-width:none;justify-self:stretch}
+.sg-guide .sg-overview-group{font-size:15px;margin:18px 0 0;padding-left:0;border-left:0}
+/* Chiang Mai's grid count; all card/photo/type/color rules remain shared. */
+.sg-guide #places .bkk-overview{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sg-guide .sg-area-guide{margin-block:22px}
+.sg-guide .sg-approved-stops li{grid-template-columns:80px minmax(0,1fr)}
+.sg-guide .sg-closing{border-top:1px solid var(--bkk-rule);margin-top:40px;padding-top:22px}
+.sg-guide .sg-time{font-size:13px;line-height:1.8;color:var(--bkk-cocoa);font-weight:700;overflow-wrap:anywhere}
+.sg-guide .bkk-day li{grid-template-columns:105px minmax(0,1fr)}
+.sg-guide .bkk-day .sg-plan-notes{display:block;list-style:disc;padding-left:20px;font-size:13px}
+.sg-guide .bkk-day .sg-plan-notes li{display:list-item;border:0;padding:4px 0}
+.sg-guide [data-step-kind="blocked"]{border-left:3px solid #784b39;padding-left:12px}
+.sg-guide [data-plan-controls] input[type="date"]{width:100%;min-height:48px;font:inherit;color:var(--bkk-cocoa);background:var(--bkk-paper);padding:10px;border:1px solid #a79b8a}
+.sg-guide [data-plan-error]{color:#8a2618;font-size:14px}
+.sg-guide [data-mechanism-fixture]{padding:12px 20px;border-block:2px solid #784b39;background:#faf7f0}
+.sg-guide .sg-children{border-left:2px solid var(--bkk-rule);padding-left:18px}
+.sg-guide :is(h2,h3,h4){overflow-wrap:anywhere}
+.sg-guide :is(section,h2,h3,h4){scroll-margin-top:145px}
+@media(max-width:900px){.sg-guide #places .bkk-overview{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){
+ .sg-guide .sg-hero{display:flex;overflow-x:auto;gap:14px;scroll-snap-type:x mandatory;scroll-padding-inline:0;padding-bottom:6px}
+ .sg-guide .sg-hero figure{flex:0 0 88%;scroll-snap-align:start;margin-block:12px 0}
+ .sg-guide .sg-gallery{grid-template-columns:1fr}
+ .sg-guide .sg-gallery.portraits{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+ .sg-guide .sg-gallery.portraits.single{grid-template-columns:1fr;max-width:360px}
+ .sg-guide .sg-gallery.sg-attraction-gallery{grid-template-columns:minmax(0,1fr);gap:12px}
+ .sg-guide .sg-attraction-gallery .sg-gallery-pair{gap:12px}
+ .sg-guide .sg-attraction-gallery .sg-gallery-lead figure[data-portrait]{max-width:min(100%,300px)}
+ .sg-guide .bkk-day li{grid-template-columns:1fr;gap:4px}
+ .sg-guide .masthead{min-height:86px}
+ .sg-guide .brand svg{width:175px;height:52px}
+ .sg-guide .masthead nav{gap:14px;margin-left:auto;font-size:12px}
+}
+@media(max-width:380px){.sg-guide .masthead nav{margin-left:0;width:100%;justify-content:center}}

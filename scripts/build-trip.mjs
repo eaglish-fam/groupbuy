@@ -7,6 +7,7 @@ import {buildCebuBohol} from './build-trip-cebu-bohol.mjs';
 import {buildCebuBoholHotels} from './build-trip-cebu-bohol-hotels.mjs';
 import {buildChiangRai} from './build-trip-chiang-rai.mjs';
 import {buildChiangMai} from './build-trip-chiang-mai.mjs';
+import {buildSingapore} from './build-trip-singapore.mjs';
 import {bangkokCatalog,bangkokGuide,scene,overviewCard,placeSection,film,esc,media,gallery} from './trip-bangkok-places.mjs';
 import {routeSection,rainSection} from './trip-bangkok-routes.mjs';
 import {prioritizeFirstTravelImage} from './trip-image-priority.mjs';
@@ -38,6 +39,7 @@ writeFileSync(resolve(root,'trip/assets/bkk-media.json'),JSON.stringify(Object.e
  width:m.width||1440,height:m.height,variants:['',...[640,960].filter(w=>w<(m.width||1440)).map(w=>'-'+w)].map(suffix=>{const file=`/trip/assets/${id}${suffix}.webp`,buffer=readFileSync(resolve(root,'.'+file));return {file,bytes:buffer.length,sha256:createHash('sha256').update(buffer).digest('hex')};})
 })),null,2)+'\n');
 buildCebuBohol(root);
+buildSingapore(root);
 buildCebuBoholHotels(root);
 buildDestinations(root);
 buildChiangMai(root);

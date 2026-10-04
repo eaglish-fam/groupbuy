@@ -45,7 +45,8 @@
   // This guide opts into the measured travel masthead; existing journals keep
   // their chrome and other travel pages are unchanged (no styling class reuse).
   const chrome = document.querySelector('.journal-chrome') ||
-    document.querySelector('body.cb-guide > header.masthead.wrap');
+    document.querySelector('body.cb-guide > header.masthead.wrap') ||
+    document.querySelector('[data-reading-nav-chrome]');
   const article = source.closest('article') || document.querySelector('main');
   const root = document.createElement('aside');
   root.className = 'reading-nav';
@@ -199,7 +200,9 @@
     const padding = parseFloat(getComputedStyle(entry.target).paddingTop) || 0;
     // A one-pixel buffer on this guide prevents fractional layout rounding
     // from leaving less than the required 16px below its sticky masthead.
-    const guideRoundingBuffer = document.body.classList.contains('cb-guide') ? 1 : 0;
+    const instantGuide = document.body.classList.contains('cb-guide') || document.body.hasAttribute('data-reading-nav-instant');
+    const guideRoundingBuffer = (document.body.classList.contains('cb-guide') ? 1 : 0) ||
+      (document.body.hasAttribute('data-reading-nav-instant') ? 1 : 0);
     const y = scrollY + entry.target.getBoundingClientRect().top + padding - headerBottom() - 16 - guideRoundingBuffer;
     // This long, source-ratio guide loads many images while a distant chapter
     // enters view. WebKit can anchor those loads during a smooth scroll and
@@ -217,7 +220,7 @@
     heading.focus({preventScroll: true});
     // This source-ratio guide can be entered before its headline font finishes.
     // Correct that one pending jump once; a later user gesture always cancels it.
-    if (document.body.classList.contains('cb-guide') && document.fonts?.status === 'loading') {
+    if (instantGuide && document.fonts?.status === 'loading') {
       let cancelled = false;
       const inputs = ['wheel', 'touchstart', 'pointerdown', 'keydown'];
       const cleanup = () => inputs.forEach(type => document.removeEventListener(type, cancel));
