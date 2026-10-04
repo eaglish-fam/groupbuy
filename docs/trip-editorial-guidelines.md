@@ -109,6 +109,8 @@ Alma 親讀整篇，再逐項讀 H1／H2／H3、導讀、短卡、正文、facts
 
 WebKit 跨頁測試須核對實際字型 GET／payload，不只看 ResourceTiming。完整公開字型用 HTTPS 頁面本身的 Cache API 跨頁重用，不需 worker；儲存被拒或容量不足時退回 HTTP cache，文字仍立即可讀。不要為快取新增 Runtime、權限提示或永久儲存申請。
 
+完整字型快取使用 `heading-serif-complete-500-v1`，不可落入既有 SW 的 `eaglish-` 清理前綴。舊 `eaglish-complete-heading-font-v1` 僅以指定 cacheName 的唯讀 match 查找，命中才複製公開字型至新快取；miss 不建立舊空快取、首頁不補抓。遷移 quota 失敗仍可解碼舊 bytes。驗證必須在隔離原生瀏覽器實際啟動原版 SW activate，核對舊版本清除、新字型保留與後續暖首頁零 GET；page request 和 SW 轉發事件分開記錄，不以 context raw 次數判斷重複下載。
+
 ## 六、資料與互動規則
 
 - 每國、每城有自己的穩定 ID、景點資料、照片、來源和適用路線；國家頁、城市卡、攻略與工具引用同一地點身份。單一活動不重複建成另一個地理景點。

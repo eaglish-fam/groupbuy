@@ -7,17 +7,32 @@
   const entry = script?.dataset.fontEntry === 'true';
   const state = window.EaglishSiteFont = { status: entry ? 'deferred' : 'scheduled', entry, requests: 0 };
   const fontUrl = '/assets/fonts/noto-serif-tc-complete-500-v1.woff2';
+  // The existing worker owns eaglish-* and removes older keys on activation.
+  const fontCacheName = 'heading-serif-complete-500-v1';
+  const legacyFontCacheName = 'eaglish-complete-heading-font-v1';
   let fontCache;
-  async function fontResponse() {
+  async function cachedFontResponse() {
     // Cache API works in a secure page without a worker. Keep an immutable
     // public font across navigations even when WebKit discards HTTP memory cache.
     try {
       if (typeof caches !== 'undefined') {
-        fontCache = await caches.open('eaglish-complete-heading-font-v1');
+        fontCache = await caches.open(fontCacheName);
         const hit = await fontCache.match(fontUrl);
         if (hit?.ok) { state.cache = 'storage'; return hit; }
+        // Named match is read-only: a missing legacy cache must not be created.
+        const legacy = await caches.match(fontUrl, { cacheName: legacyFontCacheName });
+        if (legacy?.ok) {
+          state.cache = 'legacy-storage';
+          try { await fontCache.put(fontUrl, legacy.clone()); state.migrated = true; state.cache = 'storage'; }
+          catch (error) { state.cacheIssue = { stage: 'migrate', name: error.name, message: error.message }; }
+          return legacy; // Quota failure cannot prevent decoding the cached font.
+        }
       }
     } catch (error) { fontCache = undefined; state.cacheIssue = { stage: 'open', name: error.name, message: error.message }; /* Storage denied: use normal HTTP cache. */ }
+  }
+  async function fontResponse() {
+    const hit = await cachedFontResponse();
+    if (hit) return hit;
     state.requests++; state.cache = 'http';
     const response = await fetch(fontUrl, { cache: 'force-cache', priority: 'low' });
     if (response.ok && fontCache) {
@@ -47,9 +62,9 @@
   async function warmEntry() {
     if (started || typeof caches === 'undefined' || typeof FontFace !== 'function' || !document.fonts) return;
     try {
-      const cache = await caches.open('eaglish-complete-heading-font-v1'), hit = await cache.match(fontUrl);
+      const hit = await cachedFontResponse();
       if (!hit?.ok || started) return; // Cold homepage stays deferred; never fetch.
-      started = true; fontCache = cache; state.cache = 'storage'; state.status = 'loading';
+      started = true; state.status = 'loading';
       decodeResponse(Promise.resolve(hit));
     } catch (error) { state.cacheIssue = { stage: 'warm-entry', name: error.name, message: error.message }; }
   }
