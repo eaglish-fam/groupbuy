@@ -1,5 +1,19 @@
 # Shared headline font
 
+Approved travel v1 is an additive 37-glyph supplement for the six newly published
+Norway/Netherlands pages, using the same OFL Noto Serif TC weight-500 approach
+as Singapore. `noto-serif-tc-approved-travel-v1.woff2` is checked in; ordinary
+repository builds need no private Project, source TTF or fontTools installation.
+Only publication-enabled approved city/country adapters emit its unicode-range
+face. Shared v8, all prior font assets, Songti and every other page are unchanged.
+Rebuild with `scripts/build-approved-travel-heading-font.mjs`, an isolated
+fontTools Python and the upstream weight-500 instance. The glyph list is frozen
+in `approved-travel-heading-glyphs-v1.txt`; maximum supplement size is 24 KiB.
+Upstream variable source is Google Fonts commit
+`6d17dab13b85129360f9748f057c7f67c5f484d4`, `ofl/notoseriftc/NotoSerifTC[wght].ttf`.
+The included `OFL-NotoSerifTC.txt` applies. Full source and emitted supplement
+hashes are retained in the release engineering receipt; no full TTF is published.
+
 Singapore v1 is an additive 29-glyph supplement (`noto-serif-tc-singapore-v1.woff2`) to the unchanged shared v8 font. It uses the same upstream Noto Serif TC weight-500 instance and included OFL license. Only Singapore CSS registers its explicit unicode range; no existing page, Songti setting or older font is replaced. Rebuild it with `scripts/build-singapore-heading-font.mjs`, an installed fontTools Python and the upstream weight-500 instance. Ordinary page builds use the checked-in WOFF2 and need no fontTools or source TTF.
 
 Version 8 (`noto-serif-tc-headings-v8.woff2`) adds the 六福莊 room-choice article headings while retaining all prior glyphs, the weight-500 source instance, OFL license and 256 KiB budget. Version 7 is preserved. Build arguments: version `8`, source kind `instanced-500`.

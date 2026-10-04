@@ -7,6 +7,7 @@ import {startPhotoGrids,layoutPhotoGrids} from './photo-frame-grid.mjs';
 import {photoContexts} from '../scripts/trip-photo-contexts-r22.mjs';
 import {canonicalTripPhoto} from './photo-source-identity.mjs';
 import {startPhotoRecovery} from './photo-error-recovery.mjs';
+import {approvedHomePhoto} from './approved-home-photo.mjs';
 import {readPlan,writePlan,plannedPlaces,reducePlaceExperience,selectExperiencePlaces,planFocusIntent} from './taiwan-place-experience.mjs';
 import {renderPlaceSummary,renderConsumerDetail,selectRegionalFilms,renderRegionalFilms} from './taiwan-consumer-content-r24.mjs';
 startPhotoGrids();
@@ -45,6 +46,7 @@ function renderPlan(){
  $('#plan-content').innerHTML=`<p class="place-note">${storageAvailable?'已儲存在這台裝置的瀏覽器；不會自動同步到 Google 帳戶或其他裝置。':'瀏覽器未允許儲存；目前清單僅在這次頁面開啟期間保留。'}</p>${n?`<ol class="trip-list">${planned.map((p,i)=>`<li><div class="trip-list-place"><button class="place-name-button" type="button" data-action="place-detail" data-id="${escape(p.id)}">${escape(p.name)}</button><small>${escape(countyNames(p))} · ${escape(categoryNames[p.category])}</small>${link('查看地圖',p.maps.search)}</div><div class="trip-list-actions"><button type="button" data-action="plan-up" data-id="${escape(p.id)}" aria-label="上移${escape(p.name)}" ${i===0?'disabled':''}>上移</button><button type="button" data-action="plan-down" data-id="${escape(p.id)}" aria-label="下移${escape(p.name)}" ${i===n-1?'disabled':''}>下移</button><button type="button" data-action="plan-remove" data-id="${escape(p.id)}" aria-label="移除${escape(p.name)}">移除</button></div></li>`).join('')}</ol><p>先調整想去的順序，跨縣市或跨島的交通時間再另行安排。</p>`:'<p>清單還沒有地點。從上面的景點、餐廳或飯店，選「加入旅程清單」開始。</p>'}${lastRemoved?`<button type="button" data-action="plan-undo" data-id="${escape(lastRemoved.id)}">復原移除：${escape(lastRemoved.name)}</button>`:''}`;
 }
 function guideCard(g){
+ if(g.approvedPhoto){const c=catalog.countries.find(c=>c.guideIds.includes(g.id));return `<article class="place-card">${approvedHomePhoto(g.approvedPhoto)}<small>${escape(c?.name)}</small><h3>${escape(g.name)}</h3><p>${escape(g.summary)}</p>${link('閱讀旅行指南',g.href)}</article>`;}
  if(!document.body.classList.contains('travel-home')){const c=catalog.countries.find(c=>c.guideIds.includes(g.id));return `<article class="place-card"><img src="${escape(g.image.src)}" alt="${escape(g.image.alt)}" width="${g.image.width}" height="${g.image.height}" loading="lazy"><small>${escape(c?.name)}</small><h3>${escape(g.name)}</h3><p>${escape(g.summary)}</p>${link('閱讀旅行指南',g.href)}</article>`;}
  const c=catalog.countries.find(c=>c.guideIds.includes(g.id)),identity=canonicalTripPhoto(g.image.src,location.href),photo=photoContexts.find(p=>p.page==='home'&&p.sequence>=7&&p.src===identity);
  if(!photo)throw Error('Unreviewed HOME guide photo: '+g.id);

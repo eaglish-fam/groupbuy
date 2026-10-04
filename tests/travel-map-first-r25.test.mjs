@@ -1,10 +1,12 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync,existsSync} from 'node:fs';
 import {mapFirstTravelHome,renderTravelHomeR24} from '../scripts/render-travel-home-r24.mjs';
 import {prioritizeFirstTravelImage} from '../scripts/trip-image-priority.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const template=read('trip/content/home-r24.html.template');
+const registrationPath=new URL('../trip/data/approved-travel-registration-v1.json',import.meta.url),registration=existsSync(registrationPath)?JSON.parse(readFileSync(registrationPath)):null;
+const approvedGuides=registration?JSON.parse(read(registration.dataPath)).cities:[];
 
 test('home has one brief H1 then the actual map before any promoted photo or article',()=>{
  const html=renderTravelHomeR24();
@@ -18,10 +20,11 @@ test('home has one brief H1 then the actual map before any promoted photo or art
  assert.doesNotMatch(main,/從一片風景，開始遠行。|先選地區，再找到想去的國家。|aria-labelledby="atlas-heading"|class="atlas-intro"/);
  assert.match(main,/<section class="home-destinations home-wrap" id="destinations" aria-label="目的地地圖">/);
  const guideSection=main.slice(featured,planning);
- assert.equal((guideSection.match(/class="home-guide"/g)||[]).length,7);
+ assert.equal((guideSection.match(/class="home-guide"/g)||[]).length,7+approvedGuides.length);
+ for(const guide of approvedGuides)assert.equal((guideSection.match(new RegExp(`data-guide-id="${guide.id}"`,'g'))||[]).length,1);
  assert.equal((guideSection.match(/data-guide-id="singapore"/g)||[]).length,1);
  const withoutSingapore=guideSection.replace(/<article class="home-guide" data-guide-id="singapore">[\s\S]*?<\/article>/,'');
- assert.equal((withoutSingapore.match(/class="home-guide"/g)||[]).length,6);
+ assert.equal((withoutSingapore.match(/class="home-guide"/g)||[]).length,6+approvedGuides.length);
 });
 test('module reorder preserves approved content except the removed duplicate introduction and its ARIA reference',()=>{
  const actual=mapFirstTravelHome(template);

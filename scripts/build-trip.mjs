@@ -8,10 +8,13 @@ import {buildCebuBoholHotels} from './build-trip-cebu-bohol-hotels.mjs';
 import {buildChiangRai} from './build-trip-chiang-rai.mjs';
 import {buildChiangMai} from './build-trip-chiang-mai.mjs';
 import {buildSingapore} from './build-trip-singapore.mjs';
+import {buildApprovedTravel} from './build-trip-approved.mjs';
 import {bangkokCatalog,bangkokGuide,scene,overviewCard,placeSection,film,esc,media,gallery} from './trip-bangkok-places.mjs';
 import {routeSection,rainSection} from './trip-bangkok-routes.mjs';
 import {prioritizeFirstTravelImage} from './trip-image-priority.mjs';
 const root=resolve(import.meta.dirname,'..');
+// Verify the registered portable closure before any legacy writer runs.
+await buildApprovedTravel(root);
 const origin='https://www.eaglish.store';
 const title='曼谷親子景點攻略：9 個實訪地點與 2～5 日自由行行程';
 const description='曼谷親子自由行去哪玩？整理恰圖恰、兒童館、SEA LIFE、Safari World、侏羅紀體驗、河濱夜市、暹羅蛇園、老屋餐廳與空邦龍運河搭船，附實訪照片、地圖、交通、雨備與 2～5 日區域行程。';

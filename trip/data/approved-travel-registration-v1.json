@@ -1,0 +1,16 @@
+{
+  "schema": "eaglish.approved-travel-registration/v1",
+  "dataPath": "trip/data/europe-approved-travel-v1.json",
+  "expectedSha256": "790ca3ca41ce774aa856fcba6bdc26355b8b2756454fb60a323ab2a02e6421b7",
+  "countryIds": [
+    "norway",
+    "netherlands"
+  ],
+  "cityIds": [
+    "oslo",
+    "svalbard",
+    "tromso",
+    "amsterdam"
+  ],
+  "publication": true
+}
