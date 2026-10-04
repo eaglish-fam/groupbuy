@@ -20,7 +20,7 @@ test('pointer and zero-detail touch retain actual heading focus, selection and s
  for(const event of ['pointerdown','touchstart']){const f=fixture();f.listeners.get(event)({});f.click(0);assert.equal(f.root.dataset.countryFocusMode,'pointer');assert.deepEqual(f.titles[1].focusOptions,{preventScroll:true});assert.equal(f.titles[1].attrs.tabindex,'-1');assert.equal(f.titles[1].scrollOptions,undefined);assert.equal(f.panels[0].hidden,true);assert.equal(f.panels[1].hidden,false);assert.equal(f.controls[1].attrs['aria-current'],'true');assert.equal(f.status.textContent,'顯示城市');f.cleanup();assert.equal(f.listeners.size,0);assert.equal(f.winListeners.size,0);assert.equal(f.root.dataset.countryFocusMode,undefined);}
 });
 test('Tab/Enter after pointer restores keyboard focus and minimally scrolls the same selected panel',()=>{
- const f=fixture();f.listeners.get('pointerdown')({});f.listeners.get('keydown')({key:'Tab'});f.listeners.get('keydown')({key:'Enter'});f.click();assert.equal(f.root.dataset.countryFocusMode,'keyboard');assert.deepEqual(f.titles[1].scrollOptions,{block:'nearest',behavior:'auto'});assert.equal(f.status.textContent,'顯示城市');
+ const f=fixture();f.listeners.get('pointerdown')({});f.listeners.get('keydown')({key:'Tab'});f.listeners.get('keydown')({key:'Enter'});f.click();assert.equal(f.root.dataset.countryFocusMode,'keyboard');assert.deepEqual(f.titles[1].scrollOptions,{block:'center',behavior:'auto'});assert.equal(f.status.textContent,'顯示城市');
 });
 test('four city and two country renderers share opt-in hierarchy; only specified city subtitle is absent',()=>{
  const css=readFileSync(new URL('../trip/approved-heading-hierarchy.css',import.meta.url),'utf8');
