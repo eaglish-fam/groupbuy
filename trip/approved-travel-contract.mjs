@@ -15,6 +15,15 @@ export function publicUrl(value){
 export function publicAssetUrl(value){
  if(typeof value!=='string'||!/^\/trip\/assets\/(?:[a-zA-Z0-9_-]+\/)*[a-zA-Z0-9_-]+\.webp$/.test(value))fail('unsafe public WebP path');return value;
 }
+export function publicDiagramUrl(value){
+ if(typeof value!=='string'||!/^\/trip\/assets\/[a-zA-Z0-9_-]+\.svg$/.test(value))fail('unsafe public diagram path');return value;
+}
+export function validateCityIntro(intro,leadFormat){
+ strings(intro);
+ if(leadFormat===undefined){if(intro.length!==2)fail('two approved leads required');}
+ else if(leadFormat!=='longform-context/v1'||intro.length<3||intro.length>4)fail('invalid approved longform context');
+ return intro;
+}
 export function routePath(value){if(typeof value!=='string'||!/^\/trip\/(?:[a-z0-9-]+\/)+$/.test(value))fail('invalid page path');return value;}
 export function focalPoint(value){if(!Array.isArray(value)||value.length!==2||value.some(v=>!Number.isFinite(v)||v<0||v>100))fail('invalid approved focal point');return value;}
 const array=value=>{if(!Array.isArray(value))fail('array required');return value;};
@@ -27,7 +36,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
  // Private working paths, task dispatches and raw source locators are not public provenance.
  const raw=JSON.stringify(data);
  if(/\/Users\/|\/tmp\/|file:\/\/|"(?:rawPath|videoPath|transcriptDirectory|dispatchId|packetSha256|credentials|accessToken)"/i.test(raw))fail('private dependency');
- const sourceMap=new Map(),assets=new Map(),countries=new Map(),cities=new Map();
+ const sourceMap=new Map(),assets=new Map(),countries=new Map(),cities=new Map(),diagrams=new Map();
  const sources=value=>{
   if(!Array.isArray(value)||!value.length||new Set(value).size!==value.length||value.some(v=>!sourceMap.has(v)))fail('unresolved source provenance');
  };
@@ -68,6 +77,16 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
  const links=value=>{for(const l of array(value)){text(l.label);publicUrl(l.url);}};
  const faq=value=>{if(!array(value).length)fail('FAQ required');for(const q of value){text(q.question);text(q.answer);sources(q.sourceIds);}};
  const module=value=>{text(value.title);strings(value.paragraphs);if(!value.paragraphs.length&&!(value.links||[]).length)fail('empty module');sources(value.sourceIds);for(const a of value.images||[])image(a);links(value.links||[]);};
+ const routeDiagram=value=>{
+  id(value.id);if(diagrams.has(value.id)||value.kind!=='route-svg')fail('invalid or duplicate route diagram');
+  publicDiagramUrl(value.url);positive(value.width);positive(value.height);positive(value.bytes);
+  if(value.bytes>65536||!/^[a-f0-9]{64}$/.test(value.sha256)||!calendarDate(value.checkedOn))fail('invalid diagram bytes/hash/date');
+  for(const key of ['title','alt','caption'])text(value[key]);sources(value.sourceIds);
+  if(value.sourceIds.some(s=>sourceMap.get(s).kind!=='official'))fail('diagram needs official provenance');
+  if(array(value.routes).length!==2)fail('two approved diagram routes required');
+  unique(value.routes.map(r=>{id(r.id);text(r.title);text(r.sampleCaption);strings(r.edgeLabels||[]);return r.id;}),'diagram route');
+  diagrams.set(value.id,value);
+ };
  const paths=[];
  for(const c of array(data.countries)){
   id(c.id);if(countries.has(c.id))fail('duplicate country');routePath(c.path);paths.push(c.path);
@@ -91,7 +110,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
   if(!['city','archipelago','region'].includes(c.destinationKind))fail('destination kind');
   if(c.destinationKind==='archipelago')text(c.visitedBase);
   for(const key of ['name','englishName','title','description','author'])text(c[key]);
-  strings(c.intro);if(c.intro.length!==2)fail('two approved leads required');if(!calendarDate(c.updatedOn))fail('city update date');sources(c.sourceIds);
+  validateCityIntro(c.intro,c.leadFormat);if(!calendarDate(c.updatedOn))fail('city update date');sources(c.sourceIds);
   if(array(c.hero).length!==3||new Set(c.hero).size!==3)fail('three distinct hero assets');c.hero.forEach(image);
   const places=new Map();
   for(const p of array(c.places)){
@@ -114,6 +133,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
   }),'card target');
   if(!cardTargets.length)fail('navigation cards required');
   for(const key of ['food','stay','arrival','rain'])module(c[key]);faq(c.faq);if(c.extension)module(c.extension);if(c.reading)module(c.reading);
+  if(c.arrival.diagram)routeDiagram(c.arrival.diagram);
   const anchors=new Set(['main','places','food','stay','arrival','rain','faq','plan','videos',...(c.extension?['extension']:[]),...(c.reading?['day-reading']:[]),...places.keys()]);
   const allLinks=[...c.places.flatMap(p=>p.links||[]),...['food','stay','arrival','rain','extension'].flatMap(k=>c[k]?.links||[])];
   if(allLinks.some(l=>l.url.startsWith('#')&&!anchors.has(l.url.slice(1))))fail('unresolved same-page link');
@@ -203,7 +223,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
  const same=(actual,expected,label)=>{if(!Array.isArray(expected)||JSON.stringify([...actual].sort())!==JSON.stringify([...expected].sort()))fail(label+' coverage mismatch');};
  same([...countries.keys()],data.coverage?.countryIds,'country');same([...cities.keys()],data.coverage?.cityIds,'city');
  if(countryIds)same([...countries.keys()],countryIds,'requested country');if(cityIds)same([...cities.keys()],cityIds,'requested city');
- return {data,sources:sourceMap,assets,countries,cities};
+ return {data,sources:sourceMap,assets,countries,cities,diagrams};
 }
 export function validateCountryAllocation(profile,cityIds){
  if(!profile||profile.approved!==true)fail('approved allocation profile required');

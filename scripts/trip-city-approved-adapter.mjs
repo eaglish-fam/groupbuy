@@ -1,5 +1,5 @@
 import {readFileSync} from 'node:fs';
-import {validateApprovedTravelPackage,publicUrl,focalPoint} from '../trip/approved-travel-contract.mjs';
+import {validateApprovedTravelPackage,publicUrl,publicDiagramUrl,focalPoint} from '../trip/approved-travel-contract.mjs';
 import {cityGuideTemplate,cityGuideHeader,cityGuideChapters,cityGuideBody,cityGuideTemplateStyle} from './trip-city-guide-template.mjs';
 import {singaporePracticalCss} from './trip-singapore-practical-style.mjs';
 import {plannerEntry,plannerAssets} from './trip-planner-entry.mjs';
@@ -21,6 +21,9 @@ export function approvedPicture(asset,{sizes='(max-width:700px) calc(100vw - 40p
  return `<img style="${pos}--photo-ratio:${asset.width}/${asset.height}" src="${esc(src.url)}" srcset="${esc(v.map(v=>`${v.url} ${v.width}w`).join(', '))}" sizes="${esc(sizes)}" width="${asset.width}" height="${asset.height}" alt="${esc(asset.alt)}" loading="lazy" fetchpriority="low" decoding="async">`;
 }
 export const approvedFigure=(asset,options)=>`<figure data-asset-id="${esc(asset.assetId)}">${approvedPicture(asset,options)}<figcaption>${esc(asset.caption)}</figcaption></figure>`;
+export function approvedRouteDiagram(d){
+ return `<figure data-route-diagram="${esc(d.id)}" aria-label="${esc(d.title)}"><img src="${esc(publicDiagramUrl(d.url))}" width="${d.width}" height="${d.height}" alt="${esc(d.alt)}" loading="lazy" decoding="async"><figcaption><p>班表核對：<time datetime="${d.checkedOn}">${d.checkedOn.replaceAll('-','.')}</time></p><dl class="bkk-facts">${d.routes.map(r=>`<div><dt>${esc(r.title)}</dt><dd>${esc(r.sampleCaption)}${r.edgeLabels?.length?`<br>${r.edgeLabels.map(esc).join('；')}`:''}</dd></div>`).join('')}</dl><p>${esc(d.caption)}</p></figcaption></figure>`;
+}
 const columns=assets=>{const ratios=assets.map(a=>a.width/a.height),sum=ratios.reduce((a,b)=>a+b,0);return ratios.map(r=>(ratios.length*r/sum).toFixed(6)+'fr').join(' ');};
 export function approvedAttractionGallery(images){
  if(images.length!==3||new Set(images.map(i=>i.assetId)).size!==3)throw Error('Three distinct approved attraction images required');
@@ -35,7 +38,7 @@ export function approvedNavigationCards(city,assets){
  return `<section id="places"><h2>${cityGuideTemplate.labels.places}</h2><div class="bkk-overview city-approved-cards">${city.cards.map(card=>`<a href="#${esc(card.target)}" data-place-ref="${esc(city.places.find(p=>p.id===card.target).stableId)}" data-asset-id="${esc(card.assetId)}">${approvedPicture(assets.get(card.assetId),{sizes:'(max-width:700px) calc(50vw - 24px), 250px',focal:card.focalPoint,card:true})}<span class="bkk-overview-copy"><strong>${esc(card.title)}</strong><span>${esc(card.play)}</span><small>${esc(card.time)}</small></span></a>`).join('')}</div></section>`;
 }
 function moduleHtml(id,value,assets){
- return `<section id="${id}"><h2>${esc(value.title)}</h2>${paragraphs(value.paragraphs)}${value.images?.length?`<div class="city-module-gallery" style="--city-pair-columns:${columns(value.images.map(a=>assets.get(a)))}">${value.images.map(a=>approvedFigure(assets.get(a))).join('')}</div>`:''}${links(value.links)}</section>`;
+ return `<section id="${id}"><h2>${esc(value.title)}</h2>${paragraphs(value.paragraphs)}${id==='arrival'&&value.diagram?approvedRouteDiagram(value.diagram):''}${value.images?.length?`<div class="city-module-gallery" style="--city-pair-columns:${columns(value.images.map(a=>assets.get(a)))}">${value.images.map(a=>approvedFigure(assets.get(a))).join('')}</div>`:''}${links(value.links)}</section>`;
 }
 export function approvedTravelMetadata(page,country,faq,{publication=false,imageUrl,relatedPages=[]}={}){
  const url=origin+page.path,isCountry=page===country;
