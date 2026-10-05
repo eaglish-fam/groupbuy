@@ -1,7 +1,7 @@
 {
   "schema": "eaglish.approved-travel-registration/v1",
   "dataPath": "trip/data/europe-approved-travel-v1.json",
-  "expectedSha256": "008d9dd0ea2fc3a0708ab10531cfaff68aa0317746986b8790b51759c622d70a",
+  "expectedSha256": "8d815a3e02f04cc3750628936b45838640dcf26529c426dd481ee4aebc7edac5",
   "countryIds": [
     "norway",
     "netherlands"

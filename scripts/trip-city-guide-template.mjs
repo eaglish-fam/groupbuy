@@ -1,5 +1,6 @@
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+import {validateCityIntro} from '../trip/approved-travel-contract.mjs';
 // Opt-in city-guide composition; approved city content remains source-owned.
 export function cityGuideTemplateStyle({compatCss=''}={}){
  const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
@@ -25,8 +26,9 @@ export function cityGuideHeroLayout(images){
  const columns=v=>{const total=v.reduce((a,b)=>a+b,0);return v.map(r=>(v.length*r/total).toFixed(6)+'fr').join(' ');};
  return {mode,desktopColumns:columns(ratios),supportColumns:columns(ratios.slice(1)),ratios:images.map(i=>`${i.width}/${i.height}`)};
 }
-export function cityGuideHeader({title,intro,author,updatedOn,eyebrow,images,breadcrumbs},{esc,figure,compatClass=''}){
- if(images.length!==3||intro.length!==2||new Set(images.map(i=>i.assetId)).size!==3)throw Error('Three distinct source photos and two approved leads required');
+export function cityGuideHeader({title,intro,leadFormat,author,updatedOn,eyebrow,images,breadcrumbs},{esc,figure,compatClass=''}){
+ validateCityIntro(intro,leadFormat);
+ if(images.length!==3||new Set(images.map(i=>i.assetId)).size!==3)throw Error('Three distinct source photos required');
  const layout=cityGuideHeroLayout(images);
  const [main,...rest]=title.split('：'),subtitle=rest.join('：');
  return `<nav class="breadcrumbs" aria-label="麵包屑">${breadcrumbs}</nav><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(main)}${subtitle?`<span>${esc(subtitle)}</span>`:''}</h1><div class="article-lead">${intro.map(p=>`<p>${esc(p)}</p>`).join('')}</div><p class="byline"><span>撰文・影像：${esc(author)}</span><span>更新 ${esc(updatedOn.replaceAll('-','.'))}</span></p><div class="city-guide-hero${compatClass?' '+esc(compatClass):''}" data-hero-layout="${layout.mode}" style="--hero-desktop-columns:${layout.desktopColumns};--hero-support-columns:${layout.supportColumns}">${images.map((i,n)=>figure(i,{sizes:layout.mode==='landscapes'?'(max-width:700px) 90vw, 680px':n===0?'(max-width:700px) calc(100vw - 40px), (max-width:1280px) calc(33.333vw - 40px), 387px':'(max-width:700px) calc(50vw - 24px), (max-width:1280px) calc(33.333vw - 40px), 387px'}).replace('<figure',`<figure data-hero-slot="${cityGuideTemplate.heroSlots[n]}" style="--hero-ratio:${layout.ratios[n]}"`)).join('')}</div>`;
