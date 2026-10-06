@@ -1,0 +1,13 @@
+import sharp from 'sharp';
+import {readFileSync} from 'node:fs';
+import {resolve} from 'node:path';
+const input=process.argv[2];
+if(!input)throw Error('Supply authorized source-media directory');
+const root=resolve(import.meta.dirname,'..');
+const source=readFileSync(resolve(root,'assets/playzu/vintage-cover-source.svg'));
+const room=await sharp(resolve(input,'vintage-room.jpg')).resize(970,1000,{fit:'cover',position:'right'}).toBuffer();
+const cover=await sharp(source).composite([{input:room,left:630,top:0}]).webp({quality:82}).toBuffer();
+await sharp(cover).toFile(resolve(root,'assets/playzu/vintage-cover.webp'));
+for(const width of [480,960])await sharp(cover).resize(width).webp({quality:80}).toFile(resolve(root,`assets/playzu/vintage-cover-${width}.webp`));
+await sharp(resolve(input,'secret-beach.jpg')).webp({quality:85}).toFile(resolve(root,'assets/playzu/pattern-07.webp'));
+console.log('Real vendor photos resized and laid out; no generative image processing.');

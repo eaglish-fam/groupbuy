@@ -2,6 +2,25 @@
   "schema": "eaglish.blog-cover-identity/v1",
   "effectiveDate": "2026-09-14",
   "articles": {
+    "/blog/playzu/": {
+      "identity": "Playzu",
+      "image": "/assets/playzu/vintage-cover.webp",
+      "imageSha256": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
+      "source": "/assets/playzu/vintage-cover-source.svg",
+      "sourceSha256": "d7aa2805d6075e3eb9947c552d90ccd70e4b79c0395c60aa0317cd9a1f0629cc",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true
+      }
+    },
     "/blog/leofoo/": {
       "identity": "六福莊",
       "image": "/assets/leofoo/cover.webp",
@@ -12,7 +31,12 @@
         "identityVisible": true,
         "realPhotoPreserved": true,
         "imageSha256": "1300254cec1ad3dd6e6d0d47c4f6ab626efccf7f23771acd0c7f2ffd1690de55",
-        "viewportWidths": [320, 390, 768, 1440],
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
         "mobileCardLegible": true
       }
     },

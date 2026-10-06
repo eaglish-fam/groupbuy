@@ -298,7 +298,7 @@
     {
       "slug": "playzu",
       "url": "https://www.eaglish.store/blog/playzu/",
-      "title": "Playzu 地墊團購指南｜20 款花色搭配、尺寸怎麼選與清潔方法｜鷹家選物誌",
+      "title": "Playzu 地墊復古系列怎麼選？三款花色搭配、尺寸與清潔｜鷹家選物誌",
       "productNames": [
         "Playzu"
       ],
@@ -307,16 +307,14 @@
       "intent": "product:playzu",
       "topics": [
         "Playzu 地墊",
-        "Playzu 地墊團購",
-        "巧拼地墊花色",
-        "台灣製地墊",
-        "地墊清潔",
-        "EVA 地墊尺寸"
+        "Playzu 復古系列",
+        "復古地墊花色",
+        "地墊尺寸與清潔"
       ],
       "cluster": "family",
       "published": "2026-09-11",
-      "modified": "2026-09-11",
-      "sourceHash": "5020da1366f349e7d3da0902cbe27dafd1d27deb9132b486d4d214976c53e0a8"
+      "modified": "2026-10-06",
+      "sourceHash": "140079d51b04c3dfbb5e9763395250b90c18db295a7c1aa597cc5d1ef2ed398e"
     },
     {
       "slug": "shoumaji",

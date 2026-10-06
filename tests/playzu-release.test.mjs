@@ -12,7 +12,8 @@ test('Playzu article is identity bound and fails closed for ended or duplicate o
  assert.equal(pc.campaignFor([row,row],'playzu','2026-09-11').state,'unavailable');
  assert.equal(pc.entry('unrelated'),undefined);
 });
-test('Playzu contains 20 named vendor patterns, all three family photos and shared journal chrome',()=>{
+test('Playzu original version preserves 20 named vendor patterns and all three family photos',()=>{
+ const html=JSON.parse(fs.readFileSync(new URL('../config/article-variants/playzu/all-series.json',import.meta.url),'utf8')).html;
  assert.equal((html.match(/data-pattern=/g)||[]).length,20);
  for(const n of [1,2,3])assert.ok(html.includes(`/assets/playzu/family-${n}.webp`));
  for(const id of ['garden','vintage','lines','dots','size','care','safety'])assert.ok(html.includes(`id="${id}"`));
@@ -20,5 +21,9 @@ test('Playzu contains 20 named vendor patterns, all three family photos and shar
  assert.ok(html.includes('58 公分和 62 公分不能混拼'));
  assert.ok(html.includes('不是嬰兒睡眠床墊'));
  assert.ok(html.includes('https://www.youtube.com/shorts/7HBV5e0bggc'),'only the exact Playzu video from its current Sheet row');
+ for(const m of html.matchAll(/src="(\/assets\/playzu\/[^"?]+)"/g))assert.ok(fs.existsSync(new URL('..'+m[1],import.meta.url)));
+});
+test('Playzu active article retains shared journal chrome and valid image files',()=>{
+ for(const path of ['/blog/journal-nav.css','/articles/article.css','/assets/editorial/eaglish-journal-wordmark-v1.svg'])assert.ok(html.includes(path));
  for(const m of html.matchAll(/src="(\/assets\/playzu\/[^"?]+)"/g))assert.ok(fs.existsSync(new URL('..'+m[1],import.meta.url)));
 });

@@ -1,0 +1,31 @@
+{
+  "activeVersion": "vintage",
+  "versions": {
+    "all-series": {"source": "config/article-variants/playzu/all-series.json"},
+    "vintage": {
+      "source": "config/article-variants/playzu/vintage.html.txt",
+      "title": "Playzu 地墊復古系列怎麼選？三款花色搭配、尺寸與清潔｜鷹家選物誌",
+      "h1": "Playzu 地墊：把復古地毯的樣子，鋪進日常。",
+      "description": "Playzu 地墊當期主打復古系列：醉月星空、初衷之心、秘境沙灘。從三款真實花色照片、冷暖配色與家具搭配，找到適合客廳和遊戲角落的款式；一起確認每組六片、58 公分單片與 114×168 公分鋪設尺寸，再看拼接、清潔及當期團購入口。",
+      "cardTitle": "Playzu 復古地墊｜三款花色怎麼挑？",
+      "excerpt": "醉月星空、初衷之心、秘境沙灘：先用家具配色縮小選擇，再量好鋪設範圍。",
+      "cover": "/assets/playzu/vintage-cover.webp",
+      "coverAlt": "Playzu 復古地墊花色怎麼挑文字，搭配孩子在藍灰色復古地墊上玩積木的品牌照片",
+      "dateModified": "2026-10-06",
+      "coverReview": {
+        "identity": "Playzu",
+        "image": "/assets/playzu/vintage-cover.webp",
+        "imageSha256": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
+        "source": "/assets/playzu/vintage-cover-source.svg",
+        "sourceSha256": "d7aa2805d6075e3eb9947c552d90ccd70e4b79c0395c60aa0317cd9a1f0629cc",
+        "review": {
+          "identityVisible": true,
+          "realPhotoPreserved": true,
+          "imageSha256": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
+          "viewportWidths": [320, 390, 768, 1440],
+          "mobileCardLegible": true
+        }
+      }
+    }
+  }
+}
