@@ -6,6 +6,7 @@ import {renderHomepageTravelEntry} from './homepage-travel-entry.mjs';
 const require=createRequire(import.meta.url),{catalog,escape}=require('../product-content.js');
 const root = new URL('../', import.meta.url);
 const release = '20261002-leofoo-booking-sync';
+const productMediaRelease = '20261006-fullbleed';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
   .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];
@@ -51,6 +52,9 @@ html=html.replace('正在讀取最新團購…','商品選購目錄')
 if(!html.includes('data-snapshot-card'))throw Error('Homepage snapshot insertion failed');
 html = html.replace(/((?:src|href)="\/[^"]+\.(?:js|css))(?:\?[^"]*)?"/g, '$1?v=' + release + '"');
 html = html.replace(`src="/design/design.js?v=${release}"`, 'src="/design/design.js?v=20261002-leofoo-card-only"');
+for (const file of ['design.css','mobile-grid.css','complete-content.css']) {
+  html = html.replace(`href="/design/${file}?v=${release}"`, `href="/design/${file}?v=${productMediaRelease}"`);
+}
 if (html.includes('noindex') || html.includes('獨立設計提案') || !html.includes('id="original-notice"')) throw Error('Invalid production homepage');
 writeFileSync(new URL('index.html', root), html.replace(/[ \t]+$/gm, ''));
 console.log('Built production homepage from design/index.html');

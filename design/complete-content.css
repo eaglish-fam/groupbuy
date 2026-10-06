@@ -337,7 +337,7 @@
   margin-top: 14px;
 }
 .resource-grid .product-picture img {
-  object-fit: contain;
+  object-fit: cover;
 }
 .resource-grid .product-description {
   -webkit-line-clamp: 3;
