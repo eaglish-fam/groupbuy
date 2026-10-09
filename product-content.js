@@ -1,6 +1,7 @@
 /* Shared article/video contract. No Sheet writes, publishing or message sending. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.ProductContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const catalog={
+    locknlock:{id:'locknlock',brands:['樂扣樂扣'],article:'/blog/locknlock/',title:'樂扣樂扣水壺怎麼選？兒童水壺、吸管杯與容量比較',excerpt:'孩子自己帶水、大人外帶飲料、長時間補水，從喝法、容量到每天的拆洗。',category:'生活補水',image:'/assets/locknlock/cover.webp',cardImage:'/assets/locknlock/product-card.webp',published:'2026-10-08'},
     leofoo:{id:'leofoo',brands:['六福莊飯店','六福莊住宿 A｜樂園無限玩','六福莊住宿 B｜經典探險','六福莊住宿 C｜FUN肆玩樂季'],planBrands:{A:'六福莊住宿 A｜樂園無限玩',B:'六福莊住宿 B｜經典探險',C:'六福莊住宿 C｜FUN肆玩樂季'},article:'/blog/leofoo/',title:'六福莊房型怎麼選？剛果、肯亞與三種住宿方案',excerpt:'先按人數、樓梯與動物景觀選房，再比較一晚或兩晚、動物體驗、晚餐和第四位同行者的安排。',category:'親子旅行',image:'/assets/leofoo/cover.webp',cardImage:'/assets/leofoo/product-card.webp',published:'2026-10-02'},
     branden:{id:'branden',brands:['Branden 壓縮袋'],article:'/blog/branden/',title:'旅行壓縮袋好用嗎？BRANDEN 二代與 Lite 怎麼選',excerpt:'從真實打包影片看拉鍊式壓縮袋，再按袋身、重量、開口與尺寸挑選。',category:'旅行收納',image:'/assets/branden/cover.webp',cardImage:'/assets/branden/product-card.webp',published:'2026-09-24'},
     lange:{id:'lange',brands:["L'Ange 棉之境"],article:'/blog/lange/',title:'紗布巾｜全家日用和旅行，尺寸怎麼挑？',excerpt:'洗臉、拍嗝、擦髮、洗澡和旅行自帶浴巾，先看尺寸，再照家裡的換洗習慣估數量。',category:'居家生活',image:'/assets/lange/cover.webp',published:'2026-09-17'},

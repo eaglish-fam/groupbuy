@@ -19,7 +19,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "51398d4b9b120cf1b79f1a15cb9efb8d912a734a341ba384b2f8da5535411290"
+      "sourceHash": "7698e46bdd4b9a01cb7e7e8b7f63679d5d3eee0681c9758c7467f5d70519f121"
     },
     {
       "slug": "atojet",
@@ -38,7 +38,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "fe2e32715c47b02152dd1e2d0599b3d6cde7eb26f627c496fd8484a92a9951ba"
+      "sourceHash": "b4fb7e2941d6a625bd34667184b883771fc472f20fadd03df7daef825da4e853"
     },
     {
       "slug": "branden",
@@ -57,7 +57,7 @@
       "cluster": null,
       "published": "2026-09-24",
       "modified": "2026-09-24",
-      "sourceHash": "6f03749f370b5e32748e9c40eb301613c818b7a4e66ddc724ceb07b4f66480e5"
+      "sourceHash": "161ce5537a213dd3a0fcb5df5729431662c877d6a7dc182940edba7091e0dd8e"
     },
     {
       "slug": "caesar-kenting",
@@ -79,7 +79,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "d8cc4e6de1de48110c963b502b84b1d64d2fedddf843d30bef7f619d2a50321b"
+      "sourceHash": "e4576a7497126c87bf300d0b55474e7242527a5b64b05dad6a86218d68a36890"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -101,7 +101,7 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "aae2877fe6c8bd1abf00297e9f2120fc56772aba9cac8bd4e0ba56b0ba85cd3b"
+      "sourceHash": "89973d7829f722ca5250bcbdbadc96d1dd14cd8476455fc86d2cc38cf375d114"
     },
     {
       "slug": "eben-kombucha",
@@ -121,7 +121,7 @@
       "cluster": null,
       "published": "2026-09-29",
       "modified": "2026-09-29",
-      "sourceHash": "f9e564dfcbbc5044992794aab12ff8c3c1e582e194f0aad0b65e4a44826902b6"
+      "sourceHash": "ea96d60cb2ab9486f1ef6781c1e38e3df3b5ec7d23f592188e331fbe11e1f6ab"
     },
     {
       "slug": "fushan-gifts",
@@ -143,7 +143,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "81a2afc3adc6c30a3233a012a56a95d4288f49b8686a528e79a3c8b157ea8405"
+      "sourceHash": "f8c8948a973af5fae74ee8598ba062e4927a54f2043c1bf5e64a049af9b589aa"
     },
     {
       "slug": "hereu-tag",
@@ -165,7 +165,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "26c8abba8b2d188a194e1d351c797d386de187e052d7b6b8f5c61c9551fc5769"
+      "sourceHash": "bf338582ae1eb3297e3de4e28f8438f281fd88d68adf89be65595fb6d0312510"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -188,7 +188,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "783962c7a90db653484d97124f20bc110186a45b4e9d10d0d5d2a1b0a763a777"
+      "sourceHash": "7effee20afc452bf17989935cca1350f48ffd904ac8865290e8ae1d44c948342"
     },
     {
       "slug": "lange",
@@ -209,7 +209,7 @@
       "cluster": "family",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "6a0de0d45ab681abceb3fdc08c6db012fe494dbdd83d567aadc05c4e43ac56e0"
+      "sourceHash": "03b44a6204eac9a9c9819c4fff17d846f812d9edf6641bcf2037fd29bea7efef"
     },
     {
       "slug": "leofoo",
@@ -234,7 +234,28 @@
       "cluster": "travel",
       "published": "2026-10-02",
       "modified": "2026-10-02",
-      "sourceHash": "6ee9f12dbefb8c9afc6cb8b732468a592a5c32d3498c7f10081a7b813118b253"
+      "sourceHash": "594a023303d78a6ffd2bd741c21dba1f4a49f32d0f3c305612a1df8a872a3590"
+    },
+    {
+      "slug": "locknlock",
+      "url": "https://www.eaglish.store/blog/locknlock/",
+      "title": "樂扣水壺怎麼選？兒童水壺、吸管杯與容量比較｜樂扣樂扣 · LocknLock｜鷹家選物誌",
+      "productNames": [
+        "樂扣樂扣"
+      ],
+      "productId": "locknlock",
+      "mode": "product",
+      "intent": "product:locknlock",
+      "topics": [
+        "樂扣水壺怎麼選",
+        "樂扣吸管杯",
+        "兒童水壺",
+        "Tritan吸管杯清洗"
+      ],
+      "cluster": null,
+      "published": "2026-10-08",
+      "modified": "2026-10-08",
+      "sourceHash": "5185a5a29c6c5efb8c646680aa86f6afcc89c75c7be7854f2c7f959276342c52"
     },
     {
       "slug": "meroware",
@@ -253,7 +274,7 @@
       "cluster": "family",
       "published": "2026-09-09",
       "modified": "2026-09-11",
-      "sourceHash": "986a871d1b7b25bc58b89c613a9de2d47f43c2d4af32021e5bd858be5afe72d7"
+      "sourceHash": "ab7f2e57c4bed226199aab1da4f830b862250dc0237348eb7318e79880064b97"
     },
     {
       "slug": "miamily",
@@ -274,7 +295,7 @@
       "cluster": "travel",
       "published": "2026-09-16",
       "modified": "2026-09-16",
-      "sourceHash": "e4552d88e50e43cdf5d7a8070a0ba3bde220598a517991cea55de800863736c5"
+      "sourceHash": "9555428bdbf2a90ecf934ac9cf19cb3eb4171ae58d2c58a3d890cf3afd351058"
     },
     {
       "slug": "mitoy-rice-blocks",
@@ -293,7 +314,7 @@
       "cluster": "family",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "66897b626e64ebcd7ed07084ef0cc0ab38251843c7f553dfe78b7275752db2ac"
+      "sourceHash": "c691d7a8fa22fc262c1b0d507638b99499341536eb0571ed66c4a8b0da224fe9"
     },
     {
       "slug": "playzu",
@@ -314,7 +335,7 @@
       "cluster": "family",
       "published": "2026-09-11",
       "modified": "2026-10-06",
-      "sourceHash": "140079d51b04c3dfbb5e9763395250b90c18db295a7c1aa597cc5d1ef2ed398e"
+      "sourceHash": "9c9912edb2f121f0923c99fb15a972d68293378b9786e27a072766fb3f3316db"
     },
     {
       "slug": "shoumaji",
@@ -335,7 +356,7 @@
       "cluster": "travel",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "5166c08019463cb46b24afc3885ad13f494aaed628acbe7c26a158544b4bbca7"
+      "sourceHash": "0edf1a0149ef02c848ab684328d75cdcd873baba470fe42fce327e4ea9aa9062"
     },
     {
       "slug": "wave-hummus",
@@ -354,7 +375,7 @@
       "cluster": "table",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "dadf0574eeea0028df0cb0618ecbae0de60308edb80f5e7509ca0ef5c6a5b9bc"
+      "sourceHash": "a529d0b4c088d8c0c833d49814d99a5d1e13b421a65d4d8e9aa4b26521ea21f1"
     }
   ]
 }

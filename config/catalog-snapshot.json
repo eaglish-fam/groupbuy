@@ -4,6 +4,14 @@
   "source": "https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/",
   "items": [
     {
+      "id": "locknlock",
+      "brand": "樂扣樂扣",
+      "description": "孩子自己帶水、大人外帶飲料、長時間補水，從喝法、容量到每天的拆洗。",
+      "category": "居家",
+      "article": "/blog/locknlock/",
+      "image": "/assets/locknlock/product-card.webp"
+    },
+    {
       "id": "eben-kombucha",
       "brand": "EBEN康普茶",
       "description": "從茶香與果香挑口味，搭配商品圖、家人試喝、微量酒精與冷藏說明，再選適合的團購組合。",

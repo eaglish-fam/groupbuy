@@ -1,6 +1,7 @@
 import {readFileSync, writeFileSync, existsSync, mkdirSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import {createHash} from 'node:crypto';
 
 const ROOT=resolve(fileURLToPath(new URL('..',import.meta.url)));
 const read=(p)=>readFileSync(resolve(ROOT,p),'utf8');
@@ -24,6 +25,9 @@ export function renderVintage(legacy, version, fragment) {
     return open+JSON.stringify(data)+close;
   });
   html=html.replace('/blog/playzu/playzu.css?v=1','/blog/playzu/playzu.css?v=20261006-vintage');
+  // Keep immutable editorial snapshots intact, but render current shared UI assets.
+  const navigationVersion=createHash('sha256').update(read('site-navigation.css')).digest('hex').slice(0,12);
+  html=html.replace(/(href="\/site-navigation\.css\?v=)[^"]+(")/g,`$1${navigationVersion}$2`);
   return html;
 }
 

@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 44,
+    "pages": 52,
     "blocking": 0,
-    "warnings": 17,
-    "total": 17
+    "warnings": 16,
+    "total": 16
   },
   "findings": [
     {
@@ -23,30 +23,23 @@
     {
       "level": "warn",
       "category": "images",
-      "message": "Hero/first image should not be lazy-loaded",
-      "file": "blog/index.html",
-      "index": 4696
+      "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
+      "file": "index.html",
+      "index": 3563
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 3596
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
-      "file": "index.html",
-      "index": 42308
+      "index": 43066
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 42308
+      "index": 43066
     },
     {
       "level": "warn",
@@ -74,28 +67,28 @@
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "trip/guides/cebu-bohol-with-kids/index.html",
-      "index": 5424
+      "index": 51378
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "trip/guides/cebu-bohol-with-kids/index.html",
-      "index": 6091
+      "index": 52045
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "trip/guides/cebu-bohol-with-kids/index.html",
-      "index": 6817
+      "index": 52771
     },
     {
       "level": "warn",
       "category": "images",
-      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/index.html",
-      "index": 90580
+      "index": 536855
     },
     {
       "level": "warn",

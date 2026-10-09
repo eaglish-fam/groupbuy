@@ -38,7 +38,15 @@ test('only the three-site switcher stays at the desktop bottom, with travel head
  assert.match(css,/\.site-switcher\{[^}]*position:fixed;left:0;right:0;bottom:0/);
  assert.match(css,/body>header\.home-masthead,body>header\.masthead\.wrap\{position:sticky;top:0/);
  assert.doesNotMatch(css,/\.home-footer[^\n]*position:fixed|\.footer[^\n]*position:fixed/);
- assert.match(css,/@media\(max-width:700px\)[^{]*\{body\{padding-bottom:calc\(56px/);
+ assert.match(css,/@media\(max-width:700px\)\{:root\{--site-switcher-height:57px\}body\{padding-bottom:calc\(var\(--site-switcher-height\)/);
+});
+
+test('shared article purchase controls reserve the navigation height and safe area, without covering navigation',()=>{
+ const css=readFileSync(resolve(root,'site-navigation.css'),'utf8');
+ assert.match(css,/:root\{--site-switcher-height:50px\}/);
+ assert.match(css,/html:has\(\.site-switcher\) \.offer-bar\{--offer-bottom:calc\(var\(--site-switcher-height\) \+ 12px \+ env\(safe-area-inset-bottom,0px\)\)\}/);
+ assert.match(css,/@media\(min-width:701px\)\{\s*html:has\(\.site-switcher\) \.offer-bar\{--offer-bottom:calc\(var\(--site-switcher-height\) \+ 40px/);
+ assert.match(css,/html:has\(\.site-switcher\):has\(\.offer-bar\.is-floating\)\{scroll-padding-bottom:calc\(var\(--site-switcher-height\) \+ 100px/);
 });
 
 test('Bangkok Jurassic related reading goes to two real journal articles after travel details',()=>{

@@ -2,8 +2,12 @@
    No CSS font-face/preload: entry content renders without any font download. */
 :root{--serif:"Eaglish Heading Serif","Songti TC","PMingLiU",serif}
 h1,h2,h3{font-family:var(--serif)}
-/* One persistent three-site switcher; the ordinary footer stays in document flow. */
-body{padding-bottom:50px}
+/* One persistent three-site switcher; all floating controls share its clearance. */
+:root{--site-switcher-height:50px}
+body{padding-bottom:var(--site-switcher-height)}
+html:has(.site-switcher) .offer-bar{--offer-bottom:calc(var(--site-switcher-height) + 12px + env(safe-area-inset-bottom,0px))}
+html:has(.site-switcher) .offer-slot{scroll-margin-bottom:calc(var(--site-switcher-height) + 90px + env(safe-area-inset-bottom,0px))}
+html:has(.site-switcher):has(.offer-bar.is-floating){scroll-padding-bottom:calc(var(--site-switcher-height) + 100px + env(safe-area-inset-bottom,0px))}
 .site-switcher{color:#544b42;background:#f5f1e9;border-top:1px solid #ded6ca;font-family:-apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei",sans-serif;position:fixed;left:0;right:0;bottom:0;z-index:70;box-shadow:0 -4px 20px #0000000a}
 .site-switcher-inner{max-width:1280px;margin:0 auto;padding:0 48px;display:flex;justify-content:center;gap:0}
 .site-switcher a{display:flex;align-items:center;justify-content:center;min-width:130px;min-height:49px;padding:10px 20px;text-decoration:none;color:inherit;font-size:13px;line-height:1.5;border-top:2px solid transparent;white-space:nowrap}
@@ -12,13 +16,14 @@ body{padding-bottom:50px}
 .site-switcher a:focus-visible{outline:3px solid #784b39;outline-offset:-4px}
 a.skip:focus,a.skip-link:focus{z-index:1000}
 @media(min-width:701px){
+  html:has(.site-switcher) .offer-bar{--offer-bottom:calc(var(--site-switcher-height) + 40px + env(safe-area-inset-bottom,0px))}
   html:has(>body>header.home-masthead),html:has(>body>header.masthead.wrap){scroll-padding-top:120px}
   body>header.home-masthead,body>header.masthead.wrap{position:sticky;top:0;z-index:60;background:var(--paper,#fcfaf5);max-width:none;width:100%;padding-inline:max(48px,calc((100vw - 1280px)/2 + 48px))}
   .trip-plan-entry{bottom:66px!important}
 }
 @media(min-width:701px) and (max-width:1100px){body>header.home-masthead,body>header.masthead.wrap{padding-inline:30px}}
 @media(min-width:701px) and (max-width:1199px){.reading-nav__panel{bottom:max(66px,env(safe-area-inset-bottom))}}
-@media(max-width:700px){body{padding-bottom:calc(56px + env(safe-area-inset-bottom))}.site-switcher{background:#faf8f3f5;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-bottom:env(safe-area-inset-bottom)}.site-switcher-inner{padding:0 8px}.site-switcher a{flex:1;min-width:0;min-height:56px;padding:9px 4px;font-size:14px}.journal-chrome .masthead>a:not(.brand){display:none}.trip-plan-entry{bottom:calc(72px + env(safe-area-inset-bottom))!important}.reading-nav__panel{bottom:max(72px,env(safe-area-inset-bottom))!important}}
+@media(max-width:700px){:root{--site-switcher-height:57px}body{padding-bottom:calc(var(--site-switcher-height) + env(safe-area-inset-bottom,0px))}.site-switcher{background:#faf8f3f5;backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding-bottom:env(safe-area-inset-bottom)}.site-switcher-inner{padding:0 8px}.site-switcher a{flex:1;min-width:0;min-height:56px;padding:9px 4px;font-size:14px}.journal-chrome .masthead>a:not(.brand){display:none}.trip-plan-entry{bottom:calc(72px + env(safe-area-inset-bottom))!important}.reading-nav__panel{bottom:max(72px,env(safe-area-inset-bottom))!important}}
 @media print{.site-switcher{display:none!important}body{padding-bottom:0!important}}
 /* Optional contextual reading suggestion, never a floating purchase control. */
 aside.site-reading-note{padding:22px 24px;margin:28px 0;background:#f2eee5;border:1px solid #dcd5c9;border-left:3px solid #a9785e;border-radius:5px;color:#494139}

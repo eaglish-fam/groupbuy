@@ -2,6 +2,20 @@
   "schema": "eaglish.blog-cover-identity/v1",
   "effectiveDate": "2026-09-14",
   "articles": {
+    "/blog/locknlock/": {
+      "identity": "樂扣樂扣",
+      "image": "/assets/locknlock/cover.webp",
+      "imageSha256": "3a8eb8147f9d7f09715d6d61afb9f230ae1a0164771d158000c94f3a4dd3a8a5",
+      "source": "/assets/locknlock/family-2.webp",
+      "sourceSha256": "917b8e4c67de093fdc623c9438124a9982d871c8c7e1b2e8e19c4f9b7b7d7d15",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "3a8eb8147f9d7f09715d6d61afb9f230ae1a0164771d158000c94f3a4dd3a8a5",
+        "viewportWidths": [320, 390, 768, 1440],
+        "mobileCardLegible": true
+      }
+    },
     "/blog/playzu/": {
       "identity": "Playzu",
       "image": "/assets/playzu/vintage-cover.webp",
