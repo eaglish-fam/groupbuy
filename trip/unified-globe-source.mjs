@@ -73,7 +73,7 @@ export async function mountUnifiedGlobe(host,{countries=[],view,signal,onSelect=
    paint(f,active?'#8b6246':drill?(muted?'#d9d4bd':colors[p.regionId]):'#eadfc5',drill&&view.depth==='counties'?(active?'#5e4736':'#fcfaf5'):null,active?1.6:.8);
   }
   hits=[];
-  if(view.mode==='world')for(const c of countries){if(view.regionId!=='all'&&c.region!==view.regionId&&c.subregion!==view.regionId)continue;const point=c.geography?.point;if(!point||geoDistance(camera.center,point)>=Math.PI/2-.015)continue;const p=projection(point);hits.push({point:p,id:c.id});ctx.beginPath();ctx.arc(...p,c.id===view.countryId?5:4,0,Math.PI*2);ctx.fillStyle='#784b39';ctx.fill();ctx.strokeStyle='#fff7e9';ctx.lineWidth=1.5;ctx.stroke();}
+  if(view.mode==='world')for(const c of countries){const point=c.geography?.point;if(!point||geoDistance(camera.center,point)>=Math.PI/2-.015)continue;const p=projection(point);hits.push({point:p,id:c.id});ctx.beginPath();ctx.arc(...p,c.id===view.countryId?5:4,0,Math.PI*2);ctx.fillStyle='#784b39';ctx.fill();ctx.strokeStyle='#fff7e9';ctx.lineWidth=1.5;ctx.stroke();}
   // End disc clipping before decorative leaders; native paper buttons are not
   // clipped and retain their full accessible rectangles around the lens.
   ctx.restore();const visibleLabels=[];
@@ -88,7 +88,7 @@ export async function mountUnifiedGlobe(host,{countries=[],view,signal,onSelect=
   }
   // Taiwan is already an established destination; use the geometry's true
   // main-island label point for the world marker, not a fabricated venue pin.
-  if(view.mode==='world'&&['all','asia'].includes(view.regionId)){const point=geometry.mainlandPoint,p=projection(point);if(geoDistance(camera.center,point)<Math.PI/2){hits.push({point:p,id:'tw'});ctx.beginPath();ctx.arc(...p,5,0,Math.PI*2);ctx.fillStyle='#547364';ctx.fill();ctx.strokeStyle='#fcfaf5';ctx.lineWidth=2;ctx.stroke();}}
+  if(view.mode==='world'){const point=geometry.mainlandPoint,p=projection(point);if(geoDistance(camera.center,point)<Math.PI/2){hits.push({point:p,id:'tw'});ctx.beginPath();ctx.arc(...p,5,0,Math.PI*2);ctx.fillStyle='#547364';ctx.fill();ctx.strokeStyle='#fcfaf5';ctx.lineWidth=2;ctx.stroke();}}
  }
  function stop(finish=false){if(finish&&target)camera={...target,center:[...target.center]};transition=null;host.classList.remove('is-travelling');if(frame)cancelAnimationFrame(frame);frame=0;}
  function tick(now){frame=0;if(destroyed)return;if(document.hidden){stop(true);return;}if(transition){const progress=(now-transition.start)/650;camera=interpolateCamera(transition.from,target,progress);if(progress>=1)stop(true);}draw();if(transition)request();}

@@ -1,0 +1,21 @@
+/* Travel-home navigation only; globe geometry, material and scale stay unchanged. */
+.travel-home .atlas-component .top-nav{flex-wrap:wrap;overflow:visible;margin:8px 0 12px;gap:4px}
+.travel-home .atlas-component .map-heading-row{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px}
+.travel-home .atlas-component .map-heading-copy{min-width:0}
+.travel-home .atlas-component #map-heading{margin:0;overflow-wrap:anywhere}
+.travel-home .atlas-component #recenter-map{flex:none;white-space:nowrap;min-height:44px;padding:8px 10px;font-size:13px;border-radius:0}
+.travel-home .atlas-component #world-map-entry{margin:2px 0 0;min-height:44px;padding:4px 0;font-size:13px;line-height:1.4}
+.travel-home .atlas-component #map-breadcrumb-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:0 0 6px}
+.travel-home .atlas-component #retry-globe{margin:0 0 8px}
+.travel-home .atlas-component #continent-nav{margin:0 0 10px}
+.travel-home .atlas-component .continent-switches,.travel-home .atlas-component .continent-country-list{display:flex;flex-wrap:wrap;gap:6px}
+.travel-home .atlas-component .continent-switches button,.travel-home .atlas-component .continent-country-list button{font-family:var(--serif);font-weight:500;font-synthesis:none;min-height:44px;min-width:44px;white-space:nowrap;border-radius:0;font-size:14px;padding:6px 10px;line-height:1.4;color:var(--heading-color,#15366a);background:transparent}
+.travel-home .atlas-component .continent-switches button{border:0;border-bottom:2px solid transparent}
+.travel-home .atlas-component .continent-switches button::after{content:"";display:inline-block;width:5px;height:5px;margin:0 0 3px 7px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:rotate(45deg)}
+.travel-home .atlas-component .continent-switches button[aria-expanded=true]{border-bottom-color:currentColor;background:var(--sand)}
+.travel-home .atlas-component .continent-switches button[aria-expanded=true]::after{transform:rotate(225deg);margin-bottom:0}
+.travel-home .atlas-component .continent-country-list{padding:8px 0 0;margin:0;min-width:0}
+.travel-home .atlas-component .continent-country-list button[aria-pressed=true]{background:var(--sand);color:var(--heading-color,#15366a);border-bottom-color:currentColor}
+.travel-home .atlas-component .continent-empty{margin:0;padding:6px 0;font-size:14px}
+.travel-home .atlas-component :is(#continent-nav,#map-breadcrumb-row,#breadcrumbs,#world-map-entry)[hidden],.travel-home .atlas-component .continent-country-list[hidden]{display:none!important}
+@media(max-width:380px){.travel-home .atlas-component .continent-switches{gap:4px}.travel-home .atlas-component .continent-switches button{padding-inline:4px}}

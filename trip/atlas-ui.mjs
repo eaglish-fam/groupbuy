@@ -1,4 +1,5 @@
-import {initialState,reduceAtlas,atlasNavigation,topLevels,categoryNames,selectPlaces,selectGuides,sourceGroups,csvText,safeSourceUrl} from './atlas-model.mjs';
+import {initialState,reduceAtlas,atlasNavigation,topLevels,continentForState,continentCountries,categoryNames,selectPlaces,selectGuides,sourceGroups,csvText,safeSourceUrl} from './atlas-model.mjs';
+import {renderContinentControls} from './atlas-continent-controls.mjs';
 import {syncPlanningOffers} from './atlas-planning.mjs';
 import {atlasCamera} from './atlas-globe-camera.mjs';
 import {displayTimecode,reviewRelationLabels} from './atlas-review-browser.mjs';
@@ -69,7 +70,7 @@ function syncGlobeStatus({phase,error}){
  $('#regions').hidden=state.top!=='taiwan'||ready;
 }
 const lifecycle=createGlobeLifecycle({
- loadModule:({attempt})=>{const url=attempt===1?'./globe.js?v=r24-20261002':`./globe.js?v=r24-20261002&retry=${attempt}`;return import(url);},
+ loadModule:({attempt})=>{const url=attempt===1?'./globe.js?v=globe-nav-g1-20261013':`./globe.js?v=globe-nav-g1-20261013&retry=${attempt}`;return import(url);},
  getView:()=>atlasCamera(state,geometry.globe,catalog,regions),
  mount:(m,{signal,view})=>m.mountGlobe($('#globe-stage'),{signal,countries:catalog.countries,view,onSelect:id=>dispatch({type:'country',id}),onExplore:()=>dispatch({type:'explore'}),onRegion:id=>dispatch({type:'region',id}),onCounty:id=>dispatch({type:'county',id})}),
  onState:syncGlobeStatus,
@@ -85,22 +86,25 @@ async function updateGlobe({force=false}={}){
  }catch(error){console.warn('atlas-globe',{revision:config.candidateRevision||'r21',stage:error.stage||'camera'});}
 }
 function render(){
- const taiwan=state.top==='taiwan',region=data.geography.regions.find(r=>r.id===state.regionId),county=data.geography.counties.find(c=>c.id===state.countyId),country=catalog.countries.find(c=>c.id===state.countryId);
+ const taiwan=state.top==='taiwan',region=data.geography.regions.find(r=>r.id===state.regionId),county=data.geography.counties.find(c=>c.id===state.countyId),country=catalog.countries.find(c=>c.id===state.countryId),continent=continentForState(state);
  $('#top-levels').innerHTML=topLevels.map(([id,name])=>button(name,'top',id,state.top===id)).join('');
  const navigation=atlasNavigation(state,data.geography,catalog);
  $('#breadcrumbs').innerHTML=navigation.breadcrumbs.map(c=>c.type?button(c.label,c.type,c.id):`<span aria-current="location">${escape(c.label)}</span>`).join('<span aria-hidden="true"> › </span>');
+ $('#breadcrumbs').hidden=!navigation.breadcrumbs.length;
+ if($('#map-breadcrumb-row'))$('#map-breadcrumb-row').hidden=!navigation.breadcrumbs.length&&!navigation.backLabel;
  $('#back').hidden=!navigation.backLabel;$('#back').disabled=false;$('#back').textContent='← '+(navigation.backLabel||'回台灣全覽');
  $('#world-map-entry').hidden=!navigation.showWorld;
- $('#map-heading').textContent=taiwan?(county?`${county.name}，下一站。`:region?`${region.name}，下一站。`:'台灣，下一站。'):country?`${country.name}，下一站。`:state.top==='world'?'世界，下一站。':`${topLevels.find(([id])=>id===state.top)?.[1]||'世界'}，下一站。`;
+ $('#map-heading').textContent=taiwan?(county?`${county.name}，下一站。`:region?`${region.name}，下一站。`:'台灣，下一站。'):`${continent?.[1]||'世界'}下一站`;
+ if($('#continent-nav')){$('#continent-nav').hidden=taiwan;$('#continent-nav').innerHTML=renderContinentControls(state,catalog);}
  $('#location-title').textContent=county?.name||region?.name||(taiwan?'從台灣，開始下一段旅行。':country?.name||'從世界，找到下一站。');
  $('#map-attribution').hidden=!taiwan;
  for(const node of document.querySelectorAll('[data-taiwan-only]'))node.hidden=!taiwan;
  $('#regions').hidden=!taiwan||!!globe;$('#regions').innerHTML=data.geography.regions.map(r=>button(r.name,'region',r.id,state.regionId===r.id)).join('');
- $('#counties').innerHTML=taiwan?(region?data.geography.counties.filter(c=>c.regionId===region.id).map(c=>button(c.id==='tw-lienchiang-county'?'連江縣（馬祖）':c.name,'county',c.id,state.countyId===c.id)).join(''):''):(['world','asia'].includes(state.top)?button('臺灣','country','tw'):'')+catalog.countries.filter(c=>state.top==='world'||c.region===state.top).map(c=>button(c.name,'country',c.id,state.countryId===c.id)).join('');
- $('#counties').hidden=taiwan&&!region;
+ $('#counties').innerHTML=taiwan?(region?data.geography.counties.filter(c=>c.regionId===region.id).map(c=>button(c.id==='tw-lienchiang-county'?'連江縣（馬祖）':c.name,'county',c.id,state.countyId===c.id)).join(''):''):$('#continent-nav')?'':(continent?continentCountries(continent[0],catalog):catalog.countries).map(c=>button(c.name,'country',c.id,state.countryId===c.id)).join('');
+ $('#counties').hidden=taiwan?!region:!!$('#continent-nav');
  $('#globe-stage').dataset.depth=taiwan?state.taiwanDepth:'world';
  $('#globe-stage').dataset.mode=taiwan?'taiwan':'world';
- $('#drill-status').textContent=taiwan?(county?`台灣 › ${region.name} › ${county.name}`:region?`台灣 › ${region.name} · 選擇縣市`:'台灣五區 · 北部／中部／南部／東部／離島'):'世界地圖 · 可拖曳旋轉或選擇國家';
+ $('#drill-status').textContent=taiwan?(county?`台灣 › ${region.name} › ${county.name}`:region?`台灣 › ${region.name} · 選擇縣市`:'台灣五區 · 北部／中部／南部／東部／離島'):'拖曳旋轉地球，或點選目的地。';
  if(placeExperience){$('#category-tabs').hidden=!taiwan;for(const b of $('#category-tabs').querySelectorAll('button'))b.setAttribute('aria-pressed',String(b.dataset.id===state.category));}else{$('#category').value=state.category;$('#category').disabled=!taiwan;}
  if($('#theme')){$('#theme-control').hidden=taiwan;$('#theme').value=state.theme;}
  if($('#query').value!==state.query)$('#query').value=state.query;
@@ -157,7 +161,7 @@ function dispatch(action,origin=document.activeElement){
  state={...(placeExperience?reducePlaceExperience(state,action,data.geography,catalog,data):reduceAtlas(state,action,data.geography,catalog)),expandedResults:action.type.startsWith('plan')?state.expandedResults:false};
  if(placeExperience&&action.type.startsWith('plan'))storageAvailable=writePlan(storage,state.selectedIds,data);
  render();if(detailPlaceId)updateDetail();
- if(action.type==='back'){(!$('#back').hidden?$('#back'):$('#world-map-entry').hidden?$('#breadcrumbs button'):$('#world-map-entry'))?.focus({preventScroll:true});return;}
+ if(action.type==='back'){(!$('#back').hidden?$('#back'):$('#top-levels [data-id="'+(state.top==='taiwan'?'taiwan':'world')+'"]'))?.focus({preventScroll:true});return;}
  if(listOrigin){restoreListFocus(listOrigin);return;}
  if(focusAction){const scope=$('#place-detail')?.open?$('#place-detail'):document,choices=[...scope.querySelectorAll('[data-action]')].filter(n=>!n.disabled&&!n.closest('[hidden]'));const target=choices.find(n=>n.dataset.action===focusAction&&n.dataset.id===focusId)||choices.find(n=>n.dataset.id===focusId&&n.dataset.action.startsWith('plan'));(target||scope.querySelector?.('[data-action="detail-close"]')||(!$('#back').hidden?$('#back'):$('#breadcrumbs button')))?.focus({preventScroll:true});}
 }

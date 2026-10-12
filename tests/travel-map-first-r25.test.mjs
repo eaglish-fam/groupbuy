@@ -26,17 +26,18 @@ test('home has one brief H1 then the actual map before any promoted photo or art
  const withoutSingapore=guideSection.replace(/<article class="home-guide" data-guide-id="singapore">[\s\S]*?<\/article>/,'');
  assert.equal((withoutSingapore.match(/class="home-guide"/g)||[]).length,6+approvedGuides.length);
 });
-test('module reorder preserves approved content except the removed duplicate introduction and its ARIA reference',()=>{
+test('module reorder and compact globe chrome preserve all approved content outside the exact navigation seams',()=>{
  const actual=mapFirstTravelHome(template);
  const reviewedTemplate=template.replace('<div class="atlas-intro"><h2 id="atlas-heading">從一片風景，開始遠行。</h2><p>先選地區，再找到想去的國家。</p></div>','').replace('aria-labelledby="atlas-heading"','aria-label="目的地地圖"');
- const inventory=html=>[...html.matchAll(/<(?:h[1-4]|p|figcaption|img|a)\b[^>]*(?:>[\s\S]*?<\/(?:h[1-4]|p|figcaption|a)>|>)/g)].map(m=>m[0].replace(' data-primary-travel-photo','')).sort();
+ const withoutChrome=html=>{let h=html.replace(/<nav id="top-levels"[^>]*>[\s\S]*?<\/nav>/,'[PRIMARY_MAP_MODES]');const start=h.indexOf('<div class="map-header">')>=0?h.indexOf('<div class="map-header">'):h.indexOf('<div class="map-heading-row">'),end=h.indexOf('<div id="regions"',start);assert.ok(start>=0&&end>start);return h.slice(0,start)+'[GLOBE_NAVIGATION_CHROME]'+h.slice(end);};
+ const inventory=html=>[...withoutChrome(html).matchAll(/<(?:h[1-4]|p|figcaption|img|a)\b[^>]*(?:>[\s\S]*?<\/(?:h[1-4]|p|figcaption|a)>|>)/g)].map(m=>m[0].replace(' data-primary-travel-photo','')).sort();
  assert.deepEqual(inventory(actual),inventory(reviewedTemplate));
  const frames=html=>[...html.matchAll(/<div class="r22-photo-frame"[^>]*>/g)].map(m=>m[0]).sort();
  assert.deepEqual(frames(actual),frames(template));
  const mapStart='<section class="home-destinations home-wrap"';
  const beforeMap=reviewedTemplate.slice(reviewedTemplate.indexOf(mapStart),reviewedTemplate.indexOf('<section class="home-planning home-wrap"'));
  const afterMap=actual.slice(actual.indexOf(mapStart),actual.indexOf('<section class="home-opening home-wrap"'));
- assert.ok(beforeMap.length>100000);assert.equal(afterMap,beforeMap);
+ assert.ok(beforeMap.length>100000);assert.equal(withoutChrome(afterMap),withoutChrome(beforeMap));
  assert.equal(actual.split('{{ATLAS_CONFIG}}').length,2);
 });
 test('reorder fails closed for duplicate, missing or unexpectedly reordered source modules',()=>{
