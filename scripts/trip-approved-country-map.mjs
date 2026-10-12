@@ -1,6 +1,6 @@
 import {readFileSync} from 'node:fs';
 import {feature} from 'topojson-client';
-import {geoMercator, geoPath} from 'd3-geo';
+import {geoBounds, geoMercator, geoPath} from 'd3-geo';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
 const approvedGuideIds = new Set(['oslo', 'tromso', 'svalbard', 'amsterdam']);
@@ -38,8 +38,20 @@ export function projectAtlasView(view, box) {
   return projection;
 }
 
+/** Derive viewport bounds from a real country polygon or a selected real part. */
+export function deriveAtlasBounds(geometry, paddingFraction = .08) {
+  const value = geometry?.type === 'Feature' ? geometry.geometry : geometry;
+  if (!value || !['Polygon', 'MultiPolygon'].includes(value.type) || !Number.isFinite(paddingFraction) || paddingFraction < 0 || paddingFraction > .25) throw new Error('Invalid atlas geometry or padding');
+  const [[west, south], [east, north]] = geoBounds(geometry);
+  if (![west, south, east, north].every(Number.isFinite) || west >= east || south >= north || east - west > 180) throw new Error('Unsupported atlas geometry bounds');
+  const dx = (east - west) * paddingFraction, dy = (north - south) * paddingFraction;
+  const bounds = [Math.max(-180, west-dx), Math.max(-84.99, south-dy), Math.min(180, east+dx), Math.min(84.99, north+dy)];
+  projectAtlasView({bounds}, [0, 0, 600, 400]);
+  return bounds;
+}
+
 function component(view, geography, config, country, cities) {
-  const {box, labels, circle, key, width, height} = config;
+  const {box, labels, circle, key, width, height, drawLeaders = true} = config;
   const projection = projectAtlasView(view, box);
   const points = view.points.map((point, i) => ({...point, xy: projection(point.point), labelBox: labels[i], href: guideTarget(point, country, cities)}));
   if (points.some(p => !p.xy?.every(Number.isFinite) || !p.labelBox)) throw new Error('Invalid atlas points or label slots');
@@ -52,16 +64,71 @@ function component(view, geography, config, country, cities) {
   const boxClip = `<defs><clipPath id="${clipId}-bounds"><rect x="${box[0]}" y="${box[1]}" width="${box[2]}" height="${box[3]}"/></clipPath></defs>`;
   const boundedCoast = `<g clip-path="url(#${clipId}-bounds)">${coast}${territory}</g>`;
   const geometry = boxClip + (circle ? `<defs><clipPath id="${clipId}"><circle cx="${circle[0]}" cy="${circle[1]}" r="${circle[2]}"/></clipPath></defs><circle class="travel-atlas-inset-paper" cx="${circle[0]}" cy="${circle[1]}" r="${circle[2]}"/><g clip-path="url(#${clipId})">${boundedCoast}</g><circle class="travel-atlas-inset-border" cx="${circle[0]}" cy="${circle[1]}" r="${circle[2]}"/>` : boundedCoast);
-  const leaders = points.map(p => {
+  const leaders = drawLeaders ? points.map(p => {
     const [x,y,w] = p.labelBox;
     const endpoint = [Math.max(x, Math.min(p.xy[0], x+w)), y];
     return `<path class="travel-atlas-country-leader" d="M${n(p.xy[0])},${n(p.xy[1])} L${n(endpoint[0])},${n(endpoint[1])}"/>`;
-  }).join('');
+  }).join('') : '';
   const links = points.map(p => {
     const [x,y,w] = p.labelBox;
     return `<a class="travel-atlas-dot" href="${esc(p.href)}" aria-label="探索${esc(p.label)}" style="left:${pct(p.xy[0],width)};top:${pct(p.xy[1],height)}"><i aria-hidden="true"></i></a><a class="travel-atlas-pin travel-atlas-country-label" href="${esc(p.href)}" style="--label-x:${pct(x,width)};--label-y:${pct(y,height)};--label-width:${pct(w,width)}"><span>${esc(p.label)}</span></a>`;
   }).join('');
-  return {geometry: geometry + leaders, links};
+  return {geometry: geometry + leaders, links, points};
+}
+
+function boundedAtlasText(value, max, field, allowEmpty = false) {
+  if (typeof value !== 'string' || (!allowEmpty && !value.trim()) || [...value].length > max || /[\u0000-\u001f\u007f]/.test(value)) throw new Error(`Invalid atlas ${field}`);
+  return value;
+}
+
+function atlasId(value, field) {
+  if (typeof value !== 'string' || value.length > 64 || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value)) throw new Error(`Invalid atlas ${field}`);
+  return value;
+}
+
+function renderMultiViewCountryMap(country, cities, geography) {
+  const map = country.geographicMap;
+  const countryKey = atlasId(country.id, 'country id');
+  boundedAtlasText(country.name, 80, 'country name');
+  boundedAtlasText(country.englishName ?? '', 80, 'English name', true);
+  boundedAtlasText(map.caption ?? '', 300, 'caption', true);
+  if (!geography.territory || map.views.length > 8) throw new Error('Missing country geometry or too many atlas views');
+  const ids = new Set();
+  const views = map.views.map(view => {
+    const id = atlasId(view.id, 'view id');
+    if (ids.has(id)) throw new Error('Duplicate atlas view id');
+    ids.add(id);
+    boundedAtlasText(view.label, 64, 'view label');
+    if (!Array.isArray(view.bounds) || view.bounds.length !== 4 || view.bounds[0] < -180 || view.bounds[2] > 180 || !Array.isArray(view.points) || view.points.length > 12) throw new Error('Invalid atlas view bounds or points');
+    projectAtlasView(view, [28, 16, 544, 330]);
+    for (const point of view.points) {
+      atlasId(point.cityId, 'city id');
+      boundedAtlasText(point.label, 64, 'point label');
+      const city = cities.find(c => c.id === point.cityId);
+      if (!country.cityIds?.includes(point.cityId) || !city) throw new Error('Unresolved atlas guide');
+      const route = guideTarget({...point, href: undefined}, country, cities);
+      const target = guideTarget(point, country, cities);
+      if (route.length > 512 || target.length > 512) throw new Error('Atlas guide destination is too long');
+      if (target !== route && !target.startsWith(`${route}#`)) throw new Error('Atlas destination does not match its guide');
+      if (!Array.isArray(point.point) || point.point.length !== 2 || !point.point.every(Number.isFinite) || point.point[0] < view.bounds[0] || point.point[0] > view.bounds[2] || point.point[1] < view.bounds[1] || point.point[1] > view.bounds[3]) throw new Error('Atlas point is outside its view');
+    }
+    return view;
+  });
+  const firstId = views[0].id;
+  const width = 600, height = 400;
+  const panels = views.map(view => {
+    // Normal-flow labels reserve their own height on small screens. For larger
+    // marker collections they become a text legend, without ambiguous leaders.
+    const labels = view.points.map((_, i) => [i % 2 ? 320 : 28, 392, 252]);
+    const part = component(view, geography, {box:[28,16,544,330], labels, key:view.id, width, height, drawLeaders:view.points.length <= 2}, country, cities);
+    const dots = part.points.map(point => `<a class="travel-atlas-dot" href="${esc(point.href)}" aria-label="探索${esc(point.label)}" style="left:${pct(point.xy[0],width)};top:${pct(point.xy[1],height)}"><i aria-hidden="true"></i></a>`).join('');
+    const links = part.points.map(point => `<a class="travel-atlas-pin travel-atlas-country-label" href="${esc(point.href)}"><span>${esc(point.label)}</span></a>`).join('');
+    const heading = `<div class="travel-atlas-country-heading travel-atlas-country-heading--single travel-atlas-country-heading--multiview">${esc(country.name)}<small>${esc(country.englishName)}</small></div>`;
+    return `<div class="travel-atlas-view" data-travel-atlas-view="${esc(view.id)}"${view.id !== firstId ? ' hidden' : ''} aria-label="${esc(view.label)}">${heading}<div class="travel-atlas-country-stage"><svg class="travel-atlas-country-svg" viewBox="0 0 ${width} ${height}" aria-hidden="true" focusable="false">${part.geometry}</svg>${dots}</div><div class="travel-atlas-country-labels${view.points.length === 1 ? ' travel-atlas-country-labels--one' : ''}">${links}</div></div>`;
+  }).join('');
+  const controls = `<div class="travel-atlas-controls" hidden role="group" aria-label="${esc(country.name)}地圖範圍">${views.map(view=>`<button type="button" data-travel-atlas-select="${esc(view.id)}" aria-controls="travel-atlas-${countryKey}" aria-pressed="${view.id === firstId}">${esc(view.label)}</button>`).join('')}</div>`;
+  const unique = [...new Map(views.flatMap(view=>view.points).map(point=>[JSON.stringify([guideTarget(point,country,cities),point.label]),point])).values()];
+  return `<section class="approved-geographic-map travel-atlas-country travel-atlas-country--multiview" data-travel-atlas-root aria-label="${esc(country.name)}目的地位置圖">${controls}<div id="travel-atlas-${countryKey}" class="travel-atlas travel-atlas--country travel-atlas--multiview" data-travel-atlas data-atlas-active="${esc(firstId)}">${panels}</div><p class="travel-atlas-status" data-travel-atlas-status role="status" aria-live="polite">目前顯示：${esc(views[0].label)}</p><p class="travel-atlas-country-caption">${esc(map.caption)}</p><nav class="travel-atlas-destinations" aria-label="地圖目的地文字入口">${unique.map(point=>`<a href="${esc(guideTarget(point,country,cities))}">${esc(point.label)}</a>`).join('')}</nav><p class="approved-map-credit">Natural Earth · 目的地位置示意</p></section>`;
 }
 
 export function renderApprovedCountryMap(country, {cities = []} = {}) {
@@ -73,6 +140,7 @@ export function renderApprovedCountryMap(country, {cities = []} = {}) {
   // polygons as well as coastlines. Country borders are not viewport edges.
   const geography = {land:feature(topology, topology.objects.land),territory:feature(topology, topology.objects.countries).features.find(f=>f.id===country.discovery?.isoNumeric)};
   const norway = country.id === 'norway';
+  if (!norway && Array.isArray(map.views) && map.views.length > 1) return renderMultiViewCountryMap(country, cities, geography);
   const width = 600, height = norway ? 760 : 560;
   const mainland = map.views.find(v => v.id === 'mainland');
   const island = map.views.find(v => v.id === 'svalbard-inset');

@@ -12,7 +12,7 @@ const esc=escapeTravel;
 export function renderApprovedCountry(data,countryId,{publication=false}={}){
  const v=validateApprovedTravelPackage(data),c=v.countries.get(countryId);if(!c)throw Error('Unknown approved country');
  const cities=c.cityIds.map(id=>v.cities.get(id));
- const css=['trip.css','country-approved.css','approved-city-guide.css','approved-heading-hierarchy.css','travel-entry.css','travel-atlas.css','travel-atlas-country.css'].map(p=>readFileSync(new URL('../trip/'+p,import.meta.url),'utf8')).join('\n');
+ const css=['trip.css','country-approved.css','approved-city-guide.css','approved-heading-hierarchy.css','travel-entry.css','travel-atlas.css','travel-atlas-country.css',...(c.leadFormat?['approved-editorial-chapters.css']:[])].map(p=>readFileSync(new URL('../trip/'+p,import.meta.url),'utf8')).join('\n');
  let body=renderApprovedCountryBody(data,countryId,{mapHtml:renderApprovedCountryMap(c,{cities})});
  if(c.allocation){
   // Supported combinations are selected by the source-owned route dropdown,

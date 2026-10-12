@@ -1,0 +1,5384 @@
+{
+  "schema": "eaglish.malaysia-engineering-planner/v1",
+  "checkedOn": "2026-10-12",
+  "engineeringOnly": true,
+  "pageRegistration": false,
+  "sources": [
+    {
+      "id": "my-g2-s01",
+      "kind": "official",
+      "url": "https://whc.unesco.org/en/list/1223/",
+      "checkedOn": "2026-10-12",
+      "label": "Melaka and George Town, Historic Cities of the Straits of Malacca",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g2-s02",
+      "kind": "official",
+      "url": "https://www.mypenang.gov.my/abt_png.php?id=em1DVjlJRHFtbFpqWGVwZldaMjVUUT09",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Map",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g2-s03",
+      "kind": "official",
+      "url": "https://www.mypenang.gov.my/abt_png.php?id=WjRiaEVUSWxRdERPNzFRYnlxNEdBdz09",
+      "checkedOn": "2026-10-12",
+      "label": "Getting Around Penang",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g2-s09",
+      "kind": "official",
+      "url": "https://thetop.com.my/jurassic-research-center/",
+      "checkedOn": "2026-10-12",
+      "label": "Jurassic Research Center",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g2-s11",
+      "kind": "official",
+      "url": "https://www.techdomepenang.org/",
+      "checkedOn": "2026-10-12",
+      "label": "Tech Dome Penang",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g2-s12",
+      "kind": "official",
+      "url": "https://www.pinangperanakanmansion.com.my/",
+      "checkedOn": "2026-10-12",
+      "label": "Pinang Peranakan Mansion",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g2-s16",
+      "kind": "official",
+      "url": "https://thetop.com.my/penang-boutique-aquarium/",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Boutique Aquarium",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-kl-s02",
+      "kind": "official",
+      "url": "https://storage.ebrochures.malaysia.travel/storage/KL%20Map%20%26%20Guide_23.pdf",
+      "checkedOn": "2026-10-12",
+      "label": "Tourism Malaysia Kuala Lumpur Map & Guide",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-kl-s09",
+      "kind": "official",
+      "url": "https://www.mymrt.com.my/projects/kajang-line/stations/",
+      "checkedOn": "2026-10-12",
+      "label": "MRT Corp Kajang Line stations",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-kl-s11",
+      "kind": "official",
+      "url": "https://www.suriaklcc.com.my/getting-to-suria-klcc/",
+      "checkedOn": "2026-10-12",
+      "label": "Suria KLCC getting here",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-pen-s02",
+      "kind": "official",
+      "url": "https://www.penanghill.gov.my/images/Announcement/2026/Poster_Maintenance_Jan2027-01jpg.jpeg",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Hill Jan 2027 maintenance poster",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-pen-s03",
+      "kind": "official",
+      "url": "https://www.penanghill.gov.my/images/Announcement/2026/WhatsApp_Image_2026-07-13_at_85632_AM.jpeg",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Hill 21 October 2026 DOSH inspection poster",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-pen-s04",
+      "kind": "official",
+      "url": "https://www.penanghill.gov.my/index.php/en/tickets",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Hill ticket information",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-pen-s05",
+      "kind": "official",
+      "url": "https://www.penanghill.gov.my/index.php/en/faq",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Hill FAQ",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-pen-s06",
+      "kind": "official",
+      "url": "https://www.mypenang.gov.my/uploads/downloads/PTM-ENG2026-1.pdf",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Global Tourism tourist map download",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-pen-s07",
+      "kind": "official",
+      "url": "https://www.mypenang.gov.my/view_directory.php?id=bXF5MDZFQ01Yb0F2OEx2ekt1emR1Zz09",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Global Tourism Educational Discovery Tour",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-pen-s08",
+      "kind": "official",
+      "url": "https://www.entopia.com/visitor-info/",
+      "checkedOn": "2026-10-12",
+      "label": "Entopia visitor information",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g3-pen-s09",
+      "kind": "official",
+      "url": "https://www.entopia.com/faq/",
+      "checkedOn": "2026-10-12",
+      "label": "Entopia FAQ",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-top",
+      "kind": "official",
+      "url": "https://thetop.com.my/",
+      "checkedOn": "2026-10-12",
+      "label": "THE TOP",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-tdome",
+      "kind": "official",
+      "url": "https://www.techdomepenang.org/",
+      "checkedOn": "2026-10-12",
+      "label": "Tech Dome Penang",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-tdaccess",
+      "kind": "official",
+      "url": "https://www.techdomepenang.org/contact-us/",
+      "checkedOn": "2026-10-12",
+      "label": "Tech Dome contact / access",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-tdticket",
+      "kind": "official",
+      "url": "https://www.techdomepenang.org/tickets/",
+      "checkedOn": "2026-10-12",
+      "label": "Tech Dome tickets",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-durian",
+      "kind": "official",
+      "url": "https://mypenang.gov.my/abt_png.php?id=L0wySFZtZlF0WXhrd2g5R3gwWlFnQT09",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Global Tourism — Durian Tree House",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-jetty",
+      "kind": "official",
+      "url": "https://www.mypenang.gov.my/view_directory.php?id=ZW5mTlJKcWR2RXZ5eDkyS29yOVRWdz09",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Global Tourism Clan Jetties",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-peranakan",
+      "kind": "official",
+      "url": "https://artsandculture.google.com/story/tAWhq95lwYmLLw",
+      "checkedOn": "2026-10-12",
+      "label": "National Heritage Board — Peranakan culture",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-entopiaact",
+      "kind": "official",
+      "url": "https://www.entopia.com/nature-learning-activities/",
+      "checkedOn": "2026-10-12",
+      "label": "Entopia activities",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-butterfly",
+      "kind": "official",
+      "url": "https://www.amnh.org/exhibitions/butterflies/metamorphosis",
+      "checkedOn": "2026-10-12",
+      "label": "American Museum of Natural History — metamorphosis",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-petro",
+      "kind": "official",
+      "url": "https://petrosains.com.my/visit/admission-and-ticketing/",
+      "checkedOn": "2026-10-12",
+      "label": "Petrosains admission",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-kidhome",
+      "kind": "official",
+      "url": "https://www.kidzania.com.my/",
+      "checkedOn": "2026-10-12",
+      "label": "KidZania Kuala Lumpur",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-kidinfo",
+      "kind": "official",
+      "url": "https://www.kidzania.com.my/generalinfo",
+      "checkedOn": "2026-10-12",
+      "label": "KidZania general info",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-kidpass",
+      "kind": "official",
+      "url": "https://www.kidzania.com.my/bkidzanian",
+      "checkedOn": "2026-10-12",
+      "label": "KidZania B.KidZanian",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-kidterms",
+      "kind": "official",
+      "url": "https://www.kidzania.com.my/termsandconditions",
+      "checkedOn": "2026-10-12",
+      "label": "KidZania terms",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-kidmap",
+      "kind": "official",
+      "url": "https://cdn.prod.website-files.com/62f4c919c5de64a6e923e704/6a2bb9fa444f7e7e10e8fecb_Park%20Map%20KZKL%202026%20Vertical%20(TV).pdf",
+      "checkedOn": "2026-10-12",
+      "label": "KidZania official 2026 park map",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-aw",
+      "kind": "official",
+      "url": "https://anwmalaysia.com.my/locate-us/",
+      "checkedOn": "2026-10-12",
+      "label": "A&W Malaysia outlet locator",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-tower",
+      "kind": "official",
+      "url": "https://kltower.com/faq",
+      "checkedOn": "2026-10-12",
+      "label": "KL Tower FAQ",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-books",
+      "kind": "official",
+      "url": "https://www.bookxcess.com/pages/rex-kl",
+      "checkedOn": "2026-10-12",
+      "label": "BookXcess REXKL",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-rex",
+      "kind": "official",
+      "url": "https://rexkl.com/",
+      "checkedOn": "2026-10-12",
+      "label": "REXKL",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-kwai",
+      "kind": "official",
+      "url": "https://www.kwaichaihong.com/",
+      "checkedOn": "2026-10-12",
+      "label": "Kwai Chai Hong",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-heritage",
+      "kind": "official",
+      "url": "https://www.tourism.gov.my/media/view/a-free-walk-down-kuala-lumpur-s-memory-lane",
+      "checkedOn": "2026-10-12",
+      "label": "Tourism Malaysia — KL memory lane",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-yt-wixlz9hom-q",
+      "kind": "official",
+      "url": "https://www.youtube.com/watch?v=WIXlz9HOM-Q",
+      "checkedOn": "2026-10-12",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-yt-bhar19fcr0y",
+      "kind": "official",
+      "url": "https://www.youtube.com/watch?v=bhAr19fCR0Y",
+      "checkedOn": "2026-10-12",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-yt-v7id6nvbpuo",
+      "kind": "official",
+      "url": "https://www.youtube.com/watch?v=v7id6NvbPUo",
+      "checkedOn": "2026-10-12",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-yt-ut4ruhsm4ky",
+      "kind": "official",
+      "url": "https://www.youtube.com/watch?v=ut4ruhsM4kY",
+      "checkedOn": "2026-10-12",
+      "rights": "Reference link only; no media reuse permission inferred."
+    },
+    {
+      "id": "my-g4-petroterms",
+      "kind": "official",
+      "url": "https://eticket.petrosains.com.my/cuti-sekolah-petrosains",
+      "checkedOn": "2026-10-12",
+      "label": "Petrosains official e-ticket terms",
+      "rights": "Reference link only; no media reuse permission inferred."
+    }
+  ],
+  "cities": [
+    {
+      "id": "penang",
+      "name": "檳城",
+      "path": "/trip/guides/penang-with-kids/",
+      "places": [
+        {
+          "id": "my-penang-george-town",
+          "title": "喬治市歷史街區",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=George%20Town%20UNESCO%20World%20Heritage%20Site%20Penang"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://whc.unesco.org/en/list/1223/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "港口貿易形成的多元文化歷史街區，與馬六甲共同列入世界遺產。",
+              "sourceIds": [
+                "my-g2-s01"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "挑一段老街看騎樓、店屋與街角生活，再把姓氏橋或宅邸接進半天；用街區散步建立城市概念。",
+              "sourceIds": [
+                "my-g2-s01"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "從光大或住宿點乘車至選定街段，再步行；島上路程按住宿位置計算。",
+              "sourceIds": [
+                "my-g2-s02",
+                "my-g2-s03"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "街區散步1.5–2小時；加宅邸、姓氏橋約半天，含休息。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "街道不是單一售票園區；店舖、宅邸與活動各自營業。",
+              "sourceIds": [
+                "my-g2-s01"
+              ],
+              "kind": "geographic_scope"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "戶外行程留遮陽與飲水休息；推車路線先選騎樓連續段，現場台階以實際路面為準。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-penang-chew-jetty",
+          "title": "姓周橋",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Chew%20Jetty%20George%20Town%20Penang"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://www.mypenang.gov.my/view_directory.php?id=ZW5mTlJKcWR2RXZ5eDkyS29yOVRWdz09"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "姓氏橋水上聚落的一站。",
+              "sourceIds": [
+                "my-g4-jetty"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "沿開放的棧道看沿水住宅與商店，從岸邊到水面感受港口聚落。",
+              "sourceIds": [
+                "my-g4-jetty"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "與姓陳橋安排同一段Weld Quay步行；跨街與推車通行另留緩衝。",
+              "sourceIds": [
+                "my-g4-jetty"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "30–45分鐘。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": null,
+              "sourceIds": [
+                "my-g4-jetty"
+              ],
+              "kind": "unverified"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "選白天、走公開路線；木棧道推車慢行，住家空間保持尊重。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-penang-tan-jetty",
+          "title": "姓陳橋",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Tan%20Jetty%20George%20Town%20Penang"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://www.mypenang.gov.my/view_directory.php?id=ZW5mTlJKcWR2RXZ5eDkyS29yOVRWdz09"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "姓氏橋區域中的另一座橋；原素材描述明確區分姓陳與姓周。",
+              "sourceIds": [
+                "my-yt-wixlz9hom-q"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "把這站作短時間水岸棧道散步，實際景象由該橋原片配圖。",
+              "sourceIds": [
+                "my-yt-wixlz9hom-q"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "由姓周橋沿岸轉往姓陳橋；步行與過街預留10–15分鐘，此為排程緩衝非導航測距。",
+              "sourceIds": [
+                "my-g4-jetty"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "15–25分鐘。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": null,
+              "sourceIds": [
+                "my-g4-jetty"
+              ],
+              "kind": "unverified"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "不把兩座橋的照片互換；雨天木棧道濕滑時改室內。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-penang-peranakan-mansion",
+          "title": "Pinang Peranakan Mansion 娘惹博物館",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Pinang%20Peranakan%20Mansion%2029%20Lebuh%20Gereja%20Penang"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://www.mypenang.gov.my/view_directory.php?id=bXF5MDZFQ01Yb0F2OEx2ekt1emR1Zz09"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "以宅邸、服飾、家具與裝飾器物呈現娘惹生活文化。",
+              "sourceIds": [
+                "my-g3-pen-s07"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "從一件服飾與一組家居器物看多地文化如何融入日常；具體器物採館內已核畫面。",
+              "sourceIds": [
+                "my-g3-pen-s07",
+                "my-g4-peranakan"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "與George Town東側老街、Weld Quay放同半天，跨街步行與叫車留15–30分鐘。",
+              "sourceIds": [
+                "my-g3-pen-s06"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "官方建議約1小時；編輯排程留60–90分鐘。",
+              "sourceIds": [
+                "my-g3-pen-s07"
+              ],
+              "kind": "official_suggestion_plus_editorial_buffer"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": null,
+              "sourceIds": [
+                "my-g3-pen-s07",
+                "my-g2-s12"
+              ],
+              "kind": "unverified"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "預約/導覽、推車上下樓與拍攝條件需於官方訂票時確認；未取得開放時段前不自動填入某個固定小時。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-penang-komtar-the-top",
+          "title": "THE TOP 光大觀景",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=THE%20TOP%20Penang%20KOMTAR"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://thetop.com.my/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "光大觀景與多種付費設施所在綜合場域，THE TOP由Magnificent Empire營運。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "先在室內觀景台認方向，再按天氣與膽量選玻璃步道；其他館按興趣選，不要求全收集。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "到KOMTAR後依現場售票/電梯指引上樓；進館交通與觀景排隊分開留時間。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "觀景60–90分鐘；若加兩館約半天。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "觀景每日10–22，週二10–19；最後入場未核。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "套票實際包含館別需選日期核；Tech Dome不列為已含。戶外玻璃步道依現場天氣安排。",
+              "sourceIds": [
+                "my-g4-top",
+                "my-g4-tdticket"
+              ],
+              "kind": "verified_source"
+            }
+          }
+        },
+        {
+          "id": "my-penang-top-jurassic",
+          "title": "Jurassic Research Center",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Jurassic%20Research%20Center%20THE%20TOP%20Penang"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://thetop.com.my/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "恐龍模型與機械動態場景的探索館。",
+              "sourceIds": [
+                "my-g2-s09"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "讓孩子從恐龍體型、動作與場景挑喜歡的一段，怕聲光就縮短停留。",
+              "sourceIds": [
+                "my-g2-s09"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "同KOMTAR內移動，館與館預留10–15分鐘。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "45–60分鐘。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "每日10–19；末入未核。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "聲光耐受度及推車入口現場核；獨立票或套票依官網所選產品，不以大樓票名推定。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-penang-top-aquarium",
+          "title": "Penang Boutique Aquarium",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Penang%20Boutique%20Aquarium%20THE%20TOP%20Penang"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://thetop.com.my/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "THE TOP內的水族展示館。",
+              "sourceIds": [
+                "my-g2-s16"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "慢看水族展示，把孩子的觀察與原片同館場景連起來；物種名稱須依展牌。",
+              "sourceIds": [
+                "my-g2-s16"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "同KOMTAR內與恐龍館擇二組合，轉場留10–15分鐘。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "45–60分鐘。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "每日10–19；末入未核。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "不把水族館票推成含觀景/Tech Dome；嬰幼兒與推車依入口規定。",
+              "sourceIds": [
+                "my-g4-top"
+              ],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-penang-tech-dome",
+          "title": "Tech Dome Penang 科學館",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Tech%20Dome%20Penang%20KOMTAR"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://www.techdomepenang.org/contact-us/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "Penang Tech Centre營運的互動科學館；與THE TOP分清營運與票務。",
+              "sourceIds": [
+                "my-g4-tdome"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "讓孩子先選光學、力與運動或機器人互動，試一次、改一個動作再試；不要只走過展示。",
+              "sourceIds": [
+                "my-g2-s11"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "Maybank旁電扶梯到二樓再往Geodesic Dome；First Avenue二樓或Prangin Mall五樓有連接路徑，依館方指引。",
+              "sourceIds": [
+                "my-g4-tdaccess"
+              ],
+              "kind": "verified_source"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "2–3小時。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "每日10–19；最後入場未核。",
+              "sourceIds": [
+                "my-g4-tdaccess"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "有基本入場與另付費活動；網站價表模板/適用類別未閉合，不把數字當外國家庭現價。",
+              "sourceIds": [
+                "my-g4-tdticket"
+              ],
+              "kind": "verified_source"
+            }
+          }
+        },
+        {
+          "id": "my-penang-durian-tree-house",
+          "title": "Durian Tree House 榴槤果園",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Durian%20Tree%20House%20300%20Titi%20Kerawang%20Balik%20Pulau"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://mypenang.gov.my/abt_png.php?id=L0wySFZtZlF0WXhrd2g5R3gwWlFnQT09"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "官方目錄可確認Balik Pulau這個名稱與地址；原短片也有Durian Tree House字樣。",
+              "sourceIds": [
+                "my-g4-durian",
+                "my-yt-ut4ruhsm4ky"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "以當季可供的榴槤試吃、家庭第一次嘗試反應及果園環境為主；品種由原片/店家當日供應核。",
+              "sourceIds": [
+                "my-yt-bhar19fcr0y"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "在島西Balik Pulau/Titi Kerawang一帶；與Teluk Bahang分段包車較可控，兩站山路轉場預留45–75分鐘，實際按導航與天氣。",
+              "sourceIds": [
+                "my-g4-durian",
+                "my-g2-s02"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "果園60–90分鐘，另計山路與等候。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": null,
+              "sourceIds": [
+                "my-g4-durian"
+              ],
+              "kind": "unverified"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "只有確認接待時段與供應才加進自動行程；與市區Durian Dynasty不同店。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-penang-butterfly-garden",
+          "title": "Entopia by Penang Butterfly Farm",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Entopia%20by%20Penang%20Butterfly%20Farm%20Teluk%20Bahang"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://www.entopia.com/visitor-info/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "Entopia有戶外Natureland與室內Cocoon自然探索區。這是營運身份核對，不等於已確認原片園名。",
+              "sourceIds": [
+                "my-g3-pen-s09"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "先在Natureland找成蝶，再到室內看生命階段；9:30入園可接10:30 Vita Nova蝴蝶釋放。",
+              "sourceIds": [
+                "my-g4-entopiaact",
+                "my-g4-butterfly"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "位於島西北Teluk Bahang；由喬治市乘車排60–90分鐘緩衝。101/102為館方接線線索，不提供未核即時班次。",
+              "sourceIds": [
+                "my-g3-pen-s08"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "官方建議2–2.5小時；含活動和休息排3小時。",
+              "sourceIds": [
+                "my-g3-pen-s09"
+              ],
+              "kind": "official_suggestion_plus_editorial_buffer"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "日間每日9–18、末入17；夜間週四至日19–22、末入21，分場次。",
+              "sourceIds": [
+                "my-g3-pen-s08"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "雨天戶外蝴蝶活動較少，園區不因天氣退票；夜場可官網先選日期購票。日間外國標準成人RM75、4–12歲/60+RM55、未滿4歲免費。",
+              "sourceIds": [
+                "my-g3-pen-s08",
+                "my-g3-pen-s09"
+              ],
+              "kind": "verified_source"
+            }
+          }
+        },
+        {
+          "id": "my-penang-hill",
+          "title": "Penang Hill 升旗山",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Penang%20Hill%20Lower%20Station%20Air%20Itam"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://www.penanghill.gov.my/images/Announcement/2026/WhatsApp_Image_2026-07-13_at_85632_AM.jpeg"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "以登山纜車上山看地勢與城市景觀；The Habitat屬不同加購場域。",
+              "sourceIds": [
+                "my-g3-pen-s04",
+                "my-g3-pen-s05"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "早上上山、依天氣看景與短程散步；原片霧霾是當次經驗，晴天不保證。",
+              "sourceIds": [
+                "my-yt-bhar19fcr0y"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "由George Town到Air Itam下站排30–60分鐘；上山排隊另留45–60分鐘緩衝。",
+              "sourceIds": [
+                "my-g3-pen-s06"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "下站到返回下站3–4小時，另計市區交通。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "日間班次從6:30起；2026-10-21上午停駛至14:00、14:15恢復；2027-01-04至10維修。一般深夜末班/售票仍有頁面衝突。",
+              "sourceIds": [
+                "my-g3-pen-s03",
+                "my-g3-pen-s02",
+                "my-g3-pen-s04",
+                "my-g3-pen-s05"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "纜車票不含私人景點；自動行程限定日間，遇公告停運則換日/改室內。",
+              "sourceIds": [
+                "my-g3-pen-s04"
+              ],
+              "kind": "verified_source"
+            }
+          }
+        }
+      ],
+      "planner": {
+        "title": "排行程",
+        "paragraphs": [
+          "選擇遊玩天數與步調；遇到強降雨，可以交換室內日，或留半日與休息。"
+        ],
+        "rules": [],
+        "executionProfile": {
+          "kind": "malaysia-constraints/v1",
+          "cityId": "penang",
+          "checkedOn": "2026-10-12",
+          "timeZone": "Asia/Kuala_Lumpur",
+          "modules": [
+            {
+              "id": "penang-old-town",
+              "city": "penang",
+              "title": "老街、宅邸與水岸",
+              "sourceIds": [
+                "my-g2-s01",
+                "my-g4-jetty",
+                "my-g3-pen-s07"
+              ],
+              "blocks": [
+                {
+                  "start": "09:00",
+                  "end": "10:30",
+                  "title": "喬治市選一段老街散步",
+                  "placeIds": [
+                    "my-penang-george-town"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "10:30",
+                  "end": "12:00",
+                  "title": "娘惹宅邸可選時段",
+                  "placeIds": [
+                    "my-penang-peranakan-mansion"
+                  ],
+                  "kind": "conditional_visit",
+                  "condition": "先核當日營業/預約時段；未核則改為老城咖啡休息，不自動出票"
+                },
+                {
+                  "start": "12:00",
+                  "end": "14:15",
+                  "title": "午餐、避熱休息及前往水岸",
+                  "placeIds": [],
+                  "kind": "meal_rest_transfer",
+                  "condition": null
+                },
+                {
+                  "start": "14:15",
+                  "end": "15:00",
+                  "title": "姓周橋",
+                  "placeIds": [
+                    "my-penang-chew-jetty"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "15:00",
+                  "end": "15:15",
+                  "title": "沿岸轉場",
+                  "placeIds": [],
+                  "kind": "transfer",
+                  "condition": null
+                },
+                {
+                  "start": "15:15",
+                  "end": "15:40",
+                  "title": "姓陳橋",
+                  "placeIds": [
+                    "my-penang-tan-jetty"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "15:40",
+                  "end": "16:30",
+                  "title": "回住宿或當日街區小吃休息",
+                  "placeIds": [],
+                  "kind": "rest",
+                  "condition": null
+                }
+              ],
+              "pace": {
+                "relaxed": "宅邸預約成功才加入，兩橋可依孩子體力擇一。",
+                "compact": "可保留宅邸與兩橋，晚餐另依已核餐廳營業選擇；不加夜間新景點。"
+              },
+              "rainReplacement": "penang-komtar",
+              "conditions": [
+                "姓氏橋為白天公開通道，當日可通行才進。",
+                "Mansion時間未核是單一可選插槽，不阻塞老城主路線。"
+              ]
+            },
+            {
+              "id": "penang-komtar",
+              "city": "penang",
+              "title": "光大室內探索與觀景",
+              "sourceIds": [
+                "my-g4-top",
+                "my-g4-tdaccess",
+                "my-g4-tdticket"
+              ],
+              "blocks": [
+                {
+                  "start": "10:00",
+                  "end": "12:15",
+                  "title": "Tech Dome互動科學",
+                  "placeIds": [
+                    "my-penang-tech-dome"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "12:15",
+                  "end": "13:15",
+                  "title": "午餐休息",
+                  "placeIds": [],
+                  "kind": "meal_rest",
+                  "condition": null
+                },
+                {
+                  "start": "13:15",
+                  "end": "14:15",
+                  "title": "水族館；恐龍迷可改選Jurassic",
+                  "placeIds": [
+                    "my-penang-top-aquarium"
+                  ],
+                  "kind": "visit_choice",
+                  "condition": "二選一，不把兩筆同時視為已排"
+                },
+                {
+                  "start": "14:15",
+                  "end": "15:45",
+                  "title": "悠閒版休息；緊湊版可加另一館再休息",
+                  "placeIds": [],
+                  "kind": "optional_slot",
+                  "condition": "緊湊版14:30–15:30加Jurassic，若13:15已選Jurassic則加水族館"
+                },
+                {
+                  "start": "15:45",
+                  "end": "17:15",
+                  "title": "THE TOP觀景",
+                  "placeIds": [
+                    "my-penang-komtar-the-top"
+                  ],
+                  "kind": "visit",
+                  "condition": "戶外玻璃步道依天氣；室內觀景亦以當日售票開放為準"
+                }
+              ],
+              "pace": {
+                "relaxed": "科學館+水族/恐龍擇一+觀景；若小孩已累，觀景可略過。",
+                "compact": "科學館+水族館+恐龍館+觀景；鏡子迷宮不再強加，避免把每館當打卡清單。"
+              },
+              "rainReplacement": "indoor_parts_of_same_module",
+              "conditions": [
+                "各馆/Tech Dome入場票分別核，不宣稱一票全含。",
+                "週二觀景19:00關，本模組17:15結束仍留緩衝。"
+              ],
+              "alternatives": [
+                {
+                  "slot": "13:15",
+                  "placeId": "my-penang-top-jurassic",
+                  "end": "14:15"
+                },
+                {
+                  "optionalSlot": "14:30",
+                  "placeId": "my-penang-top-jurassic",
+                  "end": "15:30",
+                  "onlyIf": "compact_and_not_already_visited"
+                },
+                {
+                  "optionalSlot": "14:30",
+                  "placeId": "my-penang-top-aquarium",
+                  "end": "15:30",
+                  "onlyIf": "compact_and_not_already_visited"
+                }
+              ]
+            },
+            {
+              "id": "penang-hill-day",
+              "city": "penang",
+              "title": "早上上山，下午留給休息",
+              "sourceIds": [
+                "my-g3-pen-s02",
+                "my-g3-pen-s03",
+                "my-g3-pen-s04"
+              ],
+              "blocks": [
+                {
+                  "start": "07:00",
+                  "end": "08:00",
+                  "title": "住宿至Air Itam下站",
+                  "placeIds": [],
+                  "kind": "transfer",
+                  "condition": null
+                },
+                {
+                  "start": "08:00",
+                  "end": "12:00",
+                  "title": "升旗山纜車、觀景與山頂散步",
+                  "placeIds": [
+                    "my-penang-hill"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "12:00",
+                  "end": "13:30",
+                  "title": "下山後午餐及回城",
+                  "placeIds": [],
+                  "kind": "meal_transfer",
+                  "condition": null
+                },
+                {
+                  "start": "13:30",
+                  "end": "16:30",
+                  "title": "住宿休息、當地餐食或自由散步",
+                  "placeIds": [],
+                  "kind": "rest",
+                  "condition": null
+                }
+              ],
+              "pace": {
+                "relaxed": "保留完整下午休息；山頂看景不外加The Habitat。",
+                "compact": "下午可補未去過的市區館，但要移動而非重複另一日同館；未選館即保留彈性。"
+              },
+              "rainReplacement": "penang-komtar",
+              "conditions": [
+                "2026-10-21上午停運及2027-01-04至10整日停運拒絕本模組。",
+                "能見度差或天氣不佳換室內，不保證雨中景觀。"
+              ]
+            },
+            {
+              "id": "penang-entopia-day",
+              "city": "penang",
+              "title": "蝴蝶與島西自然半日",
+              "sourceIds": [
+                "my-g3-pen-s08",
+                "my-g3-pen-s09",
+                "my-g4-entopiaact",
+                "my-g4-durian"
+              ],
+              "blocks": [
+                {
+                  "start": "08:00",
+                  "end": "09:30",
+                  "title": "喬治市至Teluk Bahang",
+                  "placeIds": [],
+                  "kind": "transfer",
+                  "condition": null
+                },
+                {
+                  "start": "09:30",
+                  "end": "12:30",
+                  "title": "Entopia；可接10:30蝴蝶釋放",
+                  "placeIds": [
+                    "my-penang-butterfly-garden"
+                  ],
+                  "kind": "visit",
+                  "condition": "原片身份尚由Luca核；現行推薦與已訪標籤分開"
+                },
+                {
+                  "start": "12:30",
+                  "end": "13:30",
+                  "title": "午餐休息",
+                  "placeIds": [],
+                  "kind": "meal_rest",
+                  "condition": null
+                },
+                {
+                  "start": "13:30",
+                  "end": "14:45",
+                  "title": "果園插槽：確認接待才前往，否則回程休息",
+                  "placeIds": [],
+                  "kind": "conditional_transfer",
+                  "condition": "Durian Tree House接待/供應/山路與天氣均已確認"
+                },
+                {
+                  "start": "14:45",
+                  "end": "16:15",
+                  "title": "可選Durian Tree House試榴槤",
+                  "placeIds": [
+                    "my-penang-durian-tree-house"
+                  ],
+                  "kind": "conditional_visit",
+                  "condition": "已确认時段與供應才啟用"
+                },
+                {
+                  "start": "16:15",
+                  "end": "17:45",
+                  "title": "回喬治市，依導航調整",
+                  "placeIds": [],
+                  "kind": "transfer",
+                  "condition": null
+                }
+              ],
+              "pace": {
+                "relaxed": "Entopia之後午餐回程，果園另選有確認接待的日子。",
+                "compact": "只有接待和供應確認、路況可行才接果園；不再塞升旗山。"
+              },
+              "rainReplacement": "unused_indoor_module_or_rest",
+              "conditions": [
+                "不把戶外Natureland視為完整大雨備案。",
+                "小孩暈山路或下雨時移除果園；官方接待資料未核前禁自動加入。"
+              ],
+              "branches": {
+                "noConfirmedFarm": {
+                  "when": "relaxed OR farm slot/supply unconfirmed OR unsafe mountain road",
+                  "replaceBlocksStartingAtOrAfter": "13:30",
+                  "blocks": [
+                    {
+                      "start": "13:30",
+                      "end": "15:00",
+                      "title": "回喬治市住宿",
+                      "placeIds": [],
+                      "kind": "transfer",
+                      "condition": null
+                    },
+                    {
+                      "start": "15:00",
+                      "end": "17:00",
+                      "title": "休息與自由晚餐安排",
+                      "placeIds": [],
+                      "kind": "rest",
+                      "condition": null
+                    }
+                  ]
+                },
+                "confirmedFarm": {
+                  "when": "compact AND verified farm slot AND verified supply AND acceptable road/weather",
+                  "useBaseBlocks": true
+                }
+              }
+            }
+          ],
+          "venues": [
+            {
+              "id": "my-penang-george-town",
+              "title": "喬治市歷史街區",
+              "opening": null,
+              "gate": "operational_rules_apply",
+              "url": "https://whc.unesco.org/en/list/1223/",
+              "sourceIds": [
+                "my-g2-s01"
+              ]
+            },
+            {
+              "id": "my-penang-chew-jetty",
+              "title": "姓周橋",
+              "opening": null,
+              "gate": "daylight_public_access_check",
+              "url": "https://www.mypenang.gov.my/view_directory.php?id=ZW5mTlJKcWR2RXZ5eDkyS29yOVRWdz09",
+              "sourceIds": [
+                "my-g4-jetty"
+              ]
+            },
+            {
+              "id": "my-penang-tan-jetty",
+              "title": "姓陳橋",
+              "opening": null,
+              "gate": "daylight_public_access_check",
+              "url": "https://www.mypenang.gov.my/view_directory.php?id=ZW5mTlJKcWR2RXZ5eDkyS29yOVRWdz09",
+              "sourceIds": [
+                "my-g4-jetty"
+              ]
+            },
+            {
+              "id": "my-penang-peranakan-mansion",
+              "title": "Pinang Peranakan Mansion 娘惹博物館",
+              "opening": null,
+              "gate": "requires_verified_session_before_auto_schedule",
+              "url": "https://www.mypenang.gov.my/view_directory.php?id=bXF5MDZFQ01Yb0F2OEx2ekt1emR1Zz09",
+              "sourceIds": [
+                "my-g3-pen-s07",
+                "my-g2-s12"
+              ]
+            },
+            {
+              "id": "my-penang-komtar-the-top",
+              "title": "THE TOP 光大觀景",
+              "opening": {
+                "weekly": {
+                  "default": [
+                    "10:00",
+                    "22:00"
+                  ],
+                  "tuesday": [
+                    "10:00",
+                    "19:00"
+                  ]
+                },
+                "lastEntry": null
+              },
+              "gate": "operational_rules_apply",
+              "url": "https://thetop.com.my/",
+              "sourceIds": [
+                "my-g4-top"
+              ]
+            },
+            {
+              "id": "my-penang-top-jurassic",
+              "title": "Jurassic Research Center",
+              "opening": {
+                "weekly": {
+                  "default": [
+                    "10:00",
+                    "19:00"
+                  ]
+                },
+                "lastEntry": null
+              },
+              "gate": "operational_rules_apply",
+              "url": "https://thetop.com.my/",
+              "sourceIds": [
+                "my-g4-top"
+              ]
+            },
+            {
+              "id": "my-penang-top-aquarium",
+              "title": "Penang Boutique Aquarium",
+              "opening": {
+                "weekly": {
+                  "default": [
+                    "10:00",
+                    "19:00"
+                  ]
+                },
+                "lastEntry": null
+              },
+              "gate": "operator_verified_media_identity_reconfirm",
+              "url": "https://thetop.com.my/",
+              "sourceIds": [
+                "my-g4-top"
+              ]
+            },
+            {
+              "id": "my-penang-tech-dome",
+              "title": "Tech Dome Penang 科學館",
+              "opening": {
+                "weekly": {
+                  "default": [
+                    "10:00",
+                    "19:00"
+                  ]
+                },
+                "lastEntry": null
+              },
+              "gate": "operational_rules_apply",
+              "url": "https://www.techdomepenang.org/contact-us/",
+              "sourceIds": [
+                "my-g4-tdaccess"
+              ]
+            },
+            {
+              "id": "my-penang-durian-tree-house",
+              "title": "Durian Tree House 榴槤果園",
+              "opening": null,
+              "gate": "requires_confirmed_slot_and_supply",
+              "url": "https://mypenang.gov.my/abt_png.php?id=L0wySFZtZlF0WXhrd2g5R3gwWlFnQT09",
+              "sourceIds": [
+                "my-g4-durian"
+              ]
+            },
+            {
+              "id": "my-penang-butterfly-garden",
+              "title": "Entopia by Penang Butterfly Farm",
+              "opening": {
+                "weekly": {
+                  "default": [
+                    "09:00",
+                    "18:00"
+                  ]
+                },
+                "lastEntry": "17:00",
+                "separateNightSession": {
+                  "weekdays": [
+                    4,
+                    5,
+                    6,
+                    0
+                  ],
+                  "open": "19:00",
+                  "close": "22:00",
+                  "lastEntry": "21:00"
+                }
+              },
+              "gate": "media_identity_required_for_visited_label",
+              "url": "https://www.entopia.com/visitor-info/",
+              "sourceIds": [
+                "my-g3-pen-s08"
+              ]
+            },
+            {
+              "id": "my-penang-hill",
+              "title": "Penang Hill 升旗山",
+              "opening": {
+                "openingTime": "06:30",
+                "generalClosing": null,
+                "daytimePlanningWindow": [
+                  "08:00",
+                  "16:00"
+                ],
+                "closures": [
+                  {
+                    "start": "2027-01-04",
+                    "end": "2027-01-10"
+                  }
+                ],
+                "partialClosure": [
+                  {
+                    "date": "2026-10-21",
+                    "before": "14:15"
+                  }
+                ]
+              },
+              "gate": "operational_rules_apply",
+              "url": "https://www.penanghill.gov.my/images/Announcement/2026/WhatsApp_Image_2026-07-13_at_85632_AM.jpeg",
+              "sourceIds": [
+                "my-g3-pen-s03",
+                "my-g3-pen-s02",
+                "my-g3-pen-s04",
+                "my-g3-pen-s05"
+              ]
+            }
+          ]
+        },
+        "routes": [
+          {
+            "id": "penang-2d-leisure",
+            "sightseeingDays": 2,
+            "pace": "leisure",
+            "label": "2 天 · 悠閒",
+            "moduleIds": [
+              "penang-old-town",
+              "penang-komtar"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "penang-old-town",
+                "title": "老城與水岸",
+                "description": "老街散步後用餐休息，下午挑姓周橋走走。",
+                "stops": [
+                  "my-penang-george-town",
+                  "my-penang-chew-jetty"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往選定老街",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "10:30",
+                    "description": "喬治市選一段老街散步",
+                    "placeIds": [
+                      "my-penang-george-town"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "10:30",
+                    "end": "12:00",
+                    "description": "老城休息與補給",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "14:15",
+                    "description": "午餐、避熱休息及前往水岸",
+                    "placeIds": [],
+                    "kind": "meal_rest_transfer"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "15:00",
+                    "description": "姓周橋",
+                    "placeIds": [
+                      "my-penang-chew-jetty"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "16:30",
+                    "description": "水岸後回程與休息",
+                    "placeIds": [],
+                    "kind": "rest_transfer"
+                  }
+                ],
+                "adjustments": [
+                  {
+                    "placeId": "my-penang-peranakan-mansion",
+                    "kind": "unverified-session",
+                    "message": "娘惹宅邸需先向業者確認營業及場次；這份行程先留老城休息。",
+                    "url": "https://www.mypenang.gov.my/view_directory.php?id=bXF5MDZFQ01Yb0F2OEx2ekt1emR1Zz09"
+                  }
+                ]
+              },
+              {
+                "moduleId": "penang-komtar",
+                "title": "光大室內探索與觀景",
+                "description": "上午科學館，下午挑一間水族／恐龍館，再依體力安排觀景。",
+                "stops": [
+                  "my-penang-tech-dome",
+                  "my-penang-top-aquarium",
+                  "my-penang-komtar-the-top"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:15",
+                    "end": "10:00",
+                    "description": "前往光大及入場準備",
+                    "placeIds": [],
+                    "kind": "transfer_check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:15",
+                    "description": "Tech Dome互動科學",
+                    "placeIds": [
+                      "my-penang-tech-dome"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:15",
+                    "end": "13:15",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:15",
+                    "description": "Penang Boutique Aquarium",
+                    "placeIds": [
+                      "my-penang-top-aquarium"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "15:45",
+                    "description": "午後休息",
+                    "placeIds": [],
+                    "kind": "optional_slot"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "17:15",
+                    "description": "THE TOP觀景",
+                    "placeIds": [
+                      "my-penang-komtar-the-top"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:15",
+                    "end": "18:00",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          },
+          {
+            "id": "penang-2d-compact",
+            "sightseeingDays": 2,
+            "pace": "compact",
+            "label": "2 天 · 緊湊",
+            "moduleIds": [
+              "penang-old-town",
+              "penang-komtar"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "penang-old-town",
+                "title": "老城與水岸",
+                "description": "老街散步與用餐休息，下午沿水岸走姓周橋與姓陳橋。",
+                "stops": [
+                  "my-penang-george-town",
+                  "my-penang-chew-jetty",
+                  "my-penang-tan-jetty"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往選定老街",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "10:30",
+                    "description": "喬治市選一段老街散步",
+                    "placeIds": [
+                      "my-penang-george-town"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "10:30",
+                    "end": "12:00",
+                    "description": "老城休息與補給",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "14:15",
+                    "description": "午餐、避熱休息及前往水岸",
+                    "placeIds": [],
+                    "kind": "meal_rest_transfer"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "15:00",
+                    "description": "姓周橋",
+                    "placeIds": [
+                      "my-penang-chew-jetty"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "15:15",
+                    "description": "沿岸轉場",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "15:15",
+                    "end": "15:40",
+                    "description": "姓陳橋",
+                    "placeIds": [
+                      "my-penang-tan-jetty"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:40",
+                    "end": "16:30",
+                    "description": "回住宿或當日街區小吃休息",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": [
+                  {
+                    "placeId": "my-penang-peranakan-mansion",
+                    "kind": "unverified-session",
+                    "message": "娘惹宅邸需先向業者確認營業及場次；這份行程先留老城休息。",
+                    "url": "https://www.mypenang.gov.my/view_directory.php?id=bXF5MDZFQ01Yb0F2OEx2ekt1emR1Zz09"
+                  }
+                ]
+              },
+              {
+                "moduleId": "penang-komtar",
+                "title": "光大室內探索與觀景",
+                "description": "上午科學館，下午水族館與恐龍館各留一段，休息後再觀景。",
+                "stops": [
+                  "my-penang-tech-dome",
+                  "my-penang-top-aquarium",
+                  "my-penang-top-jurassic",
+                  "my-penang-komtar-the-top"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:15",
+                    "end": "10:00",
+                    "description": "前往光大及入場準備",
+                    "placeIds": [],
+                    "kind": "transfer_check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:15",
+                    "description": "Tech Dome互動科學",
+                    "placeIds": [
+                      "my-penang-tech-dome"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:15",
+                    "end": "13:15",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:15",
+                    "description": "Penang Boutique Aquarium",
+                    "placeIds": [
+                      "my-penang-top-aquarium"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "14:30",
+                    "description": "館內轉場緩衝",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "15:30",
+                    "description": "Jurassic Research Center",
+                    "placeIds": [
+                      "my-penang-top-jurassic"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:30",
+                    "end": "15:45",
+                    "description": "飲水休息",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "17:15",
+                    "description": "THE TOP觀景",
+                    "placeIds": [
+                      "my-penang-komtar-the-top"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:15",
+                    "end": "18:00",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          },
+          {
+            "id": "penang-3d-leisure",
+            "sightseeingDays": 3,
+            "pace": "leisure",
+            "label": "3 天 · 悠閒",
+            "moduleIds": [
+              "penang-old-town",
+              "penang-komtar",
+              "penang-hill-day"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "penang-old-town",
+                "title": "老城與水岸",
+                "description": "老街散步後用餐休息，下午挑姓周橋走走。",
+                "stops": [
+                  "my-penang-george-town",
+                  "my-penang-chew-jetty"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往選定老街",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "10:30",
+                    "description": "喬治市選一段老街散步",
+                    "placeIds": [
+                      "my-penang-george-town"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "10:30",
+                    "end": "12:00",
+                    "description": "老城休息與補給",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "14:15",
+                    "description": "午餐、避熱休息及前往水岸",
+                    "placeIds": [],
+                    "kind": "meal_rest_transfer"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "15:00",
+                    "description": "姓周橋",
+                    "placeIds": [
+                      "my-penang-chew-jetty"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "16:30",
+                    "description": "水岸後回程與休息",
+                    "placeIds": [],
+                    "kind": "rest_transfer"
+                  }
+                ],
+                "adjustments": [
+                  {
+                    "placeId": "my-penang-peranakan-mansion",
+                    "kind": "unverified-session",
+                    "message": "娘惹宅邸需先向業者確認營業及場次；這份行程先留老城休息。",
+                    "url": "https://www.mypenang.gov.my/view_directory.php?id=bXF5MDZFQ01Yb0F2OEx2ekt1emR1Zz09"
+                  }
+                ]
+              },
+              {
+                "moduleId": "penang-komtar",
+                "title": "光大室內探索與觀景",
+                "description": "上午科學館，下午挑一間水族／恐龍館，再依體力安排觀景。",
+                "stops": [
+                  "my-penang-tech-dome",
+                  "my-penang-top-aquarium",
+                  "my-penang-komtar-the-top"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:15",
+                    "end": "10:00",
+                    "description": "前往光大及入場準備",
+                    "placeIds": [],
+                    "kind": "transfer_check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:15",
+                    "description": "Tech Dome互動科學",
+                    "placeIds": [
+                      "my-penang-tech-dome"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:15",
+                    "end": "13:15",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:15",
+                    "description": "Penang Boutique Aquarium",
+                    "placeIds": [
+                      "my-penang-top-aquarium"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "15:45",
+                    "description": "午後休息",
+                    "placeIds": [],
+                    "kind": "optional_slot"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "17:15",
+                    "description": "THE TOP觀景",
+                    "placeIds": [
+                      "my-penang-komtar-the-top"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:15",
+                    "end": "18:00",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "penang-hill-day",
+                "title": "早上上山，下午留給休息",
+                "description": "早上搭纜車看景與山頂散步，下山用餐後保留下午休息。",
+                "stops": [
+                  "my-penang-hill"
+                ],
+                "blocks": [
+                  {
+                    "start": "07:00",
+                    "end": "08:00",
+                    "description": "住宿至Air Itam下站",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "08:00",
+                    "end": "12:00",
+                    "description": "升旗山纜車、觀景與山頂散步",
+                    "placeIds": [
+                      "my-penang-hill"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:30",
+                    "description": "下山後午餐及回城",
+                    "placeIds": [],
+                    "kind": "meal_transfer"
+                  },
+                  {
+                    "start": "13:30",
+                    "end": "16:30",
+                    "description": "住宿休息、當地餐食或自由散步",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          },
+          {
+            "id": "penang-3d-compact",
+            "sightseeingDays": 3,
+            "pace": "compact",
+            "label": "3 天 · 緊湊",
+            "moduleIds": [
+              "penang-old-town",
+              "penang-komtar",
+              "penang-hill-day"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "penang-old-town",
+                "title": "老城與水岸",
+                "description": "老街散步與用餐休息，下午沿水岸走姓周橋與姓陳橋。",
+                "stops": [
+                  "my-penang-george-town",
+                  "my-penang-chew-jetty",
+                  "my-penang-tan-jetty"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往選定老街",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "10:30",
+                    "description": "喬治市選一段老街散步",
+                    "placeIds": [
+                      "my-penang-george-town"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "10:30",
+                    "end": "12:00",
+                    "description": "老城休息與補給",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "14:15",
+                    "description": "午餐、避熱休息及前往水岸",
+                    "placeIds": [],
+                    "kind": "meal_rest_transfer"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "15:00",
+                    "description": "姓周橋",
+                    "placeIds": [
+                      "my-penang-chew-jetty"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "15:15",
+                    "description": "沿岸轉場",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "15:15",
+                    "end": "15:40",
+                    "description": "姓陳橋",
+                    "placeIds": [
+                      "my-penang-tan-jetty"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:40",
+                    "end": "16:30",
+                    "description": "回住宿或當日街區小吃休息",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": [
+                  {
+                    "placeId": "my-penang-peranakan-mansion",
+                    "kind": "unverified-session",
+                    "message": "娘惹宅邸需先向業者確認營業及場次；這份行程先留老城休息。",
+                    "url": "https://www.mypenang.gov.my/view_directory.php?id=bXF5MDZFQ01Yb0F2OEx2ekt1emR1Zz09"
+                  }
+                ]
+              },
+              {
+                "moduleId": "penang-komtar",
+                "title": "光大室內探索與觀景",
+                "description": "上午科學館，下午水族館與恐龍館各留一段，休息後再觀景。",
+                "stops": [
+                  "my-penang-tech-dome",
+                  "my-penang-top-aquarium",
+                  "my-penang-top-jurassic",
+                  "my-penang-komtar-the-top"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:15",
+                    "end": "10:00",
+                    "description": "前往光大及入場準備",
+                    "placeIds": [],
+                    "kind": "transfer_check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:15",
+                    "description": "Tech Dome互動科學",
+                    "placeIds": [
+                      "my-penang-tech-dome"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:15",
+                    "end": "13:15",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:15",
+                    "description": "Penang Boutique Aquarium",
+                    "placeIds": [
+                      "my-penang-top-aquarium"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "14:30",
+                    "description": "館內轉場緩衝",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "15:30",
+                    "description": "Jurassic Research Center",
+                    "placeIds": [
+                      "my-penang-top-jurassic"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:30",
+                    "end": "15:45",
+                    "description": "飲水休息",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "17:15",
+                    "description": "THE TOP觀景",
+                    "placeIds": [
+                      "my-penang-komtar-the-top"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:15",
+                    "end": "18:00",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "penang-hill-day",
+                "title": "早上上山，下午留給休息",
+                "description": "早上搭纜車看景與山頂散步，下山用餐後保留下午休息。",
+                "stops": [
+                  "my-penang-hill"
+                ],
+                "blocks": [
+                  {
+                    "start": "07:00",
+                    "end": "08:00",
+                    "description": "住宿至Air Itam下站",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "08:00",
+                    "end": "12:00",
+                    "description": "升旗山纜車、觀景與山頂散步",
+                    "placeIds": [
+                      "my-penang-hill"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:30",
+                    "description": "下山後午餐及回城",
+                    "placeIds": [],
+                    "kind": "meal_transfer"
+                  },
+                  {
+                    "start": "13:30",
+                    "end": "16:30",
+                    "description": "住宿休息、當地餐食或自由散步",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          },
+          {
+            "id": "penang-4d-leisure",
+            "sightseeingDays": 4,
+            "pace": "leisure",
+            "label": "4 天 · 悠閒",
+            "moduleIds": [
+              "penang-old-town",
+              "penang-komtar",
+              "penang-hill-day",
+              "penang-entopia-day"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "penang-old-town",
+                "title": "老城與水岸",
+                "description": "老街散步後用餐休息，下午挑姓周橋走走。",
+                "stops": [
+                  "my-penang-george-town",
+                  "my-penang-chew-jetty"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往選定老街",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "10:30",
+                    "description": "喬治市選一段老街散步",
+                    "placeIds": [
+                      "my-penang-george-town"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "10:30",
+                    "end": "12:00",
+                    "description": "老城休息與補給",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "14:15",
+                    "description": "午餐、避熱休息及前往水岸",
+                    "placeIds": [],
+                    "kind": "meal_rest_transfer"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "15:00",
+                    "description": "姓周橋",
+                    "placeIds": [
+                      "my-penang-chew-jetty"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "16:30",
+                    "description": "水岸後回程與休息",
+                    "placeIds": [],
+                    "kind": "rest_transfer"
+                  }
+                ],
+                "adjustments": [
+                  {
+                    "placeId": "my-penang-peranakan-mansion",
+                    "kind": "unverified-session",
+                    "message": "娘惹宅邸需先向業者確認營業及場次；這份行程先留老城休息。",
+                    "url": "https://www.mypenang.gov.my/view_directory.php?id=bXF5MDZFQ01Yb0F2OEx2ekt1emR1Zz09"
+                  }
+                ]
+              },
+              {
+                "moduleId": "penang-komtar",
+                "title": "光大室內探索與觀景",
+                "description": "上午科學館，下午挑一間水族／恐龍館，再依體力安排觀景。",
+                "stops": [
+                  "my-penang-tech-dome",
+                  "my-penang-top-aquarium",
+                  "my-penang-komtar-the-top"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:15",
+                    "end": "10:00",
+                    "description": "前往光大及入場準備",
+                    "placeIds": [],
+                    "kind": "transfer_check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:15",
+                    "description": "Tech Dome互動科學",
+                    "placeIds": [
+                      "my-penang-tech-dome"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:15",
+                    "end": "13:15",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:15",
+                    "description": "Penang Boutique Aquarium",
+                    "placeIds": [
+                      "my-penang-top-aquarium"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "15:45",
+                    "description": "午後休息",
+                    "placeIds": [],
+                    "kind": "optional_slot"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "17:15",
+                    "description": "THE TOP觀景",
+                    "placeIds": [
+                      "my-penang-komtar-the-top"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:15",
+                    "end": "18:00",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "penang-hill-day",
+                "title": "早上上山，下午留給休息",
+                "description": "早上搭纜車看景與山頂散步，下山用餐後保留下午休息。",
+                "stops": [
+                  "my-penang-hill"
+                ],
+                "blocks": [
+                  {
+                    "start": "07:00",
+                    "end": "08:00",
+                    "description": "住宿至Air Itam下站",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "08:00",
+                    "end": "12:00",
+                    "description": "升旗山纜車、觀景與山頂散步",
+                    "placeIds": [
+                      "my-penang-hill"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:30",
+                    "description": "下山後午餐及回城",
+                    "placeIds": [],
+                    "kind": "meal_transfer"
+                  },
+                  {
+                    "start": "13:30",
+                    "end": "16:30",
+                    "description": "住宿休息、當地餐食或自由散步",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "penang-entopia-day",
+                "title": "蝴蝶與島西自然半日",
+                "description": "Entopia 半日後午餐，再直接回喬治市休息。",
+                "stops": [
+                  "my-penang-butterfly-garden"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:00",
+                    "end": "09:30",
+                    "description": "喬治市至Teluk Bahang",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:30",
+                    "end": "12:30",
+                    "description": "Entopia 自然區與室內探索；蝴蝶釋放場次先看當日公告",
+                    "placeIds": [
+                      "my-penang-butterfly-garden"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:30",
+                    "end": "13:30",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:30",
+                    "end": "15:00",
+                    "description": "回喬治市住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "17:00",
+                    "description": "休息與自由晚餐安排",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": [
+                  {
+                    "placeId": "my-penang-durian-tree-house",
+                    "kind": "unverified-farm",
+                    "message": "果園接待與供應需先向業者確認；本次 Entopia 後直接回喬治市，果園另選一天。",
+                    "url": "https://mypenang.gov.my/abt_png.php?id=L0wySFZtZlF0WXhrd2g5R3gwWlFnQT09"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "penang-4d-compact",
+            "sightseeingDays": 4,
+            "pace": "compact",
+            "label": "4 天 · 緊湊",
+            "moduleIds": [
+              "penang-old-town",
+              "penang-komtar",
+              "penang-hill-day",
+              "penang-entopia-day"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "penang-old-town",
+                "title": "老城與水岸",
+                "description": "老街散步與用餐休息，下午沿水岸走姓周橋與姓陳橋。",
+                "stops": [
+                  "my-penang-george-town",
+                  "my-penang-chew-jetty",
+                  "my-penang-tan-jetty"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往選定老街",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "10:30",
+                    "description": "喬治市選一段老街散步",
+                    "placeIds": [
+                      "my-penang-george-town"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "10:30",
+                    "end": "12:00",
+                    "description": "老城休息與補給",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "14:15",
+                    "description": "午餐、避熱休息及前往水岸",
+                    "placeIds": [],
+                    "kind": "meal_rest_transfer"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "15:00",
+                    "description": "姓周橋",
+                    "placeIds": [
+                      "my-penang-chew-jetty"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "15:15",
+                    "description": "沿岸轉場",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "15:15",
+                    "end": "15:40",
+                    "description": "姓陳橋",
+                    "placeIds": [
+                      "my-penang-tan-jetty"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:40",
+                    "end": "16:30",
+                    "description": "回住宿或當日街區小吃休息",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": [
+                  {
+                    "placeId": "my-penang-peranakan-mansion",
+                    "kind": "unverified-session",
+                    "message": "娘惹宅邸需先向業者確認營業及場次；這份行程先留老城休息。",
+                    "url": "https://www.mypenang.gov.my/view_directory.php?id=bXF5MDZFQ01Yb0F2OEx2ekt1emR1Zz09"
+                  }
+                ]
+              },
+              {
+                "moduleId": "penang-komtar",
+                "title": "光大室內探索與觀景",
+                "description": "上午科學館，下午水族館與恐龍館各留一段，休息後再觀景。",
+                "stops": [
+                  "my-penang-tech-dome",
+                  "my-penang-top-aquarium",
+                  "my-penang-top-jurassic",
+                  "my-penang-komtar-the-top"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:15",
+                    "end": "10:00",
+                    "description": "前往光大及入場準備",
+                    "placeIds": [],
+                    "kind": "transfer_check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:15",
+                    "description": "Tech Dome互動科學",
+                    "placeIds": [
+                      "my-penang-tech-dome"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:15",
+                    "end": "13:15",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:15",
+                    "description": "Penang Boutique Aquarium",
+                    "placeIds": [
+                      "my-penang-top-aquarium"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:15",
+                    "end": "14:30",
+                    "description": "館內轉場緩衝",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "15:30",
+                    "description": "Jurassic Research Center",
+                    "placeIds": [
+                      "my-penang-top-jurassic"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:30",
+                    "end": "15:45",
+                    "description": "飲水休息",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "17:15",
+                    "description": "THE TOP觀景",
+                    "placeIds": [
+                      "my-penang-komtar-the-top"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:15",
+                    "end": "18:00",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "penang-hill-day",
+                "title": "早上上山，下午留給休息",
+                "description": "早上搭纜車看景與山頂散步，下山用餐後保留下午休息。",
+                "stops": [
+                  "my-penang-hill"
+                ],
+                "blocks": [
+                  {
+                    "start": "07:00",
+                    "end": "08:00",
+                    "description": "住宿至Air Itam下站",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "08:00",
+                    "end": "12:00",
+                    "description": "升旗山纜車、觀景與山頂散步",
+                    "placeIds": [
+                      "my-penang-hill"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:30",
+                    "description": "下山後午餐及回城",
+                    "placeIds": [],
+                    "kind": "meal_transfer"
+                  },
+                  {
+                    "start": "13:30",
+                    "end": "16:30",
+                    "description": "住宿休息、當地餐食或自由散步",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "penang-entopia-day",
+                "title": "蝴蝶與島西自然半日",
+                "description": "Entopia 半日後午餐，再直接回喬治市休息。",
+                "stops": [
+                  "my-penang-butterfly-garden"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:00",
+                    "end": "09:30",
+                    "description": "喬治市至Teluk Bahang",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:30",
+                    "end": "12:30",
+                    "description": "Entopia 自然區與室內探索；蝴蝶釋放場次先看當日公告",
+                    "placeIds": [
+                      "my-penang-butterfly-garden"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:30",
+                    "end": "13:30",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:30",
+                    "end": "15:00",
+                    "description": "回喬治市住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "17:00",
+                    "description": "休息與自由晚餐安排",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": [
+                  {
+                    "placeId": "my-penang-durian-tree-house",
+                    "kind": "unverified-farm",
+                    "message": "果園接待與供應需先向業者確認；本次 Entopia 後直接回喬治市，果園另選一天。",
+                    "url": "https://mypenang.gov.my/abt_png.php?id=L0wySFZtZlF0WXhrd2g5R3gwWlFnQT09"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "kuala-lumpur",
+      "name": "吉隆坡",
+      "path": "/trip/guides/kuala-lumpur-with-kids/",
+      "places": [
+        {
+          "id": "my-kl-tower",
+          "title": "KL Tower 吉隆坡塔",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=KL%20Tower%202%20Jalan%20Punchak%20Kuala%20Lumpur"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://kltower.com/faq"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "城市通訊/觀景地標；和KLCC國油雙峰塔是不同地點。",
+              "sourceIds": [
+                "my-g4-tower",
+                "my-g3-kl-s02"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "先室內觀景看城市，再按天氣選Sky Terrace；安排日落前後可看光線轉換，但不保證能入戶外區。",
+              "sourceIds": [
+                "my-g4-tower"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "大門到大堂有8:30–22、約15分鐘一班的接駁，受天氣影響；不把到大門當作已到觀景入口。",
+              "sourceIds": [
+                "my-g4-tower"
+              ],
+              "kind": "verified_source"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "1–1.5小時，另留購票與電梯等候。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "每日9–22；未核最後入場，自動排程安排18:00前完成。",
+              "sourceIds": [
+                "my-g4-tower"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "Sky Terrace視天氣開放；線上/現場售票。現行名稱與舊Sky Box/Sky Deck票種不可混套。",
+              "sourceIds": [
+                "my-g4-tower"
+              ],
+              "kind": "verified_source"
+            }
+          }
+        },
+        {
+          "id": "my-kl-petrosains",
+          "title": "Petrosains 國油科學探索館",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Petrosains%20Level%204%20Suria%20KLCC"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://petrosains.com.my/visit/admission-and-ticketing/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "位於Suria KLCC的科學探索館，和雙峰塔登頂票分開。",
+              "sourceIds": [
+                "my-g4-petro"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "選幾項互動讓孩子操作與提問；片中能源/工業展項的具體名稱由Alma配已核影像，不用重複ASR當引言。",
+              "sourceIds": [
+                "my-yt-v7id6nvbpuo"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "Kelana Jaya LRT到KLCC KJ10，再進Suria KLCC上四樓；由KL Sentral可接該線。",
+              "sourceIds": [
+                "my-g3-kl-s11",
+                "my-g4-petro"
+              ],
+              "kind": "verified_source"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "3–4小時，含排隊與停留。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "平日9:30–17:30末入16；週末/公假/學校假期9:30–19:30末入18；第一/第三週一及公告特定日休館。",
+              "sourceIds": [
+                "my-g4-petro"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "日期時段購票，提前15分鐘到；未滿12由成人陪同。非MyKad成人13–60平日RM49/週末假日56，3–12與61+RM28/35，未滿3免費；加購價格未閉合。",
+              "sourceIds": [
+                "my-g4-petro",
+                "my-g4-petroterms"
+              ],
+              "kind": "verified_source"
+            }
+          }
+        },
+        {
+          "id": "my-kl-petronas-suria",
+          "title": "KLCC外觀與Suria KLCC",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Suria%20KLCC%20Kuala%20Lumpur"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "國油雙峰塔外觀及其下方商場；本片不證明雙峰塔登頂。",
+              "sourceIds": [
+                "my-g3-kl-s02",
+                "my-yt-v7id6nvbpuo"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "接科學館午餐、休息和戶外看雙峰塔；商城和塔外觀是同區不同活動。",
+              "sourceIds": [
+                "my-g3-kl-s02"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "Kelana Jaya LRT到KLCC KJ10，依Suria入口指引。",
+              "sourceIds": [
+                "my-g3-kl-s11"
+              ],
+              "kind": "verified_source"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "外觀30–45分鐘；用餐休息60–90分鐘另列。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": null,
+              "sourceIds": [],
+              "kind": "unverified"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "不放雙峰塔登頂預約或天空橋套票；推車轉乘按當日無障礙路線。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-kl-sultan-abdul-samad",
+          "title": "蘇丹阿都沙末大廈",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Sultan%20Abdul%20Samad%20Building%20Kuala%20Lumpur"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "1894–1897年建造的行政建築，鐘樓、拱廊與銅色圓頂構成外觀辨識點。",
+              "sourceIds": [
+                "my-g4-heritage"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "從廣場側看整體，再選一個拱廊/鐘樓細節解釋當時行政區。",
+              "sourceIds": [
+                "my-g4-heritage"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "由Masjid Jamek或Pasar Seni周邊進老城，再分段步行；三站合排2小時含過街休息。",
+              "sourceIds": [
+                "my-g3-kl-s02"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "25–35分鐘；老城三站合計約2小時。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": null,
+              "sourceIds": [],
+              "kind": "unverified"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "日間避熱、保留過街和推車搬移緩衝；遇雨改室內。清真寺內部不列已訪。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-kl-masjid-jamek",
+          "title": "Masjid Jamek 占美清真寺外觀",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Masjid%20Jamek%20Kuala%20Lumpur"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "位於老城河流匯合一帶的宗教地標，本片只證明外觀。",
+              "sourceIds": [
+                "my-g3-kl-s02",
+                "my-yt-v7id6nvbpuo"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "沿河外部看建築與水道的關係，作老城地理的停點。",
+              "sourceIds": [
+                "my-g3-kl-s02",
+                "my-yt-v7id6nvbpuo"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "由Masjid Jamek或Pasar Seni周邊進老城，再分段步行；三站合排2小時含過街休息。",
+              "sourceIds": [
+                "my-g3-kl-s02"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "20–30分鐘；老城三站合計約2小時。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": null,
+              "sourceIds": [],
+              "kind": "unverified"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "日間避熱、保留過街和推車搬移緩衝；遇雨改室內。清真寺內部不列已訪。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-kl-merdeka-square",
+          "title": "獨立廣場 Dataran Merdeka",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Dataran%20Merdeka%20Kuala%20Lumpur"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "由殖民時期板球場轉為1957年馬來亞獨立象徵的廣場。",
+              "sourceIds": [
+                "my-g4-heritage"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "在同一個視角比對草地、旗杆與行政建築，讀懂地方用途怎麼改變。",
+              "sourceIds": [
+                "my-g4-heritage"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "由Masjid Jamek或Pasar Seni周邊進老城，再分段步行；三站合排2小時含過街休息。",
+              "sourceIds": [
+                "my-g3-kl-s02"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "25–35分鐘；老城三站合計約2小時。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": null,
+              "sourceIds": [],
+              "kind": "unverified"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "日間避熱、保留過街和推車搬移緩衝；遇雨改室內。清真寺內部不列已訪。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-kl-petaling-street",
+          "title": "茨廠街 Petaling Street",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Petaling%20Street%20Kuala%20Lumpur"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "老城華人商業街區，可與Jalan Sultan及Lorong Panggung步行串接。",
+              "sourceIds": [
+                "my-g3-kl-s02"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "看市場街巷與找餐點，再走向書店與壁畫；早餐店未定名保留當次用餐故事。",
+              "sourceIds": [
+                "my-yt-v7id6nvbpuo"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "從Pasar Seni方向步行進街區；每一段先預留10–15分鐘過街/推車緩衝。",
+              "sourceIds": [
+                "my-g3-kl-s02"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "45–60分鐘；若加午餐另60分鐘。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": null,
+              "sourceIds": [],
+              "kind": "unverified"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "熱門段人潮與遮棚不等於完整雨備；大雨直接改室內書店或科學館。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-kl-rexkl-bookxcess",
+          "title": "REXKL裡的BookXcess",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=BookXcess%20REXKL%2080%20Jalan%20Sultan%20Kuala%20Lumpur"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://www.bookxcess.com/pages/rex-kl"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "舊戲院改成文化空間，書店在其二樓；同一場域不是兩座分開景點。",
+              "sourceIds": [
+                "my-g4-rex",
+                "my-g4-books"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "由街口進戲院空間，再讓孩子挑一本想讀的書；層架與舊建築高差本身也是空間體驗。",
+              "sourceIds": [
+                "my-g4-rex",
+                "my-yt-v7id6nvbpuo"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "與茨廠街及鬼仔巷放同區步行；帶推車先查當日可通行樓層，不假設書架間皆無階梯。",
+              "sourceIds": [
+                "my-g4-books"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "45–75分鐘。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "週二至四與週日10–22，週五六10–24；週一未列，保留未核。",
+              "sourceIds": [
+                "my-g4-books"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "雨備只用確定開放的日子；大樓活動、餐飲與書店各自時段。",
+              "sourceIds": [
+                "my-g4-rex",
+                "my-g4-books"
+              ],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-kl-kwai-chai-hong",
+          "title": "鬼仔巷 Kwai Chai Hong",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Kwai%20Chai%20Hong%20Lorong%20Panggung%20Kuala%20Lumpur"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://www.kwaichaihong.com/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "以1960年代華人生活為題的壁畫巷弄與藝術更新空間。",
+              "sourceIds": [
+                "my-g4-kwai"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "挑一幅壁畫找人物動作與生活細節，再接附近餐飲；特展內容按到訪日看。",
+              "sourceIds": [
+                "my-g4-kwai"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "和茨廠街/REXKL步行同區串接，每段留10–15分鐘。",
+              "sourceIds": [
+                "my-g3-kl-s02"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "30–45分鐘。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "巷區每日9–24；餐飲店另有時段。",
+              "sourceIds": [
+                "my-g4-kwai"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "戶外段雨備換室內；壁畫再現歷史，不把畫面當1960年代原樣保存。",
+              "sourceIds": [
+                "my-g4-kwai"
+              ],
+              "kind": "editorial_estimate"
+            }
+          }
+        },
+        {
+          "id": "my-kl-kidzania",
+          "title": "KidZania Kuala Lumpur",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=KidZania%20Kuala%20Lumpur%20Curve%20NX%20Petaling%20Jaya"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://www.kidzania.com.my/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "位於雪蘭莪Petaling Jaya、屬大吉隆坡行程的兒童職業體驗城。",
+              "sourceIds": [
+                "my-g4-kidhome"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "讓孩子先選兩個最想做的工作，入場後安排熱門時段，再用賺到的kidZos做消費選擇。",
+              "sourceIds": [
+                "my-g4-kidinfo"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "從KL市區乘車預留45–75分鐘，尖峰加長；也可MRT Kajang Line至Mutiara Damansara後另安排末段接駁。",
+              "sourceIds": [
+                "my-g3-kl-s09",
+                "my-g4-kidhome"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "5–7小時，含排隊與午餐；此日只排這一個主活動。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "每日10–18；全線上購票。",
+              "sourceIds": [
+                "my-g4-kidhome",
+                "my-g4-kidinfo"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "8歲以下成人全程陪同；職業有各自年齡限制。部分工作入園再約、提前10分鐘到；PaZZport是額外RM45會員，不是門票必備。",
+              "sourceIds": [
+                "my-g4-kidterms",
+                "my-g4-kidinfo",
+                "my-g4-kidpass"
+              ],
+              "kind": "verified_source"
+            }
+          }
+        },
+        {
+          "id": "my-kl-kidzania-aw",
+          "title": "KidZania內A&W漢堡活動",
+          "links": [
+            {
+              "label": "Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=KidZania%20Kuala%20Lumpur%20Curve%20NX%20Petaling%20Jaya"
+            },
+            {
+              "label": "營運資料",
+              "url": "https://anwmalaysia.com.my/locate-us/"
+            }
+          ],
+          "facts": {
+            "what": {
+              "label": "這是什麼",
+              "value": "園內職業/餐飲活動，不是另一次外出吃A&W。",
+              "sourceIds": [
+                "my-g4-kidmap",
+                "my-yt-v7id6nvbpuo"
+              ],
+              "kind": "verified_source"
+            },
+            "play": {
+              "label": "怎麼玩",
+              "value": "以孩子做漢堡的過程串起選工作、排隊與花錢；實際步驟跟原片一致，當期活動由現場確認。",
+              "sourceIds": [
+                "my-yt-v7id6nvbpuo"
+              ],
+              "kind": "editorial_estimate"
+            },
+            "arrival": {
+              "label": "交通",
+              "value": "入KidZania後依園區ground floor的#34找Burger Shop；與建築Level5不衝突。",
+              "sourceIds": [
+                "my-g4-kidmap",
+                "my-g4-aw"
+              ],
+              "kind": "verified_source"
+            },
+            "duration": {
+              "label": "遊玩時長",
+              "value": "預留30–60分鐘排隊和活動，包含在KidZania當天5–7小時內，不重複加時。",
+              "sourceIds": [],
+              "kind": "editorial_estimate"
+            },
+            "availability": {
+              "label": "開放與預約",
+              "value": "依KidZania當日活動開放；A&W門市頁列10–18，但不能當成每一梯活動可預約時段。",
+              "sourceIds": [
+                "my-g4-aw",
+                "my-g4-kidinfo"
+              ],
+              "kind": "verified_source"
+            },
+            "conditions": {
+              "label": "同行條件",
+              "value": "2026官方園區圖標RM=付現金/真實馬幣，不是kidZos；實際費用未核。家長可參與圖示不等於所有角色都可成人同玩。",
+              "sourceIds": [
+                "my-g4-kidmap"
+              ],
+              "kind": "verified_source"
+            }
+          }
+        }
+      ],
+      "planner": {
+        "title": "排行程",
+        "paragraphs": [
+          "選擇遊玩天數與步調；遇到強降雨，可以交換室內日，或留半日與休息。"
+        ],
+        "rules": [],
+        "executionProfile": {
+          "kind": "malaysia-constraints/v1",
+          "cityId": "kuala-lumpur",
+          "checkedOn": "2026-10-12",
+          "timeZone": "Asia/Kuala_Lumpur",
+          "modules": [
+            {
+              "id": "kl-old-chinatown",
+              "city": "kuala-lumpur",
+              "title": "老城外觀與書店壁畫",
+              "sourceIds": [
+                "my-g3-kl-s02",
+                "my-g4-books",
+                "my-g4-kwai",
+                "my-g4-heritage"
+              ],
+              "blocks": [
+                {
+                  "start": "09:00",
+                  "end": "11:00",
+                  "title": "清真寺外觀、阿都沙末大廈與獨立廣場",
+                  "placeIds": [
+                    "my-kl-masjid-jamek",
+                    "my-kl-sultan-abdul-samad",
+                    "my-kl-merdeka-square"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "11:00",
+                  "end": "12:00",
+                  "title": "移動到茨廠街，預留休息",
+                  "placeIds": [],
+                  "kind": "transfer_rest",
+                  "condition": null
+                },
+                {
+                  "start": "12:00",
+                  "end": "13:15",
+                  "title": "街區午餐與短逛",
+                  "placeIds": [
+                    "my-kl-petaling-street"
+                  ],
+                  "kind": "meal_stroll",
+                  "condition": null
+                },
+                {
+                  "start": "13:15",
+                  "end": "14:30",
+                  "title": "REXKL BookXcess",
+                  "placeIds": [
+                    "my-kl-rexkl-bookxcess"
+                  ],
+                  "kind": "visit",
+                  "condition": "週一開放未核，改日期或省略書店"
+                },
+                {
+                  "start": "14:30",
+                  "end": "14:45",
+                  "title": "轉往Lorong Panggung",
+                  "placeIds": [],
+                  "kind": "transfer",
+                  "condition": null
+                },
+                {
+                  "start": "14:45",
+                  "end": "15:30",
+                  "title": "鬼仔巷壁畫",
+                  "placeIds": [
+                    "my-kl-kwai-chai-hong"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "15:30",
+                  "end": "16:30",
+                  "title": "飲水/甜點休息、回住宿",
+                  "placeIds": [],
+                  "kind": "rest",
+                  "condition": null
+                }
+              ],
+              "pace": {
+                "relaxed": "老城與Chinatown可擇一重點放慢；四日版本會拆成兩天。",
+                "compact": "按本表完成兩區，下午不再接另一端的大型兒童館。"
+              },
+              "rainReplacement": "kl-science",
+              "conditions": [
+                "BookXcess週一未核，不自動把它判成休館也不保證開。",
+                "戶外宗教建築只排外觀，非內部參觀。"
+              ]
+            },
+            {
+              "id": "kl-science",
+              "city": "kuala-lumpur",
+              "title": "科學館與KLCC",
+              "sourceIds": [
+                "my-g4-petro",
+                "my-g3-kl-s11",
+                "my-g4-tower"
+              ],
+              "blocks": [
+                {
+                  "start": "09:15",
+                  "end": "09:30",
+                  "title": "Petrosains入場前報到",
+                  "placeIds": [],
+                  "kind": "check_in",
+                  "condition": null
+                },
+                {
+                  "start": "09:30",
+                  "end": "13:00",
+                  "title": "Petrosains互動探索",
+                  "placeIds": [
+                    "my-kl-petrosains"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "13:00",
+                  "end": "15:00",
+                  "title": "Suria午餐、休息與彈性緩衝",
+                  "placeIds": [],
+                  "kind": "meal_rest",
+                  "condition": null
+                },
+                {
+                  "start": "15:00",
+                  "end": "15:45",
+                  "title": "KLCC外觀",
+                  "placeIds": [
+                    "my-kl-petronas-suria"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "15:45",
+                  "end": "16:30",
+                  "title": "悠閒版回程；緊湊版前往KL Tower",
+                  "placeIds": [],
+                  "kind": "optional_transfer",
+                  "condition": "僅2/3日緊湊版啟用塔行程"
+                },
+                {
+                  "start": "16:30",
+                  "end": "18:00",
+                  "title": "緊湊版可選KL Tower",
+                  "placeIds": [
+                    "my-kl-tower"
+                  ],
+                  "kind": "conditional_visit",
+                  "condition": "compact且本趟沒有另一日KL Tower，當日售票/天氣可行"
+                }
+              ],
+              "pace": {
+                "relaxed": "科學館完整玩、午餐與外觀；不以下午空檔強塞第二座館。",
+                "compact": "若無另一天的塔行程，可加KL Tower；戶外平台看天氣。"
+              },
+              "rainReplacement": "kl-kidzania-day_or_date_permutation",
+              "conditions": [
+                "Petrosains第一/第三週一及官方特定日拒絕排入；優先交換日序。",
+                "9:30必須有對應門票時段；售罄則找新時段並重算，不假定walk-in。",
+                "完整遊玩日不等於一定排到深夜。"
+              ]
+            },
+            {
+              "id": "kl-kidzania-day",
+              "city": "kuala-lumpur",
+              "title": "一天留給職業體驗",
+              "sourceIds": [
+                "my-g4-kidhome",
+                "my-g4-kidinfo",
+                "my-g4-kidterms",
+                "my-g4-kidmap"
+              ],
+              "blocks": [
+                {
+                  "start": "08:30",
+                  "end": "09:45",
+                  "title": "吉隆坡市區前往Curve NX",
+                  "placeIds": [],
+                  "kind": "transfer",
+                  "condition": null
+                },
+                {
+                  "start": "09:45",
+                  "end": "10:00",
+                  "title": "報到/入場準備",
+                  "placeIds": [],
+                  "kind": "check_in",
+                  "condition": null
+                },
+                {
+                  "start": "10:00",
+                  "end": "12:00",
+                  "title": "選工作、安排熱門職業時段",
+                  "placeIds": [
+                    "my-kl-kidzania"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "12:00",
+                  "end": "13:00",
+                  "title": "用餐；A&W活動依當日梯次另付RM",
+                  "placeIds": [
+                    "my-kl-kidzania-aw"
+                  ],
+                  "kind": "embedded_activity",
+                  "condition": "未保證固定12點梯次，所需時間從園內總時段調整"
+                },
+                {
+                  "start": "13:00",
+                  "end": "17:00",
+                  "title": "繼續職業體驗、使用kidZos與休息",
+                  "placeIds": [
+                    "my-kl-kidzania"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "17:00",
+                  "end": "18:30",
+                  "title": "回吉隆坡住宿",
+                  "placeIds": [],
+                  "kind": "transfer",
+                  "condition": null
+                }
+              ],
+              "pace": {
+                "relaxed": "少選幾個工作，讓孩子完整參與。",
+                "compact": "先安排兩個最想玩的熱門工作，再用空檔排較短活動；不承諾可完成所有工作。"
+              },
+              "rainReplacement": "same_indoor_module",
+              "conditions": [
+                "全線上購票、低齡/成人同行條件；職業預約不是入場票已全部包辦。",
+                "A&W用RM不是kidZos；PaZZport非必要。"
+              ]
+            },
+            {
+              "id": "kl-old-only",
+              "city": "kuala-lumpur",
+              "title": "把老城走慢一點",
+              "sourceIds": [
+                "my-g3-kl-s02",
+                "my-g4-heritage"
+              ],
+              "blocks": [
+                {
+                  "start": "09:00",
+                  "end": "11:30",
+                  "title": "清真寺外觀、廣場與建築細節",
+                  "placeIds": [
+                    "my-kl-masjid-jamek",
+                    "my-kl-sultan-abdul-samad",
+                    "my-kl-merdeka-square"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "11:30",
+                  "end": "13:00",
+                  "title": "老城午餐與休息",
+                  "placeIds": [],
+                  "kind": "meal_rest",
+                  "condition": null
+                },
+                {
+                  "start": "13:00",
+                  "end": "16:00",
+                  "title": "自由休息/補給；城市藝廊甜點依已核店名再選",
+                  "placeIds": [],
+                  "kind": "rest",
+                  "condition": null
+                }
+              ],
+              "pace": {
+                "relaxed": "四日版本把戶外散步拆開，留足推車/午睡空間。",
+                "compact": "這不是增加景點的第四天方案；若不需要午睡可選三日版。"
+              },
+              "rainReplacement": "kl-science",
+              "conditions": [
+                "不把未核店名的甜點店當固定預約點。"
+              ]
+            },
+            {
+              "id": "kl-chinatown-tower",
+              "city": "kuala-lumpur",
+              "title": "書店壁畫，再登塔看城市",
+              "sourceIds": [
+                "my-g3-kl-s02",
+                "my-g4-books",
+                "my-g4-kwai",
+                "my-g4-tower"
+              ],
+              "blocks": [
+                {
+                  "start": "10:00",
+                  "end": "11:00",
+                  "title": "茨廠街",
+                  "placeIds": [
+                    "my-kl-petaling-street"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "11:00",
+                  "end": "11:15",
+                  "title": "步行轉場",
+                  "placeIds": [],
+                  "kind": "transfer",
+                  "condition": null
+                },
+                {
+                  "start": "11:15",
+                  "end": "12:30",
+                  "title": "REXKL BookXcess",
+                  "placeIds": [
+                    "my-kl-rexkl-bookxcess"
+                  ],
+                  "kind": "visit",
+                  "condition": "週一開放需另核"
+                },
+                {
+                  "start": "12:30",
+                  "end": "14:00",
+                  "title": "午餐休息",
+                  "placeIds": [],
+                  "kind": "meal_rest",
+                  "condition": null
+                },
+                {
+                  "start": "14:00",
+                  "end": "14:45",
+                  "title": "鬼仔巷",
+                  "placeIds": [
+                    "my-kl-kwai-chai-hong"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                },
+                {
+                  "start": "14:45",
+                  "end": "15:30",
+                  "title": "乘車前往KL Tower大門/大堂",
+                  "placeIds": [],
+                  "kind": "transfer",
+                  "condition": null
+                },
+                {
+                  "start": "15:30",
+                  "end": "17:00",
+                  "title": "KL Tower觀景",
+                  "placeIds": [
+                    "my-kl-tower"
+                  ],
+                  "kind": "visit",
+                  "condition": null
+                }
+              ],
+              "pace": {
+                "relaxed": "書店可停久一點，鬼仔巷依體力縮短。",
+                "compact": "按表完成，不把晚間街區變另一長清單。"
+              },
+              "rainReplacement": "indoor_books_tower_if_open",
+              "conditions": [
+                "四日版科學日移除KL Tower可選項，避免重複。",
+                "大雨且Sky Terrace停開時只保留當日可售室內項目。"
+              ]
+            }
+          ],
+          "venues": [
+            {
+              "id": "my-kl-tower",
+              "title": "KL Tower 吉隆坡塔",
+              "opening": {
+                "weekly": {
+                  "default": [
+                    "09:00",
+                    "22:00"
+                  ]
+                },
+                "lastEntry": null
+              },
+              "gate": "operational_rules_apply",
+              "url": "https://kltower.com/faq",
+              "sourceIds": [
+                "my-g4-tower"
+              ]
+            },
+            {
+              "id": "my-kl-petrosains",
+              "title": "Petrosains 國油科學探索館",
+              "opening": {
+                "weekly": {
+                  "weekday": [
+                    "09:30",
+                    "17:30"
+                  ],
+                  "weekendHoliday": [
+                    "09:30",
+                    "19:30"
+                  ]
+                },
+                "lastEntry": {
+                  "weekday": "16:00",
+                  "weekendHoliday": "18:00"
+                },
+                "recurringClosed": {
+                  "weekday": 1,
+                  "ordinal": [
+                    1,
+                    3
+                  ]
+                },
+                "knownClosedDates": [
+                  "2026-10-05",
+                  "2026-10-19",
+                  "2026-11-02",
+                  "2026-11-16"
+                ],
+                "calendarPolicy": "Known dates not exhaustive; selected-date official calendar overrides recurrence; school/public holiday mode must be resolved for chosen travel date."
+              },
+              "gate": "operational_rules_apply",
+              "url": "https://petrosains.com.my/visit/admission-and-ticketing/",
+              "sourceIds": [
+                "my-g4-petro"
+              ]
+            },
+            {
+              "id": "my-kl-petronas-suria",
+              "title": "KLCC外觀與Suria KLCC",
+              "opening": null,
+              "gate": "exterior_daytime_and_meal_break_only",
+              "sourceIds": []
+            },
+            {
+              "id": "my-kl-sultan-abdul-samad",
+              "title": "蘇丹阿都沙末大廈",
+              "opening": null,
+              "gate": "exterior_daylight_only",
+              "sourceIds": []
+            },
+            {
+              "id": "my-kl-masjid-jamek",
+              "title": "Masjid Jamek 占美清真寺外觀",
+              "opening": null,
+              "gate": "exterior_daylight_only",
+              "sourceIds": []
+            },
+            {
+              "id": "my-kl-merdeka-square",
+              "title": "獨立廣場 Dataran Merdeka",
+              "opening": null,
+              "gate": "exterior_daylight_only",
+              "sourceIds": []
+            },
+            {
+              "id": "my-kl-petaling-street",
+              "title": "茨廠街 Petaling Street",
+              "opening": null,
+              "gate": "daytime_street_access",
+              "sourceIds": []
+            },
+            {
+              "id": "my-kl-rexkl-bookxcess",
+              "title": "REXKL裡的BookXcess",
+              "opening": {
+                "weekly": {
+                  "tuesday": [
+                    "10:00",
+                    "22:00"
+                  ],
+                  "wednesday": [
+                    "10:00",
+                    "22:00"
+                  ],
+                  "thursday": [
+                    "10:00",
+                    "22:00"
+                  ],
+                  "friday": [
+                    "10:00",
+                    "24:00"
+                  ],
+                  "saturday": [
+                    "10:00",
+                    "24:00"
+                  ],
+                  "sunday": [
+                    "10:00",
+                    "22:00"
+                  ],
+                  "monday": null
+                },
+                "lastEntry": null
+              },
+              "gate": "monday_requires_confirmation",
+              "url": "https://www.bookxcess.com/pages/rex-kl",
+              "sourceIds": [
+                "my-g4-books"
+              ]
+            },
+            {
+              "id": "my-kl-kwai-chai-hong",
+              "title": "鬼仔巷 Kwai Chai Hong",
+              "opening": {
+                "weekly": {
+                  "default": [
+                    "09:00",
+                    "24:00"
+                  ]
+                },
+                "lastEntry": null
+              },
+              "gate": "operational_rules_apply",
+              "url": "https://www.kwaichaihong.com/",
+              "sourceIds": [
+                "my-g4-kwai"
+              ]
+            },
+            {
+              "id": "my-kl-kidzania",
+              "title": "KidZania Kuala Lumpur",
+              "opening": {
+                "weekly": {
+                  "default": [
+                    "10:00",
+                    "18:00"
+                  ]
+                },
+                "lastEntry": null,
+                "onlineOnly": true
+              },
+              "gate": "operational_rules_apply",
+              "url": "https://www.kidzania.com.my/",
+              "sourceIds": [
+                "my-g4-kidhome",
+                "my-g4-kidinfo"
+              ]
+            },
+            {
+              "id": "my-kl-kidzania-aw",
+              "title": "KidZania內A&W漢堡活動",
+              "opening": null,
+              "gate": "embedded_activity_not_standalone_day",
+              "url": "https://anwmalaysia.com.my/locate-us/",
+              "sourceIds": [
+                "my-g4-aw",
+                "my-g4-kidinfo"
+              ]
+            }
+          ]
+        },
+        "routes": [
+          {
+            "id": "kl-2d-leisure",
+            "sightseeingDays": 2,
+            "pace": "leisure",
+            "label": "2 天 · 悠閒",
+            "moduleIds": [
+              "kl-old-chinatown",
+              "kl-science"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "kl-old-chinatown",
+                "title": "老城外觀與書店壁畫",
+                "description": "早上看老城建築外觀，用餐後到書店與壁畫街區。",
+                "stops": [
+                  "my-kl-masjid-jamek",
+                  "my-kl-sultan-abdul-samad",
+                  "my-kl-merdeka-square",
+                  "my-kl-petaling-street",
+                  "my-kl-rexkl-bookxcess",
+                  "my-kl-kwai-chai-hong"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往老城",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "11:00",
+                    "description": "清真寺外觀、阿都沙末大廈與獨立廣場",
+                    "placeIds": [
+                      "my-kl-masjid-jamek",
+                      "my-kl-sultan-abdul-samad",
+                      "my-kl-merdeka-square"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "11:00",
+                    "end": "12:00",
+                    "description": "移動到茨廠街，預留休息",
+                    "placeIds": [],
+                    "kind": "transfer_rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:15",
+                    "description": "街區午餐與短逛",
+                    "placeIds": [
+                      "my-kl-petaling-street"
+                    ],
+                    "kind": "meal_stroll"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:30",
+                    "description": "REXKL BookXcess",
+                    "placeIds": [
+                      "my-kl-rexkl-bookxcess"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "14:45",
+                    "description": "轉往Lorong Panggung",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "14:45",
+                    "end": "15:30",
+                    "description": "鬼仔巷壁畫",
+                    "placeIds": [
+                      "my-kl-kwai-chai-hong"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:30",
+                    "end": "16:30",
+                    "description": "飲水/甜點休息、回住宿",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-science",
+                "title": "科學館與 KLCC 外觀",
+                "description": "科學館完整玩，午餐後休息，再看看 KLCC 外觀。",
+                "stops": [
+                  "my-kl-petrosains",
+                  "my-kl-petronas-suria"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:15",
+                    "description": "住宿前往 Suria KLCC 與入場層",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:15",
+                    "end": "09:30",
+                    "description": "Petrosains入場前報到",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "09:30",
+                    "end": "13:00",
+                    "description": "Petrosains互動探索",
+                    "placeIds": [
+                      "my-kl-petrosains"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "15:00",
+                    "description": "Suria午餐、休息與彈性緩衝",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "15:45",
+                    "description": "KLCC外觀",
+                    "placeIds": [
+                      "my-kl-petronas-suria"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "16:30",
+                    "description": "回住宿及休息",
+                    "placeIds": [],
+                    "kind": "transfer_rest"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          },
+          {
+            "id": "kl-2d-compact",
+            "sightseeingDays": 2,
+            "pace": "compact",
+            "label": "2 天 · 緊湊",
+            "moduleIds": [
+              "kl-old-chinatown",
+              "kl-science"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "kl-old-chinatown",
+                "title": "老城外觀與書店壁畫",
+                "description": "早上看老城建築外觀，用餐後到書店與壁畫街區。",
+                "stops": [
+                  "my-kl-masjid-jamek",
+                  "my-kl-sultan-abdul-samad",
+                  "my-kl-merdeka-square",
+                  "my-kl-petaling-street",
+                  "my-kl-rexkl-bookxcess",
+                  "my-kl-kwai-chai-hong"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往老城",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "11:00",
+                    "description": "清真寺外觀、阿都沙末大廈與獨立廣場",
+                    "placeIds": [
+                      "my-kl-masjid-jamek",
+                      "my-kl-sultan-abdul-samad",
+                      "my-kl-merdeka-square"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "11:00",
+                    "end": "12:00",
+                    "description": "移動到茨廠街，預留休息",
+                    "placeIds": [],
+                    "kind": "transfer_rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:15",
+                    "description": "街區午餐與短逛",
+                    "placeIds": [
+                      "my-kl-petaling-street"
+                    ],
+                    "kind": "meal_stroll"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:30",
+                    "description": "REXKL BookXcess",
+                    "placeIds": [
+                      "my-kl-rexkl-bookxcess"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "14:45",
+                    "description": "轉往Lorong Panggung",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "14:45",
+                    "end": "15:30",
+                    "description": "鬼仔巷壁畫",
+                    "placeIds": [
+                      "my-kl-kwai-chai-hong"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:30",
+                    "end": "16:30",
+                    "description": "飲水/甜點休息、回住宿",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-science",
+                "title": "科學館與城市觀景",
+                "description": "科學館、午餐與商場休息，下午再登塔看城市。",
+                "stops": [
+                  "my-kl-petrosains",
+                  "my-kl-petronas-suria",
+                  "my-kl-tower"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:15",
+                    "description": "住宿前往 Suria KLCC 與入場層",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:15",
+                    "end": "09:30",
+                    "description": "Petrosains入場前報到",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "09:30",
+                    "end": "13:00",
+                    "description": "Petrosains互動探索",
+                    "placeIds": [
+                      "my-kl-petrosains"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "15:00",
+                    "description": "Suria午餐、休息與彈性緩衝",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "15:45",
+                    "description": "KLCC外觀",
+                    "placeIds": [
+                      "my-kl-petronas-suria"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "16:30",
+                    "description": "前往 KL Tower",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "16:30",
+                    "end": "18:00",
+                    "description": "KL Tower 觀景",
+                    "placeIds": [
+                      "my-kl-tower"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "18:00",
+                    "end": "18:45",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          },
+          {
+            "id": "kl-3d-leisure",
+            "sightseeingDays": 3,
+            "pace": "leisure",
+            "label": "3 天 · 悠閒",
+            "moduleIds": [
+              "kl-old-chinatown",
+              "kl-science",
+              "kl-kidzania-day"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "kl-old-chinatown",
+                "title": "老城外觀與書店壁畫",
+                "description": "早上看老城建築外觀，用餐後到書店與壁畫街區。",
+                "stops": [
+                  "my-kl-masjid-jamek",
+                  "my-kl-sultan-abdul-samad",
+                  "my-kl-merdeka-square",
+                  "my-kl-petaling-street",
+                  "my-kl-rexkl-bookxcess",
+                  "my-kl-kwai-chai-hong"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往老城",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "11:00",
+                    "description": "清真寺外觀、阿都沙末大廈與獨立廣場",
+                    "placeIds": [
+                      "my-kl-masjid-jamek",
+                      "my-kl-sultan-abdul-samad",
+                      "my-kl-merdeka-square"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "11:00",
+                    "end": "12:00",
+                    "description": "移動到茨廠街，預留休息",
+                    "placeIds": [],
+                    "kind": "transfer_rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:15",
+                    "description": "街區午餐與短逛",
+                    "placeIds": [
+                      "my-kl-petaling-street"
+                    ],
+                    "kind": "meal_stroll"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:30",
+                    "description": "REXKL BookXcess",
+                    "placeIds": [
+                      "my-kl-rexkl-bookxcess"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "14:45",
+                    "description": "轉往Lorong Panggung",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "14:45",
+                    "end": "15:30",
+                    "description": "鬼仔巷壁畫",
+                    "placeIds": [
+                      "my-kl-kwai-chai-hong"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:30",
+                    "end": "16:30",
+                    "description": "飲水/甜點休息、回住宿",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-science",
+                "title": "科學館與 KLCC 外觀",
+                "description": "科學館完整玩，午餐後休息，再看看 KLCC 外觀。",
+                "stops": [
+                  "my-kl-petrosains",
+                  "my-kl-petronas-suria"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:15",
+                    "description": "住宿前往 Suria KLCC 與入場層",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:15",
+                    "end": "09:30",
+                    "description": "Petrosains入場前報到",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "09:30",
+                    "end": "13:00",
+                    "description": "Petrosains互動探索",
+                    "placeIds": [
+                      "my-kl-petrosains"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "15:00",
+                    "description": "Suria午餐、休息與彈性緩衝",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "15:45",
+                    "description": "KLCC外觀",
+                    "placeIds": [
+                      "my-kl-petronas-suria"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "16:30",
+                    "description": "回住宿及休息",
+                    "placeIds": [],
+                    "kind": "transfer_rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-kidzania-day",
+                "title": "一天留給職業體驗",
+                "description": "少選幾個工作，讓孩子完整參與，中間留飲水與休息。",
+                "stops": [
+                  "my-kl-kidzania",
+                  "my-kl-kidzania-aw"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:45",
+                    "description": "吉隆坡市區前往Curve NX",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:45",
+                    "end": "10:00",
+                    "description": "報到/入場準備",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "description": "少選幾個職業，讓孩子完整參與並留休息",
+                    "placeIds": [
+                      "my-kl-kidzania"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "用餐；A&W活動依當日梯次另付RM",
+                    "placeIds": [
+                      "my-kl-kidzania-aw"
+                    ],
+                    "kind": "embedded_activity"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "17:00",
+                    "description": "延續園內體驗，依孩子體力休息",
+                    "placeIds": [
+                      "my-kl-kidzania"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:00",
+                    "end": "18:30",
+                    "description": "回吉隆坡住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          },
+          {
+            "id": "kl-3d-compact",
+            "sightseeingDays": 3,
+            "pace": "compact",
+            "label": "3 天 · 緊湊",
+            "moduleIds": [
+              "kl-old-chinatown",
+              "kl-science",
+              "kl-kidzania-day"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "kl-old-chinatown",
+                "title": "老城外觀與書店壁畫",
+                "description": "早上看老城建築外觀，用餐後到書店與壁畫街區。",
+                "stops": [
+                  "my-kl-masjid-jamek",
+                  "my-kl-sultan-abdul-samad",
+                  "my-kl-merdeka-square",
+                  "my-kl-petaling-street",
+                  "my-kl-rexkl-bookxcess",
+                  "my-kl-kwai-chai-hong"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往老城",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "11:00",
+                    "description": "清真寺外觀、阿都沙末大廈與獨立廣場",
+                    "placeIds": [
+                      "my-kl-masjid-jamek",
+                      "my-kl-sultan-abdul-samad",
+                      "my-kl-merdeka-square"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "11:00",
+                    "end": "12:00",
+                    "description": "移動到茨廠街，預留休息",
+                    "placeIds": [],
+                    "kind": "transfer_rest"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:15",
+                    "description": "街區午餐與短逛",
+                    "placeIds": [
+                      "my-kl-petaling-street"
+                    ],
+                    "kind": "meal_stroll"
+                  },
+                  {
+                    "start": "13:15",
+                    "end": "14:30",
+                    "description": "REXKL BookXcess",
+                    "placeIds": [
+                      "my-kl-rexkl-bookxcess"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "14:45",
+                    "description": "轉往Lorong Panggung",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "14:45",
+                    "end": "15:30",
+                    "description": "鬼仔巷壁畫",
+                    "placeIds": [
+                      "my-kl-kwai-chai-hong"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:30",
+                    "end": "16:30",
+                    "description": "飲水/甜點休息、回住宿",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-science",
+                "title": "科學館與城市觀景",
+                "description": "科學館、午餐與商場休息，下午再登塔看城市。",
+                "stops": [
+                  "my-kl-petrosains",
+                  "my-kl-petronas-suria",
+                  "my-kl-tower"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:15",
+                    "description": "住宿前往 Suria KLCC 與入場層",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:15",
+                    "end": "09:30",
+                    "description": "Petrosains入場前報到",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "09:30",
+                    "end": "13:00",
+                    "description": "Petrosains互動探索",
+                    "placeIds": [
+                      "my-kl-petrosains"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "15:00",
+                    "description": "Suria午餐、休息與彈性緩衝",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "15:45",
+                    "description": "KLCC外觀",
+                    "placeIds": [
+                      "my-kl-petronas-suria"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "16:30",
+                    "description": "前往 KL Tower",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "16:30",
+                    "end": "18:00",
+                    "description": "KL Tower 觀景",
+                    "placeIds": [
+                      "my-kl-tower"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "18:00",
+                    "end": "18:45",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-kidzania-day",
+                "title": "一天留給職業體驗",
+                "description": "先安排孩子最想玩的兩個熱門工作，再用空檔選較短活動。",
+                "stops": [
+                  "my-kl-kidzania",
+                  "my-kl-kidzania-aw"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:45",
+                    "description": "吉隆坡市區前往Curve NX",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:45",
+                    "end": "10:00",
+                    "description": "報到/入場準備",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "description": "選工作、安排熱門職業時段",
+                    "placeIds": [
+                      "my-kl-kidzania"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "用餐；A&W活動依當日梯次另付RM",
+                    "placeIds": [
+                      "my-kl-kidzania-aw"
+                    ],
+                    "kind": "embedded_activity"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "17:00",
+                    "description": "繼續職業體驗、使用kidZos與休息",
+                    "placeIds": [
+                      "my-kl-kidzania"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:00",
+                    "end": "18:30",
+                    "description": "回吉隆坡住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          },
+          {
+            "id": "kl-4d-leisure",
+            "sightseeingDays": 4,
+            "pace": "leisure",
+            "label": "4 天 · 悠閒",
+            "moduleIds": [
+              "kl-old-only",
+              "kl-science",
+              "kl-kidzania-day",
+              "kl-chinatown-tower"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "kl-old-only",
+                "title": "把老城走慢一點",
+                "description": "把老城慢慢走，午餐後留給午睡、休息與補給。",
+                "stops": [
+                  "my-kl-masjid-jamek",
+                  "my-kl-sultan-abdul-samad",
+                  "my-kl-merdeka-square"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往老城",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "11:30",
+                    "description": "清真寺外觀、廣場與建築細節",
+                    "placeIds": [
+                      "my-kl-masjid-jamek",
+                      "my-kl-sultan-abdul-samad",
+                      "my-kl-merdeka-square"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "11:30",
+                    "end": "13:00",
+                    "description": "老城午餐與休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "16:00",
+                    "description": "住宿休息與補給",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-science",
+                "title": "科學館與 KLCC 外觀",
+                "description": "科學館完整玩，午餐後休息，再看看 KLCC 外觀。",
+                "stops": [
+                  "my-kl-petrosains",
+                  "my-kl-petronas-suria"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:15",
+                    "description": "住宿前往 Suria KLCC 與入場層",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:15",
+                    "end": "09:30",
+                    "description": "Petrosains入場前報到",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "09:30",
+                    "end": "13:00",
+                    "description": "Petrosains互動探索",
+                    "placeIds": [
+                      "my-kl-petrosains"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "15:00",
+                    "description": "Suria午餐、休息與彈性緩衝",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "15:45",
+                    "description": "KLCC外觀",
+                    "placeIds": [
+                      "my-kl-petronas-suria"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "16:30",
+                    "description": "回住宿及休息",
+                    "placeIds": [],
+                    "kind": "transfer_rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-kidzania-day",
+                "title": "一天留給職業體驗",
+                "description": "少選幾個工作，讓孩子完整參與，中間留飲水與休息。",
+                "stops": [
+                  "my-kl-kidzania",
+                  "my-kl-kidzania-aw"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:45",
+                    "description": "吉隆坡市區前往Curve NX",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:45",
+                    "end": "10:00",
+                    "description": "報到/入場準備",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "description": "少選幾個職業，讓孩子完整參與並留休息",
+                    "placeIds": [
+                      "my-kl-kidzania"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "用餐；A&W活動依當日梯次另付RM",
+                    "placeIds": [
+                      "my-kl-kidzania-aw"
+                    ],
+                    "kind": "embedded_activity"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "17:00",
+                    "description": "延續園內體驗，依孩子體力休息",
+                    "placeIds": [
+                      "my-kl-kidzania"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:00",
+                    "end": "18:30",
+                    "description": "回吉隆坡住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-chinatown-tower",
+                "title": "書店壁畫，再登塔看城市",
+                "description": "書店多留一點時間，午餐休息後看壁畫，再登塔看城市。",
+                "stops": [
+                  "my-kl-petaling-street",
+                  "my-kl-rexkl-bookxcess",
+                  "my-kl-kwai-chai-hong",
+                  "my-kl-tower"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:15",
+                    "end": "10:00",
+                    "description": "住宿前往茨廠街",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "11:00",
+                    "description": "茨廠街",
+                    "placeIds": [
+                      "my-kl-petaling-street"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "11:00",
+                    "end": "11:15",
+                    "description": "步行轉場",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "11:15",
+                    "end": "12:45",
+                    "description": "REXKL BookXcess",
+                    "placeIds": [
+                      "my-kl-rexkl-bookxcess"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:45",
+                    "end": "14:00",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "14:00",
+                    "end": "14:30",
+                    "description": "鬼仔巷",
+                    "placeIds": [
+                      "my-kl-kwai-chai-hong"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "14:45",
+                    "description": "飲水及休息",
+                    "placeIds": [],
+                    "kind": "rest"
+                  },
+                  {
+                    "start": "14:45",
+                    "end": "15:30",
+                    "description": "乘車前往KL Tower大門/大堂",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "15:30",
+                    "end": "17:00",
+                    "description": "KL Tower觀景",
+                    "placeIds": [
+                      "my-kl-tower"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:00",
+                    "end": "17:45",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          },
+          {
+            "id": "kl-4d-compact",
+            "sightseeingDays": 4,
+            "pace": "compact",
+            "label": "4 天 · 緊湊",
+            "moduleIds": [
+              "kl-old-only",
+              "kl-science",
+              "kl-kidzania-day",
+              "kl-chinatown-tower"
+            ],
+            "note": "出發前確認入場票及活動時段。",
+            "days": [
+              {
+                "moduleId": "kl-old-only",
+                "title": "把老城走慢一點",
+                "description": "把老城慢慢走，午餐後留給午睡、休息與補給。",
+                "stops": [
+                  "my-kl-masjid-jamek",
+                  "my-kl-sultan-abdul-samad",
+                  "my-kl-merdeka-square"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:15",
+                    "end": "09:00",
+                    "description": "住宿前往老城",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "11:30",
+                    "description": "清真寺外觀、廣場與建築細節",
+                    "placeIds": [
+                      "my-kl-masjid-jamek",
+                      "my-kl-sultan-abdul-samad",
+                      "my-kl-merdeka-square"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "11:30",
+                    "end": "13:00",
+                    "description": "老城午餐與休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "16:00",
+                    "description": "住宿休息與補給",
+                    "placeIds": [],
+                    "kind": "rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-science",
+                "title": "科學館與 KLCC 外觀",
+                "description": "科學館完整玩，午餐後休息，再看看 KLCC 外觀。",
+                "stops": [
+                  "my-kl-petrosains",
+                  "my-kl-petronas-suria"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:15",
+                    "description": "住宿前往 Suria KLCC 與入場層",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:15",
+                    "end": "09:30",
+                    "description": "Petrosains入場前報到",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "09:30",
+                    "end": "13:00",
+                    "description": "Petrosains互動探索",
+                    "placeIds": [
+                      "my-kl-petrosains"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "15:00",
+                    "description": "Suria午餐、休息與彈性緩衝",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "15:45",
+                    "description": "KLCC外觀",
+                    "placeIds": [
+                      "my-kl-petronas-suria"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "15:45",
+                    "end": "16:30",
+                    "description": "回住宿及休息",
+                    "placeIds": [],
+                    "kind": "transfer_rest"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-kidzania-day",
+                "title": "一天留給職業體驗",
+                "description": "先安排孩子最想玩的兩個熱門工作，再用空檔選較短活動。",
+                "stops": [
+                  "my-kl-kidzania",
+                  "my-kl-kidzania-aw"
+                ],
+                "blocks": [
+                  {
+                    "start": "08:30",
+                    "end": "09:45",
+                    "description": "吉隆坡市區前往Curve NX",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "09:45",
+                    "end": "10:00",
+                    "description": "報到/入場準備",
+                    "placeIds": [],
+                    "kind": "check_in"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "description": "選工作、安排熱門職業時段",
+                    "placeIds": [
+                      "my-kl-kidzania"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "用餐；A&W活動依當日梯次另付RM",
+                    "placeIds": [
+                      "my-kl-kidzania-aw"
+                    ],
+                    "kind": "embedded_activity"
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "17:00",
+                    "description": "繼續職業體驗、使用kidZos與休息",
+                    "placeIds": [
+                      "my-kl-kidzania"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:00",
+                    "end": "18:30",
+                    "description": "回吉隆坡住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              },
+              {
+                "moduleId": "kl-chinatown-tower",
+                "title": "書店壁畫，再登塔看城市",
+                "description": "書店、壁畫與城市觀景分段安排，中間留午餐與交通時間。",
+                "stops": [
+                  "my-kl-petaling-street",
+                  "my-kl-rexkl-bookxcess",
+                  "my-kl-kwai-chai-hong",
+                  "my-kl-tower"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:15",
+                    "end": "10:00",
+                    "description": "住宿前往茨廠街",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "11:00",
+                    "description": "茨廠街",
+                    "placeIds": [
+                      "my-kl-petaling-street"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "11:00",
+                    "end": "11:15",
+                    "description": "步行轉場",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "11:15",
+                    "end": "12:30",
+                    "description": "REXKL BookXcess",
+                    "placeIds": [
+                      "my-kl-rexkl-bookxcess"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "12:30",
+                    "end": "14:00",
+                    "description": "午餐休息",
+                    "placeIds": [],
+                    "kind": "meal_rest"
+                  },
+                  {
+                    "start": "14:00",
+                    "end": "14:45",
+                    "description": "鬼仔巷",
+                    "placeIds": [
+                      "my-kl-kwai-chai-hong"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "14:45",
+                    "end": "15:30",
+                    "description": "乘車前往KL Tower大門/大堂",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  },
+                  {
+                    "start": "15:30",
+                    "end": "17:00",
+                    "description": "KL Tower觀景",
+                    "placeIds": [
+                      "my-kl-tower"
+                    ],
+                    "kind": "visit"
+                  },
+                  {
+                    "start": "17:00",
+                    "end": "17:45",
+                    "description": "回住宿",
+                    "placeIds": [],
+                    "kind": "transfer"
+                  }
+                ],
+                "adjustments": []
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

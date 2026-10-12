@@ -1,5 +1,6 @@
 // Public, portable data only. An approval flag records owner review; it cannot
 // grant publishing authority or prove the truth of the referenced sources.
+import {validateMalaysiaExecutionProfile} from './malaysia-profile.mjs';
 export const approvedTravelSchema='eaglish.approved-travel-package/v1';
 const fail=message=>{throw Error('Approved travel package: '+message);};
 export const text=value=>{if(typeof value!=='string'||!value.trim())fail('non-empty text required');return value;};
@@ -76,24 +77,27 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
  const image=assetId=>{if(!assets.has(assetId))fail('unresolved approved image');return assets.get(assetId);};
  const links=value=>{for(const l of array(value)){text(l.label);publicUrl(l.url);}};
  const faq=value=>{if(!array(value).length)fail('FAQ required');for(const q of value){text(q.question);text(q.answer);sources(q.sourceIds);}};
- const module=value=>{text(value.title);strings(value.paragraphs);if(!value.paragraphs.length&&!(value.links||[]).length)fail('empty module');sources(value.sourceIds);for(const a of value.images||[])image(a);links(value.links||[]);};
+ const module=(value,child=false)=>{text(value.title);strings(value.paragraphs);if(!value.paragraphs.length&&!(value.links||[]).length&&!value.subsections?.length)fail('empty module');sources(value.sourceIds);for(const a of value.images||[])image(a);links(value.links||[]);
+  if(value.subsections){if(child||!array(value.subsections).length||value.subsections.length>12)fail('bounded module subsections required');unique(value.subsections.map(s=>{id(s.id);module(s,true);return s.id;}),'module subsection');}
+ };
  const routeDiagram=value=>{
   id(value.id);if(diagrams.has(value.id)||value.kind!=='route-svg')fail('invalid or duplicate route diagram');
   publicDiagramUrl(value.url);positive(value.width);positive(value.height);positive(value.bytes);
   if(value.bytes>65536||!/^[a-f0-9]{64}$/.test(value.sha256)||!calendarDate(value.checkedOn))fail('invalid diagram bytes/hash/date');
   for(const key of ['title','alt','caption'])text(value[key]);sources(value.sourceIds);
   if(value.sourceIds.some(s=>sourceMap.get(s).kind!=='official'))fail('diagram needs official provenance');
-  if(array(value.routes).length!==2)fail('two approved diagram routes required');
+  if(array(value.routes).length<1||value.routes.length>8)fail('one to eight approved diagram routes required');
   unique(value.routes.map(r=>{id(r.id);text(r.title);text(r.sampleCaption);strings(r.edgeLabels||[]);return r.id;}),'diagram route');
   diagrams.set(value.id,value);
  };
  const paths=[];
  for(const c of array(data.countries)){
   id(c.id);if(countries.has(c.id))fail('duplicate country');routePath(c.path);paths.push(c.path);
-  for(const key of ['name','englishName','flag','title','description'])text(c[key]);strings(c.intro);image(c.image);sources(c.sourceIds);faq(c.faq);
+  for(const key of ['name','englishName','flag','title','description'])text(c[key]);strings(c.intro);if(c.leadFormat!==undefined)validateCityIntro(c.intro,c.leadFormat);image(c.image);sources(c.sourceIds);faq(c.faq);
   if(!calendarDate(c.updatedOn))fail('country update date');
   if(c.packing)module(c.packing);if(c.videos)module(c.videos);if(c.related)module(c.related);if(c.planInfo)module(c.planInfo);
   if(c.transport){const t=c.transport;text(t.heading);text(t.intro);sources(t.sourceIds);links(t.links);
+   if(t.paragraphs)strings(t.paragraphs);for(const d of t.diagrams||[])routeDiagram(d);
    if(!array(t.cards).length)fail('empty transport routes');
    unique(t.cards.map(r=>{id(r.id);for(const key of ['title','routeLabel','flightLabel','durationLabel','body'])text(r[key]);return r.id;}),'transport route');
   }
@@ -127,6 +131,13 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
    links(p.links||[]);places.set(p.id,p);
   }
   if(!places.size)fail('approved places required');unique(c.places.map(p=>p.stableId),'place stable ID');
+  if(c.chapters){
+   if(!array(c.chapters).length||c.chapters.length>24)fail('bounded editorial chapters required');
+   const grouped=[];unique(c.chapters.map(chapter=>{id(chapter.id);text(chapter.title);sources(chapter.sourceIds);strings(chapter.paragraphs||[]);
+    if(places.has(chapter.id)||['main','places','food','stay','arrival','rain','faq','plan','videos','extension','day-reading'].includes(chapter.id))fail('chapter anchor collision');
+    if(!array(chapter.placeIds).length||chapter.placeIds.some(pid=>!places.has(pid)))fail('unresolved chapter place');grouped.push(...chapter.placeIds);return chapter.id;
+   }),'chapter');unique(grouped,'chapter place');if(grouped.length!==places.size)fail('every place belongs to one chapter');
+  }
   const cardTargets=unique(array(c.cards).map(card=>{
    const p=places.get(card.target);if(!p||!p.images.includes(card.assetId))fail('card/photo/venue mismatch');image(card.assetId);
    for(const key of ['title','play','time'])text(card[key]);focalPoint(card.focalPoint);return card.target;
@@ -134,10 +145,16 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
   if(!cardTargets.length)fail('navigation cards required');
   for(const key of ['food','stay','arrival','rain'])module(c[key]);faq(c.faq);if(c.extension)module(c.extension);if(c.reading)module(c.reading);
   if(c.arrival.diagram)routeDiagram(c.arrival.diagram);
+  for(const d of c.arrival.diagrams||[])routeDiagram(d);
   const anchors=new Set(['main','places','food','stay','arrival','rain','faq','plan','videos',...(c.extension?['extension']:[]),...(c.reading?['day-reading']:[]),...places.keys()]);
   const allLinks=[...c.places.flatMap(p=>p.links||[]),...['food','stay','arrival','rain','extension'].flatMap(k=>c[k]?.links||[])];
   if(allLinks.some(l=>l.url.startsWith('#')&&!anchors.has(l.url.slice(1))))fail('unresolved same-page link');
   const planner=c.planner;if(!planner||!array(planner.routes).length)fail('approved routes required');text(planner.title);strings(planner.paragraphs);sources(planner.sourceIds);
+  if(planner.executionProfile){
+   validateMalaysiaExecutionProfile(planner.executionProfile,{cityId:c.id,placeIds:[...places.keys()],sourceCheck:sources});
+   const moduleIds=new Set(planner.executionProfile.modules.map(m=>m.id));
+   for(const route of planner.routes)if(!Array.isArray(route.moduleIds)||route.moduleIds.length!==route.sightseeingDays||new Set(route.moduleIds).size!==route.moduleIds.length||route.moduleIds.some(id=>!moduleIds.has(id)))fail('Malaysia route module references');
+  }
   unique(planner.routes.map(r=>r.id),'route');
   for(const r of planner.routes){
    id(r.id);positive(r.sightseeingDays);if(!['leisure','compact'].includes(r.pace))fail('route pace');text(r.label);text(r.note);sources(r.sourceIds);

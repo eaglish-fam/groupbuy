@@ -1,16 +1,19 @@
 {
   "schema": "eaglish.approved-travel-registration/v1",
-  "dataPath": "trip/data/europe-approved-travel-v1.json",
-  "expectedSha256": "8d815a3e02f04cc3750628936b45838640dcf26529c426dd481ee4aebc7edac5",
+  "dataPath": "trip/data/europe-malaysia-approved-travel-v1.json",
+  "expectedSha256": "0988398d141651a7d7940c8e00a91f65b5fbcde944709e8883dd6da84dad85c0",
   "countryIds": [
     "norway",
-    "netherlands"
+    "netherlands",
+    "malaysia"
   ],
   "cityIds": [
     "oslo",
     "svalbard",
     "tromso",
-    "amsterdam"
+    "amsterdam",
+    "penang",
+    "kuala-lumpur"
   ],
   "publication": true
 }
