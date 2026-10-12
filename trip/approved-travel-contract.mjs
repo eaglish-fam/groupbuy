@@ -69,7 +69,10 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
    positive(card.width);positive(card.height);
    if(!crop||![crop.x,crop.y,crop.width,crop.height].every(Number.isInteger)||crop.x<0||crop.y<0||crop.width<1||crop.height<1||crop.x+crop.width>lineage.sourceWidth||crop.y+crop.height>lineage.sourceHeight||Math.abs(card.height-card.width*crop.height/crop.width)>1)fail('card crop lineage');
    if(card.width>crop.width||card.height>crop.height||!Array.isArray(card.variants)||card.variants.length<2)fail('card responsive variants');
-   let last=0;for(const v of card.variants){publicAssetUrl(v.url);positive(v.width);positive(v.height);positive(v.bytes);if(v.width<=last||v.width>card.width||v.width>1440||Math.abs(v.height-v.width*card.height/card.width)>1||!/^[a-f0-9]{64}$/.test(v.sha256)||v.bytes>(v.width<=640?120000:v.width<=960?220000:409600))fail('card variant');last=v.width;}
+   const resampling=card.variantResampling;
+   if(resampling&&(resampling.method!=='lanczos'||resampling.effectiveSourceWidth!==crop.width||resampling.effectiveSourceHeight!==crop.height||resampling.maxOutputWidth!==1440||resampling.nativeDetailAdded!==false))fail('card resampling disclosure');
+   const maxVariantWidth=resampling?resampling.maxOutputWidth:card.width;
+   let last=0;for(const v of card.variants){publicAssetUrl(v.url);positive(v.width);positive(v.height);positive(v.bytes);if(v.width<=last||v.width>maxVariantWidth||v.width>1440||Math.abs(v.height-v.width*card.height/card.width)>1||!/^[a-f0-9]{64}$/.test(v.sha256)||v.bytes>(v.width<=640?120000:v.width<=960?220000:409600))fail('card variant');last=v.width;}
    if(!card.variants.some(v=>v.width<=640))fail('card mobile variant');
   }
   assets.set(a.assetId,a);

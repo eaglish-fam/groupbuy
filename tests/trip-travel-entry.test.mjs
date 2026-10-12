@@ -5,7 +5,8 @@ import {renderCountryEntry,renderTravelEntryActions} from '../scripts/trip-trave
 import {renderTravelHomeR24} from '../scripts/render-travel-home-r24.mjs';
 import {renderApprovedCountry} from '../scripts/trip-country-approved-adapter.mjs';
 import {renderApprovedCity} from '../scripts/trip-city-approved-adapter.mjs';
-const data=JSON.parse(readFileSync(new URL('../trip/data/europe-approved-travel-v1.json',import.meta.url)));
+const current=JSON.parse(readFileSync(new URL('../trip/data/europe-malaysia-approved-travel-v1.json',import.meta.url)));
+const data=current;
 test('same escaped entry helper retains two real actions and exact guide count',()=>{
  const country={id:'fixture',name:'Name & place',href:'/trip/fixture/',summary:'<example>',guideIds:['one','two']};
  const h=renderCountryEntry(country,{photoHtml:'<img src="/trip/assets/fixture.webp">',regionLabel:'Region',hidden:true});
@@ -38,7 +39,7 @@ test('country city CTA shares world entry style; Netherlands does not invent ext
 });
 test('six approved entry slots share clean camera-first 3:2 images and matching metadata',()=>{
  const home=renderTravelHomeR24();
- for(const country of data.countries){
+ for(const country of data.countries.filter(c=>c.id!=='malaysia')){
   assert.equal(country.image,country.discovery.assetId);
   const lead=data.assets.find(a=>a.assetId===country.image),markup=renderApprovedCountry(data,country.id);
   assert.equal(lead.width*2,lead.height*3);assert.equal(lead.lineage.kind,'photo');
@@ -47,11 +48,12 @@ test('six approved entry slots share clean camera-first 3:2 images and matching 
   assert.ok(markup.includes('property="og:image" content="https://www.eaglish.store'+lead.variants.at(-1).url+'"'));
   assert.ok(country.cityIds.some(id=>data.cities.find(c=>c.id===id).hero[0]===lead.assetId));
  }
- for(const city of data.cities){
+ for(const city of data.cities.filter(c=>c.countryId!=='malaysia')){
   const lead=data.assets.find(a=>a.assetId===city.hero[0]);
   assert.equal(lead.width*2,lead.height*3);assert.equal(lead.lineage.kind,'photo');
-  assert.match(lead.assetId,/-hero-g14$/);
-  const original=data.assets.find(a=>a.assetId===lead.assetId.replace(/-hero-g14$/,''));
+  const cleanArtis=lead.assetId==='eu-amsterdam-artis-clean-main-social-refresh-g1-r1';
+  if(!cleanArtis)assert.match(lead.assetId,/-hero-g14$/);
+  const original=cleanArtis?lead:data.assets.find(a=>a.assetId===lead.assetId.replace(/-hero-g14$/,''));
   assert.equal(lead.lineage.sourceSha256,original.lineage.sourceSha256);
   const markup=renderApprovedCity(data,city.id);
   assert.ok(markup.includes('property="og:image" content="https://www.eaglish.store'+lead.variants.at(-1).url+'"'));

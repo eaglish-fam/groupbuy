@@ -4,6 +4,7 @@ import {resolve} from 'node:path';
 import {buildSync} from 'esbuild';
 import {isDeepStrictEqual} from 'node:util';
 import {renderApprovedSingapore} from './trip-singapore-approved-renderer.mjs';
+import {resolveSingaporeNavigation} from './trip-singapore-navigation-cards.mjs';
 export const hash=b=>createHash('sha256').update(b).digest('hex');
 export function validateSingaporePublicPackage(root){
  const bytes=readFileSync(resolve(root,'trip/data/singapore-public-article-v1.json'));
@@ -14,9 +15,12 @@ export function validateSingaporePublicPackage(root){
  const a=data.article,attractions=[...a.sections,...a.supportingStops];
  if(a.heroImages.length!==3||a.sections.length!==8||attractions.length!==10||attractions.some(s=>s.images.length!==3)||new Set(attractions.flatMap(s=>s.images.map(i=>i.assetId))).size!==30||a.faq.items.length!==9||a.planner.routes.length!==6||a.planner.routes.reduce((n,r)=>n+r.days.length,0)!==18||data.navigationView.cards.length!==8)throw Error('Approved content coverage changed');
  const assets=new Map(manifest.assets.map(a=>[a.assetId,a]));
- if(assets.size!==37)throw Error('Expected 37 approved assets');
+ const refresh=assets.get('sg-jewel-grandmother-social-refresh-g1-r1');
+ if(assets.size!==(refresh?38:37)||assets.size!==manifest.assets.length)throw Error('Expected approved base assets plus the bounded photo refresh');
+ if(refresh&&(!manifest.photoSources?.some(s=>refresh.sourceIds?.includes(s.id))||refresh.lineage?.kind!=='photo'||refresh.lineage.sourceSha256!==refresh.rawSha256))throw Error('Approved refresh photo provenance missing');
  for(const asset of assets.values())for(const v of asset.variants){
-  if(v.url!==`/trip/assets/singapore/${asset.assetId}-${v.width}.webp`||!/^[a-zA-Z0-9_-]+$/.test(asset.assetId)||v.width>1440||v.bytes>(v.width<=640?120000:v.width<=960?220000:400000))throw Error('Invalid public variant');
+  const expected=asset===refresh?`/trip/assets/${asset.assetId}-${v.width}.webp`:`/trip/assets/singapore/${asset.assetId}-${v.width}.webp`;
+  if(v.url!==expected||!/^[a-zA-Z0-9_-]+$/.test(asset.assetId)||v.width>1440||v.bytes>(v.width<=640?120000:v.width<=960?220000:400000))throw Error('Invalid public variant');
   const b=readFileSync(resolve(root,'.'+v.url));if(b.length!==v.bytes||hash(b)!==v.sha256)throw Error('Approved WebP changed '+v.url);
  }
  const checkImages=value=>{
@@ -24,7 +28,7 @@ export function validateSingaporePublicPackage(root){
   if(value.assetId&&value.variants){const asset=assets.get(value.assetId);if(!asset||value.width!==asset.width||value.height!==asset.height||!isDeepStrictEqual(value.variants,asset.variants))throw Error('Article/manifest image mismatch');}
   for(const child of Object.values(value))checkImages(child);
  };
- checkImages(a);return data;
+ checkImages(a);resolveSingaporeNavigation(a,data.navigationView);return data;
 }
 export function buildSingapore(root){
  const {article,navigationView}=validateSingaporePublicPackage(root);
