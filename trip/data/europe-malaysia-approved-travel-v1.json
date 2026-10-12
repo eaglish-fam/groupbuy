@@ -6580,11 +6580,11 @@
       ]
     },
     {
-      "assetId": "my-penang-george-town-2-g3-v3",
+      "assetId": "my-penang-george-town-2-g4-r1",
       "width": 1440,
       "height": 810,
-      "alt": "街道車流與行人過路情境",
-      "caption": "街道車流與行人過路情境",
+      "alt": "戴墨鏡的人站在街邊，身後可見車輛、道路與商場。",
+      "caption": "喬治市街邊，馬路對面是商場。",
       "focalPoint": [
         50,
         50
@@ -6603,39 +6603,39 @@
           "width": 3840,
           "height": 2160
         },
-        "pts": 300000,
+        "pts": 295011,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-george-town-2-g3-v3-640.webp",
+          "url": "/trip/assets/my-penang-george-town-2-g4-r1-640.webp",
           "width": 640,
           "height": 360,
-          "bytes": 34764,
-          "sha256": "341bc3d3b868dff74ff21a4b8b0db3c5db79aa00bbe38a07e35e70eed5e0cce8"
+          "bytes": 39878,
+          "sha256": "e4c10190400891434c3c3c23be7b084c71117a15b25d998be9607cff38eafe10"
         },
         {
-          "url": "/trip/assets/my-penang-george-town-2-g3-v3-960.webp",
+          "url": "/trip/assets/my-penang-george-town-2-g4-r1-960.webp",
           "width": 960,
           "height": 540,
-          "bytes": 58758,
-          "sha256": "ee1c507b5ed99104ffe2604aa5b6ad6f43c3d3c65fcc3e807118a73911cd0f00"
+          "bytes": 64732,
+          "sha256": "7c5449397ddfc48ac75f449ff3d43afd1af3c9d0a0a9c08056e7f79603adb438"
         },
         {
-          "url": "/trip/assets/my-penang-george-town-2-g3-v3-1440.webp",
+          "url": "/trip/assets/my-penang-george-town-2-g4-r1-1440.webp",
           "width": 1440,
           "height": 810,
-          "bytes": 95622,
-          "sha256": "c917e8d407c30355a3dae561a95e52c5ab12631ee8bd36429d256197c2ddf8a5"
+          "bytes": 103072,
+          "sha256": "33c890f2d83e7f020c7d067e9db035bdd915d94ef854ec9685cdaf87a8c7d6b2"
         }
       ]
     },
     {
-      "assetId": "my-penang-george-town-3-g3-v3",
+      "assetId": "my-penang-george-town-3-g4-r2",
       "width": 1440,
       "height": 810,
-      "alt": "媽媽與孩子沿街屋散步",
-      "caption": "媽媽與孩子沿街屋散步",
+      "alt": "白色拱門沿著騎樓延伸，地面鋪著花磚，路邊擺放盆栽。",
+      "caption": "喬治市騎樓的白色拱廊與花磚。",
       "focalPoint": [
         50,
         50
@@ -6654,30 +6654,30 @@
           "width": 3840,
           "height": 2160
         },
-        "pts": 401001,
+        "pts": 363013,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-george-town-3-g3-v3-640.webp",
+          "url": "/trip/assets/my-penang-george-town-3-g4-r2-640.webp",
           "width": 640,
           "height": 360,
-          "bytes": 42556,
-          "sha256": "c4f8f4e663270f7b82d71c6d2196640347c002554971dd7997a004f0d7dd177f"
+          "bytes": 41404,
+          "sha256": "c29d7e32f9987d51a515f419ca0af87050cd9eb954e77bd7548cd32d5489350d"
         },
         {
-          "url": "/trip/assets/my-penang-george-town-3-g3-v3-960.webp",
+          "url": "/trip/assets/my-penang-george-town-3-g4-r2-960.webp",
           "width": 960,
           "height": 540,
-          "bytes": 75752,
-          "sha256": "1176e2893c4b0232548c2d81563ca2e136386d7a8ef37393b8ea32c4dd504ca1"
+          "bytes": 74794,
+          "sha256": "17344f1401c80045a05361fe229bcd2b54ab5d177521c2c2ce2d675a3585dde3"
         },
         {
-          "url": "/trip/assets/my-penang-george-town-3-g3-v3-1440.webp",
+          "url": "/trip/assets/my-penang-george-town-3-g4-r2-1440.webp",
           "width": 1440,
           "height": 810,
-          "bytes": 122250,
-          "sha256": "92015452b3d5da8273ed2ed3025b199a30967c976ed46f4ac09eca6f066098ab"
+          "bytes": 129022,
+          "sha256": "f9471ff801027c4d712661f9bef9c0b501b5b20071800f138e127933b2b17bb1"
         }
       ]
     },
@@ -7021,11 +7021,11 @@
       ]
     },
     {
-      "assetId": "my-penang-peranakan-mansion-1-g3-v3",
+      "assetId": "my-penang-peranakan-mansion-1-g4-r1",
       "width": 1440,
       "height": 810,
-      "alt": "宅邸內雕花門面與參觀人群",
-      "caption": "宅邸內雕花門面與參觀人群",
+      "alt": "黃色牆面的房間裡，擺有帶帷幔的雕花床、木製家具、掛畫與大花瓶。",
+      "caption": "娘惹宅邸內的雕花床、家具與室內陳設。",
       "focalPoint": [
         50,
         50
@@ -7044,62 +7044,62 @@
           "width": 1920,
           "height": 1080
         },
-        "pts": 367000,
+        "pts": 370503,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-peranakan-mansion-1-g3-v3-640.webp",
+          "url": "/trip/assets/my-penang-peranakan-mansion-1-g4-r1-640.webp",
           "width": 640,
           "height": 360,
-          "bytes": 52496,
-          "sha256": "e64e0bc628140a28e5a790a773af8de1b2e20be4e1002575e6456b8ad786a318"
+          "bytes": 39568,
+          "sha256": "6280da99414cc4fe8b41e3330152e03d1b5122aec9225dfe0f0d74307b85ab8d"
         },
         {
-          "url": "/trip/assets/my-penang-peranakan-mansion-1-g3-v3-960.webp",
+          "url": "/trip/assets/my-penang-peranakan-mansion-1-g4-r1-960.webp",
           "width": 960,
           "height": 540,
-          "bytes": 90734,
-          "sha256": "5dc6f099c26662e8fec8664f9407b2aa3347ac914e600ea5cfc4438835ef34e6"
+          "bytes": 63094,
+          "sha256": "2bb9f923840324f8b51087f5d845788fe7e2a12d928610539043f5810fa6ac22"
         },
         {
-          "url": "/trip/assets/my-penang-peranakan-mansion-1-g3-v3-1440.webp",
+          "url": "/trip/assets/my-penang-peranakan-mansion-1-g4-r1-1440.webp",
           "width": 1440,
           "height": 810,
-          "bytes": 144204,
-          "sha256": "dc8f40386650afcc926d1623c6e563fe0e740f8678915537aae1bafc99bf6780"
+          "bytes": 101926,
+          "sha256": "45118d27e1b9aac06381f7054859280f2bc4bfac9c363e438f56ea6de796a9fc"
         }
       ],
       "cardPhoto": {
         "width": 1440,
         "height": 960,
         "activePicture": {
-          "x": 300,
+          "x": 150,
           "y": 0,
           "width": 1620,
           "height": 1080
         },
         "variants": [
           {
-            "url": "/trip/assets/my-penang-peranakan-mansion-1-g3-v3-card-640.webp",
+            "url": "/trip/assets/my-penang-peranakan-mansion-1-g4-r1-card-640.webp",
             "width": 640,
             "height": 427,
-            "bytes": 59422,
-            "sha256": "ddcded952009c4d572f55d49a6a9b71ca667c587835c23698e635d5042b3860b"
+            "bytes": 43570,
+            "sha256": "71d03d3b758a4a597493457de391dbce40db9531b55fe562b1c6b4e61b0ee0bb"
           },
           {
-            "url": "/trip/assets/my-penang-peranakan-mansion-1-g3-v3-card-960.webp",
+            "url": "/trip/assets/my-penang-peranakan-mansion-1-g4-r1-card-960.webp",
             "width": 960,
             "height": 640,
-            "bytes": 97174,
-            "sha256": "2158aad45bd85e85c37c26485af4004f291452332cbde03435b9901ad405b1e6"
+            "bytes": 69880,
+            "sha256": "963dc31b8864c5b64425d351344f1c05b84d6b2dd884a374e546508935f05770"
           },
           {
-            "url": "/trip/assets/my-penang-peranakan-mansion-1-g3-v3-card-1440.webp",
+            "url": "/trip/assets/my-penang-peranakan-mansion-1-g4-r1-card-1440.webp",
             "width": 1440,
             "height": 960,
-            "bytes": 151898,
-            "sha256": "dd819d4cd0cdd1798b0907a01b079e0d55e327f8e28aa1707881c945e562af07"
+            "bytes": 110400,
+            "sha256": "d312ceee8bc160edce5650b6f7e97c08a29580d915872aefb6e61f615d98a0c8"
           }
         ]
       }
@@ -7393,11 +7393,11 @@
       }
     },
     {
-      "assetId": "my-penang-top-jurassic-1-g3-v3",
+      "assetId": "my-penang-top-jurassic-1-g4-r1",
       "width": 1440,
       "height": 810,
-      "alt": "侏羅紀設施入口與家庭",
-      "caption": "侏羅紀設施入口與家庭",
+      "alt": "一名成人與兩名孩子站在恐龍圖表前，旁邊是侏羅紀研究中心的標誌與門口。",
+      "caption": "侏羅紀研究中心的恐龍圖表與入口標誌。",
       "focalPoint": [
         50,
         50
@@ -7416,30 +7416,30 @@
           "width": 3840,
           "height": 2160
         },
-        "pts": 180013,
+        "pts": 185018,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-top-jurassic-1-g3-v3-640.webp",
+          "url": "/trip/assets/my-penang-top-jurassic-1-g4-r1-640.webp",
           "width": 640,
           "height": 360,
-          "bytes": 41896,
-          "sha256": "5b2b5acb26366b6eceb9701d1b2a7fbcedf07337fd34800a0346c9dbbcc72654"
+          "bytes": 27628,
+          "sha256": "6ee8ed4d0f0576ee10b8d650ae4608aa01ed22e0fd7c3867e45bfa4a79cccb64"
         },
         {
-          "url": "/trip/assets/my-penang-top-jurassic-1-g3-v3-960.webp",
+          "url": "/trip/assets/my-penang-top-jurassic-1-g4-r1-960.webp",
           "width": 960,
           "height": 540,
-          "bytes": 74966,
-          "sha256": "3f6f1dc91b6d54259cf081ee0e9307e9fd36a8d591094808498c727d6cdc3486"
+          "bytes": 45588,
+          "sha256": "a1bca5e1901cd6b7470569e43d9e27a463fe511c99ff6dc400be9bd9643bde27"
         },
         {
-          "url": "/trip/assets/my-penang-top-jurassic-1-g3-v3-1440.webp",
+          "url": "/trip/assets/my-penang-top-jurassic-1-g4-r1-1440.webp",
           "width": 1440,
           "height": 810,
-          "bytes": 127402,
-          "sha256": "2739ab8a34d60b1ae81a0744e1cdffbf46f7e95b65c3e727cd00d5623769735c"
+          "bytes": 71738,
+          "sha256": "7f596eacd057e3a2dd5ecc9777021f15ea79151772f60fde0eddd7087a542780"
         }
       ]
     },
@@ -7495,11 +7495,11 @@
       ]
     },
     {
-      "assetId": "my-penang-top-jurassic-3-g3-v3",
+      "assetId": "my-penang-top-jurassic-3-g4-r1",
       "width": 1440,
-      "height": 810,
-      "alt": "孩子在恐龍骨架展區觀看",
-      "caption": "孩子在恐龍骨架展區觀看",
+      "height": 816,
+      "caption": "侏羅紀研究中心裡的恐龍模型與模擬實驗室陳設。",
+      "alt": "恐龍模型的頭部與身體局部，周圍可見模擬實驗室設備。",
       "focalPoint": [
         50,
         50
@@ -7513,44 +7513,44 @@
         "sourceWidth": 3840,
         "sourceHeight": 2160,
         "activePicture": {
-          "x": 0,
-          "y": 0,
-          "width": 3840,
-          "height": 2160
+          "x": 1780,
+          "y": 80,
+          "width": 1940,
+          "height": 1100
         },
         "pts": 270003,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-top-jurassic-3-g3-v3-640.webp",
+          "url": "/trip/assets/my-penang-top-jurassic-3-g4-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 30426,
-          "sha256": "4fcaa71f89a8b2c350a79ff9d413b4f3059337a440f3c70f269101a05783d5b9"
+          "height": 363,
+          "bytes": 33844,
+          "sha256": "fdd2e2c5f120816ce9f82d0cf3d1f6bed767bab2f7284f0d78b3041ffbe3f9df"
         },
         {
-          "url": "/trip/assets/my-penang-top-jurassic-3-g3-v3-960.webp",
+          "url": "/trip/assets/my-penang-top-jurassic-3-g4-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 54830,
-          "sha256": "f821defbb22cdbaa4fbe96da92c1118d90104b53edfbe647277e849c0866cd20"
+          "height": 544,
+          "bytes": 56516,
+          "sha256": "97af0ecbd6d497696c8489d7e4b1fa3ecc90dee12948d70b30fbb70a24952650"
         },
         {
-          "url": "/trip/assets/my-penang-top-jurassic-3-g3-v3-1440.webp",
+          "url": "/trip/assets/my-penang-top-jurassic-3-g4-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 95882,
-          "sha256": "54a98c5fd7b381c27383b9770b163a7c40141249a597722ac6fdc65170f24cd6"
+          "height": 816,
+          "bytes": 92956,
+          "sha256": "af464b1d503fbe45f32194f8348b6a8759576e46383c36f8da4a4d983e22ad51"
         }
       ]
     },
     {
-      "assetId": "my-penang-top-mirror-maze-1-g3-v3",
+      "assetId": "my-penang-top-mirror-maze-1-g4-r1",
       "width": 1440,
       "height": 810,
-      "alt": "從鏡子迷宮入口，開始一起找路。",
-      "caption": "從鏡子迷宮入口，開始一起找路。",
+      "alt": "Magic Mirror Maze 彩色招牌掛在室內鋼架屋頂下，左側可見鏡面牆。",
+      "caption": "鏡子迷宮的入口招牌。",
       "focalPoint": [
         50,
         50
@@ -7569,30 +7569,30 @@
           "width": 3840,
           "height": 2160
         },
-        "pts": 346012,
+        "pts": 344010,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-top-mirror-maze-1-g3-v3-640.webp",
+          "url": "/trip/assets/my-penang-top-mirror-maze-1-g4-r1-640.webp",
           "width": 640,
           "height": 360,
-          "bytes": 38070,
-          "sha256": "e39591b6673b3f31f0b3bc4c5981ce0aa046eb2e703917455f190da3700e5ba5"
+          "bytes": 49656,
+          "sha256": "17c6d674fb85e2f36f76d53f4b2fa705af16f198788f9a2a8164e064d5bc870d"
         },
         {
-          "url": "/trip/assets/my-penang-top-mirror-maze-1-g3-v3-960.webp",
+          "url": "/trip/assets/my-penang-top-mirror-maze-1-g4-r1-960.webp",
           "width": 960,
           "height": 540,
-          "bytes": 66504,
-          "sha256": "73b0790aa83447f92f67c08b2fb47c8c92b57ab65cd2dfab87b83be5c962f4d3"
+          "bytes": 85150,
+          "sha256": "9ec4190d280776c289a236b2745acb1cec410482097e87eb8e5a5849d1aa8b34"
         },
         {
-          "url": "/trip/assets/my-penang-top-mirror-maze-1-g3-v3-1440.webp",
+          "url": "/trip/assets/my-penang-top-mirror-maze-1-g4-r1-1440.webp",
           "width": 1440,
           "height": 810,
-          "bytes": 112302,
-          "sha256": "83c9c08f3b63e2f4e4e7a20700fc96115794bbc95e26b8fe3110290fa143af7f"
+          "bytes": 141912,
+          "sha256": "e2350743510fb92d8a9dacddd0e9805c1d919cd8d188323dec7ad6b3587fe8d3"
         }
       ]
     },
@@ -7699,11 +7699,11 @@
       ]
     },
     {
-      "assetId": "my-penang-top-aquarium-1-g3-v3",
+      "assetId": "my-penang-top-aquarium-detail-g4-r1",
       "width": 1440,
-      "height": 810,
-      "alt": "Penang Boutique Aquarium標示前的動物觸摸展示",
-      "caption": "Penang Boutique Aquarium標示前的動物觸摸展示",
+      "height": 1099,
+      "alt": "窗框狀格柵後的水族缸裡有魚、氣泡、碎石與陶罐造景。",
+      "caption": "窗框式水族展示缸。",
       "focalPoint": [
         50,
         50
@@ -7717,35 +7717,35 @@
         "sourceWidth": 3840,
         "sourceHeight": 2160,
         "activePicture": {
-          "x": 0,
-          "y": 0,
-          "width": 3840,
-          "height": 2160
+          "x": 900,
+          "y": 350,
+          "width": 1900,
+          "height": 1450
         },
-        "pts": 444010,
+        "pts": 480013,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-top-aquarium-1-g3-v3-640.webp",
+          "url": "/trip/assets/my-penang-top-aquarium-detail-g4-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 31260,
-          "sha256": "44ddf609722a96d50ada4eb145ab341af12705ddcc10874d8d181e87938b6791"
+          "height": 488,
+          "bytes": 38620,
+          "sha256": "a86680ae86589fd2c0df2b687bf5218a1fba1e008033e9521494ef74944e8afe"
         },
         {
-          "url": "/trip/assets/my-penang-top-aquarium-1-g3-v3-960.webp",
+          "url": "/trip/assets/my-penang-top-aquarium-detail-g4-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 52298,
-          "sha256": "c74e9234bd0f5d2ac64ae8817917504af5933816f3a53c248e17c31841d355f7"
+          "height": 733,
+          "bytes": 68194,
+          "sha256": "a35a7baee108eb02e4d3df02418ef3b64a079f709a0954192a83a1efe311d8aa"
         },
         {
-          "url": "/trip/assets/my-penang-top-aquarium-1-g3-v3-1440.webp",
+          "url": "/trip/assets/my-penang-top-aquarium-detail-g4-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 84830,
-          "sha256": "c92f1260f8de7a40d59cb7d6768d15b60597ed1e917d0aaa880b8e0f40de2c3c"
+          "height": 1099,
+          "bytes": 109648,
+          "sha256": "dd101f3fb1cade8b075bc6f9740acf5b32785f2400486dc7b2342bad428673f3"
         }
       ]
     },
@@ -8647,11 +8647,11 @@
       }
     },
     {
-      "assetId": "my-kl-tower-2-g3-v3",
+      "assetId": "my-kl-tower-2-g4-r1",
       "width": 1440,
       "height": 810,
-      "alt": "媽媽抱嬰兒站在觀景區入口附近",
-      "caption": "媽媽抱嬰兒站在觀景區入口附近",
+      "alt": "一名孩子站在觀景區門邊，前方有欄杆、台階與遠處的城市建築。",
+      "caption": "孩子在吉隆坡塔觀景區，前方可見城市景觀。",
       "focalPoint": [
         50,
         50
@@ -8670,30 +8670,30 @@
           "width": 3840,
           "height": 2160
         },
-        "pts": 360026,
+        "pts": 350016,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-kl-tower-2-g3-v3-640.webp",
+          "url": "/trip/assets/my-kl-tower-2-g4-r1-640.webp",
           "width": 640,
           "height": 360,
-          "bytes": 32408,
-          "sha256": "7cae73670de078ec8c449bdb1da491019c70d0b4f5469b102c1d81440b3344e2"
+          "bytes": 23624,
+          "sha256": "18b3796d87a060a0613b8eadedbaae50adedc09fa49c7416311d41a929e33bc5"
         },
         {
-          "url": "/trip/assets/my-kl-tower-2-g3-v3-960.webp",
+          "url": "/trip/assets/my-kl-tower-2-g4-r1-960.webp",
           "width": 960,
           "height": 540,
-          "bytes": 56620,
-          "sha256": "f701f9f22b80800c98d3eddd5cfc44d90d576f4b876366eb78b4d33b607a6e03"
+          "bytes": 43714,
+          "sha256": "27953e6f7690ede62e4c86f665ba1c009c2708b269407bf5f8d9557cd7357ae2"
         },
         {
-          "url": "/trip/assets/my-kl-tower-2-g3-v3-1440.webp",
+          "url": "/trip/assets/my-kl-tower-2-g4-r1-1440.webp",
           "width": 1440,
           "height": 810,
-          "bytes": 93348,
-          "sha256": "ea407a0a49629d85b83c5ea5e72cd72099994d7546953f0ee3c2e05414544d68"
+          "bytes": 73986,
+          "sha256": "ef725e8bd419db7eaeda058866af2d963bd053dd72eada7920c4a3cc618b937f"
         }
       ]
     },
@@ -9733,11 +9733,11 @@
       ]
     },
     {
-      "assetId": "my-kl-rexkl-bookxcess-1-g3-v3",
+      "assetId": "my-kl-rexkl-bookxcess-1-g4-r3",
       "width": 1440,
       "height": 810,
-      "alt": "BookXcess Rex KL入口與家人",
-      "caption": "BookXcess Rex KL入口與家人",
+      "caption": "在 REXKL 的樓梯間搬著嬰兒車。",
+      "alt": "一名成人在紅色扶手的樓梯間搬著嬰兒車，身旁牆上有海報。",
       "focalPoint": [
         50,
         50
@@ -9756,30 +9756,30 @@
           "width": 3840,
           "height": 2160
         },
-        "pts": 2111009,
+        "pts": 2107505,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-1-g3-v3-640.webp",
+          "url": "/trip/assets/my-kl-rexkl-bookxcess-1-g4-r3-640.webp",
           "width": 640,
           "height": 360,
-          "bytes": 41084,
-          "sha256": "da8fc8256d303a6bab556fa034d537bff2a5b4ec52b038756879ba93f14cbb96"
+          "bytes": 44136,
+          "sha256": "d84da9b7b7970d168383f60c681bd271c2943904de5976b34f2531ac8ea9e59d"
         },
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-1-g3-v3-960.webp",
+          "url": "/trip/assets/my-kl-rexkl-bookxcess-1-g4-r3-960.webp",
           "width": 960,
           "height": 540,
-          "bytes": 70218,
-          "sha256": "720343556bad802b6b767f9055b205e2a3e63f09f445b0276be699540f2e2293"
+          "bytes": 78248,
+          "sha256": "9ac0c97d914617846c80ff0a810ebbb3c9c5a130dc6e24e8679e21a168a6526b"
         },
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-1-g3-v3-1440.webp",
+          "url": "/trip/assets/my-kl-rexkl-bookxcess-1-g4-r3-1440.webp",
           "width": 1440,
           "height": 810,
-          "bytes": 116892,
-          "sha256": "ec86d02f72f4d551a6fda10f121041f45c0a246184928344069639862be2faf5"
+          "bytes": 145026,
+          "sha256": "e10d56b1ac4d5c1db048a7abd096d622f76d583663e63e05d61bec5d7bc78ddb"
         }
       ]
     },
@@ -10021,11 +10021,11 @@
       ]
     },
     {
-      "assetId": "my-kl-kwai-chai-hong-3-g3-v3",
+      "assetId": "my-kl-kwai-chai-hong-3-g4-r1",
       "width": 1440,
       "height": 810,
-      "alt": "媽媽推著嬰兒車在壁畫牆旁",
-      "caption": "媽媽推著嬰兒車在壁畫牆旁",
+      "alt": "一人扶著嬰兒車把手，站在鬼仔巷斑駁的黃色牆面和紅色欄杆旁。",
+      "caption": "鬼仔巷的黃牆與紅色欄杆。",
       "focalPoint": [
         50,
         50
@@ -10044,30 +10044,30 @@
           "width": 3840,
           "height": 2160
         },
-        "pts": 2206004,
+        "pts": 2202000,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-kl-kwai-chai-hong-3-g3-v3-640.webp",
+          "url": "/trip/assets/my-kl-kwai-chai-hong-3-g4-r1-640.webp",
           "width": 640,
           "height": 360,
-          "bytes": 36002,
-          "sha256": "0e98511f8b7f9c14d5f15fad72c4e2c86133dfabb3b2392ed01a2b7eaa486eaa"
+          "bytes": 42906,
+          "sha256": "3f0caf191ab22756f2ba14c317e7ce65a760915e04418a85d0f7f7f5804e4858"
         },
         {
-          "url": "/trip/assets/my-kl-kwai-chai-hong-3-g3-v3-960.webp",
+          "url": "/trip/assets/my-kl-kwai-chai-hong-3-g4-r1-960.webp",
           "width": 960,
           "height": 540,
-          "bytes": 63114,
-          "sha256": "f95ed1b2d602e7301db684a302996fc0070cda08921ebb6bc9bd96c5b86cb6bc"
+          "bytes": 73608,
+          "sha256": "d077e0e9356499d410ddad5e46032cd835382608f9ff8bc0f75f4865607a27e2"
         },
         {
-          "url": "/trip/assets/my-kl-kwai-chai-hong-3-g3-v3-1440.webp",
+          "url": "/trip/assets/my-kl-kwai-chai-hong-3-g4-r1-1440.webp",
           "width": 1440,
           "height": 810,
-          "bytes": 102666,
-          "sha256": "da09c71ce079bf6beabf13aa26ea2fdd975094e5895be23000a2de7cc13cc860"
+          "bytes": 125692,
+          "sha256": "c3711cf63f94d4f03e6630ce4c865f8528368c77a1c939fc9435271d4a4daeb7"
         }
       ]
     },
@@ -10564,14 +10564,14 @@
       ]
     },
     {
-      "assetId": "my-penang-hero-support-2-g3-v3",
+      "assetId": "my-penang-hero-support-2-g4-r1",
       "width": 1440,
       "height": 960,
-      "alt": "孩子在侏羅紀主題展示區觀看恐龍骨架",
-      "caption": "孩子在侏羅紀主題展示區觀看恐龍骨架",
+      "caption": "侏羅紀研究中心裡的恐龍模型與模擬實驗室陳設。",
+      "alt": "恐龍模型的頭部與身體局部，周圍可見模擬實驗室設備。",
       "focalPoint": [
         50,
-        60
+        50
       ],
       "sourceIds": [
         "my-youtube-ayuc0px5ctc"
@@ -10582,35 +10582,35 @@
         "sourceWidth": 3840,
         "sourceHeight": 2160,
         "activePicture": {
-          "x": 300,
+          "x": 1780,
           "y": 0,
-          "width": 3240,
-          "height": 2160
+          "width": 1740,
+          "height": 1160
         },
         "pts": 270003,
         "timebase": "1/1000"
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-hero-support-2-g3-v3-640.webp",
+          "url": "/trip/assets/my-penang-hero-support-2-g4-r1-640.webp",
           "width": 640,
           "height": 427,
-          "bytes": 35700,
-          "sha256": "17f14505edb69e53985e12774ee826b41e3cb7a15a5b46981abcc8744446cc88"
+          "bytes": 39412,
+          "sha256": "e0f3ac67023501c19b00044fe0cb2276bd5cb65bfed99d89893464ac51f989b0"
         },
         {
-          "url": "/trip/assets/my-penang-hero-support-2-g3-v3-960.webp",
+          "url": "/trip/assets/my-penang-hero-support-2-g4-r1-960.webp",
           "width": 960,
           "height": 640,
-          "bytes": 64178,
-          "sha256": "9797fdd4b1e8f02827b4881862c6a17aeb8983f455e83790a4ea075bee8c15e9"
+          "bytes": 65966,
+          "sha256": "717d3f8b7e02945db92783ac8adb423bf88ef5a69ed76e91e21774991fd2f01f"
         },
         {
-          "url": "/trip/assets/my-penang-hero-support-2-g3-v3-1440.webp",
+          "url": "/trip/assets/my-penang-hero-support-2-g4-r1-1440.webp",
           "width": 1440,
           "height": 960,
-          "bytes": 110516,
-          "sha256": "5e5d5f925885665b535a8764886dfe052620495730ae5748a9a8939be43ad9db"
+          "bytes": 101164,
+          "sha256": "7ba37e8eea4b8db89d4f76fa1626a8edd3d33c738216437f84ce5f1d8ae13d9c"
         }
       ]
     },
@@ -20048,7 +20048,7 @@
       "hero": [
         "my-penang-hero-main-g3-v3",
         "my-penang-hero-support-1-g3-v3",
-        "my-penang-hero-support-2-g3-v3"
+        "my-penang-hero-support-2-g4-r1"
       ],
       "chapters": [
         {
@@ -20172,8 +20172,8 @@
           ],
           "images": [
             "my-penang-george-town-1-g3-v3",
-            "my-penang-george-town-2-g3-v3",
-            "my-penang-george-town-3-g3-v3"
+            "my-penang-george-town-2-g4-r1",
+            "my-penang-george-town-3-g4-r2"
           ],
           "facts": {
             "what": {
@@ -20445,7 +20445,7 @@
             "my-youtube-wixlz9hom-q"
           ],
           "images": [
-            "my-penang-peranakan-mansion-1-g3-v3",
+            "my-penang-peranakan-mansion-1-g4-r1",
             "my-penang-peranakan-mansion-2-g3-v3",
             "my-penang-peranakan-mansion-3-g3-v3"
           ],
@@ -20635,9 +20635,9 @@
             "my-youtube-ayuc0px5ctc"
           ],
           "images": [
-            "my-penang-top-jurassic-1-g3-v3",
+            "my-penang-top-jurassic-1-g4-r1",
             "my-penang-top-jurassic-2-g3-v3",
-            "my-penang-top-jurassic-3-g3-v3"
+            "my-penang-top-jurassic-3-g4-r1"
           ],
           "facts": {
             "what": {
@@ -20727,7 +20727,7 @@
             "my-youtube-ayuc0px5ctc"
           ],
           "images": [
-            "my-penang-top-mirror-maze-1-g3-v3",
+            "my-penang-top-mirror-maze-1-g4-r1",
             "my-penang-top-mirror-maze-2-g3-v4",
             "my-penang-top-mirror-maze-3-g3-v3"
           ],
@@ -20819,9 +20819,9 @@
             "my-youtube-ayuc0px5ctc"
           ],
           "images": [
-            "my-penang-top-aquarium-1-g3-v3",
+            "my-penang-top-aquarium-3-g3-v3",
             "my-penang-top-aquarium-2-g3-v3",
-            "my-penang-top-aquarium-3-g3-v3"
+            "my-penang-top-aquarium-detail-g4-r1"
           ],
           "facts": {
             "what": {
@@ -21310,9 +21310,9 @@
           "title": "娘惹博物館",
           "play": "宅邸、器物與導覽",
           "time": "約 60–90 分鐘",
-          "assetId": "my-penang-peranakan-mansion-1-g3-v3",
+          "assetId": "my-penang-peranakan-mansion-1-g4-r1",
           "focalPoint": [
-            70,
+            50,
             50
           ]
         },
@@ -23695,7 +23695,7 @@
           ],
           "images": [
             "my-kl-tower-1-g3-v3",
-            "my-kl-tower-2-g3-v3",
+            "my-kl-tower-2-g4-r1",
             "my-kl-tower-3-g3-v3"
           ],
           "facts": {
@@ -24341,7 +24341,7 @@
             "my-youtube-v7id6nvbpuo"
           ],
           "images": [
-            "my-kl-rexkl-bookxcess-1-g3-v3",
+            "my-kl-rexkl-bookxcess-1-g4-r3",
             "my-kl-rexkl-bookxcess-2-g3-v3",
             "my-kl-rexkl-bookxcess-3-g3-v3"
           ],
@@ -24439,7 +24439,7 @@
           "images": [
             "my-kl-kwai-chai-hong-1-g3-v3",
             "my-kl-kwai-chai-hong-2-g3-v3",
-            "my-kl-kwai-chai-hong-3-g3-v3"
+            "my-kl-kwai-chai-hong-3-g4-r1"
           ],
           "facts": {
             "what": {

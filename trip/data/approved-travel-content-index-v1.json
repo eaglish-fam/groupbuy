@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.approved-travel-content-index/v1",
-  "packageSha256": "0988398d141651a7d7940c8e00a91f65b5fbcde944709e8883dd6da84dad85c0",
+  "packageSha256": "6a3a1e9b8f9be97e5a551aa47a1e5dd7a025d44f8293e14552bdae864b7de425",
   "publication": true,
   "pages": [
     {
@@ -164,7 +164,7 @@
         "my-g2-s02",
         "my-g2-s03"
       ],
-      "sha256": "3af14b4f1e6591d27cf68b53637d3f79fc859a860553ca2b2eace8f10a4624b0"
+      "sha256": "1bb6b10eadc5a97d1a01bf43318945e040681701ae405c396a928c8e239aa0a4"
     },
     {
       "path": "/trip/guides/oslo-with-kids/",
@@ -338,7 +338,7 @@
         "my-youtube-ayuc0px5ctc",
         "my-youtube-uro4dhm3dpk"
       ],
-      "sha256": "d94f860a62a4bdbfa091e52c763d2a60a229233ffa0f36819f70bb2fd74b28bc"
+      "sha256": "e5d6b8e63a9caa407ab129e7d2a9d51215f00ad419d18a886e5dcaec414b422a"
     },
     {
       "path": "/trip/guides/kuala-lumpur-with-kids/",
@@ -349,7 +349,7 @@
         "my-youtube-v7id6nvbpuo",
         "my-youtube-my-7kubdvc8"
       ],
-      "sha256": "c35eea586628f129ffa37b0915601ddfb906f72a65a3cba3011d5ff090b6a1fb"
+      "sha256": "867475e3ece59b8ddf10cd8717579552d50e843858cfce3cfba45009e667b981"
     }
   ]
 }

@@ -5,10 +5,10 @@ Canonical 製作流程：[編輯準則](trip-editorial-guidelines.md)第八節�
 | 元件 | 固定模板 | 城市資料／接線 |
 | --- | --- | --- |
 | 首屏 | breadcrumb → 英文 eyebrow → H1 主＋次標 → 短導讀；必要背景採已核三至四段 `longform-context/v1` → 作者／更新日 | 核准 title 可依既有冒號拆行；文字、作者與日期由城市資料供應；一般導讀仍用兩段 `intro`，長背景明確指定 `leadFormat`，沿用既有 renderer |
-| Hero | main、support-1、support-2；main 優先自有原照 3:2，support 真實尺寸選擇 portraits／landscapes／mixed 共用分支 | 首頁國家／國家城市／城市 main 共用地點身份與已核裁切；缺原照才用乾淨代表畫格。真正直式素材可採 source-aware paired 例外。每張滿版且保留完整人物；禁止內部空帶、補景或拉伸 |
+| Hero | main、support-1、support-2；main 優先自有原照 3:2，support 真實尺寸選擇 portraits／landscapes／mixed 共用分支 | 首頁國家／國家城市／城市 main 共用地點身份與已核裁切；先盤點自家 IG／Facebook 照片、輪播與相簿，缺合適原照才用乾淨代表畫格；排除以陌生旅客為主體的影像。真正直式素材可採 source-aware paired 例外。每張滿版且保留完整人物；禁止內部空帶、補景或拉伸 |
 | 圖片版位 | 已核 main 3:2；真正三直圖桌機按來源比例分欄並排；橫圖桌機左主右輔，混合圖按比例分欄；手機上主、下兩輔按比例配對 | 由每張 width／height 預留已核比例，不新增 CSS 裁切；caption 放在照片下方，不遮人物。support／正文不為主圖規格重裁 |
 | 短卡 | 3:2，desktop 三欄／手機兩欄；名稱、玩法、時間 | 逐卡 approved photo、focal、place ID；長文留正文 |
-| 正文 | 每景點一主＋兩輔實拍、背景與玩法、來源支持的完整家庭故事、實用資料 | 當城景點、三圖原比例、官方來源與查核日期；故事按選擇原因 → 現場行動 → 具體細節 → 結果／調整展開，使用既有 `story.paragraphs`，不以短摘要截斷因果；交通圖解、重要知識機制與實住住宿依編輯準則 v1.7 |
+| 正文 | 每景點一主＋兩輔實拍、背景與玩法、來源支持的完整家庭故事、實用資料 | 當城景點、三圖原比例、官方來源與查核日期；故事按選擇原因 → 現場行動 → 具體細節 → 結果／調整展開，使用既有 `story.paragraphs`，不以短摘要截斷因果；交通圖解、重要知識機制與實住住宿依編輯準則 v1.8 |
 | 後段 | 飲食 → 住宿 → 交通 → 雨備 → FAQ → #plan → 影片 → 延伸 | 區域、Maps、營業、票種、影片及延伸；模組標籤共用、內容標題沿用城市核准文案 |
 | 試排 | ①天數、②步調、③日期 → 單日切換；晚置 FAQ 後 | 城市已支援天數、路線、維護／營業限制；SG 六路線18天內容，無換區演算法 |
 | 入口 | 現有 58×58 兩行行程／規劃；H2 focus；sticky、安全區及固定底導覽避讓 | plan、footer 或閱讀抽屜可見時隱藏；href #plan |
@@ -16,7 +16,7 @@ Canonical 製作流程：[編輯準則](trip-editorial-guidelines.md)第八節�
 
 實作：`scripts/trip-city-guide-template.mjs` 提供固定排序、目錄標籤、首屏 renderer 與 `cityGuideHeroLayout`；`trip/city-guide-template.css` 只對 `.city-guide` opt-in。新加坡 `trip-singapore-approved-renderer.mjs` 實際接線；圖組模式、欄寬及每張比例由真實 dimensions 推得，重用 `trip-planner-entry.mjs` 及既有 launcher CSS/JS。Generic helper 不讀新加坡資料，後續城市提供相同 slots 與模組即可接線。
 
-2026-10-04 滿版修正優先於歷史 g8 contain 固定槽位例外：grid gap、文章外側留白是版面間距，照片自身四邊須到實際照片邊緣。原始來源、active picture、focal、尺寸與裁切紀錄保留；必要裁切須逐圖證實人物與景物完整，不符時調整框比例／排列或另選已核准素材，不以奶油、黑色、模糊、生成延伸、遮罩或拉伸填空。本規則適用首屏、短卡、正文與未來城市；本次只修新加坡首屏，既有正文與短卡不重做。
+2026-10-04 滿版修正優先於歷史 g8 contain 固定槽位例外：grid gap、文章外側留白是版面間距，照片自身四邊須到實際照片邊緣。原始來源、active picture、focal、尺寸與裁切紀錄保留；必要裁切須逐圖證實人物與景物完整，不符時調整框比例／排列或另選已核准素材，不以奶油、黑色、模糊、生成延伸、遮罩或拉伸填空。本規則適用首屏、短卡、正文與未來城市；歷史範圍：2026-10-04 新加坡回修僅處理首屏。後續任務的變更範圍依當次人類要求與已核內容決定。
 
 ## 遷移狀態
 
@@ -32,3 +32,5 @@ Canonical 製作流程：[編輯準則](trip-editorial-guidelines.md)第八節�
 共用模板 CSS 保存在單一檔案，建置時將同一份既有 trip 基礎、Bangkok 元件、城市 adapter 明確提供的 compatibility CSS、目錄、站點導覽、模板與 launcher 樣式以精確 SHA256 嵌入 head；標題層級、向量品牌尺寸、正文、首屏構圖、planner 與 #plan sticky 避讓在外部樣式請求延遲時仍保持一致。私人預覽同步封閉 inline CSS 字型路徑並重算雜湊；外部 CSS 仍納入完整 bundle，來源樣式檔不另造一套副本。既有 g7 facts/story critical style 原樣保留。
 
 清邁與新加坡目前重整會恢復試排預設，share URL restore 尚未接線。首屏 QA 使用 new tab → set viewport → goto，親看 1440px、390px、320px 的每張實圖：滿版無內部空帶、完整人物／人臉、caption 清晰、無橫向溢出。object-fit 名稱、尺寸或 HTTP 僅輔助證據；首次跳轉及路線狀態仍須依受影響範圍驗證。未支援功能記為缺口，驗收與發布權限分開。
+
+所有圖片版位的來源與人物親驗沿用編輯準則 v1.8 及 IMAGE_PIPELINE：保存兩平台實查範圍、逐圖人物判斷，換圖同步更新 caption／alt 與新資產 URL；不因沿用模板免除內容檢查。
