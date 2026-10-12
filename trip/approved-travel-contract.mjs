@@ -75,6 +75,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
   assets.set(a.assetId,a);
  }
  const image=assetId=>{if(!assets.has(assetId))fail('unresolved approved image');return assets.get(assetId);};
+ const photoPair=refs=>{if(array(refs).length!==2||new Set(refs).size!==2)fail('two distinct card photographs');const pair=refs.map(image);if(pair.some(a=>a.lineage.kind!=='photo'||a.width>=a.height)||new Set(pair.map(a=>a.lineage.sourceSha256)).size!==2)fail('independent original portrait photographs required');};
  const links=value=>{for(const l of array(value)){text(l.label);publicUrl(l.url);}};
  const faq=value=>{if(!array(value).length)fail('FAQ required');for(const q of value){text(q.question);text(q.answer);sources(q.sourceIds);}};
  const module=(value,child=false)=>{text(value.title);strings(value.paragraphs);if(!value.paragraphs.length&&!(value.links||[]).length&&!value.subsections?.length)fail('empty module');sources(value.sourceIds);for(const a of value.images||[])image(a);links(value.links||[]);
@@ -116,6 +117,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
   for(const key of ['name','englishName','title','description','author'])text(c[key]);
   validateCityIntro(c.intro,c.leadFormat);if(!calendarDate(c.updatedOn))fail('city update date');sources(c.sourceIds);
   if(array(c.hero).length!==3||new Set(c.hero).size!==3)fail('three distinct hero assets');c.hero.forEach(image);
+  if(c.entryImagePair){photoPair(c.entryImagePair);if(c.entryImagePair[0]!==c.hero[0])fail('city entry/photo identity mismatch');}
   const places=new Map();
   for(const p of array(c.places)){
    id(p.id);id(p.stableId);if(places.has(p.id))fail('duplicate place anchor');
@@ -140,6 +142,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
   }
   const cardTargets=unique(array(c.cards).map(card=>{
    const p=places.get(card.target);if(!p||!p.images.includes(card.assetId))fail('card/photo/venue mismatch');image(card.assetId);
+   if(card.imagePair){photoPair(card.imagePair);if(card.imagePair[0]!==card.assetId||card.imagePair.some(ref=>!p.images.includes(ref)))fail('card pair/photo/venue mismatch');}
    for(const key of ['title','play','time'])text(card[key]);focalPoint(card.focalPoint);return card.target;
   }),'card target');
   if(!cardTargets.length)fail('navigation cards required');

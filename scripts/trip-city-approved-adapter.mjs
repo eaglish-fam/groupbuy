@@ -8,6 +8,7 @@ import {renderSiteNavigation} from './site-navigation.mjs';
 import {renderApprovedCityPlanner} from './trip-approved-city-planner.mjs';
 import {approvedParagraphs,approvedInlineText} from './trip-approved-text.mjs';
 import {approvedPublicationFont} from './trip-approved-publication-font.mjs';
+import {renderApprovedPhotoPair} from '../trip/approved-photo-pair.mjs';
 const origin='https://www.eaglish.store';
 export const escapeTravel=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export const travelScriptJson=value=>JSON.stringify(value).replaceAll('<','\\u003c');
@@ -37,7 +38,7 @@ export function renderApprovedFactsStory(place,{level=3,storyTitle='我們那次
  return `${place.story?`<aside class="bkk-experience"><h${level}>${esc(storyTitle)}</h${level}>${paragraphs(place.story.paragraphs||[place.story.text])}</aside>`:''}<h${level}>實用資料</h${level}><dl class="bkk-facts">${[...facts,...(place.extraFacts||[])].map(f=>`<div><dt>${esc(f.label)}</dt><dd>${approvedInlineText(f.value)}</dd></div>`).join('')}</dl>`;
 }
 export function approvedNavigationCards(city,assets){
- return `<section id="places"><h2>${cityGuideTemplate.labels.places}</h2><div class="bkk-overview city-approved-cards">${city.cards.map(card=>`<a href="#${esc(card.target)}" data-place-ref="${esc(city.places.find(p=>p.id===card.target).stableId)}" data-asset-id="${esc(card.assetId)}">${approvedPicture(assets.get(card.assetId),{sizes:'(max-width:700px) calc(50vw - 24px), 250px',focal:card.focalPoint,card:true})}<span class="bkk-overview-copy"><strong>${esc(card.title)}</strong><span>${esc(card.play)}</span><small>${esc(card.time)}</small></span></a>`).join('')}</div></section>`;
+ return `<section id="places"><h2>${cityGuideTemplate.labels.places}</h2><div class="bkk-overview city-approved-cards">${city.cards.map(card=>`<a href="#${esc(card.target)}" data-place-ref="${esc(city.places.find(p=>p.id===card.target).stableId)}" data-asset-id="${esc(card.assetId)}">${card.imagePair?renderApprovedPhotoPair(card.imagePair.map(id=>assets.get(id)),{sizes:'(max-width:700px) calc(25vw - 12px), 125px'}):approvedPicture(assets.get(card.assetId),{sizes:'(max-width:700px) calc(50vw - 24px), 250px',focal:card.focalPoint,card:true})}<span class="bkk-overview-copy"><strong>${esc(card.title)}</strong><span>${esc(card.play)}</span><small>${esc(card.time)}</small></span></a>`).join('')}</div></section>`;
 }
 function moduleHtml(id,value,assets,{level=2}={}){
  return `<section id="${id}"${level===3?' class="city-module-subsection"':''}><h${level}>${esc(value.title)}</h${level}>${paragraphs(value.paragraphs)}${id==='arrival'&&value.diagram?approvedRouteDiagram(value.diagram):''}${value.diagrams?.length?`<div class="approved-route-panels">${value.diagrams.map(approvedRouteDiagram).join('')}</div>`:''}${value.images?.length?`<div class="city-module-gallery" style="--city-pair-columns:${columns(value.images.map(a=>assets.get(a)))}">${value.images.map(a=>approvedFigure(assets.get(a))).join('')}</div>`:''}${(value.subsections||[]).map(s=>moduleHtml(s.id,s,assets,{level:3})).join('')}${links(value.links)}</section>`;

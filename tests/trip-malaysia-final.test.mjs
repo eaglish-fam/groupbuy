@@ -17,7 +17,7 @@ test('final portable closure keeps Europe exact and adds only three source-backe
  assert.deepEqual(data.countries.filter(c=>c.id!=='malaysia'),europe.countries);assert.deepEqual(data.cities.filter(c=>!cityIds.includes(c.id)),europe.cities);
  assert.deepEqual(data.assets.filter(a=>europe.assets.some(b=>a.assetId===b.assetId)),europe.assets);
  assert.equal(cities.flatMap(c=>c.places).length,23);assert.equal(cities.flatMap(c=>c.chapters).length,11);assert.equal(cities.flatMap(c=>c.cards).length,11);
- const assets=data.assets.filter(a=>!europe.assets.some(e=>e.assetId===a.assetId));assert.equal(assets.length,97);assert.equal(assets.filter(a=>a.cardPhoto).length,11);
+ const assets=data.assets.filter(a=>!europe.assets.some(e=>e.assetId===a.assetId));assert.equal(assets.length,99);assert.equal(assets.filter(a=>a.cardPhoto).length,10);assert.equal(assets.filter(a=>a.lineage.kind==='photo').length,10);
 });
 test('chapter guides preserve full source paragraphs, three-photo galleries, six facts and distinct food trips',()=>{
  for(const c of cities){const html=renderApprovedCity(data,c.id,{publication:true});
@@ -46,7 +46,7 @@ test('country and city diagrams answer separate questions with bounded intrinsic
 });
 test('world discovery shares the existing entry family, real Malaysia geography and matching city targets',()=>{
  const home=renderTravelHomeR24();assert.match(home,/data-country-panel="malaysia"/);assert.match(home,/走進馬來西亞/);
- for(const c of cities){assert.ok(home.includes(c.path));for(const card of c.cards){const p=c.places.find(p=>p.id===card.target);assert.ok(p.images.includes(card.assetId));assert.ok(data.assets.find(a=>a.assetId===card.assetId).cardPhoto);}}
+ for(const c of cities){assert.ok(home.includes(c.path));for(const card of c.cards){const p=c.places.find(p=>p.id===card.target);assert.ok(p.images.includes(card.assetId));const a=data.assets.find(a=>a.assetId===card.assetId);assert.ok(card.imagePair||a.cardPhoto);if(card.imagePair){assert.equal(card.imagePair.length,2);assert.ok(card.imagePair.every(id=>p.images.includes(id)));}else assert.equal(a.cardPhoto.width/a.cardPhoto.height,1.5);}}
  const country=data.countries.find(c=>c.id==='malaysia');assert.equal(country.discovery.isoNumeric,'458');assert.equal(country.geographicMap.views.length,2);
  assert.deepEqual(country.geographicMap.views.flatMap(v=>v.points).map(p=>p.cityId),['penang','kuala-lumpur','penang','kuala-lumpur']);
 });
