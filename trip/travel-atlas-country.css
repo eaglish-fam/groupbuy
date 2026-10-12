@@ -27,3 +27,16 @@
 .travel-atlas-destinations a{display:inline-flex;align-items:center;min-height:44px;color:#784b39;font-size:14px;text-underline-offset:3px}
 .travel-atlas-destinations a:focus-visible{outline:2px solid #784b39;outline-offset:3px}
 @media(prefers-reduced-motion:reduce){.travel-atlas-country .travel-atlas-view{animation:none;transition:none}}
+
+/* Opt-in multi-view panels keep labels in flow; legacy country rules stay above. */
+.travel-atlas--multiview{aspect-ratio:auto}
+.travel-atlas--multiview .travel-atlas-view{position:relative}
+.travel-atlas--multiview .travel-atlas-country-heading--multiview{position:static;margin:18px 4.666667% 0;overflow-wrap:anywhere}
+.travel-atlas-country-stage{position:relative;aspect-ratio:600/400}
+.travel-atlas-country-labels{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 4%;padding:0 4.666667% 20px}
+.travel-atlas-country-labels--one{grid-template-columns:minmax(0,1fr)}
+.travel-atlas--multiview .travel-atlas-country-labels .travel-atlas-country-label{position:static;transform:none;width:auto;min-width:0;max-width:100%}
+.travel-atlas--multiview .travel-atlas-country-labels .travel-atlas-country-label span{white-space:normal;overflow-wrap:anywhere}
+.travel-atlas-country--multiview .travel-atlas-controls{flex-wrap:wrap}
+.travel-atlas-country--multiview .travel-atlas-controls button{max-width:100%;padding:8px 14px;white-space:normal;overflow-wrap:anywhere}
+.travel-atlas-country--multiview .travel-atlas-destinations a{max-width:100%;overflow-wrap:anywhere}

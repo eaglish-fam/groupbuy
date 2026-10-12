@@ -5,6 +5,7 @@ import {resolve} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {execFileSync} from 'node:child_process';
 import {collectIndexablePages} from './site-seo-inventory.mjs';
+import {writeApprovedTravelContentIndex} from './trip-approved-content-index.mjs';
 const root=resolve(import.meta.dirname,'..');
 const origin='https://www.eaglish.store';
 const validDate=value=>/^\d{4}-\d{2}-\d{2}$/.test(value||'')&&Number.isFinite(Date.parse(value+'T00:00:00Z'))&&new Date(value+'T00:00:00Z').toISOString().slice(0,10)===value;
@@ -34,4 +35,4 @@ export function generateSitemap(siteRoot=root){
  console.log('[sitemap] '+pages.length+' canonical documents; lastmod only from article metadata or clean Git history');
  return xml;
 }
-if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url))generateSitemap();
+if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){generateSitemap();writeApprovedTravelContentIndex(root);}

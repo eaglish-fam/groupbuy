@@ -1,0 +1,579 @@
+{
+  "schema": "eaglish.malaysia-engineering-transport/v1",
+  "engineeringOnly": true,
+  "sources": [
+    {
+      "id": "my-g2-s02",
+      "kind": "official",
+      "url": "https://www.mypenang.gov.my/abt_png.php?id=em1DVjlJRHFtbFpqWGVwZldaMjVUUT09",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Map"
+    },
+    {
+      "id": "my-g2-s03",
+      "kind": "official",
+      "url": "https://www.mypenang.gov.my/abt_png.php?id=WjRiaEVUSWxRdERPNzFRYnlxNEdBdz09",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "Getting Around Penang"
+    },
+    {
+      "id": "my-g3-kl-s03",
+      "kind": "official",
+      "url": "https://www.kliaekspres.com/products-fares/klia-ekspres/",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "ERL KLIA Ekspres product and fares"
+    },
+    {
+      "id": "my-g3-kl-s05",
+      "kind": "official",
+      "url": "https://www.kliaekspres.com/media/14uietk1/train-schedule-08-dec-25-onwards-ke.pdf",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "ERL Ekspres full schedule"
+    },
+    {
+      "id": "my-g3-kl-s07",
+      "kind": "official",
+      "url": "https://www.kliaekspres.com/schedule/",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "ERL Schedule / service banner"
+    },
+    {
+      "id": "my-g3-kl-s09",
+      "kind": "official",
+      "url": "https://www.mymrt.com.my/projects/kajang-line/stations/",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "MRT Corp Kajang Line stations"
+    },
+    {
+      "id": "my-g3-kl-s10",
+      "kind": "official",
+      "url": "https://www.muziumnegara.gov.my/en/how-get-national-museum",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "Department of Museums Malaysia: getting to National Museum"
+    },
+    {
+      "id": "my-g4-kidhome",
+      "kind": "official",
+      "url": "https://www.kidzania.com.my/",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "KidZania Kuala Lumpur"
+    },
+    {
+      "id": "my-g4-etsidx",
+      "kind": "official",
+      "url": "https://ktmb.com.my/TrainTime.html",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "KTMB timetable index"
+    },
+    {
+      "id": "my-g4-ets",
+      "kind": "official",
+      "url": "https://www.ktmb.com.my/assets/pdf/2026/Jadual%20Tren%20ETS%201%20Jun%202026.pdf",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "KTMB ETS 1 June 2026"
+    },
+    {
+      "id": "my-g4-ferry",
+      "kind": "official",
+      "url": "https://penangport.gov.my/en/services/service/ferry-services",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Port Commission ferry"
+    },
+    {
+      "id": "my-g4-sentral",
+      "kind": "official",
+      "url": "https://www.penangsentral.com.my/connectivity/ferry/",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "Penang Sentral operator ferry connection"
+    },
+    {
+      "id": "my-g4-starpen",
+      "kind": "official",
+      "url": "https://www.starlux-airlines.com/en-US/book/penang/index",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "STARLUX Taipei–Penang"
+    },
+    {
+      "id": "my-g4-starkul",
+      "kind": "official",
+      "url": "https://www.starlux-airlines.com/en-VN/book/kualalumpur",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "STARLUX Taipei–Kuala Lumpur"
+    },
+    {
+      "id": "my-g4-citime",
+      "kind": "official",
+      "url": "https://www.china-airlines.com/sea/th/Images/timetable-20260329-20261024_tcm285-4228.pdf",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "China Airlines summer 2026 timetable"
+    },
+    {
+      "id": "my-g4-airasiaroute",
+      "kind": "official",
+      "url": "https://www.airasia.com/flights/",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "AirAsia flight listing"
+    },
+    {
+      "id": "my-g4-airasiat2",
+      "kind": "official",
+      "url": "https://newsroom.airasia.com/news/airasia-to-consolidate-domestic-operations-at-klia-t2-for-greater-efficiency-and-more-streamlined-guest-experience",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "AirAsia domestic consolidation"
+    },
+    {
+      "id": "my-g4-starterm",
+      "kind": "official",
+      "url": "https://www.starlux-airlines.com/en-US/check-in-fly/travel-information/airport-and-transportation/southeast-asia",
+      "rights": "Reference link only; no media reuse permission inferred.",
+      "checkedOn": "2026-10-12",
+      "label": "STARLUX southeast Asia airports"
+    }
+  ],
+  "diagram": {
+    "id": "my-transport-engineering-g3",
+    "kind": "route-svg",
+    "url": "/trip/assets/malaysia-engineering-transport-g3.svg",
+    "title": "馬來西亞交通接線",
+    "alt": "臺灣直飛兩城、KUL T1／T2 到 Sentral、ETS 加渡輪、國內線及市內末段的八條規劃路線。",
+    "caption": "核對於 2026-10-12。圖是讀者規劃工具，不是兩次家庭實訪間的歷史移動線；所有班次、航站與票券出發前另核。",
+    "checkedOn": "2026-10-12",
+    "routes": [
+      {
+        "id": "my-tpe-pen",
+        "title": "臺灣直飛檳城",
+        "nodes": [
+          "TPE 臺灣桃園機場",
+          "PEN 檳城國際機場",
+          "George Town 喬治市"
+        ],
+        "legIds": [
+          "tpe-pen",
+          "pen-georgetown"
+        ],
+        "sampleCaption": "TPE 臺灣桃園國際機場 → PEN 檳城國際機場：約4小時40–45分鐘。已查核路線例：星宇、華航；不是所有航空公司完整清單。未代旅客查指定日期可售機位。 PEN 檳城國際機場 → George Town住宿/街區：預留45–75分鐘，尖峰按導航增加。機場在島東南Bayan Lepas；未核當期Rapid班表/票價，不填舊401/401E時間。",
+        "edgeLabels": [],
+        "sourceIds": [
+          "my-g4-starpen",
+          "my-g4-citime",
+          "my-g2-s02",
+          "my-g2-s03"
+        ]
+      },
+      {
+        "id": "my-tpe-kul",
+        "title": "臺灣直飛吉隆坡",
+        "nodes": [
+          "TPE 臺灣桃園機場",
+          "KUL 吉隆坡機場",
+          "依航司確認 T1／T2"
+        ],
+        "legIds": [
+          "tpe-kul"
+        ],
+        "sampleCaption": "TPE 臺灣桃園國際機場 → KUL 吉隆坡國際機場：約4小時40–55分鐘。星宇、華航為已核例子；KUL航站按實際航司，不把機場名稱當T1/T2皆通用。",
+        "edgeLabels": [],
+        "sourceIds": [
+          "my-g4-starkul",
+          "my-g4-citime",
+          "my-g4-starterm"
+        ]
+      },
+      {
+        "id": "my-kul-t1-sentral",
+        "title": "T1 到市中心",
+        "nodes": [
+          "KUL T1 ERL 站",
+          "KLIA Ekspres",
+          "KL Sentral ERL 站"
+        ],
+        "legIds": [
+          "kul-t1-sentral"
+        ],
+        "sampleCaption": "KUL Terminal 1 ERL站 → KL Sentral ERL站：正常直達28分鐘。晚間/臨時合併服務可能各站停，不能保證到訪當天28分鐘；已核當前連結PDF而非即時營運。",
+        "edgeLabels": [],
+        "sourceIds": [
+          "my-g3-kl-s03",
+          "my-g3-kl-s05",
+          "my-g3-kl-s07"
+        ]
+      },
+      {
+        "id": "my-kul-t2-sentral",
+        "title": "T2 到市中心",
+        "nodes": [
+          "KUL T2 ERL 站",
+          "KLIA Ekspres 經 T1",
+          "KL Sentral ERL 站"
+        ],
+        "legIds": [
+          "kul-t2-sentral"
+        ],
+        "sampleCaption": "KUL Terminal 2 ERL站 → KL Sentral ERL站：正常33分鐘；23時後部分班次約40分鐘。先經T1，不是KUL T2一出門就到市區；入境/行李/步行另計。",
+        "edgeLabels": [],
+        "sourceIds": [
+          "my-g3-kl-s03",
+          "my-g3-kl-s05",
+          "my-g3-kl-s07"
+        ]
+      },
+      {
+        "id": "my-ets-ferry",
+        "title": "吉隆坡到檳城：鐵路及船",
+        "nodes": [
+          "KL Sentral KTM 站",
+          "Butterworth KTM 站",
+          "Penang Sentral 步行連接",
+          "Sultan Abdul Halim 碼頭",
+          "渡輪到 Raja Tun Uda",
+          "George Town 喬治市"
+        ],
+        "legIds": [
+          "sentral-butterworth",
+          "butterworth-sentral",
+          "butterworth-ferry",
+          "ferry-georgetown"
+        ],
+        "sampleCaption": "KL Sentral KTM站 → Butterworth KTM站：EX9108 11:40–15:15=3小時35；EP9124 08:05–12:10=4小時05。時刻表2026-06-01生效；需選日期訂席，不等於每日每班尚有位。 Butterworth KTM站 → KL Sentral KTM站：EX9109 13:05–16:40=3小時35；EP9121 05:15–09:20=4小時05。從島上出發搭05:15班次，當日首班渡輪接不上；此早班僅可給已在大陸端過夜的讀者。 Butterworth KTM站 → 經Penang Sentral→Sultan Abdul Halim渡輪碼頭：親子步行轉乘留20–30分鐘。真正經過步行連接與候船，不是火車直接到George Town；不宣稱固定樓層/電梯狀態。 Sultan Abdul Halim (Butterworth) → Raja Tun Uda (Weld Quay,George Town)：航程約15分鐘；候船0–30分鐘另計。大陸端6:30–23，島端7–23:30；尖峰20/非尖峰30分鐘間隔。成人RM2、5–11歲RM1、未滿5免費。",
+        "edgeLabels": [
+          "約5–6小時，包含站內/渡輪轉乘；依所選ETS班次另核。",
+          "島上 07:00 首班渡輪接不上 Butterworth 05:15 ETS；早班需先在大陸端過夜。"
+        ],
+        "sourceIds": [
+          "my-g4-etsidx",
+          "my-g4-ets",
+          "my-g4-sentral",
+          "my-g4-ferry"
+        ]
+      },
+      {
+        "id": "my-domestic-flight",
+        "title": "吉隆坡到檳城：國內線",
+        "nodes": [
+          "吉隆坡市區",
+          "KUL T2：AirAsia 樣本",
+          "PEN 檳城國際機場",
+          "George Town 喬治市"
+        ],
+        "legIds": [
+          "kul-pen",
+          "pen-georgetown"
+        ],
+        "sampleCaption": "KUL Terminal 2 (AirAsia) → PEN 檳城國際機場：飛行樣本1小時；城市到城市總段建議4–5小時。樣本2026-10-13 AirAsia13:25–14:25；起終城市地面交通、報到、行李另加。不是家庭當年航司證據。 PEN 檳城國際機場 → George Town住宿/街區：預留45–75分鐘，尖峰按導航增加。機場在島東南Bayan Lepas；未核當期Rapid班表/票價，不填舊401/401E時間。",
+        "edgeLabels": [
+          "1 小時為 2026-10-13 航班樣本；城市到城市預留 4–5 小時，地面交通、報到、行李另計。"
+        ],
+        "sourceIds": [
+          "my-g4-airasiaroute",
+          "my-g4-airasiat2",
+          "my-g2-s02",
+          "my-g2-s03"
+        ]
+      },
+      {
+        "id": "my-sentral-mrt",
+        "title": "Sentral 轉 MRT",
+        "nodes": [
+          "KL Sentral",
+          "步行至 Muzium Negara MRT",
+          "Kajang 線往 Pasar Seni／Merdeka／Bukit Bintang"
+        ],
+        "legIds": [
+          "sentral-pasarseni"
+        ],
+        "sampleCaption": "KL Sentral → Muzium Negara MRT→Pasar Seni / Merdeka / Pavilion Bukit Bintang：Sentral到Muzium Negara步行約10分鐘；整段預留30–45分鐘。MRT Muzium Negara不是KL Sentral ERL同一月台；從Muzium Negara往市中心依序Pasar Seni、Merdeka、Bukit Bintang。",
+        "edgeLabels": [],
+        "sourceIds": [
+          "my-g3-kl-s09",
+          "my-g3-kl-s10"
+        ]
+      },
+      {
+        "id": "my-kidzania-transfer",
+        "title": "到 KidZania 的末段",
+        "nodes": [
+          "吉隆坡市區",
+          "MRT Mutiara Damansara",
+          "另接末段到 Curve NX"
+        ],
+        "legIds": [
+          "sentral-kidzania"
+        ],
+        "sampleCaption": "KL Sentral / KL市區 → KidZania Curve NX,Petaling Jaya：汽車預留45–75分鐘；MRT連末段預留60–90分鐘。MRT Kajang至Mutiara Damansara後另接末段交通；此處沒有已核站到館無階梯全程步行保證。",
+        "edgeLabels": [],
+        "sourceIds": [
+          "my-g3-kl-s09",
+          "my-g4-kidhome"
+        ]
+      }
+    ],
+    "sourceIds": [
+      "my-g4-starpen",
+      "my-g4-citime",
+      "my-g2-s02",
+      "my-g2-s03",
+      "my-g4-starkul",
+      "my-g4-starterm",
+      "my-g3-kl-s03",
+      "my-g3-kl-s05",
+      "my-g3-kl-s07",
+      "my-g4-etsidx",
+      "my-g4-ets",
+      "my-g4-sentral",
+      "my-g4-ferry",
+      "my-g4-airasiaroute",
+      "my-g4-airasiat2",
+      "my-g3-kl-s09",
+      "my-g3-kl-s10",
+      "my-g4-kidhome"
+    ],
+    "transportLegs": [
+      {
+        "id": "tpe-pen",
+        "from": "TPE 臺灣桃園國際機場",
+        "to": "PEN 檳城國際機場",
+        "mode": "direct_flight",
+        "time": "約4小時40–45分鐘",
+        "timeKind": "published_route_sample",
+        "note": "已查核路線例：星宇、華航；不是所有航空公司完整清單。未代旅客查指定日期可售機位。",
+        "sourceIds": [
+          "g4-STARPEN",
+          "g4-CITIME"
+        ],
+        "terminals": {
+          "TPE": null,
+          "PEN": null
+        }
+      },
+      {
+        "id": "tpe-kul",
+        "from": "TPE 臺灣桃園國際機場",
+        "to": "KUL 吉隆坡國際機場",
+        "mode": "direct_flight",
+        "time": "約4小時40–55分鐘",
+        "timeKind": "published_route_sample",
+        "note": "星宇、華航為已核例子；KUL航站按實際航司，不把機場名稱當T1/T2皆通用。",
+        "sourceIds": [
+          "g4-STARKUL",
+          "g4-CITIME"
+        ],
+        "terminals": {
+          "STARLUX_KUL": "T1"
+        }
+      },
+      {
+        "id": "kul-t1-sentral",
+        "from": "KUL Terminal 1 ERL站",
+        "to": "KL Sentral ERL站",
+        "mode": "KLIA_Ekspres",
+        "time": "正常直達28分鐘",
+        "timeKind": "operator_baseline",
+        "note": "晚間/臨時合併服務可能各站停，不能保證到訪當天28分鐘；已核當前連結PDF而非即時營運。",
+        "sourceIds": [
+          "g3-KL-S03",
+          "g3-KL-S05",
+          "g3-KL-S07"
+        ]
+      },
+      {
+        "id": "kul-t2-sentral",
+        "from": "KUL Terminal 2 ERL站",
+        "to": "KL Sentral ERL站",
+        "mode": "KLIA_Ekspres",
+        "time": "正常33分鐘；23時後部分班次約40分鐘",
+        "timeKind": "operator_baseline",
+        "note": "先經T1，不是KUL T2一出門就到市區；入境/行李/步行另計。",
+        "sourceIds": [
+          "g3-KL-S03",
+          "g3-KL-S05",
+          "g3-KL-S07"
+        ]
+      },
+      {
+        "id": "kul-transit",
+        "from": "KUL T2 / T1",
+        "to": "KL Sentral",
+        "mode": "KLIA_Transit",
+        "time": "全程約39–40分鐘",
+        "timeKind": "operator_timetable",
+        "note": "T2→T1→Salak Tinggi→Putrajaya & Cyberjaya→Bandar Tasik Selatan→KL Sentral；按方向反轉。Ekspres/Transit票及車種不要任意混用。",
+        "sourceIds": [
+          "g3-KL-S06"
+        ]
+      },
+      {
+        "id": "kul-terminal-train",
+        "from": "KUL T1 ERL站",
+        "to": "KUL T2 ERL站",
+        "mode": "KLIA_Transit",
+        "time": "列車約3分鐘，候車/步行另計",
+        "timeKind": "operator_baseline",
+        "note": "付費兩航站接駁，成人RM2、兒童RM1；不宣稱未核免費巴士站位。",
+        "sourceIds": [
+          "g3-KL-S03",
+          "g3-KL-S04"
+        ]
+      },
+      {
+        "id": "sentral-klcc",
+        "from": "KL Sentral LRT站",
+        "to": "KLCC KJ10→Suria KLCC",
+        "mode": "Kelana_Jaya_LRT",
+        "time": "含走到商場預留30–45分鐘",
+        "timeKind": "editorial_buffer",
+        "note": "依Kelana Jaya線方向乘車到KLCC；本段時間不是官方保證班次。",
+        "sourceIds": [
+          "g3-KL-S11"
+        ]
+      },
+      {
+        "id": "sentral-pasarseni",
+        "from": "KL Sentral",
+        "to": "Muzium Negara MRT→Pasar Seni / Merdeka / Pavilion Bukit Bintang",
+        "mode": "MRT_Kajang",
+        "time": "Sentral到Muzium Negara步行約10分鐘；整段預留30–45分鐘",
+        "timeKind": "mixed_official_walk_editorial_total",
+        "note": "MRT Muzium Negara不是KL Sentral ERL同一月台；從Muzium Negara往市中心依序Pasar Seni、Merdeka、Bukit Bintang。",
+        "sourceIds": [
+          "g3-KL-S09",
+          "g3-KL-S10"
+        ]
+      },
+      {
+        "id": "sentral-kidzania",
+        "from": "KL Sentral / KL市區",
+        "to": "KidZania Curve NX,Petaling Jaya",
+        "mode": "road_or_MRT",
+        "time": "汽車預留45–75分鐘；MRT連末段預留60–90分鐘",
+        "timeKind": "editorial_buffer",
+        "note": "MRT Kajang至Mutiara Damansara後另接末段交通；此處沒有已核站到館無階梯全程步行保證。",
+        "sourceIds": [
+          "g3-KL-S09",
+          "g4-KIDHOME"
+        ]
+      },
+      {
+        "id": "kul-pen",
+        "from": "KUL Terminal 2 (AirAsia)",
+        "to": "PEN 檳城國際機場",
+        "mode": "domestic_flight",
+        "time": "飛行樣本1小時；城市到城市總段建議4–5小時",
+        "timeKind": "mixed_timetable_editorial_total",
+        "note": "樣本2026-10-13 AirAsia13:25–14:25；起終城市地面交通、報到、行李另加。不是家庭當年航司證據。",
+        "sourceIds": [
+          "g4-AIRASIAROUTE",
+          "g4-AIRASIAT2"
+        ],
+        "sampleDate": "2026-10-13"
+      },
+      {
+        "id": "sentral-butterworth",
+        "from": "KL Sentral KTM站",
+        "to": "Butterworth KTM站",
+        "mode": "ETS",
+        "time": "EX9108 11:40–15:15=3小時35；EP9124 08:05–12:10=4小時05",
+        "timeKind": "official_pdf_visually_verified",
+        "note": "時刻表2026-06-01生效；需選日期訂席，不等於每日每班尚有位。",
+        "sourceIds": [
+          "g4-ETSIDX",
+          "g4-ETS"
+        ]
+      },
+      {
+        "id": "butterworth-sentral",
+        "from": "Butterworth KTM站",
+        "to": "KL Sentral KTM站",
+        "mode": "ETS",
+        "time": "EX9109 13:05–16:40=3小時35；EP9121 05:15–09:20=4小時05",
+        "timeKind": "official_pdf_visually_verified",
+        "note": "從島上出發搭05:15班次，當日首班渡輪接不上；此早班僅可給已在大陸端過夜的讀者。",
+        "sourceIds": [
+          "g4-ETS"
+        ]
+      },
+      {
+        "id": "butterworth-ferry",
+        "from": "Butterworth KTM站",
+        "to": "經Penang Sentral→Sultan Abdul Halim渡輪碼頭",
+        "mode": "walk_transfer",
+        "time": "親子步行轉乘留20–30分鐘",
+        "timeKind": "editorial_buffer",
+        "note": "真正經過步行連接與候船，不是火車直接到George Town；不宣稱固定樓層/電梯狀態。",
+        "sourceIds": [
+          "g4-SENTRAL"
+        ]
+      },
+      {
+        "id": "ferry-georgetown",
+        "from": "Sultan Abdul Halim (Butterworth)",
+        "to": "Raja Tun Uda (Weld Quay,George Town)",
+        "mode": "ferry",
+        "time": "航程約15分鐘；候船0–30分鐘另計",
+        "timeKind": "operator_crossing_plus_editorial_wait",
+        "note": "大陸端6:30–23，島端7–23:30；尖峰20/非尖峰30分鐘間隔。成人RM2、5–11歲RM1、未滿5免費。",
+        "sourceIds": [
+          "g4-FERRY",
+          "g4-SENTRAL"
+        ]
+      },
+      {
+        "id": "pen-georgetown",
+        "from": "PEN 檳城國際機場",
+        "to": "George Town住宿/街區",
+        "mode": "taxi_or_ride_hail",
+        "time": "預留45–75分鐘，尖峰按導航增加",
+        "timeKind": "editorial_buffer",
+        "note": "機場在島東南Bayan Lepas；未核當期Rapid班表/票價，不填舊401/401E時間。",
+        "sourceIds": [
+          "g2-S02",
+          "g2-S03"
+        ]
+      },
+      {
+        "id": "kul-sentral-bus",
+        "from": "KUL T1/T2",
+        "to": "KL Sentral Lower Ground",
+        "mode": "Skybus",
+        "time": "未核固定車程/首末班/票價；市區塞車需另估",
+        "timeKind": "unverified_numeric",
+        "note": "官方可核兩航站與Sentral路線；不等於送到飯店。",
+        "sourceIds": [
+          "g3-KL-S12"
+        ]
+      },
+      {
+        "id": "mle-kl-history",
+        "from": "MLE 馬列",
+        "to": "KUL 吉隆坡",
+        "mode": "historical_oral_route",
+        "time": null,
+        "timeKind": "historical_source_only",
+        "note": "只作原片口述來程，無家庭實搭航司/班號/航機畫面證據；不可補成現行直飛訂位方案。",
+        "sourceIds": [
+          "yt-v7id6NvbPUo"
+        ]
+      }
+    ],
+    "width": 320,
+    "height": 2179,
+    "bytes": 8352,
+    "sha256": "18e3d866bffc698e08ac1ccd169a032de76d58cd091354169655e63d73b145e6"
+  }
+}

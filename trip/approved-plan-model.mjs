@@ -1,5 +1,6 @@
 import {calendarDate} from './approved-travel-contract.mjs';
 import {addLocalDays,allocateApprovedCountryTrip} from './country-approved-model.mjs';
+import {materializeMalaysiaRoute,assessMalaysiaDay,malaysiaProfileKind} from './malaysia-plan-model.mjs';
 
 export const clockMinutes=value=>value==='24:00'?1440:/^\d{2}:\d{2}$/.test(value)&&Number(value.slice(0,2))<24&&Number(value.slice(3))<60?Number(value.slice(0,2))*60+Number(value.slice(3)):null;
 const issue=(placeId,kind,message,url)=>({placeId,kind,message,url});
@@ -7,6 +8,7 @@ const issue=(placeId,kind,message,url)=>({placeId,kind,message,url});
 // A checked schedule is not ticket inventory or a promise that an activity runs.
 // All seasons, age limits and opening windows below are explicit public input.
 export function assessApprovedDay(city,day,{date='',youngestAge=''}={}){
+ if(city.planner.executionProfile?.kind===malaysiaProfileKind)return assessMalaysiaDay(city,day,{date,youngestAge});
  if(date&&!calendarDate(date))throw Error('Invalid local date');
  const age=youngestAge===''?null:Number(youngestAge);
  if(age!==null&&(!Number.isInteger(age)||age<0||age>110))throw Error('Invalid traveller age');
@@ -44,7 +46,8 @@ export function assessApprovedDay(city,day,{date='',youngestAge=''}={}){
  return {date,blocked,unknown,reminders,status:blocked.length?'conflict':unknown.length?'needs-check':'within-reviewed-rules'};
 }
 
-export function assessApprovedCityRoute(city,route,{startDate='',youngestAge=''}={}){
+export function assessApprovedCityRoute(city,route,{startDate='',youngestAge='',...options}={}){
+ if(city.planner.executionProfile?.kind===malaysiaProfileKind)return materializeMalaysiaRoute(city,route,{startDate,youngestAge,...options});
  return route.days.map((day,index)=>({...day,index,date:startDate?addLocalDays(startDate,index):'',assessment:assessApprovedDay(city,day,{date:startDate?addLocalDays(startDate,index):'',youngestAge})}));
 }
 
@@ -52,11 +55,11 @@ export function matchingApprovedRoutes(city,{days,pace}){
  return city.planner.routes.filter(r=>r.sightseeingDays===Number(days)&&r.pace===pace);
 }
 
-export function feasibleApprovedDates(city,route,{startDate,youngestAge='',limit=14}={}){
+export function feasibleApprovedDates(city,route,{startDate,youngestAge='',limit=14,...options}={}){
  if(!calendarDate(startDate))return [];
  const found=[];
  for(let offset=1;offset<=Math.min(limit,31);offset++){
-  const date=addLocalDays(startDate,offset),days=assessApprovedCityRoute(city,route,{startDate:date,youngestAge});
+  const date=addLocalDays(startDate,offset),days=assessApprovedCityRoute(city,route,{startDate:date,youngestAge,...options});
   if(days.every(d=>d.assessment.status==='within-reviewed-rules'))found.push(date);
   if(found.length===3)break;
  }
@@ -67,7 +70,7 @@ export function countryPlanWithRules(country,cities,args){
  const plan=allocateApprovedCountryTrip(country.allocation,country.cityIds,args);
  if(!plan.valid)return plan;
  const cityMap=new Map(cities.map(c=>[c.id,c])),days=[];
- const selectedRoutes=new Map();
+ const selectedRoutes=new Map(),selectedDays=new Map();
  for(const block of plan.timeline)for(let i=0;i<block.count;i++){
   const index=block.start-1+i,date=addLocalDays(args.startDate,index);
   if(block.kind!=='stay'){days.push({...block,index,date});continue;}
@@ -78,13 +81,14 @@ export function countryPlanWithRules(country,cities,args){
   // Pick only an explicit, reviewed route; prefer one without a known conflict
   // across this whole stay. Unknown operator inventory is never promoted.
   if(!selectedRoutes.has(block.cityId)){
-   const ranked=routes.map(route=>{const assessed=assessApprovedCityRoute(city,route,{startDate:addLocalDays(args.startDate,block.start-1),youngestAge:args.youngestAge??''}),blocked=assessed.reduce((n,d)=>n+d.assessment.blocked.length,0),unknown=assessed.reduce((n,d)=>n+d.assessment.unknown.length,0);return {route,blocked,unknown,rank:blocked?2:unknown?1:0};});
+   const ranked=routes.map(route=>{const assessed=assessApprovedCityRoute(city,route,{startDate:addLocalDays(args.startDate,block.start-1),youngestAge:args.youngestAge??'',rain:args.rain,indoorChoice:args.indoorChoice}),blocked=assessed.reduce((n,d)=>n+d.assessment.blocked.length,0),unknown=assessed.reduce((n,d)=>n+d.assessment.unknown.length,0);return {route,assessed,blocked,unknown,rank:blocked?2:unknown?1:0};});
    ranked.sort((a,b)=>a.rank-b.rank||a.blocked-b.blocked||a.unknown-b.unknown||b.route.sightseeingDays-a.route.sightseeingDays);
    selectedRoutes.set(block.cityId,ranked[0]?.route);
+   selectedDays.set(block.cityId,ranked[0]?.assessed);
   }
   const route=selectedRoutes.get(block.cityId);
   if(!route){days.push({...block,index,date,city,unsupported:true});continue;}
-  const day=route.days[i];
+  const day=city.planner.executionProfile?.kind===malaysiaProfileKind?selectedDays.get(block.cityId)?.[i]:route.days[i];
   days.push({...block,index,date,city,route,...(day?{day,assessment:assessApprovedDay(city,day,{date,youngestAge:args.youngestAge??''})}:{flexible:true})});
  }
  return {...plan,days};
@@ -92,11 +96,11 @@ export function countryPlanWithRules(country,cities,args){
 
 export function approvedPlanParameters(url){
  const params=new URL(url,'https://www.eaglish.store').searchParams;
- return Object.fromEntries(['routeId','days','pace','startDate','youngestAge','day'].filter(k=>params.has(k)).map(k=>[k,params.get(k)]));
+ return Object.fromEntries(['routeId','days','pace','startDate','youngestAge','day','rain','indoorChoice'].filter(k=>params.has(k)).map(k=>[k,params.get(k)]));
 }
 export function approvedPlanShareUrl(url,state){
  const result=new URL(url,'https://www.eaglish.store');
  result.search='';result.hash='plan';
- for(const key of ['routeId','days','pace','startDate','youngestAge','day'])if(state[key]!==undefined&&state[key]!=='')result.searchParams.set(key,String(state[key]));
+ for(const key of ['routeId','days','pace','startDate','youngestAge','day','rain','indoorChoice'])if(state[key]!==undefined&&state[key]!=='')result.searchParams.set(key,String(state[key]));
  return result.href;
 }
