@@ -6,6 +6,7 @@ import {approvedPicture,escapeTravel,travelScriptJson} from './trip-city-approve
 import {renderPhotoFrame} from './trip-photo-frames-r22.mjs';
 import {regionsForCatalog} from '../trip/home-regions.mjs';
 import {renderCountryEntry} from './trip-travel-entry.mjs';
+import {renderApprovedPhotoPair} from '../trip/approved-photo-pair.mjs';
 const esc=escapeTravel;
 export function renderApprovedHomePhoto(asset,sizes){
  return renderPhotoFrame(approvedPicture(asset,{sizes}),{page:'home',sequence:'approved-'+asset.assetId,assetIndex:asset.assetId,ratio:asset.width+':'+asset.height,position:asset.focalPoint});
@@ -30,8 +31,9 @@ export function prepareApprovedR24Discovery(html,data,{catalog,config}){
   for(const cityId of c.cityIds){
    const city=v.cities.get(cityId),a=v.assets.get(city.hero[0]),src=a.variants.find(v=>v.width===960)||a.variants.at(-1);
    if(projected.guides.some(old=>old.id===city.id||old.href===city.path))throw Error('Duplicate discovery guide');
-   projected.guides.push({id:city.id,countryId:c.id,name:city.name,englishName:city.englishName,href:city.path,summary:city.description,suitableFor:[],image:{src:src.url,width:a.width,height:a.height,alt:a.alt},approvedPhoto:a});
-   cards.push(`<article class="home-guide" data-guide-id="${city.id}" data-country="${c.id}"><a class="home-guide-link" href="${city.path}"><div class="home-guide-photo">${renderApprovedHomePhoto(a,'(max-width:700px) calc(50vw - 27px), (max-width:1100px) calc(50vw - 42px), 378px')}</div><div class="home-guide-copy"><p class="home-guide-meta">${esc(c.name)}</p><h3>${esc(city.name)}<span aria-hidden="true">↗</span></h3><p class="home-guide-summary">${esc(city.description)}</p></div></a></article>`);
+   const pair=city.entryImagePair?.map(id=>v.assets.get(id));
+   projected.guides.push({id:city.id,countryId:c.id,name:city.name,englishName:city.englishName,href:city.path,summary:city.description,suitableFor:[],image:{src:src.url,width:a.width,height:a.height,alt:a.alt},approvedPhoto:a,...(pair?{approvedPhotoPair:pair}:{})});
+   cards.push(`<article class="home-guide" data-guide-id="${city.id}" data-country="${c.id}"><a class="home-guide-link" href="${city.path}"><div class="home-guide-photo">${pair?renderApprovedPhotoPair(pair,{sizes:'(max-width:700px) calc(25vw - 14px), (max-width:1100px) calc(25vw - 21px), 189px'}):renderApprovedHomePhoto(a,'(max-width:700px) calc(50vw - 27px), (max-width:1100px) calc(50vw - 42px), 378px')}</div><div class="home-guide-copy"><p class="home-guide-meta">${esc(c.name)}</p><h3>${esc(city.name)}<span aria-hidden="true">↗</span></h3><p class="home-guide-summary">${esc(city.description)}</p></div></a></article>`);
    staticLinks.push(`<a href="${city.path}">${esc(city.name)}攻略</a>`);
   }
  }

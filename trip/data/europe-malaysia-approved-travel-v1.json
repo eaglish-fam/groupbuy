@@ -2058,6 +2058,87 @@
       "checkedOn": "2026-10-12",
       "rights": "Reference link only; no media reuse permission inferred.",
       "locator": "Admission conditions: children under12 accompanied by adult; ignore unrelated old combo descriptions."
+    },
+    {
+      "id": "my-ig-dctad4hkwmw-slide-1",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DcTad4HkwMw/",
+      "rights": "Hiram authorized use of own eaglish.fam social photographs for this Malaysia website task. People assessed independently.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家吉隆坡旅行照片",
+      "locator": "Instagram carousel slide 1 of 20; publication 2026-08-21, not inferred visit date"
+    },
+    {
+      "id": "my-ig-dctad4hkwmw-slide-3",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DcTad4HkwMw/",
+      "rights": "Hiram authorized use of own eaglish.fam social photographs for this Malaysia website task. People assessed independently.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家吉隆坡旅行照片",
+      "locator": "Instagram carousel slide 3 of 20; publication 2026-08-21, not inferred visit date"
+    },
+    {
+      "id": "my-ig-dctad4hkwmw-slide-4",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DcTad4HkwMw/",
+      "rights": "Hiram authorized use of own eaglish.fam social photographs for this Malaysia website task. People assessed independently.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家吉隆坡旅行照片",
+      "locator": "Instagram carousel slide 4 of 20; publication 2026-08-21, not inferred visit date"
+    },
+    {
+      "id": "my-ig-dctad4hkwmw-slide-12",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DcTad4HkwMw/",
+      "rights": "Hiram authorized use of own eaglish.fam social photographs for this Malaysia website task. People assessed independently.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家吉隆坡旅行照片",
+      "locator": "Instagram carousel slide 12 of 20; publication 2026-08-21, not inferred visit date"
+    },
+    {
+      "id": "my-ig-dctad4hkwmw-slide-13",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DcTad4HkwMw/",
+      "rights": "Hiram authorized use of own eaglish.fam social photographs for this Malaysia website task. People assessed independently.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家吉隆坡旅行照片",
+      "locator": "Instagram carousel slide 13 of 20; publication 2026-08-21, not inferred visit date"
+    },
+    {
+      "id": "my-ig-dctad4hkwmw-slide-14",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DcTad4HkwMw/",
+      "rights": "Hiram authorized use of own eaglish.fam social photographs for this Malaysia website task. People assessed independently.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家吉隆坡旅行照片",
+      "locator": "Instagram carousel slide 14 of 20; publication 2026-08-21, not inferred visit date"
+    },
+    {
+      "id": "my-ig-djt0fkttw4u-slide-1",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DJt0fKtTw4u/",
+      "rights": "Hiram authorized use of own eaglish.fam photos in this Malaysia task; only own adults are prominent.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家檳城短停照片",
+      "locator": "Instagram carousel slide 1 of 4; published 2025-05-16, not inferred exact visit date."
+    },
+    {
+      "id": "my-ig-djt0fkttw4u-slide-3",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DJt0fKtTw4u/",
+      "rights": "Hiram authorized use of own eaglish.fam photos in this Malaysia task; only own adults are prominent.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家檳城短停照片",
+      "locator": "Instagram carousel slide 3 of 4; published 2025-05-16, not inferred exact visit date."
+    },
+    {
+      "id": "my-ig-djt0fkttw4u-slide-4",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DJt0fKtTw4u/",
+      "rights": "Hiram authorized use of own eaglish.fam photos in this Malaysia task; only own adults are prominent.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家檳城短停照片",
+      "locator": "Instagram carousel slide 4 of 4; published 2025-05-16, not inferred exact visit date."
     }
   ],
   "assets": [
@@ -6580,104 +6661,100 @@
       ]
     },
     {
-      "assetId": "my-penang-george-town-2-g4-r1",
+      "assetId": "my-penang-george-town-bicycle-social-g5-r1",
       "width": 1440,
-      "height": 810,
-      "alt": "戴墨鏡的人站在街邊，身後可見車輛、道路與商場。",
-      "caption": "喬治市街邊，馬路對面是商場。",
+      "height": 1800,
+      "alt": "秀秀站在喬治市的腳踏車壁畫旁；壁畫裡是兩個孩子，前方有實體腳踏車。",
+      "caption": "秀秀在喬治市街頭，與腳踏車壁畫合照。",
       "focalPoint": [
         50,
         50
       ],
       "sourceIds": [
-        "my-youtube-1m6k0atz0hy"
+        "my-ig-djt0fkttw4u-slide-3"
       ],
       "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "409acffb6594eead8f1fa7e0ca39709ddc6e4ac0f8cbc4c2c452b14f357101fb",
-        "sourceWidth": 3840,
-        "sourceHeight": 2160,
+        "kind": "photo",
+        "sourceSha256": "fb7ae230bf7ce0dfaa3bc944b61ac19535eedabc4b2865bf9577a2a0653ac408",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
         "activePicture": {
           "x": 0,
           "y": 0,
-          "width": 3840,
-          "height": 2160
-        },
-        "pts": 295011,
-        "timebase": "1/1000"
+          "width": 1440,
+          "height": 1800
+        }
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-george-town-2-g4-r1-640.webp",
+          "url": "/trip/assets/my-penang-george-town-bicycle-social-g5-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 39878,
-          "sha256": "e4c10190400891434c3c3c23be7b084c71117a15b25d998be9607cff38eafe10"
+          "height": 800,
+          "bytes": 116272,
+          "sha256": "c48d19e66bf13bc8cefc1f5adc7f891294e35593b3af618d85631748ad04d3a0"
         },
         {
-          "url": "/trip/assets/my-penang-george-town-2-g4-r1-960.webp",
+          "url": "/trip/assets/my-penang-george-town-bicycle-social-g5-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 64732,
-          "sha256": "7c5449397ddfc48ac75f449ff3d43afd1af3c9d0a0a9c08056e7f79603adb438"
+          "height": 1200,
+          "bytes": 217782,
+          "sha256": "0dc5b0a23d319f60346dfc0ba47c6d68cfdb6405c2b1a40f91dd9fc363627ff3"
         },
         {
-          "url": "/trip/assets/my-penang-george-town-2-g4-r1-1440.webp",
+          "url": "/trip/assets/my-penang-george-town-bicycle-social-g5-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 103072,
-          "sha256": "33c890f2d83e7f020c7d067e9db035bdd915d94ef854ec9685cdaf87a8c7d6b2"
+          "height": 1800,
+          "bytes": 386776,
+          "sha256": "9704e7c80c3c60b776cc7d726f97321ffd3df03cbb1bd2239a65b5509420e4f4"
         }
       ]
     },
     {
-      "assetId": "my-penang-george-town-3-g4-r2",
+      "assetId": "my-penang-george-town-street-social-g5-r1",
       "width": 1440,
-      "height": 810,
-      "alt": "白色拱門沿著騎樓延伸，地面鋪著花磚，路邊擺放盆栽。",
-      "caption": "喬治市騎樓的白色拱廊與花磚。",
+      "height": 1800,
+      "alt": "秀秀站在喬治市老街的道路上，身後有老屋、紅燈籠和盆栽。",
+      "caption": "秀秀在喬治市老街散步，身後是老屋和紅燈籠。",
       "focalPoint": [
         50,
         50
       ],
       "sourceIds": [
-        "my-youtube-1m6k0atz0hy"
+        "my-ig-djt0fkttw4u-slide-4"
       ],
       "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "409acffb6594eead8f1fa7e0ca39709ddc6e4ac0f8cbc4c2c452b14f357101fb",
-        "sourceWidth": 3840,
-        "sourceHeight": 2160,
+        "kind": "photo",
+        "sourceSha256": "276e96fb71d404c9f11e01d3efeaf4bb990444828f5d27a795ca0e5e196040b4",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
         "activePicture": {
           "x": 0,
           "y": 0,
-          "width": 3840,
-          "height": 2160
-        },
-        "pts": 363013,
-        "timebase": "1/1000"
+          "width": 1440,
+          "height": 1800
+        }
       },
       "variants": [
         {
-          "url": "/trip/assets/my-penang-george-town-3-g4-r2-640.webp",
+          "url": "/trip/assets/my-penang-george-town-street-social-g5-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 41404,
-          "sha256": "c29d7e32f9987d51a515f419ca0af87050cd9eb954e77bd7548cd32d5489350d"
+          "height": 800,
+          "bytes": 95092,
+          "sha256": "ff476e647edf1790ad68140180e472f9ada317c550eef4ba9c25631228d73aa3"
         },
         {
-          "url": "/trip/assets/my-penang-george-town-3-g4-r2-960.webp",
+          "url": "/trip/assets/my-penang-george-town-street-social-g5-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 74794,
-          "sha256": "17344f1401c80045a05361fe229bcd2b54ab5d177521c2c2ce2d675a3585dde3"
+          "height": 1200,
+          "bytes": 200966,
+          "sha256": "222793cb7cd0e248c6cf2ff5fa90bce896b982b80e728bb7c1a9b1edd031f93a"
         },
         {
-          "url": "/trip/assets/my-penang-george-town-3-g4-r2-1440.webp",
+          "url": "/trip/assets/my-penang-george-town-street-social-g5-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 129022,
-          "sha256": "f9471ff801027c4d712661f9bef9c0b501b5b20071800f138e127933b2b17bb1"
+          "height": 1800,
+          "bytes": 325814,
+          "sha256": "93b0fc5a0e94bcc51db7e60ae61c84f70bcd49090a92b2b23dc3d02670adda33"
         }
       ]
     },
@@ -9088,104 +9165,100 @@
       ]
     },
     {
-      "assetId": "my-kl-sultan-abdul-samad-1-g3-v3",
+      "assetId": "my-kl-old-city-family-social-g5-r1",
       "width": 1440,
-      "height": 810,
-      "alt": "河岸旁蘇丹阿都沙末方向標示與周邊建築",
-      "caption": "河岸旁蘇丹阿都沙末方向標示與周邊建築",
+      "height": 1802,
+      "alt": "一家五口站在白色拱廊內，身後可見獨立廣場、國旗與街景。",
+      "caption": "蘇丹阿都沙末一帶的拱廊，一家人與獨立廣場同框。",
       "focalPoint": [
         50,
         50
       ],
       "sourceIds": [
-        "my-youtube-v7id6nvbpuo"
+        "my-ig-dctad4hkwmw-slide-1"
       ],
       "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "47821bd7bf64e53182a1a63b09237c24e89e777781b9aac25bdbcda891b92b88",
-        "sourceWidth": 3840,
-        "sourceHeight": 2160,
+        "kind": "photo",
+        "sourceSha256": "b558590db65814679a8f1ded8484f56fdfce0b92265bad233618cbec3db7966c",
+        "sourceWidth": 3274,
+        "sourceHeight": 4096,
         "activePicture": {
           "x": 0,
           "y": 0,
-          "width": 3840,
-          "height": 2160
-        },
-        "pts": 1890021,
-        "timebase": "1/1000"
+          "width": 3274,
+          "height": 4096
+        }
       },
       "variants": [
         {
-          "url": "/trip/assets/my-kl-sultan-abdul-samad-1-g3-v3-640.webp",
+          "url": "/trip/assets/my-kl-old-city-family-social-g5-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 45310,
-          "sha256": "f3f915e5cbecf50cae2a8b87d3989f33a18c7c5471bc16e5ef8ae1adc8e52631"
+          "height": 801,
+          "bytes": 49152,
+          "sha256": "298c7be1ee9602a021ffef94cd64f9c13134cf3fe9df9b57dc8f133e375fc83a"
         },
         {
-          "url": "/trip/assets/my-kl-sultan-abdul-samad-1-g3-v3-960.webp",
+          "url": "/trip/assets/my-kl-old-city-family-social-g5-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 90846,
-          "sha256": "0903117b0f9a0a494d71ca1de268ee080b81dedf8ba67a5a2ff63ce7de19d5fe"
+          "height": 1201,
+          "bytes": 86726,
+          "sha256": "341323abaf0a306a49b740812b6eba318fc518567d5e598838c7c8a651558db5"
         },
         {
-          "url": "/trip/assets/my-kl-sultan-abdul-samad-1-g3-v3-1440.webp",
+          "url": "/trip/assets/my-kl-old-city-family-social-g5-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 161572,
-          "sha256": "967320f810a4aaf2ccbed07648473cc7d5899a49743ec89d76130a1f0f417e4f"
+          "height": 1802,
+          "bytes": 143304,
+          "sha256": "8e670a29b8a29284d831a0c27741ccd5944870fad66b8043fe42b5e133cb4ad7"
         }
       ]
     },
     {
-      "assetId": "my-kl-sultan-abdul-samad-2-g3-v3",
+      "assetId": "my-kl-old-city-exterior-social-g5-r1",
       "width": 1440,
-      "height": 810,
-      "alt": "家人步行經過建築拱廊",
-      "caption": "家人步行經過建築拱廊",
+      "height": 1802,
+      "alt": "秀秀推著妹妹，和兩個哥哥站在蘇丹阿都沙末建築前，背景有鐘樓與圓頂。",
+      "caption": "秀秀與孩子在老城散步，身後是鐘樓與圓頂。",
       "focalPoint": [
         50,
         50
       ],
       "sourceIds": [
-        "my-youtube-v7id6nvbpuo"
+        "my-ig-dctad4hkwmw-slide-14"
       ],
       "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "47821bd7bf64e53182a1a63b09237c24e89e777781b9aac25bdbcda891b92b88",
-        "sourceWidth": 3840,
-        "sourceHeight": 2160,
+        "kind": "photo",
+        "sourceSha256": "8638c376f5d8b3f814915abc9b97f3943b2e1c13acd553ed1436e4874383b00a",
+        "sourceWidth": 3274,
+        "sourceHeight": 4096,
         "activePicture": {
           "x": 0,
           "y": 0,
-          "width": 3840,
-          "height": 2160
-        },
-        "pts": 1920018,
-        "timebase": "1/1000"
+          "width": 3274,
+          "height": 4096
+        }
       },
       "variants": [
         {
-          "url": "/trip/assets/my-kl-sultan-abdul-samad-2-g3-v3-640.webp",
+          "url": "/trip/assets/my-kl-old-city-exterior-social-g5-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 14698,
-          "sha256": "ef1085d1c7b9f9dab7a86a39ee6af55a148585060e7375092a17aa9f72fedd22"
+          "height": 801,
+          "bytes": 82700,
+          "sha256": "c3eb526e5c35bdd1b574a755179bbd863678606063de520719f48350da4abc7e"
         },
         {
-          "url": "/trip/assets/my-kl-sultan-abdul-samad-2-g3-v3-960.webp",
+          "url": "/trip/assets/my-kl-old-city-exterior-social-g5-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 24572,
-          "sha256": "cb53b3fe96287684e2c5841ac4007ebe18d70389dab8e51373e653640a0201ba"
+          "height": 1201,
+          "bytes": 159794,
+          "sha256": "1cd3eb65b2b13fbc7d5017ca0c8ad153065b0873266bb7ba9736d95b92e597e6"
         },
         {
-          "url": "/trip/assets/my-kl-sultan-abdul-samad-2-g3-v3-1440.webp",
+          "url": "/trip/assets/my-kl-old-city-exterior-social-g5-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 39012,
-          "sha256": "3567da442d04352ba0b08e0784b776a5c2b4700f8562923565f20b6901cea351"
+          "height": 1802,
+          "bytes": 300022,
+          "sha256": "d7a0aa3140d97164de0a52142cc6f0755910f80fb557dd0bf3174e84f55e2856"
         }
       ]
     },
@@ -9733,188 +9806,149 @@
       ]
     },
     {
-      "assetId": "my-kl-rexkl-bookxcess-1-g4-r3",
+      "assetId": "my-kl-rexkl-father-social-g5-r1",
       "width": 1440,
-      "height": 810,
-      "caption": "在 REXKL 的樓梯間搬著嬰兒車。",
-      "alt": "一名成人在紅色扶手的樓梯間搬著嬰兒車，身旁牆上有海報。",
+      "height": 1800,
+      "alt": "爸爸和兩個哥哥在高大的木製書架格子裡合照。",
+      "caption": "爸爸和孩子坐進木製書架的格子裡。",
       "focalPoint": [
         50,
         50
       ],
       "sourceIds": [
-        "my-youtube-v7id6nvbpuo"
+        "my-ig-dctad4hkwmw-slide-4"
       ],
       "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "47821bd7bf64e53182a1a63b09237c24e89e777781b9aac25bdbcda891b92b88",
-        "sourceWidth": 3840,
-        "sourceHeight": 2160,
+        "kind": "photo",
+        "sourceSha256": "fd88864d7e05dce1c8fb240ac4d470ee9b1dff1e3b49c0636cb773320f046c29",
+        "sourceWidth": 3277,
+        "sourceHeight": 4096,
         "activePicture": {
           "x": 0,
           "y": 0,
-          "width": 3840,
-          "height": 2160
-        },
-        "pts": 2107505,
-        "timebase": "1/1000"
+          "width": 3277,
+          "height": 4096
+        }
       },
       "variants": [
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-1-g4-r3-640.webp",
+          "url": "/trip/assets/my-kl-rexkl-father-social-g5-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 44136,
-          "sha256": "d84da9b7b7970d168383f60c681bd271c2943904de5976b34f2531ac8ea9e59d"
+          "height": 800,
+          "bytes": 69916,
+          "sha256": "888c635bb09d16d41ca8e4903d9527b43f6fe402760571bbc9e62604594a2088"
         },
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-1-g4-r3-960.webp",
+          "url": "/trip/assets/my-kl-rexkl-father-social-g5-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 78248,
-          "sha256": "9ac0c97d914617846c80ff0a810ebbb3c9c5a130dc6e24e8679e21a168a6526b"
+          "height": 1200,
+          "bytes": 122720,
+          "sha256": "b870cdb8ca741633657a6b36d52596f4e7cc0ff00c9d59f597634ddf1d692e42"
         },
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-1-g4-r3-1440.webp",
+          "url": "/trip/assets/my-kl-rexkl-father-social-g5-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 145026,
-          "sha256": "e10d56b1ac4d5c1db048a7abd096d622f76d583663e63e05d61bec5d7bc78ddb"
+          "height": 1800,
+          "bytes": 208910,
+          "sha256": "38fbc508082973d71d62acaa0254864faad78fe57bd68b877398a628ee36bf87"
         }
       ]
     },
     {
-      "assetId": "my-kl-rexkl-bookxcess-2-g3-v3",
+      "assetId": "my-kl-rexkl-children-social-g5-r1",
       "width": 1440,
-      "height": 810,
-      "alt": "孩子與媽媽在BookXcess書架間看書",
-      "caption": "媽媽和孩子在 BookXcess 的書架間看書。",
+      "height": 1800,
+      "alt": "兩個哥哥和妹妹坐在高大的木製書架之間。",
+      "caption": "三個孩子在書架之間合照。",
       "focalPoint": [
         50,
         50
       ],
       "sourceIds": [
-        "my-kl-original-footage-context"
+        "my-ig-dctad4hkwmw-slide-3"
       ],
       "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "ce635cf5bf32f1ae7a67d6ad2fa9aa5f3d3c72f337617726ad85536db045f2c7",
-        "sourceWidth": 3840,
-        "sourceHeight": 2160,
+        "kind": "photo",
+        "sourceSha256": "f43ba39a06207ea9c6dd82a4df5ac8f365517659c19a071f760092f231166380",
+        "sourceWidth": 3277,
+        "sourceHeight": 4096,
         "activePicture": {
           "x": 0,
           "y": 0,
-          "width": 3840,
-          "height": 2160
-        },
-        "pts": 15015,
-        "timebase": "1/30000"
+          "width": 3277,
+          "height": 4096
+        }
       },
       "variants": [
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-2-g3-v3-640.webp",
+          "url": "/trip/assets/my-kl-rexkl-children-social-g5-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 33600,
-          "sha256": "bb19dd5620df95fd05a62d20f179a33c1a8cdac0f27afd216df5a928b6ceca76"
+          "height": 800,
+          "bytes": 68630,
+          "sha256": "23d4615e547488a87efc252adac77fee2e57fd32ce9c0ac695e9312f8f7d9b2d"
         },
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-2-g3-v3-960.webp",
+          "url": "/trip/assets/my-kl-rexkl-children-social-g5-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 57686,
-          "sha256": "2f7d0c222b040004d3300669c27dd55800628f9e25cfcdaa073b032b94f5608b"
+          "height": 1200,
+          "bytes": 117622,
+          "sha256": "2e901c62178565bfb1d8d4baa5ad4df4e8ff72442ebb623812f43293055ea455"
         },
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-2-g3-v3-1440.webp",
+          "url": "/trip/assets/my-kl-rexkl-children-social-g5-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 98890,
-          "sha256": "3a3defe1ed70dc5395e9e1b7bc016fb9def20cf350ee2acdc6d6c14bfd599bc1"
+          "height": 1800,
+          "bytes": 197390,
+          "sha256": "49c41159a35b0edf801026b38220db67676a1c70d383ca2baa95c84ce14e51c5"
         }
-      ],
-      "cardPhoto": {
-        "width": 1440,
-        "height": 960,
-        "activePicture": {
-          "x": 0,
-          "y": 0,
-          "width": 3240,
-          "height": 2160
-        },
-        "variants": [
-          {
-            "url": "/trip/assets/my-kl-rexkl-bookxcess-2-g3-v3-card-640.webp",
-            "width": 640,
-            "height": 427,
-            "bytes": 36112,
-            "sha256": "66305791c11570fcb9e318e30a9681a7b0672b9fa5bec6f2c288a32214fd0f09"
-          },
-          {
-            "url": "/trip/assets/my-kl-rexkl-bookxcess-2-g3-v3-card-960.webp",
-            "width": 960,
-            "height": 640,
-            "bytes": 60774,
-            "sha256": "968f84122b85f0543590c9644849bbf892a664a83fd0ca558cc9d83f5a31f945"
-          },
-          {
-            "url": "/trip/assets/my-kl-rexkl-bookxcess-2-g3-v3-card-1440.webp",
-            "width": 1440,
-            "height": 960,
-            "bytes": 103116,
-            "sha256": "fc149f9857c4d83063076b2cf1b0f587e650f49e78d274a38440df14e7fb7ac1"
-          }
-        ]
-      }
+      ]
     },
     {
-      "assetId": "my-kl-rexkl-bookxcess-3-g3-v3",
+      "assetId": "my-kl-rexkl-mother-social-g5-r1",
       "width": 1440,
-      "height": 810,
-      "alt": "媽媽抱嬰兒在書架前",
-      "caption": "媽媽抱嬰兒在書架前",
+      "height": 1800,
+      "alt": "秀秀抱著妹妹坐在木製階梯上，身後是書架與黑色扶手。",
+      "caption": "秀秀抱著妹妹坐在書店的木樓梯上。",
       "focalPoint": [
         50,
         50
       ],
       "sourceIds": [
-        "my-youtube-v7id6nvbpuo"
+        "my-ig-dctad4hkwmw-slide-12"
       ],
       "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "47821bd7bf64e53182a1a63b09237c24e89e777781b9aac25bdbcda891b92b88",
-        "sourceWidth": 3840,
-        "sourceHeight": 2160,
+        "kind": "photo",
+        "sourceSha256": "d83a8055d63dcdce0ff294de41ed9806ef8d7627fcdd6a515bee5fc898caf6d9",
+        "sourceWidth": 3277,
+        "sourceHeight": 4096,
         "activePicture": {
           "x": 0,
           "y": 0,
-          "width": 3840,
-          "height": 2160
-        },
-        "pts": 2140005,
-        "timebase": "1/1000"
+          "width": 3277,
+          "height": 4096
+        }
       },
       "variants": [
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-3-g3-v3-640.webp",
+          "url": "/trip/assets/my-kl-rexkl-mother-social-g5-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 36772,
-          "sha256": "fdd1de752c9d64acbe9ffa642689c0f77f001354678b568d78274a49f2c3d700"
+          "height": 800,
+          "bytes": 52366,
+          "sha256": "3a1c8806bf2b05027295bdb383676e50de4dd999f8c8b7370f6331ef2af543f3"
         },
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-3-g3-v3-960.webp",
+          "url": "/trip/assets/my-kl-rexkl-mother-social-g5-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 61938,
-          "sha256": "760e45a724ec39a2a925daa8e60f714e2a4b94e193d73e2842c01c0365118f3d"
+          "height": 1200,
+          "bytes": 95276,
+          "sha256": "e7c09bfae8e9435b2ec65984b3fb7a98b5f74bd8faf7c2cf6ae47f532eacd522"
         },
         {
-          "url": "/trip/assets/my-kl-rexkl-bookxcess-3-g3-v3-1440.webp",
+          "url": "/trip/assets/my-kl-rexkl-mother-social-g5-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 104210,
-          "sha256": "c55e403485c4678705d6da01bf64e5bde978741840c2fee23b6d8c5f9918d090"
+          "height": 1800,
+          "bytes": 161310,
+          "sha256": "68488dc307ede306081d5ea49ea48b01336b92911175410d56080ee01968fe81"
         }
       ]
     },
@@ -10021,53 +10055,51 @@
       ]
     },
     {
-      "assetId": "my-kl-kwai-chai-hong-3-g4-r1",
+      "assetId": "my-kl-kwai-chai-hong-family-social-g5-r1",
       "width": 1440,
-      "height": 810,
-      "alt": "一人扶著嬰兒車把手，站在鬼仔巷斑駁的黃色牆面和紅色欄杆旁。",
-      "caption": "鬼仔巷的黃牆與紅色欄杆。",
+      "height": 1800,
+      "alt": "爸媽和孩子站在斑駁老牆與門邊，妹妹從旁邊的小窗露出臉。",
+      "caption": "一家人在老牆、門邊與小窗前合照。",
       "focalPoint": [
         50,
         50
       ],
       "sourceIds": [
-        "my-youtube-v7id6nvbpuo"
+        "my-ig-dctad4hkwmw-slide-13"
       ],
       "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "47821bd7bf64e53182a1a63b09237c24e89e777781b9aac25bdbcda891b92b88",
-        "sourceWidth": 3840,
-        "sourceHeight": 2160,
+        "kind": "photo",
+        "sourceSha256": "7b52d67b2c89299eedf12cd9a264213cad2fcb5a871513168d60e9197baccade",
+        "sourceWidth": 3277,
+        "sourceHeight": 4096,
         "activePicture": {
           "x": 0,
           "y": 0,
-          "width": 3840,
-          "height": 2160
-        },
-        "pts": 2202000,
-        "timebase": "1/1000"
+          "width": 3277,
+          "height": 4096
+        }
       },
       "variants": [
         {
-          "url": "/trip/assets/my-kl-kwai-chai-hong-3-g4-r1-640.webp",
+          "url": "/trip/assets/my-kl-kwai-chai-hong-family-social-g5-r1-640.webp",
           "width": 640,
-          "height": 360,
-          "bytes": 42906,
-          "sha256": "3f0caf191ab22756f2ba14c317e7ce65a760915e04418a85d0f7f7f5804e4858"
+          "height": 800,
+          "bytes": 82284,
+          "sha256": "724dc2ed9b1fc83723469be554c32072e284ed6d47560eb4f853f0273919a51e"
         },
         {
-          "url": "/trip/assets/my-kl-kwai-chai-hong-3-g4-r1-960.webp",
+          "url": "/trip/assets/my-kl-kwai-chai-hong-family-social-g5-r1-960.webp",
           "width": 960,
-          "height": 540,
-          "bytes": 73608,
-          "sha256": "d077e0e9356499d410ddad5e46032cd835382608f9ff8bc0f75f4865607a27e2"
+          "height": 1200,
+          "bytes": 163612,
+          "sha256": "93f1e2d8315f88e4f96cc1bd7ae9fd54f09dafdda73e12a360da7bd33372c2e8"
         },
         {
-          "url": "/trip/assets/my-kl-kwai-chai-hong-3-g4-r1-1440.webp",
+          "url": "/trip/assets/my-kl-kwai-chai-hong-family-social-g5-r1-1440.webp",
           "width": 1440,
-          "height": 810,
-          "bytes": 125692,
-          "sha256": "c3711cf63f94d4f03e6630ce4c865f8528368c77a1c939fc9435271d4a4daeb7"
+          "height": 1800,
+          "bytes": 319368,
+          "sha256": "12ed8e73781153884311eb66656856ef103c3089b336f3404ff3e053d9f79a37"
         }
       ]
     },
@@ -11828,6 +11860,104 @@
           "height": 810,
           "bytes": 184146,
           "sha256": "4e2e19cbdf24addba7148942a512c644cf14a8d50756ee41e67218059ca76314"
+        }
+      ]
+    },
+    {
+      "assetId": "my-penang-coast-parents-social-g5-r1",
+      "width": 1440,
+      "height": 1800,
+      "alt": "爸爸和秀秀在檳城海邊自拍，身後可見沙灘、海面與停泊的小船。",
+      "caption": "爸爸和秀秀在檳城海邊合照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "my-ig-djt0fkttw4u-slide-1"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "d218b2cd33959df60ce1ee0b0cce874062f552177edae35389348d894f426305",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/my-penang-coast-parents-social-g5-r1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 37864,
+          "sha256": "1a8c6195d18a4ac6f6b2c9148557a58bd1a373a11b80411fbb797193dd311760"
+        },
+        {
+          "url": "/trip/assets/my-penang-coast-parents-social-g5-r1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 94664,
+          "sha256": "eb69f4741fa9226f8f27c4f639a3142831d36d890744a97e20a4343d011abc72"
+        },
+        {
+          "url": "/trip/assets/my-penang-coast-parents-social-g5-r1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 260700,
+          "sha256": "c9d96e80d0d0d9ff761b96aa769dce47544fc6a1b9169f74088d3e7b591bf6bc"
+        }
+      ]
+    },
+    {
+      "assetId": "my-penang-george-town-bicycle-social-g5-r1-card",
+      "width": 1440,
+      "height": 960,
+      "alt": "秀秀站在喬治市的腳踏車壁畫旁；壁畫裡是兩個孩子，前方有實體腳踏車。",
+      "caption": "秀秀在喬治市街頭，與腳踏車壁畫合照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "my-ig-djt0fkttw4u-slide-3"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "fb7ae230bf7ce0dfaa3bc944b61ac19535eedabc4b2865bf9577a2a0653ac408",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "activePicture": {
+          "x": 0,
+          "y": 540,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/my-penang-george-town-bicycle-social-g5-r1-card-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 60806,
+          "sha256": "430b437de5698497d1172fd7c48278b55ea1ee857cfd19281995bd1a85360c6a"
+        },
+        {
+          "url": "/trip/assets/my-penang-george-town-bicycle-social-g5-r1-card-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 133850,
+          "sha256": "07dd6df420b7b1f3e01f614c958363bb19c12045d89dc80546e8b4d5ed6bf8ec"
+        },
+        {
+          "url": "/trip/assets/my-penang-george-town-bicycle-social-g5-r1-card-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 300554,
+          "sha256": "eabde2733dc82992d45367ad9bd9cf95787f9b96e1c8292ec6a0037f4d4b6978"
         }
       ]
     }
@@ -14098,7 +14228,7 @@
         "penang",
         "kuala-lumpur"
       ],
-      "image": "my-penang-hero-main-g3-v3",
+      "image": "my-penang-george-town-bicycle-social-g5-r1-card",
       "geographicMap": {
         "caption": "西馬與東馬隔南海；位置標記連到檳城與吉隆坡攻略。",
         "sourceIds": [
@@ -14464,7 +14594,7 @@
         "region": "asia",
         "subregion": "southeast-asia",
         "summary": "從爸爸熟悉的檳城吃食，到孩子想見朋友的吉隆坡，整理鷹式一家實訪照片、旅行故事、景點與住宿經驗，搭配兩城交通及親子行程規劃。",
-        "assetId": "my-penang-hero-main-g3-v3",
+        "assetId": "my-penang-george-town-bicycle-social-g5-r1-card",
         "sourceIds": [
           "my-youtube-1m6k0atz0hy",
           "my-youtube-v7id6nvbpuo",
@@ -20046,9 +20176,9 @@
         "my-youtube-uro4dhm3dpk"
       ],
       "hero": [
-        "my-penang-hero-main-g3-v3",
-        "my-penang-hero-support-1-g3-v3",
-        "my-penang-hero-support-2-g4-r1"
+        "my-penang-george-town-bicycle-social-g5-r1-card",
+        "my-penang-coast-parents-social-g5-r1",
+        "my-penang-george-town-street-social-g5-r1"
       ],
       "chapters": [
         {
@@ -20172,8 +20302,8 @@
           ],
           "images": [
             "my-penang-george-town-1-g3-v3",
-            "my-penang-george-town-2-g4-r1",
-            "my-penang-george-town-3-g4-r2"
+            "my-penang-george-town-bicycle-social-g5-r1",
+            "my-penang-george-town-street-social-g5-r1"
           ],
           "facts": {
             "what": {
@@ -23592,9 +23722,9 @@
         "my-youtube-my-7kubdvc8"
       ],
       "hero": [
-        "my-kuala-lumpur-hero-main-g3-v3",
-        "my-kuala-lumpur-hero-support-1-g3-v3",
-        "my-kuala-lumpur-hero-support-2-g3-v3"
+        "my-kl-old-city-family-social-g5-r1",
+        "my-kl-rexkl-father-social-g5-r1",
+        "my-kl-kwai-chai-hong-family-social-g5-r1"
       ],
       "chapters": [
         {
@@ -23979,8 +24109,8 @@
             "my-g3-kl-s01"
           ],
           "images": [
-            "my-kl-sultan-abdul-samad-1-g3-v3",
-            "my-kl-sultan-abdul-samad-2-g3-v3",
+            "my-kl-old-city-family-social-g5-r1",
+            "my-kl-old-city-exterior-social-g5-r1",
             "my-kl-sultan-abdul-samad-3-g3-v3"
           ],
           "facts": {
@@ -24341,9 +24471,9 @@
             "my-youtube-v7id6nvbpuo"
           ],
           "images": [
-            "my-kl-rexkl-bookxcess-1-g4-r3",
-            "my-kl-rexkl-bookxcess-2-g3-v3",
-            "my-kl-rexkl-bookxcess-3-g3-v3"
+            "my-kl-rexkl-father-social-g5-r1",
+            "my-kl-rexkl-children-social-g5-r1",
+            "my-kl-rexkl-mother-social-g5-r1"
           ],
           "facts": {
             "what": {
@@ -24439,7 +24569,7 @@
           "images": [
             "my-kl-kwai-chai-hong-1-g3-v3",
             "my-kl-kwai-chai-hong-2-g3-v3",
-            "my-kl-kwai-chai-hong-3-g4-r1"
+            "my-kl-kwai-chai-hong-family-social-g5-r1"
           ],
           "facts": {
             "what": {
@@ -24743,10 +24873,14 @@
           "title": "老城與獨立廣場",
           "play": "看拱廊、河流與廣場",
           "time": "三站約 2 小時",
-          "assetId": "my-kl-sultan-abdul-samad-3-g3-v3",
+          "assetId": "my-kl-old-city-family-social-g5-r1",
           "focalPoint": [
             50,
             50
+          ],
+          "imagePair": [
+            "my-kl-old-city-family-social-g5-r1",
+            "my-kl-old-city-exterior-social-g5-r1"
           ]
         },
         {
@@ -24754,10 +24888,14 @@
           "title": "REXKL 與唐人街",
           "play": "挑書、看壁畫、吃點心",
           "time": "留半天含用餐",
-          "assetId": "my-kl-rexkl-bookxcess-2-g3-v3",
+          "assetId": "my-kl-rexkl-father-social-g5-r1",
           "focalPoint": [
-            30,
+            50,
             50
+          ],
+          "imagePair": [
+            "my-kl-rexkl-father-social-g5-r1",
+            "my-kl-rexkl-children-social-g5-r1"
           ]
         },
         {
@@ -27009,6 +27147,10 @@
       "videoSourceIds": [
         "my-youtube-v7id6nvbpuo",
         "my-youtube-my-7kubdvc8"
+      ],
+      "entryImagePair": [
+        "my-kl-old-city-family-social-g5-r1",
+        "my-kl-old-city-exterior-social-g5-r1"
       ]
     }
   ]
