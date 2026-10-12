@@ -2139,6 +2139,50 @@
       "checkedOn": "2026-10-12",
       "label": "鷹式一家檳城短停照片",
       "locator": "Instagram carousel slide 4 of 4; published 2025-05-16, not inferred exact visit date."
+    },
+    {
+      "id": "refresh-ig-da3x-tcttg9-10",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DA3X-tCTtg9/",
+      "rights": "Hiram authorized own eaglish.fam photo use for this scoped travel refresh; people assessed separately.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家北歐旅行照片",
+      "locator": "Instagram carousel slide 10; publication 2024-10-08T13:42:28.000Z, not inferred visit date"
+    },
+    {
+      "id": "refresh-ig-dbjbstjtzbf-11",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DBJbsTJTzbf/",
+      "rights": "Hiram authorized own eaglish.fam photo use for this scoped travel refresh; people assessed separately.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家北歐旅行照片",
+      "locator": "Instagram carousel slide 11; publication 2024-10-15T14:01:14.000Z, not inferred visit date"
+    },
+    {
+      "id": "refresh-ig-dbjbstjtzbf-16",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DBJbsTJTzbf/",
+      "rights": "Hiram authorized own eaglish.fam photo use for this scoped travel refresh; people assessed separately.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家北歐旅行照片",
+      "locator": "Instagram carousel slide 16; publication 2024-10-15T14:01:14.000Z, not inferred visit date"
+    },
+    {
+      "id": "refresh-ig-dbjbstjtzbf-15",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DBJbsTJTzbf/",
+      "rights": "Hiram authorized own eaglish.fam photo use for this scoped travel refresh; people assessed separately.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家北歐旅行照片",
+      "locator": "Instagram carousel slide 15; publication 2024-10-15T14:01:14.000Z, not inferred visit date"
+    },
+    {
+      "id": "frame-hans-grietje-clean-tower-g2-r1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=zu_EW5Aa1gY&t=884.55s",
+      "rights": "Hiram authorized same existing owned Hans & Grietje footage for this one-image repair.",
+      "label": "Hans & Grietje 的童話塔樓",
+      "locator": "Video frame PTS884550, timebase1/1000, decoded14:44.550"
     }
   ],
   "assets": [
@@ -2188,55 +2232,6 @@
           "height": 960,
           "bytes": 351184,
           "sha256": "f6d73e600729089df5bf924d1c33beecb7a33b6ab78d44a25e0fea973ef21eb4"
-        }
-      ]
-    },
-    {
-      "assetId": "amsterdam-artis-1-hero-g14",
-      "width": 1440,
-      "height": 960,
-      "alt": "爸爸和孩子在阿姆斯特丹 ARTIS 探索木造遊具",
-      "caption": "阿姆斯特丹的親子時光，從 ARTIS 開始。",
-      "focalPoint": [
-        50,
-        50
-      ],
-      "sourceIds": [
-        "photo-amsterdam-artis-1"
-      ],
-      "lineage": {
-        "kind": "photo",
-        "sourceSha256": "b0447c65bdfb3d11ea989aa6346556434018c96ab281cc96e48541f66d3a5bee",
-        "sourceWidth": 1440,
-        "sourceHeight": 963,
-        "activePicture": {
-          "x": 0,
-          "y": 2,
-          "width": 1440,
-          "height": 960
-        }
-      },
-      "variants": [
-        {
-          "url": "/trip/assets/eu-amsterdam-artis-1-hero-g14-640.webp",
-          "width": 640,
-          "height": 427,
-          "bytes": 118264,
-          "sha256": "3025a58db3ed9f471faf469553e34881d124b8e0116e4f34c09e826e306ef141"
-        },
-        {
-          "url": "/trip/assets/eu-amsterdam-artis-1-hero-g14-960.webp",
-          "width": 960,
-          "height": 640,
-          "bytes": 214650,
-          "sha256": "8242284d185d4689a3c8cc980a6f605f315a565288230e4afda46aedeafb1cfd"
-        },
-        {
-          "url": "/trip/assets/eu-amsterdam-artis-1-hero-g14-1440.webp",
-          "width": 1440,
-          "height": 960,
-          "bytes": 392038,
-          "sha256": "01dab6973509d599d24d258cd1563a1eb0af2d5e0c41b085b839ae32eb694b0b"
         }
       ]
     },
@@ -4124,57 +4119,6 @@
       ]
     },
     {
-      "assetId": "svalbard-glacier-cruise-3",
-      "width": 2560,
-      "height": 1440,
-      "alt": "從船邊看水面浮冰",
-      "caption": "水面上的浮冰，也是沿途停下來看的景色。",
-      "focalPoint": [
-        50,
-        50
-      ],
-      "sourceIds": [
-        "photo-svalbard-glacier-cruise-3"
-      ],
-      "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "5fe5c97e75464c74e79ce430589ccafa77c61f71ca3576b3874d66c410cfc016",
-        "sourceWidth": 2560,
-        "sourceHeight": 1440,
-        "activePicture": {
-          "x": 0,
-          "y": 0,
-          "width": 2560,
-          "height": 1440
-        },
-        "pts": 33330297,
-        "timebase": "1/30000"
-      },
-      "variants": [
-        {
-          "url": "/trip/assets/eu-svalbard-glacier-cruise-3-body-640.webp",
-          "width": 640,
-          "height": 360,
-          "bytes": 33660,
-          "sha256": "8779048ce26635ad34a55f5c99ea41e9a866dad62783e255f148ee61fc75fd41"
-        },
-        {
-          "url": "/trip/assets/eu-svalbard-glacier-cruise-3-body-960.webp",
-          "width": 960,
-          "height": 540,
-          "bytes": 63040,
-          "sha256": "03533494854d004024c14c303cb57846b986e240b5fd47f0d086ab6b0b3a1d09"
-        },
-        {
-          "url": "/trip/assets/eu-svalbard-glacier-cruise-3-body-1440.webp",
-          "width": 1440,
-          "height": 810,
-          "bytes": 115320,
-          "sha256": "5dcb32290e99e8e6f08e8659e4cd703b37c19d060e76c2834d0ce59a19e8178e"
-        }
-      ]
-    },
-    {
       "assetId": "tromso-polaria-1",
       "width": 2560,
       "height": 1440,
@@ -4623,57 +4567,6 @@
       }
     },
     {
-      "assetId": "tromso-fjellheisen-2",
-      "width": 2560,
-      "height": 1440,
-      "alt": "一個孩子站在 Fjellheisen 站區外",
-      "caption": "到站後再決定要走多遠。",
-      "focalPoint": [
-        50,
-        50
-      ],
-      "sourceIds": [
-        "photo-tromso-fjellheisen-2"
-      ],
-      "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "21e869055fa81d2c87fdffeac46213103d8ff5b48785d19a535936ccf37f7a60",
-        "sourceWidth": 2560,
-        "sourceHeight": 1440,
-        "activePicture": {
-          "x": 0,
-          "y": 0,
-          "width": 2560,
-          "height": 1440
-        },
-        "pts": 36930894,
-        "timebase": "1/30000"
-      },
-      "variants": [
-        {
-          "url": "/trip/assets/eu-tromso-fjellheisen-2-body-640.webp",
-          "width": 640,
-          "height": 360,
-          "bytes": 73730,
-          "sha256": "a72306f6bedf2887ee1e54e1f53145aa56a640a72bc8c4ed5c52dd287cc66c13"
-        },
-        {
-          "url": "/trip/assets/eu-tromso-fjellheisen-2-body-960.webp",
-          "width": 960,
-          "height": 540,
-          "bytes": 134718,
-          "sha256": "a34646c9790b2e8a959c11e29b461001639cd8474ca178d7ed90487481ddeeb3"
-        },
-        {
-          "url": "/trip/assets/eu-tromso-fjellheisen-2-body-1440.webp",
-          "width": 1440,
-          "height": 810,
-          "bytes": 233646,
-          "sha256": "7ad991c8344a8d2a01567d8fd9e9b49c45dd8043333bbe3b484eb5804e04cc56"
-        }
-      ]
-    },
-    {
       "assetId": "tromso-fjellheisen-3",
       "width": 1440,
       "height": 960,
@@ -5093,141 +4986,10 @@
       ]
     },
     {
-      "assetId": "amsterdam-artis-1",
-      "width": 1440,
-      "height": 963,
-      "alt": "爸爸與兩個兒子在木樁遊戲區，旁邊有其他遊客",
-      "caption": "看動物之間，孩子也停下來玩。",
-      "focalPoint": [
-        50,
-        50
-      ],
-      "sourceIds": [
-        "photo-amsterdam-artis-1"
-      ],
-      "lineage": {
-        "kind": "photo",
-        "sourceSha256": "b0447c65bdfb3d11ea989aa6346556434018c96ab281cc96e48541f66d3a5bee",
-        "sourceWidth": 1440,
-        "sourceHeight": 963,
-        "activePicture": {
-          "x": 0,
-          "y": 0,
-          "width": 1440,
-          "height": 963
-        }
-      },
-      "variants": [
-        {
-          "url": "/trip/assets/eu-amsterdam-artis-1-body-640.webp",
-          "width": 640,
-          "height": 428,
-          "bytes": 118208,
-          "sha256": "cd553d124817bbdc94e87a26551396df24108b32f7fce8862ac95805c7df4b22"
-        },
-        {
-          "url": "/trip/assets/eu-amsterdam-artis-1-body-960.webp",
-          "width": 960,
-          "height": 642,
-          "bytes": 217490,
-          "sha256": "3578c4f705997d284979b3e3d50f48f4e96044ef48200d8bb1b89b1ed6333a2a"
-        },
-        {
-          "url": "/trip/assets/eu-amsterdam-artis-1-body-1440.webp",
-          "width": 1440,
-          "height": 963,
-          "bytes": 392908,
-          "sha256": "473b7e9e95a8e7d303caf0f04b56c03b7dbfe483722ec83db962d91f95ad0b61"
-        }
-      ],
-      "cardPhoto": {
-        "width": 1440,
-        "height": 960,
-        "activePicture": {
-          "x": 0,
-          "y": 2,
-          "width": 1440,
-          "height": 960
-        },
-        "variants": [
-          {
-            "url": "/trip/assets/eu-amsterdam-artis-1-card-640.webp",
-            "width": 640,
-            "height": 427,
-            "bytes": 118264,
-            "sha256": "3025a58db3ed9f471faf469553e34881d124b8e0116e4f34c09e826e306ef141"
-          },
-          {
-            "url": "/trip/assets/eu-amsterdam-artis-1-card-960.webp",
-            "width": 960,
-            "height": 640,
-            "bytes": 214650,
-            "sha256": "8242284d185d4689a3c8cc980a6f605f315a565288230e4afda46aedeafb1cfd"
-          },
-          {
-            "url": "/trip/assets/eu-amsterdam-artis-1-card-1440.webp",
-            "width": 1440,
-            "height": 960,
-            "bytes": 392038,
-            "sha256": "01dab6973509d599d24d258cd1563a1eb0af2d5e0c41b085b839ae32eb694b0b"
-          }
-        ]
-      }
-    },
-    {
-      "assetId": "amsterdam-artis-2",
-      "width": 1440,
-      "height": 962,
-      "alt": "左邊的孩子俯身攀爬岩石，右邊的孩子站在岩石上。",
-      "caption": "逛 ARTIS 時，兩個孩子在岩石上玩耍。",
-      "focalPoint": [
-        50,
-        50
-      ],
-      "sourceIds": [
-        "photo-amsterdam-artis-2"
-      ],
-      "lineage": {
-        "kind": "photo",
-        "sourceSha256": "4ac7181faab2073d761da74558da9d761aea1e6f8ffe607255e65a42ad728ad2",
-        "sourceWidth": 1440,
-        "sourceHeight": 962,
-        "activePicture": {
-          "x": 0,
-          "y": 0,
-          "width": 1440,
-          "height": 962
-        }
-      },
-      "variants": [
-        {
-          "url": "/trip/assets/eu-amsterdam-artis-2-body-640.webp",
-          "width": 640,
-          "height": 428,
-          "bytes": 76186,
-          "sha256": "ce2267ed625a8db30b10f988d9085777e99285d7829d255f89905dbd3f1ffc0c"
-        },
-        {
-          "url": "/trip/assets/eu-amsterdam-artis-2-body-960.webp",
-          "width": 960,
-          "height": 641,
-          "bytes": 168186,
-          "sha256": "c6168de116c284ef956ff9e2047840c01baf1e3f8df6e438cd01a6cafb5cc7f4"
-        },
-        {
-          "url": "/trip/assets/eu-amsterdam-artis-2-body-1440.webp",
-          "width": 1440,
-          "height": 962,
-          "bytes": 401550,
-          "sha256": "deacc29b6e1f9b6f66e5876e593f0d774103efbb69b477ddc4ddfc06cee9d020"
-        }
-      ]
-    },
-    {
       "assetId": "amsterdam-artis-3",
       "width": 1080,
       "height": 1920,
-      "alt": "ARTIS 園內的大猩猩",
+      "alt": "園內動物聚在岩石與繩索旁。",
       "caption": "遇到有興趣的動物，就多看一會兒。",
       "focalPoint": [
         50,
@@ -5459,90 +5221,6 @@
           "sha256": "699ea2e9274169fe379651f156f2d941b7cd743f02e392ae2df1f6a95939c853"
         }
       ]
-    },
-    {
-      "assetId": "hans-grietje-1",
-      "width": 1920,
-      "height": 1080,
-      "alt": "媽媽坐在桌旁，後方是童話造型建築",
-      "caption": "Zeewolde 的童話鬆餅屋，是另加的一站。",
-      "focalPoint": [
-        50,
-        50
-      ],
-      "sourceIds": [
-        "photo-hans-grietje-1"
-      ],
-      "lineage": {
-        "kind": "video-frame",
-        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
-        "sourceWidth": 1920,
-        "sourceHeight": 1080,
-        "activePicture": {
-          "x": 0,
-          "y": 0,
-          "width": 1920,
-          "height": 1080
-        },
-        "pts": 1021021,
-        "timebase": "1/1000"
-      },
-      "variants": [
-        {
-          "url": "/trip/assets/eu-hans-grietje-1-body-640.webp",
-          "width": 640,
-          "height": 360,
-          "bytes": 90686,
-          "sha256": "1f4ba6128244af4e982a110511f6474450074610a17ef2e9934ca9e3ec713041"
-        },
-        {
-          "url": "/trip/assets/eu-hans-grietje-1-body-960.webp",
-          "width": 960,
-          "height": 540,
-          "bytes": 164208,
-          "sha256": "ae10cb5bda505cde33d33296b4a6dc9fe473062491bdf0ddf89fa52fd3d75575"
-        },
-        {
-          "url": "/trip/assets/eu-hans-grietje-1-body-1440.webp",
-          "width": 1440,
-          "height": 810,
-          "bytes": 280320,
-          "sha256": "5890f1f33ab32c85164e4b854106732a4f9e7df5db2c238962b8a9565f9a7783"
-        }
-      ],
-      "cardPhoto": {
-        "width": 1620,
-        "height": 1080,
-        "activePicture": {
-          "x": 150,
-          "y": 0,
-          "width": 1620,
-          "height": 1080
-        },
-        "variants": [
-          {
-            "url": "/trip/assets/eu-hans-grietje-1-card-640.webp",
-            "width": 640,
-            "height": 427,
-            "bytes": 101006,
-            "sha256": "2aa95031614ffa391a4b1985bc5b7603471f808c72045b8743ccd2b7b697d982"
-          },
-          {
-            "url": "/trip/assets/eu-hans-grietje-1-card-960.webp",
-            "width": 960,
-            "height": 640,
-            "bytes": 177656,
-            "sha256": "b1511d4defa369ffa9fe010bda7a14d1f69019d122d429dcea87613e151218a2"
-          },
-          {
-            "url": "/trip/assets/eu-hans-grietje-1-card-1440.webp",
-            "width": 1440,
-            "height": 960,
-            "bytes": 296804,
-            "sha256": "879eba928ebceb845fe64b4ae57a0e115f3fccac49fa47ce60737cf8812c4f70"
-          }
-        ]
-      }
     },
     {
       "assetId": "hans-grietje-2",
@@ -11960,6 +11638,293 @@
           "sha256": "eabde2733dc82992d45367ad9bd9cf95787f9b96e1c8292ec6a0037f4d4b6978"
         }
       ]
+    },
+    {
+      "assetId": "eu-tromso-fjellheisen-child-social-refresh-g1-r1",
+      "width": 1440,
+      "height": 960,
+      "alt": "孩子穿著米色外套站在山坡上，身後可見特羅姆瑟市區、海灣與橋樑。",
+      "caption": "孩子在山坡上，身後就是特羅姆瑟市區與海灣。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "refresh-ig-da3x-tcttg9-10"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "18dc2eeb38ce9eddff93898e252974aac66382fce215fb25cfc5d4b333e859e6",
+        "sourceWidth": 1440,
+        "sourceHeight": 960,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-child-social-refresh-g1-r1-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 54128,
+          "sha256": "adb69d8cb876711e19e78b45d297257dfbba35d401531bfee000e56469419517"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-child-social-refresh-g1-r1-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 105516,
+          "sha256": "9cf9e0e5897f43bd7c3448ba41683e8683b980adfcdf5c6720a77b86db4570e3"
+        },
+        {
+          "url": "/trip/assets/eu-tromso-fjellheisen-child-social-refresh-g1-r1-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 208512,
+          "sha256": "2f41651abab149f301209c5e98e37658f27a54cbf5932e90fdbe37b3c51c31a3"
+        }
+      ]
+    },
+    {
+      "assetId": "eu-svalbard-ice-detail-social-refresh-g1-r1",
+      "width": 1440,
+      "height": 964,
+      "alt": "戴著手套的手托著透明冰塊，後方可見窗框與海面。",
+      "caption": "戴著手套，近看透明冰塊的紋理。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "refresh-ig-dbjbstjtzbf-11"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "c8f13bb911e0a8b1d257e309a495382069175e9ff24ee92065a81c603f504c06",
+        "sourceWidth": 1440,
+        "sourceHeight": 964,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 964
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-svalbard-ice-detail-social-refresh-g1-r1-640.webp",
+          "width": 640,
+          "height": 428,
+          "bytes": 24190,
+          "sha256": "f0665a1ae7d33c893295b103d25a7248063e6c1b73b34d7535dea597b5265611"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-ice-detail-social-refresh-g1-r1-960.webp",
+          "width": 960,
+          "height": 643,
+          "bytes": 47742,
+          "sha256": "e36a84699258e3e3260a2f5489c35b40b950560237fd6fb9d0ec8161f9766c3a"
+        },
+        {
+          "url": "/trip/assets/eu-svalbard-ice-detail-social-refresh-g1-r1-1440.webp",
+          "width": 1440,
+          "height": 964,
+          "bytes": 123140,
+          "sha256": "61156a9ad97d49d8b50ad9ce805628eebe53da2739ad4a351a5924f53137b76f"
+        }
+      ]
+    },
+    {
+      "assetId": "eu-amsterdam-artis-clean-main-social-refresh-g1-r1",
+      "width": 1440,
+      "height": 960,
+      "alt": "兩個孩子在大型岩石上，一人站著，一人雙手撐著岩面。",
+      "caption": "兩個孩子在 ARTIS 的岩石上停下來玩。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "refresh-ig-dbjbstjtzbf-16"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "4ac7181faab2073d761da74558da9d761aea1e6f8ffe607255e65a42ad728ad2",
+        "sourceWidth": 1440,
+        "sourceHeight": 962,
+        "activePicture": {
+          "x": 0,
+          "y": 1,
+          "width": 1440,
+          "height": 960
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-clean-main-social-refresh-g1-r1-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 38398,
+          "sha256": "78514bbeded76bc756b05a6dc3c8e63a08b706b2b99dfd87bbe1f6f7bd8d4970"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-clean-main-social-refresh-g1-r1-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 79224,
+          "sha256": "baf6df4f08d75be82153d547f8c614fbfac2810d0e492292e1d43c1bbea190c3"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-clean-main-social-refresh-g1-r1-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 200856,
+          "sha256": "3b0b1d20e11d25f0a5c37caac0ca6255cbfac6fb6a8978778dcd158dc5c1db58"
+        }
+      ]
+    },
+    {
+      "assetId": "eu-amsterdam-artis-family-natural-crop-social-refresh-g1-r1",
+      "width": 1440,
+      "height": 1631,
+      "alt": "爸爸和兩個孩子在木頭遊具與樹樁旁合照。",
+      "caption": "爸爸和孩子在木頭遊具旁合照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "refresh-ig-dbjbstjtzbf-15"
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "b0447c65bdfb3d11ea989aa6346556434018c96ab281cc96e48541f66d3a5bee",
+        "sourceWidth": 1440,
+        "sourceHeight": 963,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 850,
+          "height": 963
+        }
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-family-natural-crop-social-refresh-g1-r1-640.webp",
+          "width": 640,
+          "height": 725,
+          "bytes": 117542,
+          "sha256": "21a1ad0a1af73f96a257a1b18a969f0d4174975aaa87e1502f760db1da0e7da6"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-family-natural-crop-social-refresh-g1-r1-960.webp",
+          "width": 960,
+          "height": 1088,
+          "bytes": 217248,
+          "sha256": "0ca855de901d82c91b57102e1d6d12097709d134996b130c4ab38fa006214af6"
+        },
+        {
+          "url": "/trip/assets/eu-amsterdam-artis-family-natural-crop-social-refresh-g1-r1-1440.webp",
+          "width": 1440,
+          "height": 1631,
+          "bytes": 392682,
+          "sha256": "40728271b32e4a79a39ffe392f1722faee57dbed723b44acc0097f815c763147"
+        }
+      ]
+    },
+    {
+      "assetId": "hans-grietje-clean-tower-g2-r1",
+      "width": 1440,
+      "height": 810,
+      "alt": "Hans & Grietje 童話風格建築的塔樓、斜屋頂與黃色窗框，背景是藍天。",
+      "caption": "Hans & Grietje 的塔樓、斜屋頂與黃色窗框。",
+      "focalPoint": [
+        50,
+        45
+      ],
+      "sourceIds": [
+        "frame-hans-grietje-clean-tower-g2-r1"
+      ],
+      "lineage": {
+        "kind": "video-frame",
+        "sourceSha256": "29ec50559ced9f34e37a7d1a952f3c1fb1c2320702ee24f4fef5cff727e2fef4",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "activePicture": {
+          "x": 400,
+          "y": 0,
+          "width": 960,
+          "height": 540
+        },
+        "pts": 884550,
+        "timebase": "1/1000"
+      },
+      "variants": [
+        {
+          "url": "/trip/assets/eu-hans-grietje-clean-tower-g2-r1-body-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32656,
+          "sha256": "727e26ac3aaf6ce605d3f4d2fc42e10fb1b76659ab266762bd215ad272f06603"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-clean-tower-g2-r1-body-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 49474,
+          "sha256": "197606aa6dca1a9c8105884b07cf316ce1089a0f7d02ee605535e16a1f86ab82"
+        },
+        {
+          "url": "/trip/assets/eu-hans-grietje-clean-tower-g2-r1-body-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 74464,
+          "sha256": "0ecc3cb2007e2fe191142efd241298b813548a45e0b1acb9d176f2ca59394011"
+        }
+      ],
+      "cardPhoto": {
+        "width": 810,
+        "height": 540,
+        "activePicture": {
+          "x": 550,
+          "y": 0,
+          "width": 810,
+          "height": 540
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/eu-hans-grietje-clean-tower-g2-r1-card-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 35384,
+            "sha256": "cc50e074dc42ef7d525d375fd95ece34d45f1b98c423a522bbe43ad5d890e582"
+          },
+          {
+            "url": "/trip/assets/eu-hans-grietje-clean-tower-g2-r1-card-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 54082,
+            "sha256": "8b4a31cce718e869848c6f7413c6e729f295a9f47c11c48d77c2dde66ae6faf8"
+          },
+          {
+            "url": "/trip/assets/eu-hans-grietje-clean-tower-g2-r1-card-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 81908,
+            "sha256": "35570a863f25c894f734e04a0944aef8cdc73d669652686e6a1028256a036de5"
+          }
+        ],
+        "variantResampling": {
+          "method": "lanczos",
+          "effectiveSourceWidth": 810,
+          "effectiveSourceHeight": 540,
+          "maxOutputWidth": 1440,
+          "nativeDetailAdded": false
+        }
+      }
     }
   ],
   "countries": [
@@ -13579,7 +13544,7 @@
       "cityIds": [
         "amsterdam"
       ],
-      "image": "amsterdam-artis-1-hero-g14",
+      "image": "eu-amsterdam-artis-clean-main-social-refresh-g1-r1",
       "faq": [
         {
           "question": "帶孩子第一次到荷蘭，先排什麼？",
@@ -14153,7 +14118,7 @@
         "region": "europe",
         "subregion": "western-europe",
         "summary": "阿姆斯特丹城市日逛 ARTIS，羊角村另排完整日遊，Zeewolde 的童話鬆餅屋另作加選，包含往返交通、訂位與住宿考量。",
-        "assetId": "amsterdam-artis-1-hero-g14",
+        "assetId": "eu-amsterdam-artis-clean-main-social-refresh-g1-r1",
         "sourceIds": [
           "editorial-source-159",
           "editorial-source-161",
@@ -16520,7 +16485,7 @@
           "images": [
             "svalbard-glacier-cruise-1",
             "svalbard-glacier-cruise-2",
-            "svalbard-glacier-cruise-3"
+            "eu-svalbard-ice-detail-social-refresh-g1-r1"
           ],
           "facts": {
             "what": {
@@ -17977,7 +17942,7 @@
           ],
           "images": [
             "tromso-fjellheisen-1",
-            "tromso-fjellheisen-2",
+            "eu-tromso-fjellheisen-child-social-refresh-g1-r1",
             "tromso-fjellheisen-3"
           ],
           "facts": {
@@ -19098,9 +19063,9 @@
         "photo-hans-grietje-3"
       ],
       "hero": [
-        "amsterdam-artis-1-hero-g14",
+        "eu-amsterdam-artis-clean-main-social-refresh-g1-r1",
         "giethoorn-boat-1",
-        "hans-grietje-1"
+        "hans-grietje-clean-tower-g2-r1"
       ],
       "places": [
         {
@@ -19120,8 +19085,8 @@
             "n11"
           ],
           "images": [
-            "amsterdam-artis-1",
-            "amsterdam-artis-2",
+            "eu-amsterdam-artis-clean-main-social-refresh-g1-r1",
+            "eu-amsterdam-artis-family-natural-crop-social-refresh-g1-r1",
             "amsterdam-artis-3"
           ],
           "facts": {
@@ -19395,7 +19360,7 @@
             "n23"
           ],
           "images": [
-            "hans-grietje-1",
+            "hans-grietje-clean-tower-g2-r1",
             "hans-grietje-2",
             "hans-grietje-3"
           ],
@@ -19518,7 +19483,7 @@
           "title": "ARTIS 動物園",
           "play": "看動物、園內散步",
           "time": "建議3–5小時",
-          "assetId": "amsterdam-artis-1",
+          "assetId": "eu-amsterdam-artis-clean-main-social-refresh-g1-r1",
           "focalPoint": [
             50,
             50
@@ -19540,10 +19505,10 @@
           "title": "童話鬆餅屋",
           "play": "吃鬆餅、玩遊具",
           "time": "約3小時・交通另留",
-          "assetId": "hans-grietje-1",
+          "assetId": "hans-grietje-clean-tower-g2-r1",
           "focalPoint": [
             50,
-            50
+            45
           ]
         }
       ],

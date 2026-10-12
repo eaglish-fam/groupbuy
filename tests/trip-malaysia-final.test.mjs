@@ -11,13 +11,19 @@ import {decodeHtml} from '../scripts/site-seo-inventory.mjs';
 import {wrapRouteText} from '../scripts/trip-route-diagram.mjs';
 const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root),'utf8'),data=JSON.parse(read('trip/data/europe-malaysia-approved-travel-v1.json')),europe=JSON.parse(read('trip/data/europe-approved-travel-v1.json'));
 const cityIds=['penang','kuala-lumpur'],cities=data.cities.filter(c=>cityIds.includes(c.id));
-test('final portable closure keeps Europe exact and adds only three source-backed pages',async()=>{
+test('final portable closure preserves Malaysia and only the approved Europe photo substitutions',async()=>{
  const registration=JSON.parse(read('trip/data/approved-travel-registration-v1.json'));
  const view=await readApprovedTravelPackage(root.pathname,registration);assert.equal(view.countries.size,3);assert.equal(view.cities.size,6);assert.equal(view.diagrams.size,7);
- assert.deepEqual(data.countries.filter(c=>c.id!=='malaysia'),europe.countries);assert.deepEqual(data.cities.filter(c=>!cityIds.includes(c.id)),europe.cities);
- assert.deepEqual(data.assets.filter(a=>europe.assets.some(b=>a.assetId===b.assetId)),europe.assets);
+ const expected=structuredClone(europe),replacements=new Map([
+  ['tromso-fjellheisen-2','eu-tromso-fjellheisen-child-social-refresh-g1-r1'],['svalbard-glacier-cruise-3','eu-svalbard-ice-detail-social-refresh-g1-r1'],
+  ['amsterdam-artis-1','eu-amsterdam-artis-clean-main-social-refresh-g1-r1'],['amsterdam-artis-2','eu-amsterdam-artis-family-natural-crop-social-refresh-g1-r1'],['amsterdam-artis-1-hero-g14','eu-amsterdam-artis-clean-main-social-refresh-g1-r1'],['hans-grietje-1','hans-grietje-clean-tower-g2-r1']
+ ]);
+ for(const c of expected.countries){c.image=replacements.get(c.image)||c.image;if(c.discovery)c.discovery.assetId=replacements.get(c.discovery.assetId)||c.discovery.assetId;}
+ for(const c of expected.cities){c.hero=c.hero.map(id=>replacements.get(id)||id);for(const p of c.places)p.images=p.images.map(id=>replacements.get(id)||id);for(const card of c.cards)if(replacements.has(card.assetId)){card.assetId=replacements.get(card.assetId);card.focalPoint=card.assetId==='hans-grietje-clean-tower-g2-r1'?[50,45]:[50,50];}}
+ assert.deepEqual(data.countries.filter(c=>c.id!=='malaysia'),expected.countries);assert.deepEqual(data.cities.filter(c=>!cityIds.includes(c.id)),expected.cities);
+ assert.deepEqual(data.assets.filter(a=>europe.assets.some(b=>a.assetId===b.assetId)),europe.assets.filter(a=>!replacements.has(a.assetId)).map(a=>a.assetId==='amsterdam-artis-3'?{...a,alt:'園內動物聚在岩石與繩索旁。'}:a));
  assert.equal(cities.flatMap(c=>c.places).length,23);assert.equal(cities.flatMap(c=>c.chapters).length,11);assert.equal(cities.flatMap(c=>c.cards).length,11);
- const assets=data.assets.filter(a=>!europe.assets.some(e=>e.assetId===a.assetId));assert.equal(assets.length,99);assert.equal(assets.filter(a=>a.cardPhoto).length,10);assert.equal(assets.filter(a=>a.lineage.kind==='photo').length,10);
+ const assets=data.assets.filter(a=>a.assetId.startsWith('my-'));assert.equal(assets.length,99);assert.equal(assets.filter(a=>a.cardPhoto).length,10);assert.equal(assets.filter(a=>a.lineage.kind==='photo').length,10);
 });
 test('chapter guides preserve full source paragraphs, three-photo galleries, six facts and distinct food trips',()=>{
  for(const c of cities){const html=renderApprovedCity(data,c.id,{publication:true});

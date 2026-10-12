@@ -1,7 +1,7 @@
 {
   "schema": "eaglish.singapore-publication/v1",
-  "version": "g9-approved-public-v1",
-  "articleSha256": "666ecf0894f4bac67e61f78afebbc2f4aa80505fc1b79b0e16922fc2bbb945ea",
+  "version": "2026-10-12-social-refresh-g2",
+  "articleSha256": "ac1eb654e0f636d175e1a07e5e3ed58d4ecbc1cc14bd9f0835bd328ff5721793",
   "approvedContentSha256": "c1a7cd4f11211c26077989521d059e4929dfb354d2870059bdb4fdc5692e87f3",
   "approvedMediaSha256": "c9411851e34566b5081a967ce091ba183fa8e027980afe37ad679f9f1b7a34ed",
   "creator": "鷹式一家",
@@ -1012,7 +1012,19 @@
           "sha256": "e9309ae0e695d708186193c4f064fe20b75160e4e6c917ba3ec5be1037254146",
           "bytes": 268658
         }
-      ]
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "c0fb43b18b1a5d1d870654e29933b89a4fe95f664bf324ac09930f6c0dfc3afa",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      }
     },
     {
       "assetId": "sg-yt-n7lACEL6lWw-000075-v1",
@@ -1442,6 +1454,71 @@
           "bytes": 55946
         }
       ]
+    },
+    {
+      "assetId": "sg-jewel-grandmother-social-refresh-g1-r1",
+      "sourceId": "ig:DX_y4WhE3EF",
+      "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "locatorUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/?img_index=12",
+      "width": 1440,
+      "height": 1798,
+      "crop": [
+        0,
+        0,
+        1440,
+        1798
+      ],
+      "rawSha256": "02b7c72686c3b9646db1c29a4bcb5537e74bc5b167035365935cb7c79af19e78",
+      "creator": "鷹式一家",
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "02b7c72686c3b9646db1c29a4bcb5537e74bc5b167035365935cb7c79af19e78",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      },
+      "sourceIds": [
+        "refresh-ig-dx_y4whe3ef-12"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-640.webp",
+          "width": 640,
+          "height": 799,
+          "bytes": 103682,
+          "sha256": "94942eca15587da53da7b65d3215a2c6069afc303fe7efd5078b0c12fb8836a7"
+        },
+        {
+          "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-960.webp",
+          "width": 960,
+          "height": 1199,
+          "bytes": 186440,
+          "sha256": "f2edb073dfcbe0bc4b7717f38545c55e7dd6c01244fee03b06d777cf1919d376"
+        },
+        {
+          "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "bytes": 322602,
+          "sha256": "b229297feb570ef4107797e625fd7bfcc79fefc3ff216f0036b9a47880961b31"
+        }
+      ]
+    }
+  ],
+  "photoSources": [
+    {
+      "id": "refresh-ig-dx_y4whe3ef-12",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "rights": "Hiram authorized own eaglish.fam photo use for this scoped travel refresh; people assessed separately.",
+      "checkedOn": "2026-10-12",
+      "label": "鷹式一家星耀樟宜照片",
+      "locator": "Instagram carousel slide 12; publication 2026-05-06T12:13:31.000Z, not inferred visit date"
     }
   ]
 }

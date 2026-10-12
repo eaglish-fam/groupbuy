@@ -18,6 +18,7 @@
 .sg-guide .sg-attraction-gallery .sg-gallery-pair{display:grid;grid-template-columns:var(--sg-pair-columns);gap:18px;align-items:start}
 .sg-guide .sg-attraction-gallery figure{margin:0;width:100%}
 .sg-guide .sg-attraction-gallery .sg-gallery-lead figure[data-portrait]{max-width:360px;justify-self:center}
+.sg-guide #jewel .sg-attraction-gallery .sg-gallery-lead figure[data-portrait]{max-width:none;justify-self:stretch}
 .sg-guide .sg-attraction-gallery .sg-gallery-pair figure[data-portrait]{max-width:none;justify-self:stretch}
 .sg-guide .sg-overview-group{font-size:15px;margin:18px 0 0;padding-left:0;border-left:0}
 /* Chiang Mai's grid count; all card/photo/type/color rules remain shared. */

@@ -35,6 +35,10 @@ test('new public variants retain declared hashes and budgets; source originals a
  assert.doesNotMatch(JSON.stringify(data),/\/Users\/|\/tmp\/|file:\/\/|packetSha256|dispatchId/);
 });
 test('photo correction does not rewrite facts, stories, planner, source rights, other guides or discovery content',()=>{
+ const refreshSources=['refresh-ig-da3x-tcttg9-10','refresh-ig-dbjbstjtzbf-11','refresh-ig-dbjbstjtzbf-16','refresh-ig-dbjbstjtzbf-15','frame-hans-grietje-clean-tower-g2-r1'];
  const value=structuredClone(data);delete value.assets;const approvedPhotoSources=['my-ig-dctad4hkwmw-slide-1','my-ig-dctad4hkwmw-slide-3','my-ig-dctad4hkwmw-slide-4','my-ig-dctad4hkwmw-slide-12','my-ig-dctad4hkwmw-slide-13','my-ig-dctad4hkwmw-slide-14','my-ig-djt0fkttw4u-slide-1','my-ig-djt0fkttw4u-slide-3','my-ig-djt0fkttw4u-slide-4'];assert.equal(value.sources.filter(s=>approvedPhotoSources.includes(s.id)).length,9);value.sources=value.sources.filter(s=>!approvedPhotoSources.includes(s.id));const country=value.countries.find(c=>c.id==='malaysia');country.image='my-penang-hero-main-g3-v3';country.discovery.assetId=country.image;for(const c of value.cities){delete c.hero;delete c.entryImagePair;for(const p of c.places)delete p.images;for(const card of c.cards){delete card.assetId;delete card.focalPoint;delete card.imagePair;}}
+ assert.equal(value.sources.filter(s=>refreshSources.includes(s.id)).length,5);value.sources=value.sources.filter(s=>!refreshSources.includes(s.id));
+ const oldEurope=JSON.parse(readFileSync(new URL('trip/data/europe-approved-travel-v1.json',root),'utf8'));
+ const nl=value.countries.find(c=>c.id==='netherlands'),oldNl=oldEurope.countries.find(c=>c.id==='netherlands');nl.image=oldNl.image;nl.discovery.assetId=oldNl.discovery.assetId;
  assert.equal(hash(JSON.stringify(value)),'073da6bdc240dba9c9c96ca6e42de0c45d1ccc2113bfbbff051f03fc37e42db0');
 });

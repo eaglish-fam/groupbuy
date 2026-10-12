@@ -41,6 +41,22 @@
           "bytes": 268658,
           "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-01-1440.webp"
         }
+      ],
+      "lineage": {
+        "kind": "photo",
+        "sourceSha256": "c0fb43b18b1a5d1d870654e29933b89a4fe95f664bf324ac09930f6c0dfc3afa",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      },
+      "focalPoint": [
+        50,
+        50
       ]
     },
     "navigation": [
@@ -361,35 +377,54 @@
           "time": "預留 3–5 小時",
           "play": "雨漩渦・迷宮與網道",
           "image": {
-            "assetId": "sg-yt-n7lACEL6lWw-000063-v1",
-            "facetId": "jewel-changi",
-            "width": 1280,
-            "height": 720,
-            "alt": "星耀樟宜的室內瀑布從圓形天窗流下，玻璃屋頂下方有大片綠色植栽",
-            "caption": "",
+            "assetId": "sg-jewel-grandmother-social-refresh-g1-r1",
+            "width": 1440,
+            "height": 1798,
+            "alt": "阿婆穿著紫色上衣站在星耀樟宜欄杆旁，身後是雨漩渦與玻璃屋頂。",
+            "caption": "阿婆在雨漩渦前留影，玻璃屋頂和植栽環繞著瀑布。",
+            "focalPoint": [
+              50,
+              50
+            ],
+            "sourceIds": [
+              "refresh-ig-dx_y4whe3ef-12"
+            ],
+            "lineage": {
+              "kind": "photo",
+              "sourceSha256": "02b7c72686c3b9646db1c29a4bcb5537e74bc5b167035365935cb7c79af19e78",
+              "sourceWidth": 1440,
+              "sourceHeight": 1798,
+              "activePicture": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 1798
+              }
+            },
             "variants": [
               {
-                "sha256": "4e29686d038191b678c9fc0172fcddbf6c8065c94faff73c37e54a455cbc9e96",
+                "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-640.webp",
                 "width": 640,
-                "height": 360,
-                "bytes": 65840,
-                "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000063-v1-640.webp"
+                "height": 799,
+                "bytes": 103682,
+                "sha256": "94942eca15587da53da7b65d3215a2c6069afc303fe7efd5078b0c12fb8836a7"
               },
               {
-                "sha256": "54e69c6660db1e11426d84f2bbf210aca6569c55e7e4bb8b344bc9fb49355adc",
+                "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-960.webp",
                 "width": 960,
-                "height": 540,
-                "bytes": 127468,
-                "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000063-v1-960.webp"
+                "height": 1199,
+                "bytes": 186440,
+                "sha256": "f2edb073dfcbe0bc4b7717f38545c55e7dd6c01244fee03b06d777cf1919d376"
               },
               {
-                "sha256": "e77456b55b4fee7c59a95fbbcbca14eb5ab4f38561792d83525c522f90e3eec1",
-                "width": 1280,
-                "height": 720,
-                "bytes": 196218,
-                "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000063-v1-1280.webp"
+                "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-1440.webp",
+                "width": 1440,
+                "height": 1798,
+                "bytes": 322602,
+                "sha256": "b229297feb570ef4107797e625fd7bfcc79fefc3ff216f0036b9a47880961b31"
               }
-            ]
+            ],
+            "facetId": "jewel-changi"
           }
         }
       ]
@@ -1914,35 +1949,54 @@
         ],
         "images": [
           {
-            "assetId": "sg-yt-n7lACEL6lWw-000063-v1",
-            "facetId": "jewel-changi",
-            "width": 1280,
-            "height": 720,
-            "alt": "星耀樟宜的雨漩渦從圓形玻璃屋頂落下，周圍環繞綠色植栽。",
-            "caption": "圓形玻璃屋頂下，是星耀樟宜的雨漩渦。",
+            "assetId": "sg-jewel-grandmother-social-refresh-g1-r1",
+            "width": 1440,
+            "height": 1798,
+            "alt": "阿婆穿著紫色上衣站在星耀樟宜欄杆旁，身後是雨漩渦與玻璃屋頂。",
+            "caption": "阿婆在雨漩渦前留影，玻璃屋頂和植栽環繞著瀑布。",
+            "focalPoint": [
+              50,
+              50
+            ],
+            "sourceIds": [
+              "refresh-ig-dx_y4whe3ef-12"
+            ],
+            "lineage": {
+              "kind": "photo",
+              "sourceSha256": "02b7c72686c3b9646db1c29a4bcb5537e74bc5b167035365935cb7c79af19e78",
+              "sourceWidth": 1440,
+              "sourceHeight": 1798,
+              "activePicture": {
+                "x": 0,
+                "y": 0,
+                "width": 1440,
+                "height": 1798
+              }
+            },
             "variants": [
               {
-                "sha256": "4e29686d038191b678c9fc0172fcddbf6c8065c94faff73c37e54a455cbc9e96",
+                "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-640.webp",
                 "width": 640,
-                "height": 360,
-                "bytes": 65840,
-                "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000063-v1-640.webp"
+                "height": 799,
+                "bytes": 103682,
+                "sha256": "94942eca15587da53da7b65d3215a2c6069afc303fe7efd5078b0c12fb8836a7"
               },
               {
-                "sha256": "54e69c6660db1e11426d84f2bbf210aca6569c55e7e4bb8b344bc9fb49355adc",
+                "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-960.webp",
                 "width": 960,
-                "height": 540,
-                "bytes": 127468,
-                "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000063-v1-960.webp"
+                "height": 1199,
+                "bytes": 186440,
+                "sha256": "f2edb073dfcbe0bc4b7717f38545c55e7dd6c01244fee03b06d777cf1919d376"
               },
               {
-                "sha256": "e77456b55b4fee7c59a95fbbcbca14eb5ab4f38561792d83525c522f90e3eec1",
-                "width": 1280,
-                "height": 720,
-                "bytes": 196218,
-                "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000063-v1-1280.webp"
+                "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-1440.webp",
+                "width": 1440,
+                "height": 1798,
+                "bytes": 322602,
+                "sha256": "b229297feb570ef4107797e625fd7bfcc79fefc3ff216f0036b9a47880961b31"
               }
-            ]
+            ],
+            "facetId": "jewel-changi"
           },
           {
             "assetId": "sg-yt-CV5AEHUlhc4-000118-g3-v2",
@@ -2832,6 +2886,22 @@
             "bytes": 268658,
             "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-01-1440.webp"
           }
+        ],
+        "lineage": {
+          "kind": "photo",
+          "sourceSha256": "c0fb43b18b1a5d1d870654e29933b89a4fe95f664bf324ac09930f6c0dfc3afa",
+          "sourceWidth": 1440,
+          "sourceHeight": 1798,
+          "activePicture": {
+            "x": 0,
+            "y": 0,
+            "width": 1440,
+            "height": 1798
+          }
+        },
+        "focalPoint": [
+          50,
+          50
         ]
       },
       {
@@ -2992,12 +3062,16 @@
         "title": "星耀樟宜",
         "play": "雨漩渦・迷宮與網道",
         "time": "預留 3–5 小時",
-        "assetId": "sg-yt-n7lACEL6lWw-000063-v1",
-        "alt": "星耀樟宜雨漩渦從圓形天窗流下，玻璃屋頂和植栽圍繞瀑布",
+        "assetId": "sg-ig-DX_y4WhE3EF-01",
+        "alt": "一家七口在星耀樟宜室內瀑布前合照，背景是圓形玻璃屋頂和綠色植栽",
         "focalPoint": {
-          "x": 30,
+          "x": 50,
           "y": 50
-        }
+        },
+        "imagePair": [
+          "sg-ig-DX_y4WhE3EF-01",
+          "sg-jewel-grandmother-social-refresh-g1-r1"
+        ]
       }
     ]
   }
