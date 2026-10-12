@@ -2,11 +2,15 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {mountGlobe} from '../trip/globe-source.mjs';
+import {geoOrthographic} from 'd3-geo';
+import {globeLensFrame} from '../trip/atlas-globe-camera.mjs';
 
 const topology=JSON.parse(readFileSync(new URL('../trip/globe-land.json',import.meta.url),'utf8'));
+const taiwan=JSON.parse(readFileSync(new URL('../trip/taiwan-counties.json',import.meta.url),'utf8'));
 const countries=[
  {id:'thailand',region:'asia',subregion:'southeast-asia',geography:{isoNumeric:'764',point:[100.5,15]}},
  {id:'new-zealand',region:'oceania',subregion:'australasia',geography:{isoNumeric:'554',point:[172.8,-43.2]}},
+ {id:'netherlands',region:'europe',geography:{isoNumeric:'528',point:[4.9,52.4]}},
 ];
 
 // Run the real d3 drawing and runtime against a minimal canvas platform. No network.
@@ -17,19 +21,19 @@ function environment(t){
  const noop=()=>{};
  const state={frames:new Map(),frameId:0,time:0,draws:0,points:[],fetches:0,observerDisconnected:false};
  let lastArc=null;
- const context={setTransform:noop,clearRect(){state.draws++;state.points=[];},fillRect:noop,save:noop,restore:noop,beginPath(){lastArc=null;},moveTo:noop,lineTo:noop,ellipse:noop,arc(x,y,r){lastArc={x,y,r};},closePath:noop,fill(){if(lastArc&&['#774735','#95755b'].includes(this.fillStyle))state.points.push({...lastArc,selected:this.fillStyle==='#774735'});},stroke:noop,clip:noop,createRadialGradient:()=>({addColorStop:noop})};
+ const context={setTransform:noop,clearRect(){state.draws++;state.points=[];},fillRect:noop,save:noop,restore:noop,beginPath(){lastArc=null;},moveTo:noop,lineTo:noop,ellipse:noop,arc(x,y,r){lastArc={x,y,r};},closePath:noop,fill(){if(lastArc&&['#774735','#95755b','#784b39','#547364'].includes(this.fillStyle))state.points.push({...lastArc,color:this.fillStyle,selected:this.fillStyle==='#774735'});},stroke:noop,clip:noop,createRadialGradient:()=>({addColorStop:noop})};
  const handlers={};
- const canvas={style:{},setAttribute:noop,getContext:()=>context,addEventListener:(name,fn)=>handlers[name]=fn,removeEventListener:name=>delete handlers[name],remove(){this.removed=true;},setPointerCapture:noop,hasPointerCapture:()=>false};
+ const canvas={style:{},setAttribute:noop,getContext:()=>context,getBoundingClientRect:()=>({left:0,top:0}),addEventListener:(name,fn)=>handlers[name]=fn,removeEventListener:name=>delete handlers[name],remove(){this.removed=true;},setPointerCapture:noop,hasPointerCapture:()=>false};
  const motion={matches:false,addEventListener:(name,fn)=>motion.change=fn,removeEventListener:()=>delete motion.change};
  const docHandlers={};
- const document={hidden:false,createElement:()=>canvas,addEventListener:(name,fn)=>docHandlers[name]=fn,removeEventListener:name=>delete docHandlers[name]};
+ const document={hidden:false,createElement:tag=>tag==='canvas'?canvas:{style:{},dataset:{},setAttribute:noop,addEventListener:noop,remove:noop,getBoundingClientRect:()=>({width:72,height:44})},addEventListener:(name,fn)=>docHandlers[name]=fn,removeEventListener:name=>delete docHandlers[name]};
  const window={devicePixelRatio:3,matchMedia:()=>motion,addEventListener:noop,removeEventListener:noop};
  const fakePerformance={now:()=>state.time};
- const globals={document,window,performance:fakePerformance,requestAnimationFrame:fn=>{const id=++state.frameId;state.frames.set(id,fn);return id;},cancelAnimationFrame:id=>state.frames.delete(id),ResizeObserver:class{observe(){}disconnect(){state.observerDisconnected=true;}},fetch:async()=>{state.fetches++;return {ok:true,json:async()=>topology};}};
+ const globals={document,window,performance:fakePerformance,requestAnimationFrame:fn=>{const id=++state.frameId;state.frames.set(id,fn);return id;},cancelAnimationFrame:id=>state.frames.delete(id),ResizeObserver:class{observe(){}disconnect(){state.observerDisconnected=true;}},fetch:async url=>{state.fetches++;return {ok:true,json:async()=>String(url).includes('taiwan-counties.json')?taiwan:topology};}};
  for(const [key,value] of Object.entries(globals))Object.defineProperty(globalThis,key,{value,writable:true,configurable:true});
  const fallback={hidden:false,style:{display:''}};
  const classes=new Set();
- const host={clientWidth:400,dataset:{},querySelector:()=>fallback,appendChild:node=>host.canvas=node,classList:{add:value=>classes.add(value),remove:value=>classes.delete(value)}};
+ const host={clientWidth:400,dataset:{},querySelector:()=>fallback,appendChild:node=>{if(node.getContext)host.canvas=node;},classList:{add:value=>classes.add(value),remove:value=>classes.delete(value)}};
  const flush=at=>{state.time=at;const callbacks=[...state.frames.values()];state.frames.clear();callbacks.forEach(callback=>callback(at));};
  const mount=options=>mountGlobe(host,{countries,region:{id:'asia',center:[110,25]},selectedCountry:'thailand',...options});
  return {state,canvas,handlers,document,docHandlers,motion,fallback,host,classes,flush,mount};
@@ -68,11 +72,25 @@ test('globe transition stops and newest selection replaces an in-flight transiti
  const selected=env.state.points.find(point=>point.selected);
  assert.ok(selected,'selected subregion country remains visible');
  assert.ok(Math.abs(selected.x-200)<.01,'newest selected country is at the projection center');
- assert.equal(env.state.points.length,1,'other-region points are excluded');
+ assert.equal(env.state.points.length,3,'all front-side countries remain visible across region/subregion choices');
  const count=env.state.draws;
  env.flush(1000);
  assert.equal(env.state.draws,count,'no idle animation loop');
  globe.destroy();
+});
+
+test('real unified globe retains Asia and Taiwan in Oceania, rotates to Europe and hit-tests its pin without changing the selected region',async t=>{
+ const env=environment(t),selected=[];
+ const globe=await env.mount({view:{mode:'world',center:[155,-25],regionId:'oceania',countryId:'new-zealand'},onSelect:id=>selected.push(id)});
+ assert(env.state.points.some(p=>p.color==='#547364'),'Taiwan remains eligible outside Asia');
+ assert(env.state.points.filter(p=>p.color==='#784b39').length>=2,'NZ and another continent remain visible');
+ for(let i=0;i<22;i++)env.handlers.keydown({key:'ArrowLeft',preventDefault(){}});
+ for(let i=0;i<10;i++)env.handlers.keydown({key:'ArrowUp',preventDefault(){}});
+ env.flush(100);
+ const lens=globeLensFrame(400,560),projection=geoOrthographic().scale(lens.radius).translate([lens.cx,lens.cy]).rotate([-1,-45,0]),[x,y]=projection(countries.find(c=>c.id==='netherlands').geography.point);
+ assert(env.state.points.some(p=>Math.hypot(p.x-x,p.y-y)<.001),'European marker reappears by rotation, despite Oceania selection');
+ env.handlers.pointerdown({isPrimary:true,button:0,pointerId:9,clientX:x,clientY:y});env.handlers.pointerup({type:'pointerup',pointerId:9,clientX:x,clientY:y});
+ assert.deepEqual(selected,['netherlands']);globe.destroy();
 });
 
 test('reduced motion, page hiding and destroy cancel transition work',async t=>{

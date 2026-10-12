@@ -21,8 +21,8 @@ export function renderTravelHomeR24(){
  let html=addSingaporeDiscovery(mapFirstTravelHome(template)),projection=config;
  const approved=approvedTravelRegistration(fileURLToPath(new URL('..',import.meta.url)));
  if(approved){const added=prepareApprovedR24Discovery(html,approved.data,{catalog:travelHomeCatalog,config});html=added.html;projection=added.config;}
- return inlineTravelStyles(html.replace('</head>','<link rel="stylesheet" href="/trip/travel-entry.css"></head>').replace('{{ATLAS_CONFIG}}',JSON.stringify(projection).replaceAll('<','\\u003c'))
-  .replace('/trip/atlas-ui-bundle.mjs?v=r24-20261002','/trip/atlas-ui-bundle.mjs?v=r28-20261002')
+ return inlineTravelStyles(html.replace('</head>','<link rel="stylesheet" href="/trip/travel-entry.css"><link rel="stylesheet" href="/trip/atlas-navigation.css"></head>').replace('{{ATLAS_CONFIG}}',JSON.stringify(projection).replaceAll('<','\\u003c'))
+  .replace('/trip/atlas-ui-bundle.mjs?v=r24-20261002','/trip/atlas-ui-bundle.mjs?v=globe-nav-g1-20261013')
   .replace(/<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>/g,''));
 }
 // Reorder the reviewed top-level modules in the actual document, without
@@ -45,7 +45,14 @@ export function mapFirstTravelHome(template){
  // Keep the frozen reviewed snapshot; the live home needs only the main intro.
  const duplicateIntro='<div class="atlas-intro"><h2 id="atlas-heading">從一片風景，開始遠行。</h2><p>先選地區，再找到想去的國家。</p></div>';
  if(map.split(duplicateIntro).length!==2||map.split('aria-labelledby="atlas-heading"').length!==2)throw Error('Expected one reviewed atlas introduction and accessible name');
- const destinations=map.replace(duplicateIntro,'').replace('aria-labelledby="atlas-heading"','aria-label="目的地地圖"');
+ let destinations=map.replace(duplicateIntro,'').replace('aria-labelledby="atlas-heading"','aria-label="目的地地圖"');
+ const primary=destinations.match(/<nav id="top-levels"[^>]*>[\s\S]*?<\/nav>/g);
+ if(primary?.length!==1)throw Error('Expected one primary atlas mode navigation');
+ destinations=destinations.replace(primary[0],'<nav id="top-levels" class="top-nav" aria-label="選擇地圖模式"><a href="#static-taiwan">台灣</a><a href="#static-world">世界</a></nav>');
+ const headerStart=destinations.indexOf('<div class="map-header">'),headerEnd=destinations.indexOf('<div id="regions"',headerStart);
+ if(headerStart<0||headerEnd<headerStart)throw Error('Expected reviewed map controls boundary');
+ const chrome='<div class="map-heading-row"><div class="map-heading-copy"><h2 id="map-heading">台灣，下一站。</h2><button id="world-map-entry" type="button" data-action="top" data-id="world" hidden>回到世界地圖</button></div><button id="recenter-map" type="button" disabled>重新置中</button></div><div id="map-breadcrumb-row" hidden><nav id="breadcrumbs" aria-label="探索位置" hidden></nav><button id="back" type="button" hidden>← 回台灣全覽</button></div><button id="retry-globe" type="button" hidden>重試載入地球</button><div id="continent-nav" aria-label="選擇大洲與國家" hidden></div>';
+ destinations=destinations.slice(0,headerStart)+chrome+destinations.slice(headerEnd);
  return template.slice(0,openingStart)+intro+destinations
   +opening.replace(introduction[0],'').replace('<img ','<img data-primary-travel-photo ')
   +template.slice(featuredStart,mapStart)+template.slice(planningStart);
@@ -53,7 +60,7 @@ export function mapFirstTravelHome(template){
 // Preserve reviewed deterministic first paint without a preview host dependency.
 // Current shared CSS is read from this checkout; other sites are never replaced.
 export function inlineTravelStyles(html){
- const allowed=new Set(['/trip/trip.css','/trip/home.css','/trip/atlas-component.css','/trip/bangkok.css','/trip/cebu-bohol.css','/trip/cebu-presentation-r21.css','/site-navigation.css','/trip/heading-theme-r24.css','/trip/travel-entry.css']);
+ const allowed=new Set(['/trip/trip.css','/trip/home.css','/trip/atlas-component.css','/trip/atlas-navigation.css','/trip/bangkok.css','/trip/cebu-bohol.css','/trip/cebu-presentation-r21.css','/site-navigation.css','/trip/heading-theme-r24.css','/trip/travel-entry.css']);
  return html.replace(/<link\b[^>]*rel="stylesheet"[^>]*href="([^"<>]+)"[^>]*>/g,(tag,href)=>{
   const p=new URL(href,'https://www.eaglish.store').pathname;
   if(!allowed.has(p))return tag;

@@ -28,7 +28,7 @@ export function mainlandBodyBounds(geometry){
  return points.reduce((b,[x,y])=>[Math.min(b[0],x),Math.min(b[1],y),Math.max(b[2],x),Math.max(b[3],y)],[Infinity,Infinity,-Infinity,-Infinity]);
 }
 export function atlasCamera(state,geometry,catalog,regions){
- if(state.top!=='taiwan')return {mode:'world',center:catalog.countries.find(c=>c.id===state.countryId)?.geography.point||regions.find(r=>r.id===state.top)?.center||[112,22],countryId:state.countryId,regionId:state.top==='world'?'all':state.top};
+ if(state.top!=='taiwan'){const regionId=state.continentId||(state.top==='world'?'all':state.top);return {mode:'world',center:catalog.countries.find(c=>c.id===state.countryId)?.geography.point||regions.find(r=>r.id===regionId)?.center||[112,22],countryId:state.countryId,regionId};}
  let bounds=geometry.mainlandBodyBounds||mainlandBodyBounds(geometry);
  if(state.countyId||state.regionId){
   const selected=geometry.features.filter(f=>state.countyId?f.id===state.countyId:f.properties.regionId===state.regionId);

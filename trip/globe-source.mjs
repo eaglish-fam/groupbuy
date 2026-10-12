@@ -83,7 +83,7 @@ export async function mountGlobe(host,{countries=[],region,selectedCountry,onSel
   light.addColorStop(0,'rgba(255,247,223,.24)');light.addColorStop(.65,'rgba(255,247,223,0)');light.addColorStop(1,'rgba(35,68,64,.22)');
   context.fillStyle=light;context.fillRect(0,0,width,height);context.restore();
   for(const country of countries){
-   if(regionId&&regionId!=='all'&&country.region!==regionId&&country.subregion!==regionId)continue;
+   // Region/country selection sets the camera; all front-side pins stay eligible.
    const point=country.geography?.point;
    if(!isPoint(point)||geoDistance(center,point)>=Math.PI/2-.015)continue;
    const projected=projection(point);if(!projected)continue;
