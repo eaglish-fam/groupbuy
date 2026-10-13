@@ -193,7 +193,7 @@
       "prepared": "2026-10-13",
       "published": "2026-10-13",
       "modified": "2026-10-13",
-      "sourceHash": "f58de9d04e0aa585735a8a85f88af7b4dd34a76d59a9f28e9d01d36a5b020ab6"
+      "sourceHash": "c3deb98a206ade6d3d6515d920c8924b52be5b80f64c25f689a2d5be1e607b6c"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -217,6 +217,25 @@
       "published": "2026-09-11",
       "modified": "2026-09-11",
       "sourceHash": "7effee20afc452bf17989935cca1350f48ffd904ac8865290e8ae1d44c948342"
+    },
+    {
+      "slug": "knsh",
+      "url": "https://www.eaglish.store/blog/knsh/",
+      "title": "康軒學習雜誌怎麼選？學前、初階、進階版比較與共讀心得｜鷹家選物誌",
+      "productNames": [
+        "康軒雜誌"
+      ],
+      "productId": "knsh",
+      "mode": "product",
+      "intent": "product:knsh",
+      "topics": [
+        "康軒學習雜誌",
+        "康軒學習雜誌 怎麼選"
+      ],
+      "cluster": null,
+      "published": "2026-10-13",
+      "modified": "2026-10-13",
+      "sourceHash": "936c15e7382e96af3f4caa9517285fc69f53c7733b5b2ec025e27f53bf41c3bd"
     },
     {
       "slug": "lange",

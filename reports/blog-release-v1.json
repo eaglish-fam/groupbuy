@@ -1,11 +1,12 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-10-09T09:44:10.252Z",
+  "generatedAt": "2026-10-13T15:56:52.835Z",
   "status": "ready",
   "summary": {
-    "checks": 595,
-    "passed": 595,
-    "failures": 0
+    "checks": 681,
+    "passed": 681,
+    "failures": 0,
+    "unpublishedKnowledge": 0
   },
   "checks": [
     {
@@ -26,7 +27,7 @@
     {
       "id": "blog:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:index.html:single-h1",
@@ -69,6 +70,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:artisan-cb301:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:artisan-cb301:index.html:title",
       "passed": true,
       "detail": "Title length 41."
@@ -86,7 +92,7 @@
     {
       "id": "blog:artisan-cb301:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:artisan-cb301:index.html:single-h1",
@@ -131,7 +137,7 @@
     {
       "id": "blog:artisan-cb301:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:artisan-cb301:index.html:sitemap-lastmod",
@@ -219,6 +225,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:atojet:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:atojet:index.html:title",
       "passed": true,
       "detail": "Title length 39."
@@ -236,7 +247,7 @@
     {
       "id": "blog:atojet:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:atojet:index.html:single-h1",
@@ -281,7 +292,7 @@
     {
       "id": "blog:atojet:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:atojet:index.html:sitemap-lastmod",
@@ -369,6 +380,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:branden:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:branden:index.html:title",
       "passed": true,
       "detail": "Title length 41."
@@ -386,7 +402,7 @@
     {
       "id": "blog:branden:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:branden:index.html:single-h1",
@@ -431,7 +447,7 @@
     {
       "id": "blog:branden:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:branden:index.html:sitemap-lastmod",
@@ -519,6 +535,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:caesar-kenting:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:caesar-kenting:index.html:title",
       "passed": true,
       "detail": "Title length 36."
@@ -536,7 +557,7 @@
     {
       "id": "blog:caesar-kenting:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:caesar-kenting:index.html:single-h1",
@@ -581,7 +602,7 @@
     {
       "id": "blog:caesar-kenting:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:caesar-kenting:index.html:sitemap-lastmod",
@@ -669,6 +690,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:chulu-aomori-drinks:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:chulu-aomori-drinks:index.html:title",
       "passed": true,
       "detail": "Title length 30."
@@ -686,7 +712,7 @@
     {
       "id": "blog:chulu-aomori-drinks:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:chulu-aomori-drinks:index.html:single-h1",
@@ -731,7 +757,7 @@
     {
       "id": "blog:chulu-aomori-drinks:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:chulu-aomori-drinks:index.html:sitemap-lastmod",
@@ -819,6 +845,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:eben-kombucha:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:eben-kombucha:index.html:title",
       "passed": true,
       "detail": "Title length 35."
@@ -836,7 +867,7 @@
     {
       "id": "blog:eben-kombucha:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:eben-kombucha:index.html:single-h1",
@@ -881,7 +912,7 @@
     {
       "id": "blog:eben-kombucha:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:eben-kombucha:index.html:sitemap-lastmod",
@@ -969,6 +1000,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:fushan-gifts:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:fushan-gifts:index.html:title",
       "passed": true,
       "detail": "Title length 32."
@@ -986,7 +1022,7 @@
     {
       "id": "blog:fushan-gifts:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:fushan-gifts:index.html:single-h1",
@@ -1031,7 +1067,7 @@
     {
       "id": "blog:fushan-gifts:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:fushan-gifts:index.html:sitemap-lastmod",
@@ -1119,6 +1155,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:hereu-tag:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:hereu-tag:index.html:title",
       "passed": true,
       "detail": "Title length 43."
@@ -1136,7 +1177,7 @@
     {
       "id": "blog:hereu-tag:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:hereu-tag:index.html:single-h1",
@@ -1181,7 +1222,7 @@
     {
       "id": "blog:hereu-tag:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:hereu-tag:index.html:sitemap-lastmod",
@@ -1269,6 +1310,176 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:hummus-guide:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:title",
+      "passed": true,
+      "detail": "Title length 32."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:description",
+      "passed": true,
+      "detail": "Description length 96."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/hummus-guide/."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include 鷹嘴豆泥."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:knowledge-shelf",
+      "passed": true,
+      "detail": "Knowledge card is an explicit explainer and contains no purchase action."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:knowledge-related",
+      "passed": true,
+      "detail": "Reviewed related article links remain crawlable."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "Knowledge reaches a reviewed related article without JavaScript."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:hummus-guide:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:kietla-kids-sunglasses:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:kietla-kids-sunglasses:index.html:title",
       "passed": true,
       "detail": "Title length 44."
@@ -1286,7 +1497,7 @@
     {
       "id": "blog:kietla-kids-sunglasses:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:kietla-kids-sunglasses:index.html:single-h1",
@@ -1331,7 +1542,7 @@
     {
       "id": "blog:kietla-kids-sunglasses:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:kietla-kids-sunglasses:index.html:sitemap-lastmod",
@@ -1419,6 +1630,166 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:knsh:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:knsh:index.html:title",
+      "passed": true,
+      "detail": "Title length 32."
+    },
+    {
+      "id": "blog:knsh:index.html:description",
+      "passed": true,
+      "detail": "Description length 95."
+    },
+    {
+      "id": "blog:knsh:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/knsh/."
+    },
+    {
+      "id": "blog:knsh:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:knsh:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:knsh:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include 康軒學習雜誌."
+    },
+    {
+      "id": "blog:knsh:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:knsh:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:knsh:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:knsh:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:knsh:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:knsh:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:knsh:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:knsh:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:knsh:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:knsh:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:knsh:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:knsh:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:knsh:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:knsh:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:knsh:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:knsh:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:knsh:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:knsh:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:knsh:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:knsh:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:knsh:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:knsh:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:knsh:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:knsh:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:lange:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:lange:index.html:title",
       "passed": true,
       "detail": "Title length 34."
@@ -1436,7 +1807,7 @@
     {
       "id": "blog:lange:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:lange:index.html:single-h1",
@@ -1481,7 +1852,7 @@
     {
       "id": "blog:lange:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:lange:index.html:sitemap-lastmod",
@@ -1569,6 +1940,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:leofoo:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:leofoo:index.html:title",
       "passed": true,
       "detail": "Title length 32."
@@ -1586,7 +1962,7 @@
     {
       "id": "blog:leofoo:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:leofoo:index.html:single-h1",
@@ -1631,7 +2007,7 @@
     {
       "id": "blog:leofoo:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:leofoo:index.html:sitemap-lastmod",
@@ -1719,6 +2095,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:locknlock:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:locknlock:index.html:title",
       "passed": true,
       "detail": "Title length 44."
@@ -1736,7 +2117,7 @@
     {
       "id": "blog:locknlock:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:locknlock:index.html:single-h1",
@@ -1781,7 +2162,7 @@
     {
       "id": "blog:locknlock:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:locknlock:index.html:sitemap-lastmod",
@@ -1869,6 +2250,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:meroware:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:meroware:index.html:title",
       "passed": true,
       "detail": "Title length 38."
@@ -1886,7 +2272,7 @@
     {
       "id": "blog:meroware:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:meroware:index.html:single-h1",
@@ -1931,7 +2317,7 @@
     {
       "id": "blog:meroware:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:meroware:index.html:sitemap-lastmod",
@@ -2019,6 +2405,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:miamily:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:miamily:index.html:title",
       "passed": true,
       "detail": "Title length 35."
@@ -2036,7 +2427,7 @@
     {
       "id": "blog:miamily:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:miamily:index.html:single-h1",
@@ -2081,7 +2472,7 @@
     {
       "id": "blog:miamily:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:miamily:index.html:sitemap-lastmod",
@@ -2169,6 +2560,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:mitoy-rice-blocks:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:mitoy-rice-blocks:index.html:title",
       "passed": true,
       "detail": "Title length 31."
@@ -2186,7 +2582,7 @@
     {
       "id": "blog:mitoy-rice-blocks:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:mitoy-rice-blocks:index.html:single-h1",
@@ -2231,7 +2627,7 @@
     {
       "id": "blog:mitoy-rice-blocks:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:mitoy-rice-blocks:index.html:sitemap-lastmod",
@@ -2319,6 +2715,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:playzu:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:playzu:index.html:title",
       "passed": true,
       "detail": "Title length 35."
@@ -2336,7 +2737,7 @@
     {
       "id": "blog:playzu:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:playzu:index.html:single-h1",
@@ -2381,7 +2782,7 @@
     {
       "id": "blog:playzu:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:playzu:index.html:sitemap-lastmod",
@@ -2469,6 +2870,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:shoumaji:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:shoumaji:index.html:title",
       "passed": true,
       "detail": "Title length 30."
@@ -2486,7 +2892,7 @@
     {
       "id": "blog:shoumaji:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:shoumaji:index.html:single-h1",
@@ -2531,7 +2937,7 @@
     {
       "id": "blog:shoumaji:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:shoumaji:index.html:sitemap-lastmod",
@@ -2619,6 +3025,11 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:wave-hummus:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
       "id": "blog:wave-hummus:index.html:title",
       "passed": true,
       "detail": "Title length 33."
@@ -2636,7 +3047,7 @@
     {
       "id": "blog:wave-hummus:index.html:indexable",
       "passed": true,
-      "detail": "Robots index,follow,max-image-preview:large."
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
     },
     {
       "id": "blog:wave-hummus:index.html:single-h1",
@@ -2681,7 +3092,7 @@
     {
       "id": "blog:wave-hummus:index.html:schema-dates",
       "passed": true,
-      "detail": "Published and modified dates are valid."
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
     },
     {
       "id": "blog:wave-hummus:index.html:sitemap-lastmod",
@@ -2869,12 +3280,32 @@
       "detail": "Blog index links to the article."
     },
     {
+      "id": "catalog:https://www.eaglish.store/blog/hummus-guide/",
+      "passed": true,
+      "detail": "Reviewed knowledge has no product-card mapping."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/hummus-guide/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
       "id": "catalog:https://www.eaglish.store/blog/kietla-kids-sunglasses/",
       "passed": true,
       "detail": "Product-card article mapping exists."
     },
     {
       "id": "blog-index:https://www.eaglish.store/blog/kietla-kids-sunglasses/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/knsh/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/knsh/",
       "passed": true,
       "detail": "Blog index links to the article."
     },

@@ -2,6 +2,20 @@
   "schema": "eaglish.blog-cover-identity/v1",
   "effectiveDate": "2026-09-14",
   "articles": {
+    "/blog/knsh/": {
+      "identity": "康軒學習雜誌",
+      "image": "/assets/knsh/cover.webp",
+      "imageSha256": "f769a705cdffcc06017d8819953c8f5e46ec2454f6cbcbb4b76d4647b2c683b7",
+      "source": "/assets/knsh/source-brothers.jpg",
+      "sourceSha256": "b881615037dac7e0957eef9e7ff5a4dd47981242f3d70dd1c50a869e58213aac",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "f769a705cdffcc06017d8819953c8f5e46ec2454f6cbcbb4b76d4647b2c683b7",
+        "viewportWidths": [320,390,768,1440],
+        "mobileCardLegible": true
+      }
+    },
     "/blog/locknlock/": {
       "identity": "樂扣樂扣",
       "image": "/assets/locknlock/cover.webp",

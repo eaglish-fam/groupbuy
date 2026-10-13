@@ -1,11 +1,18 @@
 {
   "counts": {
-    "pages": 52,
+    "pages": 57,
     "blocking": 0,
-    "warnings": 16,
-    "total": 16
+    "warnings": 17,
+    "total": 17
   },
   "findings": [
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-knsh",
+      "file": "blog/knsh/index.html",
+      "index": 10588
+    },
     {
       "level": "warn",
       "category": "images",
@@ -32,14 +39,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43066
+      "index": 43030
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43066
+      "index": 43030
     },
     {
       "level": "warn",
@@ -88,7 +95,7 @@
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/index.html",
-      "index": 536855
+      "index": 539930
     },
     {
       "level": "warn",
