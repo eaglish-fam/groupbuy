@@ -1,7 +1,8 @@
 (function(root,factory){const api=factory(typeof module==='object'?require('../product-content.js'):root.ProductContent);if(typeof module==='object')module.exports=api;else root.BlogIndexModel=api;})(typeof globalThis!=='undefined'?globalThis:this,function(ProductContent){
   function formatDate(value){const date=ProductContent.date(value);if(!date)return '';return new Intl.DateTimeFormat('zh-TW',{timeZone:'Asia/Taipei',month:'long',day:'numeric'}).format(new Date(date+'T12:00:00+08:00'));}
   function rowFor(rows,key){return ProductContent.rowForArticle(rows,key);}
-  function stateForArticle(rows,key,now=ProductContent.today()){
+  function stateForArticle(rows,key,now=ProductContent.today(),contentKind='product'){
+    if(contentKind==='explainer'&&!ProductContent.catalog[key])return {shelf:'journal',label:'閱讀知識指南'};
     if(!ProductContent.catalog[key]?.planBrands)return stateFor(rowFor(rows,key),now);
     const campaign=ProductContent.campaignFor(rows,key,now);
     if(campaign.state==='open')return {shelf:'open',label:'開團中',url:campaign.url};

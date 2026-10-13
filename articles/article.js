@@ -2,6 +2,8 @@
 const sheetUrl='https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/gviz/tq?tqx=out:csv&headers=1&sheet='+encodeURIComponent('現正開團');
 const articleKey=document.body.dataset.articleKey;
 const article=ProductContent.catalog[articleKey];
+// A knowledge guide may refer to a real product without becoming that product article.
+const sourceArticleSlug=document.body.dataset.sourceArticleSlug||article?.article.split('/').filter(Boolean).at(-1);
 const offerButton=document.querySelector('[data-current-offer]'),statusEl=document.querySelector('#offer-status'),videoEl=document.querySelector('#article-videos');let busy=false;
 if(!article)throw Error('Unknown article identity');
 // Keep the original button and its click/focus state; reserve its home in the article.
@@ -47,7 +49,8 @@ async function refreshOffer(navigate=false){
     const csv=await r.text();if(/^\s*</.test(csv))throw Error('Unexpected HTML');
     const parsed=Papa.parse(csv,{header:false,skipEmptyLines:true});if(parsed.errors.length)throw Error('Invalid CSV');
     const rows=ProductContent.sheetRows(parsed.data),c=ProductContent.campaignFor(rows,articleKey);
-    offerButton.textContent=c.label;offerButton.disabled=c.state!=='open';offerButton.setAttribute('aria-label',c.label);
+    const label=c.state==='open'?(offerButton.dataset.openLabel||c.label):c.label;
+    offerButton.textContent=label;offerButton.disabled=c.state!=='open';offerButton.setAttribute('aria-label',label);
     if(c.state==='open')offerButton.dataset.desktopFloatingLabel='true';
     floatingOffer.setAvailable(c.state==='open');
     statusEl.textContent=c.state==='open'?'已核對當期檔期。價格、庫存與優惠請以廠商賣場為準。':'暫不提供直接購買；仍可閱讀文章或返回團購首頁。';
@@ -57,7 +60,7 @@ async function refreshOffer(navigate=false){
     if(navigate&&c.state==='open'){
       const floating=offerButton.closest('.offer-bar')?.classList.contains('is-floating');
       const destination=ProductContent.withUTM(c.url,article.brands[0]);
-      window.SiteAnalytics?.outboundGroupbuy({productId:article.id,productName:article.brands[0],groupType:c.end?'limited':'evergreen',sourceSurface:floating?'blog_floating_cta':'blog_inline_cta',articleSlug:article.article.split('/').filter(Boolean).at(-1),destinationUrl:destination,ctaLabel:offerButton.textContent,campaignKey:c.end||'evergreen',legacyEvent:'click_group_from_blog'});
+      window.SiteAnalytics?.outboundGroupbuy({productId:article.id,productName:article.brands[0],groupType:c.end?'limited':'evergreen',sourceSurface:floating?'blog_floating_cta':'blog_inline_cta',articleSlug:sourceArticleSlug,destinationUrl:destination,ctaLabel:offerButton.textContent,campaignKey:c.end||'evergreen',legacyEvent:'click_group_from_blog'});
       window.location.assign(destination);
     }return c;
   }catch(error){floatingOffer.setAvailable(false);delete offerButton.dataset.desktopFloatingLabel;offerButton.disabled=false;offerButton.textContent='重新確認團購狀態';offerButton.setAttribute('aria-label','重新確認團購狀態');statusEl.textContent='目前無法取得最新資料，未使用過期連結。你可以重試或返回團購首頁。';console.warn(articleKey+' offer unavailable:',error.message);}

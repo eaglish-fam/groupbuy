@@ -101,7 +101,7 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "89973d7829f722ca5250bcbdbadc96d1dd14cd8476455fc86d2cc38cf375d114"
+      "sourceHash": "339d97632dd9985822279a538c8c2ed26c7ba4f6987fcfadb6b50ed15755f6a2"
     },
     {
       "slug": "eben-kombucha",
@@ -143,7 +143,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "f8c8948a973af5fae74ee8598ba062e4927a54f2043c1bf5e64a049af9b589aa"
+      "sourceHash": "0ce2d98aa229dd3e09589b463411b086eb23dc526f70c03cdce38bc226538551"
     },
     {
       "slug": "hereu-tag",
@@ -166,6 +166,34 @@
       "published": "2026-09-11",
       "modified": "2026-09-11",
       "sourceHash": "bf338582ae1eb3297e3de4e28f8438f281fd88d68adf89be65595fb6d0312510"
+    },
+    {
+      "slug": "hummus-guide",
+      "url": "https://www.eaglish.store/blog/hummus-guide/",
+      "title": "鷹嘴豆泥是什麼？Hummus 的吃法、營養與保存一次看懂",
+      "mode": "explainer",
+      "intent": "Non-brand hummus definition, daily eating, nutrition/portion, DIY and storage.",
+      "productNames": [],
+      "productId": null,
+      "description": "鷹嘴豆泥 Hummus 怎麼吃、熱量怎麼看？從芝麻醬與中世紀食譜，整理早餐、捲餅、餐盤搭配，對照熟豆與豆泥的每100g營養，並說明自製、冷藏解凍與份量換算，連到 Wave 商品介紹與當期組合。",
+      "image": "/assets/hummus-guide/cover-v1.webp",
+      "alt": "菇類與葉菜搭配鷹嘴豆泥的餐盤，搭配鷹嘴豆泥吃法、營養與保存主題標題。",
+      "cluster": "table",
+      "relatedArticles": [
+        "wave-hummus"
+      ],
+      "publicationState": "published",
+      "datePrepared": "2026-10-13",
+      "datePublished": "2026-10-13",
+      "dateModified": "2026-10-13",
+      "topics": [
+        "鷹嘴豆泥",
+        "Hummus"
+      ],
+      "prepared": "2026-10-13",
+      "published": "2026-10-13",
+      "modified": "2026-10-13",
+      "sourceHash": "f58de9d04e0aa585735a8a85f88af7b4dd34a76d59a9f28e9d01d36a5b020ab6"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -209,7 +237,7 @@
       "cluster": "family",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "03b44a6204eac9a9c9819c4fff17d846f812d9edf6641bcf2037fd29bea7efef"
+      "sourceHash": "9a9c0ce13f93052a3a4a9b79dd4e4644a2dd3cbf92bfc5440ab0713b71334c0d"
     },
     {
       "slug": "leofoo",
@@ -274,7 +302,7 @@
       "cluster": "family",
       "published": "2026-09-09",
       "modified": "2026-09-11",
-      "sourceHash": "ab7f2e57c4bed226199aab1da4f830b862250dc0237348eb7318e79880064b97"
+      "sourceHash": "aaa63bc328bdbe18b7cf85f85d2e206e364230ea8b61b5600a19dcf9a07dbccf"
     },
     {
       "slug": "miamily",
@@ -314,7 +342,7 @@
       "cluster": "family",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "c691d7a8fa22fc262c1b0d507638b99499341536eb0571ed66c4a8b0da224fe9"
+      "sourceHash": "0eb10a4a59db521cf2cc22bdc7e879208bab6afd797e5ffe3f62b74dce145cc7"
     },
     {
       "slug": "playzu",
@@ -375,7 +403,7 @@
       "cluster": "table",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "a529d0b4c088d8c0c833d49814d99a5d1e13b421a65d4d8e9aa4b26521ea21f1"
+      "sourceHash": "5bf6f7a99ddd9cf17afd8085156519a9ad21d18f05608ede580ae9f162c959fe"
     }
   ]
 }
