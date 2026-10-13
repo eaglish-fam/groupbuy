@@ -41,9 +41,12 @@ test('public blog candidate has clear sections, static article links, and no int
   assert.ok(home.includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN blog card uses the dedicated editorial cover');
   assert.ok(articles[2].includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN article hero uses the dedicated editorial cover');
   assert.ok(home.indexOf('data-article="meroware"')<home.indexOf('data-article="artisanCb301"'),'newest static card appears first before runtime sorting');
-  assert.equal((home.match(/data-published="\d{4}-\d{2}-\d{2}"/g)||[]).length,slugs.length,'every article card declares a publication date');
+  const cards=home.match(/<article\b[\s\S]*?<\/article>/g)||[];
+  const productCards=cards.filter(card=>!card.includes('data-content-kind="explainer"'));
+  assert.equal(productCards.length,slugs.length,'legacy product article cards retain their identities');
+  assert.ok(productCards.every(card=>/data-published="\d{4}-\d{2}-\d{2}"/.test(card)),'product cards retain real publication dates');
   for(const category of ['','食品','居家','母嬰','旅遊'])assert.ok(home.includes(`data-blog-category="${category}"`),'blog exposes the expected category filter');
-  assert.equal((home.match(/data-category="(?:食品|居家|母嬰|旅遊)"/g)||[]).length,slugs.length,'every article card has a storefront-compatible category');
+  assert.equal((home.match(/data-category="(?:食品|居家|母嬰|旅遊)"/g)||[]).length,cards.length,'every article card has a storefront-compatible category');
   const storefront=fs.readFileSync(new URL('../index.html',import.meta.url),'utf8');
   assert.ok(storefront.includes('href="/blog/meroware/"'),'storefront journal links to Meroware');
 });

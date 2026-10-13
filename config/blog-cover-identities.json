@@ -12,7 +12,12 @@
         "identityVisible": true,
         "realPhotoPreserved": true,
         "imageSha256": "3a8eb8147f9d7f09715d6d61afb9f230ae1a0164771d158000c94f3a4dd3a8a5",
-        "viewportWidths": [320, 390, 768, 1440],
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
         "mobileCardLegible": true
       }
     },
@@ -166,6 +171,27 @@
           1440
         ],
         "mobileCardLegible": true
+      }
+    },
+    "/blog/hummus-guide/": {
+      "identity": "鷹嘴豆泥",
+      "image": "/assets/hummus-guide/cover-v1.webp",
+      "imageSha256": "e7694cef420d4548436b09f8f08ed783a45fa45d01f0d1cc8bdcd6e17f739ee0",
+      "source": "/assets/hummus-guide/cover-source-v2.html",
+      "sourceSha256": "aa42da2b26914bc957e626f669c418aa4d173dea95e0ea064c8a1da64eb529c8",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "e7694cef420d4548436b09f8f08ed783a45fa45d01f0d1cc8bdcd6e17f739ee0",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Kira accountable integration chat",
+        "rootFinalAcceptance": false
       }
     }
   }

@@ -1,6 +1,7 @@
 import { createHash } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve, sep } from 'node:path';
+import { isKnowledgeArticle } from './content-identity.mjs';
 
 export const COVER_IDENTITY_SINCE = '2026-09-14';
 const compact = (value) => String(value || '').replace(/<[^>]*>/g, '').replace(/\s+/g, '');
@@ -8,8 +9,9 @@ const sha256 = (bytes) => createHash('sha256').update(bytes).digest('hex');
 
 // A checksum binds the visual review to the delivered pixels; it is not OCR.
 // Existing untouched articles are grandfathered. New/revised articles need review.
-export function validateBlogCover({ root, datePublished, dateModified, entry, html, indexCard, productEntry }) {
-  if (!entry && [datePublished, dateModified].every((date) => date && date < COVER_IDENTITY_SINCE)) return [];
+export function validateBlogCover({ root, datePublished, dateModified, entry, html, indexCard, productEntry, articleIdentity }) {
+  const knowledge = isKnowledgeArticle(articleIdentity);
+  if (!knowledge && !entry && [datePublished, dateModified].every((date) => date && date < COVER_IDENTITY_SINCE)) return [];
   const failures = [];
   const check = (id, passed) => { if (!passed) failures.push(id); };
   if (!entry) return ['cover-identity:missing-review'];
@@ -18,7 +20,8 @@ export function validateBlogCover({ root, datePublished, dateModified, entry, ht
   const h1 = html.match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1];
   check('cover-identity:article-title', identity && compact(h1).includes(identity));
   check('cover-identity:index-title', identity && compact(indexCard?.match(/<h3\b[^>]*>([\s\S]*?)<\/h3>/i)?.[1]).includes(identity));
-  check('cover-identity:shared-title', identity && compact(productEntry?.match(/title:'([^']+)'/)?.[1]).includes(identity));
+  check('cover-identity:shared-title', identity && compact(knowledge ? articleIdentity.title : productEntry?.match(/title:'([^']+)'/)?.[1]).includes(identity));
+  if (knowledge) check('cover-identity:non-product', !productEntry);
   const image = entry.image;
   const validImage = typeof image === 'string' && image.startsWith('/assets/') && !image.includes('..');
   check('cover-identity:image-path', validImage);
@@ -27,7 +30,8 @@ export function validateBlogCover({ root, datePublished, dateModified, entry, ht
     check('cover-identity:sharing-image', ['og:image', 'twitter:image'].every((name) =>
       (html.match(/<meta\b[^>]*>/gi) || []).some((tag) => tag.includes(`"${name}"`) && tag.includes(`"https://www.eaglish.store${image}"`))));
     check('cover-identity:index-image', indexCard?.includes(`src="${image}"`));
-    check('cover-identity:shared-image', productEntry?.includes(`image:'${image}'`));
+    check('cover-identity:shared-image', knowledge ? articleIdentity.image === image : productEntry?.includes(`image:'${image}'`));
+    if (knowledge) check('cover-identity:shared-alt', Boolean(articleIdentity.alt) && indexCard?.includes(`alt="${articleIdentity.alt.replaceAll('&', '&amp;').replaceAll('"', '&quot;')}"`));
   }
   const read = (path) => {
     if (typeof path !== 'string') throw Error('Missing asset path');

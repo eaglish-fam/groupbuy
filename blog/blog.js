@@ -1,7 +1,7 @@
 (() => {
   const sheetUrl = 'https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/gviz/tq?tqx=out:csv&headers=1&sheet=' + encodeURIComponent('現正開團');
   const cards = [...document.querySelectorAll('[data-article]')]
-    .sort((a,b) => BlogIndexModel.newestFirst(a.dataset.published,b.dataset.published));
+    .sort((a,b) => BlogIndexModel.newestFirst(a.dataset.published || a.dataset.prepared,b.dataset.published || b.dataset.prepared));
   const shelves = Object.fromEntries(['open','upcoming','journal'].map(k => [k, document.querySelector('[data-shelf="' + k + '"]')]));
   const filterButtons = [...document.querySelectorAll('[data-blog-category]')];
   const availableCategories = new Set(cards.map(card => card.dataset.category).filter(Boolean));
@@ -46,13 +46,15 @@
   }
   function render(rows) {
     for (const card of cards) {
-      const state = BlogIndexModel.stateForArticle(rows, card.dataset.article);
+      const state = BlogIndexModel.stateForArticle(rows, card.dataset.article, undefined, card.dataset.contentKind);
       card.dataset.state = state.shelf;
       card.querySelector('[data-status]').textContent = state.label;
       const buy = card.querySelector('[data-buy]');
-      buy.hidden = !state.url;
-      if (state.url) { buy.href = state.url; buy.target = '_blank'; buy.rel = 'noopener noreferrer'; }
-      else buy.removeAttribute('href');
+      if (buy) {
+        buy.hidden = !state.url;
+        if (state.url) { buy.href = state.url; buy.target = '_blank'; buy.rel = 'noopener noreferrer'; }
+        else buy.removeAttribute('href');
+      }
       shelves[state.shelf].append(card);
     }
     applyCategory(currentCategory, false);
@@ -63,9 +65,9 @@
     refreshedAt = 0;
     for (const card of cards) {
       card.dataset.state = 'journal';
-      card.querySelector('[data-status]').textContent = '團購狀態待確認';
+      card.querySelector('[data-status]').textContent = BlogIndexModel.stateForArticle([], card.dataset.article, undefined, card.dataset.contentKind).label;
       const buy = card.querySelector('[data-buy]');
-      buy.hidden = true; buy.removeAttribute('href');
+      if (buy) { buy.hidden = true; buy.removeAttribute('href'); }
       shelves.journal.append(card);
     }
     applyCategory(currentCategory, false);
@@ -106,9 +108,10 @@
     const a = e.target.closest('[data-buy]');
     if (!a) return;
     e.preventDefault();
+    const key = a.closest('[data-article]')?.dataset.article;
+    if (!ProductContent.catalog[key]) return;
     if (buying) return;
     buying = true;
-    const key = a.closest('[data-article]').dataset.article;
     const pending = window.open('about:blank', '_blank');
     if (pending) { pending.opener = null; pending.document.title = '正在確認當期團購'; }
     try {

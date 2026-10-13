@@ -1,0 +1,46 @@
+/* Scoped knowledge article. Shared Songti / cream journal direction stays intact. */
+.hummus-guide .hero h1{max-width:850px}
+.hummus-guide .hero h1 .seo-subject{display:inline;margin:0;font:inherit;letter-spacing:inherit;color:inherit}
+.hummus-guide .cover img{max-height:none;aspect-ratio:8/5;object-fit:cover}
+.hummus-guide .cover figcaption{font-size:12px;color:var(--muted)}
+.hummus-guide .article-body>section{scroll-margin-top:calc(var(--journal-chrome-height,110px) + 24px)}
+.hummus-guide .opening{padding-top:46px!important}
+.hummus-guide .concept-figure{margin:34px 0}
+.hummus-guide .concept-figure img{width:100%;height:auto;object-fit:contain}
+.hummus-guide figcaption{margin-top:12px}
+.hummus-guide .hummus-food-pair{grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin:30px 0;gap:16px;max-width:none}
+.hummus-guide .hummus-food-pair figure{margin:0;padding:0;background:none;border:0;box-shadow:none;min-width:0}
+.hummus-guide .hummus-food-pair img{width:100%;height:auto}
+.hummus-guide .hummus-food-pair figcaption{padding:0}
+.hummus-guide .hummus-table{width:100%;overflow-x:auto;margin:30px 0;overscroll-behavior-x:contain}
+.hummus-guide table{border-collapse:collapse;width:100%;text-align:left;font-size:15px;line-height:1.8}
+.hummus-guide th,.hummus-guide td{border-bottom:1px solid var(--line);padding:14px 12px;vertical-align:top}
+.hummus-guide thead th{background:#f3efe5;color:var(--green);font-weight:600}
+.hummus-guide tbody th{font-weight:500}
+.hummus-guide #nutrition td,.hummus-guide #portion td{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.hummus-guide #homemade-or-ready th:first-child{width:25%}
+.hummus-guide .article-body li{margin:0 0 14px;padding-left:4px;font-size:17px;line-height:2}
+.hummus-guide .hummus-offer{border:0;margin:0;padding:0!important}
+.hummus-guide .hummus-offer p{font-size:13px!important;text-align:center}
+.hummus-guide .purchase .offer-bar.is-floating button{white-space:normal}
+.hummus-guide .sources p{font-size:12px}
+.hummus-guide #faq summary h3{display:inline;margin:0;font-size:17px;line-height:1.8}
+.hummus-guide #faq details p{font-size:17px!important;color:var(--ink)}
+.hummus-guide .masthead>.reading-nav__tab[hidden]{display:none!important}
+.hummus-guide .masthead>.reading-nav__tab[aria-expanded="true"]{visibility:hidden!important;pointer-events:none}
+.hummus-guide .masthead>a:last-of-type{font-size:13px;min-height:44px;display:flex;align-items:center;text-decoration:none}
+@media(max-width:1199px){
+ .hummus-guide .masthead>.reading-nav__tab{position:static;display:flex;flex-direction:row;align-items:center;justify-content:center;flex-shrink:0;width:auto;min-height:44px;padding:8px 12px;border:1px solid var(--line);border-radius:4px;background:var(--paper);box-shadow:none;transform:none;opacity:1;visibility:visible}
+ .hummus-guide .masthead>.reading-nav__tab .reading-nav__tab-label{writing-mode:horizontal-tb;letter-spacing:.03em;font-size:13px}
+}
+@media(max-width:700px){.hummus-guide .masthead>a:last-of-type{display:none}}
+@media(max-width:700px){.hummus-guide .hero h1{font-size:32px}.hummus-guide .opening{padding-top:34px!important}.hummus-guide .hummus-food-pair{gap:12px}.hummus-guide th,.hummus-guide td{padding:12px 8px}.hummus-guide table{font-size:14px}.hummus-guide .concept-figure{margin:28px 0}}
+@media(max-width:359px){.hummus-guide .hero h1{font-size:29px}.hummus-guide .hummus-food-pair{grid-template-columns:minmax(0,1fr) minmax(0,1fr);margin:26px 0}.hummus-guide table{font-size:13px}.hummus-guide th,.hummus-guide td{padding:11px 6px}}
+
+/* Earlier product-reading entry: one compact block in chapter 03. */
+.hummus-guide .hummus-product-entry{margin:28px 0;padding:22px 24px;border:1px solid var(--line);background:#f3efe5;border-radius:4px}
+.hummus-guide .hummus-product-entry p{margin:0 0 14px!important;font-size:16px!important;line-height:1.8!important}
+.hummus-guide .hummus-product-entry>a{display:inline-flex;gap:12px;align-items:center;justify-content:space-between;min-height:44px;padding:12px 16px;border:1px solid var(--green);border-radius:4px;color:var(--green);font-size:15px;line-height:1.7;text-decoration:none}
+.hummus-guide .hummus-product-entry>a:hover{background:var(--green);color:var(--paper)}
+.hummus-guide .hummus-product-entry>a:focus-visible{outline:2px solid var(--rust);outline-offset:4px}
+@media(max-width:700px){.hummus-guide .hummus-product-entry{padding:18px}.hummus-guide .hummus-product-entry>a{width:100%;font-size:14px}}

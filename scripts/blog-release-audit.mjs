@@ -3,23 +3,25 @@
 import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { createRequire } from 'node:module';
+import { articleIdentity, articlePublication, isKnowledgeArticle } from './content-identity.mjs';
 import { validateBlogCover } from './blog-cover-contract.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const ORIGIN = 'https://www.eaglish.store';
-const articlePages = readdirSync(join(ROOT, 'blog'), { withFileTypes: true })
-  .filter((entry) => entry.isDirectory() && existsSync(join(ROOT, 'blog', entry.name, 'index.html')))
+function blogPages(root) {
+  return readdirSync(join(root, 'blog'), { withFileTypes: true })
+  .filter((entry) => entry.isDirectory() && existsSync(join(root, 'blog', entry.name, 'index.html')))
   .map((entry) => {
     const path = `blog/${entry.name}/index.html`;
-    const html = readFileSync(join(ROOT, path), 'utf8');
+    const html = readFileSync(join(root, path), 'utf8');
     const phrase = html.match(/<span\s+class=["']seo-subject["'][^>]*>([\s\S]*?)<\/span>/i)?.[1]
       .replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim() || '';
     return { path, url: `${ORIGIN}/blog/${entry.name}/`, type: 'Article', phrase };
   }).sort((a, b) => a.path.localeCompare(b.path));
-const pages = [{ path: 'blog/index.html', url: `${ORIGIN}/blog/`, type: 'Blog', phrase: '鷹家選物誌' }, ...articlePages];
+}
 const forbiddenPublicText = ['閱讀風格預覽', '尚未發布', '廠商情境照片', '廠商套組照片', '內部審核', '待 Hiram 核准', '依生活分類', '正在確認最新團購狀態', '團購狀態已依', '目前無法取得最新團購狀態'];
 
-function content(path) { return readFileSync(join(ROOT, path), 'utf8'); }
 function tagValue(html, tag, attribute, value, outputAttribute = 'content') {
   const tags = html.match(new RegExp(`<${tag}\\b[^>]*>`, 'gi')) || [];
   return tags.find((item) => item.match(new RegExp(`\\b${attribute}=["']${value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`, 'i')))
@@ -53,7 +55,14 @@ function sitemapLastmod(xml, url) {
   return xml.match(new RegExp(`<loc>${escaped}<\\/loc>\\s*<lastmod>([^<]+)<\\/lastmod>`))?.[1] || '';
 }
 
-export function auditBlog() {
+export function auditBlog({ root = ROOT } = {}) {
+  const content = (path) => readFileSync(join(root, path), 'utf8');
+  const articlePages = blogPages(root);
+  const pages = [{ path: 'blog/index.html', url: `${ORIGIN}/blog/`, type: 'Blog', phrase: '鷹家選物誌' }, ...articlePages];
+  const { catalog } = createRequire(import.meta.url)(join(root, 'product-content.js'));
+  const metadata = JSON.parse(content('config/content-articles.json'));
+  if (metadata.version !== 1 || !metadata.articles || Array.isArray(metadata.articles)) throw Error('Invalid content article metadata');
+  let unpublishedKnowledge = 0;
   const checks = [];
   const check = (id, passed, detail) => checks.push({ id, passed: Boolean(passed), detail });
   const titles = new Set();
@@ -75,33 +84,62 @@ export function auditBlog() {
     try { schemas = jsonLd(html); } catch { /* recorded below */ }
     const schemaTypes = schemas.reduce((all, item) => types(item, all), new Set());
     const article = page.type === 'Article' ? articleNode(schemas) : null;
+    const route = new URL(page.url).pathname;
+    const slug = route.split('/').filter(Boolean).at(-1);
+    let identity = null;
+    if (page.type === 'Article') {
+      try {
+        identity = articleIdentity(slug, Object.values(catalog).find((entry) => entry.article === route), metadata.articles[slug]);
+        check(`${id}:reviewed-identity`, true, 'Article identity is bound to the catalog or reviewed metadata.');
+      } catch (error) { check(`${id}:reviewed-identity`, false, error.message); }
+    }
+    const knowledge = isKnowledgeArticle(identity);
+    const candidateKnowledge = knowledge && identity.publicationState === 'not_published';
+    if (candidateKnowledge) unpublishedKnowledge++;
+    const robotTokens = robots.toLowerCase().split(/[\s,]+/).filter(Boolean);
 
     check(`${id}:title`, title.length >= 20 && title.length <= 80, `Title length ${title.length}.`);
     check(`${id}:description`, description.length >= 55 && description.length <= 180, `Description length ${description.length}.`);
     check(`${id}:canonical`, canonical === page.url, `Canonical ${canonical || 'missing'}.`);
-    check(`${id}:indexable`, !/noindex/i.test(robots) && /index/i.test(robots), `Robots ${robots || 'missing'}.`);
+    check(`${id}:indexable`, candidateKnowledge
+      ? robotTokens.includes('noindex') && !robotTokens.includes('index')
+      : !robotTokens.includes('noindex') && robotTokens.includes('index'), `Robots ${robots || 'missing'}; ${candidateKnowledge ? 'unpublished knowledge must remain noindex' : 'published page must be indexable'}.`);
     check(`${id}:single-h1`, (html.match(/<h1\b/gi) || []).length === 1, 'Exactly one H1.');
     check(`${id}:search-phrase`, title.includes(page.phrase) && h1.includes(page.phrase), `Title and H1 include ${page.phrase}.`);
     check(`${id}:schema`, schemaTypes.has(page.type), `${page.type} structured data parses.`);
     if (page.type === 'Article') {
-      const route = new URL(page.url).pathname;
       const indexCard = (indexHtml.match(/<article\b[\s\S]*?<\/article>/gi) || []).find((card) => card.includes(`href="${route}"`));
       const productEntry = sharedContent.split('\n').find((line) => line.includes(`article:'${route}'`));
-      const coverFailures = validateBlogCover({ root: ROOT, datePublished: article?.datePublished, dateModified: article?.dateModified,
-        entry: coverRegistry.articles[route], html, indexCard, productEntry });
+      const coverFailures = validateBlogCover({ root, datePublished: article?.datePublished, dateModified: article?.dateModified,
+        entry: coverRegistry.articles[route], html, indexCard, productEntry, articleIdentity: identity });
       check(`${id}:cover-identity`, !coverFailures.length, coverFailures.join(', ') || 'Cover identity review matches asset, article, index and shared editorial card.');
       check(`${id}:breadcrumb`, schemaTypes.has('BreadcrumbList'), 'BreadcrumbList structured data parses.');
       check(`${id}:author`, article?.author?.['@type'] === 'Organization' && article?.author?.name === '鷹式一家' && article?.author?.url === `${ORIGIN}/`, 'Author is the Eaglish organization with a stable URL.');
       check(`${id}:publisher`, article?.publisher?.['@type'] === 'Organization' && article?.publisher?.name === '鷹式一家' && article?.publisher?.url === `${ORIGIN}/`, 'Publisher is the Eaglish organization.');
       check(`${id}:schema-url`, article?.mainEntityOfPage === canonical, 'Article mainEntityOfPage matches canonical.');
-      check(`${id}:schema-dates`, /^\d{4}-\d{2}-\d{2}$/.test(article?.datePublished || '') && /^\d{4}-\d{2}-\d{2}$/.test(article?.dateModified || '') && article.dateModified >= article.datePublished, 'Published and modified dates are valid.');
-      check(`${id}:sitemap-lastmod`, sitemapLastmod(sitemap, page.url) === article?.dateModified, 'Sitemap lastmod matches the significant article update date.');
+      let validKnowledgeDates = true;
+      if (knowledge) {
+        try { articlePublication(identity, article); } catch { validKnowledgeDates = false; }
+      }
+      check(`${id}:schema-dates`, candidateKnowledge
+        ? validKnowledgeDates && !tagValue(html, 'meta', 'property', 'article:published_time') && !tagValue(html, 'meta', 'property', 'article:modified_time') && !/\bdata-published=/.test(indexCard || '')
+        : validKnowledgeDates && /^\d{4}-\d{2}-\d{2}$/.test(article?.datePublished || '') && /^\d{4}-\d{2}-\d{2}$/.test(article?.dateModified || '') && article.dateModified >= article.datePublished,
+        candidateKnowledge ? 'Preparation is not publication; unpublished knowledge has no publication/modification date.' : 'Published and modified dates are valid and match reviewed knowledge metadata when applicable.');
+      check(`${id}:sitemap-lastmod`, candidateKnowledge ? !sitemap.includes(`<loc>${page.url}</loc>`) : sitemapLastmod(sitemap, page.url) === article?.dateModified,
+        candidateKnowledge ? 'Unpublished knowledge is absent from the formal sitemap.' : 'Sitemap lastmod matches the significant article update date.');
+      if (knowledge) {
+        check(`${id}:knowledge-shelf`, /\bdata-content-kind=["']explainer["']/.test(indexCard || '') && tagValue(indexCard || '', 'article', 'data-article', slug, 'data-article') === slug && !/\bdata-buy(?:\s|=|>)/.test(indexCard || ''), 'Knowledge card is an explicit explainer and contains no purchase action.');
+        check(`${id}:knowledge-related`, identity.relatedArticles.every((related) => html.includes(`href="/blog/${related}/"`)), 'Reviewed related article links remain crawlable.');
+        if (candidateKnowledge) check(`${id}:preparation-date`, indexCard?.includes(`data-prepared="${identity.datePrepared}"`) && (html.match(/<time\b[^>]*>/gi) || []).some((tag) => tag.includes(`datetime="${identity.datePrepared}"`)), 'Displayed and index sorting dates identify editorial preparation.');
+      }
       check(`${id}:schema-images`, Array.isArray(article?.image) && article.image.length > 0 && article.image.every((url) => /^https:\/\/www\.eaglish\.store\//.test(url)), 'Article images use absolute first-party URLs.');
       check(`${id}:schema-keywords`, Array.isArray(article?.keywords) && article.keywords.length >= 2, 'Article has a restrained query/topic cluster.');
       check(`${id}:schema-noise`, !schemaTypes.has('FAQPage') && !schemaTypes.has('Product'), 'No unsupported commercial FAQ or volatile Product/Offer markup.');
       check(`${id}:opening-answer`, /<section\s+class=["'][^"']*opening[^"']*["'][\s\S]*?data-answer-block[\s\S]*?<\/section>/i.test(html), 'A source-grounded direct answer is visible near the opening.');
       check(`${id}:answer-depth`, (html.match(/<details>/gi) || []).length >= 3, 'At least three visible reader questions support extractable answers.');
-      check(`${id}:crawlable-offer-fallback`, /<noscript>[\s\S]*?<a\s+[^>]*href=["']\/["']/i.test(html), 'A stable crawlable fallback reaches the live catalogue without JavaScript.');
+      check(`${id}:crawlable-offer-fallback`, knowledge
+        ? identity.relatedArticles.some((related) => html.includes(`href="/blog/${related}/"`))
+        : /<noscript>[\s\S]*?<a\s+[^>]*href=["']\/["']/i.test(html), knowledge ? 'Knowledge reaches a reviewed related article without JavaScript.' : 'A stable crawlable fallback reaches the live catalogue without JavaScript.');
       check(`${id}:content-depth`, significantText(html).length >= 1200, 'Article has substantive consumer-facing depth.');
       const ogImage = tagValue(html, 'meta', 'property', 'og:image');
       check(`${id}:social-card`, tagValue(html, 'meta', 'name', 'twitter:card') === 'summary_large_image'
@@ -115,9 +153,9 @@ export function auditBlog() {
       check(`${id}:image-alt`, badImages.length === 0, 'Every non-decorative image has descriptive alt text.');
       check(`${id}:video-runtime-version`, html.includes('/product-content.js?v=20260911-video-poster') && html.includes('/product-content.css?v=20260911-video-poster'), 'Article uses the current resilient video runtime and styles.');
     }
-    check(`${id}:sitemap`, sitemap.includes(`<loc>${page.url}</loc>`), 'Canonical URL is in sitemap.');
+    check(`${id}:sitemap`, candidateKnowledge ? !sitemap.includes(`<loc>${page.url}</loc>`) : sitemap.includes(`<loc>${page.url}</loc>`), candidateKnowledge ? 'Unpublished knowledge is excluded from sitemap.' : 'Canonical URL is in sitemap.');
     check(`${id}:consumer-copy`, forbiddenPublicText.every((text) => !html.includes(text)), 'No internal review language is visible.');
-    const missing = [...new Set(localAssets(html))].filter((path) => !existsSync(join(ROOT, path.slice(1))));
+    const missing = [...new Set(localAssets(html))].filter((path) => !existsSync(join(root, path.slice(1))));
     check(`${id}:local-assets`, missing.length === 0, missing.length ? `Missing ${missing.join(', ')}.` : 'Local assets resolve.');
     check(`${id}:unique-title`, !titles.has(title), 'Title is unique.');
     check(`${id}:unique-description`, !descriptions.has(description), 'Meta description is unique.');
@@ -134,7 +172,11 @@ export function auditBlog() {
   const blogIndex = content('blog/index.html');
   for (const page of articlePages) {
     const pathname = new URL(page.url).pathname;
-    check(`catalog:${page.url}`, productContent.includes(`article:'${pathname}'`), 'Product-card article mapping exists.');
+    const slug = pathname.split('/').filter(Boolean).at(-1);
+    let knowledge = false;
+    try { knowledge = isKnowledgeArticle(articleIdentity(slug, Object.values(catalog).find((entry) => entry.article === pathname), metadata.articles[slug])); } catch { /* reviewed-identity already records the failure */ }
+    const mapped = productContent.includes(`article:'${pathname}'`);
+    check(`catalog:${page.url}`, knowledge ? !mapped : mapped, knowledge ? 'Reviewed knowledge has no product-card mapping.' : 'Product-card article mapping exists.');
     check(`blog-index:${page.url}`, blogIndex.includes(`href="${pathname}"`), 'Blog index links to the article.');
   }
   check('homepage:meroware', content('index.html').includes('href="/blog/meroware/"'), 'Homepage journal links to the Meroware article.');
@@ -147,8 +189,8 @@ export function auditBlog() {
   return {
     schema: 'eaglish.blog-release-audit/v1',
     generatedAt: new Date().toISOString(),
-    status: failures.length ? 'blocked' : 'ready',
-    summary: { checks: checks.length, passed: checks.length - failures.length, failures: failures.length },
+    status: failures.length ? 'blocked' : unpublishedKnowledge ? 'candidate_ready' : 'ready',
+    summary: { checks: checks.length, passed: checks.length - failures.length, failures: failures.length, unpublishedKnowledge },
     checks,
     failures,
   };
