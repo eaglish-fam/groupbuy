@@ -13,7 +13,7 @@ document.querySelector('[data-local-video] button')?.addEventListener('click', f
     source.type = type;
     video.append(source);
   }
-  video.setAttribute('aria-label', '秀秀介紹康軒學習雜誌');
+  video.setAttribute('aria-label', '康軒學習雜誌介紹影片');
   this.replaceWith(video);
   video.play().catch(() => {});
 });

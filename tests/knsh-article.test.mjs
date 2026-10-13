@@ -4,6 +4,14 @@ import {readFileSync,existsSync} from 'node:fs';
 import {createRequire} from 'node:module';
 const require=createRequire(import.meta.url);
 const content=require('../product-content.js');
+test('康軒對外文案維持品牌第一人稱，不把作者寫成受訪者',()=>{
+ const html=readFileSync(new URL('../blog/knsh/index.html',import.meta.url),'utf8');
+ const js=readFileSync(new URL('../blog/knsh/knsh.js',import.meta.url),'utf8');
+ const entry=JSON.stringify(content.entry('康軒雜誌'));
+ for(const text of [html,js,entry]) assert.doesNotMatch(text,/秀秀|Queenie|原文也分享過|在過去的文章裡分享/);
+ assert.match(html,/我們一直有讓在恩看兒童學習雜誌的習慣/);
+ assert.match(html,/我們在影片裡翻開各版雜誌/);
+});
 test('康軒 uses only the live brand and keeps current offers in the Sheet',()=>{
  const entry=content.entry('康軒雜誌');
  assert.equal(entry.id,'knsh');assert.equal(entry.article,'/blog/knsh/');
