@@ -4,7 +4,15 @@ document.querySelector('[data-local-video] button')?.addEventListener('click', f
   video.playsInline = true;
   video.preload = 'metadata';
   video.poster = '/assets/knsh/video-poster.webp';
-  video.src = '/assets/knsh/reading-video.mp4';
+  for (const [src, type] of [
+    ['/assets/knsh/reading-video.webm', 'video/webm'],
+    ['/assets/knsh/reading-video-mobile.mp4', 'video/mp4'],
+  ]) {
+    const source = document.createElement('source');
+    source.src = src;
+    source.type = type;
+    video.append(source);
+  }
   video.setAttribute('aria-label', '秀秀介紹康軒學習雜誌');
   this.replaceWith(video);
   video.play().catch(() => {});
