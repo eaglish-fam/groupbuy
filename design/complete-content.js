@@ -245,13 +245,13 @@
       );
     }
     if (copy) {
-      try {
-        await navigator.clipboard.writeText(copy.dataset.copyCode);
-        notify("折扣碼已複製");
-        track("copy_coupon", { coupon_code: copy.dataset.copyCode });
-      } catch {
-        notify("請長按折扣碼複製");
-      }
+      await PermanentOffers.copyCode(copy.dataset.copyCode, {
+        onSuccess: () => {
+          notify("折扣碼已複製");
+          track("copy_coupon", { coupon_code: copy.dataset.copyCode });
+        },
+        onFailure: () => notify("請長按折扣碼複製"),
+      });
     }
     if (share) {
       const p = products[Number(share.dataset.shareProduct)],

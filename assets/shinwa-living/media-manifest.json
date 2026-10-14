@@ -1,0 +1,217 @@
+{
+  "schema": "eaglish.shinwa-media/v1",
+  "generatedAt": "2026-10-14T02:27:41.846Z",
+  "sourcePolicy": "Root-adopted genuine photographs and first-party video frames only; no generated product pixels.",
+  "sources": {
+    "blocks": {
+      "sourceId": "blocks",
+      "sourceUrl": "https://drive.google.com/file/d/17qT7ghziUKeyRbEUEt73HxyT08c-d17b/view?usp=drivesdk",
+      "sha256": "ea645a5892d077744c936f3862eab584657dd9e707c64937caabfd6a92bce61f"
+    },
+    "chair": {
+      "sourceId": "chair",
+      "sourceUrl": "https://www.shinwaliving.com/products/7b70ba30-1347-4582-8fdd-f9518dde2ed9",
+      "sha256": "0b6771a56fd2567633e66f1813f84189c7a332986f52883dbad0153ffdf6d444"
+    },
+    "table": {
+      "sourceId": "table",
+      "sourceUrl": "https://drive.google.com/file/d/1GNqgcaDQMFZWmJDKevo9D-Ezzgj-BMDA/view?usp=drivesdk",
+      "sha256": "13d9e30a4ba72985cd75f63ef539bd3df468c083a2c55750c286fd8cf7fd9820"
+    },
+    "tableDetail": {
+      "sourceId": "tableDetail",
+      "sourceUrl": "https://drive.google.com/file/d/1kZkNXIZFL1_YVof9EKG1enwr7e35wQqc/view?usp=drivesdk",
+      "sha256": "082258e99525b2aa890b8f12f0fc6fc993c347824489b9dcefade47876b8e099"
+    },
+    "memory": {
+      "sourceId": "memory",
+      "sourceUrl": "https://drive.google.com/file/d/1w7QNmVO4YCbLTorUkYensCh4jQuH-73H/view?usp=drivesdk",
+      "sha256": "0f6badb56e8ab219531b00d51e41766954bb382c62f24b91db45f671c960ba85"
+    },
+    "scratcherOriginal": {
+      "sourceId": "scratcherOriginal",
+      "sourceUrl": "https://drive.google.com/file/d/1u94PhnOOkrXsI2L3wb6embyRYq-1nEzU/view?usp=drivesdk",
+      "sha256": "a58775a9a87db4384f4e139514c0853326c6b531dbe3042bc5e13edb6e7be828"
+    },
+    "shoeWhole": {
+      "sourceId": "shoeWhole",
+      "sourceUrl": "https://drive.google.com/file/d/1kEVWHEVfnbF1acQ4qdQpiOyincUpXdEa/view?usp=drivesdk",
+      "sha256": "2d944c7a2ee331c263e797696983e427fb346376c2585ce7c586ab58cf0e80da"
+    },
+    "shoeDetail": {
+      "sourceId": "shoeDetail",
+      "sourceUrl": "https://drive.google.com/file/d/1gJf_eW9sTElEcekOLOxloasXVa8aK9Vv/view?usp=drivesdk",
+      "sha256": "6f848866632efd2a97cc0a1b480f0923faa7c12a12116aa196a2c70c3e4279ba"
+    },
+    "shoeUse": {
+      "sourceId": "shoeUse",
+      "sourceUrl": "https://drive.google.com/file/d/1ZpITlCpdnHkVXJ94zUztVrCIOBW8geTJ/view?usp=drivesdk",
+      "sha256": "c91c7faa90cff3bd54f762e60c4329e57735360c4c6837e5d853dbf55cb6e55a"
+    },
+    "videoWoodwork": {
+      "sourceId": "videoWoodwork",
+      "sourceUrl": "https://www.youtube.com/watch?v=uIOk9Ie0YN0&t=529s",
+      "sha256": "4f29e3db2c33826e482e8aaa2670968998345f7198ee76ee77cc961ad06b0708"
+    },
+    "videoBlocks": {
+      "sourceId": "videoBlocks",
+      "sourceUrl": "https://www.youtube.com/watch?v=uIOk9Ie0YN0&t=136s",
+      "sha256": "5c5d21bbbf7b7b4586438ef60a2f70bd413d53de55da303c66a403c161ef94bb"
+    },
+    "videoBed": {
+      "sourceId": "videoBed",
+      "sourceUrl": "https://www.youtube.com/watch?v=5mPDjzQOuPA&t=71s",
+      "sha256": "c641f99ea68389ad1e9dd7def2e28dc788406928c5f0269c2ef12c8a5c7eb86e"
+    },
+    "videoVisit": {
+      "sourceId": "videoVisit",
+      "sourceUrl": "https://www.youtube.com/watch?v=dSgptEdzEqM&t=832s",
+      "sha256": "b734201ba6e9ceb1ea5e996840ae201eaae5dfebfb2237d9363ac14782f823ef"
+    },
+    "videoMarket": {
+      "sourceId": "videoMarket",
+      "sourceUrl": "https://www.youtube.com/watch?v=z07oMlyI7ew&t=0s",
+      "sha256": "576ca6b41cbd4f3fd61851f250dda7fd6bd75369cf9b042291aa1a24d54daf6c"
+    },
+    "videoOuting": {
+      "sourceId": "videoOuting",
+      "sourceUrl": "https://www.youtube.com/watch?v=XpqY8O9-x40&t=851s",
+      "sha256": "e9a905df14dc6dc254843f9c27e33b4875a8e5ab3e6e6061a2b6e209ee9a1a33"
+    }
+  },
+  "transforms": {
+    "cover": "blocks-forest proportional width downscale to 1600x900 plus a 100px editorial title band; full source composition retained",
+    "card": "blocks-forest proportional width downscale to 1000x563 plus a 187px editorial identity band; full source composition retained",
+    "catScratcher": "original 1100x1767 PNG converted to WebP at original dimensions; no enlargement, crop, padding or generative edit",
+    "bodyPhotos": "byte-identical adopted WebP copies except cat-scratcher as recorded above",
+    "videoPosters": "approved first-party frames converted to WebP without crop or generative edit"
+  },
+  "outputs": [
+    {
+      "path": "/assets/shinwa-living/blocks-forest.webp",
+      "sha256": "ea645a5892d077744c936f3862eab584657dd9e707c64937caabfd6a92bce61f",
+      "width": 1800,
+      "height": 1013
+    },
+    {
+      "path": "/assets/shinwa-living/cypress-child-table-chairs.webp",
+      "sha256": "0b6771a56fd2567633e66f1813f84189c7a332986f52883dbad0153ffdf6d444",
+      "width": 1440,
+      "height": 933
+    },
+    {
+      "path": "/assets/shinwa-living/fold-table-mahjong.webp",
+      "sha256": "13d9e30a4ba72985cd75f63ef539bd3df468c083a2c55750c286fd8cf7fd9820",
+      "width": 1800,
+      "height": 1402
+    },
+    {
+      "path": "/assets/shinwa-living/fold-table-detail.webp",
+      "sha256": "082258e99525b2aa890b8f12f0fc6fc993c347824489b9dcefade47876b8e099",
+      "width": 1800,
+      "height": 1012
+    },
+    {
+      "path": "/assets/shinwa-living/memory-box-dog.webp",
+      "sha256": "0f6badb56e8ab219531b00d51e41766954bb382c62f24b91db45f671c960ba85",
+      "width": 1012,
+      "height": 1800
+    },
+    {
+      "path": "/assets/shinwa-living/cat-shoehorn-whole.webp",
+      "sha256": "2d944c7a2ee331c263e797696983e427fb346376c2585ce7c586ab58cf0e80da",
+      "width": 1800,
+      "height": 1336
+    },
+    {
+      "path": "/assets/shinwa-living/cat-shoehorn-detail.webp",
+      "sha256": "6f848866632efd2a97cc0a1b480f0923faa7c12a12116aa196a2c70c3e4279ba",
+      "width": 1800,
+      "height": 1056
+    },
+    {
+      "path": "/assets/shinwa-living/cat-shoehorn-use.webp",
+      "sha256": "c91c7faa90cff3bd54f762e60c4329e57735360c4c6837e5d853dbf55cb6e55a",
+      "width": 1800,
+      "height": 1166
+    },
+    {
+      "path": "/assets/shinwa-living/cat-scratcher.webp",
+      "sha256": "1677fddf5fee3717cb7d522c0ed239ee826f3329bf0f77a0803bcb3f864e8798",
+      "width": 1100,
+      "height": 1767
+    },
+    {
+      "path": "/assets/shinwa-living/video-woodwork.webp",
+      "sha256": "94d3ed2ece9a94f2570e5fc0e361649ec396cade6edc3d8ee0e4cc8d0ef278d1",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "/assets/shinwa-living/video-blocks.webp",
+      "sha256": "01cf0b5044d44dcf3375241aeda8070ade0c812eac7c7f545b6525dc6f9541e9",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "/assets/shinwa-living/video-bed.webp",
+      "sha256": "a683121c484c9830fed1533221866d7a3f9e96f7a5a195782234ae08ced2017f",
+      "width": 360,
+      "height": 640
+    },
+    {
+      "path": "/assets/shinwa-living/video-visit.webp",
+      "sha256": "67529dd5f58219373f3ecb0fb6e587455eaed8710473b033a880e1807505e0b4",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "/assets/shinwa-living/video-market.webp",
+      "sha256": "b150dab8a55212b3a281abfb5c0934e5e555fd1bd13438476f17b2bbc3844923",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "/assets/shinwa-living/video-outing.webp",
+      "sha256": "cd5665e384a2391e20506f37b1766dc1618eb9cf223353d7dd705b7d9b8b9e7f",
+      "width": 1280,
+      "height": 720
+    },
+    {
+      "path": "/assets/shinwa-living/cover.webp",
+      "sha256": "273784ab13ea12e247b16f6c2db14d702ae6d6809dba170cdc1832b131d9f8d4",
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "path": "/assets/shinwa-living/cover-480.webp",
+      "sha256": "58b4860375586e476acfbe12e409078659745f21f080bbfac2de1cd2c6505803",
+      "width": 480,
+      "height": 300
+    },
+    {
+      "path": "/assets/shinwa-living/cover-960.webp",
+      "sha256": "4752a3aa6ec38a0911c23fd02de5dd78127c8f5cc871a527a25affb641f98725",
+      "width": 960,
+      "height": 600
+    },
+    {
+      "path": "/assets/shinwa-living/product-card.webp",
+      "sha256": "fefc8249ec61ca33ea4f6ec9c19605505a892f5ed55427611117f59f3570f1e1",
+      "width": 1000,
+      "height": 750
+    },
+    {
+      "path": "/assets/shinwa-living/product-card-480.webp",
+      "sha256": "2bb0291b83535ede60cb6b05face16d294e9ca3f1783fa167df6e1e12fc0b2a4",
+      "width": 480,
+      "height": 360
+    },
+    {
+      "path": "/assets/shinwa-living/product-card-960.webp",
+      "sha256": "e01f76789d3ffd8f0a1967eb1f2e7f4796e11211684ebc57d44e83f0ada6fbc0",
+      "width": 960,
+      "height": 720
+    }
+  ]
+}

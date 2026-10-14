@@ -2,6 +2,23 @@
   "schema": "eaglish.blog-cover-identity/v1",
   "effectiveDate": "2026-09-14",
   "articles": {
+    "/blog/shinwa-living/": {
+      "identity": "心窪生活",
+      "image": "/assets/shinwa-living/cover.webp",
+      "imageSha256": "273784ab13ea12e247b16f6c2db14d702ae6d6809dba170cdc1832b131d9f8d4",
+      "source": "/assets/shinwa-living/blocks-forest.webp",
+      "sourceSha256": "ea645a5892d077744c936f3862eab584657dd9e707c64937caabfd6a92bce61f",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "273784ab13ea12e247b16f6c2db14d702ae6d6809dba170cdc1832b131d9f8d4",
+        "viewportWidths": [320, 390, 768, 1440],
+        "mobileCardLegible": true,
+        "reviewer": "Kira accountable integration chat",
+        "rootDirectionAccepted": true,
+        "rootFinalAcceptance": false
+      }
+    },
     "/blog/knsh/": {
       "identity": "康軒學習雜誌",
       "image": "/assets/knsh/cover.webp",

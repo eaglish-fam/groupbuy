@@ -22,7 +22,7 @@ export function renderTravelHomeR24(){
  const approved=approvedTravelRegistration(fileURLToPath(new URL('..',import.meta.url)));
  if(approved){const added=prepareApprovedR24Discovery(html,approved.data,{catalog:travelHomeCatalog,config});html=added.html;projection=added.config;}
  return inlineTravelStyles(html.replace('</head>','<link rel="stylesheet" href="/trip/travel-entry.css"><link rel="stylesheet" href="/trip/atlas-navigation.css"></head>').replace('{{ATLAS_CONFIG}}',JSON.stringify(projection).replaceAll('<','\\u003c'))
-  .replace('/trip/atlas-ui-bundle.mjs?v=r24-20261002','/trip/atlas-ui-bundle.mjs?v=globe-nav-g1-20261013')
+  .replace('/trip/atlas-ui-bundle.mjs?v=r24-20261002','/trip/atlas-ui-bundle.mjs?v=globe-copy-g2-20261014')
   .replace(/<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>/g,''));
 }
 // Reorder the reviewed top-level modules in the actual document, without

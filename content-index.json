@@ -19,7 +19,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "7698e46bdd4b9a01cb7e7e8b7f63679d5d3eee0681c9758c7467f5d70519f121"
+      "sourceHash": "d85c7ed72b4188ec8b0e5f05d99ffc30b938cf6b5e0ddba71673e21eff4ab19c"
     },
     {
       "slug": "atojet",
@@ -38,7 +38,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "b4fb7e2941d6a625bd34667184b883771fc472f20fadd03df7daef825da4e853"
+      "sourceHash": "8514c459d2ebfd8778973bab57ebfe300f411842ce6e5bd0d6d6b8309ea21fd6"
     },
     {
       "slug": "branden",
@@ -383,6 +383,28 @@
       "published": "2026-09-11",
       "modified": "2026-10-06",
       "sourceHash": "9c9912edb2f121f0923c99fb15a972d68293378b9786e27a072766fb3f3316db"
+    },
+    {
+      "slug": "shinwa-living",
+      "url": "https://www.eaglish.store/blog/shinwa-living/",
+      "title": "心窪生活推薦｜宜蘭朋友的手工木作、親子積木與手作禮物｜鷹家選物誌",
+      "productNames": [
+        "心窪生活"
+      ],
+      "productId": "shinwa-living",
+      "mode": "product",
+      "intent": "product:shinwa-living",
+      "topics": [
+        "心窪生活",
+        "森呼吸積木",
+        "檜木兒童桌椅",
+        "手工木作",
+        "宜蘭木作"
+      ],
+      "cluster": "home",
+      "published": "2026-10-14",
+      "modified": "2026-10-14",
+      "sourceHash": "bd41b0b26c9250c8b1d34e8afca3b65c7139364ea2190a27f16ec838ad4e533f"
     },
     {
       "slug": "shoumaji",
