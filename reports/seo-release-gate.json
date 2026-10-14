@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 57,
+    "pages": 58,
     "blocking": 0,
-    "warnings": 17,
-    "total": 17
+    "warnings": 21,
+    "total": 21
   },
   "findings": [
     {
@@ -12,6 +12,13 @@
       "message": "Link fragment not found on destination page: /#product-knsh",
       "file": "blog/knsh/index.html",
       "index": 10613
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-shinwa-living",
+      "file": "blog/shinwa-living/index.html",
+      "index": 15568
     },
     {
       "level": "warn",
@@ -30,23 +37,44 @@
     {
       "level": "warn",
       "category": "images",
-      "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
-      "file": "index.html",
-      "index": 3563
+      "message": "Image exceeds 350KB (554KB): /assets/shinwa-living/fold-table-mahjong.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/shinwa-living/index.html",
+      "index": 9033
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (495KB): /assets/shinwa-living/cat-shoehorn-whole.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/shinwa-living/index.html",
+      "index": 10509
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (474KB): /assets/shinwa-living/cat-shoehorn-use.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/shinwa-living/index.html",
+      "index": 10796
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43030
+      "index": 3656
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
+      "file": "index.html",
+      "index": 43278
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43030
+      "index": 43278
     },
     {
       "level": "warn",

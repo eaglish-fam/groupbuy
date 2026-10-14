@@ -14,11 +14,16 @@ const publishedRegistry = (overrides = {}) => ({
   schema: registry.schema,
   offers: [{ ...accepted, state: 'published', publicationNotYetAccepted: false, ...overrides }],
 });
+const candidateRegistry = () => ({
+  schema: registry.schema,
+  offers: [{ ...accepted, state: 'candidate', publicationNotYetAccepted: true }],
+});
 
-test('current reviewed Shinwa record is valid but candidate state never reaches consumers', () => {
+test('current reviewed Shinwa record is published while a candidate revision never reaches consumers', () => {
   assert.equal(PermanentOffers.validateRegistry(registry).offers[0].id, 'shinwa-living-eaglish');
+  assert.equal(PermanentOffers.mergeProducts([], registry)[0].images[0], '/assets/shinwa-living/product-card.webp');
   const sheet = [{ brand: '既有優惠', coupon: 'SAVE', key: 'sheet:1' }];
-  assert.deepEqual(PermanentOffers.mergeProducts(sheet, registry), sheet);
+  assert.deepEqual(PermanentOffers.mergeProducts(sheet, candidateRegistry()), sheet);
 });
 
 test('published reviewed offer maps to the existing coupon-card shape without mutating the official URL', () => {
@@ -32,6 +37,7 @@ test('published reviewed offer maps to the existing coupon-card shape without mu
   assert.equal(new URL(offer.url).search, '');
   assert.equal(offer.exactDestination, true);
   assert.equal(offer.article.article, '/blog/shinwa-living/');
+  assert.deepEqual(offer.images, ['/assets/shinwa-living/product-card.webp']);
   assert.match(offer.disclosure, /可能獲得分潤/);
   assert.deepEqual(offer.terms, {});
 });
@@ -76,6 +82,7 @@ test('unsafe, ambiguous or prematurely published records fail closed', () => {
     'https://www.shinwaliving.com'
   ]) assert.throws(() => PermanentOffers.validateRegistry(publishedRegistry({ destinationUrl })), /destination/);
   assert.throws(() => PermanentOffers.validateRegistry(publishedRegistry({ discount: { amount: 0, currency: 'TWD', display: '現折200元' } })), /discount/);
+  assert.throws(() => PermanentOffers.validateRegistry(publishedRegistry({ image: { path: 'https://example.invalid/card.webp', sha256: accepted.image.sha256, alt: 'x' } })), /image/);
   assert.throws(() => PermanentOffers.validateRegistry(publishedRegistry({ state: 'candidate', publicationNotYetAccepted: false })), /Candidate/);
   assert.throws(() => PermanentOffers.validateRegistry({ schema: registry.schema, offers: [accepted, accepted] }), /Duplicate/);
 });

@@ -1,0 +1,37 @@
+[data-article-key="shinwaLiving"]{--green:#274c3f;--rust:#8a5f3d;--paper:#fbf8f0;--line:#ddd6c6}
+[data-article-key="shinwaLiving"] .cover{max-width:1120px}
+[data-article-key="shinwaLiving"] .cover img{max-height:none;object-fit:contain;background:#eee5d4}
+[data-article-key="shinwaLiving"] .same-row{align-items:center}
+[data-article-key="shinwaLiving"] .same-row figure:nth-child(2){margin-top:0}
+[data-article-key="shinwaLiving"] .portrait{max-width:480px}
+[data-article-key="shinwaLiving"] .cat-gallery{display:grid;grid-template-columns:1.2fr .9fr .9fr;gap:12px;margin:32px -70px}
+[data-article-key="shinwaLiving"] .cat-gallery figure{min-width:0;background:#eee8dc}
+[data-article-key="shinwaLiving"] .cat-gallery img{width:100%;height:100%;max-height:400px;object-fit:contain}
+[data-article-key="shinwaLiving"] .mid-offer{margin:52px 0 6px;padding:26px 30px;border:1px solid #cfc1a9;background:#f1eadc;display:flex;align-items:center;justify-content:space-between;gap:24px}
+[data-article-key="shinwaLiving"] .mid-offer p{margin:0;font-size:16px}
+[data-article-key="shinwaLiving"] .mid-offer a,[data-article-key="shinwaLiving"] .button-link{display:inline-flex;align-items:center;justify-content:center;min-height:44px;padding:10px 18px;background:var(--green);color:#fff;text-decoration:none;border-radius:3px;white-space:nowrap}
+[data-article-key="shinwaLiving"] .video-jumps{display:flex;flex-wrap:wrap;gap:8px;margin:28px 0}
+[data-article-key="shinwaLiving"] .video-jumps a{display:inline-flex;align-items:center;min-height:44px;padding:8px 12px;border:1px solid var(--line);text-decoration:none;font-size:13px}
+[data-article-key="shinwaLiving"] .video-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 18px;margin:34px -70px}
+[data-article-key="shinwaLiving"] .video-card{scroll-margin-top:100px;margin:32px auto;max-width:720px}
+[data-article-key="shinwaLiving"] .video-grid .video-card{margin:0;min-width:0}
+[data-article-key="shinwaLiving"] .video-card.is-vertical{max-width:360px;justify-self:center}
+[data-article-key="shinwaLiving"] .video-poster{position:relative;display:block;width:100%;padding:0;border:0;background:#ddd4c4;overflow:hidden;min-height:44px}
+[data-article-key="shinwaLiving"] .video-poster img{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+[data-article-key="shinwaLiving"] .video-card.is-vertical .video-poster img{aspect-ratio:9/16;object-fit:contain;background:#24251f}
+[data-article-key="shinwaLiving"] .video-play{position:absolute;inset:50% auto auto 50%;translate:-50% -50%;display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:#274c3fe8;color:#fff;font-size:24px;box-shadow:0 8px 28px #0005}
+[data-article-key="shinwaLiving"] .video-card iframe{display:block;width:100%;aspect-ratio:16/9;border:0;background:#222}
+[data-article-key="shinwaLiving"] .video-card.is-vertical iframe{aspect-ratio:9/16;max-height:680px}
+[data-article-key="shinwaLiving"] .video-card figcaption{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;padding-top:12px}
+[data-article-key="shinwaLiving"] .video-card figcaption strong{font-size:14px;color:var(--green)}
+[data-article-key="shinwaLiving"] .video-card figcaption a{display:inline-flex;align-items:center;min-height:44px;font-size:12px}
+[data-article-key="shinwaLiving"] .offer-box{max-width:480px;margin:30px auto;padding:28px;background:#f1eadc;border:1px solid #cfc1a9;text-align:center}
+[data-article-key="shinwaLiving"] .offer-box p{margin-bottom:8px;font-size:14px}
+[data-article-key="shinwaLiving"] .offer-code{display:block;margin:4px 0 12px;font:600 34px/1.2 var(--serif);letter-spacing:.07em;color:var(--green)}
+[data-article-key="shinwaLiving"] .offer-box button{min-height:44px;margin:10px 0 12px;padding:9px 20px;border:1px solid var(--green);background:transparent;color:var(--green)}
+[data-article-key="shinwaLiving"] .offer-box .copy-status{min-height:24px;margin-bottom:12px;color:#5e604f}
+[data-article-key="shinwaLiving"] .offer-box .button-link{width:100%}
+@media(max-width:900px){[data-article-key="shinwaLiving"] .cat-gallery,[data-article-key="shinwaLiving"] .video-grid{margin-left:0;margin-right:0}}
+@media(max-width:700px){[data-article-key="shinwaLiving"] .cat-gallery{grid-template-columns:1fr 1fr;margin:26px -8px}[data-article-key="shinwaLiving"] .cat-gallery figure:first-child{grid-column:1/-1}[data-article-key="shinwaLiving"] .cat-gallery img{max-height:330px}[data-article-key="shinwaLiving"] .mid-offer{margin-top:40px;padding:22px;display:block}[data-article-key="shinwaLiving"] .mid-offer a{margin-top:14px;width:100%}[data-article-key="shinwaLiving"] .video-grid{grid-template-columns:1fr;margin:28px 0;gap:32px}[data-article-key="shinwaLiving"] .video-card figcaption{display:block}[data-article-key="shinwaLiving"] .video-card figcaption a{min-height:40px}[data-article-key="shinwaLiving"] .video-card.is-vertical{max-width:300px}[data-article-key="shinwaLiving"] .same-row{grid-template-columns:1fr;margin-left:-8px;margin-right:-8px}[data-article-key="shinwaLiving"] .same-row figure:nth-child(2){margin-top:0}}
+@media(max-width:359px){[data-article-key="shinwaLiving"] .cat-gallery{grid-template-columns:1fr;max-width:260px;margin-inline:auto}[data-article-key="shinwaLiving"] .cat-gallery figure:first-child{grid-column:auto}[data-article-key="shinwaLiving"] .video-jumps{display:block}[data-article-key="shinwaLiving"] .video-jumps a{margin-bottom:8px}}
+@media(prefers-reduced-motion:reduce){[data-article-key="shinwaLiving"] *{scroll-behavior:auto}}

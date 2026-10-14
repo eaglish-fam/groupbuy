@@ -14,6 +14,11 @@
       },
       "destinationUrl": "https://www.shinwaliving.com/",
       "articlePath": "/blog/shinwa-living/",
+      "image": {
+        "path": "/assets/shinwa-living/product-card.webp",
+        "sha256": "fefc8249ec61ca33ea4f6ec9c19605505a892f5ed55427611117f59f3570f1e1",
+        "alt": "森林中的森呼吸積木塔與心窪生活文章標題"
+      },
       "source": {
         "kind": "hiram-supplied-poster",
         "sha256": "085eea7bd61913d52ecd1c260e79c88ec92b4930ae8f679e800fb54b1bc8f2b9",
@@ -22,8 +27,8 @@
       "observedAt": "2026-10-14",
       "terms": {},
       "disclosure": "使用推薦折扣碼購買，我們可能獲得分潤。",
-      "state": "candidate",
-      "publicationNotYetAccepted": true
+      "state": "published",
+      "publicationNotYetAccepted": false
     }
   ]
 }

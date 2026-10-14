@@ -10,6 +10,7 @@
   const code = /^[a-zA-Z0-9_-]{1,64}$/;
   const sha256 = /^[a-f0-9]{64}$/;
   const articlePath = /^\/blog\/[a-z0-9]+(?:-[a-z0-9]+)*\/$/;
+  const assetPath = /^\/assets\/[a-z0-9/_-]+\.webp$/;
   const date = /^\d{4}-\d{2}-\d{2}$/;
   const text = (value, max) =>
     typeof value === "string" && value.trim() === value && value.length > 0 && value.length <= max;
@@ -39,6 +40,8 @@
       throw Error("Invalid permanent-offer discount");
     exactHttpsUrl(input.destinationUrl);
     if (!articlePath.test(input.articlePath || "")) throw Error("Invalid permanent-offer article path");
+    if (!input.image || !assetPath.test(input.image.path || "") || !sha256.test(input.image.sha256 || "") ||
+      !text(input.image.alt, 240)) throw Error("Invalid permanent-offer image");
     if (!input.source || !text(input.source.kind, 80) || !sha256.test(input.source.sha256 || "") ||
       !text(input.source.authority, 200)) throw Error("Invalid permanent-offer source");
     if (!validDate(input.observedAt)) throw Error("Invalid permanent-offer observation date");
@@ -56,6 +59,7 @@
       discount: Object.freeze({ ...input.discount }),
       source: Object.freeze({ ...input.source }),
       terms: Object.freeze({ ...input.terms }),
+      image: Object.freeze({ ...input.image }),
     });
   }
 
@@ -75,7 +79,7 @@
       source: {},
       description: offer.discount.display,
       url: offer.destinationUrl,
-      images: [],
+      images: [offer.image.path],
       fallbackImage: "",
       category: "其他",
       country: "",
