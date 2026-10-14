@@ -37,6 +37,7 @@ test('published reviewed offer maps to the existing coupon-card shape without mu
   assert.equal(new URL(offer.url).search, '');
   assert.equal(offer.exactDestination, true);
   assert.equal(offer.article.article, '/blog/shinwa-living/');
+  assert.equal(offer.article.id, 'shinwa-living');
   assert.deepEqual(offer.images, ['/assets/shinwa-living/product-card.webp']);
   assert.match(offer.disclosure, /可能獲得分潤/);
   assert.deepEqual(offer.terms, {});
