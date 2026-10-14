@@ -119,6 +119,19 @@ test('article works at 320px, loads one player on click and copies the exact cod
   assert.equal(await page.locator('[data-video-src]').count(), 6);
   assert.equal(await page.locator('iframe').count(), 0);
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+  const captionMetrics = await page.locator('.video-card figcaption').evaluateAll((captions) => captions.map((caption) => {
+    const strong = caption.querySelector('strong');
+    const links = [...caption.querySelectorAll('a')];
+    return {
+      gap: links.length ? links[0].getBoundingClientRect().top - strong.getBoundingClientRect().bottom : 0,
+      linkHeights: links.map((link) => link.getBoundingClientRect().height),
+    };
+  }));
+  assert.equal(captionMetrics.length, 6);
+  for (const metric of captionMetrics) {
+    assert.ok(metric.gap >= 6, JSON.stringify(metric));
+    assert.ok(metric.linkHeights.every((height) => height >= 44), JSON.stringify(metric));
+  }
   const poster = page.locator('#video-woodwork [data-video-src]');
   await poster.click();
   const frame = page.locator('#video-woodwork iframe');

@@ -331,7 +331,10 @@ function card(p, leofooPlans = [], matchedLeofooPlans = []) {
   const imageWidth = window.EntryImageWidths?.[firstImage] || 0;
   const responsive = /^\/assets\/[a-z0-9/_-]+\.webp$/i.test(firstImage) && imageWidth > 480
     ? ` srcset="${esc(firstImage.replace(/\.webp$/, '-480.webp'))} 480w${imageWidth > 960 ? `, ${esc(firstImage.replace(/\.webp$/, '-960.webp'))} 960w` : ''}, ${esc(firstImage)} ${imageWidth}w" sizes="(max-width:700px) 90vw, (max-width:1100px) 45vw, 30vw"` : '';
-  return `<article class="product-card" ${p.article ? `id="product-${esc(p.article.id)}"` : ""} data-product-key="${esc(p.key)}">
+  const cardId = p.permanentOfferId
+    ? `product-offer-${p.permanentOfferId}`
+    : p.article?.id ? `product-${p.article.id}` : "";
+  return `<article class="product-card" ${cardId ? `id="${esc(cardId)}"` : ""} data-product-key="${esc(p.key)}">
     <div class="product-picture"><button class="image-open" data-detail="${idx}" aria-label="查看 ${esc(p.brand)} 詳情">${firstImage ? `<img src="${esc(cardImage)}"${responsive}${backupImage ? ` data-fallback-src="${esc(backupImage)}"` : ''} alt="${esc(p.brand)}" loading="lazy" decoding="async" fetchpriority="low" width="1000" height="750">` : "<span>商品資訊</span>"}</button><button class="save" data-save="${idx}" aria-label="收藏 ${esc(p.brand)}" aria-pressed="${saved.has(p.key)}">${bookmark}</button></div>
     <div class="product-body"><div class="product-meta"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${label}</span><span>${esc(p.category.split(/[,，]/)[0])}${p.country ? " / " + esc(p.country) : ""}</span></div>
     <h3><button data-detail="${idx}" style="font:inherit;text-align:left;padding:0">${esc(p.brand)}</button></h3><p class="product-description">${esc(p.description)}</p>
@@ -777,6 +780,14 @@ let sharedLinkHandled = false;
 window.addEventListener("catalog-ready", () => {
   if (sharedLinkHandled || !refreshedAt) return;
   sharedLinkHandled = true;
+  const offerId = location.hash.match(/^#product-offer-([a-z0-9-]+)$/)?.[1];
+  if (offerId) {
+    const matches = products.filter(p => p.permanentOfferId === offerId && p.status.key === "open");
+    if (matches.length === 1) queueMicrotask(() =>
+      document.getElementById(`product-offer-${offerId}`)?.scrollIntoView({ block: "center" })
+    );
+    return;
+  }
   const articleId = location.hash.match(/^#product-([a-z0-9-]+)$/)?.[1];
   if (articleId) {
     const matches = products.filter(p => p.article?.id === articleId);

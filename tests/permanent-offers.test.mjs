@@ -144,6 +144,7 @@ test('refresh failure keeps ordinary cards unavailable while the current publish
   const csv = [
     ['品牌', '商品ID', '連結', '類型', '開團日期', '結束日期', '商品描述', '方案詳情', '圖片網址', '分類'],
     ['既有普通商品', 'ordinary-1', 'https://example.invalid/ordinary', '長期', '', '', '原本已顯示的商品', '', '', '其他'],
+    ['心窪生活', 'shinwa-ordinary', 'https://example.invalid/shinwa-ordinary', '長期', '', '', '普通 Sheet 商品', '', '', '居家'],
   ].map((row) => row.map((value) => `"${value}"`).join(',')).join('\n');
   const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || '/Users/zosia/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
   const browser = await chromium.launch({ headless: true, executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' });
@@ -169,11 +170,23 @@ test('refresh failure keeps ordinary cards unavailable while the current publish
     window.sent = [];
     window.open = () => ({ opener: null, document: {}, closed: false, location: { replace: (url) => window.sent.push(url) }, close() { this.closed = true; } });
   });
-  await page.goto(`${base}/`, { waitUntil: 'domcontentloaded' });
+  await page.goto(`${base}/#product-offer-shinwa-living-eaglish`, { waitUntil: 'domcontentloaded' });
   const ordinary = page.locator('#products .product-card', { hasText: '既有普通商品' });
   await ordinary.waitFor();
   assert.equal(await ordinary.locator('.status').innerText(), '常駐開團');
   assert.equal(await ordinary.locator('[data-buy-key]').count(), 1);
+  const linkedOffer = page.locator('#product-offer-shinwa-living-eaglish');
+  await linkedOffer.waitFor();
+  await page.waitForFunction(() => {
+    const element = document.getElementById('product-offer-shinwa-living-eaglish');
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < innerHeight;
+  });
+  assert.equal(await linkedOffer.evaluate((element) => {
+    const rect = element.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < innerHeight;
+  }), true);
 
   sheetFails = true;
   assert.equal(await page.evaluate(() => load()), false);
@@ -184,6 +197,13 @@ test('refresh failure keeps ordinary cards unavailable while the current publish
 
   const card = page.locator('#coupon-products .product-card', { hasText: '心窪生活' });
   await card.waitFor();
+  assert.equal(await card.getAttribute('id'), 'product-offer-shinwa-living-eaglish');
+  assert.equal(await page.locator('#products #product-shinwa-living').count(), 1);
+  assert.equal(await page.locator('#product-offer-shinwa-living-eaglish').count(), 1);
+  assert.equal(await page.evaluate(() => {
+    const ids = [...document.querySelectorAll('[id]')].map((element) => element.id);
+    return ids.length === new Set(ids).size;
+  }), true);
   assert.equal(await card.locator('code').innerText(), 'eaglish');
   assert.match(await card.innerText(), /現折200元/);
   assert.match(await card.innerText(), /可能獲得分潤/);
