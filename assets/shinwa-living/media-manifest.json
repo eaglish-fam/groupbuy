@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.shinwa-media/v1",
-  "generatedAt": "2026-10-14T02:27:41.846Z",
+  "generatedAt": "2026-10-14T12:12:04.378Z",
   "sourcePolicy": "Root-adopted genuine photographs and first-party video frames only; no generated product pixels.",
   "sources": {
     "blocks": {
@@ -179,37 +179,37 @@
     },
     {
       "path": "/assets/shinwa-living/cover.webp",
-      "sha256": "273784ab13ea12e247b16f6c2db14d702ae6d6809dba170cdc1832b131d9f8d4",
+      "sha256": "976dea336e7334f2475cf2294a93ac358cac3191ed2b90e4dcba48322dbaee92",
       "width": 1600,
       "height": 1000
     },
     {
       "path": "/assets/shinwa-living/cover-480.webp",
-      "sha256": "58b4860375586e476acfbe12e409078659745f21f080bbfac2de1cd2c6505803",
+      "sha256": "1c8c98caefba39e16e4a9c84aa7fa750e51697b16dd7916ce74f20ef387fffa8",
       "width": 480,
       "height": 300
     },
     {
       "path": "/assets/shinwa-living/cover-960.webp",
-      "sha256": "4752a3aa6ec38a0911c23fd02de5dd78127c8f5cc871a527a25affb641f98725",
+      "sha256": "268102cd1a07089528b83755c32c507d697b860d830118eb3c9c7d9ff8334b4b",
       "width": 960,
       "height": 600
     },
     {
       "path": "/assets/shinwa-living/product-card.webp",
-      "sha256": "fefc8249ec61ca33ea4f6ec9c19605505a892f5ed55427611117f59f3570f1e1",
+      "sha256": "21e505e929eac0ef9544d323b4184443bd43a171eb878be1aba8a6077611b396",
       "width": 1000,
       "height": 750
     },
     {
       "path": "/assets/shinwa-living/product-card-480.webp",
-      "sha256": "2bb0291b83535ede60cb6b05face16d294e9ca3f1783fa167df6e1e12fc0b2a4",
+      "sha256": "42f806213970362dfc6d4b2a2389acd357e5c417ab0119d9053c14614e4f3a5a",
       "width": 480,
       "height": 360
     },
     {
       "path": "/assets/shinwa-living/product-card-960.webp",
-      "sha256": "e01f76789d3ffd8f0a1967eb1f2e7f4796e11211684ebc57d44e83f0ada6fbc0",
+      "sha256": "cbd894ae75e8f6244bdd6a0c2855dec8ad461181e6d76cb6aa4333fa40e0fd9f",
       "width": 960,
       "height": 720
     }

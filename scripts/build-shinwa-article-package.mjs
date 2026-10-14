@@ -58,9 +58,9 @@ const packageData = {
     intent: 'commercial_investigation', primaryQuery: '心窪生活手工木作推薦',
     readerJob: '從家中使用位置、收納、送禮與日常用途，挑一件會常常拿起來用的木作。',
     angle: '從多年朋友關係、親子木工體驗與真實商品照片，看手作如何走進家庭日常。',
-    title: '心窪生活推薦｜宜蘭朋友的手工木作、親子積木與手作禮物',
-    h1: '心窪生活：把宜蘭朋友的手作，帶進家的日常',
-    metaDescription: '從陪孩子做木車、到宜蘭朋友家作客，認識心窪生活的手工木作。比較森呼吸積木的香氣組合、檜木兒童桌椅的換板與完整組，再按桌遊、送禮或玄關日用挑選，搭配我們過去的影片與真實商品照片。',
+    title: '心窪生活手工木作推薦｜台灣檜木積木、兒童桌椅與木製禮物',
+    h1: '心窪生活手工木作推薦｜台灣檜木積木、兒童桌椅與木製禮物',
+    metaDescription: '認識心窪生活的手工木作：含台灣檜木的森呼吸積木、兒童桌椅、折疊遊戲桌面與訂製木盒。從我們的開箱與木工體驗，了解積木香氣、換板套件和完整桌椅組的差別，按親子共玩、居家日用或送禮需求挑選。',
     openingAnswer: '心窪生活的手工木作可以先按家中用途挑選：親子共玩看森呼吸積木，閱讀角落看兒童桌椅，桌遊與收納看折疊桌面，送禮看訂製記憶盒，日常工具則看貓咪不求人與鞋拔。',
     relatedQuestions: ['已有桌椅怎麼選？','貓咪不求人和黑貓鞋拔怎麼挑？','訂製禮物要先確認什麼？'],
   },
@@ -117,7 +117,7 @@ const packageData = {
     { question:'價格、折扣與揭露是什麼？', disposition:'body' },
     { question:'有哪些未知條件？', disposition:'omitted', reason:'低消、效期、疊加與適用品項未獲確認，不在公開文補寫。' },
   ],
-  engineering: { mediaManifest:'assets/shinwa-living/media-manifest.json', candidatePath:'/candidates/shinwa-living-blog-20261014/working-v4/', released:false },
+  engineering: { mediaManifest:'assets/shinwa-living/media-manifest.json', candidatePath:'/candidates/shinwa-living-blog-20261014/working-v5/', released:false },
 };
 writeFileSync(resolve(root, 'docs/shinwa-living-article-package-v4.json'), JSON.stringify(packageData, null, 2) + '\n');
 console.log(`Built Shinwa article package with ${bodyText.length} characters`);
