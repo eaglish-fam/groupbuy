@@ -188,6 +188,27 @@ test('refresh failure keeps ordinary cards unavailable while the current publish
     return rect.bottom > 0 && rect.top < innerHeight;
   }), true);
 
+  // Re-enter through the same warm browser context and wait for the full
+  // registry + Sheet render, not just the first instant that the id exists.
+  await page.reload({ waitUntil: 'networkidle' });
+  await page.waitForFunction(() => {
+    const element = document.getElementById('product-offer-shinwa-living-eaglish');
+    if (!element) return false;
+    const rect = element.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < innerHeight;
+  });
+  await page.evaluate(() => {
+    const shift = document.createElement('div');
+    shift.id = 'late-layout-shift';
+    shift.style.height = '2000px';
+    document.body.prepend(shift);
+  });
+  await page.waitForFunction(() => {
+    const element = document.getElementById('product-offer-shinwa-living-eaglish');
+    const rect = element.getBoundingClientRect();
+    return rect.bottom > 0 && rect.top < innerHeight;
+  });
+
   sheetFails = true;
   assert.equal(await page.evaluate(() => load()), false);
   await page.locator('#source-status', { hasText: '目前無法取得最新團購資料' }).waitFor();

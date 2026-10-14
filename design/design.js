@@ -777,17 +777,53 @@ function trackPermanentOffer(p, sourceSurface, ctaLabel) {
   });
 }
 let sharedLinkHandled = false;
-window.addEventListener("catalog-ready", () => {
-  if (sharedLinkHandled || !refreshedAt) return;
+function positionSharedOffer(offerId) {
+  if (sharedLinkHandled) return false;
+  const matches = products.filter(p => p.permanentOfferId === offerId && p.status.key === "open");
+  const target = document.getElementById(`product-offer-${offerId}`);
+  if (matches.length !== 1 || !target) return false;
   sharedLinkHandled = true;
+  let frame = 0;
+  let observer;
+  const stop = () => {
+    if (frame) cancelAnimationFrame(frame);
+    observer?.disconnect();
+    document.removeEventListener("load", queueAlign, true);
+    for (const event of ["wheel", "touchstart", "pointerdown", "keydown"])
+      window.removeEventListener(event, stop, true);
+    window.removeEventListener("hashchange", stop);
+  };
+  const align = () => {
+    frame = 0;
+    if (!target.isConnected || location.hash !== `#product-offer-${offerId}`) return stop();
+    target.scrollIntoView({ block: "center" });
+  };
+  const queueAlign = () => {
+    if (frame) return;
+    frame = requestAnimationFrame(() => { frame = requestAnimationFrame(align); });
+  };
+  // Resource cards and their real images can change the page height after the
+  // first render. Follow only actual layout changes and stop at user intent.
+  observer = new ResizeObserver(queueAlign);
+  observer.observe(document.body);
+  for (const element of [document.querySelector("main"), $("#products"), $("#coupon-products")])
+    if (element) observer.observe(element);
+  document.addEventListener("load", queueAlign, true);
+  document.fonts?.ready.then(queueAlign);
+  for (const event of ["wheel", "touchstart", "pointerdown", "keydown"])
+    window.addEventListener(event, stop, { capture: true, once: true, passive: true });
+  window.addEventListener("hashchange", stop, { once: true });
+  queueAlign();
+  return true;
+}
+function handleSharedLink() {
+  if (sharedLinkHandled || !refreshedAt) return;
   const offerId = location.hash.match(/^#product-offer-([a-z0-9-]+)$/)?.[1];
   if (offerId) {
-    const matches = products.filter(p => p.permanentOfferId === offerId && p.status.key === "open");
-    if (matches.length === 1) queueMicrotask(() =>
-      document.getElementById(`product-offer-${offerId}`)?.scrollIntoView({ block: "center" })
-    );
+    queueMicrotask(() => positionSharedOffer(offerId));
     return;
   }
+  sharedLinkHandled = true;
   const articleId = location.hash.match(/^#product-([a-z0-9-]+)$/)?.[1];
   if (articleId) {
     const matches = products.filter(p => p.article?.id === articleId);
@@ -816,7 +852,9 @@ window.addEventListener("catalog-ready", () => {
     query = key.toLowerCase(); $("#search").value = key; setStatus("all");
     $("#catalog").scrollIntoView();
   }
-});
+}
+window.addEventListener("catalog-rendered", handleSharedLink);
+window.addEventListener("catalog-ready", handleSharedLink);
 updateSaved();
 const loadCatalogueAfterPaint = () => {
   setTimeout(() => {

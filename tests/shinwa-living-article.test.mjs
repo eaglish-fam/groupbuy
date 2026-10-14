@@ -132,6 +132,18 @@ test('article works at 320px, loads one player on click and copies the exact cod
     assert.ok(metric.gap >= 6, JSON.stringify(metric));
     assert.ok(metric.linkHeights.every((height) => height >= 44), JSON.stringify(metric));
   }
+  const portraitPoster = await page.locator('#video-bed .video-poster').evaluate((button) => {
+    const image = button.querySelector('img');
+    const buttonRect = button.getBoundingClientRect();
+    const imageRect = image.getBoundingClientRect();
+    return {
+      buttonRatio: buttonRect.width / buttonRect.height,
+      imageRatio: imageRect.width / imageRect.height,
+      sourceRatio: Number(image.getAttribute('width')) / Number(image.getAttribute('height')),
+    };
+  });
+  assert.ok(Math.abs(portraitPoster.buttonRatio - 9 / 16) < 0.01, JSON.stringify(portraitPoster));
+  assert.ok(Math.abs(portraitPoster.imageRatio - portraitPoster.sourceRatio) < 0.01, JSON.stringify(portraitPoster));
   const poster = page.locator('#video-woodwork [data-video-src]');
   await poster.click();
   const frame = page.locator('#video-woodwork iframe');
