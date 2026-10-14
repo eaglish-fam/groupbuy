@@ -1,6 +1,8 @@
 [data-article-key="shinwaLiving"]{--green:#274c3f;--rust:#8a5f3d;--paper:#fbf8f0;--line:#ddd6c6}
 [data-article-key="shinwaLiving"] .cover{max-width:1120px}
 [data-article-key="shinwaLiving"] .cover img{max-height:none;object-fit:contain;background:#eee5d4}
+[data-article-key="shinwaLiving"] .story-photo{padding:0;border:0;background:transparent;box-shadow:none}
+[data-article-key="shinwaLiving"] .story-photo img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
 [data-article-key="shinwaLiving"] .same-row{align-items:center}
 [data-article-key="shinwaLiving"] .same-row figure:nth-child(2){margin-top:0}
 [data-article-key="shinwaLiving"] .portrait{max-width:480px}
