@@ -21,6 +21,7 @@ test('article uses the frozen seven-section structure and one public H1', () => 
   assert.equal((article.match(/<h2\b/g) || []).length, 7);
   assert.equal((article.match(/<h3\b/g) || []).length, 2);
   const toc = html.match(/<nav class="article-toc"[^>]*>([\s\S]*?)<\/nav>/)?.[1] || '';
+  assert.match(html, /<nav class="article-toc guide-nav reading-nav-source" data-reading-nav/);
   assert.equal((toc.match(/<a\b/g) || []).length, 7);
   for (const anchor of ['workshop','family-play','folding-game','memory-box','cat-tools','friend-videos','choose-and-shop'])
     assert.match(toc, new RegExp(`href="#${anchor}"`));
