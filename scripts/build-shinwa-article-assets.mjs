@@ -68,7 +68,7 @@ for (const [id, name] of Object.entries(videoNames)) {
   await sharp(sources[id][0]).rotate().webp({ quality: 86, effort: 5 }).toFile(resolve(outputRoot, name));
 }
 
-const coverSvg = (width, panelTop, titleSize, subSize) => Buffer.from(`<svg width="${width}" height="${Math.round(width * .625)}" xmlns="http://www.w3.org/2000/svg"><rect y="${panelTop}" width="${width}" height="${Math.round(width * .625) - panelTop}" fill="#eee5d4"/><rect x="${Math.round(width * .055)}" y="${panelTop + 25}" width="${Math.max(5, Math.round(width * .006))}" height="52" rx="2" fill="#8a5f3d"/><text x="${Math.round(width * .08)}" y="${panelTop + 66}" fill="#274c3f" font-family="Songti TC, Noto Serif CJK TC, serif" font-size="${titleSize}" font-weight="600">心窪生活</text><text x="${Math.round(width * .34)}" y="${panelTop + 62}" fill="#5e604f" font-family="PingFang TC, sans-serif" font-size="${subSize}">宜蘭朋友的手作，帶進家的日常</text></svg>`);
+const coverSvg = (width, panelTop, titleSize, subSize) => Buffer.from(`<svg width="${width}" height="${Math.round(width * .625)}" xmlns="http://www.w3.org/2000/svg"><rect y="${panelTop}" width="${width}" height="${Math.round(width * .625) - panelTop}" fill="#eee5d4"/><rect x="${Math.round(width * .055)}" y="${panelTop + 25}" width="${Math.max(5, Math.round(width * .006))}" height="52" rx="2" fill="#8a5f3d"/><text x="${Math.round(width * .08)}" y="${panelTop + 66}" fill="#274c3f" font-family="Songti TC, Noto Serif CJK TC, serif" font-size="${titleSize}" font-weight="600">心窪生活</text><text x="${Math.round(width * .34)}" y="${panelTop + 62}" fill="#5e604f" font-family="PingFang TC, sans-serif" font-size="${subSize}">積木・兒童桌椅・木製禮物</text></svg>`);
 const baseCover = await sharp(sources.blocks[0]).resize({ width: 1600, withoutEnlargement: true }).toBuffer();
 await sharp({ create: { width: 1600, height: 1000, channels: 3, background: '#eee5d4' } })
   .composite([{ input: baseCover, top: 0, left: 0 }, { input: coverSvg(1600, 900, 54, 25), top: 0, left: 0 }])
@@ -78,7 +78,7 @@ for (const width of [480, 960]) {
 }
 
 const cardPhoto = await sharp(sources.blocks[0]).resize({ width: 1000, withoutEnlargement: true }).toBuffer();
-const cardSvg = Buffer.from('<svg width="1000" height="750" xmlns="http://www.w3.org/2000/svg"><rect y="563" width="1000" height="187" fill="#eee5d4"/><rect x="58" y="606" width="7" height="77" rx="2" fill="#8a5f3d"/><text x="86" y="641" fill="#274c3f" font-family="Songti TC, Noto Serif CJK TC, serif" font-size="42" font-weight="600">心窪生活</text><text x="86" y="686" fill="#5e604f" font-family="PingFang TC, sans-serif" font-size="23">宜蘭朋友的手工木作</text></svg>');
+const cardSvg = Buffer.from('<svg width="1000" height="750" xmlns="http://www.w3.org/2000/svg"><rect y="563" width="1000" height="187" fill="#eee5d4"/><rect x="58" y="606" width="7" height="77" rx="2" fill="#8a5f3d"/><text x="86" y="641" fill="#274c3f" font-family="Songti TC, Noto Serif CJK TC, serif" font-size="42" font-weight="600">心窪生活</text><text x="86" y="686" fill="#5e604f" font-family="PingFang TC, sans-serif" font-size="23">積木・兒童桌椅・木製禮物</text></svg>');
 await sharp({ create: { width: 1000, height: 750, channels: 3, background: '#eee5d4' } })
   .composite([{ input: cardPhoto, top: 0, left: 0 }, { input: cardSvg, top: 0, left: 0 }])
   .webp({ quality: 90, effort: 6 }).toFile(resolve(outputRoot, 'product-card.webp'));
