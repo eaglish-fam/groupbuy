@@ -1,0 +1,29 @@
+{
+  "schema": "eaglish.permanent-offers/v1",
+  "offers": [
+    {
+      "id": "shinwa-living-eaglish",
+      "brandId": "shinwaLiving",
+      "brandName": "心窪生活",
+      "title": "心窪生活手工木作",
+      "code": "eaglish",
+      "discount": {
+        "amount": 200,
+        "currency": "TWD",
+        "display": "現折200元"
+      },
+      "destinationUrl": "https://www.shinwaliving.com/",
+      "articlePath": "/blog/shinwa-living/",
+      "source": {
+        "kind": "hiram-supplied-poster",
+        "sha256": "085eea7bd61913d52ecd1c260e79c88ec92b4930ae8f679e800fb54b1bc8f2b9",
+        "authority": "Hiram direct request and poster"
+      },
+      "observedAt": "2026-10-14",
+      "terms": {},
+      "disclosure": "使用推薦折扣碼購買，我們可能獲得分潤。",
+      "state": "candidate",
+      "publicationNotYetAccepted": true
+    }
+  ]
+}

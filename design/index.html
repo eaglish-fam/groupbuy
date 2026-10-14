@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="./travel-entry.css" />
     <script defer src="./papaparse.min.js"></script>
     <script defer src="/product-content.js?v=20261002-leofoo-booking-sync"></script>
+    <script defer src="./permanent-offers.js?v=20261014-shinwa-offer-adapter"></script>
     <script defer src="./entry-image-widths.js"></script>
     <script defer src="./editor-picks.js"></script>
     <script defer src="./design.js"></script>
@@ -275,6 +276,7 @@
         </header>
         <div class="product-grid resource-grid" id="coupon-products">
           <p>正在整理折扣優惠…</p>
+          <noscript><p class="resource-empty">請啟用 JavaScript 讀取已核准的折扣優惠；使用前仍請在廠商網站確認適用條件。</p></noscript>
         </div>
       </section>
       <section class="resource-section wrap" id="kang-books">
@@ -499,6 +501,6 @@
       </div>
       <div id="detail"></div>
     </dialog>
-    <div class="toast" id="toast" role="status"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   </body>
 </html>

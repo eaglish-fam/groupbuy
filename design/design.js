@@ -11,6 +11,7 @@ const LEOFOO_PLANS = [
 ];
 const LEOFOO_FAMILY_ALIASES = new Set(["六福莊", "六福莊飯店"]);
 const catalogueFallback = document.querySelector('[data-snapshot-card]') ? $("#products").innerHTML : "";
+const emptyPermanentOfferRegistry = Object.freeze({ schema: "eaglish.permanent-offers/v1", offers: [] });
 const SAVED_KEY = ["www.eaglish.store", "eaglish.store"].includes(location.hostname) ? "eaglish-saved-v2" : "eaglish-design-saved-v2";
 let loadingPromise = null, refreshedAt = 0, verifiedDay = "", buying = false;
 const track = (name, data = {}) => window.SiteAnalytics?.track(name, data);
@@ -149,6 +150,14 @@ function notify(message) {
   $("#toast").classList.add("show");
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => $("#toast").classList.remove("show"), 2200);
+}
+async function permanentOfferRegistry() {
+  try {
+    return await PermanentOffers.load("/config/permanent-offers.json");
+  } catch (error) {
+    console.error("Permanent offer registry ignored:", error);
+    return emptyPermanentOfferRegistry;
+  }
 }
 function updateSaved() {
   try {
@@ -327,7 +336,8 @@ function card(p, leofooPlans = [], matchedLeofooPlans = []) {
     <div class="product-body"><div class="product-meta"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${label}</span><span>${esc(p.category.split(/[,，]/)[0])}${p.country ? " / " + esc(p.country) : ""}</span></div>
     <h3><button data-detail="${idx}" style="font:inherit;text-align:left;padding:0">${esc(p.brand)}</button></h3><p class="product-description">${esc(p.description)}</p>
     <div class="product-bottom">${timedCampaign(p) ? `<p class="date-line">${countdownMarkup(p)}</p>` : ""}
-    ${p.coupon && p.status.key === "open" ? `<div class="coupon-inline"><small>專屬折扣碼</small><code>${esc(p.coupon)}</code><button data-copy-code="${esc(p.coupon)}">複製折扣碼</button></div>` : ""}
+    ${p.coupon && p.status.key === "open" ? `<div class="coupon-inline"><small>專屬折扣碼</small><code>${esc(p.coupon)}</code><button type="button" data-copy-code="${esc(p.coupon)}">複製折扣碼</button></div>` : ""}
+    ${p.disclosure ? `<p class="small permanent-offer-disclosure">${esc(p.disclosure)}</p>` : ""}
     ${p.kind === "book" && retailerLinks ? `<div class="retailer-links">${retailerLinks}</div>` : `<div class="card-actions"><button class="button secondary" data-detail="${idx}">商品詳情</button></div>`}
     ${p.article?.article ? `<a class="card-reading" href="${esc(p.article.article)}">先讀生活筆記<span aria-hidden="true">↗</span></a>` : ""}
     ${p.videos.length ? `<button class="card-reading card-video" data-detail="${idx}">觀看使用影片</button>` : ""}
@@ -433,7 +443,7 @@ function openDetail(index, refreshing = false) {
     ? `<div class="detail-photo"><img id="detail-image" src="${esc(p.images[0])}"${p.fallbackImage || p.images[1] ? ` data-fallback-src="${esc(p.fallbackImage || p.images[1])}"` : ""} alt="${esc(p.brand)}"><div class="gallery-controls" ${p.images.length < 2 ? "hidden" : ""}><button id="photo-prev" aria-label="上一張商品圖片">←</button><span id="photo-count">1 / ${p.images.length}</span><button id="photo-next" aria-label="下一張商品圖片">→</button></div></div>`
     : "";
   $("#detail").innerHTML =
-    `<div class="detail-layout">${photo}<div class="detail-copy"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${p.status.label}</span><h2 id="detail-title">${esc(p.brand)}</h2><p>${esc(p.description)}</p>${timedCampaign(p) ? `<p class="date-line">${countdownMarkup(p)}</p>` : ""}${p.coupon && p.status.key === "open" ? `<p>折扣碼：<strong>${esc(p.coupon)}</strong> <button class="text-link" id="copy-coupon">複製</button></p>` : ""}${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">前往廠商賣場選購 ↗</a>` : "<p>目前暫不提供訂購入口。</p>"}${p.article?.article ? `<p><a class="text-link" href="${esc(p.article.article)}">閱讀完整生活筆記 ↗</a></p>` : ""}<p class="small">商品、配送與售後由廠商提供，詳情以當期賣場為準。</p></div></div><div class="detail-sections">${[
+    `<div class="detail-layout">${photo}<div class="detail-copy"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${p.status.label}</span><h2 id="detail-title">${esc(p.brand)}</h2><p>${esc(p.description)}</p>${timedCampaign(p) ? `<p class="date-line">${countdownMarkup(p)}</p>` : ""}${p.coupon && p.status.key === "open" ? `<p>折扣碼：<strong>${esc(p.coupon)}</strong> <button type="button" class="text-link" id="copy-coupon">複製</button></p>` : ""}${p.disclosure ? `<p class="small permanent-offer-disclosure">${esc(p.disclosure)}</p>` : ""}${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">前往廠商賣場選購 ↗</a>` : "<p>目前暫不提供訂購入口。</p>"}${p.article?.article ? `<p><a class="text-link" href="${esc(p.article.article)}">閱讀完整生活筆記 ↗</a></p>` : ""}<p class="small">商品、配送與售後由廠商提供，詳情以當期賣場為準。</p></div></div><div class="detail-sections">${[
       ["貼心說明", p.note],
       ["方案詳情", p.details],
       ["常見問題", p.qa],
@@ -478,13 +488,13 @@ function openDetail(index, refreshing = false) {
     ProductContent.mountVideos($("#detail-videos"), p.videos);
   if (p.coupon && p.status.key === "open")
     $("#copy-coupon").onclick = async () => {
-      try {
-        await navigator.clipboard.writeText(p.coupon);
-        notify("折扣碼已複製");
-        track("copy_coupon", { group_name: p.brand, coupon_code: p.coupon });
-      } catch {
-        notify("請長按選取折扣碼複製");
-      }
+      await PermanentOffers.copyCode(p.coupon, {
+        onSuccess: () => {
+          notify("折扣碼已複製");
+          track("copy_coupon", { group_name: p.brand, coupon_code: p.coupon });
+        },
+        onFailure: () => notify("請長按選取折扣碼複製"),
+      });
     };
   $("#product-dialog").showModal();
   window.dispatchEvent(new CustomEvent("product-detail-ready", { detail: p }));
@@ -593,6 +603,7 @@ async function fetchRows(tab) {
   return ProductContent.sheetRows(parsed.data);
 }
 async function performLoad() {
+  const permanentRegistry = await permanentOfferRegistry();
   try {
     const rows = await fetchRows("現正開團");
     // The Sheet has one canonical product tab. Verify its raw rows before
@@ -612,6 +623,7 @@ async function performLoad() {
     const counts = new Map();
     products.forEach(p => counts.set(p.key, (counts.get(p.key) || 0) + 1));
     products.forEach(p => { if (counts.get(p.key) > 1) p.status = { ...p.status, key: "unknown", label: "商品資料待確認" }; });
+    products = PermanentOffers.mergeProducts(products, permanentRegistry);
     applyLeofooCampaignStatus(products, leofooCampaign);
     // Migrate brand-only favourites once; retain original storage for rollback.
     try {
@@ -653,18 +665,25 @@ async function performLoad() {
     }
     return true;
   } catch (e) {
+    products = PermanentOffers.unavailableProducts(products, permanentRegistry);
+    const ordinary = products.filter((p) => !p.kind);
+    const displayOrdinary = groupLeofooForDisplay(ordinary, products);
     $("#source-status").innerHTML =
       '目前無法取得最新團購資料。<button id="retry" class="text-link">重新讀取</button>';
-    $("#products").innerHTML = catalogueFallback ||
+    $("#products").innerHTML = displayOrdinary.length
+      ? displayOrdinary.map((item) => card(item.product, item.leofooPlans, item.matchedLeofooPlans)).join("")
+      : catalogueFallback ||
       '<div class="loading"><a href="/guides/">先看選購方向</a>，或<a href="/blog/">閱讀生活筆記</a>。</div>';
     $("#products").setAttribute("aria-busy", "false");
-    $("#result-count").textContent = "商品介紹目錄・即時狀態待確認";
+    $("#result-count").textContent = displayOrdinary.length
+      ? `${displayOrdinary.length} 件選物・即時狀態待確認`
+      : "商品介紹目錄・即時狀態待確認";
     $("#load-more").hidden = true;
     $("#show-all-products").hidden = true;
     $("#browse-progress").textContent = "";
     $("#retry").onclick = load;
     refreshedAt = 0;
-    products = products.map(p => ({ ...p, status: { ...p.status, key: "unknown", label: "團購狀態待確認" } }));
+    loaded = true;
     updateTodayClosing();
     window.dispatchEvent(new Event("catalog-ready"));
     if ($("#product-dialog").open) {
@@ -703,6 +722,16 @@ document.addEventListener("click", async e => {
   const sourceSurface = a.closest("#product-dialog") ? "homepage_details_modal" : "homepage_product_card";
   const pending = window.open("about:blank", "_blank");
   if (pending) { pending.opener = null; pending.document.title = "正在確認當期團購"; }
+  const exactMatches = products.filter(p => p.key === key && p.exactDestination && p.status.key === "open");
+  if (exactMatches.length === 1) {
+    const p = exactMatches[0];
+    try {
+      trackPermanentOffer(p, sourceSurface, a.textContent);
+      if (pending && !pending.closed) pending.location.replace(p.url);
+      else window.location.assign(p.url);
+    } finally { buying = false; }
+    return;
+  }
   notify("正在確認最新團購入口…");
   try {
     const ok = await load();
@@ -730,6 +759,20 @@ document.addEventListener("click", async e => {
     else window.location.assign(destination);
   } finally { buying = false; }
 }, true);
+function trackPermanentOffer(p, sourceSurface, ctaLabel) {
+  window.SiteAnalytics?.outboundGroupbuy({
+    productId: p.permanentOfferId,
+    productName: p.brand,
+    groupType: "coupon",
+    sourceSurface,
+    articleSlug: new URL(p.article.article, location.href).pathname.split("/").filter(Boolean).at(-1),
+    destinationUrl: p.url,
+    ctaLabel,
+    campaignKey: p.permanentOfferId,
+    legacyEvent: "click_coupon",
+    legacyData: { group_category: p.category },
+  });
+}
 let sharedLinkHandled = false;
 window.addEventListener("catalog-ready", () => {
   if (sharedLinkHandled || !refreshedAt) return;

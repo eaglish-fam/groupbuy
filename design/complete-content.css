@@ -284,6 +284,11 @@
   text-decoration: underline;
   font-size: 14px;
 }
+.permanent-offer-disclosure {
+  margin: -2px 0 12px;
+  color: #596052;
+  line-height: 1.6;
+}
 .card-calendar {
   display: inline-flex;
   align-items: center;

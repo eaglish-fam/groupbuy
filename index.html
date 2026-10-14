@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="/design/travel-entry.css?v=20261002-leofoo-booking-sync" />
     <script defer src="/design/papaparse.min.js?v=20261002-leofoo-booking-sync"></script>
     <script defer src="/product-content.js?v=20261002-leofoo-booking-sync"></script>
+    <script defer src="/design/permanent-offers.js?v=20261002-leofoo-booking-sync"></script>
     <script defer src="/design/entry-image-widths.js?v=20261002-leofoo-booking-sync"></script>
     <script defer src="/design/editor-picks.js?v=20261002-leofoo-booking-sync"></script>
     <script defer src="/design/design.js?v=20261002-leofoo-card-only"></script>
@@ -459,6 +460,7 @@
         </header>
         <div class="product-grid resource-grid" id="coupon-products">
           <p>正在整理折扣優惠…</p>
+          <noscript><p class="resource-empty">請啟用 JavaScript 讀取已核准的折扣優惠；使用前仍請在廠商網站確認適用條件。</p></noscript>
         </div>
       </section>
       <section class="resource-section wrap" id="kang-books">
@@ -683,6 +685,6 @@
       </div>
       <div id="detail"></div>
     </dialog>
-    <div class="toast" id="toast" role="status"></div>
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
   <!-- site-navigation:start --><nav class="site-switcher" aria-label="鷹式一家三站導覽"><div class="site-switcher-inner"><a href="/" data-site-section="store" aria-label="鷹家買物社" aria-current="location">買物社</a><a href="/blog/" data-site-section="journal" aria-label="鷹家選物誌">選物誌</a><a href="/trip/" data-site-section="travel" aria-label="鷹家遠行所">遠行所</a></div></nav><script defer src="/site-font-loader.js?v=a94b2b85c291" data-font-entry="true"></script><!-- site-navigation:end --></body>
 </html>
