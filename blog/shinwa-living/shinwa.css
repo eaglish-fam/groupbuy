@@ -2,6 +2,7 @@
 [data-article-key="shinwaLiving"] .cover{max-width:1120px}
 [data-article-key="shinwaLiving"] .hero .seo-title{display:block}
 [data-article-key="shinwaLiving"] .hero .title-divider{display:none}
+[data-article-key="shinwaLiving"] .hero .product-phrase{display:inline-block;white-space:nowrap}
 [data-article-key="shinwaLiving"] .cover img{max-height:none;object-fit:contain;background:#eee5d4}
 [data-article-key="shinwaLiving"] .story-photo{padding:0;border:0;background:transparent;box-shadow:none}
 [data-article-key="shinwaLiving"] .story-photo img{display:block;width:100%;height:auto;max-height:none;object-fit:contain}
