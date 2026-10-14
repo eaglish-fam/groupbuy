@@ -36,6 +36,8 @@ test('article uses the frozen seven-section structure and one public H1', () => 
   assert.equal(editorialCount(visible), 1980);
   const css = readFileSync(resolve(root, 'blog/shinwa-living/shinwa.css'), 'utf8');
   assert.match(css, /\[data-article-key="shinwaLiving"\] \.story-photo\{padding:0;border:0;background:transparent;box-shadow:none\}/);
+  assert.match(css, /\.cat-gallery\{display:grid;grid-template-columns:1\.347fr 1\.705fr 1\.544fr;align-items:start/);
+  assert.match(css, /\.cat-gallery img\{display:block;width:100%;height:auto;max-height:none;object-fit:contain\}/);
 });
 
 test('metadata, canonical, Article and Breadcrumb identities agree', () => {
