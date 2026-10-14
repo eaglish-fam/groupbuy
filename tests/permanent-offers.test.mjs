@@ -169,6 +169,19 @@ test('refresh failure keeps ordinary cards unavailable while the current publish
   await page.addInitScript(() => {
     window.sent = [];
     window.open = () => ({ opener: null, document: {}, closed: false, location: { replace: (url) => window.sent.push(url) }, close() { this.closed = true; } });
+    window.offerScrollCalls = 0;
+    const scrollIntoView = Element.prototype.scrollIntoView;
+    Element.prototype.scrollIntoView = function (options) {
+      if (this.id === 'product-offer-shinwa-living-eaglish') window.offerScrollCalls += 1;
+      return scrollIntoView.call(this, options);
+    };
+    let releaseFonts;
+    const fontReady = new Promise((resolve) => { releaseFonts = resolve; });
+    window.releaseFonts = releaseFonts;
+    Object.defineProperty(Document.prototype, 'fonts', {
+      configurable: true,
+      get: () => ({ ready: fontReady }),
+    });
   });
   await page.goto(`${base}/#product-offer-shinwa-living-eaglish`, { waitUntil: 'domcontentloaded' });
   const ordinary = page.locator('#products .product-card', { hasText: '既有普通商品' });
@@ -208,6 +221,15 @@ test('refresh failure keeps ordinary cards unavailable while the current publish
     const rect = element.getBoundingClientRect();
     return rect.bottom > 0 && rect.top < innerHeight;
   });
+  const callsBeforeIntent = await page.evaluate(() => window.offerScrollCalls);
+  await page.evaluate(() => {
+    window.dispatchEvent(new PointerEvent('pointerdown'));
+    window.releaseFonts();
+    const shift = document.getElementById('late-layout-shift');
+    shift.style.height = '2400px';
+  });
+  await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
+  assert.equal(await page.evaluate(() => window.offerScrollCalls), callsBeforeIntent);
 
   sheetFails = true;
   assert.equal(await page.evaluate(() => load()), false);

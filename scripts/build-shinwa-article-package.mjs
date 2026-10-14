@@ -117,7 +117,7 @@ const packageData = {
     { question:'價格、折扣與揭露是什麼？', disposition:'body' },
     { question:'有哪些未知條件？', disposition:'omitted', reason:'低消、效期、疊加與適用品項未獲確認，不在公開文補寫。' },
   ],
-  engineering: { mediaManifest:'assets/shinwa-living/media-manifest.json', candidatePath:'/candidates/shinwa-living-blog-20261014/working-v3/', released:false },
+  engineering: { mediaManifest:'assets/shinwa-living/media-manifest.json', candidatePath:'/candidates/shinwa-living-blog-20261014/working-v4/', released:false },
 };
 writeFileSync(resolve(root, 'docs/shinwa-living-article-package-v4.json'), JSON.stringify(packageData, null, 2) + '\n');
 console.log(`Built Shinwa article package with ${bodyText.length} characters`);

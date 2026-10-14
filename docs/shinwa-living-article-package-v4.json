@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.article-package/v4",
-  "createdAt": "2026-10-14T03:34:29.495Z",
+  "createdAt": "2026-10-14T03:42:24.384Z",
   "editorialStatus": "ready",
   "publicationAuthorized": false,
   "identity": {
@@ -508,7 +508,7 @@
   ],
   "engineering": {
     "mediaManifest": "assets/shinwa-living/media-manifest.json",
-    "candidatePath": "/candidates/shinwa-living-blog-20261014/working-v3/",
+    "candidatePath": "/candidates/shinwa-living-blog-20261014/working-v4/",
     "released": false
   }
 }

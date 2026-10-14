@@ -785,8 +785,12 @@ function positionSharedOffer(offerId) {
   sharedLinkHandled = true;
   let frame = 0;
   let observer;
+  let stopped = false;
   const stop = () => {
+    if (stopped) return;
+    stopped = true;
     if (frame) cancelAnimationFrame(frame);
+    frame = 0;
     observer?.disconnect();
     document.removeEventListener("load", queueAlign, true);
     for (const event of ["wheel", "touchstart", "pointerdown", "keydown"])
@@ -795,11 +799,12 @@ function positionSharedOffer(offerId) {
   };
   const align = () => {
     frame = 0;
+    if (stopped) return;
     if (!target.isConnected || location.hash !== `#product-offer-${offerId}`) return stop();
     target.scrollIntoView({ block: "center" });
   };
   const queueAlign = () => {
-    if (frame) return;
+    if (stopped || frame) return;
     frame = requestAnimationFrame(() => { frame = requestAnimationFrame(align); });
   };
   // Resource cards and their real images can change the page height after the
