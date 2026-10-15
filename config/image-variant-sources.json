@@ -1,0 +1,254 @@
+{
+  "/assets/artisan-cb301/blog-cover-v2-480.webp": {
+    "source": "a9aae1fbe3f47360a002a1c4cb6da576cf7a4d6972589948dbf4a9656b3b6fb1",
+    "variant": "20ca8b2992e8b5778cb871a0bcc4e2258093c3748917606d508fc8cd33bedfb1"
+  },
+  "/assets/artisan-cb301/blog-cover-v2-960.webp": {
+    "source": "a9aae1fbe3f47360a002a1c4cb6da576cf7a4d6972589948dbf4a9656b3b6fb1",
+    "variant": "962e45ddc8e10dac0baf84a26f1c27f7e7a0ee2a3402b69baf67a7101c31a1be"
+  },
+  "/assets/atojet/vendor-shower-480.webp": {
+    "source": "d5af51b7750caaee9031f90f962e4a1e4562fbf958f4c1bf637fd3435521c4f8",
+    "variant": "7a65d3a3dddb31f38dc0733d73646b22a90c4c6d79bf2fa4848f7de8a9b33f27"
+  },
+  "/assets/atojet/vendor-shower-960.webp": {
+    "source": "d5af51b7750caaee9031f90f962e4a1e4562fbf958f4c1bf637fd3435521c4f8",
+    "variant": "8b031529f3d3daf17337214d058839825f8d7d5ff91af0cf125e3071321e0d64"
+  },
+  "/assets/branden/cover-480.webp": {
+    "source": "968c4c27daa73ea7f5c0a7b67704f8de601124853cbce2f1d1b1e0ca005058ee",
+    "variant": "79554e97e7f24e4cecc04e103f10760ceebd4de8491b5d406f4833af8682a6fc"
+  },
+  "/assets/branden/cover-960.webp": {
+    "source": "968c4c27daa73ea7f5c0a7b67704f8de601124853cbce2f1d1b1e0ca005058ee",
+    "variant": "f27992a2bd234c84fcc3761c0fb07fec4f7e40233404ac9e21b44166fd7eb11f"
+  },
+  "/assets/branden/product-card-480.webp": {
+    "source": "4cfe308db103c88d85079fea8f55325654e7549b4bc963ed4887cb2104454451",
+    "variant": "7e9958d395650fed3804ca2974ad89ac6c41fbde02717118ecce01a4cbca2132"
+  },
+  "/assets/branden/product-card-960.webp": {
+    "source": "4cfe308db103c88d85079fea8f55325654e7549b4bc963ed4887cb2104454451",
+    "variant": "4280676311831cb6cf243b8cdd2a8ca499599235e4585211300a77de2ad4b95d"
+  },
+  "/assets/caesar-kenting/journal/cover-title-v2-480.webp": {
+    "source": "f19127dfcdf6f87f9121503040a746429843449a80df6e2250447d53f7250f08",
+    "variant": "d53d22f22dbb1c26a9ecacb71981136b069bf06f5da2075da6b2f1de3730cd03"
+  },
+  "/assets/caesar-kenting/journal/cover-title-v2-960.webp": {
+    "source": "f19127dfcdf6f87f9121503040a746429843449a80df6e2250447d53f7250f08",
+    "variant": "10d7b0072ddf6ae2d6be767b61f7924ac66445d3b8b9bff682de01412acf9e0f"
+  },
+  "/assets/caesar-kenting/product-card-480.webp": {
+    "source": "cc470949f8f04c48c71c0f955c378a7c9a86442b88cfc23c6025cb5208b6168b",
+    "variant": "f7876a6be2005fdf9ffba758e3453cf62b534a7abf4e7488bb3da2e30440fd9f"
+  },
+  "/assets/caesar-kenting/product-card-960.webp": {
+    "source": "cc470949f8f04c48c71c0f955c378a7c9a86442b88cfc23c6025cb5208b6168b",
+    "variant": "8189a030817c121f1e1aa0884153dc9cbec63a86758341d20d300d2c3536274a"
+  },
+  "/assets/chulu-aomori-drinks/flavored-480.webp": {
+    "source": "8ea9c8d1e793771e6a36ef1b2af6b9d423a04caa8c32c940a56f223e380a5532",
+    "variant": "9518dcea2a96952aadd44ff37a826b04099a88479ec6ff47d233543fbc61bec4"
+  },
+  "/assets/chulu-aomori-drinks/flavored-960.webp": {
+    "source": "8ea9c8d1e793771e6a36ef1b2af6b9d423a04caa8c32c940a56f223e380a5532",
+    "variant": "60175f9f2873fc0652bcbace8ef185d8661e90294ebe4645dcf16df1ed3dbe4a"
+  },
+  "/assets/eben/blog-cover-480.webp": {
+    "source": "3cca1dda428fe97d4bd0521e149e0b6ed5834fada1ec317f540309f0390ff0f7",
+    "variant": "04192f46923e9cbe91cbfb18fedb2abaec4bf2093036dca34912288923a3ba87"
+  },
+  "/assets/eben/blog-cover-960.webp": {
+    "source": "3cca1dda428fe97d4bd0521e149e0b6ed5834fada1ec317f540309f0390ff0f7",
+    "variant": "01728fc1b55c6d08ddc094cf349edcc5bca023b09592060c3ea140df1f730b5f"
+  },
+  "/assets/eben/cover-480.webp": {
+    "source": "960f1bd3f6217e95d70cd068a39a8b13ddfddca5e46f50a8295c1a1353c7a214",
+    "variant": "e6a863b9aeb2caafa7680408c287bbf766924af401e1c9815328ecd5718c77e0"
+  },
+  "/assets/fushan-frozen/product-card-480.webp": {
+    "source": "043be688e155f4220f288428e652e3f9900d4d2ae273b321418da2a1329cdf64",
+    "variant": "687776a5484f3115a0cdaf53d3d55b9d61932455e0ec0f3e66d27c036ed6edd9"
+  },
+  "/assets/fushan-frozen/product-card-960.webp": {
+    "source": "043be688e155f4220f288428e652e3f9900d4d2ae273b321418da2a1329cdf64",
+    "variant": "d8cfa2c7576e6c2cfc6519c2c6586f6c3b8b105a4e7dc08735e20f760ecd3c4b"
+  },
+  "/assets/fushan/cover-480.webp": {
+    "source": "87a77a19416fbe159a6f9281265c8324f64e0dc3154b865b40a830ce86b5fa0b",
+    "variant": "3d610a7ddc42bb3ee8e0fe9439d55d52a302c0073347a137aa121dea4c0c220d"
+  },
+  "/assets/fushan/cover-960.webp": {
+    "source": "87a77a19416fbe159a6f9281265c8324f64e0dc3154b865b40a830ce86b5fa0b",
+    "variant": "8ce777a9703a5484e3419503a99082824b21589daf4f2cfdbf3f0a3b09ea7718"
+  },
+  "/assets/fushan/product-card-480.webp": {
+    "source": "004a15659e929de88d0ffd615d7bd7ac476855c5b412444ade22c3b173007364",
+    "variant": "e8aa7cd796326f7afbf55d9a32fdf2439d25853715a363361860729e628c3901"
+  },
+  "/assets/fushan/product-card-960.webp": {
+    "source": "004a15659e929de88d0ffd615d7bd7ac476855c5b412444ade22c3b173007364",
+    "variant": "d2247133db8560e7f93d59e01664c394d8bd1981c0f752651eb0d9b49dc5bda6"
+  },
+  "/assets/hereu-tag/cover-480.webp": {
+    "source": "99a70f19ea673c9190d8007b8f7966c137b2f95801107b8465b3085d60da1011",
+    "variant": "8c331004868d4cd3199cc8aa510c935e4e1e6f4bd2d36ca605c9e97d64996777"
+  },
+  "/assets/hereu-tag/cover-960.webp": {
+    "source": "99a70f19ea673c9190d8007b8f7966c137b2f95801107b8465b3085d60da1011",
+    "variant": "658cd0135654818005f5f63d6f80978d6ef823eb83f05023c9b169e78c7a5bad"
+  },
+  "/assets/hummus-guide/cover-v1-480.webp": {
+    "source": "e7694cef420d4548436b09f8f08ed783a45fa45d01f0d1cc8bdcd6e17f739ee0",
+    "variant": "c2e3b79c85233f23bef7127d37c29f0ee69b35da503dc9dd76a67347983bb751"
+  },
+  "/assets/hummus-guide/cover-v1-960.webp": {
+    "source": "e7694cef420d4548436b09f8f08ed783a45fa45d01f0d1cc8bdcd6e17f739ee0",
+    "variant": "7f8e4a17d59e638b770e0a9a4f4eba18ee57f7a9a1a5aa37834303d17bfb4c86"
+  },
+  "/assets/kietla/cover-style-v2-480.webp": {
+    "source": "57be3e05538912782f8eb16bfd0162a9a2b3e561f4bab7f25d89b1a875828100",
+    "variant": "505ff3f2bd44822ac82d2aca473d0a8314218f35d51983a6dfb1b238938ba2b8"
+  },
+  "/assets/kietla/cover-style-v2-960.webp": {
+    "source": "57be3e05538912782f8eb16bfd0162a9a2b3e561f4bab7f25d89b1a875828100",
+    "variant": "7afb22f9fd530fa2c47b0b2e93ce608ba9c81d17dafc984b1b877b86f3652d37"
+  },
+  "/assets/knsh/cover-480.webp": {
+    "source": "f769a705cdffcc06017d8819953c8f5e46ec2454f6cbcbb4b76d4647b2c683b7",
+    "variant": "42279031ee5fd71bde2d7f08842a5b4402cdbd015cb8ccacd72214e686185c6e"
+  },
+  "/assets/knsh/cover-960.webp": {
+    "source": "f769a705cdffcc06017d8819953c8f5e46ec2454f6cbcbb4b76d4647b2c683b7",
+    "variant": "0d82a47bffb19ae250fbc08dae0d0ab50897c8521b53fae63d316d0f3f7724f0"
+  },
+  "/assets/knsh/product-card-480.webp": {
+    "source": "a46dbb66c1520ecbac1898cf681fdf2a4615285c87288c43c22da8bd34a8c501",
+    "variant": "804be1b1e9c601fbbe5ef94852565536de3631a3be65cbb918057c96623f7ee4"
+  },
+  "/assets/knsh/product-card-960.webp": {
+    "source": "a46dbb66c1520ecbac1898cf681fdf2a4615285c87288c43c22da8bd34a8c501",
+    "variant": "be80b80be08657fac5fb6852ddf7d575494452e4920b18f35723fccfc84a52cc"
+  },
+  "/assets/lange/cover-480.webp": {
+    "source": "b300a5632562e1d24e43fc87f0869d993f88a643c1107e86734990e22b790aa7",
+    "variant": "128f23c33574b0743f78daac554dfc050f0ae114ddfcf0692e1f7a9c33f6e5c4"
+  },
+  "/assets/lange/cover-960.webp": {
+    "source": "b300a5632562e1d24e43fc87f0869d993f88a643c1107e86734990e22b790aa7",
+    "variant": "f48473804b4da9efdbbbd374ec8817562c0943fb3c5a7b1209abf0840c934dcf"
+  },
+  "/assets/leofoo/cover-480.webp": {
+    "source": "1300254cec1ad3dd6e6d0d47c4f6ab626efccf7f23771acd0c7f2ffd1690de55",
+    "variant": "33d51d25c931add56486bdfb966f630888487f7d40e51c363c42995d0927da02"
+  },
+  "/assets/leofoo/cover-960.webp": {
+    "source": "1300254cec1ad3dd6e6d0d47c4f6ab626efccf7f23771acd0c7f2ffd1690de55",
+    "variant": "f15b802d142dffc89ac3c808a77945e114b7ad8ed9604ec5de8397b3fb4aa992"
+  },
+  "/assets/leofoo/product-card-480.webp": {
+    "source": "03e3afdc9637df4f4eb5f3a8b88425b91f9fb392b34da13912c78a6b6933a2cb",
+    "variant": "6906ef9d70bf758b8bccbe9f277759eb818b4bfd8b57ef9160973c4e63a1f743"
+  },
+  "/assets/leofoo/product-card-960.webp": {
+    "source": "03e3afdc9637df4f4eb5f3a8b88425b91f9fb392b34da13912c78a6b6933a2cb",
+    "variant": "b8b522f16ebe7fe8c6be39a5ddbba765c97a058da32b3af57b2250bf79c36990"
+  },
+  "/assets/locknlock/cover-480.webp": {
+    "source": "3a8eb8147f9d7f09715d6d61afb9f230ae1a0164771d158000c94f3a4dd3a8a5",
+    "variant": "d77aa7d6277abd22f6e69a009220a44d91636d9535f51f7b8b6e573a64de95eb"
+  },
+  "/assets/locknlock/cover-960.webp": {
+    "source": "3a8eb8147f9d7f09715d6d61afb9f230ae1a0164771d158000c94f3a4dd3a8a5",
+    "variant": "c12a2fdcda43bb76dafc3f00ca7d28215b6d2f4945b6cd2c8ffd7fa6c811ed95"
+  },
+  "/assets/locknlock/product-card-480.webp": {
+    "source": "4d7e54ac4789a0c4b784ce1f957ab8e5df6ec8af99bc15c171144dd7ab3788dc",
+    "variant": "1d6abc681c7249220f0f5eb702b81b59398ca553705076f588d049f0be961e46"
+  },
+  "/assets/locknlock/product-card-960.webp": {
+    "source": "4d7e54ac4789a0c4b784ce1f957ab8e5df6ec8af99bc15c171144dd7ab3788dc",
+    "variant": "68776988ed064a4896e95722d34221ffcce22ae677aac9973a51f1475d4f6d57"
+  },
+  "/assets/meroware/blog-cover-v1-480.webp": {
+    "source": "7d07f7365a74ed458f1859eb837e6575e370ec46837938940ece86de0e324683",
+    "variant": "a903e524243c5ea5d79ee4f5a368dec1a859bba8275189e2f422ba9be99302e2"
+  },
+  "/assets/meroware/blog-cover-v1-960.webp": {
+    "source": "7d07f7365a74ed458f1859eb837e6575e370ec46837938940ece86de0e324683",
+    "variant": "fea527a57e39037e6cd65451c096e373a69e818c009c44465e3b41f1e1efad42"
+  },
+  "/assets/miamily/cover-480.webp": {
+    "source": "99a0148fe8ea8f4d1adad65a2566850242a6941c8a33361f9c0c81ff1f14859e",
+    "variant": "fdc37565e67cad3d5cdf20d3d61c997cbed6c7d06e5a8d96bc206879abb85334"
+  },
+  "/assets/miamily/cover-960.webp": {
+    "source": "99a0148fe8ea8f4d1adad65a2566850242a6941c8a33361f9c0c81ff1f14859e",
+    "variant": "07a5b427f5c67c2949a323b1a465ecee4177ea598fe4b10deebe6a5e03773406"
+  },
+  "/assets/mitoy-rice-blocks/play-480.webp": {
+    "source": "f95f102f8016f9e236a938ceda0d3da629dd6c00eb86302e7a4c0c9493ee6c77",
+    "variant": "d3a5e59c018b7ecb0ea5576f6bfb3a823cb9f296b312047a61f3544aed6358a8"
+  },
+  "/assets/mitoy-rice-blocks/play-960.webp": {
+    "source": "f95f102f8016f9e236a938ceda0d3da629dd6c00eb86302e7a4c0c9493ee6c77",
+    "variant": "b57cb6784370e71a0d7d7837f9f34b0a1cf6dce9a963d23aa03b87b9e9a9771a"
+  },
+  "/assets/playzu/cover-480.webp": {
+    "source": "478a66147a7f329e61d8fd26d9534fb4652e3381bdea6ac2e7cbe396e993f872",
+    "variant": "2950a3611046e6b69eb8e974f8c83834b7374c36216f9097aec18ac959e89ea3"
+  },
+  "/assets/playzu/cover-960.webp": {
+    "source": "478a66147a7f329e61d8fd26d9534fb4652e3381bdea6ac2e7cbe396e993f872",
+    "variant": "90cbc95bf994d69f3c5ac225ae1aac48be48c86fb385740ca29e1e31528f5d1c"
+  },
+  "/assets/playzu/vintage-cover-480.webp": {
+    "source": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
+    "variant": "3ddb1100e8c9939232b9ab25700a79070ed2d7625ed7585ba333801e21e5d0c0"
+  },
+  "/assets/playzu/vintage-cover-960.webp": {
+    "source": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
+    "variant": "a2479c4d6ed04de35d0fd8042d00ee1f413c93a939c91d269b7ca3c183359d9e"
+  },
+  "/assets/shinwa-living/cover-480.webp": {
+    "source": "976dea336e7334f2475cf2294a93ac358cac3191ed2b90e4dcba48322dbaee92",
+    "variant": "1c8c98caefba39e16e4a9c84aa7fa750e51697b16dd7916ce74f20ef387fffa8"
+  },
+  "/assets/shinwa-living/cover-960.webp": {
+    "source": "976dea336e7334f2475cf2294a93ac358cac3191ed2b90e4dcba48322dbaee92",
+    "variant": "268102cd1a07089528b83755c32c507d697b860d830118eb3c9c7d9ff8334b4b"
+  },
+  "/assets/shinwa-living/product-card-480.webp": {
+    "source": "21e505e929eac0ef9544d323b4184443bd43a171eb878be1aba8a6077611b396",
+    "variant": "42f806213970362dfc6d4b2a2389acd357e5c417ab0119d9053c14614e4f3a5a"
+  },
+  "/assets/shinwa-living/product-card-960.webp": {
+    "source": "21e505e929eac0ef9544d323b4184443bd43a171eb878be1aba8a6077611b396",
+    "variant": "cbd894ae75e8f6244bdd6a0c2855dec8ad461181e6d76cb6aa4333fa40e0fd9f"
+  },
+  "/assets/shoumaji/cover-480.webp": {
+    "source": "4f1f97b75dd5829543ac1c86186a1f6c48d8aff60cda75337cc438ebc677230d",
+    "variant": "1e59a4f6ecb2e3d565d58787630e3728e876e7f7c903c726e5683023c8f67d38"
+  },
+  "/assets/shoumaji/cover-960.webp": {
+    "source": "4f1f97b75dd5829543ac1c86186a1f6c48d8aff60cda75337cc438ebc677230d",
+    "variant": "e678c086461e3d9c20b1c37047badcaa603a43142281a2202c93bbab0d0fc895"
+  },
+  "/assets/wave/family-480.webp": {
+    "source": "4a6a88bd35dfdee1793c8ec327cb1c66028e0378abc16569382081f8175a540d",
+    "variant": "67f10b03c3107f52739e15ebd19e650115005a7700d72e31778e637ad5fa14c4"
+  },
+  "/assets/wave/family-960.webp": {
+    "source": "4a6a88bd35dfdee1793c8ec327cb1c66028e0378abc16569382081f8175a540d",
+    "variant": "cce88d5fa74675e499ff714b3da32b1f977d0b7964da5432b505282e1cad1e90"
+  },
+  "/assets/wave/toast-480.webp": {
+    "source": "2f1d6c4de12bd97b5ad0bce1d3e663ee5a80266f233701d9b0e72c5e8f4085c5",
+    "variant": "a374229bfb57f71952166b9ee05fc1c3c9cabf690e1adacf670d19e6d9d7db05"
+  },
+  "/assets/wave/toast-960.webp": {
+    "source": "2f1d6c4de12bd97b5ad0bce1d3e663ee5a80266f233701d9b0e72c5e8f4085c5",
+    "variant": "6a5604bc1b077d88f6575fe2629dc407bdf2f81637e6ead59cee1b267ae8867a"
+  }
+}

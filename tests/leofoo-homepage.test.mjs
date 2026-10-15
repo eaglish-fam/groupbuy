@@ -4,12 +4,12 @@ import http from 'node:http';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { extname, resolve } from 'node:path';
 import vm from 'node:vm';
+import { loadBrowserRuntime } from './browser-runtime.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const source = readFileSync(resolve(root, 'design/design.js'), 'utf8');
 const css = readFileSync(resolve(root, 'design/design.css'), 'utf8');
 const productContent = (await import('../product-content.js')).default;
-const playwrightPath = '/Users/zosia/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
 const brands = {
   A: '六福莊住宿 A｜樂園無限玩',
   B: '六福莊住宿 B｜經典探險',
@@ -102,8 +102,9 @@ test('Leofoo homepage markup keeps exact links, modal defaults and accessibility
 });
 
 test('Leofoo family aliases and exact plan deep links work in the homepage browser UI', { timeout: 45_000 }, async t => {
-  if (!existsSync(playwrightPath)) return t.skip('bundled Playwright is unavailable');
-  const { chromium } = await import(playwrightPath);
+  const runtime = await loadBrowserRuntime();
+  if (!runtime) return t.skip('Playwright is unavailable');
+  const { chromium, executablePath } = runtime;
   const mime = {
     '.css': 'text/css', '.html': 'text/html', '.js': 'text/javascript',
     '.json': 'application/json', '.png': 'image/png', '.svg': 'image/svg+xml',
@@ -134,7 +135,7 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
   const csv = rows => rows.map(row => row.map(value => `"${String(value).replaceAll('"', '""')}"`).join(',')).join('\n');
   const browser = await chromium.launch({
     headless: true,
-    executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome',
+    executablePath,
   });
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
   await context.route('**/*', async route => {
@@ -158,7 +159,8 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
 
   try {
     await page.goto(`${base}/?p=${encodeURIComponent('六福莊')}`, { waitUntil: 'domcontentloaded' });
-    await page.locator('#product-leofoo').waitFor();
+    // The static catalog snapshot already has #product-leofoo; wait for the live Sheet-rendered card.
+    await page.locator('#product-leofoo.leofoo-card').waitFor();
     assert.deepEqual([...new Set(requestedTabs)], ['現正開團']);
     assert.equal(await page.locator('#products .leofoo-card').count(), 1);
     assert.equal(await page.locator('#product-leofoo .leofoo-plan-title').count(), 3);
@@ -225,7 +227,7 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
     assert.equal(await page.locator('#detail-title').innerText(), brands.C);
 
     await page.goto(`${base}/#product-leofoo`, { waitUntil: 'domcontentloaded' });
-    await page.locator('#product-leofoo').waitFor();
+    await page.locator('#product-leofoo.leofoo-card').waitFor();
     assert.equal(await page.locator('#product-leofoo .leofoo-plan-title').count(), 3);
 
     await page.evaluate(() => {
@@ -246,7 +248,7 @@ test('Leofoo family aliases and exact plan deep links work in the homepage brows
     for (const code of ['A', 'B', 'C']) {
       missingCode = code;
       await page.goto(`${base}/?p=${encodeURIComponent('六福莊')}`, { waitUntil: 'domcontentloaded' });
-      await page.locator('#product-leofoo').waitFor();
+      await page.locator('#product-leofoo.leofoo-card').waitFor();
       const buttons = page.locator('#product-leofoo .leofoo-plan-title');
       assert.equal(await buttons.count(), 3);
       const missing = page.locator(`#product-leofoo [data-plan-code="${code}"]`);

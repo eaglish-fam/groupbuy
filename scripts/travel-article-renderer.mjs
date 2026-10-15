@@ -55,7 +55,7 @@ export function parseArticleMarkdown(markdown,sectionMap){
 export function renderTravelImage(media,{sizes='(max-width:700px) calc(100vw - 40px), 760px',card=false,thumbnail=false,decorative=false}={}){
  if(!media?.file||!media.alt||!media.width||!media.height||!media.variants?.length)throw Error('Missing source-bound responsive image');
  const variants=[...media.variants].sort((a,b)=>a.width-b.width),fallback=thumbnail?variants[0]:variants.find(v=>v.width===960)||variants.at(-1);
- return `<img src="${escapeHtml(fallback.file)}" srcset="${variants.map(v=>`${escapeHtml(v.file)} ${v.width}w`).join(', ')}" sizes="${escapeHtml(sizes)}" width="${fallback.width}" height="${fallback.height}" alt="${decorative?'':escapeHtml(media.alt)}" loading="lazy" fetchpriority="low" decoding="async" style="--cb-photo-ratio:${fallback.width}/${fallback.height};${card?`object-position:${escapeHtml(media.position||'50% 50%')}`:''}">`;
+ return `<img src="${escapeHtml(fallback.file)}" srcset="${variants.map(v=>`${escapeHtml(v.file)} ${v.width}w`).join(', ')}" sizes="${escapeHtml(sizes)}" width="${fallback.width}" height="${fallback.height}" alt="${decorative?'':escapeHtml(media.alt)}"${decorative?' aria-hidden="true"':''} loading="lazy" fetchpriority="low" decoding="async" style="--cb-photo-ratio:${fallback.width}/${fallback.height};${card?`object-position:${escapeHtml(media.position||'50% 50%')}`:''}">`;
 }
 export function renderGallery(ids,media){
  if(!ids?.length)return '';

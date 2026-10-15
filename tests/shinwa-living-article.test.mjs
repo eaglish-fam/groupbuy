@@ -5,6 +5,7 @@ import { createHash } from 'node:crypto';
 import { createRequire } from 'node:module';
 import { extname, resolve } from 'node:path';
 import test from 'node:test';
+import { loadBrowserRuntime } from './browser-runtime.mjs';
 
 const root = resolve(import.meta.dirname, '..');
 const html = readFileSync(resolve(root, 'blog/shinwa-living/index.html'), 'utf8');
@@ -103,8 +104,10 @@ test('article works at 320px, loads one player on click and copies the exact cod
   });
   await new Promise(done => server.listen(0, '127.0.0.1', done));
   t.after(() => server.close());
-  const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || '/Users/zosia/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
-  const browser = await chromium.launch({ headless:true, executablePath:process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' });
+  const runtime = await loadBrowserRuntime();
+  if (!runtime) return t.skip('Playwright is unavailable');
+  const { chromium, executablePath } = runtime;
+  const browser = await chromium.launch({ headless:true, executablePath });
   t.after(() => browser.close());
   const context = await browser.newContext({ viewport:{ width:320, height:844 }, serviceWorkers:'block', permissions:['clipboard-read','clipboard-write'] });
   await context.route('**/*', route => {

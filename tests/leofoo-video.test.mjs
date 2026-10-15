@@ -1,14 +1,15 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {existsSync, readFileSync} from 'node:fs';
+import {readFileSync} from 'node:fs';
+import {loadBrowserRuntime} from './browser-runtime.mjs';
 
-const runtime = '/Users/zosia/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs';
 const root = new URL('../', import.meta.url);
 
 test('Leofoo video keeps the original 4:3 thumbnail centered in a 16:9 frame and remains keyboard-playable', {timeout: 30_000}, async t => {
-  if (!existsSync(runtime)) return t.skip('bundled Playwright is unavailable');
-  const {chromium} = await import(runtime);
-  const browser = await chromium.launch({headless: true, executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});
+  const runtime = await loadBrowserRuntime();
+  if (!runtime) return t.skip('Playwright is unavailable');
+  const {chromium, executablePath} = runtime;
+  const browser = await chromium.launch({headless: true, executablePath});
   try {
     const page = await browser.newPage({serviceWorkers: 'block'});
     // Deterministic geometry fixture reproduces hqdefault's 45px letterboxes.
