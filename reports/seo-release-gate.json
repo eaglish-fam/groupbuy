@@ -2,8 +2,8 @@
   "counts": {
     "pages": 58,
     "blocking": 0,
-    "warnings": 21,
-    "total": 21
+    "warnings": 17,
+    "total": 17
   },
   "findings": [
     {
@@ -79,16 +79,9 @@
     {
       "level": "warn",
       "category": "images",
-      "message": "Image missing meaningful alt text",
-      "file": "trip/flights/index.html",
-      "index": 8445
-    },
-    {
-      "level": "warn",
-      "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/flights/index.html",
-      "index": 8770
+      "index": 8789
     },
     {
       "level": "warn",
@@ -96,27 +89,6 @@
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "trip/guides/bangkok-with-kids/index.html",
       "index": 70251
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Image missing meaningful alt text",
-      "file": "trip/guides/cebu-bohol-with-kids/index.html",
-      "index": 51378
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Image missing meaningful alt text",
-      "file": "trip/guides/cebu-bohol-with-kids/index.html",
-      "index": 52045
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Image missing meaningful alt text",
-      "file": "trip/guides/cebu-bohol-with-kids/index.html",
-      "index": 52771
     },
     {
       "level": "warn",
