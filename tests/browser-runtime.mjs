@@ -24,8 +24,10 @@ function findModule() {
   return '';
 }
 
+// Set REQUIRE_BROWSER=1 to fail instead of skipping when no runtime is found.
 export async function loadBrowserRuntime() {
   const module = findModule();
+  if (!module && process.env.REQUIRE_BROWSER === '1') throw Error('Playwright is required (REQUIRE_BROWSER=1) but was not found');
   if (!module) return null;
   const loaded = await import(module);
   const chromium = loaded.chromium || loaded.default?.chromium;

@@ -2,15 +2,16 @@ import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import sharp from 'sharp';
+import {openVariantSources} from './image-variant-sources.mjs';
 
 const require=createRequire(import.meta.url);
 const {catalog}=require('../product-content.js');
 const root=new URL('../',import.meta.url);
 const pages=['design/index.html','index.html','blog/index.html'];
-// Only missing variants are encoded: checkout mtimes are arbitrary and sharp output differs by
-// platform, so re-encoding committed variants churns bytes and pinned hashes. Replacement sources
-// use new versioned names; pass --force to rebuild every variant.
+// Variants are encoded when missing or when their source changed in place (tracked in
+// config/image-variant-sources.json); pass --force to rebuild every variant.
 const force=process.argv.includes('--force');
+const variantSources=openVariantSources(fileURLToPath(new URL('config/image-variant-sources.json',root)));
 const sources=new Set(Object.values(catalog).flatMap(item=>[item.image,item.cardImage]).filter(Boolean));
 
 for(const page of pages){
@@ -30,13 +31,16 @@ for(const src of sources){
     if(meta.width<=width)continue;
     const path=src.replace(/\.webp$/,`-${width}.webp`);
     const output=new URL(`.${path}`,root);
-    if(force||!existsSync(output)){
-      await sharp(fileURLToPath(file)).resize({width,withoutEnlargement:true}).webp({quality:76,effort:5}).toFile(fileURLToPath(output));
+    const sourceBytes=readFileSync(file);
+    if(force||variantSources.needsEncode(path,sourceBytes,existsSync(output)?readFileSync(output):null)){
+      await sharp(sourceBytes).resize({width,withoutEnlargement:true}).webp({quality:76,effort:5}).toFile(fileURLToPath(output));
+      variantSources.record(path,sourceBytes,readFileSync(output));
     }
     variants.push({path,width});
   }
   imageMeta.set(src,{width:meta.width,variants});
 }
+variantSources.save();
 writeFileSync(new URL('design/entry-image-widths.js',root),
   `window.EntryImageWidths=Object.freeze(${JSON.stringify(Object.fromEntries([...imageMeta].map(([src,meta])=>[src,meta.width])))});\n`);
 
