@@ -1,4 +1,4 @@
-import {readFileSync, writeFileSync, existsSync, statSync} from 'node:fs';
+import {readFileSync, writeFileSync, existsSync} from 'node:fs';
 import {createRequire} from 'node:module';
 import {fileURLToPath} from 'node:url';
 import sharp from 'sharp';
@@ -7,6 +7,10 @@ const require=createRequire(import.meta.url);
 const {catalog}=require('../product-content.js');
 const root=new URL('../',import.meta.url);
 const pages=['design/index.html','index.html','blog/index.html'];
+// Only missing variants are encoded: checkout mtimes are arbitrary and sharp output differs by
+// platform, so re-encoding committed variants churns bytes and pinned hashes. Replacement sources
+// use new versioned names; pass --force to rebuild every variant.
+const force=process.argv.includes('--force');
 const sources=new Set(Object.values(catalog).flatMap(item=>[item.image,item.cardImage]).filter(Boolean));
 
 for(const page of pages){
@@ -26,7 +30,7 @@ for(const src of sources){
     if(meta.width<=width)continue;
     const path=src.replace(/\.webp$/,`-${width}.webp`);
     const output=new URL(`.${path}`,root);
-    if(!existsSync(output)||statSync(output).mtimeMs<statSync(file).mtimeMs){
+    if(force||!existsSync(output)){
       await sharp(fileURLToPath(file)).resize({width,withoutEnlargement:true}).webp({quality:76,effort:5}).toFile(fileURLToPath(output));
     }
     variants.push({path,width});
