@@ -1,4 +1,6 @@
-# Lydia × Kira｜eaglish.store 維護方式
+# Lydia × Kira｜eaglish.store 維護方式（歷史紀錄）
+
+> **2026-10-15 起不再適用。** Hiram 改成三條線協作：Claude（功能開發與整合）、Codex（寫文）、Grokbot Hugo（營運）。現行規則見 `docs/collab/COLLAB.md`。以下保留當時的流程與盤點，供查歷史；裡面的 backlog 由 Hugo 重新確認。
 
 ## 現在的接線
 

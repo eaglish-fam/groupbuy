@@ -7,16 +7,19 @@ const require=createRequire(import.meta.url),{catalog,escape}=require('../produc
 const root = new URL('../', import.meta.url);
 const release = '20261002-leofoo-booking-sync';
 const productMediaRelease = '20261006-fullbleed';
+const designScriptRelease = '20261014-shinwa-release-g6d';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
   .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];
 if(!firstPick)throw Error('Missing editorial first pick');
 const [pickKey,pick]=firstPick;
+const pickTitle=pick.readingTitle||pick.title;
+const pickAlt=pick.coverAlt||`${pick.brands?.[0]||'選物文章'}：${pick.title}`;
 const staticPick=`<article class="hero-slide is-active" data-pick-key="${escape(pickKey)}" aria-label="第 1 篇精選文章">
-                <a class="hero-image-link" href="${escape(pick.article)}" aria-label="閱讀：${escape(pick.title)}">
-                  <img src="${escape(pick.image)}" alt="${escape(pick.brands?.[0]||'選物文章')}：${escape(pick.title)}" fetchpriority="high" width="1600" height="1000" />
+                <a class="hero-image-link" href="${escape(pick.article)}" aria-label="閱讀：${escape(pickTitle)}">
+                  <img src="${escape(pick.image)}" alt="${escape(pickAlt)}" fetchpriority="high" width="1600" height="1000" />
                 </a>
-                <div class="hero-caption" aria-hidden="true"><strong>${escape(pick.title)}</strong></div>
+                <div class="hero-caption" aria-hidden="true"><strong>${escape(pickTitle)}</strong></div>
                 <span class="photo-index">EDITOR'S PICK / 01</span>
               </article>`;
 html=html.replace(/<article class="hero-slide is-active"[\s\S]*?<\/article>/,staticPick);
@@ -51,7 +54,7 @@ html=html.replace('正在讀取最新團購…','商品選購目錄')
  .replace('<p class="source-status" id="source-status" aria-live="polite"></p>',`<p class="source-status" id="source-status" aria-live="polite">先閱讀商品介紹與選購筆記；即時開團狀態載入後更新。目錄整理：${snapshot.observedAt.slice(0,10)}。</p>`);
 if(!html.includes('data-snapshot-card'))throw Error('Homepage snapshot insertion failed');
 html = html.replace(/((?:src|href)="\/[^"]+\.(?:js|css))(?:\?[^"]*)?"/g, '$1?v=' + release + '"');
-html = html.replace(`src="/design/design.js?v=${release}"`, 'src="/design/design.js?v=20261002-leofoo-card-only"');
+html = html.replace(`src="/design/design.js?v=${release}"`, `src="/design/design.js?v=${designScriptRelease}"`);
 for (const file of ['design.css','mobile-grid.css','complete-content.css']) {
   html = html.replace(`href="/design/${file}?v=${release}"`, `href="/design/${file}?v=${productMediaRelease}"`);
 }
