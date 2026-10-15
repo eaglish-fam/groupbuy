@@ -18,7 +18,7 @@
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-shinwa-living",
       "file": "blog/shinwa-living/index.html",
-      "index": 15568
+      "index": 15892
     },
     {
       "level": "warn",
@@ -39,42 +39,42 @@
       "category": "images",
       "message": "Image exceeds 350KB (554KB): /assets/shinwa-living/fold-table-mahjong.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 9033
+      "index": 9306
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (495KB): /assets/shinwa-living/cat-shoehorn-whole.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 10509
+      "index": 10782
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (474KB): /assets/shinwa-living/cat-shoehorn-use.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 10796
+      "index": 11069
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 3656
+      "index": 3658
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43278
+      "index": 43268
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43278
+      "index": 43268
     },
     {
       "level": "warn",
@@ -123,7 +123,7 @@
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/index.html",
-      "index": 539930
+      "index": 539931
     },
     {
       "level": "warn",

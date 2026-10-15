@@ -23,7 +23,7 @@ for(const [slug,descriptor] of Object.entries(metadata.articles)) {
  knowledge.set(slug,{article:`/blog/${slug}/`,title:identity.title,excerpt:identity.description,image:identity.image,alt:identity.alt,knowledge:true});
 }
 const readingEntry=slug=>entries.find(p=>p.article===`/blog/${slug}/`)||knowledge.get(slug);
-const readingTitle=p=>p.knowledge?p.title:`${p.brands[0]}｜${p.title}`;
+const readingTitle=p=>p.readingTitle||(p.knowledge?p.title:`${p.brands[0]}｜${p.title}`);
 const articleOutputs=[];
 const articles=readdirSync(new URL('blog/',root),{withFileTypes:true}).filter(x=>x.isDirectory()).flatMap(x=>{
  let html;try{html=readFileSync(new URL(`blog/${x.name}/index.html`,root),'utf8');}catch{return [];}

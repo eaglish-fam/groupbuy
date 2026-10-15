@@ -5,18 +5,24 @@
     "/blog/shinwa-living/": {
       "identity": "心窪生活",
       "image": "/assets/shinwa-living/cover.webp",
-      "imageSha256": "273784ab13ea12e247b16f6c2db14d702ae6d6809dba170cdc1832b131d9f8d4",
+      "imageSha256": "976dea336e7334f2475cf2294a93ac358cac3191ed2b90e4dcba48322dbaee92",
       "source": "/assets/shinwa-living/blocks-forest.webp",
       "sourceSha256": "ea645a5892d077744c936f3862eab584657dd9e707c64937caabfd6a92bce61f",
       "review": {
         "identityVisible": true,
         "realPhotoPreserved": true,
-        "imageSha256": "273784ab13ea12e247b16f6c2db14d702ae6d6809dba170cdc1832b131d9f8d4",
-        "viewportWidths": [320, 390, 768, 1440],
+        "imageSha256": "976dea336e7334f2475cf2294a93ac358cac3191ed2b90e4dcba48322dbaee92",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
         "mobileCardLegible": true,
-        "reviewer": "Kira accountable integration chat",
+        "reviewer": "Root Eliora actual cover review",
         "rootDirectionAccepted": true,
-        "rootFinalAcceptance": false
+        "rootFinalAcceptance": true,
+        "reviewScope": "Unchanged g7 pixels: prior Root 320/390 review supplemented with live 768/1440 and mobile journal-card review on 2026-10-15."
       }
     },
     "/blog/knsh/": {
@@ -29,7 +35,12 @@
         "identityVisible": true,
         "realPhotoPreserved": true,
         "imageSha256": "f769a705cdffcc06017d8819953c8f5e46ec2454f6cbcbb4b76d4647b2c683b7",
-        "viewportWidths": [320,390,768,1440],
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
         "mobileCardLegible": true
       }
     },
