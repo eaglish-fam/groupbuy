@@ -5,7 +5,7 @@
 // loader registers the slices with unicode-range, so a new character (a Sheet product name, a
 // new article) downloads one ~100 KB slice instead of rendering in the fallback serif. Together
 // the faces cover exactly the complete font's cmap; nothing is dropped.
-import {readFileSync, writeFileSync, mkdirSync, rmSync} from 'node:fs';
+import {readFileSync, writeFileSync, mkdirSync, rmSync, readdirSync, renameSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {execFileSync} from 'node:child_process';
 import {fileURLToPath} from 'node:url';
@@ -19,13 +19,15 @@ const complete = JSON.parse(readFileSync(`${root}assets/fonts/complete-site-font
 const sourceFile = `${root}assets/fonts/${complete.fontFile}`;
 if (hash(readFileSync(sourceFile)) !== complete.sha256) throw Error('Unexpected complete font');
 
-const version = 'heading-serif-500-v2';
-const outDir = `${root}assets/fonts/${version}/`;
+// Every build lands in a new directory named by its content hash, and the loader is pointed at
+// it: a returning visitor's cached manifest can then never mix with rebuilt slices, whose
+// ranges shift whenever a character moves into the site face.
+const outDir = `${root}assets/fonts/.heading-serif-500-build/`;
 const sliceSize = 400;
 
 // Every published text source: tracked files outside build tooling, tests and internal docs.
 const tracked = execFileSync('git', ['ls-files', '-z'], {cwd: root, encoding: 'utf8'}).split('\0')
-  .filter(path => /\.(html|js|mjs|json|txt)$/.test(path) && !/^(docs|tests|reports|scripts|flights-pipeline|node_modules)\//.test(path) && !path.startsWith(`assets/fonts/${version}/`));
+  .filter(path => /\.(html|js|mjs|json|txt)$/.test(path) && !/^(docs|tests|reports|scripts|flights-pipeline|node_modules)\//.test(path) && !/^assets\/fonts\/\.?heading-serif-500-/.test(path));
 const cmap = new Set(complete.ranges.flatMap(([a, z]) => Array.from({length: z - a + 1}, (_, i) => a + i)));
 const used = new Set();
 for (let cp = 0x20; cp <= 0x7e; cp++) used.add(cp);
@@ -57,9 +59,16 @@ mkdirSync(outDir, {recursive: true});
 const slices = [];
 for (let i = 0; i < rest.length; i += sliceSize)
   slices.push(subset(`slice-${String(slices.length).padStart(2, '0')}.woff2`, rest.slice(i, i + sliceSize)));
-const manifest = {version, source: {file: complete.fontFile, sha256: complete.sha256, unicodeCount: complete.unicodeCount},
-  site: subset('site.woff2', site), slices};
-if (manifest.site.count + slices.reduce((n, s) => n + s.count, 0) !== complete.unicodeCount) throw Error('Faces do not cover the complete cmap');
+const siteFace = subset('site.woff2', site);
+if (siteFace.count + slices.reduce((n, s) => n + s.count, 0) !== complete.unicodeCount) throw Error('Faces do not cover the complete cmap');
+const version = `heading-serif-500-${hash([siteFace, ...slices].map(face => face.sha256).join('\n')).slice(0, 10)}`;
+const manifest = {version, source: {file: complete.fontFile, sha256: complete.sha256, unicodeCount: complete.unicodeCount}, site: siteFace, slices};
 writeFileSync(`${outDir}manifest.json`, `${JSON.stringify(manifest, null, 1)}\n`);
+for (const old of readdirSync(`${root}assets/fonts/`)) if (/^heading-serif-500-/.test(old)) rmSync(`${root}assets/fonts/${old}`, {recursive: true});
+renameSync(outDir, `${root}assets/fonts/${version}/`);
+const loaderPath = `${root}site-font-loader.js`, loader = readFileSync(loaderPath, 'utf8');
+const pointed = loader.replace(/const fontVersion = '[^']+';/, `const fontVersion = '${version}';`);
+if (pointed === loader && !loader.includes(`'${version}'`)) throw Error('site-font-loader.js fontVersion marker not found');
+writeFileSync(loaderPath, pointed);
 console.log(JSON.stringify({site: {count: manifest.site.count, bytes: manifest.site.bytes}, slices: slices.length,
   sliceBytes: slices.reduce((n, s) => n + s.bytes, 0), maxSlice: Math.max(...slices.map(s => s.bytes))}));

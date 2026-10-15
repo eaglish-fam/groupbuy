@@ -10,10 +10,13 @@
   const entry = script?.dataset.fontEntry === 'true';
   const state = window.EaglishSiteFont = { status: entry ? 'deferred' : 'scheduled', entry, requests: 0 };
   const families = ['Eaglish Heading Serif', 'Eaglish Travel Heading Serif'];
-  const fontDir = '/assets/fonts/heading-serif-500-v2/';
+  // Content-hashed by scripts/build-site-heading-font.mjs, which rewrites this line: a rebuild
+  // gets new URLs and a new cache, so a stored manifest never meets rebuilt slices.
+  const fontVersion = 'heading-serif-500-f5c4c470e1';
+  const fontDir = `/assets/fonts/${fontVersion}/`;
   const manifestUrl = `${fontDir}manifest.json`;
   const siteUrl = `${fontDir}site.woff2`;
-  const fontCacheName = 'heading-serif-site-500-v2';
+  const fontCacheName = fontVersion;
   // A visitor who already stored the complete v1 font keeps using it: a superset, no network.
   const completeUrl = '/assets/fonts/noto-serif-tc-complete-500-v1.woff2';
   const completeCacheName = 'heading-serif-complete-500-v1';
@@ -66,6 +69,11 @@
         for (const face of [...faces, ...slices]) document.fonts.add(face);
         state.status = 'ready'; state.slices = slices.length / families.length;
         document.dispatchEvent(new CustomEvent('eaglish:font-ready'));
+        // Drop site faces stored by earlier builds; the complete v1 cache stays (a superset).
+        try {
+          for (const name of await caches.keys())
+            if (name.startsWith('heading-serif-500-') && name !== fontCacheName) await caches.delete(name);
+        } catch { /* Storage cleanup is optional. */ }
       })
       .catch(async () => { state.status = 'error'; /* Fallback remains visible; no retry loop. */
         try { await fontCache?.delete(siteUrl); } catch { /* Optional cache recovery only. */ } });

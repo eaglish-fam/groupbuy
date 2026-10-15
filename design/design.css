@@ -1432,4 +1432,6 @@ details iframe {
    own page in a new tab. Added in CSS so analytics keeps reading the plain button text. */
 a.button[data-buy-key][target="_blank"]::after {
   content: " ↗";
+  /* Screen readers hear "另開新分頁" instead of the arrow; older engines keep the line above. */
+  content: " ↗" / "（另開新分頁）";
 }

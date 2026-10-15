@@ -2,7 +2,8 @@
 
 ## Site face + slices v2 — current loader (2026-10-15)
 
-`heading-serif-500-v2/` splits the unchanged complete v1 font (below) into
+`heading-serif-500-<hash>/` (directory named by a hash of its faces; the loader's
+`fontVersion` line points at it) splits the unchanged complete v1 font (below) into
 `site.woff2`, which holds every character the repository publishes, and small
 `slice-NN.woff2` files covering the rest of the complete cmap. `manifest.json`
 records each face's file, SHA-256, size, codepoint count and `unicode-range`.
@@ -18,9 +19,13 @@ the 3.9 MB complete font on every first visit. Rerunning the build only moves
 new characters from slices into the site face.
 
 `site-font-loader.js` keeps the two-phase rules below. It stores the site face
-and manifest together in the Cache API (`heading-serif-site-500-v2`); a visitor
-who already stored the complete v1 font keeps using it with no network. Slices
-use the normal HTTP cache. Regenerate with
+and manifest together in the Cache API under the same hashed name, and deletes
+caches of earlier builds; a visitor who already stored the complete v1 font
+keeps using it with no network. Slices use the normal HTTP cache. A warm
+homepage still makes no font request for the site face, but a Sheet product name
+with an uncommon character fetches that character's slice (about 100 KB).
+Every rebuild writes a new hashed directory and removes the old one, so a cached
+manifest can never point at rebuilt slices. Regenerate with
 `node scripts/build-site-heading-font.mjs --python <isolated-fonttools-python>`
 (fontTools + brotli); it verifies the complete font's hash first.
 
