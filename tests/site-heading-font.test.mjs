@@ -33,3 +33,32 @@ test('complete emitted cmap covers all public Chinese headings with no automatic
  for(const alias of ['Eaglish Heading Serif','Eaglish Travel Heading Serif'])assert.ok(read('site-font-loader.js').includes(alias));
  assert.match(read('site-font-loader.js'),/cache: 'force-cache'/);
 });
+test('v2 site face plus slices cover the complete cmap and every public heading needs only the site face',()=>{
+ const complete=JSON.parse(read('assets/fonts/complete-site-font-v1.json'));
+ const manifest=JSON.parse(read('assets/fonts/heading-serif-500-v2/manifest.json'));
+ assert.equal(manifest.source.sha256,complete.sha256);
+ const parse=range=>range.split(',').map(part=>part.slice(2).split('-').map(hex=>parseInt(hex,16))).map(([a,z=a])=>[a,z]);
+ const count=ranges=>ranges.reduce((n,[a,z])=>n+z-a+1,0);
+ for(const face of [manifest.site,...manifest.slices]){
+  const bytes=readFileSync(resolve(root,'assets/fonts/heading-serif-500-v2',face.file));
+  assert.equal(bytes.toString('ascii',0,4),'wOF2',face.file);
+  assert.equal(createHash('sha256').update(bytes).digest('hex'),face.sha256,face.file);
+  assert.equal(bytes.length,face.bytes,face.file);
+  assert.equal(count(parse(face.unicodeRange)),face.count,face.file);
+ }
+ // Disjoint faces that together are exactly the complete font's cmap: nothing falls back.
+ const all=[manifest.site,...manifest.slices].flatMap(face=>parse(face.unicodeRange)).sort((x,y)=>x[0]-y[0]);
+ for(let i=1;i<all.length;i++)assert.ok(all[i][0]>all[i-1][1],'faces overlap');
+ assert.equal(count(all),complete.unicodeCount);
+ assert.ok(all.every(([a,z])=>complete.ranges.some(([ca,cz])=>a>=ca&&z<=cz)));
+ assert.ok(manifest.site.bytes<700_000,`site face ${manifest.site.bytes} bytes`);
+ assert.ok(manifest.slices.every(slice=>slice.bytes<160_000));
+ const site=parse(manifest.site.unicodeRange),inSite=cp=>site.some(([a,z])=>cp>=a&&cp<=z);
+ for(const page of collectIndexablePages(root)){
+  const html=read(page.file);
+  for(const heading of html.matchAll(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi))
+   for(const char of decodeHtml(heading[1].replace(/<[^>]*>/g,'')))
+    if(/\p{Script=Han}/u.test(char))assert.ok(inSite(char.codePointAt(0)),`${page.file}: ${char} only in a slice; rerun scripts/build-site-heading-font.mjs`);
+ }
+ assert.match(read('site-font-loader.js'),/\/assets\/fonts\/heading-serif-500-v2\//);
+});
