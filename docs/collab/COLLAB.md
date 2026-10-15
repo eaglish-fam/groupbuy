@@ -13,7 +13,7 @@
 |---|---|
 | 全部 | `AGENTS.md`（正式站規則、SEO、旅遊攻略流程）、本文件 |
 | Codex | `docs/trip-editorial-guidelines.md`、`docs/trip-city-guide-template.md`、`trip/IMAGE_PIPELINE.md` |
-| Grokbot | `docs/lydia-site-maintenance.md`、`docs/collab/HUGO-BRIEF.md` |
+| Grokbot | `docs/collab/HUGO-BRIEF.md`（`docs/lydia-site-maintenance.md` 是舊流程，只當歷史和 backlog 參考） |
 
 ## 1. 誰負責什麼
 
