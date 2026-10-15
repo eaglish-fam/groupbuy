@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-10-14T02:38:14.143Z",
+  "generatedAt": "2026-10-15T04:28:31.753Z",
   "status": "ready",
   "summary": {
     "checks": 714,
@@ -2877,12 +2877,12 @@
     {
       "id": "blog:shinwa-living:index.html:title",
       "passed": true,
-      "detail": "Title length 32."
+      "detail": "Title length 27."
     },
     {
       "id": "blog:shinwa-living:index.html:description",
       "passed": true,
-      "detail": "Description length 88."
+      "detail": "Description length 92."
     },
     {
       "id": "blog:shinwa-living:index.html:canonical",
