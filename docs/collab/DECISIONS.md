@@ -9,4 +9,5 @@ Claude 能自己決定的記在這裡，Hiram 可以推翻。要 Hiram 決定的
 
 ## 待決（請 Hiram 決定）
 
+- **城市攻略的自動上線授權還算不算數？**（Codex 2026-10-15 在 PR #40 提出）`AGENTS.md` 和 `docs/trip-editorial-guidelines.md` 第八節記著 Hiram 2026-10-04 的授權：說「做〔城市〕旅遊攻略」，內部驗收後就可以照既有流程上線。`COLLAB.md` 則寫「每件改動都等 Hiram 核准才合併」。兩者衝突。在 Hiram 回覆前，三條線都照比較保守的 `COLLAB.md` 做（等核准才合併），兩份文件先不改。
 - `AGENTS.md` 和 `docs/lydia-site-maintenance.md` 還寫著 Lydia（需求與驗收）、Kira（程式）。改成 Claude（程式）、Hugo（營運與驗收）、Codex（寫文）後，Lydia 這個角色要併給 Hugo，還是保留？在 Hiram 回覆前，`AGENTS.md` 不改。
