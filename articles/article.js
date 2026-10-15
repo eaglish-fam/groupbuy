@@ -24,7 +24,9 @@ function mountFloatingOffer(button){
     // Once reached, keep it in the article, including while reading the footer.
     // Reverse scrolling restores the float when its home passes below the baseline.
     const homeReached=home.top<=window.innerHeight-bottom-height;
-    bar.classList.toggle('is-floating',available&&!homeReached&&!keyboard&&!document.fullscreenElement);
+    // Stay in place while the reader is still on the title and cover; float only once they scroll.
+    const intro=window.scrollY<window.innerHeight*.5;
+    bar.classList.toggle('is-floating',available&&!intro&&!homeReached&&!keyboard&&!document.fullscreenElement);
   }
   function schedule(){if(!frame)frame=requestAnimationFrame(update);}
   window.addEventListener('scroll',schedule,{passive:true});
