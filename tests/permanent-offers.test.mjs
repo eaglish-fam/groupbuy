@@ -4,6 +4,7 @@ import http from 'node:http';
 import { createRequire } from 'node:module';
 import { extname, resolve } from 'node:path';
 import test from 'node:test';
+import { loadBrowserRuntime } from './browser-runtime.mjs';
 
 const require = createRequire(import.meta.url);
 const PermanentOffers = require('../design/permanent-offers.js');
@@ -146,8 +147,10 @@ test('refresh failure keeps ordinary cards unavailable while the current publish
     ['既有普通商品', 'ordinary-1', 'https://example.invalid/ordinary', '長期', '', '', '原本已顯示的商品', '', '', '其他'],
     ['心窪生活', 'shinwa-ordinary', 'https://example.invalid/shinwa-ordinary', '長期', '', '', '普通 Sheet 商品', '', '', '居家'],
   ].map((row) => row.map((value) => `"${value}"`).join(',')).join('\n');
-  const { chromium } = await import(process.env.PLAYWRIGHT_MODULE || '/Users/zosia/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright/index.mjs');
-  const browser = await chromium.launch({ headless: true, executablePath: process.env.CHROME_PATH || '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome' });
+  const runtime = await loadBrowserRuntime();
+  if (!runtime) return t.skip('Playwright is unavailable');
+  const { chromium, executablePath } = runtime;
+  const browser = await chromium.launch({ headless: true, executablePath });
   t.after(() => browser.close());
   const context = await browser.newContext({ viewport: { width: 390, height: 844 }, serviceWorkers: 'block' });
   await context.route('**/*', async (route) => {
