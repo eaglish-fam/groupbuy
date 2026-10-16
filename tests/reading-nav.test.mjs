@@ -29,7 +29,7 @@ test('every published article loads the shared reading navigation', () => {
 
 test('mobile reading tab uses the approved compact size without the arrow', () => {
   const css = readFileSync(new URL('../blog/reading-nav.css', import.meta.url), 'utf8');
-  assert.match(css, /@media\(max-width:1199px\)[\s\S]*?\.reading-nav__tab\{width:36px;padding-left:7px;padding-right:3px;align-items:flex-start\}/);
+  assert.match(css, /@media\(max-width:1199px\)[\s\S]*?\.reading-nav__tab\{width:24px;padding-left:5px;padding-right:2px;align-items:flex-start;/);
   assert.match(css, /@media\(max-width:1199px\)[\s\S]*?\.reading-nav__chevron\{display:none\}/);
 });
 
