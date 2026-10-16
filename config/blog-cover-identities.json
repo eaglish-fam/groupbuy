@@ -235,6 +235,27 @@
         "reviewer": "Kira accountable integration chat",
         "rootFinalAcceptance": false
       }
+    },
+    "/blog/parakito/": {
+      "identity": "Para’Kito",
+      "image": "/assets/parakito/cover.webp",
+      "imageSha256": "bc16169fac7de0e85b28112909a803c4ad36bf1a68bb3487ff2ac7e75dcd6a3e",
+      "source": "/assets/parakito/cover-source.webp",
+      "sourceSha256": "d19bb9c0e319a21f881aa69352155eef1375eafaac051baf748a0d8b5eb698ef",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "bc16169fac7de0e85b28112909a803c4ad36bf1a68bb3487ff2ac7e75dcd6a3e",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Codex editorial acceptance (#44) + Grace rendered review on the integration branch",
+        "reviewScope": "Unchanged #44 pixels: Codex accepted 320/390/768/1440 before handoff; Grace re-checked the article hero and the journal card at 320/390/768/1440 on 2026-10-16. The cover is a crop of cover-source.webp and the parakito package is legible in the father's hand."
+      }
     }
   }
 }
