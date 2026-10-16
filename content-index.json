@@ -364,6 +364,27 @@
       "sourceHash": "5331740b64118ed6915d7c7b02ec57a3f07d5250b8acd9b4f879ee0e103489d6"
     },
     {
+      "slug": "parakito",
+      "url": "https://www.eaglish.store/blog/parakito/",
+      "title": "Para’Kito 防蚊液怎麼選？四款配方、噴霧與滾珠比較｜鷹家選物誌",
+      "productNames": [
+        "法國帕洛防蚊液"
+      ],
+      "productId": "parakito",
+      "mode": "product",
+      "intent": "product:parakito",
+      "topics": [
+        "Para’Kito",
+        "防蚊液",
+        "防蚊滾珠",
+        "防蚊手環"
+      ],
+      "cluster": null,
+      "published": "2026-10-15",
+      "modified": "2026-10-15",
+      "sourceHash": "223bd086c41e99a1eaef4f9df6a2bf99cf556e577cfa025164d74abad6c334f3"
+    },
+    {
       "slug": "playzu",
       "url": "https://www.eaglish.store/blog/playzu/",
       "title": "Playzu 地墊復古系列怎麼選？三款花色搭配、尺寸與清潔｜鷹家選物誌",

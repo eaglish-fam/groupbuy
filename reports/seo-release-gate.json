@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 58,
+    "pages": 59,
     "blocking": 0,
-    "warnings": 17,
-    "total": 17
+    "warnings": 25,
+    "total": 25
   },
   "findings": [
     {
@@ -12,6 +12,13 @@
       "message": "Link fragment not found on destination page: /#product-knsh",
       "file": "blog/knsh/index.html",
       "index": 10613
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-parakito",
+      "file": "blog/parakito/index.html",
+      "index": 11891
     },
     {
       "level": "warn",
@@ -33,6 +40,55 @@
       "message": "Image exceeds 350KB (375KB): /assets/caesar-kenting/journal/pool-detail.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/caesar-kenting/index.html",
       "index": 18365
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/parakito/spray-6h.jpg",
+      "file": "blog/parakito/index.html",
+      "index": 6401
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/parakito/spray-7h.jpg",
+      "file": "blog/parakito/index.html",
+      "index": 6551
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/parakito/spray-8h-intensive.jpg",
+      "file": "blog/parakito/index.html",
+      "index": 6701
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/parakito/spray-8h-classic.jpg",
+      "file": "blog/parakito/index.html",
+      "index": 6863
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/parakito/rollon-6h.jpg",
+      "file": "blog/parakito/index.html",
+      "index": 7604
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/parakito/rollon-7h.jpg",
+      "file": "blog/parakito/index.html",
+      "index": 7759
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/parakito/rollon-8h-intensive.jpg",
+      "file": "blog/parakito/index.html",
+      "index": 7914
     },
     {
       "level": "warn",
@@ -60,21 +116,21 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 3507
+      "index": 3658
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43092
+      "index": 43260
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43092
+      "index": 43260
     },
     {
       "level": "warn",
