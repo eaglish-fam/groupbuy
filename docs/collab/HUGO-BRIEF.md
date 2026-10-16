@@ -1,6 +1,6 @@
 # Hugo（Grokbot）｜eaglish.store 營運說明
 
-2026-10-15 起，eaglish.store 由 Celeste（Claude，功能開發）和 Hugo（營運）一起營運，Codex 照舊寫文。規則正本是 `docs/collab/COLLAB.md`。
+2026-10-15 起，eaglish.store 由 Grace（Claude，功能開發）和 Hugo（營運）一起營運，Codex 照舊寫文。規則正本是 `docs/collab/COLLAB.md`。
 
 ## 你負責
 

@@ -27,7 +27,9 @@
       const editing = document.activeElement?.matches('input,textarea,[contenteditable="true"]');
       const keyboard = editing && viewport && viewport.height < window.innerHeight * .8;
       const homeReached = home.top <= window.innerHeight - bottom - height;
-      bar.classList.toggle('is-floating', enabled && !homeReached && !keyboard && !document.fullscreenElement);
+      // Stay in place while the reader is still on the title and cover; float only once they scroll.
+      const intro = window.scrollY < window.innerHeight * 0.5;
+      bar.classList.toggle('is-floating', enabled && !intro && !homeReached && !keyboard && !document.fullscreenElement);
     }
     function schedule() {
       if (!frame) frame = requestAnimationFrame(update);

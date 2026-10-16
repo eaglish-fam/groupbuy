@@ -64,7 +64,7 @@ test('homepage exposes an accessible, pausable carousel with a no-JS first artic
   assert.match(script, /pointerup/);
   assert.match(script, /document\.hidden/);
   assert.match(script, /suppressClick/);
-  assert.match(css, /height: clamp\(250px, 72vw, 300px\)/);
+  assert.match(css, /height: clamp\(190px, 52vw, 220px\)/);
   assert.match(css, /object-position: left center/);
   assert.match(css, /text-overflow: ellipsis/);
   assert.match(css, /white-space: nowrap/);
