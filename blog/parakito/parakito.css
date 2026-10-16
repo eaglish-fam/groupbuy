@@ -1,0 +1,34 @@
+[data-article-key="parakito"]{--green:#315749;--rust:#9a593a;--paper:#fbf8f0;--line:#ddd6c6}
+[data-article-key="parakito"] .cover img{max-height:none;object-fit:contain;background:#e8e1d4}
+[data-article-key="parakito"] .story-photo{margin:30px -70px 32px;padding:0;border:0;background:transparent}
+[data-article-key="parakito"] .story-photo img{width:100%;height:auto;object-fit:contain}
+[data-article-key="parakito"] .story-photo figcaption{margin-top:12px}
+[data-article-key="parakito"] .table-scroll{overflow-x:auto;margin:30px -16px 28px;padding:0 16px;-webkit-overflow-scrolling:touch}
+[data-article-key="parakito"] table{width:100%;min-width:620px;border-collapse:collapse;font-size:14px;line-height:1.75}
+[data-article-key="parakito"] th,[data-article-key="parakito"] td{padding:15px 14px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+[data-article-key="parakito"] th{color:var(--green);font-weight:600;background:#f1eadc}
+[data-article-key="parakito"] .sku-grid,[data-article-key="parakito"] .rollon-grid{display:grid;gap:16px;margin:34px -70px}
+[data-article-key="parakito"] .sku-grid{grid-template-columns:repeat(4,1fr)}
+[data-article-key="parakito"] .rollon-grid{grid-template-columns:repeat(3,1fr)}
+[data-article-key="parakito"] .sku-grid figure,[data-article-key="parakito"] .rollon-grid figure{border:1px solid var(--line);background:#fff;padding:10px}
+[data-article-key="parakito"] .sku-grid figcaption,[data-article-key="parakito"] .rollon-grid figcaption{text-align:center;margin-top:9px;color:var(--ink)}
+[data-article-key="parakito"] .early-offer{text-align:center;margin:32px 0 4px}
+[data-article-key="parakito"] .early-offer a{display:inline-flex;min-height:44px;align-items:center;padding:8px 4px;color:var(--green);font-weight:600}
+[data-article-key="parakito"] .early-offer a[aria-disabled="true"]{color:var(--muted);cursor:pointer;text-decoration:underline;text-decoration-style:dotted}
+[data-article-key="parakito"] .notice{padding:18px 20px;border-left:2px solid var(--rust);background:#f3eee3;color:var(--muted);font-size:14px!important}
+[data-article-key="parakito"] .native-video{max-width:390px;margin:34px auto}
+[data-article-key="parakito"] .native-video video{display:block;width:100%;aspect-ratio:9/16;background:#262923;object-fit:contain}
+[data-article-key="parakito"] .native-video figcaption{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:10px}
+[data-article-key="parakito"] .native-video figcaption a{min-height:44px;display:inline-flex;align-items:center;text-align:right}
+[data-article-key="parakito"] .wearable-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:18px;margin:34px -70px;align-items:start}
+[data-article-key="parakito"] .wearable-grid figure{min-width:0}
+[data-article-key="parakito"] .wearable-grid img{display:block;width:100%;height:auto;object-fit:contain}
+[data-article-key="parakito"] .wearable-grid figcaption{margin-top:8px}
+[data-article-key="parakito"] .purchase .offer-link{display:flex;align-items:center;justify-content:center;min-height:54px;background:var(--green);border:1px solid var(--green);color:#fffdf8;border-radius:3px;padding:13px 27px;margin:0;width:100%;line-height:1.7;text-decoration:none;font-weight:600}
+[data-article-key="parakito"] .purchase .offer-link[aria-disabled="true"]{background:#a8aaa1;border-color:#a8aaa1;cursor:not-allowed}
+[data-article-key="parakito"] .purchase .offer-bar.is-floating .offer-link{width:auto;max-width:100%;min-height:52px;padding:12px 22px;white-space:nowrap;border-radius:12px;background:linear-gradient(145deg,rgba(24,61,45,.84),rgba(11,44,31,.82));box-shadow:inset 0 1px 0 #ffffff45,0 6px 14px #20382d2e}
+@media(min-width:701px){[data-article-key="parakito"] .purchase .offer-bar.is-floating{right:clamp(28px,4vw,68px);left:auto;transform:none;width:max-content;max-width:none}}
+@media(max-width:900px){[data-article-key="parakito"] .story-photo,[data-article-key="parakito"] .sku-grid,[data-article-key="parakito"] .rollon-grid,[data-article-key="parakito"] .wearable-grid{margin-left:0;margin-right:0}}
+@media(max-width:700px){[data-article-key="parakito"] .story-photo{margin-left:-8px;margin-right:-8px}[data-article-key="parakito"] .sku-grid{grid-template-columns:repeat(2,1fr);gap:10px}[data-article-key="parakito"] .rollon-grid{gap:8px}[data-article-key="parakito"] .sku-grid figure,[data-article-key="parakito"] .rollon-grid figure{padding:6px}[data-article-key="parakito"] .rollon-grid figcaption{font-size:10px}[data-article-key="parakito"] .wearable-grid{grid-template-columns:1fr 1fr;gap:10px}[data-article-key="parakito"] .table-scroll{overflow-x:visible;margin-left:0;margin-right:0;padding-left:0;padding-right:0}[data-article-key="parakito"] table{min-width:0;table-layout:fixed}[data-article-key="parakito"] th,[data-article-key="parakito"] td{padding:12px 9px;overflow-wrap:anywhere}[data-article-key="parakito"] .format-table th{width:33.333%}[data-article-key="parakito"] .formula-table th:first-child{width:34%}[data-article-key="parakito"] .native-video{width:100%;max-width:none}[data-article-key="parakito"] .native-video figcaption{flex-direction:column;align-items:flex-start}}
+@media(max-width:359px){[data-article-key="parakito"] .article-body{padding-left:18px;padding-right:18px}[data-article-key="parakito"] .sku-grid{gap:6px}[data-article-key="parakito"] .rollon-grid{grid-template-columns:1fr;max-width:220px;margin-inline:auto}}
+@media(prefers-reduced-motion:reduce){[data-article-key="parakito"] *{scroll-behavior:auto}}
