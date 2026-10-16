@@ -11,6 +11,8 @@ Claude 能自己決定的記在這裡，Hiram 可以推翻。要 Hiram 決定的
 
 - 2026-10-15：舊的內部規範（Lydia 需求驗收、Kira 程式、城市攻略「一句話直接上線」）全部改成三方協作。所有網站改動走獨立分支與 PR，Hiram 核准才合併。
 - 2026-10-15（Claude 依上一條決定的細節，Hiram 可推翻）：Lydia 的工作拆給 Hugo（資料正確、連結圖片檢查、SEO 待辦、正式站驗收）、Codex（內容缺口），Claude 寫工程需求與驗收條件；Kira 的程式工作由 Claude 接手。`AGENTS.md`、`docs/lydia-site-maintenance.md` 已改（Claude）；`docs/trip-editorial-guidelines.md` 第八節由 Codex 改。
+- 2026-10-16：手機版「文章目錄」側標從 36px 縮成 24px（觸控最小寬度），取代原本「已確認」的 36px／7px／3px 規格，不再蓋住內文。PR #43；`docs/trip-editorial-guidelines.md` 第 39 行由 Codex 更新。
+- 2026-10-16：Hiram 核准 #42（UX 第一、二階段）和 #43（側標 24px），條件是先保留舊版以便回退。還原點：分支 `rollback/pre-ux-20261016`（= `0c60950`，Para'Kito 剛上線、這兩個 PR 之前的正式站）。#42 合併為 `fea20aa`，#43 合併為 `b7adcfb`。**回退方式**：規則不准 force push，所以不重設 main。在 `rollback/pre-ux-20261016` 的內容上開一個新分支（`git checkout -b claude/restore-pre-ux origin/main && git checkout origin/rollback/pre-ux-20261016 -- . && git commit`），跑 `npm run verify` 後開 PR，Hiram 核准後合併。只退其中一個：對那個 PR 的合併 commit 做 `git revert -m 1`，再跑 verify。這個還原點不要刪。
 
 ## 待決（請 Hiram 決定）
 
