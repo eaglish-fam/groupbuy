@@ -481,3 +481,36 @@
     font-size: 14px;
   }
 }
+/* Phones: the section nav and the status tabs scroll sideways but showed no hint that more items
+   sit off-screen. A short fade on the right edge marks the overflow; the trailing padding lets the
+   last item scroll clear of the fade. */
+@media (max-width: 700px) {
+  .content-nav,
+  .status-tabs {
+    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+    mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
+  }
+  .content-nav {
+    padding-right: 40px;
+  }
+  .status-tabs {
+    padding-right: 40px;
+  }
+  .category-links button[aria-pressed="true"] {
+    border-left-width: 1px;
+    border-color: var(--orange);
+  }
+  /* Tighter toolbar so the first product cards reach the first screen. */
+  .search {
+    margin: 10px 0 4px;
+  }
+  .filter-row {
+    padding: 6px 0 10px;
+    row-gap: 2px;
+  }
+  /* Cards keep one main action; the calendar button stays in the product dialog
+     (Leofoo's three-plan card keeps its own layout). */
+  .product-card:not(.leofoo-card) .card-calendar {
+    display: none;
+  }
+}

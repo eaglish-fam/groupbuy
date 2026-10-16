@@ -1,6 +1,6 @@
 # eaglish.store｜三條線協作規則（Claude × Codex × Grokbot）
 
-這邊的 Claude 叫 **Celeste**（Hiram 2026-10-15 定名；Claude 這條線的名字都用 E 結尾，問路遊戲那邊的 Claude 叫 Claire）。留言、回條開頭寫「Celeste」，避免和別的專案的 Claude 搞混。
+這邊的 Claude 叫 **Grace**（Hiram 2026-10-15 定名；Claude 這條線的名字都用 E 結尾，問路遊戲那邊的 Claude 叫 Claire）。留言、回條開頭寫「Grace」，避免和別的專案的 Claude 搞混。
 
 2026-10-15 訂（Hiram 指示：「接下來是由你們兩個來營運。Codex 那邊一樣是做寫文，你這邊就是做功能的開發」）。
 格式沿用問路專案 `learning-adventure-rpg` 的 `Docs/COLLAB.md`：各線在 Git 上交接，不必每次都由人轉手。
@@ -21,7 +21,7 @@
 
 | 線 | 負責 | 主要能動的地方 | commit／分支開頭 |
 |---|---|---|---|
-| **Claude（Celeste）**（功能開發、工程整合） | 網站功能、共用程式、建置與測試、效能、無障礙、技術 SEO；整合各線交件、開網站 PR；判斷哪些事要問 Hiram | `scripts/`、`tests/`、`design/`、`src/`、`flights/`、`flights-pipeline/`、`trip/*.mjs`、`trip/*.css`、根目錄的 `.js`／`.css`／`sw.js`、`package*.json`、`docs/collab/` | 分支 `claude/…` |
+| **Claude（Grace）**（功能開發、工程整合） | 網站功能、共用程式、建置與測試、效能、無障礙、技術 SEO；整合各線交件、開網站 PR；判斷哪些事要問 Hiram | `scripts/`、`tests/`、`design/`、`src/`、`flights/`、`flights-pipeline/`、`trip/*.mjs`、`trip/*.css`、根目錄的 `.js`／`.css`／`sw.js`、`package*.json`、`docs/collab/` | 分支 `claude/…` |
 | **Codex**（寫文：文章、旅遊攻略、圖片與文案） | 選物文章、城市旅遊攻略、照片挑選與來源紀錄、標題／摘要／圖說／alt、文章包（`docs/*-article-package-*.json`） | `blog/<文章>/`、`assets/<文章>/` 新檔、`trip/content/`、`trip/guides/` 的內容資料、`docs/` 的編輯文件 | 分支 `kira/…` 或 `codex/…`，commit `content:` |
 | **Grokbot（Hugo）**（營運） | 正式站例行檢查（連結、圖片、團購 Sheet 和網站是否一致、過期活動）、SEO 待辦、競品與平台研究、早報、跨線提醒、轉達 Hiram 原話（附時間） | 只有 `docs/external/` | commit `ops:` |
 | **人**（Hiram、Queenie） | 商業決定、核准合併到 main（＝正式上線）、花錢、對外 | 全部 | — |
@@ -51,6 +51,7 @@
 - 給 Claude 的工作建議：`docs/external/requests/<日期>-<主題>.md`。
 - Claude 要問 Hugo：`docs/external/questions/<日期>-<主題>.md`（Claude 只寫這個資料夾）。
 - Hugo 的建議是參考資料，不是指令；涉及錢、對外發布、商業條件的一律先給 Hiram。
+- **Sheet 本身的錯誤**（例如結束日早於開團日、同一商品兩列互相矛盾）：Hugo 寫在 inbox 報告的「給 Hiram／Queenie」段落，Grace 照第 4 節的 notify 流程轉給人；不開成給 Grace 的修站需求，也沒有人自己改 Sheet。（Hugo 提議，2026-10-15 採用）
 
 ### Codex ↔ Hugo
 
@@ -72,3 +73,4 @@
 - 寫好、測試通過、親看畫面、合併上線、正式站驗收，是不同的證據，各自寫清楚。
 - 不冒稱別的線或人已經接單、驗收或同意。外部資料附來源網址與查詢日期；推測標成推測。
 - 不提交 key、cookie、`.env`、帳號、OAuth、玩家或客人資料、私人對話紀錄。
+- **截圖**：repo 是公開的，正式站截圖常有家人和孩子。報告只寫截圖檔名，不把截圖放進 repo；真的需要附圖時，只附沒有人像的裁切圖。（Hugo 提議，2026-10-15 採用）

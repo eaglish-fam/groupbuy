@@ -1,55 +1,82 @@
-/* Content first; one complete OFL serif downloaded only at phase two.
-   Existing serif roles and system-sans body styles are not redefined here. */
+/* Content first; the heading serif downloads only at phase two.
+   Existing serif roles and system-sans body styles are not redefined here.
+   v2: one "site" face holds every character the site publishes (about 520 KB instead of the
+   3.9 MB complete font); small unicode-range slices cover the rest of the complete cmap and
+   download only when a page shows one of their characters, so no heading falls back. */
 (() => {
   'use strict';
   if (window.EaglishSiteFont) return;
   const script = document.currentScript;
   const entry = script?.dataset.fontEntry === 'true';
   const state = window.EaglishSiteFont = { status: entry ? 'deferred' : 'scheduled', entry, requests: 0 };
-  const fontUrl = '/assets/fonts/noto-serif-tc-complete-500-v1.woff2';
-  // The existing worker owns eaglish-* and removes older keys on activation.
-  const fontCacheName = 'heading-serif-complete-500-v1';
+  const families = ['Eaglish Heading Serif', 'Eaglish Travel Heading Serif'];
+  // Content-hashed by scripts/build-site-heading-font.mjs, which rewrites this line: a rebuild
+  // gets new URLs and a new cache, so a stored manifest never meets rebuilt slices.
+  const fontVersion = 'heading-serif-500-f5c4c470e1';
+  const fontDir = `/assets/fonts/${fontVersion}/`;
+  const manifestUrl = `${fontDir}manifest.json`;
+  const siteUrl = `${fontDir}site.woff2`;
+  const fontCacheName = fontVersion;
+  // A visitor who already stored the complete v1 font keeps using it: a superset, no network.
+  const completeUrl = '/assets/fonts/noto-serif-tc-complete-500-v1.woff2';
+  const completeCacheName = 'heading-serif-complete-500-v1';
   const legacyFontCacheName = 'eaglish-complete-heading-font-v1';
   let fontCache;
-  async function cachedFontResponse() {
-    // Cache API works in a secure page without a worker. Keep an immutable
-    // public font across navigations even when WebKit discards HTTP memory cache.
+  async function cachedFont() {
+    // Cache API works in a secure page without a worker. Keep immutable public fonts across
+    // navigations even when WebKit discards HTTP memory cache.
     try {
       if (typeof caches !== 'undefined') {
         fontCache = await caches.open(fontCacheName);
-        const hit = await fontCache.match(fontUrl);
-        if (hit?.ok) { state.cache = 'storage'; return hit; }
-        // Named match is read-only: a missing legacy cache must not be created.
-        const legacy = await caches.match(fontUrl, { cacheName: legacyFontCacheName });
-        if (legacy?.ok) {
-          state.cache = 'legacy-storage';
-          try { await fontCache.put(fontUrl, legacy.clone()); state.migrated = true; state.cache = 'storage'; }
-          catch (error) { state.cacheIssue = { stage: 'migrate', name: error.name, message: error.message }; }
-          return legacy; // Quota failure cannot prevent decoding the cached font.
+        // The site face is only usable with its manifest (the slice ranges); both are stored together.
+        const [hit, map] = await Promise.all([fontCache.match(siteUrl), fontCache.match(manifestUrl)]);
+        if (hit?.ok && map?.ok) { state.cache = 'storage'; return { response: hit, complete: false, map: await map.json() }; }
+        // Named matches are read-only: a missing older cache must not be created.
+        for (const cacheName of [completeCacheName, legacyFontCacheName]) {
+          const old = await caches.match(completeUrl, { cacheName });
+          if (old?.ok) { state.cache = cacheName === completeCacheName ? 'complete-storage' : 'legacy-storage'; return { response: old, complete: true }; }
         }
       }
     } catch (error) { fontCache = undefined; state.cacheIssue = { stage: 'open', name: error.name, message: error.message }; /* Storage denied: use normal HTTP cache. */ }
   }
-  async function fontResponse() {
-    const hit = await cachedFontResponse();
+  async function siteFont() {
+    const hit = await cachedFont();
     if (hit) return hit;
-    state.requests++; state.cache = 'http';
-    const response = await fetch(fontUrl, { cache: 'force-cache', priority: 'low' });
+    state.cache = 'http';
+    const [response, map] = await Promise.all([siteUrl, manifestUrl].map(url => {
+      state.requests++;
+      return fetch(url, { cache: 'force-cache', priority: 'low' });
+    }));
+    if (!map.ok) throw new Error('Font manifest unavailable');
     if (response.ok && fontCache) {
-      try { await fontCache.put(fontUrl, response.clone()); } catch (error) { state.cacheIssue = { stage: 'put', name: error.name, message: error.message }; /* Quota cannot block readable content. */ }
+      try { await Promise.all([fontCache.put(manifestUrl, map.clone()), fontCache.put(siteUrl, response.clone())]); }
+      catch (error) { state.cacheIssue = { stage: 'put', name: error.name, message: error.message }; /* Quota cannot block readable content. */ }
     }
-    return response;
+    return { response, complete: false, map: await map.json() };
   }
   let started = false;
-  function decodeResponse(response) {
-    response
-      .then(response => { if (!response.ok) throw new Error('Font unavailable'); return response.arrayBuffer(); })
-      .then(bytes => Promise.all(['Eaglish Heading Serif', 'Eaglish Travel Heading Serif'].map(family =>
-        new FontFace(family, bytes, { weight: '500', style: 'normal', display: 'swap' }).load())))
-      .then(faces => { for (const face of faces) document.fonts.add(face); state.status = 'ready';
-        document.dispatchEvent(new CustomEvent('eaglish:font-ready')); })
+  function decode(font) {
+    font
+      .then(async ({ response, complete, map }) => {
+        if (!response.ok) throw new Error('Font unavailable');
+        const bytes = await response.arrayBuffer();
+        const base = { weight: '500', style: 'normal', display: 'swap' };
+        const faces = await Promise.all(families.map(family =>
+          new FontFace(family, bytes, complete ? base : { ...base, unicodeRange: map.site.unicodeRange }).load()));
+        // Slices stay unloaded until a page renders one of their characters.
+        const slices = complete ? [] : families.flatMap(family => map.slices.map(slice =>
+          new FontFace(family, `url(${fontDir}${slice.file}) format("woff2")`, { ...base, unicodeRange: slice.unicodeRange })));
+        for (const face of [...faces, ...slices]) document.fonts.add(face);
+        state.status = 'ready'; state.slices = slices.length / families.length;
+        document.dispatchEvent(new CustomEvent('eaglish:font-ready'));
+        // Drop site faces stored by earlier builds; the complete v1 cache stays (a superset).
+        try {
+          for (const name of await caches.keys())
+            if (name.startsWith('heading-serif-500-') && name !== fontCacheName) await caches.delete(name);
+        } catch { /* Storage cleanup is optional. */ }
+      })
       .catch(async () => { state.status = 'error'; /* Fallback remains visible; no retry loop. */
-        try { await fontCache?.delete(fontUrl); } catch { /* Optional cache recovery only. */ } });
+        try { await fontCache?.delete(siteUrl); } catch { /* Optional cache recovery only. */ } });
   }
   function start() {
     if (started) return;
@@ -57,15 +84,15 @@
     if (typeof FontFace !== 'function' || !document.fonts || typeof fetch !== 'function') {
       state.status = 'unsupported'; return;
     }
-    state.status = 'loading'; decodeResponse(fontResponse());
+    state.status = 'loading'; decode(siteFont());
   }
   async function warmEntry() {
     if (started || typeof caches === 'undefined' || typeof FontFace !== 'function' || !document.fonts) return;
     try {
-      const hit = await cachedFontResponse();
-      if (!hit?.ok || started) return; // Cold homepage stays deferred; never fetch.
+      const hit = await cachedFont();
+      if (!hit || started) return; // Cold homepage stays deferred; never fetch.
       started = true; state.status = 'loading';
-      decodeResponse(Promise.resolve(hit));
+      decode(Promise.resolve(hit));
     } catch (error) { state.cacheIssue = { stage: 'warm-entry', name: error.name, message: error.message }; }
   }
   function afterPaint(action) {

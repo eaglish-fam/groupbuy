@@ -5,9 +5,9 @@ import {readSnapshot,snapshotCards} from './catalog-snapshot.mjs';
 import {renderHomepageTravelEntry} from './homepage-travel-entry.mjs';
 const require=createRequire(import.meta.url),{catalog,escape}=require('../product-content.js');
 const root = new URL('../', import.meta.url);
-const release = '20261002-leofoo-booking-sync';
-const productMediaRelease = '20261006-fullbleed';
-const designScriptRelease = '20261014-shinwa-release-g6d';
+const release = '20261015-ux-g1';
+const productMediaRelease = '20261015-ux-g1';
+const designScriptRelease = '20261015-ux-g1';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
   .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];

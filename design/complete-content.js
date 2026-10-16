@@ -16,6 +16,14 @@
       $(`#${kind}-products`).innerHTML = list.length
         ? list.map(card).join("")
         : `<p class="resource-empty">${kind === "coupon" ? "目前沒有開放中的優惠，之後再來看看。" : "目前沒有已公布的資料。"}</p>`;
+      // Books and edu resources come and go with the Sheet; hide an empty shelf and its nav link
+      // instead of showing a dead-end section. Coupons keep their "come back later" note.
+      if (kind !== "coupon") {
+        const id = kind === "book" ? "kang-books" : "edu";
+        $(`#${id}`).hidden = !list.length;
+        const link = document.querySelector(`.content-nav a[href="#${id}"]`);
+        if (link) link.hidden = !list.length;
+      }
     }
   }
   function collectEvents() {
