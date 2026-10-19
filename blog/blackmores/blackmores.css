@@ -47,3 +47,14 @@
 
 [data-article-key="blackmores"] .title-line{display:block}
 [data-article-key="blackmores"] h2 .term{white-space:nowrap}
+
+/* Family photographs (Hiram, 2026-10-19): real product use, capsule size and texture. */
+[data-article-key="blackmores"] .story-photo,[data-article-key="blackmores"] .photo-pair,[data-article-key="blackmores"] .photo-grid,[data-article-key="blackmores"] .feature-photo{margin:32px 0}
+[data-article-key="blackmores"] .story-photo img,[data-article-key="blackmores"] .photo-pair img,[data-article-key="blackmores"] .photo-grid img,[data-article-key="blackmores"] .feature-photo img{display:block;width:100%;height:auto;max-width:100%}
+[data-article-key="blackmores"] .photo-pair{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+[data-article-key="blackmores"] .photo-pair figure{min-width:0;margin:0}
+[data-article-key="blackmores"] .photo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+[data-article-key="blackmores"] .photo-grid figcaption{grid-column:1/-1}
+[data-article-key="blackmores"] .feature-photo{width:min(60%,340px);margin-left:auto;margin-right:auto}
+[data-article-key="blackmores"] .story-photo figcaption,[data-article-key="blackmores"] .photo-pair figcaption,[data-article-key="blackmores"] .photo-grid figcaption,[data-article-key="blackmores"] .feature-photo figcaption{padding-top:10px;font-size:13px;line-height:1.7;text-align:center;color:var(--muted)}
+@media(max-width:700px){[data-article-key="blackmores"] .photo-pair{gap:10px}[data-article-key="blackmores"] .photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}[data-article-key="blackmores"] .story-photo{margin-left:-8px;margin-right:-8px}}
