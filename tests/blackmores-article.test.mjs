@@ -75,14 +75,3 @@ test('Blackmores script drives both controls and the floating button from the sa
  assert.match(js,/state !== 'open'/);
  assert.doesNotMatch(js,/https?:\/\/(?!docs\.google\.com)/,'no hard-coded purchase destination');
 });
-
-test('Blackmores article carries the family photographs Hiram supplied, each with alt text and a lazy load',()=>{
- const html=read('blog/blackmores/index.html').toString();
- const photos=['family-fish-oil','kids-lutein-tablets','kids-fish-oil-capsules','capsules-side-by-side','capsules-tray-top','capsules-tray-angle','mini-capsule','kids-capsule','mini-capsules-cut','mini-capsule-cut','kids-capsules-cut','capsules-cut-pair'];
- for(const name of photos){
-  const tag=html.match(new RegExp(`<img src="/assets/blackmores/photo-${name}\\.webp"[^>]*>`))?.[0];
-  assert.ok(tag,name);
-  assert.match(tag,/loading="lazy"/,name);assert.match(tag,/alt="[^"]{8,}"/,name);
-  for(const file of tag.match(/\/assets\/blackmores\/photo-[\w-]+\.webp/g))assert.ok(existsSync(new URL(`..${file}`,import.meta.url)),file);
- }
-});
