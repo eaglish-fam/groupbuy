@@ -9,8 +9,9 @@ const EditorPicks = require('../design/editor-picks.js');
 
 test("Editor's Pick includes every published article and starts with the newest", () => {
   const picks = EditorPicks.ordered(ProductContent.catalog);
-  assert.equal(picks.length, 21);
+  assert.equal(picks.length, 22);
   assert.deepEqual(picks.map((item) => item.key), [
+    'blackmores',
     'parakito',
     'shinwaLiving',
     'knsh',

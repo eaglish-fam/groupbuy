@@ -1,11 +1,18 @@
 {
   "counts": {
-    "pages": 59,
+    "pages": 60,
     "blocking": 0,
-    "warnings": 25,
-    "total": 25
+    "warnings": 26,
+    "total": 26
   },
   "findings": [
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-blackmores",
+      "file": "blog/blackmores/index.html",
+      "index": 12180
+    },
     {
       "level": "warn",
       "category": "links",
@@ -123,14 +130,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43084
+      "index": 43091
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43084
+      "index": 43091
     },
     {
       "level": "warn",
