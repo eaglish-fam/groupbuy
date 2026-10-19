@@ -2,8 +2,8 @@
   "counts": {
     "pages": 60,
     "blocking": 0,
-    "warnings": 26,
-    "total": 26
+    "warnings": 35,
+    "total": 35
   },
   "findings": [
     {
@@ -11,7 +11,7 @@
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-blackmores",
       "file": "blog/blackmores/index.html",
-      "index": 12180
+      "index": 12781
     },
     {
       "level": "warn",
@@ -33,6 +33,69 @@
       "message": "Link fragment not found on destination page: /#product-shinwa-living",
       "file": "blog/shinwa-living/index.html",
       "index": 15892
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/blackmores/kids-fish-oil-cutout-v1.png",
+      "file": "blog/blackmores/index.html",
+      "index": 7018
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (477KB): /assets/blackmores/kids-fish-oil-cutout-v1.png. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/blackmores/index.html",
+      "index": 7018
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/blackmores/mini-fish-oil-cutout-v1.png",
+      "file": "blog/blackmores/index.html",
+      "index": 7198
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (392KB): /assets/blackmores/mini-fish-oil-cutout-v1.png. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/blackmores/index.html",
+      "index": 7198
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/blackmores/kids-lutein-cutout-v1.png",
+      "file": "blog/blackmores/index.html",
+      "index": 8474
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (445KB): /assets/blackmores/kids-lutein-cutout-v1.png. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/blackmores/index.html",
+      "index": 8474
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/blackmores/adult-lutein-cutout-v1.png",
+      "file": "blog/blackmores/index.html",
+      "index": 8660
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (374KB): /assets/blackmores/adult-lutein-cutout-v1.png. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/blackmores/index.html",
+      "index": 8660
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /assets/blackmores/lc-plasma-cutout-v1.png",
+      "file": "blog/blackmores/index.html",
+      "index": 9535
     },
     {
       "level": "warn",
@@ -130,14 +193,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43095
+      "index": 43120
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43095
+      "index": 43120
     },
     {
       "level": "warn",

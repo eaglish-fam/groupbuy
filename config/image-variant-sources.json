@@ -23,6 +23,14 @@
     "source": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
     "variant": "197d41daaeb2616ec46d089a1054c5cff0337afe5a86f1c7b5a239ff436644b5"
   },
+  "/assets/blackmores/cover-v2-480.webp": {
+    "source": "d54bab94e7a47bbb61fc811e7f9a9ac667c14d1af438d6dcfbb18ea2e9f50137",
+    "variant": "8fba3c4ba2151c7096329fa1dc36f06a974d19cd27efa0e73a109592bbd6fa9b"
+  },
+  "/assets/blackmores/cover-v2-960.webp": {
+    "source": "d54bab94e7a47bbb61fc811e7f9a9ac667c14d1af438d6dcfbb18ea2e9f50137",
+    "variant": "c531a48bd7c8d9d73f3ef93121d1e434fd6727ae0bcbbc75cdfaeab4b9372761"
+  },
   "/assets/blackmores/product-card-480.webp": {
     "source": "55ee331c3c90007bc1469b09090e6cb125b5eccd18fa550f1f152360c733aee9",
     "variant": "45bc991d582c084a2a0bcc88f6d3cba24bd8b95146faf77505ac1ec5bd9aa535"
@@ -30,6 +38,14 @@
   "/assets/blackmores/product-card-960.webp": {
     "source": "55ee331c3c90007bc1469b09090e6cb125b5eccd18fa550f1f152360c733aee9",
     "variant": "f84d429fe9758def4c170f3cf2eeaa6e4c7b028f1388689b44213876ed7ffddb"
+  },
+  "/assets/blackmores/product-card-v2-480.webp": {
+    "source": "a9ab903ddc056dbf632c9392af6f2ff674bd105351d004ef890c597ec0c28ed1",
+    "variant": "b49586e3591328fe3c30ed89c10874ea18c5b3d7f2b13a48a5352240298fab93"
+  },
+  "/assets/blackmores/product-card-v2-960.webp": {
+    "source": "a9ab903ddc056dbf632c9392af6f2ff674bd105351d004ef890c597ec0c28ed1",
+    "variant": "25fe3004777e93c53ffad1e0df15879239c0647dd43407cd09f288104c439ea2"
   },
   "/assets/branden/cover-480.webp": {
     "source": "968c4c27daa73ea7f5c0a7b67704f8de601124853cbce2f1d1b1e0ca005058ee",

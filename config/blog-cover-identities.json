@@ -259,14 +259,14 @@
     },
     "/blog/blackmores/": {
       "identity": "澳佳寶",
-      "image": "/assets/blackmores/cover.webp",
-      "imageSha256": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
-      "source": "/assets/blackmores/cover-source.html",
-      "sourceSha256": "1a1ad1c02df3951c674140cd8fa438821bd8f325ea6aa9e8e7c5b0c91c7bf9c0",
+      "image": "/assets/blackmores/cover-v2.webp",
+      "imageSha256": "d54bab94e7a47bbb61fc811e7f9a9ac667c14d1af438d6dcfbb18ea2e9f50137",
+      "source": "/assets/blackmores/cover-source-v2.html",
+      "sourceSha256": "e52dfbbbaf43effb379ad201fc53dc4e39e2a398bcee18e3b677228ce714f226",
       "review": {
         "identityVisible": true,
         "realPhotoPreserved": true,
-        "imageSha256": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
+        "imageSha256": "d54bab94e7a47bbb61fc811e7f9a9ac667c14d1af438d6dcfbb18ea2e9f50137",
         "viewportWidths": [
           320,
           390,
@@ -274,8 +274,8 @@
           1440
         ],
         "mobileCardLegible": true,
-        "reviewer": "Codex editorial acceptance (#48) + Grace rendered review on the integration branch",
-        "reviewScope": "Codex rendered the cover and the standalone product card in Chrome and checked 320/390/768/1440 before handoff; Grace re-checks the article hero and the journal card at 320/390/768/1440 on the integration branch (pending until the candidate site is reviewed)."
+        "reviewer": "Eliora accountable Codex content chat",
+        "reviewScope": "New v2 cover pixels personally inspected full resolution and in the actual 320/390/768/1440 Tailnet article plus the 390px journal card. Original product RGB retained with true-alpha background removal; studio background generated. Full publication/integration review remains separate."
       }
     }
   }

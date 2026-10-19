@@ -32,9 +32,9 @@
     "primaryQuery": "澳佳寶保健食品怎麼選",
     "readerJob": "先核對年齡與吃法，再在同類產品間比較每顆、每錠或每包標示。",
     "angle": "限定五款，先年齡、再吃法與相同單位含量，幫家庭按需要挑選。",
-    "title": "澳佳寶保健食品怎麼選？魚油、葉黃素與乳酸菌比較｜鷹家選物誌",
-    "h1": "澳佳寶保健食品怎麼選？魚油、葉黃素與乳酸菌比較",
-    "metaDescription": "澳佳寶保健食品怎麼選？從年齡與吃法比較機伶小子魚油、迷你濃縮魚油、兒童葉黃素、成人葉黃素＋蝦紅素＋B6與LC-Plasma乳酸菌。整理每顆含量、分齡用量和保存方式，幫你按需要挑選。",
+    "title": "澳佳寶保健食品｜5款魚油、葉黃素與乳酸菌比較｜鷹家選物誌",
+    "h1": "澳佳寶保健食品｜5款魚油、葉黃素與乳酸菌比較",
+    "metaDescription": "比較澳佳寶5款魚油、葉黃素與乳酸菌：機伶小子與迷你魚油的吃法、兒童與成人葉黃素的年齡及用量，以及LC-Plasma條包的菌體個數與保存方式。依完整品名與產品標示，找到想了解的那一款。",
     "openingAnswer": "選澳佳寶保健食品，先看年齡與吃法，再比同類產品每顆含量。機伶小子魚油為4歲以上咀嚼款；兒童葉黃素適用3–17歲，成人葉黃素＋蝦紅素＋B6則為18歲以上。魚油再比較膠囊大小、Omega-3含量與食用方式；乳酸菌另看條包、菌體個數與保存條件。",
     "relatedQuestions": [
       "機伶小子魚油可以整顆吞嗎？",
@@ -331,9 +331,9 @@
   "media": [
     {
       "id": "media-kids-fish-oil",
-      "path": "/assets/blackmores/kids-fish-oil.webp",
+      "path": "/assets/blackmores/kids-fish-oil-cutout-v1.png",
       "sourceId": "official-kids",
-      "basis": "official_original_photo_natural_rectangular_crop",
+      "basis": "official_original_RGB_preserved_with_imagegen_background_removal_alpha",
       "purpose": "product_evidence",
       "productIds": [
         "7362028"
@@ -343,18 +343,19 @@
       "alt": "澳佳寶機伶小子魚油30顆完整瓶身",
       "caption": "機伶小子魚油 · 30顆",
       "identityStatus": "confirmed",
-      "sha256": "f6d16ad01944a7151a1732a9d711d342af1f59347d1c213be74b0165de68f5c0",
-      "bytes": 50534,
+      "sha256": "a6aaf0630ed039f1d6432121725047a45e347bc8aea47bab82bb7ab4e284f6e0",
+      "bytes": 488804,
       "dimensions": [
         475,
         684
-      ]
+      ],
+      "originalRGBPreserved": true
     },
     {
       "id": "media-mini-fish-oil",
-      "path": "/assets/blackmores/mini-fish-oil.webp",
+      "path": "/assets/blackmores/mini-fish-oil-cutout-v1.png",
       "sourceId": "official-mini",
-      "basis": "official_original_photo_natural_rectangular_crop",
+      "basis": "official_original_RGB_preserved_with_imagegen_background_removal_alpha",
       "purpose": "product_evidence",
       "productIds": [
         "7362025"
@@ -364,18 +365,19 @@
       "alt": "澳佳寶無腥味迷你濃縮魚油200顆完整瓶身",
       "caption": "無腥味迷你濃縮魚油 · 200顆",
       "identityStatus": "confirmed",
-      "sha256": "d3add82332fced3c4c5a5d57730ba9e6464d4d0460609b0d3eb7b8b2219b17ab",
-      "bytes": 44232,
+      "sha256": "a7def48c514ca4b8ebedba5d41d58a951991ce7c5087658db7d472d8a2ea01ef",
+      "bytes": 401748,
       "dimensions": [
         440,
         720
-      ]
+      ],
+      "originalRGBPreserved": true
     },
     {
       "id": "media-kids-lutein",
-      "path": "/assets/blackmores/kids-lutein.webp",
+      "path": "/assets/blackmores/kids-lutein-cutout-v1.png",
       "sourceId": "official-kids-lutein",
-      "basis": "official_original_photo_natural_rectangular_crop",
+      "basis": "official_original_RGB_preserved_with_imagegen_background_removal_alpha",
       "purpose": "product_evidence",
       "productIds": [
         "9916643"
@@ -385,18 +387,19 @@
       "alt": "澳佳寶兒童晶亮金盞花葉黃素60錠完整瓶身",
       "caption": "兒童晶亮金盞花葉黃素 · 60錠",
       "identityStatus": "confirmed",
-      "sha256": "ca2d2345f522908a62c8f371ef6d3e0e1c5887a37d56de3ea5aa3b836425d50e",
-      "bytes": 49458,
+      "sha256": "b19081a612f6b044bd79560f0f87df22d6e7ca50d9d7ffb378809e693d4eafd8",
+      "bytes": 456028,
       "dimensions": [
         485,
         718
-      ]
+      ],
+      "originalRGBPreserved": true
     },
     {
       "id": "media-adult-lutein",
-      "path": "/assets/blackmores/adult-lutein.webp",
+      "path": "/assets/blackmores/adult-lutein-cutout-v1.png",
       "sourceId": "official-adult-lutein",
-      "basis": "official_original_photo_natural_rectangular_crop",
+      "basis": "official_original_RGB_preserved_with_imagegen_background_removal_alpha",
       "purpose": "product_evidence",
       "productIds": [
         "9366638"
@@ -406,18 +409,19 @@
       "alt": "澳佳寶金盞花葉黃素加蝦紅素加B6成人配方30顆完整瓶身",
       "caption": "金盞花葉黃素＋蝦紅素＋B6 · 30顆",
       "identityStatus": "confirmed",
-      "sha256": "c87ee3aeaedb87e7152f73a246ff7e5154d0a95988c5591f59139e5b97926f98",
-      "bytes": 43326,
+      "sha256": "6418c60497edf7a59a6a8b6902a88c5d4e85cc9675ed5308a8644738c3e7e717",
+      "bytes": 383357,
       "dimensions": [
         459,
         648
-      ]
+      ],
+      "originalRGBPreserved": true
     },
     {
       "id": "media-lc-plasma",
-      "path": "/assets/blackmores/lc-plasma.webp",
+      "path": "/assets/blackmores/lc-plasma-cutout-v1.png",
       "sourceId": "official-lc",
-      "basis": "official_original_photo_natural_rectangular_crop",
+      "basis": "official_original_RGB_preserved_with_imagegen_background_removal_alpha",
       "purpose": "product_evidence",
       "productIds": [
         "7719457"
@@ -427,167 +431,168 @@
       "alt": "澳佳寶4效特攻1000億乳酸菌15包完整盒裝",
       "caption": "4效特攻1000億乳酸菌 · 15包",
       "identityStatus": "confirmed",
-      "sha256": "9bcd2acc9b8fb5eb3c1e33849727abed79293580ea72b0d33d5e5e7c8da1a769",
-      "bytes": 35908,
+      "sha256": "8c25e5039e7b492ff4eed27c19d53d5d23f6de810f35fdb081494e9120ceca1a",
+      "bytes": 246128,
       "dimensions": [
         423,
         540
-      ]
+      ],
+      "originalRGBPreserved": true
     },
     {
       "id": "media-cover",
-      "path": "/assets/blackmores/cover.webp",
+      "path": "/assets/blackmores/cover-v2.webp",
       "sourceId": "official-kids",
-      "basis": "confirmed_official_photo_composition; genuine_Chrome_CUA_render_and_WebP_resize",
+      "basis": "original_product_cutouts_on_generated_studio_backdrop; native_Chrome_typography",
       "purpose": "cover",
       "productIds": [
         "7362028",
         "9916643",
         "7719457"
       ],
-      "shows": "三款真實產品裁圖與澳佳寶選購標題",
+      "shows": "澳佳寶三款真實產品去背圖與淺色展示台背景及選購標題",
       "section": "hero",
-      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與4效特攻乳酸菌真實包裝排版",
+      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與LC-Plasma乳酸菌盒裝，置於淺色展示台",
       "caption": "",
       "identityStatus": "confirmed",
       "dimensions": [
         1600,
         1000
       ],
-      "productionSource": "/assets/blackmores/cover-source.html",
+      "productionSource": "/assets/blackmores/cover-source-v2.html",
       "renderStatus": "rendered_and_visually_reviewed",
-      "sha256": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
-      "bytes": 99840,
-      "productionSourceSha256": "1a1ad1c02df3951c674140cd8fa438821bd8f325ea6aa9e8e7c5b0c91c7bf9c0"
+      "sha256": "d54bab94e7a47bbb61fc811e7f9a9ac667c14d1af438d6dcfbb18ea2e9f50137",
+      "bytes": 163956,
+      "productionSourceSha256": "e52dfbbbaf43effb379ad201fc53dc4e39e2a398bcee18e3b677228ce714f226"
     },
     {
       "id": "media-cover-480",
-      "path": "/assets/blackmores/cover-480.webp",
+      "path": "/assets/blackmores/cover-v2-480.webp",
       "sourceId": "official-kids",
-      "basis": "confirmed_official_photo_composition; genuine_Chrome_CUA_render_and_WebP_resize",
+      "basis": "original_product_cutouts_on_generated_studio_backdrop; native_Chrome_typography",
       "purpose": "cover",
       "productIds": [
         "7362028",
         "9916643",
         "7719457"
       ],
-      "shows": "三款真實產品裁圖與澳佳寶選購標題",
+      "shows": "澳佳寶三款真實產品去背圖與淺色展示台背景及選購標題",
       "section": "hero",
-      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與4效特攻乳酸菌真實包裝排版",
+      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與LC-Plasma乳酸菌盒裝，置於淺色展示台",
       "caption": "",
       "identityStatus": "confirmed",
       "dimensions": [
         480,
         300
       ],
-      "productionSource": "/assets/blackmores/cover-source.html",
+      "productionSource": "/assets/blackmores/cover-source-v2.html",
       "renderStatus": "rendered_and_visually_reviewed",
-      "sha256": "ad05aedc8fbb880e650fb2fa4b6d4a09a95a4d2465abd6d5961c9581c8b5291d",
-      "bytes": 16348,
-      "productionSourceSha256": "1a1ad1c02df3951c674140cd8fa438821bd8f325ea6aa9e8e7c5b0c91c7bf9c0"
+      "sha256": "8fba3c4ba2151c7096329fa1dc36f06a974d19cd27efa0e73a109592bbd6fa9b",
+      "bytes": 25076,
+      "productionSourceSha256": "e52dfbbbaf43effb379ad201fc53dc4e39e2a398bcee18e3b677228ce714f226"
     },
     {
       "id": "media-cover-960",
-      "path": "/assets/blackmores/cover-960.webp",
+      "path": "/assets/blackmores/cover-v2-960.webp",
       "sourceId": "official-kids",
-      "basis": "confirmed_official_photo_composition; genuine_Chrome_CUA_render_and_WebP_resize",
+      "basis": "original_product_cutouts_on_generated_studio_backdrop; native_Chrome_typography",
       "purpose": "cover",
       "productIds": [
         "7362028",
         "9916643",
         "7719457"
       ],
-      "shows": "三款真實產品裁圖與澳佳寶選購標題",
+      "shows": "澳佳寶三款真實產品去背圖與淺色展示台背景及選購標題",
       "section": "hero",
-      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與4效特攻乳酸菌真實包裝排版",
+      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與LC-Plasma乳酸菌盒裝，置於淺色展示台",
       "caption": "",
       "identityStatus": "confirmed",
       "dimensions": [
         960,
         600
       ],
-      "productionSource": "/assets/blackmores/cover-source.html",
+      "productionSource": "/assets/blackmores/cover-source-v2.html",
       "renderStatus": "rendered_and_visually_reviewed",
-      "sha256": "197d41daaeb2616ec46d089a1054c5cff0337afe5a86f1c7b5a239ff436644b5",
-      "bytes": 44294,
-      "productionSourceSha256": "1a1ad1c02df3951c674140cd8fa438821bd8f325ea6aa9e8e7c5b0c91c7bf9c0"
+      "sha256": "c531a48bd7c8d9d73f3ef93121d1e434fd6727ae0bcbbc75cdfaeab4b9372761",
+      "bytes": 75300,
+      "productionSourceSha256": "e52dfbbbaf43effb379ad201fc53dc4e39e2a398bcee18e3b677228ce714f226"
     },
     {
       "id": "media-product-card",
-      "path": "/assets/blackmores/product-card.webp",
+      "path": "/assets/blackmores/product-card-v2.webp",
       "sourceId": "official-kids",
-      "basis": "confirmed_official_photo_composition; genuine_Chrome_CUA_render_and_WebP_resize",
+      "basis": "original_product_cutouts_on_generated_studio_backdrop; native_Chrome_typography",
       "purpose": "cover",
       "productIds": [
         "7362028",
         "9916643",
         "7719457"
       ],
-      "shows": "三款真實產品裁圖與澳佳寶選購標題",
+      "shows": "澳佳寶三款真實產品去背圖與淺色展示台背景及選購標題",
       "section": "product_card",
-      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與4效特攻乳酸菌真實包裝排版",
+      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與LC-Plasma乳酸菌盒裝，置於淺色展示台",
       "caption": "",
       "identityStatus": "confirmed",
       "dimensions": [
         1000,
         750
       ],
-      "productionSource": "/assets/blackmores/cover-source.html",
+      "productionSource": "/assets/blackmores/cover-source-v2.html",
       "renderStatus": "rendered_and_visually_reviewed",
-      "sha256": "55ee331c3c90007bc1469b09090e6cb125b5eccd18fa550f1f152360c733aee9",
-      "bytes": 64158,
-      "productionSourceSha256": "1a1ad1c02df3951c674140cd8fa438821bd8f325ea6aa9e8e7c5b0c91c7bf9c0"
+      "sha256": "a9ab903ddc056dbf632c9392af6f2ff674bd105351d004ef890c597ec0c28ed1",
+      "bytes": 86736,
+      "productionSourceSha256": "e52dfbbbaf43effb379ad201fc53dc4e39e2a398bcee18e3b677228ce714f226"
     },
     {
       "id": "media-product-card-480",
-      "path": "/assets/blackmores/product-card-480.webp",
+      "path": "/assets/blackmores/product-card-v2-480.webp",
       "sourceId": "official-kids",
-      "basis": "confirmed_official_photo_composition; responsive_resize_from_owner_Chrome_card_render",
+      "basis": "original_product_cutouts_on_generated_studio_backdrop; native_Chrome_typography",
       "purpose": "cover",
       "productIds": [
         "7362028",
         "9916643",
         "7719457"
       ],
-      "shows": "三款真實產品裁圖與澳佳寶商品卡標題",
+      "shows": "澳佳寶三款真實產品去背圖與淺色展示台背景及選購標題",
       "section": "product_card",
-      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與4效特攻乳酸菌真實包裝排版",
+      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與LC-Plasma乳酸菌盒裝，置於淺色展示台",
       "caption": "",
       "identityStatus": "confirmed",
       "dimensions": [
         480,
         360
       ],
-      "sha256": "45bc991d582c084a2a0bcc88f6d3cba24bd8b95146faf77505ac1ec5bd9aa535",
-      "bytes": 20504,
-      "productionSource": "/assets/blackmores/cover-source.html",
-      "productionSourceSha256": "1a1ad1c02df3951c674140cd8fa438821bd8f325ea6aa9e8e7c5b0c91c7bf9c0",
+      "sha256": "b49586e3591328fe3c30ed89c10874ea18c5b3d7f2b13a48a5352240298fab93",
+      "bytes": 27724,
+      "productionSource": "/assets/blackmores/cover-source-v2.html",
+      "productionSourceSha256": "e52dfbbbaf43effb379ad201fc53dc4e39e2a398bcee18e3b677228ce714f226",
       "renderStatus": "rendered_and_visually_reviewed"
     },
     {
       "id": "media-product-card-960",
-      "path": "/assets/blackmores/product-card-960.webp",
+      "path": "/assets/blackmores/product-card-v2-960.webp",
       "sourceId": "official-kids",
-      "basis": "confirmed_official_photo_composition; responsive_resize_from_owner_Chrome_card_render",
+      "basis": "original_product_cutouts_on_generated_studio_backdrop; native_Chrome_typography",
       "purpose": "cover",
       "productIds": [
         "7362028",
         "9916643",
         "7719457"
       ],
-      "shows": "三款真實產品裁圖與澳佳寶商品卡標題",
+      "shows": "澳佳寶三款真實產品去背圖與淺色展示台背景及選購標題",
       "section": "product_card",
-      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與4效特攻乳酸菌真實包裝排版",
+      "alt": "澳佳寶機伶小子魚油、兒童葉黃素與LC-Plasma乳酸菌盒裝，置於淺色展示台",
       "caption": "",
       "identityStatus": "confirmed",
       "dimensions": [
         960,
         720
       ],
-      "sha256": "f84d429fe9758def4c170f3cf2eeaa6e4c7b028f1388689b44213876ed7ffddb",
-      "bytes": 55724,
-      "productionSource": "/assets/blackmores/cover-source.html",
-      "productionSourceSha256": "1a1ad1c02df3951c674140cd8fa438821bd8f325ea6aa9e8e7c5b0c91c7bf9c0",
+      "sha256": "25fe3004777e93c53ffad1e0df15879239c0647dd43407cd09f288104c439ea2",
+      "bytes": 82720,
+      "productionSource": "/assets/blackmores/cover-source-v2.html",
+      "productionSourceSha256": "e52dfbbbaf43effb379ad201fc53dc4e39e2a398bcee18e3b677228ce714f226",
       "renderStatus": "rendered_and_visually_reviewed"
     }
   ],
@@ -723,8 +728,8 @@
     "datePublished": "2026-10-19",
     "dateModified": "2026-10-19",
     "social": {
-      "ogImage": "https://www.eaglish.store/assets/blackmores/cover.webp",
-      "ogImageAlt": "澳佳寶機伶小子魚油、兒童葉黃素與4效特攻乳酸菌真實包裝排版",
+      "ogImage": "https://www.eaglish.store/assets/blackmores/cover-v2.webp",
+      "ogImageAlt": "澳佳寶機伶小子魚油、兒童葉黃素與LC-Plasma乳酸菌盒裝，置於淺色展示台",
       "width": 1600,
       "height": 1000,
       "twitterCard": "summary_large_image"
@@ -735,7 +740,7 @@
     ],
     "crawlableOfferFallback": "/#catalog"
   },
-  "bodyText": "先看年齡和吃法，\n再比較成分含量。\n選澳佳寶保健食品，先看年齡與吃法，再比同類產品每顆含量。機伶小子魚油為4歲以上咀嚼款；兒童葉黃素適用3–17歲，成人葉黃素＋蝦紅素＋B6則為18歲以上。魚油再比較膠囊大小、Omega-3含量與食用方式；乳酸菌另看條包、菌體個數與保存條件。\n替家人挑選時，可以先寫下「幾歲、想看哪一類、適合哪種吃法」。習慣咀嚼、能吞膠囊或偏好粉末，會把選項分得更清楚。接著才看一瓶有幾顆、一天吃多少，估算補貨頻率。\n01 ／ 五款先認清楚\n五款產品，先看年齡與形式。\n五款澳佳寶產品的選擇重點\n產品\n先看什麼\n包裝\n機伶小子魚油\n4歲以上；飯後咀嚼\n30顆\n無腥味迷你濃縮魚油\n小顆膠囊；分齡用量\n200顆\n兒童晶亮金盞花葉黃素\n3–17歲；咀嚼錠\n60錠\n金盞花葉黃素＋蝦紅素＋B6\n18歲以上；成人膠囊\n30顆\n4效特攻1000億乳酸菌\nLC-Plasma；條包粉末\n15包\n魚油、葉黃素與乳酸菌屬於不同類別，先選想了解的那一類即可。下面把相近的產品放在一起，方便對照。\n02 ／ 魚油\n魚油選咀嚼款，\n還是小顆膠囊？\n機伶小子魚油是覆盆莓、柳橙口味的咀嚼配方。標示為4歲以上每日1顆，飯後咀嚼，\n切勿整顆吞嚥，並由成人監督食用\n。它適合先從咀嚼形式挑選的家庭。\n迷你濃縮魚油的膠囊約1.5公分，帶檸檬、香草口味。官方分齡說明為4–12歲每日2次、每次1顆；13–17歲每日3次、每次1顆，隨餐並由成人監督。小顆是尺寸差異，選購時仍要一起核對年齡、吃法和每日用量。\n以每顆為同一單位比較魚油\n比較項目\n機伶小子\n迷你濃縮\nOmega-3\n300mg／顆\n300mg／顆\n其他已列含量\nEPA 180mg、DHA 120mg／顆\n完整成分請見商品標示\n挑選重點\n飯後咀嚼的配方\n小顆膠囊與分齡用量\n兩款每顆都列300mg Omega-3，吃法和每日顆數卻各有規定。比較時，分清楚「整顆膠囊重量」與「Omega-3含量」，也把每次幾顆、每天幾次一起看。\n03 ／ 葉黃素\n兒童款和成人款，\n分開看年齡與用量。\n兒童晶亮金盞花葉黃素為3–17歲設計，每錠含葉黃素5mg、玉米黃素1mg。3–12歲每日1錠；13–17歲每日2錠，飯後咀嚼，切勿整顆吞嚥，並由成人監督。看成分表時，記得區分「每錠」與「每日份量」。\n金盞花葉黃素＋蝦紅素＋B6則是18歲以上的成人膠囊配方，每日1顆，隨餐食用，每日上限1顆。兩款完整品名不同，適用年齡和食用方式也不同；替孩子選購時，直接對照兒童款會更清楚。\n如果家裡有不同年齡的使用者，可以在瓶身旁記下各自的每日份量；補貨前再看剩餘顆數。兒童款60錠與成人款30顆，瓶裝數量各異，按實際用量估算會比只看瓶子大小直覺。\n04 ／ 乳酸菌\n乳酸菌條包，\n看菌體個數與保存方式。\n這款是LC-Plasma乳酸菌粉末，搭配膳食纖維，每包標示1000億個菌體，一盒15包。LC-Plasma經熱處理，屬於非活菌；這裡的「個」是菌體個數，與活菌產品使用的CFU計數不同。挑選時可以先認清這個差別。\n官方建議每日1包，可直接食用，或搭配溫開水。保存於30°C以下、乾燥避光處，並留意防潮。偏好一次一包、少了數顆粒步驟的人，可以從這種包裝形式了解起。\n05 ／ 食用前確認\n成分、過敏原與其他補充品，\n一起核對。\n保健食品是日常飲食之外的補充，仍要維持均衡飲食。機伶小子魚油標示含魚類與大豆成分；有過敏需求，請逐款核對收到的完整標示。若正在用藥、服用其他補充品，或處於孕期、哺乳期，先帶著成分表向醫師或藥師確認，再決定是否食用及如何搭配。\n06 ／ 常見問題\n下單前，再對照這幾件事。\n機伶小子魚油可以整顆吞嗎？\n機伶小子的食用標示是4歲以上飯後咀嚼，切勿整顆吞嚥，並由成人監督。若孩子還無法配合這種吃法，先向專業人員確認合適的選擇。\n兒童葉黃素每天都是1錠嗎？\n官方分為3–12歲每日1錠、13–17歲每日2錠。每錠葉黃素5mg、玉米黃素1mg；看含量時要同時對照年齡與每日錠數。\n家裡已經有補充品，還要再買嗎？\n先把現有產品的成分、每日份量與食用對象列在一起，確認是否重複。若涉及用藥或特殊營養需求，帶標示詢問醫師、藥師或營養師，再按需要補充。\n選好類別，再看當期組合。\n先對好完整品名、年齡和吃法，再查看買物社目前的團購入口與組合內容。販售規格、庫存及實際結帳條件，以當期賣場為準。",
+  "bodyText": "魚油、葉黃素與乳酸菌的選購重點\n選澳佳寶保健食品，先看年齡與吃法，再比同類產品每顆含量。機伶小子魚油為4歲以上咀嚼款；兒童葉黃素適用3–17歲，成人葉黃素＋蝦紅素＋B6則為18歲以上。魚油再比較膠囊大小、Omega-3含量與食用方式；乳酸菌另看條包、菌體個數與保存條件。\n替家人挑選時，可以先寫下「幾歲、想看哪一類、適合哪種吃法」。習慣咀嚼、能吞膠囊或偏好粉末，會把選項分得更清楚。接著才看一瓶有幾顆、一天吃多少，估算補貨頻率。\n01 ／ 五款總覽\n五款產品的吃法與包裝規格\n五款澳佳寶產品的選擇重點\n產品\n先看什麼\n包裝\n機伶小子魚油\n4歲以上；飯後咀嚼\n30顆\n無腥味迷你濃縮魚油\n小顆膠囊；分齡用量\n200顆\n兒童晶亮金盞花葉黃素\n3–17歲；咀嚼錠\n60錠\n金盞花葉黃素＋蝦紅素＋B6\n18歲以上；成人膠囊\n30顆\n4效特攻1000億乳酸菌\nLC-Plasma；條包粉末\n15包\n魚油、葉黃素與乳酸菌屬於不同類別，先選想了解的那一類即可。下面把相近的產品放在一起，方便對照。\n02 ／ 兩款魚油\n機伶小子與迷你濃縮魚油差在哪？\n機伶小子魚油是覆盆莓、柳橙口味的咀嚼配方。標示為4歲以上每日1顆，飯後咀嚼，\n切勿整顆吞嚥，並由成人監督食用\n。它適合先從咀嚼形式挑選的家庭。\n迷你濃縮魚油的膠囊約1.5公分，帶檸檬、香草口味。官方分齡說明為4–12歲每日2次、每次1顆；13–17歲每日3次、每次1顆，隨餐並由成人監督。小顆是尺寸差異，選購時仍要一起核對年齡、吃法和每日用量。\n以每顆為同一單位比較魚油\n比較項目\n機伶小子\n迷你濃縮\nOmega-3\n300mg／顆\n300mg／顆\n其他已列含量\nEPA 180mg、DHA 120mg／顆\n完整成分請見商品標示\n挑選重點\n飯後咀嚼的配方\n小顆膠囊與分齡用量\n兩款每顆都列300mg Omega-3，吃法和每日顆數卻各有規定。比較時，分清楚「整顆膠囊重量」與「Omega-3含量」，也把每次幾顆、每天幾次一起看。\n03 ／ 兒童與成人葉黃素\n兒童與成人葉黃素：年齡與每日用量\n兒童晶亮金盞花葉黃素為3–17歲設計，每錠含葉黃素5mg、玉米黃素1mg。3–12歲每日1錠；13–17歲每日2錠，飯後咀嚼，切勿整顆吞嚥，並由成人監督。看成分表時，記得區分「每錠」與「每日份量」。\n金盞花葉黃素＋蝦紅素＋B6則是18歲以上的成人膠囊配方，每日1顆，隨餐食用，每日上限1顆。兩款完整品名不同，適用年齡和食用方式也不同；替孩子選購時，直接對照兒童款會更清楚。\n如果家裡有不同年齡的使用者，可以在瓶身旁記下各自的每日份量；補貨前再看剩餘顆數。兒童款60錠與成人款30顆，瓶裝數量各異，按實際用量估算會比只看瓶子大小直覺。\n04 ／ LC-Plasma乳酸菌\nLC-Plasma乳酸菌：菌體個數、吃法與保存\n這款是LC-Plasma乳酸菌粉末，搭配膳食纖維，每包標示1000億個菌體，一盒15包。LC-Plasma經熱處理，屬於非活菌；這裡的「個」是菌體個數，與活菌產品使用的CFU計數不同。挑選時可以先認清這個差別。\n官方建議每日1包，可直接食用，或搭配溫開水。保存於30°C以下、乾燥避光處，並留意防潮。偏好一次一包、少了數顆粒步驟的人，可以從這種包裝形式了解起。\n05 ／ 食用提醒\n過敏、用藥與孕哺期的食用提醒\n保健食品是日常飲食之外的補充，仍要維持均衡飲食。機伶小子魚油標示含魚類與大豆成分；有過敏需求，請逐款核對收到的完整標示。若正在用藥、服用其他補充品，或處於孕期、哺乳期，先帶著成分表向醫師或藥師確認，再決定是否食用及如何搭配。\n06 ／ 食用問答\n魚油、葉黃素與補充品搭配問答\n機伶小子魚油可以整顆吞嗎？\n機伶小子的食用標示是4歲以上飯後咀嚼，切勿整顆吞嚥，並由成人監督。若孩子還無法配合這種吃法，先向專業人員確認合適的選擇。\n兒童葉黃素每天都是1錠嗎？\n官方分為3–12歲每日1錠、13–17歲每日2錠。每錠葉黃素5mg、玉米黃素1mg；看含量時要同時對照年齡與每日錠數。\n家裡已經有補充品，還要再買嗎？\n先把現有產品的成分、每日份量與食用對象列在一起，確認是否重複。若涉及用藥或特殊營養需求，帶標示詢問醫師、藥師或營養師，再按需要補充。\n澳佳寶當期團購與商品組合\n先對好完整品名、年齡和吃法，再查看買物社目前的團購入口與組合內容。販售規格、庫存及實際結帳條件，以當期賣場為準。",
   "bodyTextExtraction": "Complete data-editorial-section text, including headings, section labels, tables and every FAQ. Excludes navigation, CTA labels, image captions and source-reference markers. No editorial paragraph or FAQ omitted.",
   "releaseCandidate": {
     "articleRoute": "/blog/blackmores/",
@@ -748,23 +753,23 @@
     ],
     "productLookupKey": "澳佳寶保健食品",
     "assetPaths": [
-      "/assets/blackmores/kids-fish-oil.webp",
-      "/assets/blackmores/mini-fish-oil.webp",
-      "/assets/blackmores/kids-lutein.webp",
-      "/assets/blackmores/adult-lutein.webp",
-      "/assets/blackmores/lc-plasma.webp",
-      "/assets/blackmores/cover.webp",
-      "/assets/blackmores/cover-480.webp",
-      "/assets/blackmores/cover-960.webp",
-      "/assets/blackmores/product-card.webp",
-      "/assets/blackmores/product-card-480.webp",
-      "/assets/blackmores/product-card-960.webp"
+      "/assets/blackmores/kids-fish-oil-cutout-v1.png",
+      "/assets/blackmores/mini-fish-oil-cutout-v1.png",
+      "/assets/blackmores/kids-lutein-cutout-v1.png",
+      "/assets/blackmores/adult-lutein-cutout-v1.png",
+      "/assets/blackmores/lc-plasma-cutout-v1.png",
+      "/assets/blackmores/cover-v2.webp",
+      "/assets/blackmores/cover-v2-480.webp",
+      "/assets/blackmores/cover-v2-960.webp",
+      "/assets/blackmores/product-card-v2.webp",
+      "/assets/blackmores/product-card-v2-480.webp",
+      "/assets/blackmores/product-card-v2-960.webp"
     ],
-    "integrationStatus": "content_candidate_only; engineering_surface_wiring_and_owner_acceptance_pending"
+    "integrationStatus": "revision_candidate; shared_editorial_mappings_need_Grace_review; not_published"
   },
   "productionNeeds": {
-    "coverAndCard": "Completed: 1600x1000 and 1000x750 genuine Chrome/CUA renders, plus independent 480/960 responsive WebPs; original package pixels and complete Chinese text visually reviewed. Full page/integration acceptance remains separate.",
-    "purchase": "Grace connects existing dynamic Sheet early/floating controls; current ordinary /#catalog links remain safe fallbacks.",
-    "finalAcceptance": "Root personal semantic/rendered/functional QA and full npm verify remain separate release gates."
+    "coverAndCard": "Revised: independently composed 1600x1000 cover and 1000x750 card, with five original-RGB transparent cutouts. Shared optimizer generates website-responsive variants. See media-sources-v2.",
+    "purchase": "Existing #49 Sheet-driven early/end/floating controls preserved unchanged.",
+    "finalAcceptance": "Current revision requires new actual browser acceptance and Hiram approval before merge."
   }
 }

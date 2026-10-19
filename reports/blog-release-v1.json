@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-10-19T06:14:01.957Z",
+  "generatedAt": "2026-10-19T07:54:11.165Z",
   "status": "ready",
   "summary": {
     "checks": 780,
@@ -387,12 +387,12 @@
     {
       "id": "blog:blackmores:index.html:title",
       "passed": true,
-      "detail": "Title length 29."
+      "detail": "Title length 28."
     },
     {
       "id": "blog:blackmores:index.html:description",
       "passed": true,
-      "detail": "Description length 90."
+      "detail": "Description length 91."
     },
     {
       "id": "blog:blackmores:index.html:canonical",
