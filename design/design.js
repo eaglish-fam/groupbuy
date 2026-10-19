@@ -170,7 +170,8 @@ function countdownText(end, now = Date.now()) {
   const remaining = Date.parse(end + "T00:00:00+08:00") + 86400000 - now;
   if (!Number.isFinite(remaining) || remaining <= 0) return "本次已結團";
   const minutes = Math.ceil(remaining / 60000);
-  if (minutes >= 1440) return `距結團 ${Math.floor(minutes / 1440)} 天 ${Math.floor(minutes % 1440 / 60)} 小時`;
+  // Whole days equal the calendar-day gap to the end date (the end day itself counts down in hours).
+  if (minutes >= 1440) return `剩 ${Math.floor(minutes / 1440)} 天`;
   return `最後 ${Math.floor(minutes / 60)} 小時 ${minutes % 60} 分`;
 }
 function timedCampaign(p) {
@@ -401,16 +402,23 @@ function render() {
   window.dispatchEvent(new Event("catalog-rendered"));
 }
 // Filter first, order the full result, then paginate. Never mutate Sheet order.
-function sortCatalog(list, status, order) {
+function sortCatalog(list, status, order, now = Date.now()) {
   const closing = (a, b) => (a.end || "9999").localeCompare(b.end || "9999");
+  // A timed campaign that still has time left but ends within a week.
+  const endingSoon = p => {
+    const remaining = p.end ? Date.parse(p.end + "T00:00:00+08:00") + 86400000 - now : 0;
+    return !p.status.long && remaining > 0 && remaining <= 7 * 86400000;
+  };
   if (order === "closing") return [...list].sort(closing);
   if (order === "new") return [...list].sort((a, b) => (b.start || "").localeCompare(a.start || ""));
   if (status === "open") return [...list].sort(closing);
   if (status === "long") return [...list];
   if (status === "all") {
-    const timed = list.filter(p => !p.status.long).sort(closing);
+    // Campaigns ending within a week come first, soonest first; the rest alternate as before.
+    const soon = list.filter(endingSoon).sort(closing);
+    const timed = list.filter(p => !p.status.long && !soon.includes(p)).sort(closing);
     const evergreen = list.filter(p => p.status.long);
-    const mixed = [];
+    const mixed = [...soon];
     for (let i = 0; i < Math.max(timed.length, evergreen.length); i++) {
       if (timed[i]) mixed.push(timed[i]);
       if (evergreen[i]) mixed.push(evergreen[i]);
