@@ -256,6 +256,27 @@
         "reviewer": "Codex editorial acceptance (#44) + Grace rendered review on the integration branch",
         "reviewScope": "Unchanged #44 pixels: Codex accepted 320/390/768/1440 before handoff; Grace re-checked the article hero and the journal card at 320/390/768/1440 on 2026-10-16. The cover is a crop of cover-source.webp and the parakito package is legible in the father's hand."
       }
+    },
+    "/blog/blackmores/": {
+      "identity": "澳佳寶",
+      "image": "/assets/blackmores/cover.webp",
+      "imageSha256": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
+      "source": "/assets/blackmores/cover-source.html",
+      "sourceSha256": "1a1ad1c02df3951c674140cd8fa438821bd8f325ea6aa9e8e7c5b0c91c7bf9c0",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Codex editorial acceptance (#48) + Grace rendered review on the integration branch",
+        "reviewScope": "Codex rendered the cover and the standalone product card in Chrome and checked 320/390/768/1440 before handoff; Grace re-checks the article hero and the journal card at 320/390/768/1440 on the integration branch (pending until the candidate site is reviewed)."
+      }
     }
   }
 }
