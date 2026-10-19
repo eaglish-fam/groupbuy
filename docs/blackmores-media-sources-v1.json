@@ -1,0 +1,200 @@
+{
+  "schema": "eaglish.blackmores-media-sources/v1",
+  "observedAt": "2026-10-19",
+  "sourcePolicy": "官方真實包裝照片；僅自然矩形裁切、縮放與WebP編碼，無產品生成或重繪。",
+  "items": [
+    {
+      "productId": "7362028",
+      "file": "kids-fish-oil.webp",
+      "sourceUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/7362028/0/639260458546830000?v=1",
+      "sourceDimensions": [
+        1000,
+        1000
+      ],
+      "sourceSha256": "b2bdbfbe0b07483d353ecf14e7336c2c7965231059f1bc4f1fadcc17cfba69f6",
+      "cropBoxXYXY": [
+        60,
+        140,
+        535,
+        824
+      ],
+      "outputDimensions": [
+        475,
+        684
+      ],
+      "sha256": "f6d16ad01944a7151a1732a9d711d342af1f59347d1c213be74b0165de68f5c0",
+      "method": "natural_rectangular_crop_only; original package pixels retained",
+      "path": "/assets/blackmores/kids-fish-oil.webp",
+      "alt": "澳佳寶機伶小子魚油30顆完整瓶身",
+      "shows": "機伶小子魚油完整瓶身"
+    },
+    {
+      "productId": "7362025",
+      "file": "mini-fish-oil.webp",
+      "sourceUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/7362025/0/639260458546830000?v=1",
+      "sourceDimensions": [
+        1000,
+        1000
+      ],
+      "sourceSha256": "b6281b39bb13d9080fa0d60802d58291cb9e434e1eb39309c2dfbcbf53b0fe63",
+      "cropBoxXYXY": [
+        70,
+        95,
+        510,
+        815
+      ],
+      "outputDimensions": [
+        440,
+        720
+      ],
+      "sha256": "d3add82332fced3c4c5a5d57730ba9e6464d4d0460609b0d3eb7b8b2219b17ab",
+      "method": "natural_rectangular_crop_only; original package pixels retained",
+      "path": "/assets/blackmores/mini-fish-oil.webp",
+      "alt": "澳佳寶無腥味迷你濃縮魚油200顆完整瓶身",
+      "shows": "無腥味迷你濃縮魚油完整瓶身"
+    },
+    {
+      "productId": "9916643",
+      "file": "kids-lutein.webp",
+      "sourceUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/9916643/0/639260458546830000?v=1",
+      "sourceDimensions": [
+        1000,
+        1000
+      ],
+      "sourceSha256": "22d02fea15a6f2159a21593419d351c605ef558e33f9dc17a495917215e265a8",
+      "cropBoxXYXY": [
+        65,
+        122,
+        550,
+        840
+      ],
+      "outputDimensions": [
+        485,
+        718
+      ],
+      "sha256": "ca2d2345f522908a62c8f371ef6d3e0e1c5887a37d56de3ea5aa3b836425d50e",
+      "method": "natural_rectangular_crop_only; original package pixels retained",
+      "path": "/assets/blackmores/kids-lutein.webp",
+      "alt": "澳佳寶兒童晶亮金盞花葉黃素60錠完整瓶身",
+      "shows": "兒童晶亮金盞花葉黃素完整瓶身"
+    },
+    {
+      "productId": "9366638",
+      "file": "adult-lutein.webp",
+      "sourceUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/9366638/0/639260458546830000?v=1",
+      "sourceDimensions": [
+        1000,
+        1000
+      ],
+      "sourceSha256": "4049d2352eee741aa06a9c81746aa8eef0ee47038774bedc2153c43ce63deba2",
+      "cropBoxXYXY": [
+        104,
+        152,
+        563,
+        800
+      ],
+      "outputDimensions": [
+        459,
+        648
+      ],
+      "sha256": "c87ee3aeaedb87e7152f73a246ff7e5154d0a95988c5591f59139e5b97926f98",
+      "method": "natural_rectangular_crop_only; original package pixels retained",
+      "path": "/assets/blackmores/adult-lutein.webp",
+      "alt": "澳佳寶金盞花葉黃素加蝦紅素加B6成人配方30顆完整瓶身",
+      "shows": "金盞花葉黃素＋蝦紅素＋B6完整瓶身"
+    },
+    {
+      "productId": "7719457",
+      "file": "lc-plasma.webp",
+      "sourceUrl": "https://img.91app.com/webapi/imagesV3/Original/SalePage/7719457/0/639260458546830000?v=1",
+      "sourceDimensions": [
+        1000,
+        1005
+      ],
+      "sourceSha256": "6fca4c7db2045ca26af9c53759ba59293404f46606c3b6df07cdc2ccd3c50649",
+      "cropBoxXYXY": [
+        25,
+        290,
+        448,
+        830
+      ],
+      "outputDimensions": [
+        423,
+        540
+      ],
+      "sha256": "9bcd2acc9b8fb5eb3c1e33849727abed79293580ea72b0d33d5e5e7c8da1a769",
+      "method": "natural_rectangular_crop_only; original package pixels retained",
+      "path": "/assets/blackmores/lc-plasma.webp",
+      "alt": "澳佳寶4效特攻1000億乳酸菌15包完整盒裝",
+      "shows": "4效特攻1000億乳酸菌完整盒裝"
+    }
+  ],
+  "composition": {
+    "productionSource": "/assets/blackmores/cover-source.html",
+    "productionSourceSha256": "1a1ad1c02df3951c674140cd8fa438821bd8f325ea6aa9e8e7c5b0c91c7bf9c0",
+    "subjects": [
+      "7362028",
+      "9916643",
+      "7719457"
+    ],
+    "rendering": "Actual Chrome CUA render of HTML/CSS; WebP encoding and proportional responsive resizing only; no SVG text rasterizer or generative product pixels.",
+    "renderStatus": "rendered_and_visually_reviewed",
+    "derivatives": [
+      {
+        "path": "/assets/blackmores/cover.webp",
+        "dimensions": [
+          1600,
+          1000
+        ],
+        "sha256": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
+        "bytes": 99840
+      },
+      {
+        "path": "/assets/blackmores/cover-480.webp",
+        "dimensions": [
+          480,
+          300
+        ],
+        "sha256": "ad05aedc8fbb880e650fb2fa4b6d4a09a95a4d2465abd6d5961c9581c8b5291d",
+        "bytes": 16348
+      },
+      {
+        "path": "/assets/blackmores/cover-960.webp",
+        "dimensions": [
+          960,
+          600
+        ],
+        "sha256": "197d41daaeb2616ec46d089a1054c5cff0337afe5a86f1c7b5a239ff436644b5",
+        "bytes": 44294
+      },
+      {
+        "path": "/assets/blackmores/product-card.webp",
+        "dimensions": [
+          1000,
+          750
+        ],
+        "sha256": "55ee331c3c90007bc1469b09090e6cb125b5eccd18fa550f1f152360c733aee9",
+        "bytes": 64158
+      },
+      {
+        "path": "/assets/blackmores/product-card-480.webp",
+        "dimensions": [
+          480,
+          360
+        ],
+        "sha256": "45bc991d582c084a2a0bcc88f6d3cba24bd8b95146faf77505ac1ec5bd9aa535",
+        "bytes": 20504
+      },
+      {
+        "path": "/assets/blackmores/product-card-960.webp",
+        "dimensions": [
+          960,
+          720
+        ],
+        "sha256": "f84d429fe9758def4c170f3cf2eeaa6e4c7b028f1388689b44213876ed7ffddb",
+        "bytes": 55724
+      }
+    ],
+    "releaseStatus": "content_candidate; final_page_and_engineering_acceptance_separate"
+  }
+}
