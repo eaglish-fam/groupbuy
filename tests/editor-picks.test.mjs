@@ -8,33 +8,20 @@ const ProductContent = require('../product-content.js');
 const EditorPicks = require('../design/editor-picks.js');
 
 test("Editor's Pick includes every published article and starts with the newest", () => {
+  // Derived from the catalog so a new article needs no edit here; the rules are what is pinned.
   const picks = EditorPicks.ordered(ProductContent.catalog);
-  assert.equal(picks.length, 22);
-  assert.deepEqual(picks.map((item) => item.key), [
-    'blackmores',
-    'parakito',
-    'shinwaLiving',
-    'knsh',
-    'locknlock',
-    'leofoo',
-    'eben',
-    'branden',
-    'lange',
-    'shoumaji',
-    'miamily',
-    'caesarKenting',
-    'fushan',
-    'kietla',
-    'playzu',
-    'hereu',
-    'mitoy',
-    'chuluAomori',
-    'meroware',
-    'atojet',
-    'wave',
-    'artisanCb301',
-  ]);
+  const published = Object.entries(ProductContent.catalog)
+    .filter(([, item]) => item.article && item.image && item.title && /^\d{4}-\d{2}-\d{2}$/.test(item.published || ''));
+  assert.ok(picks.length >= 22, `picks: ${picks.length}`);
+  assert.deepEqual(new Set(picks.map((item) => item.key)), new Set(published.map(([key]) => key)), 'every dated article exactly once');
+  assert.equal(new Set(picks.map((item) => item.key)).size, picks.length);
+  for (let i = 1; i < picks.length; i++) assert.ok(picks[i - 1].published >= picks[i].published, `${picks[i - 1].key} before ${picks[i].key}`);
+  // Same-day articles keep catalog order, so the newest entry added at the top of the catalog leads.
+  const newest = published.map(([, item]) => item.published).sort().at(-1);
+  assert.equal(picks[0].key, published.find(([, item]) => item.published === newest)[0]);
   assert.ok(picks.every((item) => item.article.startsWith('/blog/') && item.image.startsWith('/assets/')));
+  // Undated or articleless entries (e.g. a campaign without its own article) never enter the carousel.
+  assert.ok(!picks.some((item) => item.key === 'fushanFrozen'));
 });
 
 test("Editor's Pick navigation wraps in both directions", () => {

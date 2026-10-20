@@ -8,6 +8,7 @@
     "build:homepage": "node scripts/build-homepage.mjs && node scripts/optimize-entry-images.mjs",
     "refresh:catalog": "node scripts/catalog-snapshot.mjs --refresh",
     "build:content": "node scripts/build-content-hubs.mjs",
+    "integrate": "node scripts/integrate-article.mjs",
     "build:trip": "node scripts/optimize-trip-images.mjs && node scripts/build-trip-globe.mjs && node scripts/build-trip.mjs && node scripts/check-trip-images.mjs",
     "build:sitemap": "node scripts/generate-sitemap.mjs",
     "normalize:blog-seo": "node scripts/normalize-blog-seo.mjs --write --touch-date",

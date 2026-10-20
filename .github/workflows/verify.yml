@@ -1,0 +1,49 @@
+name: verify
+
+# Runs the same check every lane runs before handing work over, so a red result is visible on the
+# PR itself instead of only in whoever ran it locally.
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      # The branch head, not the merge preview: generated files must be committed by the author,
+      # and sitemap dates come from the branch's own clean history.
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Install Chromium for the browser tests
+        run: npm install --no-save playwright@1.56.1 && npx playwright install --with-deps chromium
+      - name: npm run verify
+        run: npm run verify
+        env:
+          REQUIRE_BROWSER: '1'
+      - name: Generated files are committed
+        run: |
+          # The release report always rewrites its timestamp; everything else verify writes must
+          # already be in the commit (catalog entries, journal cards, sitemap, content index…).
+          changed=$(git status --porcelain -- . ':!reports/blog-release-v1.json')
+          if [ -n "$changed" ]; then
+            echo "::error::npm run verify changed files that are not committed. Run it locally and commit the results:"
+            echo "$changed"
+            git --no-pager diff --stat -- . ':!reports/blog-release-v1.json'
+            exit 1
+          fi

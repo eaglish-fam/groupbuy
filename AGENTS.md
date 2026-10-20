@@ -22,6 +22,8 @@
 2. Inspect the current code, public page, Sheet contract, and existing behavior before editing.
 3. Keep changes small, versioned, testable, and reversible.
 4. Run `npm run verify` before handing off any website candidate.
+   - For a new or revised product article, add a `siteIntegration` block to its article package and run `npm run integrate -- <slug>` instead of wiring it by hand (`docs/collab/INTEGRATE.md`). It runs `verify` at the end.
+   - Every PR to `main` also runs `verify` on GitHub (`.github/workflows/verify.yml`); a red check means the PR is not ready.
 5. Record technical SEO, accessibility, performance, and source-authority implications in the handoff.
 6. Do not store credentials, tokens, cookies, OAuth state, private LINE data, or `.env` values in this repository.
 
