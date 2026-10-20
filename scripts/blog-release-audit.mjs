@@ -108,7 +108,7 @@ export function auditBlog({ root = ROOT } = {}) {
     check(`${id}:search-phrase`, title.includes(page.phrase) && h1.includes(page.phrase), `Title and H1 include ${page.phrase}.`);
     check(`${id}:schema`, schemaTypes.has(page.type), `${page.type} structured data parses.`);
     if (page.type === 'Article') {
-      const indexCard = (indexHtml.match(/<article\b[\s\S]*?<\/article>/gi) || []).find((card) => card.includes(`href="${route}"`));
+      const indexCard = (indexHtml.match(/<article\b[^>]*\bdata-article=[\s\S]*?<\/article>/gi) || []).find((card) => card.includes(`href="${route}"`));
       const productEntry = sharedContent.split('\n').find((line) => line.includes(`article:'${route}'`));
       const coverFailures = validateBlogCover({ root, datePublished: article?.datePublished, dateModified: article?.dateModified,
         entry: coverRegistry.articles[route], html, indexCard, productEntry, articleIdentity: identity });

@@ -59,3 +59,25 @@ test('homepage exposes an accessible, pausable carousel with a no-JS first artic
   assert.match(css, /\.pick-arrow/);
   assert.match(css, /grid-template-columns: 1fr auto 1fr/);
 });
+
+test('journal home shows the same Editor\'s Pick carousel on desktop only', () => {
+  const html = fs.readFileSync(new URL('../blog/index.html', import.meta.url), 'utf8');
+  const css = fs.readFileSync(new URL('../blog/journal-hero.css', import.meta.url), 'utf8');
+  const script = fs.readFileSync(new URL('../design/editor-picks.js', import.meta.url), 'utf8');
+  const [first] = EditorPicks.ordered(ProductContent.catalog);
+  const hero = html.match(/<div class="journal-hero">[\s\S]*?<section/)?.[0] || '';
+  assert.match(hero, /<header class="blog-hero"><h1>/);
+  assert.match(hero, /data-editor-picks data-editor-picks-media="\(min-width: 901px\)"/);
+  assert.match(hero, /aria-roledescription="carousel"/);
+  for (const control of ['data-pick-prev', 'data-pick-next', 'data-pick-toggle', 'data-pick-dots']) assert.ok(hero.includes(control), control);
+  assert.ok(hero.includes(`data-pick-key="${first.key}"`) && hero.includes(`href="${first.article}"`), 'static slide is the newest pick');
+  const image = hero.match(/<img [^>]*>/)?.[0] || '';
+  assert.match(hero, /<picture><source media="\(max-width: 900px\)" srcset="data:image\/gif;base64,[^"]+" sizes="1px"><img /, 'hidden phone layout must not fetch the hero image');
+  assert.match(image, /loading="eager"/);
+  assert.match(css, /\.journal-hero \.hero-carousel\{display:none\}/);
+  assert.match(css, /@media \(min-width:901px\)/);
+  assert.match(html, /\/blog\/journal-hero\.css\?v=/);
+  assert.ok(html.indexOf('/product-content.js') < html.indexOf('/design/editor-picks.js'), 'catalog loads before the carousel');
+  assert.match(script, /editorPicksMedia/);
+  assert.match(script, /gate\?\.matches === false/);
+});

@@ -23,6 +23,13 @@ const staticPick=`<article class="hero-slide is-active" data-pick-key="${escape(
                 <span class="photo-index">EDITOR'S PICK / 01</span>
               </article>`;
 html=html.replace(/<article class="hero-slide is-active"[\s\S]*?<\/article>/,staticPick);
+// The journal shows the same first pick on desktop only. Below 901px the carousel is hidden, and the
+// 1px source keeps phones and tablets from downloading the cover there.
+const journalPath=new URL('blog/index.html',root),journal=readFileSync(journalPath,'utf8');
+const blankPixel='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+const journalPick=staticPick.replace(/<img [^>]*\/>/,img=>`<picture><source media="(max-width: 900px)" srcset="${blankPixel}" sizes="1px">${img.replace('fetchpriority="high"','loading="eager" fetchpriority="high" decoding="async"')}</picture>`);
+if(!/<article class="hero-slide is-active"[\s\S]*?<\/article>/.test(journal))throw Error('Journal hero slide missing');
+writeFileSync(journalPath,journal.replace(/<article class="hero-slide is-active"[\s\S]*?<\/article>/,journalPick.replace(/\n {16}/g,'\n          ').replace(/\n {14}<\/article>/,'\n        </article>')));
 html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
   .replace('content="noindex,nofollow"', 'content="index,follow,max-image-preview:large"')
   .replace(/<div class="preview-strip">[\s\S]*?<\/div>/, '')

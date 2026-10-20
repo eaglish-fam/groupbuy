@@ -21,6 +21,16 @@
   function mount(content) {
     const carousel = document.querySelector("[data-editor-picks]");
     if (!carousel || !content?.catalog) return null;
+    // data-editor-picks-media keeps a carousel that CSS hides on small screens from loading its slides there.
+    const gate = carousel.dataset.editorPicksMedia ? matchMedia(carousel.dataset.editorPicksMedia) : null;
+    if (gate && !gate.matches) {
+      gate.addEventListener?.("change", function opened(event) {
+        if (!event.matches) return;
+        gate.removeEventListener("change", opened);
+        mount(content);
+      });
+      return null;
+    }
     const picks = ordered(content.catalog);
     if (!picks.length) return null;
 
@@ -100,7 +110,7 @@
 
     function schedule() {
       stop();
-      if (pausedByUser || interacting || document.hidden || picks.length < 2) return;
+      if (pausedByUser || interacting || document.hidden || gate?.matches === false || picks.length < 2) return;
       timer = setTimeout(() => {
         show(active + 1, false);
         schedule();
@@ -173,6 +183,7 @@
       schedule();
     });
     document.addEventListener("visibilitychange", schedule);
+    gate?.addEventListener?.("change", schedule);
     reducedMotion.addEventListener?.("change", (event) => setPaused(event.matches));
     show(0, false);
     setPaused(pausedByUser);
