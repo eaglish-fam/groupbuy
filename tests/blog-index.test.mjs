@@ -41,7 +41,7 @@ test('public blog candidate has clear sections, static article links, and no int
   assert.ok(home.includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN blog card uses the dedicated editorial cover');
   assert.ok(articles[3].includes('/assets/artisan-cb301/blog-cover-v2.webp'),'ARTISAN article hero uses the dedicated editorial cover');
   assert.ok(home.indexOf('data-article="meroware"')<home.indexOf('data-article="artisanCb301"'),'newest static card appears first before runtime sorting');
-  const cards=home.match(/<article\b[\s\S]*?<\/article>/g)||[];
+  const cards=home.match(/<article\b[^>]*\bdata-article=[\s\S]*?<\/article>/g)||[];
   const productCards=cards.filter(card=>!card.includes('data-content-kind="explainer"'));
   assert.equal(productCards.length,slugs.length,'legacy product article cards retain their identities');
   assert.ok(productCards.every(card=>/data-published="\d{4}-\d{2}-\d{2}"/.test(card)),'product cards retain real publication dates');
