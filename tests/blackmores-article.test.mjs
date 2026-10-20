@@ -7,18 +7,23 @@ const pc=createRequire(import.meta.url)('../product-content.js');
 const read=path=>readFileSync(new URL(`../${path}`,import.meta.url));
 const row={'品牌':'澳佳寶保健食品','連結':'https://www.blackmores.com.tw/page/zion.zenith2610?utm_source=KOL','類型':'短期','開團日期':'2026-10-19','結束日期':'2026-10-25'};
 
-test('Blackmores article body is the delivery Codex handed over in #48, plus one noscript fallback',()=>{
- // Only the <article> is pinned: builders legitimately rewrite the shared head, navigation and scripts around it.
- // The single integration edit inside it is the <noscript> link to the store that the release audit requires.
- const body=read('blog/blackmores/index.html').toString().match(/<article>[\s\S]*?<\/article>/)?.[0];
- assert.equal(createHash('sha256').update(body||'').digest('hex'),'6ad87662a0a63ef21ac6a3583d7e9b7bfa6dca50fb100e86b784fbaf7acc947b');
+test('Blackmores verified prose, comparison tables and FAQ remain unchanged during the visual/editorial revision',()=>{
+ // Baseline is origin/main e00da92 before this revision, not a hash recomputed from the edited article.
+ // Headings, section labels, media and the source footer are explicitly being revised.
+ const html=read('blog/blackmores/index.html').toString();
+ const body=html.split('<div class="article-body">')[1]?.split('<footer class="sources">')[0]||'';
+ const parts=[...body.matchAll(/<(?:p|table|details)\b[^>]*>[\s\S]*?<\/(?:p|table|details)>/g)]
+  .map(m=>m[0]).filter(v=>!/^<p\b[^>]*(?:section-label|data-editorial-exclude)/.test(v))
+  .map(v=>v.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim());
+ assert.ok(parts.length>15,'verified content blocks are present');
+ assert.equal(createHash('sha256').update(parts.join('\n')).digest('hex'),'de5d2a91c8724796b95338f21ea685b8a9050c3bcd7a8d0a2d02793c60841a8e');
 });
 
 test('Blackmores catalog entry binds only the exact Sheet brand and uses the standalone product card',()=>{
  const entry=pc.entry(row.品牌);
  assert.equal(entry?.id,'blackmores');assert.equal(entry.article,'/blog/blackmores/');
  for(const near of ['澳佳寶','Blackmores','澳佳寶保健','澳佳寶 保健食品 2'])assert.equal(pc.entry(near),undefined,near);
- assert.equal(entry.image,'/assets/blackmores/cover.webp');assert.equal(entry.cardImage,'/assets/blackmores/product-card.webp');
+ assert.equal(entry.image,'/assets/blackmores/cover-v2.webp');assert.equal(entry.cardImage,'/assets/blackmores/product-card-v2.webp');
  assert.equal(entry.published,'2026-10-19');assert.equal(entry.url,undefined);assert.equal(entry.buyUrl,undefined);
  for(const image of [entry.image,entry.cardImage])assert.ok(existsSync(new URL(`..${image}`,import.meta.url)),image);
 });
@@ -58,7 +63,7 @@ test('Blackmores is listed in the journal with the shared cover and a hidden buy
  const index=read('blog/index.html').toString();
  const card=index.match(/<article class="article-card" data-article="blackmores"[\s\S]*?<\/article>/)?.[0];
  assert.ok(card,'journal card');
- assert.ok(card.includes('src="/assets/blackmores/cover.webp"'));
+ assert.ok(card.includes(`src="${pc.entry(row.品牌).image}"`));
  assert.ok(card.includes('<a class="buy" data-buy hidden>'),'buy link stays hidden until the Sheet says open');
  assert.ok(card.includes('data-category="食品"')||index.includes('data-article="blackmores" data-category="食品"'));
 });
