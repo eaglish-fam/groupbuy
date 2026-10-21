@@ -80,7 +80,11 @@ herdr
 進去後在第一個窗格打 `claude`。
 離開但讓它繼續跑：按 `ctrl+b` 再按 `q`。要回來：再打 `herdr`。
 
-## 第 7 步：裝「Claude 叫 Codex」的外掛（建議）
+> **2026-10-21 實測（Eliora B，`requests/G-001-herdr-m5.done.md`）**：herdr 0.9.5 下，第 7 步的社群外掛 1.3.0 會啟動失敗（`SPAWN_FAILED`，缺 `kind`），已停用。**先跳過第 7 步**，直接用官方指令：
+> `pane split` → `herdr agent start <名字> --kind codex --pane <窗格>` → `herdr agent prompt <名字> "<工作>" --wait` → `herdr agent read <名字>`。
+> 要讀到實際回覆才算完成，不能只看狀態變成 idle。Homebrew 目錄不能寫時，改用官方安裝器（`curl -fsSL https://herdr.dev/install.sh | sh`）。
+
+## 第 7 步：裝「Claude 叫 Codex」的外掛（目前不相容，先跳過）
 
 在 Claude Code 裡依序打這三行：
 
