@@ -63,7 +63,10 @@ test('candidate pages are noindex, canonical, linked to each other and kept out 
 
 test('candidate registry: unpublished only, no path collisions, published package untouched',()=>{
  const published=approvedTravelRegistration(repo);
- assert.equal(published.publication,true);assert.deepEqual(approvedTravelCandidates(repo,published),[]);
+ assert.equal(published.publication,true);
+ // Whatever the repository registers (none, or a real candidate) stays unpublished and apart from the published package.
+ const real=approvedTravelCandidates(repo,published),publishedPaths=new Set([...published.data.countries,...published.data.cities].map(p=>p.path));
+ for(const c of real){assert.equal(c.publication,false);assert.notEqual(c.dataPath,published.dataPath);for(const page of [...c.data.countries,...c.data.cities,...(c.data.routes||[])])assert.ok(!publishedPaths.has(page.path),page.path);}
  const reg=(packages)=>writeFileSync(resolve(root,'trip/data/approved-travel-candidates-v1.json'),JSON.stringify({schema:'eaglish.approved-travel-candidates/v1',packages}));
  reg([registration]);assert.equal(approvedTravelCandidates(root,null).length,1);
  reg([{...registration,publication:true}]);assert.throws(()=>approvedTravelCandidates(root,null),/unpublished/);
@@ -99,6 +102,17 @@ test('route and country pages: no sideways scroll, first TOC click clears the st
    const gap=await page.evaluate(()=>{const h=document.querySelector('#day-3 h2').getBoundingClientRect(),chrome=[...document.querySelectorAll('[data-reading-nav-chrome],nav[data-reading-nav]')].filter(e=>getComputedStyle(e).position==='sticky'||getComputedStyle(e).position==='fixed').map(e=>e.getBoundingClientRect()).filter(b=>b.right>h.left&&b.left<h.right&&b.top<h.top+1).map(b=>b.bottom);return h.top-Math.max(0,...chrome);});
    assert.ok(gap>=0,`day heading hidden under sticky chrome at ${width} (${gap})`);
   }
+  // The sticky contents list must start below the sticky masthead: its first entry is hit, not the logo.
+  for(const path of [syntheticRoutePath,'/trip/guides/asahikawa-with-kids/']){
+   await page.goto(base+path,{waitUntil:'load'});await page.mouse.wheel(0,2500);await page.waitForTimeout(400);
+   const hit=await page.evaluate(()=>{const t=document.querySelector('nav[data-reading-nav]');if(getComputedStyle(t).position!=='sticky')return 'static';const a=t.querySelector('a'),r=a.getBoundingClientRect();return document.elementFromPoint(r.left+r.width/2,r.top+r.height/2)?.closest('nav[data-reading-nav] a')===a?'link':'covered';});
+   assert.notEqual(hit,'covered',`${path} contents list under the masthead at ${width}`);
+  }
+  await page.goto(base+'/trip/japan/',{waitUntil:'load'});
+  // Country photos declare sizes at least as wide as they render, so a sharp variant is chosen.
+  await page.locator('.th-tabs [data-country-city="sapporo"]').click();
+  const declared=await page.evaluate(()=>[...document.querySelectorAll('.th-photo-trio img, .th-city-photo img')].filter(i=>i.getBoundingClientRect().width>0).map(i=>[Math.round(i.getBoundingClientRect().width),i.currentSrc.match(/-(\d+)\.webp$/)?.[1]*1]));
+  for(const [rendered,variant] of declared)assert.ok(variant>=Math.min(rendered,1440)||variant===1440,`photo ${rendered}px wide loads a ${variant}w variant at ${width}`);
   await page.goto(base+'/trip/japan/',{waitUntil:'load'});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`country ${width}`);
   const select=page.locator('[data-travel-atlas-select="hokkaido"]');
