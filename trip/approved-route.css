@@ -1,0 +1,10 @@
+/* Route articles only (approved-route-guide). City guides keep their own styles. */
+.approved-route-guide .route-day h2 span{display:block;margin-top:6px;font-size:.72em;line-height:1.5;color:#784b39}
+.approved-route-guide .route-day-meta{margin:-4px 0 14px;font-size:14px;color:#6b6157}
+.approved-route-guide .route-day-places{list-style:none;margin:10px 0 0;padding:0;display:grid;gap:8px}
+.approved-route-guide .route-day-places li{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;padding:10px 14px;background:#faf7f0;border:1px solid #dcd5c9}
+.approved-route-guide .route-day-places a{font-weight:600}
+.approved-route-guide .route-day-places small{font-size:13px;color:#6b6157}
+.approved-route-guide .route-city-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.approved-route-guide .route-plan-days a{display:inline-flex;align-items:center;min-height:44px}
+.approved-route-guide .route-plan-days p{overflow-wrap:anywhere}

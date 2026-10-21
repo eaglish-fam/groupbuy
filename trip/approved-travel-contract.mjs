@@ -32,12 +32,13 @@ const unique=(values,label)=>{if(new Set(values).size!==values.length)fail('dupl
 const strings=value=>array(value).forEach(text);
 const clockTime=value=>value==='24:00'||typeof value==='string'&&/^\d{2}:\d{2}$/.test(value)&&Number(value.slice(0,2))<24&&Number(value.slice(3))<60;
 const minutes=value=>Number(value.slice(0,2))*60+Number(value.slice(3));
-export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
+export const approvedRouteDayKinds=Object.freeze(['international_outbound','arrival','full_play','full_play_flexible','full_play_regional','transfer','international_departure','international_arrival']);
+export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}={}){
  if(!data||data.schema!==approvedTravelSchema||data.approved!==true)fail('owner-approved schema required');
  // Private working paths, task dispatches and raw source locators are not public provenance.
  const raw=JSON.stringify(data);
  if(/\/Users\/|\/tmp\/|file:\/\/|"(?:rawPath|videoPath|transcriptDirectory|dispatchId|packetSha256|credentials|accessToken)"/i.test(raw))fail('private dependency');
- const sourceMap=new Map(),assets=new Map(),countries=new Map(),cities=new Map(),diagrams=new Map();
+ const sourceMap=new Map(),assets=new Map(),countries=new Map(),cities=new Map(),diagrams=new Map(),routes=new Map();
  const sources=value=>{
   if(!Array.isArray(value)||!value.length||new Set(value).size!==value.length||value.some(v=>!sourceMap.has(v)))fail('unresolved source provenance');
  };
@@ -205,25 +206,56 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
   }
   sources(c.videoSourceIds);if(c.videoSourceIds.some(v=>!['youtube','instagram'].includes(sourceMap.get(v).kind)))fail('video provenance');cities.set(c.id,c);
  }
+ // Route articles (one fixed multi-day itinerary) link into city guides; they never invent a planner.
+ for(const r of array(data.routes||[])){
+  id(r.id);if(routes.has(r.id)||cities.has(r.id))fail('duplicate route');routePath(r.path);paths.push(r.path);id(r.countryId);
+  if(!countries.has(r.countryId))fail('unknown route country');
+  for(const key of ['name','englishName','title','description','author'])text(r[key]);
+  validateCityIntro(r.intro,r.leadFormat);if(!calendarDate(r.updatedOn))fail('route update date');sources(r.sourceIds);
+  if(array(r.hero).length!==3||new Set(r.hero).size!==3)fail('three distinct hero assets');r.hero.forEach(image);
+  unique(array(r.cityIds),'route city');if(r.cityIds.some(v=>cities.get(v)?.countryId!==r.countryId))fail('route city country');
+  for(const f of array(r.facts||[])){text(f.label);text(f.value);sources(f.sourceIds);}
+  if((r.facts||[]).length>8)fail('bounded route facts');
+  if(!Number.isInteger(r.calendarDays)||r.calendarDays<2||r.calendarDays>21||array(r.days).length!==r.calendarDays)fail('route day count');
+  r.days.forEach((day,index)=>{
+   if(day.day!==index+1)fail('route day order');if(!approvedRouteDayKinds.includes(day.kind))fail('route day type');
+   for(const key of ['title','destination'])text(day[key]);if(day.overnight!==undefined)text(day.overnight);
+   strings(day.paragraphs);if(!day.paragraphs.length)fail('route day text required');sources(day.sourceIds);
+   if(day.images!==undefined){if(array(day.images).length!==3||new Set(day.images).size!==3)fail('route day needs three distinct images');day.images.forEach(image);}
+   unique(array(day.places||[]).map(ref=>{if(!r.cityIds.includes(ref.cityId)||!cities.get(ref.cityId).places.some(p=>p.id===ref.placeId))fail('unresolved route place');return ref.cityId+':'+ref.placeId;}),'route day place');
+   links(day.links||[]);
+  });
+  for(const key of ['transport','stay','packing','related'])if(r[key])module(r[key]);
+  if(r.plan){text(r.plan.title);strings(r.plan.paragraphs);sources(r.plan.sourceIds);}
+  faq(r.faq);sources(r.videoSourceIds);if(r.videoSourceIds.some(v=>!['youtube','instagram'].includes(sourceMap.get(v).kind)))fail('video provenance');
+  const anchors=new Set(routeAnchors(r));
+  const allLinks=[...r.days.flatMap(d=>d.links||[]),...['transport','stay','packing','related'].flatMap(k=>r[k]?.links||[])];
+  if(allLinks.some(l=>l.url.startsWith('#')&&!anchors.has(l.url.slice(1))))fail('unresolved same-page link');
+  routes.set(r.id,r);
+ }
  unique(paths,'public path');
  for(const c of countries.values()){
   if(c.cityIds.some(v=>cities.get(v)?.countryId!==c.id)||[...cities.values()].some(city=>city.countryId===c.id&&!c.cityIds.includes(city.id)))fail('country/city membership');
+  if(c.routeIds!==undefined){unique(array(c.routeIds),'country route article');if(!c.routeIds.length)fail('empty country routes');}
+  if((c.routeIds||[]).some(v=>routes.get(v)?.countryId!==c.id)||[...routes.values()].some(r=>r.countryId===c.id&&!(c.routeIds||[]).includes(r.id)))fail('country/route membership');
   if(c.map){image(c.map.assetId);text(c.map.caption);sources(c.map.sourceIds);
    unique(array(c.map.pins).map(pin=>{if(!c.cityIds.includes(pin.cityId))fail('map destination');focalPoint([pin.x,pin.y]);return pin.cityId;}),'map pin');
   }
   if(c.geographicMap){
-   const m=c.geographicMap;text(m.caption);sources(m.sourceIds);
+   const m=c.geographicMap;text(m.caption);sources(m.sourceIds);if(m.detail!==undefined&&m.detail!=='50m')fail('map detail');
    if(!array(m.views).length)fail('map views');
    for(const v of m.views){id(v.id);text(v.label);text(v.note);
     if(!Array.isArray(v.bounds)||v.bounds.length!==4||!v.bounds.every(Number.isFinite)||v.bounds[0]>=v.bounds[2]||v.bounds[1]>=v.bounds[3]||Math.abs(v.bounds[0])>180||Math.abs(v.bounds[2])>180||Math.abs(v.bounds[1])>85||Math.abs(v.bounds[3])>85)fail('map viewport');
-    for(const p of array(v.points)){text(p.label);if(!c.cityIds.includes(p.cityId)||!Array.isArray(p.point)||p.point.length!==2||!p.point.every(Number.isFinite)||p.point[0]<v.bounds[0]||p.point[0]>v.bounds[2]||p.point[1]<v.bounds[1]||p.point[1]>v.bounds[3])fail('map source point');sources(p.sourceIds);}
+    for(const p of array(v.points)){text(p.label);if((p.routeId!==undefined)===(p.cityId!==undefined))fail('map point needs one city or route');if(p.routeId!==undefined?!(c.routeIds||[]).includes(p.routeId)||p.href===undefined:!c.cityIds.includes(p.cityId))fail('map source point');if(!Array.isArray(p.point)||p.point.length!==2||!p.point.every(Number.isFinite)||p.point[0]<v.bounds[0]||p.point[0]>v.bounds[2]||p.point[1]<v.bounds[1]||p.point[1]>v.bounds[3])fail('map source point');sources(p.sourceIds);}
    }
    for(const v of m.views)for(const p of v.points)if(p.href!==undefined){
     const href=publicUrl(p.href);
     if(href.startsWith('/trip/')){
-     const city=cities.get(p.cityId),[path,anchor]=href.split('#');
+     const [path,anchor]=href.split('#');
+     if(p.routeId!==undefined){const route=routes.get(p.routeId);if(path!==route.path||(anchor!==undefined&&!routeAnchors(route).includes(anchor)))fail('unresolved map article target');}
+     else{const city=cities.get(p.cityId);
      const anchors=new Set(['main','places','food','stay','arrival','rain','faq','plan','videos',...(city.extension?['extension']:[]),...(city.reading?['day-reading']:[]),...city.places.map(place=>place.id)]);
-     if(path!==city.path||(anchor!==undefined&&!anchors.has(anchor)))fail('unresolved map article target');
+     if(path!==city.path||(anchor!==undefined&&!anchors.has(anchor)))fail('unresolved map article target');}
     }
    }
    for(const leg of m.connections||[]){text(leg.fromLabel);text(leg.toLabel);text(leg.label);sources(leg.sourceIds);if(!['flight','train','road','boat'].includes(leg.mode))fail('map transfer mode');}
@@ -240,13 +272,19 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds}={}){
   if(c.referencePlans){unique(array(c.referencePlans).map(r=>{
    id(r.id);text(r.title);sources(r.sourceIds);
    if(!Number.isInteger(r.calendarDays)||r.calendarDays<1||array(r.days).length!==r.calendarDays)fail('reference timetable day count');
-   r.days.forEach((day,index)=>{if(day.day!==index+1)fail('reference timetable day order');text(day.destination);if(!['international_outbound','arrival','full_play','full_play_flexible','full_play_regional','transfer','international_departure','international_arrival'].includes(day.kind))fail('reference timetable day type');strings(day.paragraphs);});return r.id;
+   r.days.forEach((day,index)=>{if(day.day!==index+1)fail('reference timetable day order');text(day.destination);if(!approvedRouteDayKinds.includes(day.kind))fail('reference timetable day type');strings(day.paragraphs);});
+   if(r.routeId!==undefined&&!(c.routeIds||[]).includes(r.routeId))fail('reference timetable route');return r.id;
   }),'reference timetable');}
  }
  const same=(actual,expected,label)=>{if(!Array.isArray(expected)||JSON.stringify([...actual].sort())!==JSON.stringify([...expected].sort()))fail(label+' coverage mismatch');};
  same([...countries.keys()],data.coverage?.countryIds,'country');same([...cities.keys()],data.coverage?.cityIds,'city');
- if(countryIds)same([...countries.keys()],countryIds,'requested country');if(cityIds)same([...cities.keys()],cityIds,'requested city');
- return {data,sources:sourceMap,assets,countries,cities,diagrams};
+ if(routes.size||data.coverage?.routeIds!==undefined)same([...routes.keys()],data.coverage?.routeIds,'route');
+ if(countryIds)same([...countries.keys()],countryIds,'requested country');if(cityIds)same([...cities.keys()],cityIds,'requested city');if(routeIds)same([...routes.keys()],routeIds,'requested route');
+ return {data,sources:sourceMap,assets,countries,cities,diagrams,routes};
+}
+// Fixed anchors of a route article: overview, Day sections and the shared closing modules.
+export function routeAnchors(route){
+ return ['main','overview',...route.days.map(d=>'day-'+d.day),...['transport','stay','packing'].filter(k=>route[k]),'faq','plan','videos',...(route.related?['related']:[])];
 }
 export function validateCountryAllocation(profile,cityIds){
  if(!profile||profile.approved!==true)fail('approved allocation profile required');
