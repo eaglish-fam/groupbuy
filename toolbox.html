@@ -434,7 +434,7 @@
       event.target.classList.add('active');
     }
 
-    // docs/utm-naming.md: lowercase, words joined by hyphens, no spaces or underscores.
+    // docs/utm-naming.md：小寫英文，單字用連字號，不用空白或底線。
     const utmValue = value => value.trim().toLowerCase().replace(/[\s_]+/g, '-').replace(/-{2,}/g, '-');
 
     function generateUtmUrl() {
