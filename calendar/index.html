@@ -42,7 +42,7 @@
   </header>
   <main id="content">
     <section class="calendar-hero wrap" aria-labelledby="calendar-title">
-      <nav class="breadcrumb" aria-label="目前位置"><a href="/">鷹家買物社</a><span aria-hidden="true">／</span><span>團購行事曆</span></nav>
+      <a class="back-link" href="/#catalog"><span aria-hidden="true">←</span> 回鷹家買物社，看全部開團好物</a>
       <p class="eyebrow">SAVE THE DATE</p>
       <h1 id="calendar-title">團購行事曆</h1>
       <p class="lead">鷹式一家正在開的團、快截止的團和下一檔預告，都整理在這一頁。資料和首頁同步，每次打開都是最新的。</p>
@@ -52,6 +52,26 @@
       </div>
       <p class="summary" id="calendar-summary" aria-live="polite">正在讀取最新團購…</p>
       <noscript><p class="summary">這一頁需要開啟 JavaScript 才能讀取即時團購。也可以<a href="/">回到鷹家買物社首頁</a>，或加入上方的 LINE 社群收開團通知。</p></noscript>
+    </section>
+
+    <section class="month-view wrap" id="month" aria-labelledby="month-title">
+      <header class="month-heading"><h2 id="month-title">月曆</h2><p>點有圓點的日期，就會列出當天開團和截止的團。</p></header>
+      <div class="month-layout">
+        <div class="month-board">
+          <div class="month-controls">
+            <button type="button" id="month-prev" aria-label="上一個月">←</button>
+            <h3 id="month-label" aria-live="polite"></h3>
+            <button type="button" id="month-next" aria-label="下一個月">→</button>
+            <button type="button" id="month-today" class="month-today">本月</button>
+          </div>
+          <div class="month-legend"><span class="legend-start">開團</span><span class="legend-end">截止</span></div>
+          <div class="month-grid" id="month-grid"></div>
+        </div>
+        <div class="month-agenda" aria-live="polite">
+          <h3 id="agenda-title">正在讀取開結團日期…</h3>
+          <div class="calendar-items agenda-items" id="agenda-items"></div>
+        </div>
+      </div>
     </section>
 
     <div class="wrap calendar-lists" id="calendar-lists" aria-busy="true">
@@ -73,6 +93,14 @@
         <div class="calendar-items" data-group="evergreen"></div>
       </details>
     </div>
+    <section class="back-cta wrap" aria-labelledby="back-title">
+      <h2 id="back-title">看完行事曆，回買物社逛逛</h2>
+      <p>所有開團商品、折扣碼和選物筆記，都在鷹家買物社首頁。</p>
+      <div class="hero-actions">
+        <a class="button primary" href="/#catalog">回買物社看全部開團好物 <span aria-hidden="true">→</span></a>
+        <a class="button secondary" href="/#coupon">看折扣碼</a>
+      </div>
+    </section>
   </main>
   <footer class="site-footer wrap">
     <p>商品、配送與售後由廠商提供，詳情以當期賣場為準。</p>

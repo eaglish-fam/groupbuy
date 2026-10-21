@@ -13,6 +13,8 @@
     evergreen: "目前沒有常駐商品。",
   };
   let products = [], entries = [], refreshedAt = 0, verifiedDay = "", loading = null, buying = false, toastTimer = 0;
+  let month = "", selectedDate = "";
+  const pad = (n) => String(n).padStart(2, "0");
 
   const byEnd = (a, b) => (a.end || "9999").localeCompare(b.end || "9999");
   const byStart = (a, b) => (a.start || "9999").localeCompare(b.start || "9999");
@@ -37,7 +39,12 @@
     if (group === "evergreen") return "常駐開團";
     return `${p.start ? `${short(p.start)} 開團・` : ""}<strong>${short(p.end)}</strong> 截止`;
   }
-  function itemMarkup({ product: p, leofooPlans }, group) {
+  function groupFor(p) {
+    if (p.status.key === "upcoming") return "upcoming";
+    if (p.status.long) return "evergreen";
+    return p.end && CatalogCore.isClosingSoon(p.end) ? "closing" : "open";
+  }
+  function itemMarkup({ product: p, leofooPlans }, group, badge = "") {
     const index = entries.push(p) - 1;
     const leofoo = leofooPlans.length === CatalogCore.LEOFOO_PLANS.length;
     const title = leofoo ? "六福莊住宿｜三種方案" : p.brand;
@@ -55,7 +62,7 @@
     const remind = (p.start || p.end) ? `<button class="cal-link" type="button" data-remind="${index}">加入行事曆</button>` : "";
     return `<article class="cal-item" data-product-key="${esc(p.key)}">
       <div class="cal-thumb">${thumb ? `<img src="${esc(thumb)}" alt="" width="240" height="180" loading="lazy" decoding="async">` : ""}</div>
-      <div class="cal-body"><h3>${esc(title)}</h3>
+      <div class="cal-body">${badge}<h3>${esc(title)}</h3>
       <p class="cal-dates">${datesLine(p, group)} ${countdown}</p>
       <div class="cal-actions">${buy}${reading ? `<a class="cal-link" href="${esc(reading)}">看選物誌</a>` : ""}${remind}</div></div>
     </article>`;
@@ -81,6 +88,45 @@
     const total = ["closing", "open"].reduce((n, g) => n + CatalogCore.groupLeofooForDisplay(groups[g], products).length, 0);
     $("#calendar-summary").textContent = `限時開團 ${total} 檔（3 天內截止 ${CatalogCore.groupLeofooForDisplay(groups.closing, products).length} 檔）・即將開團 ${CatalogCore.groupLeofooForDisplay(groups.upcoming, products).length} 檔。資料與首頁同步。`;
     $("#calendar-lists").removeAttribute("aria-busy");
+    renderMonth();
+  }
+  // Month view, like the homepage calendar: dots mark opening and closing days; picking a day
+  // lists that day's campaigns as cards next to the grid.
+  function renderMonth() {
+    const today = ProductContent.today();
+    if (!month) month = today.slice(0, 7);
+    const events = refreshedAt ? CatalogCore.collectEvents(products) : [];
+    const inMonth = events.filter((e) => e.date.startsWith(month));
+    if (!selectedDate || !selectedDate.startsWith(month))
+      selectedDate = inMonth.find((e) => e.date >= today)?.date || "";
+    const [year, m] = month.split("-").map(Number),
+      days = new Date(Date.UTC(year, m, 0)).getUTCDate(),
+      first = new Date(Date.UTC(year, m - 1, 1)).getUTCDay();
+    $("#month-label").textContent = `${year} 年 ${m} 月`;
+    $("#month-grid").innerHTML =
+      ["日", "一", "二", "三", "四", "五", "六"].map((d) => `<span class="weekday" aria-hidden="true">${d}</span>`).join("") +
+      '<span class="empty-day" aria-hidden="true"></span>'.repeat(first) +
+      Array.from({ length: days }, (_, i) => {
+        const date = `${month}-${pad(i + 1)}`,
+          dayEvents = inMonth.filter((e) => e.date === date),
+          start = dayEvents.filter((e) => e.kind === "start").length,
+          end = dayEvents.length - start;
+        return `<button type="button" class="month-day${date === today ? " today" : ""}${dayEvents.length ? " has-events" : ""}" data-day="${date}" ${date < today ? "disabled" : ""} aria-pressed="${date === selectedDate}" aria-label="${m}月${i + 1}日，${start}筆開團，${end}筆截止"><span>${i + 1}</span><small>${start ? `<i class="start-dot">${start}</i>` : ""}${end ? `<i class="end-dot">${end}</i>` : ""}</small></button>`;
+      }).join("");
+    if (!refreshedAt) return;
+    const shown = inMonth.filter((e) => e.date === selectedDate);
+    $("#agenda-title").textContent = selectedDate
+      ? `${short(selectedDate)} 的開結團（${shown.length} 檔）`
+      : inMonth.length ? "點月曆上有圓點的日期" : "這個月沒有尚未過期的開結團";
+    $("#agenda-items").innerHTML = shown
+      .map((e) => itemMarkup({ product: e.p, leofooPlans: [] }, groupFor(e.p), `<span class="event-badge ${e.kind}">${short(e.date)} ${e.label}</span>`))
+      .join("");
+  }
+  function shiftMonth(n) {
+    const [y, m] = month.split("-").map(Number), date = new Date(Date.UTC(y, m - 1 + n, 1));
+    month = `${date.getUTCFullYear()}-${pad(date.getUTCMonth() + 1)}`;
+    selectedDate = "";
+    renderMonth();
   }
   function upcomingEvents() {
     const today = ProductContent.today();
@@ -132,6 +178,7 @@
         $("#calendar-summary").innerHTML = '目前無法取得最新團購資料。<button type="button" id="retry">重新讀取</button>，或<a href="/">回首頁看商品</a>。';
         $("#retry").onclick = load;
         $("#calendar-lists").removeAttribute("aria-busy");
+        $("#agenda-title").textContent = "目前讀不到開結團日期";
       } else notify("暫時無法更新團購資料，顯示的是剛才的內容");
       return false;
     }
@@ -152,6 +199,13 @@
   }
   // Confirm the campaign is still open against fresh Sheet data before leaving, as the homepage does.
   document.addEventListener("click", async (e) => {
+    const day = e.target.closest("[data-day]");
+    if (day) {
+      selectedDate = day.dataset.day;
+      renderMonth();
+      if (matchMedia("(max-width: 760px)").matches) $(".month-agenda").scrollIntoView({ block: "start" });
+      return;
+    }
     const remind = e.target.closest("[data-remind]");
     if (remind) {
       const p = entries[Number(remind.dataset.remind)];
@@ -194,6 +248,9 @@
       render();
     } finally { buying = false; }
   }, true);
+  $("#month-prev").onclick = () => shiftMonth(-1);
+  $("#month-next").onclick = () => shiftMonth(1);
+  $("#month-today").onclick = () => { month = ProductContent.today().slice(0, 7); selectedDate = ""; renderMonth(); };
   $("#subscribe-all").addEventListener("click", () => {
     const list = upcomingEvents();
     track("subscribe_all_calendar", { count: list.length, source_surface: "calendar_page" });
@@ -206,5 +263,6 @@
   document.addEventListener("visibilitychange", refreshIfStale);
   setInterval(updateCountdowns, 30000);
   setInterval(() => { if (!document.hidden && Date.now() - refreshedAt > 300000) load(); }, 60000);
+  renderMonth();
   load();
 })();

@@ -25,6 +25,10 @@ test('calendar page has its own canonical URL, share card and breadcrumb data', 
   assert.equal((html.match(/<h1\b/g) || []).length, 1);
   assert.match(html, /<noscript>[\s\S]*href="\/"/);
   assert.match(html, /href="https:\/\/line\.me\/ti\/g2\//);
+  // A clear way back to the store, at the top and after the lists.
+  assert.match(html, /<a class="back-link" href="\/#catalog">/);
+  assert.match(html, /<section class="back-cta wrap"[\s\S]*href="\/#catalog"/);
+  assert.match(html, /id="month-grid"/);
   assert.ok(html.indexOf('/design/catalog-core.js') < html.indexOf('/calendar/calendar.js'));
   assert.match(read('sitemap.xml'), /<loc>https:\/\/www\.eaglish\.store\/calendar\/<\/loc>/);
 });
@@ -98,6 +102,19 @@ test('calendar groups match the homepage counts and keep buying behind a live ch
   assert.equal(await page.locator('[data-group="upcoming"] [data-buy-key]').count(), 0);
   assert.equal(await page.locator('#subscribe-all').isVisible(), true);
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
+  // Month view: today's month, the first upcoming event day picked, cards for that day.
+  assert.equal(await page.locator('#month-label').innerText(), '2026 年 10 月');
+  assert.equal(await page.locator('#month-grid [data-day="2026-10-23"]').getAttribute('aria-pressed'), 'true');
+  assert.equal(await page.locator('#agenda-title').innerText(), '10/23 的開結團（1 檔）');
+  assert.deepEqual(await page.locator('#agenda-items .cal-item h3').allTextContents(), ['快截止商品']);
+  assert.equal(await page.locator('#month-grid [data-day="2026-10-20"]').isDisabled(), true);
+  await page.locator('#month-grid [data-day="2026-10-28"]').click();
+  assert.deepEqual(await page.locator('#agenda-items .cal-item h3').allTextContents(), ['下一檔商品']);
+  assert.match(await page.locator('#agenda-items .event-badge').innerText(), /10\/28 開團/);
+  await page.locator('#month-next').click();
+  assert.equal(await page.locator('#month-label').innerText(), '2026 年 11 月');
+  assert.deepEqual(await page.locator('#agenda-items .cal-item h3').allTextContents(), ['下一檔商品']);
+  await page.locator('#month-today').click();
   await page.locator('[data-group="closing"] [data-buy-key]').click();
   await page.waitForFunction(() => window.sent.length === 1);
   const destination = new URL(await page.evaluate(() => window.sent[0]));

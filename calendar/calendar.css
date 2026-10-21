@@ -41,9 +41,11 @@ img { display: block; max-width: 100%; }
 .header-nav [aria-current] { color: var(--orange); font-weight: 600; }
 
 .calendar-hero { padding-top: 40px; padding-bottom: 36px; }
-.breadcrumb { display: flex; gap: 8px; font-size: 13px; color: var(--muted); margin-bottom: 28px; }
-.breadcrumb a { text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
+.back-link {
+  display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; margin-bottom: 26px;
+  border: 1px solid var(--olive); border-radius: 999px; color: var(--olive); font-size: 14px; font-weight: 600; text-decoration: none;
+}
+.back-link:hover { background: var(--olive); color: #fff; }
 .eyebrow { font-family: Arial, sans-serif; font-size: 11px; letter-spacing: 0.19em; font-weight: 600; color: var(--muted); }
 .calendar-hero h1 { font-size: clamp(34px, 4vw, 48px); line-height: 1.4; margin: 10px 0 14px; letter-spacing: -0.02em; }
 .lead { max-width: 640px; color: #5c6256; font-size: 17px; line-height: 1.9; }
@@ -61,6 +63,40 @@ img { display: block; max-width: 100%; }
 .summary a { color: var(--orange); }
 .summary button { color: var(--orange); text-decoration: underline; min-height: 44px; }
 
+/* Month view: the homepage's calendar grid, with the picked day's campaigns as cards. */
+.month-view { padding-bottom: 34px; }
+.month-heading { border-top: 1px solid var(--line); padding-top: 30px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
+.month-heading h2 { font-size: 26px; line-height: 1.4; }
+.month-heading p { font-size: 14px; color: var(--muted); }
+.month-layout { display: grid; grid-template-columns: minmax(0, 420px) minmax(0, 1fr); gap: 28px; align-items: start; }
+.month-board { background: #fff; border: 1px solid var(--line); border-radius: 4px; padding: 16px; }
+.month-controls { display: flex; align-items: center; gap: 6px; margin-bottom: 8px; }
+.month-controls h3 { flex: 1; text-align: center; font-size: 18px; }
+.month-controls button { min-width: 44px; min-height: 44px; border-radius: 3px; }
+.month-controls button:hover { background: rgba(70, 83, 58, 0.08); }
+.month-today { border: 1px solid var(--line) !important; padding: 0 12px; font-size: 14px; }
+.month-legend { display: flex; gap: 16px; font-size: 12px; color: var(--muted); margin-bottom: 8px; }
+.month-legend span::before { content: ""; display: inline-block; width: 9px; height: 9px; border-radius: 50%; margin-right: 6px; vertical-align: 1px; }
+.legend-start::before { background: var(--olive); }
+.legend-end::before { background: var(--orange); }
+.month-grid { display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 4px; }
+.weekday { text-align: center; font-size: 12px; color: var(--muted); padding: 4px 0; }
+.month-day { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; gap: 2px; min-height: 52px; padding: 6px 0 4px; border-radius: 4px; font-size: 14px; }
+.month-day:disabled { color: #b4b8ad; }
+.month-day.has-events:not(:disabled) { background: var(--cream); font-weight: 600; }
+.month-day.today span { color: var(--orange); font-weight: 700; }
+.month-day[aria-pressed="true"]:not(:disabled) { background: var(--olive); color: #fff; }
+.month-day[aria-pressed="true"].today span { color: #fff; }
+.month-day small { display: flex; gap: 3px; }
+.month-day i { font-style: normal; font-size: 10px; line-height: 16px; min-width: 16px; padding: 0 3px; border-radius: 8px; color: #fff; }
+.start-dot { background: var(--olive); }
+.end-dot { background: var(--orange); }
+.month-day[aria-pressed="true"] .start-dot { background: #fff; color: var(--olive); }
+.month-day[aria-pressed="true"] .end-dot { box-shadow: 0 0 0 1px #fff; }
+.month-agenda h3 { font-size: 20px; line-height: 1.4; margin-bottom: 14px; }
+.month-agenda .calendar-items { grid-template-columns: 1fr; }
+.event-badge { align-self: flex-start; font-size: 12px; font-weight: 700; padding: 1px 8px; border-radius: 999px; color: #fff; background: var(--olive); }
+.event-badge.end { background: var(--orange); }
 .calendar-lists { padding-bottom: 40px; }
 /* Hold the space the live lists will take, so the footer does not jump when they arrive. */
 .calendar-lists[aria-busy="true"] { min-height: 150vh; }
@@ -95,6 +131,10 @@ img { display: block; max-width: 100%; }
 .cal-actions .button { min-height: 44px; padding: 9px 16px; font-size: 14px; }
 .cal-link { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; color: var(--orange); text-decoration: underline; text-underline-offset: 3px; }
 
+.back-cta { border-top: 1px solid var(--line); padding-top: 34px; padding-bottom: 44px; }
+.back-cta h2 { font-size: 24px; line-height: 1.4; }
+.back-cta p { margin-top: 6px; color: var(--muted); font-size: 15px; }
+.back-cta .hero-actions { margin-top: 18px; }
 .site-footer { border-top: 1px solid var(--line); padding-top: 26px; padding-bottom: 40px; font-size: 13px; color: var(--muted); display: grid; gap: 6px; }
 .site-footer a { text-decoration: underline; }
 
@@ -117,9 +157,16 @@ img { display: block; max-width: 100%; }
   .site-header { padding: 0 18px; min-height: 64px; gap: 12px; }
   .logo img { width: 128px; }
   .header-nav { gap: 14px; font-size: 13px; }
-  .header-nav a:not([aria-current]):first-child { display: none; }
+  .header-nav a:last-child { display: none; }
   .calendar-hero { padding-top: 22px; padding-bottom: 26px; }
-  .breadcrumb { margin-bottom: 16px; }
+  .back-link { margin-bottom: 16px; }
+  .month-heading { display: block; padding-top: 24px; }
+  .month-heading p { margin-top: 4px; }
+  .month-heading h2 { font-size: 23px; }
+  .month-layout { grid-template-columns: 1fr; gap: 20px; }
+  .month-board { padding: 12px; }
+  .month-day { min-height: 46px; }
+  .back-cta .button { width: 100%; }
   .lead { font-size: 15px; line-height: 1.8; }
   .hero-actions .button { width: 100%; }
   .calendar-group { padding: 24px 0 26px; }
@@ -131,7 +178,8 @@ img { display: block; max-width: 100%; }
   .cal-thumb { width: 76px; }
 }
 @media (max-width: 360px) {
-  .header-nav a:last-child { display: none; }
+  .logo img { width: 112px; }
+  .month-controls h3 { font-size: 16px; }
   .cal-item { grid-template-columns: 1fr; }
   .cal-thumb { width: 100%; aspect-ratio: 16 / 9; }
 }
