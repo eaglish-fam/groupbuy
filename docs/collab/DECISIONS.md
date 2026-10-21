@@ -9,6 +9,7 @@ Claude 能自己決定的記在這裡，Hiram 可以推翻。要 Hiram 決定的
 
 ## Hiram 已經決定
 
+- 2026-10-21：雲端的 Claire（問路）和 Paige（小倉幫）也可以直接派工給 Zosia（send_message 派工、讀對話紀錄看回覆）。每件工作照派工那個專案的規則做，各專案用自己的資料夾；Zosia 一次做一件。
 - 2026-10-21：**M5 上的 Claude Code 叫 Zosia**（不是 Grace）。Grace 是雲端那一個，負責 M5 裡的各專案、跟 Hiram 對話並派工給 Zosia。Zosia 的回覆、留言、commit、回條開頭寫「Zosia」。本檔上面寫「M5 Grace」的條目，指的都是 Zosia。
 - 2026-10-21：M5 的 Claude Code 全機設成完全放行（不每步詢問），保留擋「推到 main」和「force-push」的規則；之後問路、小倉幫和新專案都可能在 M5 做。目前派給 M5 Grace 的工作只有團購專案，其他專案要另外派工。
 - 2026-10-21：Hiram 在雲端跟 Grace 對話，Grace 把工作傳給 M5 的 Grace（Remote Control）做。M5 在 herdr 裡啟動的 Codex 一律限制只能寫工作資料夾、不用每步問人（`--sandbox workspace-write --ask-for-approval never`）；Codex CLI 升級交 Eliora B（G-002）。
