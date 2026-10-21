@@ -167,6 +167,7 @@
       <div class="rounded-xl p-6 mb-6" style="background-color: rgba(123, 169, 160, 0.1); border: 2px solid rgba(163, 213, 220, 0.4);">
         <h2 class="text-lg font-bold mb-2" style="color: var(--color-primary-dark);">📚 UTM 連結產生器</h2>
         <p class="text-sm" style="color: var(--color-text);">產生帶追蹤參數的連結，在 Google Analytics 追蹤各平台的流量和轉換率。</p>
+        <p class="text-xs mt-1" style="color: var(--color-text-muted);">規則：小寫英文、單字用連字號（例如 group1-pin），自然貼文的媒介一律選 social。完整規則見 docs/utm-naming.md。</p>
       </div>
 
       <div class="bg-white rounded-xl shadow-lg overflow-hidden" style="border: 2px solid var(--color-border);">
@@ -177,39 +178,41 @@
         <div class="p-6 space-y-5">
           <div>
             <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">網站網址 <span style="color: var(--color-error);">*</span></label>
-            <input type="text" id="utm-baseUrl" value="https://www.eaglish.store" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" oninput="generateUtmUrl()">
+            <input type="text" id="utm-baseUrl" value="https://www.eaglish.store/" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" oninput="generateUtmUrl()">
           </div>
 
           <div>
             <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">流量來源 (utm_source) <span style="color: var(--color-error);">*</span></label>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-2 mb-3">
-              <button onclick="setUtmSource('line')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: #C5D9D0; color: #4A5656; border-color: #9DB5A8;">💬 LINE</button>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 mb-3">
+              <button onclick="setUtmSource('line')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: #C5D9D0; color: #4A5656; border-color: #9DB5A8;">💬 LINE 社群</button>
+              <button onclick="setUtmSource('line-oa')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: #C5D9D0; color: #4A5656; border-color: #9DB5A8;">📣 LINE 官方帳號</button>
               <button onclick="setUtmSource('instagram')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: #E5C9B5; color: #4A5656; border-color: #D4A88F;">📷 IG</button>
-              <button onclick="setUtmSource('facebook')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: rgba(123, 169, 160, 0.2); color: #4A5656; border-color: #7BA9A0;">👍 FB</button>
               <button onclick="setUtmSource('youtube')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: #DBCABA; color: #4A5656; border-color: #C9A89A;">📺 YT</button>
+              <button onclick="setUtmSource('facebook')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: rgba(123, 169, 160, 0.2); color: #4A5656; border-color: #7BA9A0;">👍 FB</button>
+              <button onclick="setUtmSource('tiktok')" class="source-btn px-4 py-2 rounded-lg font-medium border-2" style="background-color: #F0E4D3; color: #4A5656; border-color: #E8D7BE;">🎵 TikTok</button>
             </div>
-            <input type="text" id="utm-source" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：line、instagram、facebook" oninput="generateUtmUrl()">
+            <input type="text" id="utm-source" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：line、instagram、youtube" oninput="generateUtmUrl()">
           </div>
 
           <div>
             <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">媒介類型 (utm_medium)</label>
             <select id="utm-medium" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" onchange="generateUtmUrl()">
               <option value="">不填寫</option>
-              <option value="social" selected>social（社群媒體）</option>
-              <option value="email">email（電子郵件）</option>
-              <option value="cpc">cpc（付費廣告）</option>
-              <option value="qrcode">qrcode（QR Code）</option>
+              <option value="social" selected>social（自然貼文）</option>
+              <option value="paid-social">paid-social（社群廣告）</option>
+              <option value="cpc">cpc（搜尋廣告）</option>
+              <option value="qrcode">qrcode（實體 QR Code）</option>
             </select>
           </div>
 
           <div>
             <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">活動名稱 (utm_campaign)</label>
-            <input type="text" id="utm-campaign" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：double11、new_product" oninput="generateUtmUrl()">
+            <input type="text" id="utm-campaign" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：gb-blackmores-202610、calendar-202611、always-on" oninput="generateUtmUrl()">
           </div>
 
           <div>
             <label class="block text-sm font-bold mb-2" style="color: var(--color-text);">內容差異 (utm_content)</label>
-            <input type="text" id="utm-content" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：story、post、banner" oninput="generateUtmUrl()">
+            <input type="text" id="utm-content" class="w-full px-4 py-3 rounded-lg border-2" style="border-color: #DFE3E5;" placeholder="例：group1、group1-pin、description、bio" oninput="generateUtmUrl()">
           </div>
         </div>
       </div>
@@ -431,34 +434,42 @@
       event.target.classList.add('active');
     }
 
+    // docs/utm-naming.md: lowercase, words joined by hyphens, no spaces or underscores.
+    const utmValue = value => value.trim().toLowerCase().replace(/[\s_]+/g, '-').replace(/-{2,}/g, '-');
+
     function generateUtmUrl() {
       const baseUrl = document.getElementById('utm-baseUrl').value.trim();
-      const source = document.getElementById('utm-source').value.trim();
+      const source = utmValue(document.getElementById('utm-source').value);
       const medium = document.getElementById('utm-medium').value.trim();
-      const campaign = document.getElementById('utm-campaign').value.trim();
-      const content = document.getElementById('utm-content').value.trim();
+      const campaign = utmValue(document.getElementById('utm-campaign').value);
+      const content = utmValue(document.getElementById('utm-content').value);
 
-      if (!baseUrl || !source) {
+      let url;
+      try { url = new URL(baseUrl); } catch { url = null; }
+      if (!url || !source) {
         document.getElementById('utm-result').classList.add('hidden');
         return;
       }
 
-      const params = new URLSearchParams();
-      if (source) params.append('utm_source', source);
-      if (medium) params.append('utm_medium', medium);
-      if (campaign) params.append('utm_campaign', campaign);
-      if (content) params.append('utm_content', content);
+      const params = [['utm_source', source], ['utm_medium', medium], ['utm_campaign', campaign], ['utm_content', content]];
+      for (const [key, value] of params) {
+        if (value) url.searchParams.set(key, value);
+        else url.searchParams.delete(key);
+      }
 
-      const fullUrl = `${baseUrl}?${params.toString()}`;
-      document.getElementById('utm-generated').textContent = fullUrl;
+      document.getElementById('utm-generated').textContent = url.href;
       document.getElementById('utm-result').classList.remove('hidden');
 
-      let preview = [];
-      if (source) preview.push(`來源：<strong>${source}</strong>`);
-      if (medium) preview.push(`媒介：<strong>${medium}</strong>`);
-      if (campaign) preview.push(`活動：<strong>${campaign}</strong>`);
-      if (content) preview.push(`內容：<strong>${content}</strong>`);
-      document.getElementById('utm-preview').innerHTML = preview.join('<br>') || '尚未填寫參數';
+      const preview = document.getElementById('utm-preview');
+      preview.replaceChildren();
+      for (const [label, value] of [['來源', source], ['媒介', medium], ['活動', campaign], ['內容', content]]) {
+        if (!value) continue;
+        const line = document.createElement('div');
+        const strong = document.createElement('strong');
+        strong.textContent = value;
+        line.append(`${label}：`, strong);
+        preview.append(line);
+      }
     }
 
     function copyUtmUrl() {
