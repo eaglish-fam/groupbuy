@@ -12,7 +12,7 @@
   const families = ['Eaglish Heading Serif', 'Eaglish Travel Heading Serif'];
   // Content-hashed by scripts/build-site-heading-font.mjs, which rewrites this line: a rebuild
   // gets new URLs and a new cache, so a stored manifest never meets rebuilt slices.
-  const fontVersion = 'heading-serif-500-6a5ca3a67b';
+  const fontVersion = 'heading-serif-500-4a7b6a4e44';
   const fontDir = `/assets/fonts/${fontVersion}/`;
   const manifestUrl = `${fontDir}manifest.json`;
   const siteUrl = `${fontDir}site.woff2`;
