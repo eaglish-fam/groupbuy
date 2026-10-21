@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 60,
+    "pages": 61,
     "blocking": 0,
-    "warnings": 26,
-    "total": 26
+    "warnings": 27,
+    "total": 27
   },
   "findings": [
     {
@@ -122,22 +122,29 @@
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
-      "file": "index.html",
-      "index": 3511
+      "file": "calendar/index.html",
+      "index": 3067
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43120
+      "index": 3666
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
+      "file": "index.html",
+      "index": 43395
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43120
+      "index": 43395
     },
     {
       "level": "warn",
