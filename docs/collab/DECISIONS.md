@@ -9,6 +9,7 @@ Claude 能自己決定的記在這裡，Hiram 可以推翻。要 Hiram 決定的
 
 ## Hiram 已經決定
 
+- 2026-10-21：M5 的 Claude Code 全機設成完全放行（不每步詢問），保留擋「推到 main」和「force-push」的規則；之後問路、小倉幫和新專案都可能在 M5 做。目前派給 M5 Grace 的工作只有團購專案，其他專案要另外派工。
 - 2026-10-21：Hiram 在雲端跟 Grace 對話，Grace 把工作傳給 M5 的 Grace（Remote Control）做。M5 在 herdr 裡啟動的 Codex 一律限制只能寫工作資料夾、不用每步問人（`--sandbox workspace-write --ask-for-approval never`）；Codex CLI 升級交 Eliora B（G-002）。
 - 2026-10-21：Codex 那邊有兩個 Eliora（A、B）；**負責團購和網站的是 Eliora B**。給 Eliora 的買物社工作一律開在 `docs/collab/requests/`，不寫到問路的 `Docs/M5-TODO.md`。
 - 2026-10-15：舊的內部規範（Lydia 需求驗收、Kira 程式、城市攻略「一句話直接上線」）全部改成三方協作。所有網站改動走獨立分支與 PR，Hiram 核准才合併。
