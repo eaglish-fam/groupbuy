@@ -52,12 +52,42 @@ test('one GA initialization and page view configuration survives repeated runtim
  assert.equal(r.listeners.change.length,1);
 });
 
-test('GA page configuration removes query and fragments from landing and referrer URLs',()=>{
+test('GA page configuration removes non-attribution query and fragments from landing and referrer URLs',()=>{
  const r=runtime({query:'?email=person@example.com#private',referrer:'https://example.org/start?token=private#section'});
  const config=r.context.dataLayer.find(row=>row[0]==='config')[2];
  assert.equal(config.page_location,'https://www.eaglish.store/trip/');
  assert.equal(config.page_referrer,'https://example.org/start');
  assert.doesNotMatch(JSON.stringify(config),/person@|token|private/);
+});
+
+test('GA page configuration keeps campaign and ad-click parameters for attribution',()=>{
+ const kept='utm_source=youtube&utm_medium=social&utm_campaign=gb-brand-202611&utm_term=kids&utm_content=description&utm_id=c1&gclid=g1&gbraid=b1&wbraid=w1&fbclid=f1';
+ const r=runtime({path:'/',query:`?email=person@example.com&${kept}&token=secret&UTM_SOURCE=upper#private`,referrer:`https://l.instagram.com/?utm_source=instagram&u=person@example.com`});
+ const config=r.context.dataLayer.find(row=>row[0]==='config')[2];
+ assert.equal(config.page_location,`https://www.eaglish.store/?${kept}`);
+ assert.equal(config.page_referrer,'https://l.instagram.com/?utm_source=instagram');
+ assert.doesNotMatch(JSON.stringify(config),/person@|token|secret|UTM_SOURCE|private/);
+});
+
+test('GA page configuration omits page_referrer for a direct visit',()=>{
+ const r=runtime({path:'/',query:'?utm_source=line&utm_medium=social'});
+ const config=r.context.dataLayer.find(row=>row[0]==='config')[2];
+ assert.equal(config.page_location,'https://www.eaglish.store/?utm_source=line&utm_medium=social');
+ assert.equal(Object.hasOwn(config,'page_referrer'),false);
+});
+
+test('service worker reloads once for an upgrade but never on a first install',()=>{
+ for(const [controller,expected] of [[null,0],[{},1]]){
+  const handlers={},stored={};let reloads=0;
+  const context={URL,location:{hostname:'www.eaglish.store',pathname:'/',origin:'https://www.eaglish.store',href:'https://www.eaglish.store/',reload:()=>{reloads++;}},
+   navigator:{serviceWorker:{controller,register:()=>({then:()=>({catch:()=>{}})}),addEventListener:(name,handler)=>{handlers[name]=handler;}}},
+   sessionStorage:{getItem:key=>stored[key]??null,setItem:(key,value)=>{stored[key]=value;}},
+   document:{referrer:'',head:{append(){}},createElement:()=>({}),querySelector:()=>null,querySelectorAll:()=>[],addEventListener(){}},
+  };
+  context.window=context;vm.createContext(context);vm.runInContext(source,context);
+  handlers.controllerchange();handlers.controllerchange();
+  assert.equal(reloads,expected);
+ }
 });
 
 test('travel entries and guide opens retain their actual country and placement',()=>{
