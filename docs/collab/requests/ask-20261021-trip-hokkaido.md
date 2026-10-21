@@ -18,3 +18,9 @@
 6. 候選資料未完成前可用synthetic fixture驗機制，但不可當作真實文章/來源或照片驗收。請交工程branch/commit、契約、實際測試與未做項，不合併。
 
 Codex最後交Draft PR及私下noindex Tailnet預覽；截圖僅M5橋接資料夾，公開repo只列檔名。工程請沿三線協作，不發Telegram/LINE。
+
+## 來源補充對工程語意的影響（同日）
+
+派工補充已確認住宿基地為札幌Airbnb；旭川無過夜。請勿讓日本入口的城市選擇器強制產生「旭川入住/退房/跨城換宿」。現有country allocation假設分配城市停留與移動日；若不適用札幌基地的往返結構，請Grace採明確支持的日遊/固定路線方式，不能用假住宿或虛構移動日讓模型過驗證。實際7日日序仍查核，未定前不以fixture或推薦路線冒充歷史日程。
+
+現行 `renderMultiViewCountryMap` 已存在，但目前驗證每個point需為公包city且href屬該guide；小樽/機場點須由Grace提供可驗證的route-anchor語意，不能額外開兩座假城市。Codex提供經核座標與來源。
