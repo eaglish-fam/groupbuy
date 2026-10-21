@@ -1,0 +1,471 @@
+{
+  "schema": "eaglish.travel-editorial-source-register/v1",
+  "status": "research_sources_not_release_approval",
+  "checkedOn": "2026-10-21",
+  "sourceCount": 43,
+  "sources": [
+    {
+      "id": "jp-official-ramen",
+      "kind": "official",
+      "url": "https://www.ramenmura.com/",
+      "label": "旭川ラーメン村 官方",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "8 店、一般營業時間及各店例外"
+    },
+    {
+      "id": "jp-official-ramen-access",
+      "kind": "official",
+      "url": "https://www.ramenmura.com/access.html",
+      "label": "拉麵村交通",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "到店地址"
+    },
+    {
+      "id": "jp-official-zoo-ticket",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/generalinformation/d052849.html",
+      "label": "旭山動物園入園料",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "成人 1000、兒童票"
+    },
+    {
+      "id": "jp-official-zoo-calendar",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/event/event.html",
+      "label": "旭山動物園 2026／2027 開園日曆",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "冬季、換季及特別開園時段"
+    },
+    {
+      "id": "jp-official-zoo-access",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/generalinformation/d053767.html",
+      "label": "旭山動物園交通",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "41／47 路、約 40 分、當前公車成人 670；城際約時"
+    },
+    {
+      "id": "jp-official-science",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/science/06/p002414.html",
+      "label": "Saiparu 開館／休館／料金",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "新版票價、最後入館、全年休館例外"
+    },
+    {
+      "id": "jp-official-science-access",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/science/21/d065748_d/fil/kyouikuryokou.pdf",
+      "label": "科學館教育旅行交通資料",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "地址及位置；舊交通班次不採"
+    },
+    {
+      "id": "jp-official-asahikawa-museum",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/navi/d000000.html",
+      "label": "旭川市博物館利用案內",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "2026-10-01 更新票價、時段、休館"
+    },
+    {
+      "id": "jp-official-asahikawa-museum-access",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/navi/d053104.html",
+      "label": "旭川市博物館交通",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "車站步行距離與大雪 Crystal Hall 位置"
+    },
+    {
+      "id": "jp-official-daikokuya",
+      "kind": "official",
+      "url": "https://daikoku-jgs.com/free/asahikawa",
+      "label": "大黑屋旭川五丁目店",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "現行分店地址／時段；LO 文字矛盾未採"
+    },
+    {
+      "id": "jp-official-iski-family",
+      "kind": "official",
+      "url": "https://www.iski.com.tw/eaglish_family22",
+      "label": "iSKI 鷹式一家手稻專頁",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "雪場及家庭關聯；不把行銷車程當實際保證"
+    },
+    {
+      "id": "jp-official-iski-teine",
+      "kind": "official",
+      "url": "https://www.iski.com.tw/index.php?category=teine_private&route=common/snowing_hokkaido",
+      "label": "iSKI 26/27 手稻私人課",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "季節、09–15、幼兒分時、排除費用及 Premium"
+    },
+    {
+      "id": "jp-official-teine",
+      "kind": "official",
+      "url": "https://sapporo-teine.com/snow/lang/en/",
+      "label": "SAPPORO TEINE 官方",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "預計開季與即時雪況入口"
+    },
+    {
+      "id": "jp-official-teine-tickets",
+      "kind": "official",
+      "url": "https://sapporo-teine.com/snow/lang/en/tickets/",
+      "label": "TEINE 26/27 纜車票",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "旺季／春季價格及年齡分界"
+    },
+    {
+      "id": "jp-official-teine-access",
+      "kind": "official",
+      "url": "https://sapporo-teine.com/snow/lang/en/access/",
+      "label": "TEINE 交通",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "JR 手稻轉乘；Big Runs 26/27 到場時刻；舊路線巴士表需另核"
+    },
+    {
+      "id": "jp-official-shiroi",
+      "kind": "official",
+      "url": "https://www.shiroikoibitopark.jp/",
+      "label": "白色戀人公園官方",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "營業與付費區末入場"
+    },
+    {
+      "id": "jp-official-shiroi-ticket",
+      "kind": "official",
+      "url": "https://www.shiroikoibitopark.jp/facility/counter.html",
+      "label": "白色戀人入館票",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "1200／600、DIY 分開"
+    },
+    {
+      "id": "jp-official-shiroi-access",
+      "kind": "official",
+      "url": "https://www.shiroikoibitopark.jp/park-guide/access.html",
+      "label": "白色戀人交通",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "地址與交通導引"
+    },
+    {
+      "id": "jp-official-aoao",
+      "kind": "official",
+      "url": "https://aoao-sapporo.blue/",
+      "label": "AOAO SAPPORO 官方",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "開館與 21:00 末入場"
+    },
+    {
+      "id": "jp-official-aoao-ticket",
+      "kind": "official",
+      "url": "https://aoao-sapporo.blue/ticket/",
+      "label": "AOAO 入館料金",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "2200／1100／200、未滿 3 歲免費"
+    },
+    {
+      "id": "jp-official-aoao-access",
+      "kind": "official",
+      "url": "https://aoao-sapporo.blue/access/",
+      "label": "AOAO 交通",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "大通與狸小路站步行、停車條件"
+    },
+    {
+      "id": "jp-official-ario",
+      "kind": "official",
+      "url": "https://sapporo.ario.jp/shop/1100000005/",
+      "label": "Ario 札幌 Akachan Honpo",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "2F、店時及交通"
+    },
+    {
+      "id": "jp-official-beer-visit",
+      "kind": "official",
+      "url": "https://www.sapporobeer.jp/brewery/s_museum/kengaku/",
+      "label": "札幌啤酒博物館現行參觀",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "自助已付費、導覽條件、幼兒限制與現行時段"
+    },
+    {
+      "id": "jp-official-beer-overview",
+      "kind": "official",
+      "url": "https://www.sapporobeer.jp/english/brewery/s_museum/",
+      "label": "札幌啤酒博物館官方概要",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "館方日曆／交通入口；導覽休息不等於全館週休"
+    },
+    {
+      "id": "jp-official-orgel",
+      "kind": "official",
+      "url": "https://www.otaru-orgel.co.jp/shop",
+      "label": "小樽音樂盒堂店鋪",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "本館地址、時段與樓層例外"
+    },
+    {
+      "id": "jp-official-letao",
+      "kind": "official",
+      "url": "https://www.letao-brand.jp/shop/letao/",
+      "label": "LeTAO 本店",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "本店地址／時段，非實訪分店證明"
+    },
+    {
+      "id": "jp-official-rokkatei",
+      "kind": "official",
+      "url": "https://www.rokkatei.co.jp/shop/sapporo/",
+      "label": "六花亭店鋪一覽・小樽運河店段",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "堺町 7-22、10–18、無停車場"
+    },
+    {
+      "id": "jp-official-naruto",
+      "kind": "official",
+      "url": "https://otaru.gr.jp/shop/wakatorijidai-naruto-honten",
+      "label": "小樽觀光協會・若鶏時代なると本店",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "本店餐飲、位置、時間與不定休"
+    },
+    {
+      "id": "jp-official-otaru-museum",
+      "kind": "official",
+      "url": "https://www.city.otaru.lg.jp/docs/2023031200049/otarumuseum.html",
+      "label": "小樽市綜合博物館利用案內",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "運河館 300／150、時段與年末休館，與本館區分"
+    },
+    {
+      "id": "jp-official-otaru-museum-exhibits",
+      "kind": "official",
+      "url": "https://www.city.otaru.lg.jp/docs/2020111400122/",
+      "label": "小樽運河館展示",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "歷史自然展示與官方建議停留時間"
+    },
+    {
+      "id": "jp-official-cruise-price",
+      "kind": "official",
+      "url": "https://otaru.cc/price/",
+      "label": "小樽運河 Cruise 料金",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "日航 1800、夜航 2000、兒童／幼兒規則"
+    },
+    {
+      "id": "jp-official-cruise-faq",
+      "kind": "official",
+      "url": "https://otaru.cc/faq/",
+      "label": "小樽運河 Cruise FAQ",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "報到、天候、無廁所、語音、輪椅轉位"
+    },
+    {
+      "id": "jp-official-cruise-time",
+      "kind": "official",
+      "url": "https://otaru.cc/timetable/",
+      "label": "小樽運河 Cruise 時刻表",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "航程及日期別發船時間"
+    },
+    {
+      "id": "jp-official-cruise-access",
+      "kind": "official",
+      "url": "https://otaru.cc/access/",
+      "label": "小樽運河 Cruise 乘船處",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "售票／登船位置、小樽站約 10 分"
+    },
+    {
+      "id": "jp-official-sankaku",
+      "kind": "official",
+      "url": "https://otaru.gr.jp/shop/otarusankakuichiba",
+      "label": "小樽觀光協會・三角市場",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "市場與食堂時段、站旁位置"
+    },
+    {
+      "id": "jp-official-jr-airport",
+      "kind": "official",
+      "url": "https://www.jrhokkaido.co.jp/global/chinese/travel/airport.html",
+      "label": "JR 北海道 新千歲—札幌—小樽",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "當前機場線、IC、指定席與目的地注意"
+    },
+    {
+      "id": "jp-official-jr-asahikawa",
+      "kind": "official",
+      "url": "https://www.jrhokkaido.co.jp/global/chinese/train/guide/asahikawa.html",
+      "label": "JR 北海道 札幌—旭川列車",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "Lilac／Kamui 路線"
+    },
+    {
+      "id": "jp-official-geo-asahikawa",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/kurashi/112/113/1161/p007920_d/fil/07_kurashito_shizei.pdf",
+      "label": "旭川市 2025 暮らしと市税・位置",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "PDF 第 2 頁市役所代表座標"
+    },
+    {
+      "id": "jp-official-geo-sapporo",
+      "kind": "official",
+      "url": "https://www.city.sapporo.jp/city/map/index.html",
+      "label": "札幌市役所位置",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "本廳豆知識座標"
+    },
+    {
+      "id": "jp-official-geo-otaru",
+      "kind": "official",
+      "url": "https://www.city.otaru.lg.jp/docs/2020120700879/",
+      "label": "小樽市 Profile",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "官方城市位置"
+    },
+    {
+      "id": "jp-official-geo-cts",
+      "kind": "official",
+      "url": "https://www.mlit.go.jp/kisha/kisha06/12/121016/01.pdf",
+      "label": "國土交通省 2006 新千歲空港概況",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "僅採穩定地理位置；PDF 本體過大，已由網頁工具索引內容核對，不宣稱整本下載閱讀"
+    },
+    {
+      "id": "jp-official-gsi-japan-extents",
+      "kind": "official",
+      "url": "https://www.gsi.go.jp/KOKUJYOHO/center.htm",
+      "label": "國土地理院・日本東西南北端點",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "全國顯示框的四端座標參考，與既有低解析幾何範圍區分"
+    },
+    {
+      "id": "jp-official-gsi-extents-faq",
+      "kind": "official",
+      "url": "https://www.gsi.go.jp/KOKUJYOHO/center-faq.html",
+      "label": "國土地理院・端點資訊 FAQ",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
+      "researchScope": "端點僅地圖參考，非精密測量或疆界多邊形"
+    }
+  ],
+  "mapPoints": [
+    {
+      "id": "asahikawa",
+      "label": "旭川",
+      "point": [
+        142.365,
+        43.771389
+      ],
+      "sourceIds": [
+        "jp-official-geo-asahikawa"
+      ],
+      "use": "城市/機場代表位置示意，非住宿位置或精準導航入口"
+    },
+    {
+      "id": "sapporo",
+      "label": "札幌",
+      "point": [
+        141.355,
+        43.062778
+      ],
+      "sourceIds": [
+        "jp-official-geo-sapporo"
+      ],
+      "use": "城市/機場代表位置示意，非住宿位置或精準導航入口"
+    },
+    {
+      "id": "otaru",
+      "label": "小樽",
+      "point": [
+        140.994444,
+        43.190833
+      ],
+      "sourceIds": [
+        "jp-official-geo-otaru"
+      ],
+      "use": "城市/機場代表位置示意，非住宿位置或精準導航入口"
+    },
+    {
+      "id": "cts",
+      "label": "新千歲機場",
+      "point": [
+        141.6925,
+        42.775278
+      ],
+      "sourceIds": [
+        "jp-official-geo-cts"
+      ],
+      "use": "城市/機場代表位置示意，非住宿位置或精準導航入口"
+    }
+  ],
+  "mapViewports": {
+    "japanOverview": [
+      122,
+      20,
+      154.5,
+      46.5
+    ],
+    "hokkaidoTravelView": [
+      139.2,
+      41.2,
+      145.9,
+      45.7
+    ],
+    "routeFocus": [
+      140.7,
+      42.6,
+      142.7,
+      44.1
+    ]
+  },
+  "mapViewportNote": "編輯視窗，不是行政疆界；既有低解析Natural Earth圖形缺少部分離島，擴大視窗不會補足缺圖形。工程待Grace確認。",
+  "unresolved": [
+    "精確七日日序與部分實搭交通",
+    "部分分店/船商之影像身份",
+    "正式媒體採用與公包/候選工程接線"
+  ]
+}
