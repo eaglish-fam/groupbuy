@@ -26,6 +26,7 @@ h1, h2, h3, p { margin: 0; }
 h1, h2, h3 { font-family: var(--serif); font-weight: 600; }
 img { display: block; max-width: 100%; }
 .wrap { max-width: 1080px; margin: 0 auto; padding: 0 40px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
 .skip { position: absolute; left: -999px; top: 8px; z-index: 30; background: #fff; padding: 10px 14px; }
 .skip:focus { left: 8px; }
 

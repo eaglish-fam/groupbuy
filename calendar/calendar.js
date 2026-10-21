@@ -111,7 +111,7 @@
           dayEvents = inMonth.filter((e) => e.date === date),
           start = dayEvents.filter((e) => e.kind === "start").length,
           end = dayEvents.length - start;
-        return `<button type="button" class="month-day${date === today ? " today" : ""}${dayEvents.length ? " has-events" : ""}" data-day="${date}" ${date < today ? "disabled" : ""} aria-pressed="${date === selectedDate}" aria-label="${m}月${i + 1}日，${start}筆開團，${end}筆截止"><span>${i + 1}</span><small>${start ? `<i class="start-dot">${start}</i>` : ""}${end ? `<i class="end-dot">${end}</i>` : ""}</small></button>`;
+        return `<button type="button" class="month-day${date === today ? " today" : ""}${dayEvents.length ? " has-events" : ""}" data-day="${date}" ${date < today ? "disabled" : ""} aria-pressed="${date === selectedDate}"><span>${i + 1}</span><span class="sr-only">日（${m}月），${start}筆開團，${end}筆截止</span><small aria-hidden="true">${start ? `<i class="start-dot">${start}</i>` : ""}${end ? `<i class="end-dot">${end}</i>` : ""}</small></button>`;
       }).join("");
     if (!refreshedAt) return;
     const shown = inMonth.filter((e) => e.date === selectedDate);
