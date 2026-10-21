@@ -2,6 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import vm from 'node:vm';
+import { createRequire } from 'node:module';
 const source = readFileSync(new URL('../design/design.js', import.meta.url), 'utf8');
 const fn = source.slice(source.indexOf('function sortCatalog('), source.indexOf('function setStatus('));
 const sort = vm.runInNewContext(fn + '; sortCatalog');
@@ -48,7 +49,7 @@ test('other views and explicit sorting are not changed by the ending-soon rule',
   assert.deepEqual(ids(sort(list, 'all', 'closing', now)), ['soon', 'far', 'E1']);
 });
 test('card countdown says how many days are left, then hours on the last day', () => {
-  const count = vm.runInNewContext(source.slice(source.indexOf('function countdownText('), source.indexOf('function timedCampaign(')) + '; countdownText');
+  const count = createRequire(import.meta.url)('../design/catalog-core.js').countdownText;
   const at = value => Date.parse(value);
   assert.equal(count('2026-10-21', at('2026-10-17T12:00:00+08:00')), '剩 4 天');
   assert.equal(count('2026-10-18', at('2026-10-17T12:00:00+08:00')), '剩 1 天');

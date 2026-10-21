@@ -26,28 +26,7 @@
       }
     }
   }
-  function collectEvents() {
-    const list = [];
-    const today = ProductContent.today();
-    products.forEach((p, index) => {
-      if (["book", "edu", "coupon"].includes(p.kind)) return;
-      if (!["open", "upcoming"].includes(p.status.key)) return;
-      if (p.end && p.end < today) return;
-      if (p.start && p.start >= today)
-        list.push({ p, index, date: p.start, kind: "start", label: "開團" });
-      if (p.end && p.end >= today)
-        list.push({
-          p,
-          index,
-          date: p.end,
-          kind: "end",
-          label: p.status.long ? "當期連結更新" : "結團截止",
-        });
-    });
-    return list.sort(
-      (a, b) => a.date.localeCompare(b.date) || a.kind.localeCompare(b.kind),
-    );
-  }
+  const collectEvents = () => CatalogCore.collectEvents(products);
   function renderCalendar() {
     // Recheck the date when browsing months, including tabs left open overnight.
     events = collectEvents();
@@ -90,59 +69,12 @@
     selectedDate = "";
     renderCalendar();
   }
-  const icsText = (s) =>
-    String(s)
-      .replace(/\\/g, "\\\\")
-      .replace(/\r?\n/g, "\\n")
-      .replace(/,/g, "\\,")
-      .replace(/;/g, "\\;");
-  // Eight AM in Taiwan is 00:00 UTC. Preserve the original reminder time.
   function exportICS(list) {
     if (!list.length) {
       notify("目前沒有可匯入的新開結團日期");
       return;
     }
-    const stamp = new Date()
-      .toISOString()
-      .replace(/[-:]/g, "")
-      .replace(/\.\d{3}/, "");
-    const lines = [
-      "BEGIN:VCALENDAR",
-      "VERSION:2.0",
-      "PRODID:-//Eaglish//Groupbuy Calendar//ZH-TW",
-      "CALSCALE:GREGORIAN",
-      "METHOD:PUBLISH",
-    ];
-    list.forEach((e) => {
-      const date = e.date.replaceAll("-", "");
-      lines.push(
-        "BEGIN:VEVENT",
-        `UID:${encodeURIComponent(e.p.key)}-${e.kind}-${date}@eaglish.store`,
-        `DTSTAMP:${stamp}`,
-        `DTSTART:${date}T000000Z`,
-        `DTEND:${date}T010000Z`,
-        `SUMMARY:${icsText(e.p.brand + " · " + e.label)}`,
-        `DESCRIPTION:${icsText("團購資訊請查看鷹家買物社：https://www.eaglish.store/\n" + e.p.url)}`,
-        "END:VEVENT",
-      );
-    });
-    lines.push("END:VCALENDAR");
-    // RFC 5545 line folding uses UTF-8 octets, not JavaScript string length.
-    const fold = (line) => {
-      let out = "",
-        bytes = 0;
-      for (const ch of line) {
-        const size = new TextEncoder().encode(ch).length;
-        if (bytes + size > 73) {
-          out += "\r\n ";
-          bytes = 1;
-        }
-        out += ch;
-        bytes += size;
-      }
-      return out;
-    };
-    const blob = new Blob([lines.map(fold).join("\r\n") + "\r\n"], {
+    const blob = new Blob([CatalogCore.icsDocument(list)], {
         type: "text/calendar;charset=utf-8",
       }),
       url = URL.createObjectURL(blob),
@@ -153,18 +85,7 @@
     setTimeout(() => URL.revokeObjectURL(url), 2000);
     notify(`已下載 ${list.length} 筆開結團提醒`);
   }
-  function googleURL(e) {
-    const date = e.date.replaceAll("-", "");
-    const url = new URL("https://calendar.google.com/calendar/render");
-    url.search = new URLSearchParams({
-      action: "TEMPLATE",
-      text: e.p.brand + " · " + e.label,
-      dates: `${date}T000000Z/${date}T010000Z`,
-      details: "鷹家買物社團購提醒\n" + e.p.url,
-      ctz: "Asia/Taipei",
-    });
-    return url.href;
-  }
+  const googleURL = CatalogCore.googleCalendarUrl;
   function showReminder(list) {
     track("add_to_calendar", { group_name: list[0]?.p.brand || "", count: list.length });
     const d = document.createElement("dialog");
