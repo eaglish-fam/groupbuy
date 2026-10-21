@@ -4,6 +4,11 @@ Claude 能自己決定的記在這裡，Hiram 可以推翻。要 Hiram 決定的
 
 ## Claude 已經決定
 
+- 2026-10-21：**日本／北海道候選的工程做法**（Bingo 派工單 `docs/external/requests/2026-10-21-trip-hokkaido-v1-grace.md`，分支 `claude/trip-japan-support-20261021`）。
+  - 登錄：正式公包維持單一登錄檔不動；另加 `trip/data/approved-travel-candidates-v1.json` 給不公開的候選公包（只能 `publication:false`，noindex、不送 GA、不進 sitemap／首頁／世界地圖）。理由：europe-malaysia 的輸出逐位元組不變，也不用改正式登錄的格式。
+  - 路線篇頁型選 **A：新增 `routes[]`**。理由：之後京阪奈、熊本阿蘇、余市、越後湯澤都是路線篇；B（region 城市篇外殼）會讓「每站玩什麼」和「7 天怎麼排」混在同一種頁面。欄位寫在 `docs/trip-approved-package-adapter.md` 最後一節。
+  - 網址：入口 `/trip/japan/`；路線篇 `/trip/japan/hokkaido-asahikawa-sapporo-7-days/`（路線放在國家底下）；城市篇沿用 `/trip/guides/asahikawa-with-kids/`、`/trip/guides/sapporo-with-kids/`。
+  - 地圖：點可以接路線篇段落（小樽、新千歲機場）；放大視角可用 Natural Earth 1:50m。拿掉只認歐洲四城的寫死清單。
 - 2026-10-21：`/calendar/` 上線後，首頁的 `section#calendar` 月曆**保留**，標題旁加連到 `/calendar/` 的連結；選單的「團購行事曆」改連 `/calendar/`。理由：首頁月曆看日期分布方便，獨立頁負責清單、分享和搜尋（PR #55）。靜態 .ics 訂閱不做：需要排程自動寫回 main，等於不經 PR 上線。
 - 2026-10-15：三方討論沿用問路專案的方式：共用分支 `claude/groupbuy-collab` + 不合併的追蹤用草稿 PR。repo 是公開的，所以討論內容不放私人資料。
 - 2026-10-15：建置產生的圖片尺寸版本，已存在就不重壓（`--force` 才重壓），避免不同電腦產生不同 bytes。
