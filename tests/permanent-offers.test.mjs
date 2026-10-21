@@ -119,7 +119,8 @@ test('active homepage source loads the adapter and keeps accessible copy fallbac
   assert.match(html, /permanent-offers\.js/);
   assert.match(html, /id="toast"[^>]*aria-live="polite"[^>]*aria-atomic="true"/);
   assert.match(html, /<noscript><p class="resource-empty">/);
-  assert.match(design, /PermanentOffers\.mergeProducts/);
+  assert.match(readFileSync(new URL('../design/catalog-core.js', import.meta.url), 'utf8'), /PermanentOffers\.mergeProducts/);
+  assert.match(design, /CatalogCore\.buildCatalog\(rows, permanentRegistry\)/);
   assert.match(design, /p\.exactDestination/);
   assert.match(design, /destinationUrl: p\.url/);
   assert.match(complete, /PermanentOffers\.copyCode/);
