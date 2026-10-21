@@ -30,6 +30,8 @@ export function renderVintage(legacy, version, fragment) {
   html=html.replace(/(href="\/site-navigation\.css\?v=)[^"]+(")/g,`$1${navigationVersion}$2`);
   const fontVersion=createHash('sha256').update(read('site-font-loader.js')).digest('hex').slice(0,12);
   html=html.replace(/(src="\/site-font-loader\.js\?v=)[^"]+(")/g,`$1${fontVersion}$2`);
+  const runtimeVersion=createHash('sha256').update(read('site-runtime.js')).digest('hex').slice(0,12);
+  html=html.replace(/(src="\/site-runtime\.js\?v=)[^"]+(")/g,`$1${runtimeVersion}$2`);
   return html;
 }
 
