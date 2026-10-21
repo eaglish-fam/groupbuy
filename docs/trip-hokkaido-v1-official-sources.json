@@ -2,7 +2,7 @@
   "schema": "eaglish.travel-editorial-source-register/v1",
   "status": "research_sources_not_release_approval",
   "checkedOn": "2026-10-21",
-  "sourceCount": 43,
+  "sourceCount": 47,
   "sources": [
     {
       "id": "jp-official-ramen",
@@ -390,6 +390,38 @@
       "checkedOn": "2026-10-21",
       "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。",
       "researchScope": "端點僅地圖參考，非精密測量或疆界多邊形"
+    },
+    {
+      "id": "terra-museum-closures-2026",
+      "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/index.html",
+      "label": "旭川市博物館：10 月休館與 2026-12-15 臨時休館",
+      "kind": "official",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開營業資訊摘要；未取用照片。"
+    },
+    {
+      "id": "terra-shiroi-winter-2026-27",
+      "url": "https://www.shiroikoibitopark.jp/information/uploads/a1ca26e8e6a480274f3d694dd861be4a_1.pdf",
+      "label": "白色戀人公園 2026/27 冬季營業公告",
+      "kind": "official",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開營業資訊摘要；未取用照片。"
+    },
+    {
+      "id": "terra-shiroi-new-year-2026-27",
+      "url": "https://www.shiroikoibitopark.jp/information/uploads/a24bc4a731fc1cdad93b7b2df0570023.pdf",
+      "label": "白色戀人公園 2026/27 年末年始營業與休館",
+      "kind": "official",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開營業資訊摘要；未取用照片。"
+    },
+    {
+      "id": "terra-aoao-guide",
+      "url": "https://aoao-sapporo.blue/guide/",
+      "label": "AOAO SAPPORO 營業時間",
+      "kind": "official",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開營業資訊摘要；未取用照片。"
     }
   ],
   "mapPoints": [
@@ -467,5 +499,6 @@
     "精確七日日序與部分實搭交通",
     "部分分店/船商之影像身份",
     "正式媒體採用與公包/候選工程接線"
-  ]
+  ],
+  "updatedOn": "2026-10-22"
 }

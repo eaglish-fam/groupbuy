@@ -1,41 +1,34 @@
-# 北海道 v1｜來源前置核對（研究中）
+# 北海道 v1｜來源核對與缺口
 
-| 欄位 | 內容 |
-|---|---|
-| 目標 | 日本入口、旭川札幌7天路線、兩城指南的來源與缺口整理 |
-| 驗收點 | 每個主張可追至第一手或官方來源；缺件不補寫；正式站不變 |
-| 做到哪 | 讀完指定編輯/模板/圖片/公包規範，採用協作分支 f261116 的派工補充；啟動完整影片故事、官方現況與已登入自家照片盤點 |
-| 沒做什麼 | 尚未完成所有現況、日序、照片及渲染驗收；這份文件不是成稿或發布核准 |
-| 下一步給誰 | Codex完成研究與逐圖採用表，Grace交工程契約後做資料閉包與候選 |
+| 目標 | 驗收點 | 做到哪 | 沒做什麼 | 下一步給誰 |
+|---|---|---|---|---|
+| 日本入口、旭川札幌七天路線與兩城指南候選 | 事實可追第一手或官方來源；缺件不補寫；正式站不變 | 三頁真圖候選與路線敘事備稿；詳見 candidate-review 與 official-sources | 精確七日日序仍缺；第四頁／路線地圖點未渲染；工程驗收未全通過 | Bingo 轉作者確認日序；Grace 修工程；Codex 接回最終驗收 |
 
-## 第5節缺口狀態
+## 第5節缺口結論（2026-10-22）
 
-| 項目 | 目前結論 | 對公開內容的處理 |
+| 項目 | 目前結論 | 公開處理 |
 |---|---|---|
-| 住宿 | 同日派工補充確認：全程札幌Airbnb，旭川無住宿 | 只寫可核區域與實際使用，無地址/房源URL |
-| 合作 | iSKI為合作，已由同日派工補充確認 | 所在篇章文末揭露；不延伸為整趟其他店家的合作 |
-| 雪場 | 尚在核對完整影片及官方資料 | 未核名稱、課程條件或集合點不進定稿 |
-| 圓山 | 同日補充確認是一月另一趟；對應影片1月已公開 | 排除三月兩城路線/城市篇 |
-| 9天Short | 同日補充確認標題筆誤，主線7天 | 不另創一趟，也不改成9天 |
-| 精確7日日序/實搭交通 | 尚在讀完整ASR並對照原片 | 不用影片集數推日序、不以現行建議冒充實搭 |
-| 每站三圖/原照 | 已登入IG/FB逐輪播相簿實查進行中 | 適合自有原照優先；逐圖場所/人物/用途獨立審查 |
-| 現況條件 | 官方現況研究進行中 | 票價與開閉館留查核日，當年故事分開 |
+| 住宿 | 作者確認全程札幌 Airbnb，旭川無住宿 | 只寫可核區域與照顧分工，無地址、房源或未核房型 |
+| 合作／雪場 | 作者確認 iSKI 合作；第一方家庭頁、官方課程及影片佐證 SAPPORO TEINE | 札幌篇文末揭露，現行課程條件與當次經驗分開 |
+| 圓山 | 一月另一趟 | 排除本次三月系列 |
+| 9天 Short | 作者確認標題筆誤，仍同次七天 | 不另創一趟、不改天數 |
+| 精確七日日序／實搭交通 | 完整 ASR、社群與畫格仍不足以證實 D1–D7；相對事件與住宿敘事有衝突，已合併交作者確認 | 不用集數或事件數湊天數；路線敘事先保留編輯稿，第四頁未渲染 |
+| 原照／每站三圖 | 已登入自家 IG／FB 找到原照，採11張；不足處補16張乾淨影片畫格，9站各3張互補 | 公包留來源、原圖hash與PTS/crop；逐圖判斷及嬰兒影像清單見 candidate-review |
+| 現況 | 47筆官方研究來源，查核 2026-10-21～22；候選公包採需要的34筆 | 科學館10/1改價、冬季／年末休館、滑雪與年齡限制按官方列；未知日曆保留確認 |
 
-## 第一手來源範圍
+## 第一手範圍
 
-- 旭川：https://www.youtube.com/watch?v=vH6EMGtzvdE 、https://www.youtube.com/watch?v=6YEfYUrGAbw
-- 札幌市區：https://www.youtube.com/watch?v=jgQ2CHrQ6fg
-- 滑雪：https://www.youtube.com/watch?v=J2CcCvsu0gM
-- 小樽（本次僅路線段落）：https://www.youtube.com/watch?v=nAKoy93DtQw
-- 七天合輯：https://www.youtube.com/watch?v=2Y6go4ITpAM
-- 自家IG旭川照片：https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/
-- 自家IG轉移/滑雪：https://www.instagram.com/eaglish.fam/reel/DV8gjUFE01b/
+- 旭川：[到達與家庭分工](https://www.youtube.com/watch?v=vH6EMGtzvdE)、[動物園、科學館、博物館及餐飲](https://www.youtube.com/watch?v=6YEfYUrGAbw)。
+- 札幌：[市區實訪](https://www.youtube.com/watch?v=jgQ2CHrQ6fg)、[兩天滑雪](https://www.youtube.com/watch?v=J2CcCvsu0gM)。
+- 小樽：[實訪影片](https://www.youtube.com/watch?v=nAKoy93DtQw)，本次僅路線敘事備稿，未另開城市篇。
+- [七天合輯](https://www.youtube.com/watch?v=2Y6go4ITpAM)與單集是同次素材，不當獨立雙重證實。
+- 自家社群：[旭川照片](https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/)、[滑雪原照](https://www.instagram.com/eaglish.fam/p/DWBtEzKkxgm/)、[三月相簿](https://www.facebook.com/photo/?fbid=1492205499581345&set=pcb.1492205576248004)。圖序、時碼及逐張採用在另表。
 
-## 本版現況查核入口（2026-10-21）
+## 檔案
 
-- 旭川市科學館時段/票價：https://www.city.asahikawa.hokkaido.jp/science/06/p002414.html （2026-10-01改價，舊影片票價不作現況。）
-- JR機場/札幌/小樽：https://www.jrhokkaido.co.jp/global/chinese/travel/airport.html
-- JR札幌/旭川列車：https://www.jrhokkaido.co.jp/train/
-- 北海道官方跨城交通：https://www.visit-hokkaido.jp/access/in_hokkaido_1_9_5.html
+- `docs/trip-hokkaido-v1-candidate-review.md`：採用、人物／嬰兒影像與尚未通過項目。
+- `docs/trip-hokkaido-v1-official-sources.json`：官方來源及查核日。
+- `docs/trip-hokkaido-v1-route-draft.md`：第四篇敘事候選，無虛構日序。
+- `trip/data/japan-approved-travel-v1.json`：三頁公包、文字與102個響應式衍生圖閉包。
 
-公開資料只保存必要來源URL、圖序/時碼與權利/crop資訊；私有逐字稿、登入資料、人物審查照片與截圖不進repo。人類家庭確認不代表現行交通或營業可用，兩類證據分開。
+公開檔僅保存必要來源、圖序／時碼、權利與 crop；私有逐字稿、登入資料、人物審查原檔及驗收截圖不進 repo。素材 ASR 閱讀不冒稱完整原片影音觀看；Root 另親看採用照片、畫格與實際渲染。

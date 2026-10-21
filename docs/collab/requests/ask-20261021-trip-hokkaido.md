@@ -24,3 +24,26 @@ Codex最後交Draft PR及私下noindex Tailnet預覽；截圖僅M5橋接資料�
 派工補充已確認住宿基地為札幌Airbnb；旭川無過夜。請勿讓日本入口的城市選擇器強制產生「旭川入住/退房/跨城換宿」。現有country allocation假設分配城市停留與移動日；若不適用札幌基地的往返結構，請Grace採明確支持的日遊/固定路線方式，不能用假住宿或虛構移動日讓模型過驗證。實際7日日序仍查核，未定前不以fixture或推薦路線冒充歷史日程。
 
 現行 `renderMultiViewCountryMap` 已存在，但目前驗證每個point需為公包city且href屬該guide；小樽/機場點須由Grace提供可驗證的route-anchor語意，不能額外開兩座假城市。Codex提供經核座標與來源。
+
+## 真實公包整合後的測試阻擋（2026-10-22）
+
+| 目標 | 驗收點 | 做到哪 | 沒做什麼 | 下一步給誰 |
+|---|---|---|---|---|
+| 讓實際候選登錄可通過共用測試 | 真實候選存在時通過，非法 publication／碰撞仍 fail closed | Codex 接上日本入口、旭川、札幌三頁的真圖候選；build:trip 成功。verify 跑到 532 tests，531 pass、1 fail | 沒改 tests，也沒清掉候選登錄來假造綠燈；七天日序仍待確認，路線頁未造資料 | Grace 修 focused test 後回 commit；Codex 接回重跑並親驗 |
+
+重現：`npm run verify` → `tests/trip-route-candidate.test.mjs:66`，`candidate registry: unpublished only, no path collisions, published package untouched`。
+
+目前這行把真實 repo 的 `approvedTravelCandidates(repo,published)` 寫死期待 `[]`。日本實際候選加入 `trip/data/approved-travel-candidates-v1.json` 後，合法結果為一個 `publication:false` 公包，測試因此失敗。請改成對凍結的正式公包不變做檢查、或將「空候選登錄」隔離在測試 fixture；保留現有 publication=true 拒絕、重複登錄及路由碰撞的測試，不可刪掉候選驗證或略過這項測試。
+
+### 桌機目錄的可重現 UX 問題
+
+1440×900，旭川城市候選向下捲動至任一景點後，`nav[data-reading-nav]` 為 `position:sticky; top:30px`，固定 masthead 實際下緣是 110px。第一列「看圖挑景點」的矩形為 top=52、bottom=89.8，中心命中的是品牌 Logo，不是該目錄連結；本次點擊實際回到 `/trip/`。其他可見列仍能跳轉，正文標題落點沒有被遮住。
+
+請 Grace 修正目錄與真正標頭高度的避讓，保留鍵盤焦點與手機抽屜。重現截圖 `20261022-eliora-asahikawa-1440-toc-overlap.jpg` 已放 M5 橋接，不進 repo。Codex 未修改共用 CSS／JS；這項先列未通過，不能用 force click 繞過。
+
+### 真實候選追加：國家城市卡的 responsive sizes（2026-10-22）
+- 目標：桌機城市大圖按實際欄寬選用清晰的衍生圖。
+- 驗收點：1440 viewport、國家城市卡約 1182px 寬時，sizes 與實際寬度相符；手機維持預算與不切臉。
+- 做到哪：日本入口切札幌後，`.th-city-photo img` 實際 1182×788，HTML `sizes="(max-width:760px) 90vw, 520px"`；實際選到 640w 檔、naturalWidth=519，放大後清晰度不足。原資產和 1440 衍生檔已齊全。
+- 沒做什麼：未在內容分支改共用 renderer／CSS，未自行宣告全通過。
+- 下一步給誰：Grace 確認國家卡圖片 sizes；Codex 接 commit 後重跑實際寬度與視覺驗收。截圖 `20261022-eliora-japan-1440-city-sapporo.jpg` 私放 M5 橋接。

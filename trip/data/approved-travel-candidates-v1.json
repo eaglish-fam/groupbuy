@@ -1,4 +1,18 @@
 {
   "schema": "eaglish.approved-travel-candidates/v1",
-  "packages": []
+  "packages": [
+    {
+      "dataPath": "trip/data/japan-approved-travel-v1.json",
+      "expectedSha256": "6a13158e23749fa0fb45957c7098eea1e18873ed42a7835d6ea6e95c43e7f912",
+      "countryIds": [
+        "japan"
+      ],
+      "cityIds": [
+        "asahikawa",
+        "sapporo"
+      ],
+      "routeIds": [],
+      "publication": false
+    }
+  ]
 }
