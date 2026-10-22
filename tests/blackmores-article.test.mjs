@@ -7,16 +7,26 @@ const pc=createRequire(import.meta.url)('../product-content.js');
 const read=path=>readFileSync(new URL(`../${path}`,import.meta.url));
 const row={'品牌':'澳佳寶保健食品','連結':'https://www.blackmores.com.tw/page/zion.zenith2610?utm_source=KOL','類型':'短期','開團日期':'2026-10-19','結束日期':'2026-10-25'};
 
-test('Blackmores verified prose, comparison tables and FAQ remain unchanged during the visual/editorial revision',()=>{
- // Baseline is origin/main e00da92 before this revision, not a hash recomputed from the edited article.
- // Headings, section labels, media and the source footer are explicitly being revised.
+test('Blackmores verified prose, comparison tables and FAQ match the reviewed baseline',()=>{
+ // Freezes the reviewed prose so unreviewed edits fail. Any intended body revision updates this hash in its own PR.
+ // 2026-10-19 baseline (e00da92): de5d2a91…a8e. 2026-10-22 PR #62 (a1a5984) revised exactly five blocks for the
+ // campaign's under-four method: opening answer, overview row, kids fish-oil paragraph, fish-oil table row, first FAQ.
  const html=read('blog/blackmores/index.html').toString();
  const body=html.split('<div class="article-body">')[1]?.split('<footer class="sources">')[0]||'';
  const parts=[...body.matchAll(/<(?:p|table|details)\b[^>]*>[\s\S]*?<\/(?:p|table|details)>/g)]
   .map(m=>m[0]).filter(v=>!/^<p\b[^>]*(?:section-label|data-editorial-exclude)/.test(v))
   .map(v=>v.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim());
  assert.ok(parts.length>15,'verified content blocks are present');
- assert.equal(createHash('sha256').update(parts.join('\n')).digest('hex'),'de5d2a91c8724796b95338f21ea685b8a9050c3bcd7a8d0a2d02793c60841a8e');
+ assert.equal(createHash('sha256').update(parts.join('\n')).digest('hex'),'e9ee83863d4bb9e1fb7ab6442127b3781d890af2d140f7ed810231526db56b13');
+});
+
+test('Blackmores kids fish oil keeps the campaign age split: under four pierced into a drink, chewing from four',()=>{
+ const html=read('blog/blackmores/index.html').toString();
+ const text=html.split('<div class="article-body">')[1].split('<footer class="sources">')[0].replace(/<[^>]*>/g,' ').replace(/\s+/g,' ');
+ assert.match(text,/4歲以下[^。]*刺破[^。]*混入飲品/);
+ assert.match(text,/咀嚼則建議4歲以上/);
+ assert.doesNotMatch(text,/3歲以上[^。；]*咀嚼/,'no unconditional three-plus chewing claim');
+ assert.match(html,/id="source-kids" href="https:\/\/www\.blackmores\.com\.tw\/SalePage\/Index\/2YHpFA-dDGe03gHqPYcnLA=="/);
 });
 
 test('Blackmores catalog entry binds only the exact Sheet brand and uses the standalone product card',()=>{
