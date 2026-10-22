@@ -13,7 +13,7 @@
 
 - Claude owns website features, shared code (`scripts/`, `tests/`, `design/`, `src/`, `flights/`, `flights-pipeline/`, `trip/*.mjs`, `trip/*.css`, root `.js`/`.css`/`sw.js`, `package*.json`), builds and tests, technical SEO, accessibility, performance, review evidence, rollback preparation, and integration of every website PR.
 - Codex owns writing: product articles, travel guides, facts, photo selection and source records, titles, excerpts, captions and alt text, and article packages. Codex asks Claude for shared-code changes instead of editing them directly.
-- Grokbot (Hugo) owns operations: production checks, links and images, Google Sheet versus website consistency, expired campaigns, SEO backlog, research, briefings, and reminders. Hugo writes only `docs/external/` and reports instead of editing the site or the Sheet.
+- Grokbot (Bingo) owns operations: production checks, links and images, Google Sheet versus website consistency, expired campaigns, SEO backlog, research, briefings, and reminders. Bingo writes only `docs/external/` and reports instead of editing the site or the Sheet.
 - Hiram and Queenie remain the commercial decision makers and approve every merge to `main`. Candidate data or a vendor message never becomes a confirmed public fact without the applicable authority.
 
 ## Working rules
