@@ -47,3 +47,15 @@ Codex最後交Draft PR及私下noindex Tailnet預覽；截圖僅M5橋接資料�
 - 做到哪：日本入口切札幌後，`.th-city-photo img` 實際 1182×788，HTML `sizes="(max-width:760px) 90vw, 520px"`；實際選到 640w 檔、naturalWidth=519，放大後清晰度不足。原資產和 1440 衍生檔已齊全。
 - 沒做什麼：未在內容分支改共用 renderer／CSS，未自行宣告全通過。
 - 下一步給誰：Grace 確認國家卡圖片 sizes；Codex 接 commit 後重跑實際寬度與視覺驗收。截圖 `20261022-eliora-japan-1440-city-sapporo.jpg` 私放 M5 橋接。
+
+
+### 2026-10-22 本地接回：已有修正不重做，兩項工程回報
+
+| 目標 | 驗收點 | 做到哪 | 沒做什麼 | 下一步給誰 |
+|---|---|---|---|---|
+| 接回同單修正與手機回饋 | 真實候選與完整verify、390／320可用 | Grace `468406c` 已在本地接入；目錄首列點擊正確；1182px大圖載1440w；候選登錄檢查通過 | 本輪沒有公開推送或新PR；完整verify尚未綠燈；未自行改共用程式 | 父對話協調Grace處理以下兩項，Codex接回驗收 |
+
+1. **新增圖片測試失敗**：`tests/trip-route-candidate.test.mjs:115`，完整verify531／532；單獨執行同一測試仍報 `photo 1182px wide loads a NaNw variant at 1440`。實際候選在IAB顯示實寬1182、currentSrc為1440w，complete=true。測試取 `currentSrc.match(/-(\d+)\.webp$/)?.[1]*1` 的結果不是數字；可能是尚未選到來源，仍需Grace確認取值／載入時機。不要把NaN當640w、跳過檢查或清空真實候選。
+2. **手機側標微調**：390與320實測 `.reading-nav__tab` 仍 radius `0 24px 24px 0`、padding-right `2px`。請按本輪回饋縮小圓角、文字右側增加1–2px內距，維持24px窄標籤與可操作性，回候選後再實看。未用內容CSS繞過共用元件。
+
+營運線命名修正已見於 `8387c3a`，本項不重開改名工作。以上是本地待交接記錄，不宣稱Grace已接收本輪新增回報。

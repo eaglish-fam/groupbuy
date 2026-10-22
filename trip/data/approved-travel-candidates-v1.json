@@ -3,7 +3,7 @@
   "packages": [
     {
       "dataPath": "trip/data/japan-approved-travel-v1.json",
-      "expectedSha256": "6a13158e23749fa0fb45957c7098eea1e18873ed42a7835d6ea6e95c43e7f912",
+      "expectedSha256": "dac9d4b0a069b7e09ee10171f3497c73d2929eaacc1c9e795ba07c4d0e510e10",
       "countryIds": [
         "japan"
       ],

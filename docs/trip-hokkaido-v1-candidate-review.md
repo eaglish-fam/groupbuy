@@ -2,7 +2,7 @@
 
 | 目標 | 驗收點 | 做到哪 | 沒做什麼 | 下一步給誰 |
 |---|---|---|---|---|
-| 日本入口與北海道親子系列第一版候選 | 同族模板、可追來源、真圖、noindex、三種寬度 | 日本、旭川、札幌三頁候選；27 張圖、9 站各三張；6 條城市建議路線 | 七天逐日日序仍缺，第四頁未渲染；共用測試／桌機目錄／國家大圖 sizes 尚待修；沒有發布核准 | Grace 修工程；Bingo 轉作者確認日序；Codex 接回驗收 |
+| 日本入口與北海道親子系列第一版候選 | 同族模板、可追來源、真圖、noindex、三種寬度 | 日本、旭川、札幌三頁候選；27 張圖、9 站各三張；6 條城市建議路線 | 七天逐日日序仍缺，第四頁未渲染；已接原工程修正，實跑仍有圖片檢查失敗；手機側標微調待修；沒有發布核准 | 父對話協調 Grace 與日序補件；Codex 接回驗收 |
 
 ## 本版採用範圍
 
@@ -23,7 +23,7 @@
 | `science-bubble` | [來源](https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=8)；原貼文照片 | 自家人物／活動主體；未採陌生旅客特寫，保留人物重點與臉部。 |
 | `daikokuya-grill` | [來源](https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=10)；原貼文照片 | 自家人物／活動主體；未採陌生旅客特寫，保留人物重點與臉部。 |
 | `asahiyama-bear-entry` | [來源](https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1421)；PTS 42651609; timebase 1/30000 | 場景、物件或動物主體；未以可辨識陌生旅客作主角。 |
-| `zoo-family-terrace` | [來源](https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=1)；原貼文照片 | 家人合照，含嬰兒臉部；需 Hiram 審閱本張採用。 |
+| `zoo-family-terrace` | [來源](https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=1)；原貼文照片 | 家人合照，含嬰兒臉部；本輪補充回覆確認可用。 |
 | `science-platform` | [來源](https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1810)；PTS 54300246; timebase 1/30000 | 自家人物／活動主體；未採陌生旅客特寫，保留人物重點與臉部。 |
 | `science-gyroscope` | [來源](https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=7)；原貼文照片 | 自家人物／活動主體；未採陌生旅客特寫，保留人物重點與臉部。 |
 | `museum-overview` | [來源](https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2015)；PTS 60450390; timebase 1/30000 | 場景、物件或動物主體；未以可辨識陌生旅客作主角。 |
@@ -33,7 +33,7 @@
 | `ramen-aoba-sign` | [來源](https://www.youtube.com/watch?v=6YEfYUrGAbw&t=78)；PTS 2359357; timebase 1/30000 | 場景、物件或動物主體；未以可辨識陌生旅客作主角。 |
 | `ramen-guide-plaque` | [來源](https://www.youtube.com/watch?v=6YEfYUrGAbw&t=236)；PTS 7083076; timebase 1/30000 | 場景、物件或動物主體；未以可辨識陌生旅客作主角。 |
 | `daikokuya-food-spread` | [來源](https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2302)；PTS 69071002; timebase 1/30000 | 場景、物件或動物主體；未以可辨識陌生旅客作主角。 |
-| `daikokuya-family` | [來源](https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=11)；原貼文照片 | 自家原公開合照，含同框店員；請作者審閱。 |
+| `daikokuya-family` | [來源](https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=11)；原貼文照片 | 自家原公開合照，含同框店員；本輪補充回覆確認可用。 |
 | `teine-child-board` | [來源](https://www.instagram.com/eaglish.fam/p/DWBtEzKkxgm/?img_index=13)；原貼文照片 | 自家人物／活動主體；未採陌生旅客特寫，保留人物重點與臉部。 |
 | `shiroi-workshop` | [來源](https://www.facebook.com/photo/?fbid=1492205499581345&set=pcb.1492205576248004)；原貼文照片 | 自家人物／活動主體；未採陌生旅客特寫，保留人物重點與臉部。 |
 | `aoao-family-eels` | [來源](https://www.facebook.com/photo/?fbid=1492205486248013&set=pcb.1492205576248004)；原貼文照片 | 自家人物／活動主體；未採陌生旅客特寫，保留人物重點與臉部。 |
@@ -49,12 +49,12 @@
 
 ### 嬰兒影像審閱清單
 
-本版唯一採用的嬰兒臉部照片：`zoo-family-terrace`，公開檔 `trip/assets/hokkaido-g3-zoo-family-terrace-v1.webp`，用於旭山動物園正文輔圖與短卡原照並排。候選圖中的其他嬰兒影像未一併採用。這份清單交作者審閱，未宣稱已獲最終採用核准。
+本版唯一採用的嬰兒臉部照片：`zoo-family-terrace`，公開檔 `trip/assets/hokkaido-g3-zoo-family-terrace-v1.webp`，用於旭山動物園正文輔圖與短卡原照並排。候選圖中的其他嬰兒影像未一併採用。兩張原待審照片已收到可用的補充回覆，採用紀錄留在本機；候選仍未發布。
 
 ## 文字與事實取捨
 
-- 依作者確認：三月七天、札幌 Airbnb 基地、iSKI 合作；一月圓山排除，9 天 Short 標題筆誤。住宿不放地址、房源或未核房型。
-- 未把 ASR 的相對事件轉成 D1–D7，也未把影片集數當日數。住宿敘事與舊逐字稿相對時間的衝突留在私有釐清，不把推測寫給讀者。
+- 依作者確認：三月七天、旭川與札幌各住 Airbnb、iSKI 合作；一月圓山排除，9 天 Short 標題筆誤。住宿不放地址、房源或未核房型。
+- 未把 ASR 的相對事件轉成 D1–D7，也未把影片集數當日數。住宿按本輪更正與原影片重新對照，確切晚數與轉城日號仍留內部核對。
 - 手稻雪場以 iSKI 第一方家庭頁、官方課程與影片佐證；合作揭露只在札幌篇文末，未延伸成其他店家或整趟受邀。
 - 棕熊照片寫棕熊；故事另寫當次看的北極熊，沒有混稱。青葉門面不等於已證實實吃青葉；米其林牌匾只描述拍攝時 2012／2017 收錄字樣。
 - 啤酒博物館當次抵達太晚、未入館，保留交通段短記。沒有以館內素材冒充實訪；沒有乾淨外觀圖便不造三圖景點。
@@ -65,7 +65,8 @@
 
 - 三頁含 `noindex,nofollow`，無 site-runtime／GA；未進 sitemap、首頁或世界地圖。預覽私下交付。
 - 三種寬度已實看，短卡、地圖地名、城市切換、FAQ、兩城六條路線／逐日切換已操作。首次短卡到正文標題未被標頭蓋住。
-- **未通過**：桌機 TOC 第一列被標頭遮蓋；國家城市大圖 sizes 與實際欄寬不符；`npm run verify` 531／532，一項共用測試將候選登錄寫死為空。均在同次工程需求／PR #57 回報，未自行改共用程式。
+- 原三項工程修正已由 Grace 提供 commit `468406c`，本輪只接入本地。目錄首列實測 top=148、標頭 bottom=110，點擊正確；國家大圖實寬1182，已載1440w；真實候選清單檢查已通過。
+- **未通過**：完整 `npm run verify` 仍為531／532，失敗改為新增的圖片檢查 `photo 1182px wide loads a NaNw variant at 1440`（同一測試單獨重跑也重現）。實際候選可載入1440w；確切測試原因留工程診斷，不因畫面正常便宣告verify通過。手機側標仍圓角24px、右內距2px，尚未套用本輪回饋。
 - 分享按鈕顯示已複製，但本次瀏覽器讀回剪貼簿為空，未將分享持久化列為已驗收。
-- 第四頁、互鏈、小樽／機場路線地圖點、四頁全部通過尚未完成。精確七天日序的合併問題已交 Bingo 轉作者，沒有重問已確認的四項。
-- 截圖只在 M5 橋接；本文和 PR 僅列檔名。PR 保持 Draft，未合併、未發布、未發社群或通知。
+- 第四頁、互鏈、小樽／機場路線地圖點、四頁全部通過尚未完成。本輪已列出D1到達、D2明示採買與後續相對日序；D3／D4的日號仍是條件推論，未補成七日公包。
+- 原截圖留在M5橋接，本輪增量截圖只留本機QA資料夾；未放repo。PR保持Draft，本輪未推送內容、未合併、未發社群或通知。
