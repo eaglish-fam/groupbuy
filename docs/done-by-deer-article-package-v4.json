@@ -1,0 +1,1014 @@
+{
+  "schema": "eaglish.article-package/v4",
+  "editorialStatus": "ready",
+  "publicationAuthorized": true,
+  "identity": {
+    "productId": "done-by-deer",
+    "productName": "Done by deer",
+    "categoryModule": "parent_child",
+    "slug": "done-by-deer",
+    "scope": {
+      "includedFamilies": [
+        "兒童碗盤與餐具",
+        "外出水壺與保溫罐",
+        "便當盒與包袋",
+        "嬰幼兒禮盒"
+      ],
+      "includedModels": [
+        "矽膠分隔餐盤半圓三格款藍色",
+        "立體矽膠餐盤 Elphee",
+        "保溫吸管水壺探險款沙色",
+        "矽膠分隔餐碗半圓兩格款藍色",
+        "矽膠餐墊藍色",
+        "矽膠學習湯匙兩件組藍色",
+        "兒童水壺 280ml 探險款沙色",
+        "保溫罐探險款沙色",
+        "便當盒探險款沙色",
+        "兒童午餐袋探險款綠色",
+        "兒童後揹包探險款綠色",
+        "迷你搖鈴三件組禮盒粉色",
+        "新生兒餐具禮盒 Sheepy 款米色"
+      ],
+      "variantsKeptTogether": [],
+      "excludedSiblings": [
+        "當期活動未確認的其他商品與品牌優惠"
+      ],
+      "legacyOnly": []
+    }
+  },
+  "brief": {
+    "intent": "commercial_investigation",
+    "primaryQuery": "Done by deer 兒童餐具怎麼選",
+    "readerJob": "依孩子階段與實際用途比較餐盤、水壺、便當及禮盒。",
+    "angle": "沿原稿階段選購主線，改為有來源的客觀介紹，不依賴家庭使用或送禮經驗。",
+    "title": "Done by deer 兒童餐具怎麼選？餐盤、水壺、便當盒依年齡分，加彌月送禮清單｜鷹家選物誌",
+    "h1": "Done by deer 兒童餐具與水壺｜孩子每天用的東西，也可以很好看。",
+    "metaDescription": "Done by deer 兒童餐具怎麼挑？依副食品、自主用餐與入園需要，比較矽膠碗盤、水壺、保溫罐和便當盒的尺寸、容量、耐熱及清潔限制，也整理搖鈴與餐具禮盒的送禮方向。",
+    "openingAnswer": "選 Done by deer，先看孩子在哪個階段，再挑圖案。剛吃副食品，從吸盤小碗加湯匙的新生兒餐具禮盒看起；練習自己吃，比較三格餐盤、兩格餐碗和 Elphee 小象餐盤；要上幼兒園，再看兒童水壺、保溫吸管水壺、保溫罐和便當盒。矽膠碗盤可進微波爐和洗碗機；塑膠便當盒和 280 ml 水壺最高耐熱 60°C，只適合冷食、冷飲。",
+    "relatedQuestions": [
+      "為什麼頁面上的價格沒有折扣？",
+      "便當盒可以放進學校的蒸飯箱嗎？",
+      "出貨、退換貨要找誰？"
+    ]
+  },
+  "sources": [
+    {
+      "id": "brand-friends",
+      "kind": "manufacturer",
+      "authority": "Done by Deer原廠",
+      "title": "Meet the Deer friends - Done by Deer &ndash; Done by Deer",
+      "url": "https://donebydeer.com/en-gb/pages/meet-the-deer-friends",
+      "observedAt": "2026-10-22T10:57:27.639Z",
+      "sha256": "f1a845beb5d9b6dc807d8b9518caf6a64d11cf2559336a6c35f4982da3b435c1"
+    },
+    {
+      "id": "brand-story",
+      "kind": "manufacturer",
+      "authority": "Done by Deer原廠",
+      "title": "About Done by Deer - A Danish brand for babies and toddlers &ndash; Done by Deer",
+      "url": "https://donebydeer.com/en-dk/pages/our-story",
+      "observedAt": "2026-10-22T10:57:27.639Z",
+      "sha256": "887c10f644103519950c52b6d6a8792b251228ad209569a3c78d130ca4600229"
+    },
+    {
+      "id": "designer-interview",
+      "kind": "manufacturer",
+      "authority": "Done by Deer原廠",
+      "title": "Q&A with Head of Design Helene Hjorth &ndash; A blog post by Done by Deer",
+      "url": "https://donebydeer.com/en-dk/blogs/news/q-a-with-head-of-design-helene-hjorth",
+      "observedAt": "2026-10-22T10:57:28.347Z",
+      "sha256": "e19bfc3de2c872cef901a4e1bf8d79a72e57d306e7a47012cad112c4aecd7f98"
+    },
+    {
+      "id": "product-01",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "矽膠分隔餐盤-半圓三格款藍色",
+      "url": "https://www.petiteboite.net/products/stickstay-compartment-plate-tiny-farm-blue",
+      "observedAt": "2026-10-22T10:59:18.470Z",
+      "sha256": "69be02601517119f29ad5271916326009459c28d5f18a254d491675415ff9029"
+    },
+    {
+      "id": "product-02",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "Done by deer 立體矽膠餐盤Elphee-藍色",
+      "url": "https://www.petiteboite.net/products/peekaboo-plate-elphee-blue",
+      "observedAt": "2026-10-22T11:30:25.946Z",
+      "sha256": "0b5dcc9df8d9cf34e02c52a908aec482298785d717aba019fb4c1b3ee4a5c375"
+    },
+    {
+      "id": "product-03",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "保溫吸管水壺-探險款沙色",
+      "url": "https://www.petiteboite.net/products/insulated-straw-bottle-tiny-trails-sand-340-ml",
+      "observedAt": "2026-10-22T10:59:18.597Z",
+      "sha256": "7c48513b51922162d457893227d123f82587ebdbfa8eefe749c4babba67d4383"
+    },
+    {
+      "id": "product-04",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "矽膠分隔餐碗-半圓兩格款藍色",
+      "url": "https://www.petiteboite.net/products/stickstay-compartment-bowl-tiny-farm-blue",
+      "observedAt": "2026-10-22T10:59:18.665Z",
+      "sha256": "6ca434fbda420911bd6490bb9752058f53f78102e29d94266fad17c0da2ccec1"
+    },
+    {
+      "id": "product-06",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "矽膠學習湯匙兩件組-藍色",
+      "url": "https://www.petiteboite.net/products/learning-spoon-set-tiny-farm-blue",
+      "observedAt": "2026-10-22T10:59:18.972Z",
+      "sha256": "7a4788d9aef923adb5840bf10da2e55941c3faeff7e60c2a3f16fb56c4237d05"
+    },
+    {
+      "id": "product-05",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "矽膠餐墊-遊戲時光款藍色",
+      "url": "https://www.petiteboite.net/products/silicone-placemat-tiny-farm-blue",
+      "observedAt": "2026-10-22T10:59:19.021Z",
+      "sha256": "0e1ef691ecb623b81701c3bca4f8bc1048347baba045f65f05769014bbd8541e"
+    },
+    {
+      "id": "product-07",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "兒童水壺280ml-探險款沙色",
+      "url": "https://www.petiteboite.net/products/straw-bottle-adventure-sand-280-ml",
+      "observedAt": "2026-10-22T10:59:19.176Z",
+      "sha256": "afd8f7fc25986709edfadfadd7b67d699883c3221018faf7d15e648f487aceb1"
+    },
+    {
+      "id": "product-08",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "保溫罐-探險款沙色",
+      "url": "https://www.petiteboite.net/products/insulated-food-jar-tiny-trails-sand-300-ml",
+      "observedAt": "2026-10-22T10:59:19.197Z",
+      "sha256": "884982d7d03a5331977fcab75e89ab30d8a145f52620b4f27585427b2dfd4f9c"
+    },
+    {
+      "id": "product-09",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "便當盒-探險款沙色",
+      "url": "https://www.petiteboite.net/products/lunch-box-wdivider-adventure-sand",
+      "observedAt": "2026-10-22T10:59:19.406Z",
+      "sha256": "4d909e5552a93141038037ac555b3f1071918cbf4e45290c46bc70401a16ad97"
+    },
+    {
+      "id": "product-10",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "兒童午餐袋-探險款綠色",
+      "url": "https://www.petiteboite.net/products/tiny-insulated-lunch-bag-tiny-trails-green-28-l",
+      "observedAt": "2026-10-22T10:59:19.479Z",
+      "sha256": "d9db6f3315919052d8472904773e875cd9ba086e6f1f0775065de8ab855f0d78"
+    },
+    {
+      "id": "product-11",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "兒童後揹包-探險款綠色",
+      "url": "https://www.petiteboite.net/products/kids-backpack-tiny-trails-green-75-l",
+      "observedAt": "2026-10-22T10:59:19.660Z",
+      "sha256": "a7749d95392f094e808a9c53bf17bfb422ea2f9a9c266afe5974a8a585517f44"
+    },
+    {
+      "id": "product-12",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "迷你搖鈴三件組禮盒-粉色",
+      "url": "https://www.petiteboite.net/products/tiny-activity-toys-gift-set-deer-friends-powder",
+      "observedAt": "2026-10-22T10:59:19.837Z",
+      "sha256": "a4dff98d8d84d572194776ec0556b77d2495400e575271d5b4aadd215f4a0ea3"
+    },
+    {
+      "id": "product-13",
+      "kind": "authorized_agent",
+      "authority": "petiteboite台灣代理商",
+      "title": "新生兒餐具禮盒-Sheepy款米色",
+      "url": "https://www.petiteboite.net/products/stickstay-learning-meal-set-sheepy-sand",
+      "observedAt": "2026-10-22T10:59:19.903Z",
+      "sha256": "b50ec21b5fa78f5a36d9faaf471eab8f6812c5f8872b6614e50291cf66557a85"
+    },
+    {
+      "id": "manufacturer-07",
+      "kind": "manufacturer",
+      "authority": "Done by Deer原廠",
+      "title": "Straw bottle - Tiny trails - Sand - 280 ml &ndash; Shop at Done by Deer official webshop",
+      "url": "https://donebydeer.com/en-dk/products/straw-bottle-tiny-trails-sand-280-ml",
+      "observedAt": "2026-10-22T11:01:58.173Z",
+      "sha256": "3a0d5b0e55bc1d0891856a756aa5bdde04e20309a2e22b8f7cb53b65b7725002"
+    },
+    {
+      "id": "manufacturer-01",
+      "kind": "manufacturer",
+      "authority": "Done by Deer原廠",
+      "title": "Stick&Stay compartment plate - Tiny farm - Blue &ndash; Shop at Done by Deer official webshop",
+      "url": "https://donebydeer.com/en-nl/products/stick-stay-compartment-plate-tiny-farm-blue",
+      "observedAt": "2026-10-22T11:01:58.328Z",
+      "sha256": "be7f98cef671a7f7d633d9c8cbcfe77323deadc8e77e557f3e9d2b19710661d0"
+    },
+    {
+      "id": "manufacturer-08",
+      "kind": "manufacturer",
+      "authority": "Done by Deer原廠",
+      "title": "Insulated food jar - Tiny trails - Sand - 300 ml &ndash; Shop at Done by Deer official webshop",
+      "url": "https://donebydeer.com/en-dk/products/insulated-food-jar-tiny-trails-sand-300-ml",
+      "observedAt": "2026-10-22T11:01:58.573Z",
+      "sha256": "3e349b5c8f7291ea9b0300767db74a29877e8fe53e2f042889f68d2b5646bd64"
+    },
+    {
+      "id": "manufacturer-03",
+      "kind": "manufacturer",
+      "authority": "Done by Deer原廠",
+      "title": "Insulated straw bottle - Tiny trails - Sand - 340 ml &ndash; Shop at Done by Deer official webshop",
+      "url": "https://donebydeer.com/en-fr/products/insulated-straw-bottle-tiny-trails-sand-340-ml",
+      "observedAt": "2026-10-22T11:01:58.699Z",
+      "sha256": "44a1331be0955f5c9f20c4cf4b797c58c45d3a871d11883b18ba25399076aa0c"
+    },
+    {
+      "id": "vendor-media",
+      "kind": "vendor_media",
+      "authority": "petiteboite授權商品圖",
+      "title": "13張原始商品照片，沿用既有媒體清單"
+    }
+  ],
+  "claims": [
+    {
+      "id": "brand",
+      "text": "丹麥設計、設計師姓氏與品牌名稱關係及跨品類角色，以原廠說明為依據。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "brand-story",
+        "brand-friends",
+        "designer-interview"
+      ]
+    },
+    {
+      "id": "silicone",
+      "text": "本篇三款碗盤、餐墊、學習匙及Sheepy禮盒的材質、尺寸、耐熱與照護，按各自台灣代理商頁標示；認證以代理商的標示歸屬。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "product-01",
+        "product-02",
+        "product-04",
+        "product-05",
+        "product-06",
+        "product-13"
+      ]
+    },
+    {
+      "id": "travel",
+      "text": "容量、尺寸、台灣耐熱標示、保溫最長6小時、包袋搭配及照護，逐款以所引商品頁為依據；280ml只寫雙方均支持的塑膠瓶身，不裁決樹脂版本。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "product-03",
+        "product-07",
+        "product-08",
+        "product-09",
+        "product-10",
+        "product-11"
+      ]
+    },
+    {
+      "id": "straw-age-care",
+      "text": "兩款已對應SKU吸管瓶原廠建議6個月以上；保溫罐壺不建議洗碗機與冷凍。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "manufacturer-03",
+        "manufacturer-07",
+        "manufacturer-08"
+      ]
+    },
+    {
+      "id": "rattle",
+      "text": "粉色三件組的2–4、3–5、4–6月階段為代理商逐件說明；獎項句刪除，不宣稱主辦方名單已核實。",
+      "type": "vendor_claim",
+      "sourceIds": [
+        "product-12"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "factId": "brand",
+      "summary": "設計師與品牌敘事由原廠支持",
+      "disposition": "body",
+      "location": "s1"
+    },
+    {
+      "factId": "silicone",
+      "summary": "逐款餐具與禮盒標示",
+      "disposition": "table",
+      "location": "s2/s3/s5/s7"
+    },
+    {
+      "factId": "travel",
+      "summary": "容量、限制與午餐袋小款搭配",
+      "disposition": "table",
+      "location": "s4"
+    },
+    {
+      "factId": "straw-age-care",
+      "summary": "吸管適齡與罐壺照護",
+      "disposition": "body",
+      "location": "s4/s7"
+    },
+    {
+      "factId": "rattle",
+      "summary": "搖鈴階段",
+      "disposition": "body",
+      "location": "s2/s5"
+    },
+    {
+      "factId": "resin-version",
+      "summary": "280ml的PP與Tritan來源差異",
+      "disposition": "omitted",
+      "reason": "只保留雙方支持的塑膠瓶身，未選邊或宣稱本批樹脂。"
+    },
+    {
+      "factId": "other-brand-campaign",
+      "summary": "其他導覽品牌是否適用本檔",
+      "disposition": "omitted",
+      "reason": "移除跨品牌比較，聚焦Done by deer；不因全站有售而推定本檔優惠。"
+    },
+    {
+      "factId": "family-experience",
+      "summary": "三處可選家庭經驗",
+      "disposition": "omitted",
+      "reason": "不採第一人稱體驗，原稿另存，客觀介紹不需人類補故事。"
+    },
+    {
+      "factId": "volatile-terms",
+      "summary": "折數、結束日與客服暫停公告",
+      "disposition": "omitted",
+      "reason": "不在長期文章寫浮動條件；仍以現有Sheet動態導購fail-closed，未改Sheet也未宣稱營運資料差異已解。"
+    }
+  ],
+  "media": [
+    {
+      "id": "product-01",
+      "path": "/assets/done-by-deer/product-01.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-01"
+      ],
+      "shows": "三格藍色餐盤，拖拉機、綿羊與小雞圖案",
+      "section": "s1",
+      "alt": "矽膠分隔餐盤半圓三格款藍色，淡藍底色上有拖拉機、小羊和小雞插畫",
+      "caption": "矽膠分隔餐盤半圓三格款藍色",
+      "identityStatus": "confirmed",
+      "sha256": "888a6bd5e6d58b2668476f0de516d9a3c1e290b1b3a4cfa5fa07ea10f4b00301",
+      "bytes": 26018,
+      "dimensions": [
+        1200,
+        1200
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "ac334bcc4a6191de092ca9e4cc108bc27bff8758d1898e9b911dc87cac054769"
+    },
+    {
+      "id": "product-02",
+      "path": "/assets/done-by-deer/product-02.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-02"
+      ],
+      "shows": "圓形單格盤，盤緣小象",
+      "section": "s1",
+      "alt": "立體矽膠餐盤 Elphee，單格圓盤盤緣站著一隻立體小象",
+      "caption": "立體矽膠餐盤 Elphee",
+      "identityStatus": "confirmed",
+      "sha256": "e2f62245ae925ee68eb5c09c0e66e091b2ac69b48e185040ad2ffdd17445a3df",
+      "bytes": 7874,
+      "dimensions": [
+        900,
+        900
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "4adaca93f96741547f1c13c45edb0b1060612964c739c26a210acb376633f985"
+    },
+    {
+      "id": "product-03",
+      "path": "/assets/done-by-deer/product-03.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-03"
+      ],
+      "shows": "不鏽鋼外觀吸管保溫瓶，探險插畫",
+      "section": "s1",
+      "alt": "保溫吸管水壺探險款沙色，不鏽鋼瓶身上有橡實葉、腳印、地圖和放大鏡插畫",
+      "caption": "保溫吸管水壺探險款沙色",
+      "identityStatus": "confirmed",
+      "sha256": "0ef692ab667aa8a2b7577c217ea85f707bff19f432c1c011290922fcd57dee77",
+      "bytes": 19092,
+      "dimensions": [
+        900,
+        900
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "c7a7b743cc2f60ec70e2ee106a1d4b621b16032a1f256413f46d305deade75f0"
+    },
+    {
+      "id": "product-04",
+      "path": "/assets/done-by-deer/product-04.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-04"
+      ],
+      "shows": "半圓兩格藍色碗，綿羊插畫",
+      "section": "s3",
+      "alt": "矽膠分隔餐碗半圓兩格款藍色",
+      "caption": "矽膠分隔餐碗半圓兩格款藍色",
+      "identityStatus": "confirmed",
+      "sha256": "78bc8360f188f3b09a4fbf8bd8015019cfa2aa81d417280c410804ffe5a5c7d7",
+      "bytes": 24346,
+      "dimensions": [
+        1200,
+        1200
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "97c20489daf9227f9d0b1ba34eef07a4eddf2b6b863504d8da74a7a2fb552720"
+    },
+    {
+      "id": "product-05",
+      "path": "/assets/done-by-deer/product-05.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-05"
+      ],
+      "shows": "藍色餐墊，農場插畫",
+      "section": "s3",
+      "alt": "矽膠餐墊藍色",
+      "caption": "矽膠餐墊藍色",
+      "identityStatus": "confirmed",
+      "sha256": "1c38736c4d56d0965babdb831a8f46cfee4ef335cc9e74c949682cb8c718b239",
+      "bytes": 19746,
+      "dimensions": [
+        1200,
+        1200
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "5915eb570059da9357ec3ca64e58df9916be5a3909733e43a16d61703118c1bf"
+    },
+    {
+      "id": "product-06",
+      "path": "/assets/done-by-deer/product-06.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-06"
+      ],
+      "shows": "藍色雙湯匙",
+      "section": "s3",
+      "alt": "矽膠學習湯匙兩件組藍色",
+      "caption": "矽膠學習湯匙兩件組藍色",
+      "identityStatus": "confirmed",
+      "sha256": "e2db1601ea92850f0277b6fc63af617b69c297eb8a2f355cd8ea4bc5d5e23f4a",
+      "bytes": 11500,
+      "dimensions": [
+        900,
+        900
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "1b50ed832de8dca2c6d2817bc90c42007cc66a54e9d61614cc8973a8f0865c8a"
+    },
+    {
+      "id": "product-07",
+      "path": "/assets/done-by-deer/product-07.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-07"
+      ],
+      "shows": "透明外觀兒童水壺，探險插畫",
+      "section": "s4",
+      "alt": "兒童水壺 280ml 探險款沙色",
+      "caption": "兒童水壺 280ml 探險款沙色",
+      "identityStatus": "confirmed",
+      "sha256": "095339676b37367251223dc5126f75e38635fae93cbf677c42ddca887736d4c2",
+      "bytes": 14582,
+      "dimensions": [
+        900,
+        900
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "05006c8ccee9c7d31f1c36aba766e4ef56375c093982619745dda4f189f81434"
+    },
+    {
+      "id": "product-08",
+      "path": "/assets/done-by-deer/product-08.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-08"
+      ],
+      "shows": "圓筒保溫罐，探險插畫",
+      "section": "s4",
+      "alt": "保溫罐探險款沙色",
+      "caption": "保溫罐探險款沙色",
+      "identityStatus": "confirmed",
+      "sha256": "5ee5a0c54c113d19df954652718504801e7700376ede87eefd05b9b291ba83d0",
+      "bytes": 19706,
+      "dimensions": [
+        900,
+        900
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "07f68764ebe01f54dcb076a58dd9f1c84b882f11078e8c0e502ecd3d506c5068"
+    },
+    {
+      "id": "product-09",
+      "path": "/assets/done-by-deer/product-09.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-09"
+      ],
+      "shows": "方形便當盒，探險插畫",
+      "section": "s4",
+      "alt": "便當盒探險款沙色",
+      "caption": "便當盒探險款沙色",
+      "identityStatus": "confirmed",
+      "sha256": "f3a2d64109bbc929f69af4a0881410002f447783f29ece08f27d75dc70f31b00",
+      "bytes": 22980,
+      "dimensions": [
+        1200,
+        1200
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "b63078ba371b0298e140b373f50aba614d5de02c37e6e1f52c15d515d430bf83"
+    },
+    {
+      "id": "product-10",
+      "path": "/assets/done-by-deer/product-10.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-10"
+      ],
+      "shows": "綠色手提午餐袋",
+      "section": "s4",
+      "alt": "兒童午餐袋探險款綠色",
+      "caption": "兒童午餐袋探險款綠色",
+      "identityStatus": "confirmed",
+      "sha256": "7b954af4ee5a3fc14ca5fb5706d58faef6471898aa5705c5b2b1c7ddab3925ff",
+      "bytes": 177676,
+      "dimensions": [
+        1200,
+        1200
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "b05581fb264ba534ded3348dc60e458ccc2cdf36078d26fa6c121bebac30e208"
+    },
+    {
+      "id": "product-11",
+      "path": "/assets/done-by-deer/product-11.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-11"
+      ],
+      "shows": "綠色後揹包",
+      "section": "s4",
+      "alt": "兒童後揹包探險款綠色",
+      "caption": "兒童後揹包探險款綠色",
+      "identityStatus": "confirmed",
+      "sha256": "de801c45f1e0f31fd2200667c0d001e2bfcf6714097be46f539a6776c15bd7dc",
+      "bytes": 141624,
+      "dimensions": [
+        1200,
+        1200
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "50d200b89a22cc0c4ddb79caaf06683dcedce0448b31254af65849c1e73231a0"
+    },
+    {
+      "id": "product-12",
+      "path": "/assets/done-by-deer/product-12.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-12"
+      ],
+      "shows": "三件玩具禮盒，外盒 tiny toys",
+      "section": "s5",
+      "alt": "迷你搖鈴三件組禮盒粉色",
+      "caption": "迷你搖鈴三件組禮盒粉色",
+      "identityStatus": "confirmed",
+      "sha256": "f042fe8d91b759d247019800d86a6f6b7b2cfbbbe07e92ad397dd279d79c2d0e",
+      "bytes": 25286,
+      "dimensions": [
+        900,
+        900
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "4e287f602ba91dee448c497c5497e62b8441aa8cb7f1b07eeaa1f3a653934d17"
+    },
+    {
+      "id": "product-13",
+      "path": "/assets/done-by-deer/product-13.webp",
+      "sourceId": "vendor-media",
+      "basis": "Supplied draft source image URL; downloaded master hash recorded, visually matched the product family/design; lossy WebP compression, no AI subject re-rendering.",
+      "purpose": "comparison",
+      "productIds": [
+        "product-13"
+      ],
+      "shows": "米色綿羊造型吸盤碗與湯匙",
+      "section": "s5",
+      "alt": "新生兒餐具禮盒 Sheepy 款米色",
+      "caption": "新生兒餐具禮盒 Sheepy 款米色",
+      "identityStatus": "confirmed",
+      "sha256": "38def7ac9500f31f8f84d46fa684e7c3bb1312bef3fcf6219badf14f09af61dc",
+      "bytes": 18414,
+      "dimensions": [
+        1200,
+        1200
+      ],
+      "originalRGBPreserved": false,
+      "sourceSha256": "e0cf2b4cc9b47f1cbf92772cb886f63d0c0ab5d32bac1fb145e901b4391fd62d"
+    },
+    {
+      "id": "cover",
+      "path": "/assets/done-by-deer/cover.webp",
+      "sourceId": "vendor-media",
+      "basis": "HTML/CSS layout of visually reviewed vendor product photos 01/03/13; actual CUA screenshot converted to WebP. Not a generated product photograph.",
+      "purpose": "cover",
+      "productIds": [
+        "product-01",
+        "product-03",
+        "product-13"
+      ],
+      "shows": "Done by deer brand identity with plate, bottle and Sheepy gift set",
+      "section": "hero",
+      "alt": "Done by deer 餐盤、水壺與禮盒商品照片，搭配品牌與選購主題",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "sha256": "0d3f12e5da6f72d12c06e387b7d9a44467bb83724e08885d8c929b400c6442ee",
+      "bytes": 55588,
+      "dimensions": [
+        1600,
+        1000
+      ],
+      "originalRGBPreserved": false
+    },
+    {
+      "id": "card",
+      "path": "/assets/done-by-deer/product-card.webp",
+      "sourceId": "vendor-media",
+      "basis": "HTML/CSS layout of visually reviewed vendor product photos 01/03/13; actual CUA screenshot converted to WebP. Not a generated product photograph.",
+      "purpose": "cover",
+      "productIds": [
+        "product-01",
+        "product-03",
+        "product-13"
+      ],
+      "shows": "Done by deer brand identity with plate, bottle and Sheepy gift set",
+      "section": "hero",
+      "alt": "Done by deer 餐盤、水壺與禮盒商品照片，搭配品牌與選購主題",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "sha256": "9c17b36d520221123dd802b62b3be6ee00d8c351c3088b4310bb83f68ddd90b8",
+      "bytes": 33914,
+      "dimensions": [
+        1000,
+        750
+      ],
+      "originalRGBPreserved": false
+    }
+  ],
+  "mediaCoverage": [
+    {
+      "productId": "product-01",
+      "publicName": "矽膠分隔餐盤半圓三格款藍色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-01"
+      ],
+      "location": "s1"
+    },
+    {
+      "productId": "product-02",
+      "publicName": "立體矽膠餐盤 Elphee",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-02"
+      ],
+      "location": "s1"
+    },
+    {
+      "productId": "product-03",
+      "publicName": "保溫吸管水壺探險款沙色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-03"
+      ],
+      "location": "s1"
+    },
+    {
+      "productId": "product-04",
+      "publicName": "矽膠分隔餐碗半圓兩格款藍色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-04"
+      ],
+      "location": "s3"
+    },
+    {
+      "productId": "product-05",
+      "publicName": "矽膠餐墊藍色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-05"
+      ],
+      "location": "s3"
+    },
+    {
+      "productId": "product-06",
+      "publicName": "矽膠學習湯匙兩件組藍色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-06"
+      ],
+      "location": "s3"
+    },
+    {
+      "productId": "product-07",
+      "publicName": "兒童水壺 280ml 探險款沙色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-07"
+      ],
+      "location": "s4"
+    },
+    {
+      "productId": "product-08",
+      "publicName": "保溫罐探險款沙色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-08"
+      ],
+      "location": "s4"
+    },
+    {
+      "productId": "product-09",
+      "publicName": "便當盒探險款沙色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-09"
+      ],
+      "location": "s4"
+    },
+    {
+      "productId": "product-10",
+      "publicName": "兒童午餐袋探險款綠色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-10"
+      ],
+      "location": "s4"
+    },
+    {
+      "productId": "product-11",
+      "publicName": "兒童後揹包探險款綠色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-11"
+      ],
+      "location": "s4"
+    },
+    {
+      "productId": "product-12",
+      "publicName": "迷你搖鈴三件組禮盒粉色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-12"
+      ],
+      "location": "s5"
+    },
+    {
+      "productId": "product-13",
+      "publicName": "新生兒餐具禮盒 Sheepy 款米色",
+      "disposition": "matched_media",
+      "mediaIds": [
+        "product-13"
+      ],
+      "location": "s5"
+    },
+    {
+      "productId": "saro",
+      "publicName": "SARO",
+      "disposition": "remove",
+      "reason": "不在本篇客觀Done by deer範圍，已移除跨品牌段落。",
+      "location": "s6"
+    },
+    {
+      "productId": "jeune-premier",
+      "publicName": "Jeune Premier",
+      "disposition": "remove",
+      "reason": "不在本篇客觀Done by deer範圍，已移除跨品牌段落。",
+      "location": "s6"
+    },
+    {
+      "productId": "oioiooi",
+      "publicName": "oioiooi",
+      "disposition": "remove",
+      "reason": "不在本篇客觀Done by deer範圍，已移除跨品牌段落。",
+      "location": "s6"
+    },
+    {
+      "productId": "jack-piers",
+      "publicName": "Jack Piers",
+      "disposition": "remove",
+      "reason": "不在本篇客觀Done by deer範圍，已移除跨品牌段落。",
+      "location": "s6"
+    },
+    {
+      "productId": "lullalove",
+      "publicName": "Lullalove",
+      "disposition": "remove",
+      "reason": "不在本篇客觀Done by deer範圍，已移除跨品牌段落。",
+      "location": "s6"
+    },
+    {
+      "productId": "moon-picnic",
+      "publicName": "Moon Picnic",
+      "disposition": "remove",
+      "reason": "不在本篇客觀Done by deer範圍，已移除跨品牌段落。",
+      "location": "s6"
+    },
+    {
+      "productId": "cybex",
+      "publicName": "Cybex",
+      "disposition": "remove",
+      "reason": "不在本篇客觀Done by deer範圍，已移除跨品牌段落。",
+      "location": "s6"
+    }
+  ],
+  "categoryCoverage": [
+    {
+      "question": "依孩子階段如何挑選？",
+      "disposition": "table",
+      "location": "s2"
+    },
+    {
+      "question": "餐盤與餐碗差在哪？",
+      "disposition": "table",
+      "location": "s3"
+    },
+    {
+      "question": "水壺與便當盒如何比較？",
+      "disposition": "table",
+      "location": "s4"
+    },
+    {
+      "question": "送禮如何挑選？",
+      "disposition": "body",
+      "location": "s5"
+    },
+    {
+      "question": "清潔、材質及耐熱怎麼確認？",
+      "disposition": "table",
+      "location": "s7"
+    }
+  ],
+  "answerBlocks": [
+    {
+      "question": "為什麼頁面上的價格沒有折扣？",
+      "answer": "折扣在結帳時套用推薦代碼才扣，要從鷹家的團購連結進去，並確認結帳頁右側出現「已套用推薦代碼」。特價品和部分商品不適用。",
+      "claimIds": [
+        "travel"
+      ]
+    },
+    {
+      "question": "便當盒可以放進學校的蒸飯箱嗎？",
+      "answer": "不建議。便當盒是 PP、最高耐熱 60°C，廠商註明不能微波、電鍋加熱，也不裝湯水燙食。要帶熱食，改用保溫罐。",
+      "claimIds": [
+        "travel"
+      ]
+    },
+    {
+      "question": "出貨、退換貨要找誰？",
+      "answer": "訂購、付款、出貨和退換貨由 petiteboite（翊迪股份有限公司）處理，LINE 客服 @pb.tw。客服與出貨異動，請看賣場最新公告。",
+      "claimIds": [
+        "travel"
+      ]
+    }
+  ],
+  "technicalSeo": {
+    "author": {
+      "type": "Organization",
+      "name": "鷹式一家",
+      "url": "https://www.eaglish.store/"
+    },
+    "datePublished": "2026-10-22",
+    "dateModified": "2026-10-22",
+    "social": {
+      "ogImage": "https://www.eaglish.store/assets/done-by-deer/cover.webp",
+      "ogImageAlt": "Done by deer 餐盤、吸管水壺與禮盒商品照片，搭配品牌與選購主題",
+      "width": 1600,
+      "height": 1000,
+      "twitterCard": "summary_large_image"
+    },
+    "structuredData": [
+      "Article",
+      "BreadcrumbList"
+    ],
+    "crawlableOfferFallback": "/"
+  },
+  "bodyText": "先說結論：照孩子現在的階段挑一件 選 Done by deer，先看孩子在哪個階段，再挑圖案。剛吃副食品，從吸盤小碗加湯匙的新生兒餐具禮盒看起；練習自己吃，比較三格餐盤、兩格餐碗和 Elphee 小象餐盤；要上幼兒園，再看兒童水壺、保溫吸管水壺、保溫罐和便當盒。矽膠碗盤可進微波爐和洗碗機；塑膠便當盒和 280 ml 水壺最高耐熱 60°C，只適合冷食、冷飲。 01 Done by deer 的設計：低彩度底色、細線動物，擺在家裡也協調 Done by deer 是丹麥品牌，產品由設計師 Helene Hjorth 帶領的團隊在丹麥設計。品牌名稱來自她的姓氏，Hjorth 在丹麥文是「鹿」。品牌說，每個顏色、材質和形狀都有選擇的理由。[1] 從商品圖看得到幾個共通點： 顏色 ：米、沙、粉、藍、綠、芥末黃、灰等低彩度色，同款多半有幾色可挑。 插畫 ：淺色底上的簡單線條。三格餐盤畫拖拉機、小羊和小雞；探險款水壺畫橡實葉、腳印、地圖和放大鏡。 角色 ：小象 Elphee、小鱷魚 Croco、綿羊 Sheepy、鯨魚 Wally 等「Deer friends」，會在餐具、玩具、包包上重複出現。[2] 碗、水壺、便當盒每天出現在餐桌、書包和玄關，好看也是日常的一部分。Helene Hjorth 受訪時說，好的兒童設計要實用、安全，也要讓父母覺得好看，並和家裡其他擺設協調。[3] 挑和家裡色調接近的，桌面看起來比較整齊；喜歡同一個角色，也能從碗一路配到水壺。 02 依孩子年齡挑：從第一口副食品到上幼兒園 階段 先看這些 廠商標示 還沒吃副食品 迷你搖鈴三件組禮盒 搖鈴禮盒分 2–4、3–5、4–6 個月三件 開始吃副食品 新生兒餐具禮盒（吸盤小碗＋湯匙）、矽膠學習湯匙兩件組 小碗 10×5 cm，湯匙 10 cm 練習自己吃 半圓三格餐盤、半圓兩格餐碗、Elphee 立體餐盤、矽膠餐墊 碗盤標示 0 個月起 上幼兒園、常外出 兒童水壺、保溫吸管水壺、保溫罐、便當盒、兒童後揹包 後揹包 7.5 L，說明適合準備上幼兒園的孩子 碗盤的「0 個月起」是產品標示，不是開始餵副食品的時間建議。依孩子現在的進食與操作階段選擇，並由成人陪同；家裡已有順手的餐具，就從缺的那件補起。 03 碗、盤、餐墊怎麼分？看分格、深度和尺寸 品項 尺寸 怎麼用 矽膠分隔餐碗（半圓兩格） 15×11 cm，高 4 cm 比較深，一格裝飯、一格裝菜或水果 矽膠分隔餐盤（半圓三格） 20×16 cm，高 3 cm 主食、配菜、水果分開放 立體矽膠餐盤 Elphee 直徑 16 cm，盤緣高 2.5 cm 單格圓盤，內緣圓弧方便舀取 矽膠餐墊 38×26.5 cm 墊在碗盤下增加穩定、隔熱，勞作時也能用 矽膠學習湯匙兩件組 10 cm 副食品期，軟矽膠好抓握 三款碗盤都是食品級矽膠，耐溫 -40°C 到 230°C，可以用微波爐、烤箱、冷凍庫和洗碗機，台灣代理商商品頁標示通過 EN 14372 嬰幼兒餐具標準、歐盟 1935/2004 食品接觸材料與德國 LFGB 檢測。[4] 新生兒餐具禮盒的小碗底部有吸盤，要吸在光滑桌面或餐墊上；桌面有紋路，可以先鋪矽膠餐墊。 怎麼選：想讓飯菜分開，看三格盤；一餐量還少，看兩格碗；想加一件點心水果盤，看 Elphee。碗盤夠用，就只補餐墊。 04 水壺、保溫罐、便當盒：先分清楚裝冷的還是熱的 品項 容量／尺寸 材質 耐熱 適合 兒童水壺 280 ml 塑膠瓶身、矽膠吸嘴 最高 60°C 冷水、冷飲，輕便 保溫吸管水壺 340 ml 不鏽鋼、矽膠、PP 100°C 保溫保冷最長 6 小時，按壓瓶蓋 保溫罐 300 ml 不鏽鋼、矽膠、PP 100°C 粥、湯、水果，最長 6 小時，寬口 便當盒（分隔款） 17.5×13×6.5 cm PP 最高 60°C 冷食、輕食；不裝湯水和燙的食物 兒童午餐袋 2.8 L 聚酯纖維 — 放得下便當盒小款加 280 ml 水壺 便當盒和 280 ml 水壺都不能用微波爐、電鍋加熱；學校要蒸便當就不適合，想帶熱的改看保溫罐。[5] 保溫吸管水壺、保溫罐、便當盒、午餐袋和後揹包都有「探險款」插畫。午餐袋的搭配說明指的是小款便當盒，不是所有尺寸都能一套裝入。 表中的 60°C、100°C 是台灣代理商的耐熱標示，不是建議飲用溫度。兩款吸管水壺的原廠建議為 6 個月以上，使用時仍需成人陪同，並先確認飲品不燙口。[7] 05 送禮怎麼挑：彌月、收涎、入園各一個方向 彌月 ：迷你搖鈴三件組禮盒，依 2–4、3–5、4–6 個月分階段。[6] 收涎、開始吃副食品 ：新生兒餐具禮盒（Sheepy 款），吸盤小碗加湯匙。 準備上幼兒園 ：保溫吸管水壺加便當盒，再配 7.5 L 兒童後揹包，同系列插畫比較成套。 賣場另有「禮品包裝」分類可以加購。 06 當期商品與結帳優惠怎麼看？ 活動頁介紹的是 Done by deer。選好品項後，從當期團購入口確認款式、顏色、庫存與實際結帳條件；網站導覽列的其他品牌，不等於這次活動都適用。 07 清潔與使用：矽膠不用鋼刷，塑膠便當不加熱 矽膠類 ：軟海綿加中性清潔劑；可進洗碗機、蒸氣鍋，或滾水關火後放入消毒。長時間紫外線消毒會讓矽膠老化，也別用鋼刷。[4] 不鏽鋼保溫類 ：不能進微波爐或電鍋，避免敲打，以免保溫層失效。原廠也不建議放洗碗機或冷凍庫，日常以手洗清潔。[5][7] 午餐袋 ：濕布擦拭，不要機洗。所有商品請在成人陪同下使用。 08 常見問題 為什麼頁面上的價格沒有折扣？ 折扣在結帳時套用推薦代碼才扣，要從鷹家的團購連結進去，並確認結帳頁右側出現「已套用推薦代碼」。特價品和部分商品不適用。 便當盒可以放進學校的蒸飯箱嗎？ 不建議。便當盒是 PP、最高耐熱 60°C，廠商註明不能微波、電鍋加熱，也不裝湯水燙食。要帶熱食，改用保溫罐。 出貨、退換貨要找誰？ 訂購、付款、出貨和退換貨由 petiteboite（翊迪股份有限公司）處理，LINE 客服 @pb.tw。客服與出貨異動，請看賣場最新公告。 Done by deer 當期團購 記下想要的品項和顏色，再從鷹家的團購入口進去。實際可選品項、庫存與結帳條件，以當期賣場為準；特價品及部分商品可能不適用活動。",
+  "bodyTextExtraction": "Full candidate article-body, excluding nav, figures/captions, dynamic CTA and source footer; not clipped to an editorial count.",
+  "releaseCandidate": {
+    "articleRoute": "/blog/done-by-deer/",
+    "surfaces": [
+      "article",
+      "blog_index",
+      "product_card",
+      "sitemap",
+      "robots"
+    ],
+    "productLookupKey": "doneByDeer",
+    "assetPaths": [
+      "/assets/done-by-deer/product-01.webp",
+      "/assets/done-by-deer/product-02.webp",
+      "/assets/done-by-deer/product-03.webp",
+      "/assets/done-by-deer/product-04.webp",
+      "/assets/done-by-deer/product-05.webp",
+      "/assets/done-by-deer/product-06.webp",
+      "/assets/done-by-deer/product-07.webp",
+      "/assets/done-by-deer/product-08.webp",
+      "/assets/done-by-deer/product-09.webp",
+      "/assets/done-by-deer/product-10.webp",
+      "/assets/done-by-deer/product-11.webp",
+      "/assets/done-by-deer/product-12.webp",
+      "/assets/done-by-deer/product-13.webp",
+      "/assets/done-by-deer/cover.webp",
+      "/assets/done-by-deer/product-card.webp"
+    ],
+    "integrationStatus": "canonical_integration_and_accountable_candidate_QA_passed"
+  },
+  "productionNeeds": {
+    "coverAndCard": "Rendered and visually reviewed at 320/390/768/1440; fine print is decorative and not the mobile reading source.",
+    "purchase": "Reuse canonical Sheet offer; no Sheet writes or campaign-term override.",
+    "finalAcceptance": "Run canonical integration, affected tests and real desktop/phone-width checks; merge under existing exact applicable authority only after verification. Hiram phone connectivity is not proven by M5 browser emulation."
+  },
+  "internalReview": {
+    "mode": "objective_revision_of_preserved_original",
+    "humanExperienceRequired": false,
+    "optionalPlaceholdersRemoved": 3,
+    "sourceReconciliation": "75 atomic product/brand/campaign claims reviewed; original raw evidence kept only in M5 task",
+    "publicPromotionalTermsNotAsserted": true,
+    "publicationVersionNotYetAccepted": false,
+    "accountableEditorialReviewer": "Lydia",
+    "humanFamilyExperienceNotRequired": true,
+    "publicationAuthority": "Hiram-scoped reversible website release authority, 2026-10-22; exact evidence retained in the private task"
+  },
+  "siteIntegration": {
+    "brand": "丹麥 Done by deer兒童用品",
+    "category": "親子餐桌",
+    "journalCategory": "母嬰",
+    "excerpt": "依孩子階段和用途比較 Done by deer 餐盤、水壺、便當盒與禮盒。",
+    "readLabel": "看餐具與水壺挑選方向 ↗",
+    "cover": "/assets/done-by-deer/cover.webp",
+    "card": "/assets/done-by-deer/product-card.webp",
+    "coverSource": "/assets/done-by-deer/cover-source.html",
+    "coverIdentity": "Done by deer",
+    "coverReview": {
+      "identityVisible": true,
+      "realPhotoPreserved": true,
+      "mobileCardLegible": true,
+      "viewportWidths": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "reviewer": "Lydia",
+      "reviewScope": "Personally inspected Tailnet review-page screenshots at four widths and the source artwork. Brand and plate/bottle/gift-set identities visible; small decorative copy is not intended as the mobile reading source. Actual catalogue-card acceptance is recorded separately after integration."
+    },
+    "catalogKey": "doneByDeer"
+  }
+}
