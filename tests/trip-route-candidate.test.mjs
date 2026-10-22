@@ -57,9 +57,28 @@ test('candidate pages are noindex, canonical, linked to each other and kept out 
  assert.match(route,/"@type":"Article"[^}]*"headline":"北海道 7 天親子路線：工程樣板"/);
  assert.match(route,/"name":"北海道 7 天路線","item":"https:\/\/www\.eaglish\.store\/trip\/japan\/hokkaido-asahikawa-sapporo-7-days\/"/);
  assert.match(pages['/trip/japan/'],new RegExp(`<a href="${syntheticRoutePath}" data-route-article=`));
- // The synthetic route is never built into the repository, let alone indexed.
+ // The synthetic route is never built into the repository, let alone indexed. The published
+ // Hokkaido route shares its path, so the path may be indexed only through a registered package.
  const inventory=collectIndexablePages(repo).map(p=>p.path);
- assert.ok(!inventory.includes(syntheticRoutePath));
+ const publishedRoutes=new Set(approvedTravelRegistrations(repo).flatMap(p=>(p.data.routes||[]).map(r=>r.path)));
+ assert.ok(!inventory.includes(syntheticRoutePath)||publishedRoutes.has(syntheticRoutePath));
+ const built=resolve(repo,'.'+syntheticRoutePath,'index.html');
+ if(existsSync(built))assert.doesNotMatch(readFileSync(built,'utf8'),/工程樣板/);
+});
+
+test('city further reading: a paragraph-only extension without links still renders, with or without routes',()=>{
+ const published=JSON.parse(readFileSync(resolve(repo,'trip/data/japan-approved-travel-v1.json'),'utf8'));
+ const paragraphOnly=d=>{const city=d.cities.find(c=>c.id==='asahikawa');city.extension.paragraphs=['延伸閱讀。'];delete city.extension.links;return d;};
+ const withRoute=paragraphOnly(structuredClone(published));validateApprovedTravelPackage(withRoute);
+ const extension=html=>html.match(/<section id="extension"[\s\S]*?<\/section>/)[0];
+ const routed=extension(renderApprovedCity(withRoute,'asahikawa',{publication:true}));
+ assert.match(routed,/<p>延伸閱讀。<\/p>/);
+ assert.deepEqual([...routed.matchAll(/href="([^"]+)"/g)].map(m=>m[1]),withRoute.routes.map(r=>r.path));
+ // A package with no routes renders the module exactly as before route links existed.
+ const noRoute=paragraphOnly(structuredClone(published));noRoute.routes=[];noRoute.coverage.routeIds=[];delete noRoute.countries[0].routeIds;
+ for(const view of noRoute.countries[0].geographicMap.views)view.points=view.points.filter(p=>p.routeId===undefined);
+ validateApprovedTravelPackage(noRoute);
+ assert.doesNotMatch(extension(renderApprovedCity(noRoute,'asahikawa',{publication:true})),/<a /);
 });
 
 test('candidate registry: unpublished only, no path collisions, published package untouched',()=>{

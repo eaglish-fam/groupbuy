@@ -743,6 +743,190 @@
       "url": "https://www.youtube.com/watch?v=2Y6go4ITpAM",
       "label": "鷹式一家北海道旅程紀錄",
       "rights": "自有旅行紀錄；七天、旭川與札幌住宿概述及 iSKI 合作性質依作者補充回憶整理。"
+    },
+    {
+      "id": "media-otaru-canal-family",
+      "kind": "photo",
+      "url": "https://www.facebook.com/photo/?fbid=1492205482914680&set=pcb.1492205576248004",
+      "label": "四人在小樽運河船上合照，後方是水面與沿岸建築。",
+      "locator": "Facebook family photo",
+      "rights": "鷹式一家自有公開照片／影片，沿已核來源採用。"
+    },
+    {
+      "id": "media-otaru-canal-child",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=1180",
+      "label": "船邊座位旁，可以看見停泊的船隻。",
+      "locator": "nAKoy93DtQw 1180 seconds",
+      "rights": "鷹式一家自有公開照片／影片，沿已核來源採用。"
+    },
+    {
+      "id": "media-otaru-canal-bridge",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=1210",
+      "label": "從水面望向小樽運河的橋梁與石岸。",
+      "locator": "nAKoy93DtQw 1210 seconds",
+      "rights": "鷹式一家自有公開照片／影片，沿已核來源採用。"
+    },
+    {
+      "id": "route-e01",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=145",
+      "label": "北海道實訪片段 01",
+      "locator": "vH6EMGtzvdE 00:02:25–00:03:53",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e02",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=449",
+      "label": "北海道實訪片段 02",
+      "locator": "vH6EMGtzvdE 00:07:29–00:08:23",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e03",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=708",
+      "label": "北海道實訪片段 03",
+      "locator": "vH6EMGtzvdE 00:11:48–00:14:29",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e04",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=1258",
+      "label": "北海道實訪片段 04",
+      "locator": "vH6EMGtzvdE 00:20:58–00:21:14",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e05",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=2Y6go4ITpAM&t=1178",
+      "label": "北海道實訪片段 05",
+      "locator": "2Y6go4ITpAM 00:19:38–00:20:11",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e06",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=1313",
+      "label": "北海道實訪片段 06",
+      "locator": "vH6EMGtzvdE 00:21:53–00:24:37",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e07",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=133",
+      "label": "北海道實訪片段 07",
+      "locator": "6YEfYUrGAbw 00:02:13–00:03:51",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e08",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1592",
+      "label": "北海道實訪片段 08",
+      "locator": "6YEfYUrGAbw 00:26:32–00:27:20",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e09",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1604",
+      "label": "北海道實訪片段 09",
+      "locator": "6YEfYUrGAbw 00:26:44–00:28:24",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e10",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2721",
+      "label": "北海道實訪片段 10",
+      "locator": "6YEfYUrGAbw 00:45:21–00:45:52",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e11",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM&t=16",
+      "label": "北海道實訪片段 11",
+      "locator": "J2CcCvsu0gM 00:00:16–00:01:58",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e12",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM&t=790",
+      "label": "北海道實訪片段 12",
+      "locator": "J2CcCvsu0gM 00:13:10–00:13:14",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e13",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM&t=1763",
+      "label": "北海道實訪片段 13",
+      "locator": "J2CcCvsu0gM 00:29:23–00:31:37",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e14",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=0",
+      "label": "北海道實訪片段 14",
+      "locator": "nAKoy93DtQw 00:00:00–00:00:36",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e15",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=38",
+      "label": "北海道實訪片段 15",
+      "locator": "nAKoy93DtQw 00:00:38–00:00:57",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e16",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=0",
+      "label": "北海道實訪片段 16",
+      "locator": "jgQ2CHrQ6fg 00:00:00–00:08:28",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e17",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=1089",
+      "label": "北海道實訪片段 17",
+      "locator": "jgQ2CHrQ6fg 00:18:09–00:18:22",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "route-e18",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=xCLZBsDipis&t=0",
+      "label": "北海道實訪片段 18",
+      "locator": "xCLZBsDipis 00:00:00–00:01:28",
+      "rights": "鷹式一家自有公開影片，實訪故事依該片段轉述。"
+    },
+    {
+      "id": "jp-official-geo-otaru",
+      "kind": "official",
+      "url": "https://www.city.otaru.lg.jp/docs/2020120700879/",
+      "label": "小樽市 Profile",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。"
+    },
+    {
+      "id": "jp-official-geo-cts",
+      "kind": "official",
+      "url": "https://www.mlit.go.jp/kisha/kisha06/12/121016/01.pdf",
+      "label": "國土交通省 2006 新千歲空港概況",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。"
     }
   ],
   "assets": [
@@ -2347,6 +2531,157 @@
         "timebase": "1/30000",
         "frameSha256": "43478d08200d7a336e81d33aeb00ef0fcbee060635a97bad6d0b6dc1b42fbeb7"
       }
+    },
+    {
+      "assetId": "otaru-canal-family",
+      "width": 1440,
+      "height": 1800,
+      "alt": "兩名成人與兩個孩子在小樽運河船上合照，後方可見水面與沿岸建築。",
+      "caption": "四人在小樽運河船上合照，後方是水面與沿岸建築。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-otaru-canal-family"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-otaru-canal-family-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 77412,
+          "sha256": "e6aba5a049a55003be794ca0eeae22d2375b476cef09d6cee622a94ad2338efe"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-otaru-canal-family-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 138536,
+          "sha256": "d4db55821ad663e4df2494114f5b13901cca6a71e83717312e2126ceff20dda7"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-otaru-canal-family-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 248174,
+          "sha256": "a78c9f80f40ce31b205b1f099da85ab3f3beda3248073beca3474891581211c5"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "a955d38df34b904f67ecb5d7d69c62cc4a98e5f955b7a7051ea58fbe0098ea1f",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "otaru-canal-child",
+      "width": 1440,
+      "height": 810,
+      "alt": "孩子坐在船邊，手靠在耳邊，後方可見停泊的船隻。",
+      "caption": "船邊座位旁，可以看見停泊的船隻。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-otaru-canal-child"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-otaru-canal-child-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 30062,
+          "sha256": "e8821c5c4803867b2329244ce18b1cd84a61e4ebc125c8813f5ac480de90bf9b"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-otaru-canal-child-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 48242,
+          "sha256": "8d8490edd1d66da451a530001cfe158d911718f1f30e78993c7e4eaf91b7b38a"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-otaru-canal-child-v1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 75080,
+          "sha256": "da4df5ad91cb3614c3b858befafdc0408895ff9ba6ffdb35e868f4d4a3ba3788"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "5956b12f5fb9d68ca06a757b158293febbef148a368a37cc742074d8ccde3be5",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 35400365,
+        "timebase": "1/30000"
+      }
+    },
+    {
+      "assetId": "otaru-canal-bridge",
+      "width": 1440,
+      "height": 810,
+      "alt": "從小樽運河水面望向橋梁，兩側是石岸，橋上有欄杆與路燈。",
+      "caption": "從水面望向小樽運河的橋梁與石岸。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-otaru-canal-bridge"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-otaru-canal-bridge-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 52238,
+          "sha256": "957ff7cead9450fe770eac13f8bf0bc9cf822ad67fec6647bec302980b2fcb09"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-otaru-canal-bridge-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 105408,
+          "sha256": "b69f9a0dd4429473c8a178051f07701ca73c47aa286c30607d242e7d01eea5c0"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-otaru-canal-bridge-v1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 209440,
+          "sha256": "f10db6544ff6a022910350ac328a4b797e1a3ea0f5dd9d636956c85e656e157a"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "5956b12f5fb9d68ca06a757b158293febbef148a368a37cc742074d8ccde3be5",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 36300264,
+        "timebase": "1/30000"
+      }
     }
   ],
   "countries": [
@@ -2611,10 +2946,12 @@
       },
       "geographicMap": {
         "detail": "50m",
-        "caption": "北海道旅行位置示意；點地名閱讀城市攻略，交通安排見下方說明。",
+        "caption": "北海道旅行位置示意；點地名閱讀攻略或七天建議行程，交通安排見下方說明。",
         "sourceIds": [
           "terra-geo-asahikawa",
-          "terra-geo-sapporo"
+          "terra-geo-sapporo",
+          "jp-official-geo-otaru",
+          "jp-official-geo-cts"
         ],
         "views": [
           {
@@ -2655,7 +2992,7 @@
           {
             "id": "hokkaido",
             "label": "北海道放大",
-            "note": "旭川與札幌的位置示意，點地名閱讀城市攻略。",
+            "note": "旭川、札幌，以及七天建議行程經過的小樽與新千歲機場；點地名閱讀攻略。",
             "bounds": [
               139.2,
               41.2,
@@ -2684,6 +3021,30 @@
                 "sourceIds": [
                   "terra-geo-asahikawa"
                 ]
+              },
+              {
+                "routeId": "hokkaido-seven-days",
+                "label": "小樽",
+                "point": [
+                  140.994444,
+                  43.190833
+                ],
+                "sourceIds": [
+                  "jp-official-geo-otaru"
+                ],
+                "href": "/trip/japan/hokkaido-asahikawa-sapporo-7-days/#day-6"
+              },
+              {
+                "routeId": "hokkaido-seven-days",
+                "label": "新千歲機場",
+                "point": [
+                  141.6925,
+                  42.775278
+                ],
+                "sourceIds": [
+                  "jp-official-geo-cts"
+                ],
+                "href": "/trip/japan/hokkaido-asahikawa-sapporo-7-days/#day-1"
               }
             ]
           }
@@ -2743,7 +3104,10 @@
             "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg"
           }
         ]
-      }
+      },
+      "routeIds": [
+        "hokkaido-seven-days"
+      ]
     }
   ],
   "cities": [
@@ -5451,7 +5815,500 @@
       }
     }
   ],
-  "routes": [],
+  "routes": [
+    {
+      "id": "hokkaido-seven-days",
+      "countryId": "japan",
+      "path": "/trip/japan/hokkaido-asahikawa-sapporo-7-days/",
+      "name": "北海道七天建議行程",
+      "englishName": "Hokkaido",
+      "title": "北海道七天親子行程：旭川、札幌與小樽",
+      "subtitle": "依實訪素材編排的建議走法，留兩天滑雪",
+      "metadataTitle": "北海道七天親子建議行程：旭川、札幌與小樽｜鷹家遠行所",
+      "description": "依旭川、札幌與小樽的實訪素材，重新編排七天親子建議走法，留出轉乘、兩天滑雪與嬰兒照顧時間。",
+      "intro": [
+        "這份七天建議行程，取材自我們帶七個月大嬰兒走訪旭川、札幌與小樽的經驗：旭川兩晚、札幌四晚，留兩天滑雪。",
+        "每天是供讀者參考的建議安排；七天表後附上當次旅行的故事、兩城交通與照顧分工。"
+      ],
+      "author": "鷹式一家",
+      "updatedOn": "2026-10-22",
+      "sourceIds": [
+        "route-e01",
+        "route-e02",
+        "route-e03",
+        "route-e04",
+        "route-e05",
+        "route-e06",
+        "route-e07",
+        "route-e08",
+        "route-e09",
+        "route-e10",
+        "route-e11",
+        "route-e12",
+        "route-e13",
+        "route-e14",
+        "route-e15",
+        "route-e16",
+        "route-e17",
+        "route-e18"
+      ],
+      "hero": [
+        "otaru-canal-family",
+        "zoo-bear-children",
+        "teine-family"
+      ],
+      "cityIds": [
+        "asahikawa",
+        "sapporo"
+      ],
+      "calendarDays": 7,
+      "facts": [
+        {
+          "label": "行程性質",
+          "value": "依實訪素材重新編排的七天建議走法。",
+          "sourceIds": [
+            "a01",
+            "s01",
+            "o01"
+          ]
+        },
+        {
+          "label": "建議住宿",
+          "value": "旭川兩晚、札幌四晚。",
+          "sourceIds": [
+            "a16",
+            "s01"
+          ]
+        },
+        {
+          "label": "適合的旅行",
+          "value": "以兩天滑雪為重點，已有同行嬰兒照顧分工的雪季親子旅行。",
+          "sourceIds": [
+            "s01",
+            "s02"
+          ]
+        },
+        {
+          "label": "兩端的日子",
+          "value": "第一天以抵達和安頓為主，第七天以新千歲離境為主。",
+          "sourceIds": [
+            "route-e01",
+            "route-e18"
+          ]
+        },
+        {
+          "label": "市區與小樽",
+          "value": "七天內先選小樽或札幌市區一日；兩段都想保留，可延長旅行。",
+          "sourceIds": [
+            "o01",
+            "c01",
+            "c03"
+          ]
+        }
+      ],
+      "days": [
+        {
+          "day": 1,
+          "destination": "新千歲→旭川",
+          "kind": "arrival",
+          "title": "抵達、轉乘與安頓",
+          "paragraphs": [
+            "抵達新千歲後，把這天留給入境、前往旭川與入住。帶著推車和行李，途中預留吃飯、換尿布及休息的空間；安頓後只做住處附近的必要採買，讓第一晚有餘裕整理隔天用品。",
+            "入境與跨城就是今天的主行程。"
+          ],
+          "overnight": "旭川",
+          "sourceIds": [
+            "route-e01",
+            "route-e02",
+            "route-e03",
+            "route-e06"
+          ],
+          "links": [
+            {
+              "label": "旭川住宿與交通整理",
+              "url": "/trip/guides/asahikawa-with-kids/"
+            }
+          ]
+        },
+        {
+          "day": 2,
+          "destination": "旭川",
+          "kind": "full_play",
+          "title": "把一天留給旭山動物園",
+          "paragraphs": [
+            "以旭山動物園作為今天的主要活動，按孩子的興趣慢慢逛，中間安排用餐與休息。回市區後再依體力選一餐想吃的拉麵或烤羊肉，餐廳視訂位與現場情況決定，晚上回旭川休息。",
+            "動物園為主，晚餐依體力選一處。"
+          ],
+          "overnight": "旭川",
+          "sourceIds": [
+            "route-e08",
+            "route-e09"
+          ],
+          "links": [
+            {
+              "label": "旭山動物園",
+              "url": "/trip/guides/asahikawa-with-kids/#asahiyama-zoo"
+            },
+            {
+              "label": "拉麵村",
+              "url": "/trip/guides/asahikawa-with-kids/#asahikawa-ramen-village"
+            },
+            {
+              "label": "大黑屋",
+              "url": "/trip/guides/asahikawa-with-kids/#daikokuya"
+            }
+          ],
+          "images": [
+            "zoo-bear-children",
+            "zoo-family-terrace",
+            "asahiyama-bear-entry"
+          ]
+        },
+        {
+          "day": 3,
+          "destination": "旭川→札幌",
+          "kind": "transfer",
+          "title": "選一館，再移往札幌",
+          "paragraphs": [
+            "上午從科學館與博物館擇一，留時間看喜歡的展區；取回行李後前往札幌。這天的重點是參觀與換住宿，抵達後先安頓、補給，確認隔天滑雪的集合與裝備安排。",
+            "參觀只選一館；行李與跨城優先。",
+            "遇到休館日，就把這天完整留給整理行李、移動與入住。"
+          ],
+          "overnight": "札幌",
+          "sourceIds": [
+            "route-e09",
+            "route-e10",
+            "route-e11"
+          ],
+          "links": [
+            {
+              "label": "科學館",
+              "url": "/trip/guides/asahikawa-with-kids/#asahikawa-science"
+            },
+            {
+              "label": "博物館",
+              "url": "/trip/guides/asahikawa-with-kids/#asahikawa-museum"
+            },
+            {
+              "label": "札幌住宿與補給",
+              "url": "/trip/guides/sapporo-with-kids/"
+            }
+          ],
+          "images": [
+            "science-platform",
+            "science-gyroscope",
+            "science-bubble"
+          ]
+        },
+        {
+          "day": 4,
+          "destination": "札幌・手稻",
+          "kind": "full_play",
+          "title": "滑雪第一天：從換裝到練習",
+          "paragraphs": [
+            "把第一個滑雪日完整留給換裝、分組上課、用餐與練習。嬰兒可由同行奶奶或其他照顧者在住處陪伴；滑雪的人回來後以吃飯、休息為主，把體力留給隔天的課程。",
+            "保留完整課程日，晚間休息。"
+          ],
+          "overnight": "札幌",
+          "sourceIds": [
+            "route-e11",
+            "route-e12"
+          ],
+          "links": [
+            {
+              "label": "手稻滑雪與分組經驗",
+              "url": "/trip/guides/sapporo-with-kids/#teine-iski"
+            }
+          ],
+          "images": [
+            "teine-child-board",
+            "teine-family",
+            "teine-conveyor"
+          ]
+        },
+        {
+          "day": 5,
+          "destination": "札幌・手稻",
+          "kind": "full_play",
+          "title": "滑雪第二天：按體力繼續",
+          "paragraphs": [
+            "第二個滑雪日依前一天的狀況調整練習，讓不同程度的家人各自進步。中途需要休息的人可以提早停下，嬰兒仍由同行奶奶或其他照顧者陪伴；回札幌後以簡單用餐與休息收尾。",
+            "練習和休息都在課程日內調整。"
+          ],
+          "overnight": "札幌",
+          "sourceIds": [
+            "route-e12",
+            "route-e13"
+          ],
+          "links": [
+            {
+              "label": "第二天滑雪與休息經驗",
+              "url": "/trip/guides/sapporo-with-kids/#teine-iski"
+            }
+          ]
+        },
+        {
+          "day": 6,
+          "destination": "札幌↔小樽",
+          "kind": "full_play_regional",
+          "title": "小樽散步，把吃飯與休息排進來",
+          "paragraphs": [
+            "從南小樽一帶往小樽站方向散步，挑音樂盒、商店街與一段正餐作主軸。運河館或遊船依體力、開放與班次擇一，再決定是否去三角市場；留好回札幌的交通時間。",
+            "運河館與遊船擇一，正餐與回程優先。"
+          ],
+          "overnight": "札幌",
+          "sourceIds": [
+            "route-e14",
+            "route-e15"
+          ],
+          "links": [],
+          "images": [
+            "otaru-canal-family",
+            "otaru-canal-child",
+            "otaru-canal-bridge"
+          ]
+        },
+        {
+          "day": 7,
+          "destination": "札幌→新千歲",
+          "kind": "international_departure",
+          "title": "留足時間，從新千歲返家",
+          "paragraphs": [
+            "先依航班倒推退房、往機場與報到時間，把新千歲離境當成今天的主要行程。只有班機較晚、交通與行李都安排妥當時，才選住處附近一段短暫採買；抵達機場後再看餘裕用餐。",
+            "先排離境；晚班機才選一段短採買。"
+          ],
+          "sourceIds": [
+            "route-e02",
+            "route-e18"
+          ],
+          "links": [
+            {
+              "label": "日本交通與行李準備",
+              "url": "/trip/japan/"
+            }
+          ]
+        }
+      ],
+      "transport": {
+        "title": "實訪故事：抵達與旭川的一天",
+        "paragraphs": [
+          "這趟同行有爸爸媽媽、奶奶、兩名男孩和七個月大的嬰兒。大家未能同班出發，媽媽和奶奶先帶孩子飛，爸爸之後再會合；旅行還沒到景點，就先從人和行李怎麼分配開始。",
+          "到了札幌要滑雪時，奶奶在住宿處陪嬰兒，其他四人去上課。市區購物時，奶奶先帶孩子回住處，爸爸媽媽留下來採買。",
+          "原先想搭巴士往旭川，抵達後卻沒有買到票。我們改走 JR，帶著行李箱和推車換月台、移動車廂；嬰兒到了餵奶時間，又得先停下來。",
+          "隔天還要補買較暖的嬰兒衣物。商場已陳列較多夏季商品，我們另外搭車找 Birthday，才把衣物和日常用品陸續補齊。出發前列好的景點之外，這些採買也實際占用了旅行時間。",
+          "採買完，我們搭計程車回旭川車站，和爸爸會合。到了拉麵村，大家說起前一天的奔波：爸爸送完家人後又被叫去飛救援班機，接著搭紅眼航班趕來；媽媽則忙到晚上才吃了幾串雞肉。吃完拉麵又逛了一段，爸爸實在太累，先回住處補眠，其他人再繼續採買。",
+          "在旭川的一天，我們上午逛旭山動物園，中午吃飯後去科學館，再接爸爸想看的博物館，下午四點吃大黑屋。孩子看動物、全家動手試科學，爸爸也有一段追著興趣看地方文化的時間。",
+          "四站放在同一天，科學館就只能逛得較快。這是我們當次走法留下的取捨：能碰到不同題材，但每一站深入的時間不同。",
+          "這幾站逛完，奶奶先帶孩子回住處，我們再補買些吃的。因為準備隔天離開旭川、前往札幌，晚上還得回去打包行李；把大家安頓好，也是這一天最後要完成的事。"
+        ],
+        "sourceIds": [
+          "route-e01",
+          "route-e02",
+          "route-e03",
+          "route-e04",
+          "route-e05",
+          "route-e06",
+          "route-e07",
+          "route-e08",
+          "route-e09",
+          "route-e10"
+        ],
+        "links": [
+          {
+            "label": "看抵達、轉乘與安頓的片段",
+            "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=449"
+          },
+          {
+            "label": "看旭川四站的旅行片段",
+            "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1592"
+          },
+          {
+            "label": "旭川各站的交通與開館資訊",
+            "url": "/trip/guides/asahikawa-with-kids/"
+          }
+        ]
+      },
+      "stay": {
+        "title": "實訪故事：札幌住宿、滑雪與市區",
+        "paragraphs": [
+          "這趟在旭川與札幌各住了一段 Airbnb。旭川行程結束的晚上，我們先回去打包，準備隔天移往札幌；到札幌後，滑雪與市區活動從當地住處出發。",
+          "一家四口依程度分兩組，第一天先練基本控制，第二天再繼續往前。換裝、午餐、排練習的時間都在課程日裡；第一天結束後，孩子在回程車上睡著了。",
+          "第二天媽媽摔到尾椎，後來和較小的孩子先休息，爸爸與另一名孩子繼續。留下兩天，讓我們看見學習有進步，也有身體需要停下來的時候。",
+          "我們在白色戀人做巧克力，因為嬰兒需要吃飯，約兩小時後先離開。進市區找午餐卻接連換了幾個選擇，直到一家餃子店才讓大家坐下來。",
+          "看完水族館後，我們先回住處放東西，再到 Ario 採買。奶奶帶孩子先回去，爸爸媽媽留下來繼續買。等到啤酒博物館周邊時，已錯過入館與試飲時段，這次只在周邊停留。",
+          "若更想玩札幌市區，可把第六天整日改成白色戀人、午餐與 AOAO，Ario 採買依體力選入；七天內，這段市區行程與小樽擇一。"
+        ],
+        "sourceIds": [
+          "a16",
+          "s01",
+          "s02",
+          "s03",
+          "s04",
+          "s05",
+          "c01",
+          "c02",
+          "c03",
+          "c04",
+          "c05"
+        ],
+        "links": [
+          {
+            "label": "看兩天滑雪與家人分工",
+            "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM&t=16"
+          },
+          {
+            "label": "看札幌市區的實際片段",
+            "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg"
+          },
+          {
+            "label": "札幌城市篇：滑雪與市區細節",
+            "url": "/trip/guides/sapporo-with-kids/"
+          }
+        ]
+      },
+      "packing": {
+        "title": "實訪故事：小樽散步與回程",
+        "paragraphs": [
+          "滑雪摔傷的隔天，我們去小樽，從南小樽一帶慢慢往小樽站方向逛。媽媽走得較慢，途中看音樂盒、吃甜點；等孩子需要吃飯和上廁所，就先結束慢逛，往炸雞餐廳走。",
+          "後來也搭上了運河遊船。稍早查票看起來已沒有位子，後來又找到可以搭的名額，讓這一天多了一段坐船的時間。",
+          "晚些時候到三角市場，一家人想吃螃蟹，也得先找到多人和嬰兒能坐下來的位置。走道推車不輕鬆，我們最後選了當下有位子的店。",
+          "螃蟹有烤的和水煮的，大家邊吃邊比較口味。對這一餐來說，能一起坐下來、把飯吃好，是和菜單同樣實際的選擇條件；吃完再往車站走，回札幌休息。",
+          "旅行結束，我們從新千歲機場返家。行李、購物、吃東西和登機座位，都還需要一家人分頭處理。",
+          "帶著嬰兒出門，從第一段機場移動到最後登機，照顧安排一路跟著走。這趟旅行最實際的經驗，就是把這些小事也算進旅行裡。",
+          "沿這份建議排法出發前，先確認所選場館的開館日、雪場營運與課程預約，並把入境、跨城、行李和嬰兒照顧時間一起排入。"
+        ],
+        "sourceIds": [
+          "route-e14",
+          "route-e15",
+          "route-e18",
+          "terra-jr-airport",
+          "terra-science",
+          "terra-teine"
+        ],
+        "links": [
+          {
+            "label": "看小樽散步、遊船與市場",
+            "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=20"
+          },
+          {
+            "label": "新千歲機場 JR 交通",
+            "url": "https://www.hokkaido-airports.com/ja/new-chitose/access/jr/"
+          },
+          {
+            "label": "旭川科學館開館資訊",
+            "url": "https://www.city.asahikawa.hokkaido.jp/science/06/p002414.html"
+          },
+          {
+            "label": "手稻雪場營運資訊",
+            "url": "https://sapporo-teine.com/snow/"
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "這份七天建議適合怎樣的家庭？",
+          "answer": "以兩天滑雪為重點，並且已有嬰兒照顧分工的雪季親子旅行。第一天需有足夠時間從新千歲移往旭川，場館與課程也要配合出發日期。",
+          "sourceIds": [
+            "s01",
+            "terra-teine",
+            "terra-jr-airport"
+          ]
+        },
+        {
+          "question": "七天可以同時排小樽與札幌完整市區嗎？",
+          "answer": "這份排法把兩天留給滑雪，第六天建議在小樽與札幌市區擇一。若兩段都想保留，可以延長旅行，或從其他活動調出一整天。",
+          "sourceIds": [
+            "s01",
+            "o01",
+            "c01",
+            "c03"
+          ]
+        },
+        {
+          "question": "旭川到札幌怎麼安排交通？",
+          "answer": "可從 JR 旭川站前往札幌，出發前選好合適的班次，再安排取行李與入住。帶嬰兒時，把餵奶、推車和大行李移動的時間一起算進轉城日。",
+          "sourceIds": [
+            "terra-jr-asahikawa",
+            "a02",
+            "a03"
+          ]
+        },
+        {
+          "question": "這趟同行的嬰兒由誰照顧？",
+          "answer": "我們和奶奶分工；滑雪的兩天，嬰兒由奶奶在住宿處陪伴。其他四人依程度分組上課，回來後再一起處理用餐和日常照顧。",
+          "sourceIds": [
+            "s01",
+            "s02"
+          ]
+        },
+        {
+          "question": "離境當天可以再排一個景點嗎？",
+          "answer": "先從航班時間倒推退房、機場交通與報到。這份排法以離境為主要行程；較晚的班機、有充分餘裕時，才選住處附近一段短採買。",
+          "sourceIds": [
+            "route-e18",
+            "terra-jr-airport"
+          ]
+        },
+        {
+          "question": "旭川兩晚、札幌四晚是你們當次的夜數嗎？",
+          "answer": "兩晚與四晚是這份七天建議的住宿分配。我們當次在旭川與札幌各住了一段 Airbnb，實際的生活與家人分工整理在上方故事裡。",
+          "sourceIds": [
+            "a16",
+            "s01",
+            "family-hokkaido-record"
+          ]
+        }
+      ],
+      "plan": {
+        "title": "七天建議總表",
+        "paragraphs": [
+          "這份建議先住旭川，再換到札幌。抵達、跨城與離境各留空間，兩天滑雪與一日小樽分開安排。",
+          "若選札幌市區作第六天，就從上方的白色戀人、AOAO 與採買經驗挑選。",
+          "本行程中的 iSKI 滑雪課為合作體驗。"
+        ],
+        "sourceIds": [
+          "a16",
+          "s01",
+          "o01",
+          "c01",
+          "c03",
+          "family-hokkaido-record"
+        ]
+      },
+      "videoSourceIds": [
+        "a01",
+        "a10",
+        "s01",
+        "o01",
+        "c01"
+      ],
+      "related": {
+        "title": "延伸閱讀",
+        "paragraphs": [
+          "每個景點的玩法、營業時間與交通，接著看旭川和札幌城市篇。"
+        ],
+        "sourceIds": [
+          "a01",
+          "s01",
+          "c01"
+        ],
+        "links": [
+          {
+            "label": "旭川親子攻略",
+            "url": "/trip/guides/asahikawa-with-kids/"
+          },
+          {
+            "label": "札幌親子攻略",
+            "url": "/trip/guides/sapporo-with-kids/"
+          },
+          {
+            "label": "日本旅行總覽",
+            "url": "/trip/japan/"
+          }
+        ]
+      }
+    }
+  ],
   "coverage": {
     "countryIds": [
       "japan"
@@ -5460,6 +6317,8 @@
       "asahikawa",
       "sapporo"
     ],
-    "routeIds": []
+    "routeIds": [
+      "hokkaido-seven-days"
+    ]
   }
 }
