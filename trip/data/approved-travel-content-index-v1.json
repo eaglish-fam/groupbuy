@@ -8,7 +8,7 @@
     },
     {
       "dataPath": "trip/data/japan-approved-travel-v1.json",
-      "packageSha256": "14c9cf49850614d6b9a97aed83114ebae797dd38d6c5b55d2147169d03720a51",
+      "packageSha256": "5741793a049c01eee1be72bdccb3b9c8b0c9c0e0959e8752b0035719dab379df",
       "publication": true
     }
   ],
@@ -372,7 +372,7 @@
     },
     {
       "path": "/trip/japan/",
-      "packageSha256": "14c9cf49850614d6b9a97aed83114ebae797dd38d6c5b55d2147169d03720a51",
+      "packageSha256": "5741793a049c01eee1be72bdccb3b9c8b0c9c0e0959e8752b0035719dab379df",
       "title": "日本親子旅行：北海道旭川、札幌攻略",
       "description": "日本親子旅行先看北海道旭川與札幌：旭山動物園、科學館、手稻滑雪與市區玩法，附實訪照片、交通和嬰兒照顧經驗。",
       "updatedOn": "2026-10-22",
@@ -383,11 +383,11 @@
         "s01",
         "c01"
       ],
-      "sha256": "d1dd2a13ed6df3a82c71e4d591367e54c27b5cab146e3b9e97dfcba9443ffe7e"
+      "sha256": "ddeeefafbd9e90e6a2e5a48e9e5e5a1bafb0a0de999b575ba13244e96bd61c86"
     },
     {
       "path": "/trip/guides/asahikawa-with-kids/",
-      "packageSha256": "14c9cf49850614d6b9a97aed83114ebae797dd38d6c5b55d2147169d03720a51",
+      "packageSha256": "5741793a049c01eee1be72bdccb3b9c8b0c9c0e0959e8752b0035719dab379df",
       "title": "旭川親子攻略：旭山動物園、科學館與博物館",
       "description": "一家人帶著嬰兒走進旭川，從旭山動物園到科學館、博物館，再吃烤羊肉，記下各站玩法與家庭步調。",
       "updatedOn": "2026-10-22",
@@ -405,7 +405,7 @@
     },
     {
       "path": "/trip/guides/sapporo-with-kids/",
-      "packageSha256": "14c9cf49850614d6b9a97aed83114ebae797dd38d6c5b55d2147169d03720a51",
+      "packageSha256": "5741793a049c01eee1be72bdccb3b9c8b0c9c0e0959e8752b0035719dab379df",
       "title": "札幌親子攻略：手稻滑雪、白色戀人與 AOAO 水族館",
       "description": "我們在札幌住 Airbnb，安排兩天 iSKI 滑雪課，也帶孩子做巧克力、看水族館，記下嬰兒照顧與市區移動的實際經驗。",
       "updatedOn": "2026-10-22",
