@@ -87,6 +87,22 @@
     "source": "8ea9c8d1e793771e6a36ef1b2af6b9d423a04caa8c32c940a56f223e380a5532",
     "variant": "60175f9f2873fc0652bcbace8ef185d8661e90294ebe4645dcf16df1ed3dbe4a"
   },
+  "/assets/done-by-deer/cover-480.webp": {
+    "source": "0d3f12e5da6f72d12c06e387b7d9a44467bb83724e08885d8c929b400c6442ee",
+    "variant": "bbc0ed472841daac214fa661e084625118f7295da9edf0609ee5e12ad42033fd"
+  },
+  "/assets/done-by-deer/cover-960.webp": {
+    "source": "0d3f12e5da6f72d12c06e387b7d9a44467bb83724e08885d8c929b400c6442ee",
+    "variant": "9038521a648067e6101cdc723e799567d89d58fd3e6aff703f9bc13b0171cdf5"
+  },
+  "/assets/done-by-deer/product-card-480.webp": {
+    "source": "9c17b36d520221123dd802b62b3be6ee00d8c351c3088b4310bb83f68ddd90b8",
+    "variant": "c2f67756d76876ca8c38c91f30cad122364a4b3b9904ab292caef3c78560d062"
+  },
+  "/assets/done-by-deer/product-card-960.webp": {
+    "source": "9c17b36d520221123dd802b62b3be6ee00d8c351c3088b4310bb83f68ddd90b8",
+    "variant": "9c9a608a66560935d006fe1cf021ef36239511a62faf2182d3e57d71ae55b6b4"
+  },
   "/assets/eben/blog-cover-480.webp": {
     "source": "3cca1dda428fe97d4bd0521e149e0b6ed5834fada1ec317f540309f0390ff0f7",
     "variant": "04192f46923e9cbe91cbfb18fedb2abaec4bf2093036dca34912288923a3ba87"

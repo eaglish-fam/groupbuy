@@ -277,6 +277,27 @@
         "reviewer": "Eliora accountable Codex content chat",
         "reviewScope": "New v2 cover pixels personally inspected full resolution and in the actual 320/390/768/1440 Tailnet article plus the 390px journal card. Original product RGB retained with true-alpha background removal; studio background generated. Full publication/integration review remains separate."
       }
+    },
+    "/blog/done-by-deer/": {
+      "identity": "Done by deer",
+      "image": "/assets/done-by-deer/cover.webp",
+      "imageSha256": "0d3f12e5da6f72d12c06e387b7d9a44467bb83724e08885d8c929b400c6442ee",
+      "source": "/assets/done-by-deer/cover-source.html",
+      "sourceSha256": "77b2fb900a1b5efeb13a232c322873ef0756e1a9b578619bb2858b5e375bea76",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "0d3f12e5da6f72d12c06e387b7d9a44467bb83724e08885d8c929b400c6442ee",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Lydia",
+        "reviewScope": "Personally inspected Tailnet review-page screenshots at four widths and the source artwork. Brand and plate/bottle/gift-set identities visible; small decorative copy is not intended as the mobile reading source. Actual catalogue-card acceptance is recorded separately after integration."
+      }
     }
   }
 }
