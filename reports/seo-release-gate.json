@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 61,
+    "pages": 62,
     "blocking": 0,
-    "warnings": 27,
-    "total": 27
+    "warnings": 28,
+    "total": 28
   },
   "findings": [
     {
@@ -12,6 +12,13 @@
       "message": "Link fragment not found on destination page: /#product-blackmores",
       "file": "blog/blackmores/index.html",
       "index": 13001
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-done-by-deer",
+      "file": "blog/done-by-deer/index.html",
+      "index": 16984
     },
     {
       "level": "warn",
@@ -137,14 +144,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43395
+      "index": 43427
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43395
+      "index": 43427
     },
     {
       "level": "warn",

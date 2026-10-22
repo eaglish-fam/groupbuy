@@ -19,7 +19,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "dc478da4f4b5b06f1eccf113bdca615d6a14b6ffb667c590161082a187a41c87"
+      "sourceHash": "52cac6e17d1587064a34a09c332c130848286943e39cefb49dea0ce2b3213f95"
     },
     {
       "slug": "atojet",
@@ -38,7 +38,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "967e51b580d987c149eb81709326bdc3cd8dffb734114dafaaccfb0b24ca5e5f"
+      "sourceHash": "50dbf06660ca719e0480a905feb6b4c1c729676e77eb6c45ae43fb3acf89fde7"
     },
     {
       "slug": "blackmores",
@@ -60,7 +60,7 @@
       "cluster": null,
       "published": "2026-10-19",
       "modified": "2026-10-22",
-      "sourceHash": "e478f0844c5e5c68b2637d1fc7c8af5d7966529e399e2d5d7f834ebf81c129aa"
+      "sourceHash": "c044cc2d607b54a35759fe01b93702033db7caa994ddade33ff24143387d0af6"
     },
     {
       "slug": "branden",
@@ -79,7 +79,7 @@
       "cluster": null,
       "published": "2026-09-24",
       "modified": "2026-09-24",
-      "sourceHash": "4b8096f07ffe868c33e1a9afa7cff7fa579ccd9daf5fff425d8e5587a4751897"
+      "sourceHash": "942788de45f49b8d7b78e6d722ae5026f11d8de1b750c09fec57de0a5f9ad45c"
     },
     {
       "slug": "caesar-kenting",
@@ -101,7 +101,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "e79f5b39600c8e9f4b19abd478d2811a5d55ba67bdd08910e4871cc0ba035768"
+      "sourceHash": "1b91f59e81624f0c80d9a1acee70aca834d6df81855a6d53bc4b2503522b4dfe"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -123,7 +123,27 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "0e695ecd2706c202e5f45551095b508e2fee5e7f5fcab163812040b4072a6a63"
+      "sourceHash": "58cc87855213381e32daca9733790afbac34f8e63d1cfe160dde6f2217e7a233"
+    },
+    {
+      "slug": "done-by-deer",
+      "url": "https://www.eaglish.store/blog/done-by-deer/",
+      "title": "Done by deer 兒童餐具怎麼選？餐盤、水壺、便當盒依年齡分，加彌月送禮清單｜鷹家選物誌",
+      "productNames": [
+        "丹麥 Done by deer兒童用品"
+      ],
+      "productId": "done-by-deer",
+      "mode": "product",
+      "intent": "product:done-by-deer",
+      "topics": [
+        "Done by deer 餐具",
+        "幼兒園水壺",
+        "彌月送禮"
+      ],
+      "cluster": null,
+      "published": "2026-10-22",
+      "modified": "2026-10-22",
+      "sourceHash": "b0c214818a98b687a5501fe24b6b59bbafa9e55c4a185848c2c81980fd2cf5b6"
     },
     {
       "slug": "eben-kombucha",
@@ -143,7 +163,7 @@
       "cluster": null,
       "published": "2026-09-29",
       "modified": "2026-09-29",
-      "sourceHash": "bad2c0c27204fd791c0e209983800e7905ebc09cceeab79bad14b8886f9b705a"
+      "sourceHash": "fc4eef855f98f09aadb31624059c841b66e31a36ce0e88198a29384b03d8fe11"
     },
     {
       "slug": "fushan-gifts",
@@ -165,7 +185,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "ff66c85c5cb43608468e29104af8883dd281ce0d5d266a7386f48be394a2d747"
+      "sourceHash": "cd2ab3721d5ffd644b38f629866b6a830aaa78c4024cd71c339d0903e41cb144"
     },
     {
       "slug": "hereu-tag",
@@ -187,7 +207,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "7c2f642fc9c15f0a340f8ab205ae4f2be4f41808f3f9a32e28a849e83120becc"
+      "sourceHash": "0c07270a6046f944645c8ae0caf1a7029ce0c58130c60d496d1e9ca690ad3739"
     },
     {
       "slug": "hummus-guide",
@@ -215,7 +235,7 @@
       "prepared": "2026-10-13",
       "published": "2026-10-13",
       "modified": "2026-10-13",
-      "sourceHash": "0ec1545a20059120a58cb40dbe4d7ce4cc240e16dc268a6db09d1012d0d641bf"
+      "sourceHash": "702a53a0ce174c14763b2c6e6af740c2634ffd5b11729b4e0ab5e94196ebe69d"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -238,7 +258,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "132cb72b60e861d623c3117a13fc87ed1c885a99cc1ac59ec6a45b3899ad8d4b"
+      "sourceHash": "38b6a98943ef072953fbf36336352f934cd6db77a655cf3c3fe7ba7c91541c16"
     },
     {
       "slug": "knsh",
@@ -257,7 +277,7 @@
       "cluster": null,
       "published": "2026-10-13",
       "modified": "2026-10-14",
-      "sourceHash": "eff2796be3125cc6bcaba1b8913b5dde1a110d20d4c570a53c42784edfb73af7"
+      "sourceHash": "5383f74d28cb3a5c3f02fc4a8d13bfcab58fa2d0ae82a22ce542b255a60e541e"
     },
     {
       "slug": "lange",
@@ -278,7 +298,7 @@
       "cluster": "family",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "b6408a926128e7efca4dbcc91510cb3d227e2ac332778826b218650707a723ee"
+      "sourceHash": "b7b74408be4519010ccc8d6e141305a40661885d08ec11a8100e9fbaac1cc21d"
     },
     {
       "slug": "leofoo",
@@ -303,7 +323,7 @@
       "cluster": "travel",
       "published": "2026-10-02",
       "modified": "2026-10-02",
-      "sourceHash": "aab7f0b1cde5fee2823834ccff29d72b778c4c2bb0e869b6903ccf49d267da20"
+      "sourceHash": "4810f124c6a16f56a4300d10140a33054394ec9e2ca025ef312fc8427eda8d75"
     },
     {
       "slug": "locknlock",
@@ -324,7 +344,7 @@
       "cluster": null,
       "published": "2026-10-08",
       "modified": "2026-10-08",
-      "sourceHash": "73e6c7b80662b56ac003b779f20e8b9da2c090980b191dcd50d2dfa7ae2c6dec"
+      "sourceHash": "8009249aaeb68c5bcec169913115d95fad3f8cda5b2c5583a9032ba14c63e92e"
     },
     {
       "slug": "meroware",
@@ -343,7 +363,7 @@
       "cluster": "family",
       "published": "2026-09-09",
       "modified": "2026-09-11",
-      "sourceHash": "1e4fc14d953a2cd48d3bc29d7df162d084cad289d49dc41f239f4cf2b7b2ff30"
+      "sourceHash": "42a0b5fdbddbdbebbd37adbc2a0c6db52f78276dc732d9660c9bd8479e9bc55e"
     },
     {
       "slug": "miamily",
@@ -364,7 +384,7 @@
       "cluster": "travel",
       "published": "2026-09-16",
       "modified": "2026-09-16",
-      "sourceHash": "272a96de3caf272df51ac8d6a10bcce7985515b80f203643dbd69cc81ad727c7"
+      "sourceHash": "1915cb6e4abdb88a3128950e890969b03b11c6b5e5894f4d718e0f33d347e31a"
     },
     {
       "slug": "mitoy-rice-blocks",
@@ -383,7 +403,7 @@
       "cluster": "family",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "cf884017d6da81ca7f6ae7ba63842f04e27a0c2909bddb4f64b1129f9f3b2bdb"
+      "sourceHash": "667e116cb6afe868267fb3fb9ba09ff9ad095af8a44a8946360648f3fa5dbcc8"
     },
     {
       "slug": "parakito",
@@ -404,7 +424,7 @@
       "cluster": null,
       "published": "2026-10-15",
       "modified": "2026-10-15",
-      "sourceHash": "f7d269bfa3fe7a285c006d3ab303350cc0534f329c42ac6981099f9104e42725"
+      "sourceHash": "5d7df93d435bf5b0c7e48334fa9078035bd849ede177ad3f1745014e3ed9b487"
     },
     {
       "slug": "playzu",
@@ -425,7 +445,7 @@
       "cluster": "family",
       "published": "2026-09-11",
       "modified": "2026-10-06",
-      "sourceHash": "d87ea0c399c99e97c72ecf0655c051a75860d036556d921780c5facb70238af0"
+      "sourceHash": "08c0f98a93c33046f2b0c3f77a2f81b64fe60309d8fab99aa167aa29428c413f"
     },
     {
       "slug": "shinwa-living",
@@ -447,7 +467,7 @@
       "cluster": "home",
       "published": "2026-10-14",
       "modified": "2026-10-14",
-      "sourceHash": "3092019f9c62e8b486f663d5719470906d7dd6fa7df438ae04a92b941e48e615"
+      "sourceHash": "6d33bace018c8f83b2e7694763e348df2104736a90af6eacb1f85da8f825ea27"
     },
     {
       "slug": "shoumaji",
@@ -468,7 +488,7 @@
       "cluster": "travel",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "1d86184a155dadda6c38172093b2c19cc8abb0d07746fcecf809e10d8a8c5c10"
+      "sourceHash": "f2bb78e00148cd603923657c1a5676bff6a91ce6bf30ca729fa92d83a396d51e"
     },
     {
       "slug": "wave-hummus",
@@ -487,7 +507,7 @@
       "cluster": "table",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "86abcc89ecafb4f61346d3dcdca88da50e532d966a7a1a7f3d38be0c333f49f9"
+      "sourceHash": "12fa2541b51dc4286ff972172806cebe1d654ee26f9918982c8b4733b7f939d8"
     }
   ]
 }
