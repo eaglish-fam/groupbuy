@@ -16,7 +16,8 @@ Claude 能自己決定的記在這裡，Hiram 可以推翻。要 Hiram 決定的
 ## Hiram 已經決定
 
 - 2026-10-22：**要測試、要看的東西（包含候選頁、改之前／改之後的對照）都要交給 Bingo，由 Bingo 給 Hiram 看。**Hiram 打不開各 AI 的私人預覽，看不到實際改了什麼。做法：截圖和說明放 M5 的 `~/agent-bridge/bingo-eliora/to-bingo/<日期>-<誰>-<PR>/`（雲端的 Grace 交給 Zosia 產生），附一份 README 說明每張圖要看什麼；在 #40 告訴 Bingo 檔案在哪。截圖照 COLLAB 第 5 節，不進公開 repo。
-- 2026-10-21：Grokbot 那邊負責團購的，**現在叫 Bingo**（原本叫 Hugo）。職責不變（營運：正式站檢查、Sheet 對照、上線驗收、SEO 待辦，只寫 `docs/external/`）。本檔和 `COLLAB.md`、`HUGO-BRIEF.md` 等舊文件裡的「Hugo」，指的都是 Bingo；檔名暫不改，以免打斷正在用的連結。
+- 2026-10-21 19:12：**營運線由 Hugo 改交 Bingo**（Bingo 2026-10-22 轉述，需求單 `docs/external/requests/2026-10-22-ops-lane-hugo-to-bingo.md`）。eaglish.store 團購的營運工作（正式站驗收、開團流程、Sheet 核對、LINE、選品）都由 Bingo 負責，只寫 `docs/external/`；Hugo 改成統籌所有 Grok Bot，仍可轉述 Hiram 的核准。鷹家遠行所（/trip）也歸 Bingo 統籌（Hiram 2026-10-21 22:08）。`AGENTS.md`、`COLLAB.md` 已改成 Bingo；歷史紀錄裡的「Hugo 提議」保留原名；`HUGO-BRIEF.md` 等檔名暫不改。
+  - 更正：本檔原本寫「Bingo 原本叫 Hugo、舊文件的 Hugo 都指 Bingo」，是 Grace 理解錯了。Bingo 和 Hugo 是兩個不同的 Grok Bot。
 - 2026-10-21：雲端的 Claire（問路）和 Paige（小倉幫）也可以直接派工給 Zosia（send_message 派工、讀對話紀錄看回覆）。每件工作照派工那個專案的規則做，各專案用自己的資料夾；Zosia 一次做一件。
 - 2026-10-21：**M5 上的 Claude Code 叫 Zosia**（不是 Grace）。Grace 是雲端那一個，負責 M5 裡的各專案、跟 Hiram 對話並派工給 Zosia。Zosia 的回覆、留言、commit、回條開頭寫「Zosia」。本檔上面寫「M5 Grace」的條目，指的都是 Zosia。
 - 2026-10-21：M5 的 Claude Code 全機設成完全放行（不每步詢問），保留擋「推到 main」和「force-push」的規則；之後問路、小倉幫和新專案都可能在 M5 做。目前派給 M5 Grace 的工作只有團購專案，其他專案要另外派工。
