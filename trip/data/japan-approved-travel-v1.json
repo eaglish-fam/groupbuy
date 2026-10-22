@@ -2946,7 +2946,7 @@
       },
       "geographicMap": {
         "detail": "50m",
-        "caption": "北海道旅行位置示意；點地名閱讀城市攻略，交通安排見下方說明。",
+        "caption": "北海道旅行位置示意；點地名閱讀攻略或七天建議行程，交通安排見下方說明。",
         "sourceIds": [
           "terra-geo-asahikawa",
           "terra-geo-sapporo",
