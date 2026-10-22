@@ -15,6 +15,8 @@ Claude 能自己決定的記在這裡，Hiram 可以推翻。要 Hiram 決定的
 
 ## Hiram 已經決定
 
+- 2026-10-22：**北海道 3 月這趟**：旭川和札幌之間是「搭車」，不是自己開車（車種以影片畫面為準，看不出來就只寫搭車）；新千歲機場進出搭 Uber；有嬰兒的照片可以露臉。每天的日序還沒確認，由 Codex 依影片和 IG 排一版，經 Bingo 給 Hiram 確認。
+- 2026-10-22：#58（營運線改 Bingo）核准合併；#57 的兩個正式站修正拆成 #59 先上線。Codex 自動審查留的「額度用完」留言、GitHub Actions 付費額度都不處理；Zosia 自己合併 PR 的權限暫緩。之後要 Hiram 決定的事，要寫清楚「建議做什麼」，不留開放性問題。
 - 2026-10-22：**要測試、要看的東西（包含候選頁、改之前／改之後的對照）都要交給 Bingo，由 Bingo 給 Hiram 看。**Hiram 打不開各 AI 的私人預覽，看不到實際改了什麼。做法：截圖和說明放 M5 的 `~/agent-bridge/bingo-eliora/to-bingo/<日期>-<誰>-<PR>/`（雲端的 Grace 交給 Zosia 產生），附一份 README 說明每張圖要看什麼；在 #40 告訴 Bingo 檔案在哪。截圖照 COLLAB 第 5 節，不進公開 repo。
 - 2026-10-21 19:12：**營運線由 Hugo 改交 Bingo**（Bingo 2026-10-22 轉述，需求單 `docs/external/requests/2026-10-22-ops-lane-hugo-to-bingo.md`）。eaglish.store 團購的營運工作（正式站驗收、開團流程、Sheet 核對、LINE、選品）都由 Bingo 負責，只寫 `docs/external/`；Hugo 改成統籌所有 Grok Bot，仍可轉述 Hiram 的核准。鷹家遠行所（/trip）也歸 Bingo 統籌（Hiram 2026-10-21 22:08）。`AGENTS.md`、`COLLAB.md` 已改成 Bingo；歷史紀錄裡的「Hugo 提議」保留原名；`HUGO-BRIEF.md` 等檔名暫不改。
   - 更正：本檔原本寫「Bingo 原本叫 Hugo、舊文件的 Hugo 都指 Bingo」，是 Grace 理解錯了。Bingo 和 Hugo 是兩個不同的 Grok Bot。
