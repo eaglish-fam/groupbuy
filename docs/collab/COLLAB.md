@@ -33,7 +33,7 @@
 ## 2. 上線規則（main 一動就會上線）
 
 - `main` 透過 GitHub Pages 直接發布到 https://www.eaglish.store/ 。
-- 每件改動都走獨立分支 → PR → **Hiram 核准後才合併**。不 force push、不直接推 main、不動 DNS／CNAME／Pages 設定／分析工具。
+- 每件改動都走獨立分支 → PR → **Hiram 核准後才合併**。核准可以由 Hugo 或 Ezra 轉述，但要寫出 PR 編號；Grace 合併前確認 PR 內容和核准時相同，變了就要重新核准（Hiram 2026-10-20）。不 force push、不直接推 main、不動 DNS／CNAME／Pages 設定／分析工具。
 - 交件前一定跑 `npm run verify`，PR 寫清楚實際結果；沒跑的、沒親看的，寫「沒做」。
 - 跑完 `verify` 後只提交和自己改動有關的產出；看到不是自己造成的大量改動，先停下來回報（2026-10-15 起建置已能在 Linux／macOS 重現同一份輸出，見 PR「站台健檢」）。
 
