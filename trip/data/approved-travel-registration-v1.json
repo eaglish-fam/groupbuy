@@ -21,7 +21,7 @@
     },
     {
       "dataPath": "trip/data/japan-approved-travel-v1.json",
-      "expectedSha256": "dac9d4b0a069b7e09ee10171f3497c73d2929eaacc1c9e795ba07c4d0e510e10",
+      "expectedSha256": "09597e0076f2700757cd9bdfcd11ebad941b6d0197e1a260407ae92cc27a8d65",
       "countryIds": [
         "japan"
       ],
