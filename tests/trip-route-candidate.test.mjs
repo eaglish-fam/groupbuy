@@ -66,6 +66,21 @@ test('candidate pages are noindex, canonical, linked to each other and kept out 
  if(existsSync(built))assert.doesNotMatch(readFileSync(built,'utf8'),/工程樣板/);
 });
 
+test('city further reading: a paragraph-only extension without links still renders, with or without routes',()=>{
+ const published=JSON.parse(readFileSync(resolve(repo,'trip/data/japan-approved-travel-v1.json'),'utf8'));
+ const paragraphOnly=d=>{const city=d.cities.find(c=>c.id==='asahikawa');city.extension.paragraphs=['延伸閱讀。'];delete city.extension.links;return d;};
+ const withRoute=paragraphOnly(structuredClone(published));validateApprovedTravelPackage(withRoute);
+ const extension=html=>html.match(/<section id="extension"[\s\S]*?<\/section>/)[0];
+ const routed=extension(renderApprovedCity(withRoute,'asahikawa',{publication:true}));
+ assert.match(routed,/<p>延伸閱讀。<\/p>/);
+ assert.deepEqual([...routed.matchAll(/href="([^"]+)"/g)].map(m=>m[1]),withRoute.routes.map(r=>r.path));
+ // A package with no routes renders the module exactly as before route links existed.
+ const noRoute=paragraphOnly(structuredClone(published));noRoute.routes=[];noRoute.coverage.routeIds=[];delete noRoute.countries[0].routeIds;
+ for(const view of noRoute.countries[0].geographicMap.views)view.points=view.points.filter(p=>p.routeId===undefined);
+ validateApprovedTravelPackage(noRoute);
+ assert.doesNotMatch(extension(renderApprovedCity(noRoute,'asahikawa',{publication:true})),/<a /);
+});
+
 test('candidate registry: unpublished only, no path collisions, published package untouched',()=>{
  const published=approvedTravelRegistrations(repo);
  assert.ok(published.length&&published.every(p=>p.publication===true));
