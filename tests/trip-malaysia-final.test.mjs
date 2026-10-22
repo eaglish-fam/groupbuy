@@ -12,7 +12,7 @@ import {wrapRouteText} from '../scripts/trip-route-diagram.mjs';
 const root=new URL('../',import.meta.url),read=p=>readFileSync(new URL(p,root),'utf8'),data=JSON.parse(read('trip/data/europe-malaysia-approved-travel-v1.json')),europe=JSON.parse(read('trip/data/europe-approved-travel-v1.json'));
 const cityIds=['penang','kuala-lumpur'],cities=data.cities.filter(c=>cityIds.includes(c.id));
 test('final portable closure preserves Malaysia and only the approved Europe photo substitutions',async()=>{
- const registration=JSON.parse(read('trip/data/approved-travel-registration-v1.json'));
+ const registration=JSON.parse(read('trip/data/approved-travel-registration-v1.json')).packages.find(p=>p.dataPath==='trip/data/europe-malaysia-approved-travel-v1.json');
  const view=await readApprovedTravelPackage(root.pathname,registration);assert.equal(view.countries.size,3);assert.equal(view.cities.size,6);assert.equal(view.diagrams.size,7);
  const expected=structuredClone(europe),replacements=new Map([
   ['tromso-fjellheisen-2','eu-tromso-fjellheisen-child-social-refresh-g1-r1'],['svalbard-glacier-cruise-3','eu-svalbard-ice-detail-social-refresh-g1-r1'],
@@ -70,6 +70,9 @@ test('reader-facing corrections keep whole English station words, one diagram he
  const css=read('trip/approved-editorial-chapters.css');assert.match(css,/\.approved-chapter-guide \.toc \{ top: calc/);assert.match(css,/#plan > h2:focus:not\(:focus-visible\) \{ outline: none/);
 });
 test('normal build emits a travel index bound to final normalized HTML rather than intermediate renderer bytes',()=>{
- const index=JSON.parse(read('trip/data/approved-travel-content-index-v1.json')),reg=JSON.parse(read('trip/data/approved-travel-registration-v1.json'));assert.equal(index.packageSha256,reg.expectedSha256);assert.equal(index.pages.length,9);
+ const index=JSON.parse(read('trip/data/approved-travel-content-index-v1.json')),reg=JSON.parse(read('trip/data/approved-travel-registration-v1.json'));
+ assert.deepEqual(index.packages,reg.packages.map(p=>({dataPath:p.dataPath,packageSha256:p.expectedSha256,publication:p.publication})));
+ // Europe/Malaysia keeps its nine pages; Japan adds its country page and two city guides.
+ assert.deepEqual(reg.packages.map(p=>index.pages.filter(page=>page.packageSha256===p.expectedSha256).length),[9,3]);
  for(const p of index.pages)assert.equal(p.sha256,createHash('sha256').update(readFileSync(new URL(p.path.slice(1)+'index.html',root))).digest('hex'),p.path);
 });

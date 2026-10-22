@@ -1,13 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import http from 'node:http';
-import {existsSync,mkdtempSync,readFileSync,statSync,writeFileSync} from 'node:fs';
+import {existsSync,mkdtempSync,readFileSync,rmSync,statSync,writeFileSync} from 'node:fs';
 import {tmpdir} from 'node:os';
 import {extname,resolve} from 'node:path';
 import {syntheticJapanCandidate,writeCandidate,syntheticRoutePath} from './fixtures/travel-route-package.mjs';
 import {validateApprovedTravelPackage,routeAnchors} from '../trip/approved-travel-contract.mjs';
 import {readApprovedTravelPackage} from '../scripts/trip-approved-public-package.mjs';
-import {approvedTravelCandidates,approvedTravelRegistration} from '../scripts/trip-approved-registration.mjs';
+import {approvedTravelCandidates,approvedTravelRegistrations} from '../scripts/trip-approved-registration.mjs';
 import {renderApprovedRoute} from '../scripts/trip-route-approved-adapter.mjs';
 import {renderApprovedCountry} from '../scripts/trip-country-approved-adapter.mjs';
 import {renderApprovedCity} from '../scripts/trip-city-approved-adapter.mjs';
@@ -57,22 +57,36 @@ test('candidate pages are noindex, canonical, linked to each other and kept out 
  assert.match(route,/"@type":"Article"[^}]*"headline":"北海道 7 天親子路線：工程樣板"/);
  assert.match(route,/"name":"北海道 7 天路線","item":"https:\/\/www\.eaglish\.store\/trip\/japan\/hokkaido-asahikawa-sapporo-7-days\/"/);
  assert.match(pages['/trip/japan/'],new RegExp(`<a href="${syntheticRoutePath}" data-route-article=`));
+ // The synthetic route is never built into the repository, let alone indexed.
  const inventory=collectIndexablePages(repo).map(p=>p.path);
- assert.ok(!inventory.some(p=>p.startsWith('/trip/japan/')));
+ assert.ok(!inventory.includes(syntheticRoutePath));
 });
 
 test('candidate registry: unpublished only, no path collisions, published package untouched',()=>{
- const published=approvedTravelRegistration(repo);
- assert.equal(published.publication,true);
- // Whatever the repository registers (none, or a real candidate) stays unpublished and apart from the published package.
- const real=approvedTravelCandidates(repo,published),publishedPaths=new Set([...published.data.countries,...published.data.cities].map(p=>p.path));
- for(const c of real){assert.equal(c.publication,false);assert.notEqual(c.dataPath,published.dataPath);for(const page of [...c.data.countries,...c.data.cities,...(c.data.routes||[])])assert.ok(!publishedPaths.has(page.path),page.path);}
+ const published=approvedTravelRegistrations(repo);
+ assert.ok(published.length&&published.every(p=>p.publication===true));
+ // Whatever the repository registers (none, or a real candidate) stays unpublished and apart from the published packages.
+ const real=approvedTravelCandidates(repo,published),publishedPaths=new Set(published.flatMap(p=>[...p.data.countries,...p.data.cities].map(page=>page.path)));
+ for(const c of real){assert.equal(c.publication,false);assert.ok(!published.some(p=>p.dataPath===c.dataPath));for(const page of [...c.data.countries,...c.data.cities,...(c.data.routes||[])])assert.ok(!publishedPaths.has(page.path),page.path);}
  const reg=(packages)=>writeFileSync(resolve(root,'trip/data/approved-travel-candidates-v1.json'),JSON.stringify({schema:'eaglish.approved-travel-candidates/v1',packages}));
  reg([registration]);assert.equal(approvedTravelCandidates(root,null).length,1);
  reg([{...registration,publication:true}]);assert.throws(()=>approvedTravelCandidates(root,null),/unpublished/);
  reg([registration,registration]);assert.throws(()=>approvedTravelCandidates(root,null),/twice/);
  const twin=structuredClone(data);twin.countries[0].id='japan-copy';twin.coverage.countryIds=['japan-copy'];twin.cities.forEach(c=>c.countryId='japan-copy');twin.routes[0].countryId='japan-copy';
  reg([registration,writeCandidate(root,twin,'trip/data/fixture-japan-twin.json')]);assert.throws(()=>approvedTravelCandidates(root,null),/collides/);
+});
+
+test('published registry: v1 single package still loads; v2 rejects an empty list, a duplicate package or a colliding page',()=>{
+ const path=resolve(root,'trip/data/approved-travel-registration-v1.json'),pub={...registration,publication:true};
+ const write=value=>writeFileSync(path,JSON.stringify(value));
+ try{
+  write({schema:'eaglish.approved-travel-registration/v1',...pub});assert.deepEqual(approvedTravelRegistrations(root).map(p=>p.dataPath),[pub.dataPath]);
+  write({schema:'eaglish.approved-travel-registration/v2',packages:[]});assert.throws(()=>approvedTravelRegistrations(root),/Invalid/);
+  write({schema:'eaglish.approved-travel-registration/v2',packages:[pub,pub]});assert.throws(()=>approvedTravelRegistrations(root),/twice/);
+  const twin=structuredClone(data);twin.countries[0].id='japan-copy';twin.coverage.countryIds=['japan-copy'];twin.cities.forEach(c=>c.countryId='japan-copy');twin.routes[0].countryId='japan-copy';
+  write({schema:'eaglish.approved-travel-registration/v2',packages:[pub,{...writeCandidate(root,twin,'trip/data/fixture-japan-twin.json'),publication:true}]});
+  assert.throws(()=>approvedTravelRegistrations(root),/collides/);
+ }finally{rmSync(path,{force:true});}
 });
 
 test('route and country pages: no sideways scroll, first TOC click clears the sticky header, map labels do not overlap',{timeout:90_000},async t=>{

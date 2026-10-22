@@ -11,11 +11,12 @@ const esc=escapeTravel;
 export function renderApprovedHomePhoto(asset,sizes){
  return renderPhotoFrame(approvedPicture(asset,{sizes}),{page:'home',sequence:'approved-'+asset.assetId,assetIndex:asset.assetId,ratio:asset.width+':'+asset.height,position:asset.focalPoint});
 }
+// Accepts one package or every published package, in registration order.
 export function prepareApprovedR24Discovery(html,data,{catalog,config}){
- const v=validateApprovedTravelPackage(data);
+ const views=(Array.isArray(data)?data:[data]).map(d=>validateApprovedTravelPackage(d));
  if(config.privateAtlas!==null||!isDeepStrictEqual(catalog,config.catalog))throw Error('Reconcile the reviewed R24 catalog projection first');
  const projected=structuredClone(catalog),panels=[],cards=[],staticLinks=[];
- for(const c of v.countries.values()){
+ for(const v of views)for(const c of v.countries.values()){
   const d=c.discovery;if(!d)throw Error('Approved country geography/discovery required');
   if(projected.countries.some(old=>old.id===c.id||old.href===c.path))throw Error('Discovery may only add explicitly new countries');
   const photo=v.assets.get(d.assetId),src=photo.variants.find(v=>v.width===960)||photo.variants.at(-1);
@@ -50,7 +51,7 @@ export function prepareApprovedR24Discovery(html,data,{catalog,config}){
  output=output.replace('<div id="country-panels">',`<noscript><nav aria-label="新增旅行目的地">${staticLinks.join(' · ')}</nav></noscript><div id="country-panels">`);
  output=output.replace(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g,(tag,raw)=>{
   const schema=JSON.parse(raw);if(schema['@type']!=='CollectionPage')return tag;
-  schema.hasPart=[...(schema.hasPart||[]),...[...v.countries.values(),...v.cities.values()].map(p=>({'@type':'WebPage',name:p.name,url:'https://www.eaglish.store'+p.path}))];
+  schema.hasPart=[...(schema.hasPart||[]),...views.flatMap(v=>[...v.countries.values(),...v.cities.values()]).map(p=>({'@type':'WebPage',name:p.name,url:'https://www.eaglish.store'+p.path}))];
   return '<script type="application/ld+json">'+travelScriptJson(schema)+'</script>';
  });
  return {html:output,catalog:projected,config:{...structuredClone(config),catalog:projected,regions:regionsForCatalog(projected)},runtimeIntegrationRequired:false};

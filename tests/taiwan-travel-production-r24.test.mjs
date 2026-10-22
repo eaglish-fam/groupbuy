@@ -19,7 +19,11 @@ const hash=b=>createHash('sha256').update(b).digest('hex');
 const config=json('trip/data/taiwan-atlas-r24.json'),{data,catalog}=config;
 const release=json('trip/data/taiwan-atlas-release-r24.json');
 const registrationPath=new URL('../trip/data/approved-travel-registration-v1.json',import.meta.url);
-const approved=fs.existsSync(registrationPath)?json(JSON.parse(fs.readFileSync(registrationPath)).dataPath):null;
+// Every published package contributes; the merged view keeps their records together.
+const approved=fs.existsSync(registrationPath)?(registration=>{
+ const packages=(registration.packages||[registration]).map(p=>json(p.dataPath));
+ return {countries:packages.flatMap(p=>p.countries),cities:packages.flatMap(p=>p.cities),assets:packages.flatMap(p=>p.assets)};
+})(JSON.parse(fs.readFileSync(registrationPath))):null;
 const reduce=(s,a)=>reducePlaceExperience(s,a,data.geography,catalog,data);
 
 test('production build renders portable53 exactly with no private or preview data',()=>{
