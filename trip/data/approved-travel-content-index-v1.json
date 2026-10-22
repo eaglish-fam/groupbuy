@@ -105,7 +105,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "9e7ed24885887c30f9cd29941c8e0208b3c2abd255082b5987cef01b682471d4"
+      "sha256": "736c696f562896fc4d7241c5fa6284e5fbe2a8d340e4b2d5ff77151877abde01"
     },
     {
       "path": "/trip/netherlands/",
@@ -143,7 +143,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "7ac817d0dc86a1d52616b6abb64f7f20a362ee401766ea4b4a6944e51e8465ee"
+      "sha256": "fbc00998e8ca0c59f0b49d0e937963b223bbe0e5cc3b21c1809dcc3c0b1830df"
     },
     {
       "path": "/trip/malaysia/",
@@ -164,7 +164,7 @@
         "my-g2-s02",
         "my-g2-s03"
       ],
-      "sha256": "171878df8ec77826e32b8c8516476f80ddf2bbf933d98b8a935f17c23193f88f"
+      "sha256": "33c45489d65d20112515d8d37aef7d699f3850040afb9bf0797fb3cbfca0f513"
     },
     {
       "path": "/trip/guides/oslo-with-kids/",
@@ -198,7 +198,7 @@
         "photo-oslo-fram-2",
         "photo-oslo-fram-3"
       ],
-      "sha256": "16b2cb80ad2c3672f324321e611525a5c15d67a93ae8d4544347356600398e5d"
+      "sha256": "52322b19e169d0387053b09ceeeaa08f6aee7fab0f008ffb22d9c060072352d2"
     },
     {
       "path": "/trip/guides/svalbard-with-kids/",
@@ -249,7 +249,7 @@
         "photo-svalbard-glacier-cruise-2",
         "photo-svalbard-glacier-cruise-3"
       ],
-      "sha256": "e3933aece883b63ce80bfc2d31fe8240cddfbdc27312d1971b72d281e1fa42fe"
+      "sha256": "3aa23e90e486ed1c04a6081349b965fc597fe8e0b151e6a87c827a1fc632133b"
     },
     {
       "path": "/trip/guides/tromso-with-kids/",
@@ -287,7 +287,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "a55f1e1fb747aa0a4af612dcc0d22e615b5b5b13103af949a131f6ca66dc53f1"
+      "sha256": "789f5902535b25b88ff6ee270ac1ca0afbce4fe62bff06cd3785146a66c7584e"
     },
     {
       "path": "/trip/guides/amsterdam-with-kids/",
@@ -324,7 +324,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "be9841ba0ad177bd2c3f5b986a07f37c03177e25e2bd1f240f8d4591ea3260e9"
+      "sha256": "73016652a963225ef306b5b49f31324e575bbcf2f62521f4232b8b371538bc83"
     },
     {
       "path": "/trip/guides/penang-with-kids/",
@@ -338,7 +338,7 @@
         "my-youtube-ayuc0px5ctc",
         "my-youtube-uro4dhm3dpk"
       ],
-      "sha256": "feefb70f00b1dc6364f18b76b5dc18d6477d142ff194242e4ebfa76c79fa5af4"
+      "sha256": "59e0a050ff25b5bd580d72c1a15f1df277359188c635da22e6e52cf83337437d"
     },
     {
       "path": "/trip/guides/kuala-lumpur-with-kids/",
@@ -349,7 +349,7 @@
         "my-youtube-v7id6nvbpuo",
         "my-youtube-my-7kubdvc8"
       ],
-      "sha256": "aa3705311e7d1c0b535fc284f4380141b9790d1622d3c35965cef26b52727405"
+      "sha256": "1dbff8061f408bad6dcac970aee47ae7ffb13b66076935488d47d19e4a75b0aa"
     }
   ]
 }
