@@ -23,3 +23,6 @@
 .approved-plan-timeline p{margin:0 0 8px}
 .approved-planner :focus-visible{outline:3px solid #784b39;outline-offset:3px}
 @media(max-width:700px){.approved-plan-fields{grid-template-columns:minmax(0,1fr)}.approved-plan-timeline li{grid-template-columns:minmax(0,1fr);gap:5px}}
+/* The sticky table of contents starts below the sticky masthead (110px; measured by
+   approved-editorial-navigation.mjs where loaded), so its first entry stays clickable. */
+.approved-city-guide .toc{top:calc(var(--approved-chrome-height,110px) + 16px);max-height:calc(100vh - var(--approved-chrome-height,110px) - 32px)}
