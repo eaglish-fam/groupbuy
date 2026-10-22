@@ -6,7 +6,7 @@ import {prioritizeFirstTravelImage} from '../scripts/trip-image-priority.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const template=read('trip/content/home-r24.html.template');
 const registrationPath=new URL('../trip/data/approved-travel-registration-v1.json',import.meta.url),registration=existsSync(registrationPath)?JSON.parse(readFileSync(registrationPath)):null;
-const approvedGuides=registration?JSON.parse(read(registration.dataPath)).cities:[];
+const approvedGuides=registration?(registration.packages||[registration]).flatMap(p=>JSON.parse(read(p.dataPath)).cities):[];
 
 test('home has one brief H1 then the actual map before any promoted photo or article',()=>{
  const html=renderTravelHomeR24();

@@ -1,0 +1,5465 @@
+{
+  "schema": "eaglish.approved-travel-package/v1",
+  "approved": true,
+  "sources": [
+    {
+      "id": "a01",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=0",
+      "label": "先後出發的家庭分工",
+      "locator": "vH6EMGtzvdE 0–239 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a02",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=330",
+      "label": "機場巴士未搭成，改走 JR",
+      "locator": "vH6EMGtzvdE 330–630 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a03",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=660",
+      "label": "餵奶、分批搬行李與採買",
+      "locator": "vH6EMGtzvdE 660–810 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a05",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE&t=1258",
+      "label": "第二天採買嬰兒用品",
+      "locator": "vH6EMGtzvdE 1258–1499 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a07",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=0",
+      "label": "旭川拉麵村的一餐",
+      "locator": "6YEfYUrGAbw 0–404 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a08",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=406",
+      "label": "拉麵村附近購物",
+      "locator": "6YEfYUrGAbw 406–631 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a09",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=631",
+      "label": "父親補眠與家人逛商場",
+      "locator": "6YEfYUrGAbw 631–764 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a10",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=980",
+      "label": "旭山動物園與沒看到的企鵝散步",
+      "locator": "6YEfYUrGAbw 980–1575 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a11",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1575",
+      "label": "動物園午餐與下一站",
+      "locator": "6YEfYUrGAbw 1575–1710 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a12",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1622",
+      "label": "旭川市科學館的動手體驗",
+      "locator": "6YEfYUrGAbw 1622–1935 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a13",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1936",
+      "label": "從漫畫興趣走入旭川市博物館",
+      "locator": "6YEfYUrGAbw 1936–2206 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a14",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2206",
+      "label": "沒有看的天象館",
+      "locator": "6YEfYUrGAbw 2206–2251 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a15",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2251",
+      "label": "四點吃成吉思汗大黑屋",
+      "locator": "6YEfYUrGAbw 2251–2565 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "a16",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2565",
+      "label": "晚間補買食物與打包語句",
+      "locator": "6YEfYUrGAbw 2565–2855 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "s01",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM&t=0",
+      "label": "札幌 Airbnb、奶奶照顧與接送",
+      "locator": "J2CcCvsu0gM 0–138 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "s02",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM&t=0",
+      "label": "租裝備與分組",
+      "locator": "J2CcCvsu0gM 0–227 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "s03",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM&t=227",
+      "label": "滑雪第一天",
+      "locator": "J2CcCvsu0gM 227–944 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "s04",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM&t=945",
+      "label": "滑雪第二天與手稻線索",
+      "locator": "J2CcCvsu0gM 945–1656 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "s05",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM&t=1681",
+      "label": "第二天摔傷後提早休息",
+      "locator": "J2CcCvsu0gM 1681–2059 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "o01",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=0",
+      "label": "摔傷隔天的小樽步行",
+      "locator": "nAKoy93DtQw 0–94 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "o08",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=1080",
+      "label": "小樽運河遊船實際搭成",
+      "locator": "nAKoy93DtQw 1080–1230 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "o09",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=1230",
+      "label": "三角市場的螃蟹晚餐",
+      "locator": "nAKoy93DtQw 1230–1576 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "o10",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=1576",
+      "label": "小樽結束回札幌",
+      "locator": "nAKoy93DtQw 1576–1696 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "c01",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=0",
+      "label": "白色戀人巧克力體驗",
+      "locator": "jgQ2CHrQ6fg 0–391 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "c02",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=391",
+      "label": "札幌午餐連續換選擇",
+      "locator": "jgQ2CHrQ6fg 391–511 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "c03",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=495",
+      "label": "AOAO SAPPORO 市區水族館",
+      "locator": "jgQ2CHrQ6fg 495–780 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "c03-extra1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=2Y6go4ITpAM&t=8820",
+      "label": "AOAO SAPPORO 市區水族館",
+      "locator": "2Y6go4ITpAM 8820–8880 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "c04",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=750",
+      "label": "商場購物與照顧輪替",
+      "locator": "jgQ2CHrQ6fg 750–1050 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "c05",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=1080",
+      "label": "太晚抵達啤酒博物館周邊",
+      "locator": "jgQ2CHrQ6fg 1080–1230 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "r01",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=xCLZBsDipis&t=0",
+      "label": "新千歲回程 Shorts",
+      "locator": "xCLZBsDipis 0–88 seconds",
+      "rights": "鷹式一家自有公開影片，文字引用與實訪紀錄。"
+    },
+    {
+      "id": "ig-asahikawa",
+      "kind": "instagram",
+      "url": "https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/",
+      "label": "旭川動物園、科學館與博物館同日紀錄",
+      "rights": "鷹式一家公開文案；照片另核"
+    },
+    {
+      "id": "terra-ramen",
+      "kind": "official",
+      "url": "https://www.ramenmura.com/",
+      "label": "旭川ラーメン村 官方",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-ramen-access",
+      "kind": "official",
+      "url": "https://www.ramenmura.com/access.html",
+      "label": "拉麵村交通",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-zoo-ticket",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/generalinformation/d052849.html",
+      "label": "旭山動物園入園料",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-zoo-calendar",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/event/event.html",
+      "label": "旭山動物園 2026／2027 開園日曆",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-zoo-access",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/generalinformation/d053767.html",
+      "label": "旭山動物園交通",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-science",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/science/06/p002414.html",
+      "label": "Saiparu 開館／休館／料金",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-science-access",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/science/21/d065748_d/fil/kyouikuryokou.pdf",
+      "label": "科學館教育旅行交通資料",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-asahikawa-museum",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/navi/d000000.html",
+      "label": "旭川市博物館利用案內",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-asahikawa-museum-access",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/navi/d053104.html",
+      "label": "旭川市博物館交通",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-daikokuya",
+      "kind": "official",
+      "url": "https://daikoku-jgs.com/free/asahikawa",
+      "label": "大黑屋旭川五丁目店",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-iski-family",
+      "kind": "official",
+      "url": "https://www.iski.com.tw/eaglish_family22",
+      "label": "iSKI 鷹式一家手稻專頁",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-iski-teine",
+      "kind": "official",
+      "url": "https://www.iski.com.tw/index.php?category=teine_private&route=common/snowing_hokkaido",
+      "label": "iSKI 26/27 手稻私人課",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-teine",
+      "kind": "official",
+      "url": "https://sapporo-teine.com/snow/lang/en/",
+      "label": "SAPPORO TEINE 官方",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-teine-tickets",
+      "kind": "official",
+      "url": "https://sapporo-teine.com/snow/lang/en/tickets/",
+      "label": "TEINE 26/27 纜車票",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-teine-access",
+      "kind": "official",
+      "url": "https://sapporo-teine.com/snow/lang/en/access/",
+      "label": "TEINE 交通",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-shiroi",
+      "kind": "official",
+      "url": "https://www.shiroikoibitopark.jp/",
+      "label": "白色戀人公園官方",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-shiroi-ticket",
+      "kind": "official",
+      "url": "https://www.shiroikoibitopark.jp/facility/counter.html",
+      "label": "白色戀人入館票",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-shiroi-access",
+      "kind": "official",
+      "url": "https://www.shiroikoibitopark.jp/park-guide/access.html",
+      "label": "白色戀人交通",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-aoao",
+      "kind": "official",
+      "url": "https://aoao-sapporo.blue/",
+      "label": "AOAO SAPPORO 官方",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-aoao-ticket",
+      "kind": "official",
+      "url": "https://aoao-sapporo.blue/ticket/",
+      "label": "AOAO 入館料金",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-aoao-access",
+      "kind": "official",
+      "url": "https://aoao-sapporo.blue/access/",
+      "label": "AOAO 交通",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-ario",
+      "kind": "official",
+      "url": "https://sapporo.ario.jp/shop/1100000005/",
+      "label": "Ario 札幌 Akachan Honpo",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-beer-visit",
+      "kind": "official",
+      "url": "https://www.sapporobeer.jp/brewery/s_museum/kengaku/",
+      "label": "札幌啤酒博物館現行參觀",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-jr-airport",
+      "kind": "official",
+      "url": "https://www.jrhokkaido.co.jp/global/chinese/travel/airport.html",
+      "label": "JR 北海道 新千歲—札幌—小樽",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-jr-asahikawa",
+      "kind": "official",
+      "url": "https://www.jrhokkaido.co.jp/global/chinese/train/guide/asahikawa.html",
+      "label": "JR 北海道 札幌—旭川列車",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-geo-asahikawa",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/kurashi/112/113/1161/p007920_d/fil/07_kurashito_shizei.pdf",
+      "label": "旭川市 2025 暮らしと市税・位置",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "terra-geo-sapporo",
+      "kind": "official",
+      "url": "https://www.city.sapporo.jp/city/map/index.html",
+      "label": "札幌市役所位置",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "alma-jma-cold",
+      "kind": "official",
+      "url": "https://www.data.jma.go.jp/asahikawa/shosai/kisetsu_topics.html",
+      "label": "旭川地方氣象台：歷史最低氣溫",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開文字摘要；圖片不採用"
+    },
+    {
+      "id": "alma-zoo-behavior",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/2200/d067177.html",
+      "label": "旭山動物園：行動展示理念",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開文字摘要；圖片不採用"
+    },
+    {
+      "id": "alma-museum-context",
+      "kind": "official",
+      "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/navi/d058001.html",
+      "label": "旭川市博物館：常設展示案內",
+      "checkedOn": "2026-10-21",
+      "rights": "官方公開文字摘要；圖片不採用"
+    },
+    {
+      "id": "terra-museum-closures-2026",
+      "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/index.html",
+      "label": "旭川市博物館：10 月休館與 2026-12-15 臨時休館",
+      "kind": "official",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開營業資訊摘要；未取用照片。"
+    },
+    {
+      "id": "terra-shiroi-winter-2026-27",
+      "url": "https://www.shiroikoibitopark.jp/information/uploads/a1ca26e8e6a480274f3d694dd861be4a_1.pdf",
+      "label": "白色戀人公園 2026/27 冬季營業公告",
+      "kind": "official",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開營業資訊摘要；未取用照片。"
+    },
+    {
+      "id": "terra-shiroi-new-year-2026-27",
+      "url": "https://www.shiroikoibitopark.jp/information/uploads/a24bc4a731fc1cdad93b7b2df0570023.pdf",
+      "label": "白色戀人公園 2026/27 年末年始營業與休館",
+      "kind": "official",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開營業資訊摘要；未取用照片。"
+    },
+    {
+      "id": "terra-aoao-guide",
+      "url": "https://aoao-sapporo.blue/guide/",
+      "label": "AOAO SAPPORO 營業時間",
+      "kind": "official",
+      "checkedOn": "2026-10-22",
+      "rights": "第一方公開營業資訊摘要；未取用照片。"
+    },
+    {
+      "id": "media-zoo-bear-children",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=3",
+      "label": "兩個孩子在棕熊展區的玻璃前合照。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-science-bubble",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=8",
+      "label": "大型泡泡膜圍住站在底座上的孩子。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-daikokuya-grill",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=10",
+      "label": "孩子用夾子夾起肉片，烤盤周圍放著洋蔥。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-asahiyama-bear-entry",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1421",
+      "label": "旭山動物園的棕熊，身後是岩壁與木頭。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 42651609; timebase 1/30000"
+    },
+    {
+      "id": "media-zoo-family-terrace",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=1",
+      "label": "一家人在旭山動物園高處合照，身後是城市與雪山。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-science-platform",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=1810",
+      "label": "繫著安全帶，坐上科學館的互動裝置。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 54300246; timebase 1/30000"
+    },
+    {
+      "id": "media-science-gyroscope",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=7",
+      "label": "繫上安全帶，在旋轉裝置裡頭朝下。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-museum-overview",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2015",
+      "label": "從上層俯看樹木造景與下方的弧形展櫃。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 60450390; timebase 1/30000"
+    },
+    {
+      "id": "media-museum-tools",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2010",
+      "label": "木造展間裡，繩編木框與編織用品掛在牆上。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 60300240; timebase 1/30000"
+    },
+    {
+      "id": "media-museum-daily-life-case",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2082",
+      "label": "玻璃展櫃裡陳列著穀物樣本與生活器物。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 62463401; timebase 1/30000"
+    },
+    {
+      "id": "media-ramen-bowl",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=269",
+      "label": "拉麵上放著玉米、半顆蛋與一塊奶油。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 8070062; timebase 1/30000"
+    },
+    {
+      "id": "media-ramen-aoba-sign",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=78",
+      "label": "拉麵村裡，青葉店面掛著橘色暖簾。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 2359357; timebase 1/30000"
+    },
+    {
+      "id": "media-ramen-guide-plaque",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=236",
+      "label": "拍攝時，門邊掛著標示北海道 2012／2017 年收錄的米其林指南牌匾。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 7083076; timebase 1/30000"
+    },
+    {
+      "id": "media-daikokuya-food-spread",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw&t=2302",
+      "label": "多盤肉片與蔬菜擺在餐桌上。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 69071002; timebase 1/30000"
+    },
+    {
+      "id": "media-daikokuya-family",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DV6AWntk_oO/?img_index=11",
+      "label": "餐桌旁的合照，圍裙上印著「大黑屋」。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-teine-child-board",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DWBtEzKkxgm/?img_index=13",
+      "label": "手稻雪坡上的單板練習。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-shiroi-workshop",
+      "kind": "photo",
+      "url": "https://www.facebook.com/photo/?fbid=1492205499581345&set=pcb.1492205576248004",
+      "label": "孩子們拿起擠花袋，裝飾自己的巧克力。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-aoao-family-eels",
+      "kind": "photo",
+      "url": "https://www.facebook.com/photo/?fbid=1492205486248013&set=pcb.1492205576248004",
+      "label": "隔著水槽玻璃，與沙底探出的花園鰻同框。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-teine-family",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DWBtEzKkxgm/?img_index=1",
+      "label": "四人帶著單板，在手稻雪坡合照。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-teine-conveyor",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DWBtEzKkxgm/?img_index=7",
+      "label": "抱著單板，搭乘有透明頂棚的輸送帶。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "原貼文照片"
+    },
+    {
+      "id": "media-shiroi-entrance",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=359",
+      "label": "白色戀人公園入口，招牌兩旁擺著雪人裝飾。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 10788778; timebase 1/30000"
+    },
+    {
+      "id": "media-shiroi-hall",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=235",
+      "label": "室內的透明圓柱裝置，旁邊是商店入口。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 7050043; timebase 1/30000"
+    },
+    {
+      "id": "media-aoao-seahorse",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=627",
+      "label": "水槽裡的海馬與枝狀造景。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 18810792; timebase 1/30000"
+    },
+    {
+      "id": "media-aoao-garden-eels",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=630",
+      "label": "花園鰻從沙底探出身體。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 18900882; timebase 1/30000"
+    },
+    {
+      "id": "media-ario-entrance",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=883",
+      "label": "拉著行李箱走進 Ario，入口旁還有積雪。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 26492466; timebase 1/30000"
+    },
+    {
+      "id": "media-ario-child-toys",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=892",
+      "label": "孩子蹲在貨架前，兩側擺滿積木盒。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 26779753; timebase 1/30000"
+    },
+    {
+      "id": "media-ario-breeze-sign",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg&t=914",
+      "label": "拍攝當時的 BREEZE 店面招牌與童裝陳列。",
+      "rights": "鷹式一家自有公開照片與影片，經作者授權用於本篇候選。",
+      "locator": "PTS 27445418; timebase 1/30000"
+    },
+    {
+      "id": "family-hokkaido-record",
+      "kind": "photo",
+      "url": "https://www.youtube.com/watch?v=2Y6go4ITpAM",
+      "label": "鷹式一家北海道旅程紀錄",
+      "rights": "自有旅行紀錄；七天、旭川與札幌住宿概述及 iSKI 合作性質依作者補充回憶整理。"
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "zoo-bear-children",
+      "width": 1440,
+      "height": 1800,
+      "alt": "兩個孩子站在展區玻璃前，棕熊在玻璃另一側。",
+      "caption": "兩個孩子在棕熊展區的玻璃前合照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-zoo-bear-children"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-zoo-bear-children-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 109980,
+          "sha256": "e9df0f142c9add4faa55c1dc17c1a7ed0d3474dd427e08b27f07f0c7afba11b7"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-zoo-bear-children-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 185012,
+          "sha256": "9a180480c8bbf876d561363a500699903b2d3c94450f0f4b986acdfe74429d53"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-zoo-bear-children-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 331004,
+          "sha256": "2f8bd2c1f1c50db9589d2a9506d3e7e5f1611a84878b6cf0f0472b5d9131c0d3"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "79dc9dc4cadd22aeba0c94d8559ee555e9ef62e6f0b17b26cafa79c3f577dfeb",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "science-bubble",
+      "width": 1440,
+      "height": 1800,
+      "alt": "孩子站在圓形底座上，身邊拉起一道透明泡泡膜。",
+      "caption": "大型泡泡膜圍住站在底座上的孩子。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-science-bubble"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-science-bubble-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 90190,
+          "sha256": "bebad7e178ca281e3d79cf18b77ab957c4ae341d81d4a015c88ecd12bc4d6503"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-science-bubble-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 181062,
+          "sha256": "a36b2f5ef75f1d92059ba28805a2c19d5f0ca3626576ad115b55f99b7477948e"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-science-bubble-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 365198,
+          "sha256": "667f8b1531321d9357294f342f4c3fbd3a5ff804e5fb97e320be3cdf6e94d064"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "d6d9a7110b3f73c3d97f4f6ed69091ddde4de9d61dace1e9b889be8ce0d0c613",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "daikokuya-grill",
+      "width": 1440,
+      "height": 1800,
+      "alt": "孩子用夾子夾起肉片，前方烤盤周圍放著洋蔥，盤上冒著煙。",
+      "caption": "孩子用夾子夾起肉片，烤盤周圍放著洋蔥。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-daikokuya-grill"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-daikokuya-grill-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 75130,
+          "sha256": "b10cf48e8e10c04b696e205751a91d90f4c10affff1d45a49f6d91b6d00d6862"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-daikokuya-grill-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 134664,
+          "sha256": "2ce54c891ab1c2cd6abcc30ec1fb82806f76a97137709a195cbca1fb0e8898a1"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-daikokuya-grill-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 241678,
+          "sha256": "1b8a94e7d9c9554bcff027940085188d4aede786958f229b9392e03a9d8d0e30"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "df2a1c560a6ad67072850def27c98d4af6104505c72eef2576082cc920e692ac",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "asahiyama-bear-entry",
+      "width": 1440,
+      "height": 960,
+      "alt": "棕熊站在展區的岩石地面上，後方是岩壁與一段木頭。",
+      "caption": "旭山動物園的棕熊，身後是岩壁與木頭。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-asahiyama-bear-entry"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-asahiyama-bear-entry-v3-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 44586,
+          "sha256": "4295f2b3d664d3fcdf74b59ad2d847199376d477187ae935a22ba54554a1dbd9"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-asahiyama-bear-entry-v3-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 74534,
+          "sha256": "f0b6c3581ab80ca13e0bcf392415dcd485587dafef6a09c2a1fbdcb2818f4fed"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-asahiyama-bear-entry-v3-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 125290,
+          "sha256": "4d707d7008c0f01d5457c39d302330b7f5423958a1328056a00dd39c0cf5ed64"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "6c5909761945d1e9fe1a522df4bfd836686b462e547994f8e8b69c4aa08d02de",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "pts": 42651609,
+        "timebase": "1/30000",
+        "frameSha256": "d5027e0e8191f11f1e2c372813eabcaafd4fdded823099940f5c14833b92fbf3"
+      }
+    },
+    {
+      "assetId": "zoo-family-terrace",
+      "width": 1440,
+      "height": 1800,
+      "alt": "兩名成人、兩個孩子與嬰兒在木欄杆前合照，後方是城市與遠處雪山。",
+      "caption": "一家人在旭山動物園高處合照，身後是城市與雪山。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-zoo-family-terrace"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-zoo-family-terrace-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 87892,
+          "sha256": "d3ae1c22df469dd51b3acd432c28d37143b345e93df2183e5a94dbf61bf6ea63"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-zoo-family-terrace-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 152094,
+          "sha256": "bea455581d92139375302a9cb4fa4bdedb1594c98c8942deb330b735ded548b5"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-zoo-family-terrace-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 283838,
+          "sha256": "cba62c4f41e14a9562811b422f113d97430b0d05d7aba5533a2e32c5f84a66a5"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "1c1a11fd072af3bfc873a8ad03a9d9b6f84cb6af5d70587b6881c64e3b65bc36",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "science-platform",
+      "width": 1440,
+      "height": 810,
+      "alt": "一名成人繫著紅色安全帶，坐在互動裝置上，雙手握住前方把手。",
+      "caption": "繫著安全帶，坐上科學館的互動裝置。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-science-platform"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-science-platform-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 25626,
+          "sha256": "3fbb628706ad642934df5eef1b07efc554a19163c9391d0a79f5fc979b8ba8bc"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-science-platform-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 39572,
+          "sha256": "29eeb311b63c34fd420981803e7b5e846339f42b1668d5d47ea39b0556ce7f5b"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-science-platform-v1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 62162,
+          "sha256": "f63c64b41c343ef49be2a177fe1553c72840add447df0384b63f746dbcd71638"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "6c5909761945d1e9fe1a522df4bfd836686b462e547994f8e8b69c4aa08d02de",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 54300246,
+        "timebase": "1/30000",
+        "frameSha256": "1cf90058cbcd7ca070153799c2da03a4555537c8d2255df1f6e88980b6c7c785"
+      },
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/hokkaido-card-science-platform-v1-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 26654,
+            "sha256": "70cc45a9c55e8adb317929c874befaa1f6064150f116d79ddb095ca645fc26fe"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-science-platform-v1-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 42068,
+            "sha256": "9e0f98b0179417f520a5d25d04ba24b2943debbf469da7767125fab88bdabe01"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-science-platform-v1-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 65672,
+            "sha256": "64a8640132d90dbc913b814a0ffd2a482566c89ff3351863c9215e924d81a52e"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "science-gyroscope",
+      "width": 1440,
+      "height": 1800,
+      "alt": "一名成人繫著紅色安全帶，在圓環旋轉裝置中頭朝下，雙手握著兩側扶桿。",
+      "caption": "繫上安全帶，在旋轉裝置裡頭朝下。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-science-gyroscope"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-science-gyroscope-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 47606,
+          "sha256": "ea137de5d7110807878176075a332afae205a57a9a30e645d1150cb53df72550"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-science-gyroscope-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 77636,
+          "sha256": "c567dafabc5d5d9df6587a94f9b15d3f85c6184c88c3eef8611c9eff4235f593"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-science-gyroscope-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 125342,
+          "sha256": "f32bcd56df2a6c9b2766fbb98d47c26d92b1ade53de57e2b9dce7eb8b2bdcf28"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "dcb6c993e329f29410ad780c4750b8205dc6ffd2a45bc68ca7c688d455de5e53",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "museum-overview",
+      "width": 1440,
+      "height": 810,
+      "alt": "從上層俯看博物館，樹木造景旁排列著弧形展櫃。",
+      "caption": "從上層俯看樹木造景與下方的弧形展櫃。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-museum-overview"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-museum-overview-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 48336,
+          "sha256": "273549aa22c83e6fa9c596ff900aef10739152a9843bd068a161e2b7f73a38de"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-museum-overview-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 89502,
+          "sha256": "80f78319978fd1986c60b6df96eba382eab6d1d8d679c5a9e587080fd2f4d0ad"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-museum-overview-v1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 152592,
+          "sha256": "f61c4e72f1dc8e87470c069ccca5015e456acf16e2292a2f28a1a1ccee689615"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "6c5909761945d1e9fe1a522df4bfd836686b462e547994f8e8b69c4aa08d02de",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 60450390,
+        "timebase": "1/30000",
+        "frameSha256": "4d09ad7e856b156cf13ed13a93a8fc441d20705d2d1021b3e1eed9508124f76e"
+      },
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/hokkaido-card-museum-overview-v1-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 59550,
+            "sha256": "2bf80a9da59eaf0b1791188ac37ce2c36743c3c9b18104ad6630855cd4565fd2"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-museum-overview-v1-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 107456,
+            "sha256": "ef70d715381258755a8efe023820526599937df56b2ffcea9fcb18cc881604eb"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-museum-overview-v1-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 180940,
+            "sha256": "a71a3dea7a6aa7a2f566ee9c5430634d42b0807d3e274132419a6d776de88c39"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "museum-tools",
+      "width": 1440,
+      "height": 810,
+      "alt": "木牆上掛著繩編木框、長木桿與編織用品，前方擺著木凳。",
+      "caption": "木造展間裡，繩編木框與編織用品掛在牆上。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-museum-tools"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-museum-tools-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 52374,
+          "sha256": "a7bf0214e0650e2752de5117a7931e2aa4c5c86893ba4770df5572fca34cf6ac"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-museum-tools-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 90592,
+          "sha256": "f6c25229c3a1b494fa5ab80d1a57cf3c37ab235e0c62bf50477f781fc3d848bc"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-museum-tools-v1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 147094,
+          "sha256": "d7253670b844beda73f04ed76a6593f6c447ad4c6c652bea90f30c30383f9f11"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "6c5909761945d1e9fe1a522df4bfd836686b462e547994f8e8b69c4aa08d02de",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 60300240,
+        "timebase": "1/30000",
+        "frameSha256": "b55f1a728a379e835ba4ebbd199adfc91f1c57f4ec680884b5bd00a628730666"
+      }
+    },
+    {
+      "assetId": "museum-daily-life-case",
+      "width": 1440,
+      "height": 810,
+      "alt": "玻璃展櫃裡陳列穀物樣本、圓形器物與解說牌。",
+      "caption": "玻璃展櫃裡陳列著穀物樣本與生活器物。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-museum-daily-life-case"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-museum-daily-life-case-v3-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 30608,
+          "sha256": "351742171f424fa32a9a92d852fa75a323cc9cf93a07f3749f67f0d99f80f754"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-museum-daily-life-case-v3-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 49066,
+          "sha256": "a83981910cfe1ca6c63d25dbf24949dd3c308778c26704ccf577eedef0c3672a"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-museum-daily-life-case-v3-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 79490,
+          "sha256": "d7d2d5777951fd46dc00b62a3993f4174568fa3f66225ff1b9e42bb4743a98a1"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "6c5909761945d1e9fe1a522df4bfd836686b462e547994f8e8b69c4aa08d02de",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 62463401,
+        "timebase": "1/30000",
+        "frameSha256": "cefd3b3be8a6cfca43429aefad73b2151626e37468a19bd861882d6c3f12b2f1"
+      }
+    },
+    {
+      "assetId": "ramen-bowl",
+      "width": 1440,
+      "height": 810,
+      "alt": "拉麵碗裡放著叉燒、玉米、蔥、筍乾、蛋與奶油，旁邊有湯匙。",
+      "caption": "拉麵上放著玉米、半顆蛋與一塊奶油。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-ramen-bowl"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-ramen-bowl-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 24060,
+          "sha256": "ba40be952e832a8fc67231d6cd54ee4ea75ad43b09c57b6fc1d46f6c29915a58"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ramen-bowl-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 38378,
+          "sha256": "5350bb333796721bdb0736f50ae598478c6ed6f9a34052ca9d3353dd725051ea"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ramen-bowl-v1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 61952,
+          "sha256": "02266eba1b8d4eabdf6da2365f234c7d9a4414f4cec3d205bb517ac0d27b6d43"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "6c5909761945d1e9fe1a522df4bfd836686b462e547994f8e8b69c4aa08d02de",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 8070062,
+        "timebase": "1/30000",
+        "frameSha256": "5d86f97eaa6ee3ae2a038c6a59eee2d96948028b5fc969e9ef2c92adf0f15222"
+      },
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/hokkaido-card-ramen-bowl-v1-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 27390,
+            "sha256": "b2caa5fd8b06233bb918f3592f705f4844bee7d7deffb5a1090b79c37c86af2a"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-ramen-bowl-v1-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 43042,
+            "sha256": "70b4fc554b43751ce8afbf86b6602c1cb7b464c63fc3092134ee5ceea82f6915"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-ramen-bowl-v1-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 70246,
+            "sha256": "043c8734e030a2b34b384ca8c2ed77d6671964ca4494fd138e88f2137e8d99a8"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "ramen-aoba-sign",
+      "width": 1440,
+      "height": 810,
+      "alt": "青葉店面的橘色招牌與暖簾上有綠色店名字樣，門面帶著木格裝飾。",
+      "caption": "拉麵村裡，青葉店面掛著橘色暖簾。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-ramen-aoba-sign"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-ramen-aoba-sign-v3-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 47162,
+          "sha256": "4abaef1f4426a675a140c196ac90ae6bd38dcbb35da8c84f968b458e43418862"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ramen-aoba-sign-v3-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 76246,
+          "sha256": "c3c01e87b4a92ee7cbece5ad849212f2b653673f466f130a148e13bff92f69fe"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ramen-aoba-sign-v3-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 122916,
+          "sha256": "4723f9350bc15fd5e5d93bcdb6b112b7aedc5ac6884aebcab0b71afc4290edc6"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "6c5909761945d1e9fe1a522df4bfd836686b462e547994f8e8b69c4aa08d02de",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 2359357,
+        "timebase": "1/30000",
+        "frameSha256": "6bb70a1a43cbef75b48a854cecc909fe94039cedad4b008afcc77f7e686d104d"
+      }
+    },
+    {
+      "assetId": "ramen-guide-plaque",
+      "width": 1440,
+      "height": 810,
+      "alt": "木門邊的紅色米其林指南牌匾，標示北海道 2012／2017 年收錄。",
+      "caption": "拍攝時，門邊掛著標示北海道 2012／2017 年收錄的米其林指南牌匾。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-ramen-guide-plaque"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-ramen-guide-plaque-v3-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 40666,
+          "sha256": "3ee6779f6419c29f70c908475ef4b54c320e6a7d20d2733c20b6553e2c7439ff"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ramen-guide-plaque-v3-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 68172,
+          "sha256": "8cb9adc5057d74a5e7fd322c0719638a8d926bb4e03a9cdc8c8f4709291295b6"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ramen-guide-plaque-v3-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 105410,
+          "sha256": "246684bbbeabb75bbb66c5fddf96dae20df0e2782bff7b66b26bcd7259350bf2"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "6c5909761945d1e9fe1a522df4bfd836686b462e547994f8e8b69c4aa08d02de",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 7083076,
+        "timebase": "1/30000",
+        "frameSha256": "8c73873d46e506ee7465cd5faa9080a51ec41dfaaaebde4b73bfa7a99ed42d24"
+      }
+    },
+    {
+      "assetId": "daikokuya-food-spread",
+      "width": 1440,
+      "height": 810,
+      "alt": "多盤肉片與蔬菜放在餐桌上，一隻戴黑色手套的手托著盛有蔬菜的盤子。",
+      "caption": "多盤肉片與蔬菜擺在餐桌上。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-daikokuya-food-spread"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-daikokuya-food-spread-v3-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 27836,
+          "sha256": "d0cddc680e54ae09736120739e4c416d5f6547daf6994fda48ab28d5e09d14a0"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-daikokuya-food-spread-v3-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 43642,
+          "sha256": "1c03cfb5ba186089a0f24c4180975d818ab49fd11ebd59a61cb0f0758a2fa544"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-daikokuya-food-spread-v3-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 70680,
+          "sha256": "a94eac126903a815029ad93b9efd8895f64a064668eb7ba76fcffc45f07e055d"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "6c5909761945d1e9fe1a522df4bfd836686b462e547994f8e8b69c4aa08d02de",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 69071002,
+        "timebase": "1/30000",
+        "frameSha256": "02b1ae131b63c2f8e95902940386a97206dbd794ae7462e3da44a81d9a226d61"
+      },
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/hokkaido-card-daikokuya-food-spread-v1-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 29466,
+            "sha256": "d35fc45762f8ffb3d9d7dcb6e3dd7bec7977613bbb32ed883467bea1ebb98fd5"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-daikokuya-food-spread-v1-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 45798,
+            "sha256": "3d4a149bc1ee5a3765d278612dc0638e01576471e384509d904e85c157d3e185"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-daikokuya-food-spread-v1-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 72170,
+            "sha256": "e3b53147cbf4466c539ac207e24ba25d3ad7f5fcddc7a1ba0c6179e6bfc0d72a"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "daikokuya-family",
+      "width": 1440,
+      "height": 1800,
+      "alt": "兩名成人與一個孩子在餐桌旁合照，其中一人穿著印有大黑屋字樣的圍裙。",
+      "caption": "餐桌旁的合照，圍裙上印著「大黑屋」。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-daikokuya-family"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-daikokuya-family-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 67176,
+          "sha256": "9d9f8a2d703da52a1dcd758b7747766a72682ac734ea2bb8d11b3ef6692bc0d3"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-daikokuya-family-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 111862,
+          "sha256": "ecb0763428427a5a206d1871c130924a8c9b9745ea17b862f5f68a3cb2617e54"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-daikokuya-family-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 209946,
+          "sha256": "1e551ef1494e4caa7bf519297b5b62f04501500ce270691fbe2e01f0e81aab71"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "efd1a6ce8b625a1ae09952d05845103d7f480dedef56edec0f4af28efbe9fcc3",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "teine-child-board",
+      "width": 1440,
+      "height": 960,
+      "alt": "孩子戴著頭盔和雪鏡，雙腳固定在單板上，站在樹林旁的雪坡。",
+      "caption": "手稻雪坡上的單板練習。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-teine-child-board"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-teine-child-board-v1-640.webp",
+          "width": 640,
+          "height": 427,
+          "bytes": 37346,
+          "sha256": "28882ddec4eec6a478a369c5d5c507602add5ac764e788906023d27da6865887"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-teine-child-board-v1-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 69286,
+          "sha256": "17310d20c01e9880dee5b7420c83d8486d5a90dc449427e8a269fc489a471c3b"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-teine-child-board-v1-1440.webp",
+          "width": 1440,
+          "height": 960,
+          "bytes": 128756,
+          "sha256": "b536cf1c7a45777ae3868f25c97212cd9c58681d612d66b290f5dbaeec1ac75f"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "3d703da021a253aa2ffed6a1c50db2ea6be25f53f3e9399012e0431e4359044d",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 400,
+          "width": 1440,
+          "height": 960
+        }
+      }
+    },
+    {
+      "assetId": "shiroi-workshop",
+      "width": 1440,
+      "height": 1800,
+      "alt": "兩個孩子戴著紙廚師帽和圍裙，手拿黃色擠花袋，桌上放著裝飾材料與盒子。",
+      "caption": "孩子們拿起擠花袋，裝飾自己的巧克力。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-shiroi-workshop"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-shiroi-workshop-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 73450,
+          "sha256": "77ab00368468958dc142fb408613abfda49abca379668bd6fcb5041eec16bc8e"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-shiroi-workshop-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 123314,
+          "sha256": "dc7307a23ed0a698bbbd52c91443b4f41def820b8b3f30097444299e0d4d2934"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-shiroi-workshop-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 211756,
+          "sha256": "c8a972b48120e4245d5394ec77ce3b8c8badcbdc457d80606e77950e8051121a"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "fa4dc57a81edd118e22b8bd6ecf32f93805341d7f355cc0d382b4ea4dfa2e934",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "aoao-family-eels",
+      "width": 1440,
+      "height": 1800,
+      "alt": "一名成人與兩個孩子在水槽玻璃另一側，前方有從沙底探出的花園鰻。",
+      "caption": "隔著水槽玻璃，與沙底探出的花園鰻同框。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-aoao-family-eels"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-aoao-family-eels-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 69496,
+          "sha256": "5dbe10f06501936c9bd8d7d25697d9f417da6858ba0dc285192bbfb8e055007b"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-aoao-family-eels-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 116090,
+          "sha256": "d356ec81ebed67739524bc878846ff048c01c7fb8d40e9b2f7f1c96eab20d3ad"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-aoao-family-eels-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 184556,
+          "sha256": "a88a3b2a29aca2677018aa4aa3d82d9b304b95489732f0e2cda0a0a4fad8ccd8"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "88aff469de7e3e1bb366e906ad42d4fc2dd6d47b3ab4dcded9776472df166176",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "teine-family",
+      "width": 1440,
+      "height": 1801,
+      "alt": "兩名成人與兩個孩子戴著頭盔、拿著單板，在雪坡上合照。",
+      "caption": "四人帶著單板，在手稻雪坡合照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-teine-family"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-teine-family-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 66708,
+          "sha256": "7520b0726807cece31748a40a46a6922a30fc24b37389c0c67cd2f4870549661"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-teine-family-v1-960.webp",
+          "width": 960,
+          "height": 1201,
+          "bytes": 121748,
+          "sha256": "a42263e57052afffcfd031dc8bb22aa2e4bbc65d0221386b8e8d1670cd94d3f4"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-teine-family-v1-1440.webp",
+          "width": 1440,
+          "height": 1801,
+          "bytes": 222408,
+          "sha256": "48a27baaff4a171bd0837373c1e07b002b4d27a78b5b22fff1bf3a43629416e9"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "989e14ee264e86f496bba9eb1a42fc98c916523286d936826c31debe2376cf7b",
+        "sourceWidth": 1440,
+        "sourceHeight": 1801,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1801
+        }
+      }
+    },
+    {
+      "assetId": "teine-conveyor",
+      "width": 1440,
+      "height": 1800,
+      "alt": "孩子戴著頭盔和雪鏡，抱著單板站在透明頂棚的輸送帶上。",
+      "caption": "抱著單板，搭乘有透明頂棚的輸送帶。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-teine-conveyor"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-teine-conveyor-v1-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 109364,
+          "sha256": "63b5d354e7ca803661a82d1b06378c9a7ce380bbfaeb25ed0e5275deeafe6a10"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-teine-conveyor-v1-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 191410,
+          "sha256": "46c9a251bfa633ea4e4cb5c4697b7d2b942a73345c58e0ffde72e7e74112a71e"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-teine-conveyor-v1-1440.webp",
+          "width": 1440,
+          "height": 1800,
+          "bytes": 327198,
+          "sha256": "eb1b9f9cd7f31065b6d4024e39fae5222760958390d17da39c74e8b53a5f4c1e"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "949b6ca54991d16a58d20f90ad4c6ca69f5755402979ed6e9f37dd7a4ab7e332",
+        "sourceWidth": 1440,
+        "sourceHeight": 1800,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1800
+        }
+      }
+    },
+    {
+      "assetId": "shiroi-entrance",
+      "width": 1440,
+      "height": 810,
+      "alt": "白色戀人公園入口前有日文招牌與雪人裝飾，後方是拱廊建築。",
+      "caption": "白色戀人公園入口，招牌兩旁擺著雪人裝飾。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-shiroi-entrance"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-shiroi-entrance-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 57346,
+          "sha256": "d2700720438767d4ffcc4f39ee7c37b268798626473a47a013308d8f0258ebfb"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-shiroi-entrance-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 104998,
+          "sha256": "5b851145859536a82233b349c0db61bab098a62adfd205417b89b0741700d77f"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-shiroi-entrance-v1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 179314,
+          "sha256": "c74654add4cbeae8fdfb7fc4807ef5501f651fe1c35f1cd0ee332c9e27031356"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "4daa7fe3def6c552303587561e384d291637c4c6f1958a3803d4ed97c3537bcc",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 10788778,
+        "timebase": "1/30000",
+        "frameSha256": "297cf7f7df97b5749a5ddca3020bb95a3cfe1c753e3cde005d2d3b8838168126"
+      },
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/hokkaido-card-shiroi-entrance-v1-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 66126,
+            "sha256": "fc84465c052e5b68911dd875df801471ebef75ad53cb9c56623f4cd8c12d2485"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-shiroi-entrance-v1-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 118292,
+            "sha256": "81fc0306a5acaceab2d141006f1bd026bf57a2e923171f968035506776ed82bc"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-shiroi-entrance-v1-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 197868,
+            "sha256": "abafb6faafbed05184adfffadd6a230f49ec707dd447a4abd2738f3f79e6b942"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "shiroi-hall",
+      "width": 1440,
+      "height": 948,
+      "alt": "室內中央立著透明圓柱裝置，上方有彩色指示燈，旁邊是商店入口。",
+      "caption": "室內的透明圓柱裝置，旁邊是商店入口。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-shiroi-hall"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-shiroi-hall-v1-640.webp",
+          "width": 640,
+          "height": 421,
+          "bytes": 50588,
+          "sha256": "bb83a9ab6204340e72a8fafbc581b724beb777563eb4b9b10cd2e05795753940"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-shiroi-hall-v1-960.webp",
+          "width": 960,
+          "height": 632,
+          "bytes": 82322,
+          "sha256": "26360152842e9e72cb91d8d6b3b810e88ce85722021564352ee3f69372bfc17d"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-shiroi-hall-v1-1440.webp",
+          "width": 1440,
+          "height": 948,
+          "bytes": 122090,
+          "sha256": "de9e2e80498881c50bfc71a16c0583a34a2d57350c2ca0a8937c30d41ed29304"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "4daa7fe3def6c552303587561e384d291637c4c6f1958a3803d4ed97c3537bcc",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 280,
+          "y": 0,
+          "width": 1640,
+          "height": 1080
+        },
+        "pts": 7050043,
+        "timebase": "1/30000",
+        "frameSha256": "87167b78a03d4bfbaf8c816388db0490c4dcd84710ad93632209d41c65544df4"
+      }
+    },
+    {
+      "assetId": "aoao-seahorse",
+      "width": 1440,
+      "height": 810,
+      "alt": "水槽裡的海馬停在枝狀造景旁，底部鋪著淺色砂粒。",
+      "caption": "水槽裡的海馬與枝狀造景。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-aoao-seahorse"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-aoao-seahorse-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 73040,
+          "sha256": "74f4a6eb10d814c2eaea36f6b338fadced0b2f02184800845db3cd5d2bac243c"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-aoao-seahorse-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 123504,
+          "sha256": "24cb927044c14980a5d565c4a312faf2d5b0335025c2f70f20a42b6a3d923504"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-aoao-seahorse-v1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 191394,
+          "sha256": "33f5e135025ea1b415c385db72ae5100dd97cef9fcd646be86981d3d20e38136"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "4daa7fe3def6c552303587561e384d291637c4c6f1958a3803d4ed97c3537bcc",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 18810792,
+        "timebase": "1/30000",
+        "frameSha256": "046c7e4569e7bbbb7334d7af254545d6d309260fc1d3aeedeb3c045ea1b13481"
+      },
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/hokkaido-card-aoao-seahorse-v1-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 80412,
+            "sha256": "85e2a9a95e0abc358a9b8f79abd3da3077337ce52141239429260ea419872e46"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-aoao-seahorse-v1-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 133042,
+            "sha256": "21ef5e22b5a62bb966fa4da0e84b9f6780354a49db93afbd8abfb6d7f2126027"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-aoao-seahorse-v1-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 203066,
+            "sha256": "672c277e73d6962dd49ca109581387af4aac0bb11e57bd80b675712b5a1913a3"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "aoao-garden-eels",
+      "width": 1440,
+      "height": 810,
+      "alt": "數隻帶斑點的花園鰻從水槽沙底探出身體。",
+      "caption": "花園鰻從沙底探出身體。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-aoao-garden-eels"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-aoao-garden-eels-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 61198,
+          "sha256": "b48587777714f7b76cd0f10183ffb3eb19faa46e7244905e4b99bf8c0b9b93a3"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-aoao-garden-eels-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 101212,
+          "sha256": "08ee8be6992a8ce607e3c771b3cd63732e2f28897bd947f951815c0d613c5b03"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-aoao-garden-eels-v1-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 150212,
+          "sha256": "dcadd7ea62bc4dcf4a63d668efcb5949795af402ccb3ff304a23e47e2d6467a7"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "4daa7fe3def6c552303587561e384d291637c4c6f1958a3803d4ed97c3537bcc",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 18900882,
+        "timebase": "1/30000",
+        "frameSha256": "0ce14d719d75b38c07a1dbc6112f4ac3a75df2efd613da3345d431df2cd1134f"
+      }
+    },
+    {
+      "assetId": "ario-entrance",
+      "width": 1440,
+      "height": 810,
+      "alt": "一名成人拉著行李箱，與孩子朝 Ario 入口前進，右側仍有積雪。",
+      "caption": "拉著行李箱走進 Ario，入口旁還有積雪。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-ario-entrance"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-ario-entrance-v3-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 45006,
+          "sha256": "0c52d4a628f52b3c92866cd0e17b98551873dd7402f850acf80ebaf83974dd6e"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ario-entrance-v3-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 80252,
+          "sha256": "5e4dd2421c61563f18c892742577ddff13ff5ac1998f5f1ca2a3383ef08e649a"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ario-entrance-v3-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 127316,
+          "sha256": "653e62924360ddb813047348d7a46a0a2d7fd691fd99f4d2450f7d8d9eb38ccd"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "4daa7fe3def6c552303587561e384d291637c4c6f1958a3803d4ed97c3537bcc",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 26492466,
+        "timebase": "1/30000",
+        "frameSha256": "a298b5ee8b45b074c84e081502ab510e42cdb81643247cbf76a269ff3b2240cd"
+      },
+      "cardPhoto": {
+        "width": 1440,
+        "height": 960,
+        "activePicture": {
+          "x": 150,
+          "y": 0,
+          "width": 1620,
+          "height": 1080
+        },
+        "variants": [
+          {
+            "url": "/trip/assets/hokkaido-card-ario-entrance-v1-640.webp",
+            "width": 640,
+            "height": 427,
+            "bytes": 50988,
+            "sha256": "6c8c3333797977f15e1bcda05e6524c36b689f42b3e6ee51b8d40387b13bbaa8"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-ario-entrance-v1-960.webp",
+            "width": 960,
+            "height": 640,
+            "bytes": 85812,
+            "sha256": "da9e5a5ab0ec45aa7b5db0bbd75c697877c2436a63dde4aba81ebc0110e45992"
+          },
+          {
+            "url": "/trip/assets/hokkaido-card-ario-entrance-v1-1440.webp",
+            "width": 1440,
+            "height": 960,
+            "bytes": 137000,
+            "sha256": "c6f6f4a1100ee15150aa1174727e6414b2289a11b0f30542135f775ecc4e580a"
+          }
+        ]
+      }
+    },
+    {
+      "assetId": "ario-child-toys",
+      "width": 1440,
+      "height": 810,
+      "alt": "孩子蹲在玩具貨架前，兩側陳列著不同系列的積木盒。",
+      "caption": "孩子蹲在貨架前，兩側擺滿積木盒。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-ario-child-toys"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-ario-child-toys-v3-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 51804,
+          "sha256": "d62b2d8d94465c6a2f28c7873e08b2d9a8810f206a23fd45669040cf42e8eeef"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ario-child-toys-v3-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 88424,
+          "sha256": "ff053733f569429532d8d73af55c8c01160d3134175c6f95c9efd3443d421096"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ario-child-toys-v3-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 146072,
+          "sha256": "fab6dbc968c7c7c9f648bfdba72b425b3e46496993635cc18042db42e70d7c0e"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "4daa7fe3def6c552303587561e384d291637c4c6f1958a3803d4ed97c3537bcc",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 26779753,
+        "timebase": "1/30000",
+        "frameSha256": "a2ea0920761f66de77051e5299401a76cc823e9534a3c5397bfa846042a0d734"
+      }
+    },
+    {
+      "assetId": "ario-breeze-sign",
+      "width": 1440,
+      "height": 810,
+      "alt": "BREEZE 店面的發光招牌，下方可見燈具與童裝陳列。",
+      "caption": "拍攝當時的 BREEZE 店面招牌與童裝陳列。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "media-ario-breeze-sign"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/hokkaido-g3-ario-breeze-sign-v3-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 27294,
+          "sha256": "0e67de899b910e2d151cddb2bd346bee3f211d8300667cf9043911e9a7bc3299"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ario-breeze-sign-v3-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 43612,
+          "sha256": "b0e28388bac09053714693e7aef0761e15ef92662509a44549406f3cf9d528a2"
+        },
+        {
+          "url": "/trip/assets/hokkaido-g3-ario-breeze-sign-v3-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 72072,
+          "sha256": "d17dee81511c9fedc1a454832e1f5c9bad4bc7e1aace6dadc4725afbdbdb77b2"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "4daa7fe3def6c552303587561e384d291637c4c6f1958a3803d4ed97c3537bcc",
+        "sourceWidth": 1920,
+        "sourceHeight": 1080,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1920,
+          "height": 1080
+        },
+        "pts": 27445418,
+        "timebase": "1/30000",
+        "frameSha256": "43478d08200d7a336e81d33aeb00ef0fcbee060635a97bad6d0b6dc1b42fbeb7"
+      }
+    }
+  ],
+  "countries": [
+    {
+      "id": "japan",
+      "name": "日本",
+      "englishName": "Japan",
+      "flag": "🇯🇵",
+      "title": "日本親子旅行：北海道旭川、札幌攻略",
+      "subtitle": "動物園、科學館、巧克力體驗與手稻滑雪",
+      "metadataTitle": "日本親子旅行｜北海道旭川與札幌實訪｜鷹家遠行所",
+      "description": "日本親子旅行先看北海道旭川與札幌：旭山動物園、科學館、手稻滑雪與市區玩法，附實訪照片、交通和嬰兒照顧經驗。",
+      "intro": [
+        "我們的日本親子旅行，這次從北海道的旭川與札幌開始：看動物、玩科學，也帶孩子上雪場。",
+        "這裡整理我們帶著七個月大嬰兒走訪北海道的紀錄，先從旭川、札幌的實際玩法與家庭分工開始。"
+      ],
+      "cityIds": [
+        "asahikawa",
+        "sapporo"
+      ],
+      "sourceIds": [
+        "a01",
+        "a10",
+        "a12",
+        "s01",
+        "c01"
+      ],
+      "presentation": {
+        "overviewTitle": "旅行總覽",
+        "overviewText": "先挑想看的城市與玩法，再按停留時間安排動物園、室內活動與雪場。",
+        "citySummaries": [
+          {
+            "cityId": "asahikawa",
+            "tag": "動物與科學",
+            "intro": "從旭山動物園到科學館，再留一站給爸爸想看的地方文化，最後一起吃烤羊肉。",
+            "sourceIds": [
+              "a10",
+              "a12",
+              "a13",
+              "a15"
+            ]
+          },
+          {
+            "cityId": "sapporo",
+            "tag": "雪場與城市",
+            "intro": "兩天分組學滑雪，回到城市做巧克力、看水族館，也安排好嬰兒用品和休息。",
+            "sourceIds": [
+              "s01",
+              "s04",
+              "c01",
+              "c03",
+              "c04"
+            ]
+          }
+        ],
+        "themes": [
+          {
+            "id": "animals",
+            "label": "看動物"
+          },
+          {
+            "id": "hands-on",
+            "label": "動手體驗"
+          },
+          {
+            "id": "local-history",
+            "label": "地方文化"
+          },
+          {
+            "id": "snow",
+            "label": "學滑雪"
+          }
+        ],
+        "placeThemes": [
+          {
+            "cityId": "asahikawa",
+            "placeId": "asahiyama-zoo",
+            "themeIds": [
+              "animals"
+            ]
+          },
+          {
+            "cityId": "asahikawa",
+            "placeId": "asahikawa-science",
+            "themeIds": [
+              "hands-on"
+            ]
+          },
+          {
+            "cityId": "asahikawa",
+            "placeId": "asahikawa-museum",
+            "themeIds": [
+              "local-history"
+            ]
+          },
+          {
+            "cityId": "sapporo",
+            "placeId": "teine-iski",
+            "themeIds": [
+              "snow"
+            ]
+          },
+          {
+            "cityId": "sapporo",
+            "placeId": "shiroi-koibito",
+            "themeIds": [
+              "hands-on"
+            ]
+          },
+          {
+            "cityId": "sapporo",
+            "placeId": "aoao-sapporo",
+            "themeIds": [
+              "animals"
+            ]
+          }
+        ],
+        "showCityEntryActions": true,
+        "cityEntryLabels": {
+          "asahikawa": "看旭川攻略",
+          "sapporo": "看札幌攻略"
+        }
+      },
+      "transport": {
+        "heading": "新千歲、札幌與旭川怎麼接",
+        "intro": "機場鐵路、跨城列車與雪場接送分開安排。",
+        "paragraphs": [
+          "抵達北海道後，我們從新千歲機場開始移動，在旭川與札幌各住了一段 Airbnb，也走訪小樽。機場轉乘、滑雪接送和市區步行，對帶著推車與行李的家庭，是不同的安排。",
+          "我們在日本通常搭 JR、地鐵等大眾運輸，也常用 Uber 叫車、刷卡付款；現金留給只收現金的小攤或店家。規劃機場與跨城段落，可以先查鐵路，再把行李、轉乘和當天的休息安排一起考慮。"
+        ],
+        "sourceIds": [
+          "a02",
+          "r01",
+          "o01",
+          "s01",
+          "family-hokkaido-record",
+          "terra-jr-airport",
+          "terra-jr-asahikawa"
+        ],
+        "cards": [
+          {
+            "id": "airport-sapporo",
+            "title": "新千歲機場到札幌",
+            "routeLabel": "新千歲機場 → 札幌",
+            "flightLabel": "JR Airport",
+            "durationLabel": "鐵路連結",
+            "body": "JR Airport 列車連結機場與札幌；部分班次直通小樽。帶推車與行李，另留入境、步行及上下月台的時間。"
+          },
+          {
+            "id": "sapporo-asahikawa",
+            "title": "札幌與旭川",
+            "routeLabel": "札幌 ↔ 旭川",
+            "flightLabel": "JR Lilac／Kamui",
+            "durationLabel": "跨城列車",
+            "body": "札幌與旭川可搭 Lilac／Kamui。到旭川後，旭山動物園還有一段市區公車；列車和動物園交通分開查。"
+          },
+          {
+            "id": "teine-transfer",
+            "title": "札幌到手稻雪場",
+            "routeLabel": "札幌 → 手稻雪場",
+            "flightLabel": "接送或 JR 轉乘",
+            "durationLabel": "配合課程集合",
+            "body": "我們當次使用教練接送。現行 iSKI 基本課與 Premium 方案的交通內容不同，選課時一起確認札幌集合區域與時間。"
+          }
+        ],
+        "links": [
+          {
+            "label": "JR 北海道機場列車",
+            "url": "https://www.jrhokkaido.co.jp/global/chinese/travel/airport.html"
+          },
+          {
+            "label": "旭山動物園交通",
+            "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/generalinformation/d053767.html"
+          }
+        ]
+      },
+      "packing": {
+        "title": "從這趟經驗整理的準備",
+        "paragraphs": [
+          "出發前先確認嬰兒保暖衣物是否足夠。這次抵達後才補買，碰上商場已換季，還得另外搭車找嬰幼兒用品店。",
+          "帶著推車和多件行李，先分配誰照顧孩子、誰處理行李；滑雪日則另外安排換裝、租裝備與嬰兒照顧。"
+        ],
+        "sourceIds": [
+          "a01",
+          "a03",
+          "a05",
+          "s01",
+          "s02"
+        ],
+        "links": []
+      },
+      "faq": [
+        {
+          "question": "想帶孩子看動物，旭川和札幌各有什麼？",
+          "answer": "旭川這趟去了旭山動物園，看企鵝、海豹與北極熊；札幌則去市區的 AOAO 水族館。可按想走戶外園區或室內展示來選。",
+          "sourceIds": [
+            "a10",
+            "c03",
+            "terra-aoao"
+          ]
+        },
+        {
+          "question": "想安排滑雪，也帶著嬰兒，這次怎麼分工？",
+          "answer": "滑雪兩天，我們住在札幌，四人分兩組上課，奶奶在住處照顧嬰兒。雪場課程、交通和留在住宿處的照顧安排，一起準備。",
+          "sourceIds": [
+            "s01",
+            "s02",
+            "family-hokkaido-record"
+          ]
+        },
+        {
+          "question": "小樽怎麼接進札幌的旅行？",
+          "answer": "我們從南小樽一帶開始步行，逛到運河和三角市場，最後回札幌。可先查 JR 班次，再依家人想逛的店與用餐位置安排步行方向。",
+          "sourceIds": [
+            "o01",
+            "o08",
+            "o09",
+            "o10",
+            "terra-jr-airport"
+          ]
+        }
+      ],
+      "related": {
+        "title": "延伸閱讀",
+        "paragraphs": [],
+        "sourceIds": [
+          "a01",
+          "a10",
+          "a12",
+          "s01",
+          "c01"
+        ],
+        "links": [
+          {
+            "label": "旭川城市篇",
+            "url": "/trip/guides/asahikawa-with-kids/"
+          },
+          {
+            "label": "札幌城市篇",
+            "url": "/trip/guides/sapporo-with-kids/"
+          }
+        ]
+      },
+      "author": "鷹式一家",
+      "updatedOn": "2026-10-22",
+      "path": "/trip/japan/",
+      "image": "teine-child-board",
+      "planInfo": {
+        "title": "先安排兩座城市的遊玩日",
+        "paragraphs": [
+          "旭川先選動物園或兩座室內館舍；札幌先決定是否安排兩天滑雪，再接巧克力體驗與水族館。下方可分別試排兩座城市的完整遊玩日。"
+        ],
+        "sourceIds": [
+          "a10",
+          "a12",
+          "a13",
+          "s01",
+          "c01",
+          "c03"
+        ],
+        "links": []
+      },
+      "geographicMap": {
+        "detail": "50m",
+        "caption": "北海道旅行位置示意；點地名閱讀城市攻略，交通安排見下方說明。",
+        "sourceIds": [
+          "terra-geo-asahikawa",
+          "terra-geo-sapporo"
+        ],
+        "views": [
+          {
+            "id": "japan",
+            "label": "日本概覽",
+            "note": "以主要島嶼及本次北海道旅程為中心；部分離島因圖資比例省略。",
+            "bounds": [
+              122,
+              23,
+              147,
+              46.5
+            ],
+            "points": [
+              {
+                "cityId": "sapporo",
+                "label": "札幌",
+                "point": [
+                  141.355,
+                  43.062778
+                ],
+                "sourceIds": [
+                  "terra-geo-sapporo"
+                ]
+              },
+              {
+                "cityId": "asahikawa",
+                "label": "旭川",
+                "point": [
+                  142.365,
+                  43.771389
+                ],
+                "sourceIds": [
+                  "terra-geo-asahikawa"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "hokkaido",
+            "label": "北海道放大",
+            "note": "旭川與札幌的位置示意，點地名閱讀城市攻略。",
+            "bounds": [
+              139.2,
+              41.2,
+              145.9,
+              45.7
+            ],
+            "points": [
+              {
+                "cityId": "sapporo",
+                "label": "札幌",
+                "point": [
+                  141.355,
+                  43.062778
+                ],
+                "sourceIds": [
+                  "terra-geo-sapporo"
+                ]
+              },
+              {
+                "cityId": "asahikawa",
+                "label": "旭川",
+                "point": [
+                  142.365,
+                  43.771389
+                ],
+                "sourceIds": [
+                  "terra-geo-asahikawa"
+                ]
+              }
+            ]
+          }
+        ],
+        "connections": [
+          {
+            "fromLabel": "旭川",
+            "toLabel": "札幌",
+            "label": "JR Lilac／Kamui",
+            "mode": "train",
+            "sourceIds": [
+              "terra-jr-asahikawa"
+            ]
+          }
+        ]
+      },
+      "discovery": {
+        "region": "asia",
+        "subregion": "east-asia",
+        "summary": "從北海道旭川、札幌的動物園、室內體驗與滑雪，開始一家人的日本旅行。",
+        "assetId": "teine-child-board",
+        "sourceIds": [
+          "terra-geo-sapporo",
+          "a10",
+          "s01"
+        ],
+        "point": [
+          141.355,
+          43.062778
+        ],
+        "isoNumeric": "392"
+      },
+      "videos": {
+        "title": "看實際旅行影片",
+        "paragraphs": [],
+        "sourceIds": [
+          "a01",
+          "a10",
+          "s01",
+          "c01"
+        ],
+        "links": [
+          {
+            "label": "帶嬰兒抵達北海道",
+            "url": "https://www.youtube.com/watch?v=vH6EMGtzvdE"
+          },
+          {
+            "label": "旭川動物園與兩座館舍",
+            "url": "https://www.youtube.com/watch?v=6YEfYUrGAbw"
+          },
+          {
+            "label": "手稻兩天單板課",
+            "url": "https://www.youtube.com/watch?v=J2CcCvsu0gM"
+          },
+          {
+            "label": "札幌市區親子活動",
+            "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg"
+          }
+        ]
+      }
+    }
+  ],
+  "cities": [
+    {
+      "id": "asahikawa",
+      "countryId": "japan",
+      "name": "旭川",
+      "englishName": "Asahikawa",
+      "destinationKind": "city",
+      "title": "旭川親子攻略：旭山動物園、科學館與博物館",
+      "metadataTitle": "旭川親子攻略｜旭山動物園、科學館與博物館｜鷹家遠行所",
+      "description": "一家人帶著嬰兒走進旭川，從旭山動物園到科學館、博物館，再吃烤羊肉，記下各站玩法與家庭步調。",
+      "intro": [
+        "我們想來旭川感受北海道的寒冷。這座城市也留下一筆低溫紀錄：1902 年 1 月 25 日，上川二等測候所觀測到零下 41.0°C，記在今天旭川地方氣象台的歷史資料裡。",
+        "旭川位於上川盆地；晴朗、風弱的清晨容易因輻射冷卻而降溫。知道這一點，再去看動物、讀地方文化，寒冷便成了理解這裡生活的一條線索。",
+        "這趟我們逛旭山動物園、在科學館操作展示，也去爸爸因《黃金神威》而想看的博物館。孩子的興趣和大人的好奇，分別落在這三個地方。"
+      ],
+      "sourceIds": [
+        "ig-asahikawa",
+        "a10",
+        "a12",
+        "a13",
+        "a15",
+        "alma-jma-cold",
+        "alma-zoo-behavior",
+        "alma-museum-context"
+      ],
+      "places": [
+        {
+          "id": "asahiyama-zoo",
+          "stableId": "jp-asahiyama-zoo",
+          "title": "旭山動物園：看企鵝、海豹與北極熊",
+          "paragraphs": [
+            "旭山動物園以「行動展示」為特色，園方透過環境設計，讓動物能表現原有的能力與行為。看水槽時，可以留意牠們怎麼游動、轉身，以及怎麼使用展示空間。",
+            "參觀可先選家人最想看的動物，再安排館舍與戶外移動。企鵝散步有季節和當日安排，出發前先查看園方節目。"
+          ],
+          "sourceIds": [
+            "a10",
+            "a11",
+            "terra-zoo-ticket",
+            "terra-zoo-calendar",
+            "terra-zoo-access",
+            "alma-zoo-behavior"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "讓遊客觀察動物原有能力與行為的動物園。",
+              "sourceIds": [
+                "terra-zoo-ticket",
+                "terra-zoo-calendar",
+                "terra-zoo-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "依家人想看的動物選館，企鵝、海豹和北極熊是我們這次看的重點。",
+              "sourceIds": [
+                "terra-zoo-ticket",
+                "terra-zoo-calendar",
+                "terra-zoo-access",
+                "a10",
+                "a11"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "旭川站前 6 號乘車處搭 41／47 路，官方估車程約 40 分鐘。",
+              "sourceIds": [
+                "terra-zoo-ticket",
+                "terra-zoo-calendar",
+                "terra-zoo-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 3–4 小時，想深入觀察可留半天。",
+              "sourceIds": [
+                "terra-zoo-ticket",
+                "terra-zoo-calendar",
+                "terra-zoo-access",
+                "a10",
+                "a11"
+              ],
+              "kind": "editorial_estimate",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "2026／27 冬季一般開園 10:30–15:30，15:00 最後入園；換季、年末與特別開園日另看日曆。",
+              "sourceIds": [
+                "terra-zoo-ticket",
+                "terra-zoo-calendar",
+                "terra-zoo-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "園區含戶外與館舍；當日活動會受雪況和動物狀況影響。",
+              "sourceIds": [
+                "terra-zoo-ticket",
+                "terra-zoo-calendar",
+                "terra-zoo-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "我們原本想趕上午的企鵝散步，到場後才知道當天沒有。於是繼續看水槽裡的企鵝、海豹，再去看北極熊。途中孩子累了，就把步調放慢；到了中午，也先停下來吃飯、照顧嬰兒。",
+            "paragraphs": [
+              "我們原本想趕上午的企鵝散步，到場後才知道當天沒有。於是繼續看水槽裡的企鵝、海豹，再去看北極熊。途中孩子累了，就把步調放慢；到了中午，也先停下來吃飯、照顧嬰兒。"
+            ],
+            "sourceIds": [
+              "a10",
+              "a11"
+            ]
+          },
+          "links": [
+            {
+              "label": "旭山動物園門票與開園資訊",
+              "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/generalinformation/d052849.html"
+            },
+            {
+              "label": "旭山動物園 2026／2027 開園日曆",
+              "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/event/event.html"
+            },
+            {
+              "label": "旭山動物園交通",
+              "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/generalinformation/d053767.html"
+            }
+          ],
+          "extraFacts": [
+            {
+              "label": "門票參考",
+              "value": "成人一般票 1,000 日圓，國中生以下免費。",
+              "sourceIds": [
+                "terra-zoo-ticket",
+                "terra-zoo-calendar",
+                "terra-zoo-access"
+              ],
+              "checkedOn": "2026-10-21"
+            }
+          ],
+          "sectionTitle": "看企鵝、海豹與北極熊",
+          "images": [
+            "asahiyama-bear-entry",
+            "zoo-bear-children",
+            "zoo-family-terrace"
+          ]
+        },
+        {
+          "id": "asahikawa-science",
+          "stableId": "jp-asahikawa-science",
+          "title": "旭川市科學館：體驗重力、旋轉與平衡",
+          "paragraphs": [
+            "科學館的常設展示包含宇宙、重力與平衡等題材。能動手操作、讓身體參與的展項，適合停下來反覆試，再比較每一次的感覺。",
+            "常設展示與天象節目分開選票；若想同時去博物館，也可以比較共通票，並保留兩館之間的移動時間。"
+          ],
+          "sourceIds": [
+            "a11",
+            "a12",
+            "terra-science",
+            "terra-science-access"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "有互動常設展示與另售天象節目的科學館。",
+              "sourceIds": [
+                "terra-science",
+                "terra-science-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "逐項嘗試重力、平衡與宇宙相關展示；天象節目另外安排。",
+              "sourceIds": [
+                "terra-science",
+                "terra-science-access",
+                "a11",
+                "a12"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "位於宮前 1 条 3 丁目 3-32；我們當次從動物園搭計程車前往。",
+              "sourceIds": [
+                "terra-science",
+                "terra-science-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "常設展示可先留 1.5–2 小時；我們當次因後續安排停留不到一小時。",
+              "sourceIds": [
+                "terra-science",
+                "terra-science-access",
+                "a11",
+                "a12"
+              ],
+              "kind": "editorial_estimate",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "09:30–17:00，16:30 最後入館；週一及部分每月末平日休館，假日與暑假等例外依年度日曆。",
+              "sourceIds": [
+                "terra-science",
+                "terra-science-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "室內活動。三月、七月不適用每月末平日休館規則；天象館另依場次選票。",
+              "sourceIds": [
+                "terra-science",
+                "terra-science-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "上午逛完動物園，我們搭計程車到科學館。接近下午兩點，先玩重力與旋轉等體驗，大人也跟著輪流嘗試。因為後面還想看博物館，又訂了四點的晚餐，這一站逛得比較快。",
+            "paragraphs": [
+              "上午逛完動物園，我們搭計程車到科學館。接近下午兩點，先玩重力與旋轉等體驗，大人也跟著輪流嘗試。因為後面還想看博物館，又訂了四點的晚餐，這一站逛得比較快。"
+            ],
+            "sourceIds": [
+              "a11",
+              "a12"
+            ]
+          },
+          "links": [
+            {
+              "label": "Saiparu 開館／休館／料金",
+              "url": "https://www.city.asahikawa.hokkaido.jp/science/06/p002414.html"
+            },
+            {
+              "label": "科學館教育旅行交通資料",
+              "url": "https://www.city.asahikawa.hokkaido.jp/science/21/d065748_d/fil/kyouikuryokou.pdf"
+            }
+          ],
+          "extraFacts": [
+            {
+              "label": "門票參考",
+              "value": "2026/10/1 起，常設展成人 610 日圓、高中生 400 日圓、國中生以下免費；科學館常設展與博物館成人共通票 740 日圓。",
+              "sourceIds": [
+                "terra-science",
+                "terra-science-access"
+              ],
+              "checkedOn": "2026-10-21"
+            }
+          ],
+          "sectionTitle": "體驗重力、旋轉與平衡",
+          "images": [
+            "science-platform",
+            "science-gyroscope",
+            "science-bubble"
+          ]
+        },
+        {
+          "id": "asahikawa-museum",
+          "stableId": "jp-asahikawa-museum",
+          "title": "旭川市博物館：愛努文化與寒地生活",
+          "paragraphs": [
+            "旭川市博物館介紹北北海道的歷史、文化與自然。常設展示上層以愛努歷史文化為主，下層談寒冷環境中的動植物與人。",
+            "參觀時可以從器物與生活方式開始看，再讀它們和當地自然環境的關係；依家人的興趣選擇想多停留的展區。"
+          ],
+          "sourceIds": [
+            "a13",
+            "a14",
+            "terra-asahikawa-museum",
+            "terra-asahikawa-museum-access",
+            "alma-museum-context"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "介紹北北海道歷史、文化與自然的市立博物館。",
+              "sourceIds": [
+                "terra-asahikawa-museum",
+                "terra-asahikawa-museum-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "看愛努文化、地方生活與寒冷環境中的人和動植物。",
+              "sourceIds": [
+                "terra-asahikawa-museum",
+                "terra-asahikawa-museum-access",
+                "a13",
+                "a14"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "由旭川站南側經 Crystal Bridge 約 800 公尺，官方估步行約 10 分鐘。",
+              "sourceIds": [
+                "terra-asahikawa-museum",
+                "terra-asahikawa-museum-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 60–90 分鐘。",
+              "sourceIds": [
+                "terra-asahikawa-museum",
+                "terra-asahikawa-museum-access",
+                "a13",
+                "a14"
+              ],
+              "kind": "editorial_estimate",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "09:00–17:00，16:30 最後入館；十月至五月第二、第四個週一等休館日依館方日曆。",
+              "sourceIds": [
+                "terra-asahikawa-museum",
+                "terra-asahikawa-museum-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "室內參觀；與科學館有共通票，兩館之間仍需安排移動。",
+              "sourceIds": [
+                "terra-asahikawa-museum",
+                "terra-asahikawa-museum-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "科學館之後，我們接著去爸爸想看的博物館。漫畫讓他先對這些文化與歷史產生興趣，進館後再慢慢看展示；其他家人沒有同樣的背景，感受也不一樣。這一站讓行程留了一段給大人的好奇。",
+            "paragraphs": [
+              "科學館之後，我們接著去爸爸想看的博物館。漫畫讓他先對這些文化與歷史產生興趣，進館後再慢慢看展示；其他家人沒有同樣的背景，感受也不一樣。這一站讓行程留了一段給大人的好奇。"
+            ],
+            "sourceIds": [
+              "a13",
+              "a14"
+            ]
+          },
+          "links": [
+            {
+              "label": "旭川市博物館利用案內",
+              "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/navi/d000000.html"
+            },
+            {
+              "label": "旭川市博物館交通",
+              "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/navi/d053104.html"
+            }
+          ],
+          "extraFacts": [
+            {
+              "label": "門票參考",
+              "value": "2026/10/1 起，成人 440 日圓、高中生 290 日圓、國中生以下免費；與科學館常設展成人共通票 740 日圓。",
+              "sourceIds": [
+                "terra-asahikawa-museum",
+                "terra-asahikawa-museum-access"
+              ],
+              "checkedOn": "2026-10-21"
+            }
+          ],
+          "sectionTitle": "愛努文化與寒地生活",
+          "images": [
+            "museum-overview",
+            "museum-tools",
+            "museum-daily-life-case"
+          ]
+        },
+        {
+          "id": "asahikawa-ramen-village",
+          "stableId": "jp-asahikawa-ramen-village",
+          "title": "旭川拉麵村：比較店家，再選一碗麵",
+          "paragraphs": [
+            "拉麵村聚集不同拉麵店，適合把菜單、排隊與座位一起比較，再決定吃哪一家。帶孩子用餐，也可以先看份量與當下的候位情況。",
+            "這一站以吃飯為主，周邊購物再按體力增加。把餐廳門口的等待時間留進去，後面的活動比較容易安排。"
+          ],
+          "sourceIds": [
+            "a07",
+            "a08",
+            "a09",
+            "terra-ramen",
+            "terra-ramen-access"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "集結多家旭川拉麵店的用餐區。",
+              "sourceIds": [
+                "terra-ramen",
+                "terra-ramen-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "先看菜單、排隊與座位，再選一間吃拉麵。",
+              "sourceIds": [
+                "terra-ramen",
+                "terra-ramen-access",
+                "a07",
+                "a08",
+                "a09"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "位於永山 11 条 4 丁目 119-48，交通可對照拉麵村官方指引。",
+              "sourceIds": [
+                "terra-ramen",
+                "terra-ramen-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 45–75 分鐘，候位另計。",
+              "sourceIds": [
+                "terra-ramen",
+                "terra-ramen-access",
+                "a07",
+                "a08",
+                "a09"
+              ],
+              "kind": "editorial_estimate",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "原則 11:00–20:00，各店可能縮短營業或另有店休。",
+              "sourceIds": [
+                "terra-ramen",
+                "terra-ramen-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "用餐在室內，餐費依所選店家的菜單。",
+              "sourceIds": [
+                "terra-ramen",
+                "terra-ramen-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "前一天媽媽和奶奶先帶孩子移動，爸爸之後才追上來。嬰兒用品採買完，我們一起吃拉麵。吃完各自說說感想，再去逛附近商店；爸爸累了先回去休息，其他人繼續逛。",
+            "paragraphs": [
+              "前一天媽媽和奶奶先帶孩子移動，爸爸之後才追上來。嬰兒用品採買完，我們一起吃拉麵。吃完各自說說感想，再去逛附近商店；爸爸累了先回去休息，其他人繼續逛。"
+            ],
+            "sourceIds": [
+              "a07",
+              "a08",
+              "a09"
+            ]
+          },
+          "links": [
+            {
+              "label": "旭川ラーメン村 官方",
+              "url": "https://www.ramenmura.com/"
+            },
+            {
+              "label": "拉麵村交通",
+              "url": "https://www.ramenmura.com/access.html"
+            }
+          ],
+          "sectionTitle": "比較店家，再選一碗麵",
+          "images": [
+            "ramen-bowl",
+            "ramen-aoba-sign",
+            "ramen-guide-plaque"
+          ]
+        },
+        {
+          "id": "daikokuya",
+          "stableId": "jp-daikokuya",
+          "title": "成吉思汗大黑屋：烤羊肉的一餐",
+          "paragraphs": [
+            "大黑屋以成吉思汗烤羊肉為主，餐點在桌邊烤製。選店時可以先查分店位置與預約方式，再把用餐時間接進當天行程。",
+            "帶孩子一起吃烤肉，座位、熱烤盤與照顧分工都需要考慮。晚餐訂在哪個時段，也會影響前一站的離開時間。"
+          ],
+          "sourceIds": [
+            "a15",
+            "a16",
+            "terra-daikokuya"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "以成吉思汗烤羊肉為主的餐廳。",
+              "sourceIds": [
+                "terra-daikokuya"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "依喜好點羊肉和配菜，留時間讓全家坐下來用餐。",
+              "sourceIds": [
+                "terra-daikokuya",
+                "a15",
+                "a16"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "依想去的分店查看官方交通與預約資訊，再安排用餐前後的移動。",
+              "sourceIds": [
+                "terra-daikokuya"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 60–90 分鐘，候位另計。",
+              "sourceIds": [
+                "terra-daikokuya",
+                "a15",
+                "a16"
+              ],
+              "kind": "editorial_estimate",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "各分店開放與預約分開確認，可由官方分店頁查看所選店家。",
+              "sourceIds": [
+                "terra-daikokuya"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "室內烤肉，餐點與費用依分店菜單；照顧孩子時也要留意桌邊熱烤盤。",
+              "sourceIds": [
+                "terra-daikokuya"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "媽媽本來怕羊肉的味道，出發前先看了評價。當天四點入座，服務人員先幫忙烤，大家再邊吃邊聊和原先印象的差別。吃完因為時間還早，我們又去買了些食物，準備晚一點餓了能吃。",
+            "paragraphs": [
+              "媽媽本來怕羊肉的味道，出發前先看了評價。當天四點入座，服務人員先幫忙烤，大家再邊吃邊聊和原先印象的差別。吃完因為時間還早，我們又去買了些食物，準備晚一點餓了能吃。"
+            ],
+            "sourceIds": [
+              "a15",
+              "a16"
+            ]
+          },
+          "links": [
+            {
+              "label": "大黑屋分店與預約參考（旭川五丁目店）",
+              "url": "https://daikoku-jgs.com/free/asahikawa"
+            }
+          ],
+          "sectionTitle": "烤羊肉的一餐",
+          "images": [
+            "daikokuya-food-spread",
+            "daikokuya-grill",
+            "daikokuya-family"
+          ]
+        }
+      ],
+      "food": {
+        "title": "旭川吃什麼：拉麵與成吉思汗烤羊肉",
+        "paragraphs": [
+          "想吃拉麵，可以從拉麵村各店的菜單、隊伍與座位比較；想吃大黑屋烤羊肉，先挑分店並安排訂位。餐費按所選店家與品項計算，候位、餵奶和飯後移動另留時間。"
+        ],
+        "sourceIds": [
+          "a07",
+          "a08",
+          "a15",
+          "a16",
+          "terra-ramen",
+          "terra-daikokuya",
+          "a11"
+        ],
+        "links": [
+          {
+            "label": "回看拉麵村",
+            "url": "#asahikawa-ramen-village"
+          },
+          {
+            "label": "回看大黑屋",
+            "url": "#daikokuya"
+          }
+        ]
+      },
+      "stay": {
+        "title": "旭川 Airbnb：轉城前先整理行李",
+        "paragraphs": [
+          "這趟在旭川和札幌各住了一段 Airbnb。旭川行程結束的晚上，我們先補買食物，再回住處打包，準備隔天前往札幌。",
+          "帶著推車、多件行李和嬰兒，換城市時也要把整理行李、上下車和安頓的時間留進去。"
+        ],
+        "sourceIds": [
+          "family-hokkaido-record",
+          "a16"
+        ],
+        "links": [
+          {
+            "label": "看札幌住宿與照顧分工",
+            "url": "/trip/guides/sapporo-with-kids/#stay"
+          }
+        ]
+      },
+      "arrival": {
+        "title": "移動時，先把人和行李分配好",
+        "paragraphs": [
+          "這趟剛抵達北海道時，媽媽和奶奶先帶三名孩子移動，同行有大行李箱和推車。原想搭的巴士沒搭成，最後改走 JR，途中還需要換月台、移動車廂。",
+          "帶著這樣的人數與行李，車站裡的電梯和轉乘都會花時間。我們也遇到嬰兒需要餵奶，先停下來處理，再繼續搬行李；交通時間之外，這些停頓同樣是旅程的一部分。",
+          "現在規劃札幌到旭川，可查 JR Lilac／Kamui 列車。到旭山動物園則可另查旭川站前的公車；城際列車與園區交通要分成兩段安排。"
+        ],
+        "sourceIds": [
+          "a01",
+          "a02",
+          "a03",
+          "terra-jr-asahikawa",
+          "terra-zoo-access"
+        ],
+        "links": []
+      },
+      "rain": {
+        "title": "想縮短戶外時間，可以選室內的一站",
+        "paragraphs": [
+          "科學館和博物館是我們實際去過的兩種室內活動：一個讓家人動手嘗試，一個回應爸爸對地方文化與歷史的興趣。",
+          "如果孩子已經累了，可以按當天的興趣選其中一站。我們那天下午連著走兩館，科學館停留較短；也因為語言與嬰兒同行的考量，沒有再加天象館。"
+        ],
+        "sourceIds": [
+          "a12",
+          "a13",
+          "a14"
+        ],
+        "links": []
+      },
+      "faq": [
+        {
+          "question": "旭山動物園冬季幾點關門？",
+          "answer": "2026／27 冬季一般開園到 15:30，15:00 最後入園；換季、年末與特別開園另依日曆。企鵝散步則看當季與當日節目。",
+          "sourceIds": [
+            "terra-zoo-calendar",
+            "a10"
+          ]
+        },
+        {
+          "question": "科學館和博物館有兒童票或共通票嗎？",
+          "answer": "2026/10/1 起，常設展成人分別為科學館 610、博物館 440 日圓，兩館成人共通票 740 日圓；國中生以下免費。天象節目另選票。",
+          "sourceIds": [
+            "terra-science",
+            "terra-asahikawa-museum"
+          ]
+        },
+        {
+          "question": "兩館各留多久比較好？",
+          "answer": "科學館常設展可先留 1.5–2 小時，博物館留 60–90 分鐘，再加兩館間移動。我們當次科學館不到一小時，主要受後續行程影響。",
+          "sourceIds": [
+            "terra-science",
+            "terra-asahikawa-museum",
+            "a12"
+          ]
+        },
+        {
+          "question": "從札幌怎麼去旭川和動物園？",
+          "answer": "札幌到旭川可查 JR Lilac／Kamui。抵旭川後，動物園另由站前 6 號乘車處搭 41／47 路，官方估公車約四十分鐘，候車另計。",
+          "sourceIds": [
+            "terra-jr-asahikawa",
+            "terra-zoo-access"
+          ]
+        },
+        {
+          "question": "想少走戶外，可以選哪一站？",
+          "answer": "科學館以室內互動展示為主，博物館則看地方文化與自然。可以按孩子想動手操作，或家人想看展覽來選，再確認當日開館。",
+          "sourceIds": [
+            "terra-science",
+            "terra-asahikawa-museum",
+            "a12",
+            "a13"
+          ]
+        }
+      ],
+      "videoSourceIds": [
+        "a10",
+        "a12",
+        "a13",
+        "a15",
+        "a02"
+      ],
+      "author": "鷹式一家",
+      "updatedOn": "2026-10-22",
+      "cards": [
+        {
+          "target": "asahiyama-zoo",
+          "assetId": "zoo-bear-children",
+          "title": "旭山動物園",
+          "play": "看動物與雪地園區",
+          "time": "建議 3–4 小時",
+          "focalPoint": [
+            50,
+            50
+          ],
+          "imagePair": [
+            "zoo-bear-children",
+            "zoo-family-terrace"
+          ]
+        },
+        {
+          "target": "asahikawa-science",
+          "assetId": "science-platform",
+          "title": "旭川市科學館",
+          "play": "重力、旋轉與互動展示",
+          "time": "建議 1.5–2 小時",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "asahikawa-museum",
+          "assetId": "museum-overview",
+          "title": "旭川市博物館",
+          "play": "愛努文化與寒地生活",
+          "time": "建議 60–90 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "asahikawa-ramen-village",
+          "assetId": "ramen-bowl",
+          "title": "旭川拉麵村",
+          "play": "比較菜單、挑一碗拉麵",
+          "time": "建議 45–75 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "daikokuya",
+          "assetId": "daikokuya-food-spread",
+          "title": "成吉思汗大黑屋",
+          "play": "坐下來吃烤羊肉",
+          "time": "建議 60–90 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        }
+      ],
+      "leadFormat": "longform-context/v1",
+      "path": "/trip/guides/asahikawa-with-kids/",
+      "hero": [
+        "zoo-bear-children",
+        "science-bubble",
+        "daikokuya-grill"
+      ],
+      "entryImagePair": [
+        "zoo-bear-children",
+        "science-bubble"
+      ],
+      "planner": {
+        "title": "旭川遊玩日怎麼排",
+        "paragraphs": [
+          "以下是以實訪景點組成的安排建議：一天可選動物園，或科學館加博物館；有兩個遊玩日就分開玩。表內從旭川站起訖，已預留用餐與冬季交通時間。",
+          "住在旭川，可以把動物園與兩座館舍分成兩天。從札幌安排日遊，則另加往返旭川的列車與換乘時間。"
+        ],
+        "sourceIds": [
+          "terra-zoo-calendar",
+          "terra-zoo-access",
+          "terra-science",
+          "terra-asahikawa-museum"
+        ],
+        "routes": [
+          {
+            "id": "asahikawa-zoo-one-day",
+            "label": "一天｜旭山動物園",
+            "sightseeingDays": 1,
+            "pace": "leisure",
+            "note": "以動物園為主，下午返回旭川站；晚餐另按預約與體力安排。",
+            "sourceIds": [
+              "terra-zoo-calendar",
+              "terra-zoo-access"
+            ],
+            "days": [
+              {
+                "title": "旭山動物園：留一個完整白天",
+                "description": "由旭川站往返，把企鵝、海豹和北極熊分段看，中間吃午餐、進室內暖身。企鵝散步依當日公告另排。",
+                "stops": [
+                  "asahiyama-zoo"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:00",
+                    "end": "10:30",
+                    "description": "旭川站候車、搭車與入園準備，預留 90 分鐘。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-zoo-access"
+                    ]
+                  },
+                  {
+                    "start": "10:30",
+                    "end": "12:00",
+                    "description": "先看最想看的動物館舍。",
+                    "placeIds": [
+                      "asahiyama-zoo"
+                    ],
+                    "sourceIds": [
+                      "terra-zoo-calendar"
+                    ]
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "園內午餐、暖身與照顧孩子；餐廳座位及營業依當日狀況。",
+                    "placeIds": [
+                      "asahiyama-zoo"
+                    ]
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "14:30",
+                    "description": "接著看其他動物，留時間慢慢走雪地。",
+                    "placeIds": [
+                      "asahiyama-zoo"
+                    ]
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "16:00",
+                    "description": "出園、候車返回旭川站；包含候車及雪天緩衝。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-zoo-access"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "asahikawa-indoor-one-day",
+            "label": "一天｜科學館與博物館",
+            "sightseeingDays": 1,
+            "pace": "leisure",
+            "note": "適合想玩互動、看文化展示的家庭；先確認兩館同日開館。",
+            "sourceIds": [
+              "terra-science",
+              "terra-asahikawa-museum",
+              "terra-museum-closures-2026",
+              "terra-asahikawa-museum-access"
+            ],
+            "days": [
+              {
+                "title": "科學館與博物館：玩互動，再看寒地生活",
+                "description": "上午把時間留給科學館常設展示，下午看博物館。兩館間另留移動；天象館要依另購場次調整。",
+                "stops": [
+                  "asahikawa-science",
+                  "asahikawa-museum"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:00",
+                    "end": "10:00",
+                    "description": "從旭川站搭計程車或公車前往科學館，含候車與入館準備，預留 60 分鐘。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "description": "科學館常設展示：重力、旋轉與平衡互動。",
+                    "placeIds": [
+                      "asahikawa-science"
+                    ],
+                    "sourceIds": [
+                      "terra-science"
+                    ]
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "午餐與休息；依當日可用餐廳安排。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "13:45",
+                    "description": "移動到博物館，含叫車、上下車與冬季步行，預留 45 分鐘。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "13:45",
+                    "end": "15:15",
+                    "description": "博物館：愛努文化與北海道的生活展示。",
+                    "placeIds": [
+                      "asahikawa-museum"
+                    ],
+                    "sourceIds": [
+                      "terra-asahikawa-museum"
+                    ]
+                  },
+                  {
+                    "start": "15:15",
+                    "end": "16:00",
+                    "description": "返回旭川站、休息；館方步行參考約 10 分鐘，本表預留 45 分鐘應付雪地與親子步調。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-asahikawa-museum-access"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "asahikawa-two-days",
+            "label": "兩天｜動物園與室內雙館",
+            "sightseeingDays": 2,
+            "pace": "leisure",
+            "note": "第一天動物園，第二天科學館與博物館；先選兩館都有開的日期，再安排住宿與跨城交通。",
+            "sourceIds": [
+              "terra-zoo-calendar",
+              "terra-zoo-access",
+              "terra-science",
+              "terra-asahikawa-museum",
+              "terra-museum-closures-2026"
+            ],
+            "days": [
+              {
+                "title": "旭山動物園：留一個完整白天",
+                "description": "由旭川站往返，把企鵝、海豹和北極熊分段看，中間吃午餐、進室內暖身。企鵝散步依當日公告另排。",
+                "stops": [
+                  "asahiyama-zoo"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:00",
+                    "end": "10:30",
+                    "description": "旭川站候車、搭車與入園準備，預留 90 分鐘。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-zoo-access"
+                    ]
+                  },
+                  {
+                    "start": "10:30",
+                    "end": "12:00",
+                    "description": "先看最想看的動物館舍。",
+                    "placeIds": [
+                      "asahiyama-zoo"
+                    ],
+                    "sourceIds": [
+                      "terra-zoo-calendar"
+                    ]
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "園內午餐、暖身與照顧孩子；餐廳座位及營業依當日狀況。",
+                    "placeIds": [
+                      "asahiyama-zoo"
+                    ]
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "14:30",
+                    "description": "接著看其他動物，留時間慢慢走雪地。",
+                    "placeIds": [
+                      "asahiyama-zoo"
+                    ]
+                  },
+                  {
+                    "start": "14:30",
+                    "end": "16:00",
+                    "description": "出園、候車返回旭川站；包含候車及雪天緩衝。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-zoo-access"
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "科學館與博物館：玩互動，再看寒地生活",
+                "description": "上午把時間留給科學館常設展示，下午看博物館。兩館間另留移動；天象館要依另購場次調整。",
+                "stops": [
+                  "asahikawa-science",
+                  "asahikawa-museum"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:00",
+                    "end": "10:00",
+                    "description": "從旭川站搭計程車或公車前往科學館，含候車與入館準備，預留 60 分鐘。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "description": "科學館常設展示：重力、旋轉與平衡互動。",
+                    "placeIds": [
+                      "asahikawa-science"
+                    ],
+                    "sourceIds": [
+                      "terra-science"
+                    ]
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "午餐與休息；依當日可用餐廳安排。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "13:45",
+                    "description": "移動到博物館，含叫車、上下車與冬季步行，預留 45 分鐘。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "13:45",
+                    "end": "15:15",
+                    "description": "博物館：愛努文化與北海道的生活展示。",
+                    "placeIds": [
+                      "asahikawa-museum"
+                    ],
+                    "sourceIds": [
+                      "terra-asahikawa-museum"
+                    ]
+                  },
+                  {
+                    "start": "15:15",
+                    "end": "16:00",
+                    "description": "返回旭川站、休息；館方步行參考約 10 分鐘，本表預留 45 分鐘應付雪地與親子步調。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-asahikawa-museum-access"
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "rules": [
+          {
+            "placeId": "asahiyama-zoo",
+            "validFrom": "2026-10-22",
+            "validThrough": "2027-04-07",
+            "sourceIds": [
+              "terra-zoo-calendar"
+            ],
+            "url": "https://www.city.asahikawa.hokkaido.jp/asahiyamazoo/event/event.html",
+            "note": "冬季一般 10:30–15:30，15:00 最後入園；換季與年末休園依日曆。企鵝散步另查當日公告。",
+            "windows": [
+              {
+                "from": "2026-10-22",
+                "to": "2026-11-03",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "09:30",
+                "closes": "16:30"
+              },
+              {
+                "from": "2026-11-11",
+                "to": "2026-12-29",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "10:30",
+                "closes": "15:30"
+              },
+              {
+                "from": "2027-01-02",
+                "to": "2027-02-04",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "10:30",
+                "closes": "15:30"
+              },
+              {
+                "from": "2027-02-05",
+                "to": "2027-02-07",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "10:30",
+                "closes": "20:30"
+              },
+              {
+                "from": "2027-02-08",
+                "to": "2027-04-07",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "10:30",
+                "closes": "15:30"
+              }
+            ]
+          },
+          {
+            "placeId": "asahikawa-science",
+            "validFrom": "2026-10-22",
+            "validThrough": "2027-03-31",
+            "sourceIds": [
+              "terra-science"
+            ],
+            "url": "https://www.city.asahikawa.hokkaido.jp/science/06/p002414.html",
+            "note": "一般 09:30–17:00，16:30 最後入館。週一遇假日順延，另有月末平日休館；3、7 月及暑假有例外，出發前核對年度日曆。",
+            "needsDateConfirmation": true,
+            "windows": []
+          },
+          {
+            "placeId": "asahikawa-museum",
+            "validFrom": "2026-10-22",
+            "validThrough": "2026-12-15",
+            "sourceIds": [
+              "terra-asahikawa-museum",
+              "terra-museum-closures-2026"
+            ],
+            "url": "https://www.city.asahikawa.hokkaido.jp/hakubutukan/index.html",
+            "note": "一般 09:00–17:00，16:30 最後入館；10–5 月第二、四週一休館，遇假日順延次日，另有年末與檢修休館。2026/12/15 已公告臨時休館，其他日期先核當月公告。",
+            "needsDateConfirmation": true,
+            "windows": []
+          }
+        ],
+        "calendar": [
+          {
+            "placeId": "asahiyama-zoo",
+            "validFrom": "2026-10-22",
+            "validThrough": "2027-04-07",
+            "closedDates": [
+              "2026-11-04",
+              "2026-11-05",
+              "2026-11-06",
+              "2026-11-07",
+              "2026-11-08",
+              "2026-11-09",
+              "2026-11-10",
+              "2026-12-30",
+              "2026-12-31",
+              "2027-01-01"
+            ],
+            "closedWeekdays": [],
+            "message": "換季與年末休園；只套用本次已核年度。",
+            "sourceIds": [
+              "terra-zoo-calendar"
+            ]
+          },
+          {
+            "placeId": "asahikawa-science",
+            "validFrom": "2026-10-22",
+            "validThrough": "2027-03-31",
+            "closedDates": [
+              "2026-10-26",
+              "2026-10-30",
+              "2026-11-02",
+              "2026-11-09",
+              "2026-11-16",
+              "2026-11-24",
+              "2026-11-27",
+              "2026-11-30",
+              "2026-12-07",
+              "2026-12-14",
+              "2026-12-21",
+              "2026-12-30",
+              "2026-12-31",
+              "2027-01-01",
+              "2027-01-03",
+              "2027-01-04",
+              "2027-01-12",
+              "2027-01-18",
+              "2027-01-25",
+              "2027-01-29",
+              "2027-02-01",
+              "2027-02-08",
+              "2027-02-15",
+              "2027-02-22",
+              "2027-02-26",
+              "2027-03-01",
+              "2027-03-08",
+              "2027-03-15",
+              "2027-03-23"
+            ],
+            "closedWeekdays": [],
+            "message": "已列出的休館日先排除；其餘日期仍需確認，未把所有星期一一律關閉。",
+            "sourceIds": [
+              "terra-science"
+            ]
+          },
+          {
+            "placeId": "asahikawa-museum",
+            "validFrom": "2026-10-22",
+            "validThrough": "2026-12-15",
+            "closedDates": [
+              "2026-10-26",
+              "2026-12-15"
+            ],
+            "closedWeekdays": [],
+            "message": "官方首頁明示的當月與臨時休館；第二、四週一及假日順延，請搭配年度休館日曆核對。",
+            "sourceIds": [
+              "terra-museum-closures-2026",
+              "terra-asahikawa-museum"
+            ]
+          }
+        ]
+      },
+      "extension": {
+        "title": "延伸閱讀",
+        "paragraphs": [],
+        "links": [
+          {
+            "label": "札幌：市區玩法與兩天滑雪",
+            "url": "/trip/guides/sapporo-with-kids/"
+          },
+          {
+            "label": "日本旅行總覽",
+            "url": "/trip/japan/"
+          }
+        ],
+        "sourceIds": [
+          "ig-asahikawa",
+          "a10",
+          "a12",
+          "a13",
+          "a15",
+          "alma-jma-cold",
+          "alma-zoo-behavior",
+          "alma-museum-context"
+        ]
+      }
+    },
+    {
+      "id": "sapporo",
+      "countryId": "japan",
+      "name": "札幌",
+      "englishName": "Sapporo",
+      "destinationKind": "city",
+      "title": "札幌親子攻略：手稻滑雪、白色戀人與 AOAO 水族館",
+      "metadataTitle": "札幌親子攻略｜手稻滑雪、白色戀人與市區玩法｜鷹家遠行所",
+      "description": "我們在札幌住 Airbnb，安排兩天 iSKI 滑雪課，也帶孩子做巧克力、看水族館，記下嬰兒照顧與市區移動的實際經驗。",
+      "intro": [
+        "來到札幌後，活動分成雪場與市區兩部分。我們在手稻連續上兩天 iSKI 單板課，爸爸媽媽和兩名男孩依程度分組，奶奶留在住處照顧嬰兒。",
+        "回到市區，白色戀人把巧克力展示與手作放在同一個園區；AOAO SAPPORO 則在商場樓層裡，留出看企鵝與水槽生物的空間。兩站可以從孩子想動手或想看動物的興趣來選。",
+        "同行有七個月大的嬰兒，活動之間也要安排吃飯、採買與休息。這篇把雪場和城市各站分開介紹，再接上我們實際用過的照顧與移動方式。"
+      ],
+      "sourceIds": [
+        "s01",
+        "s03",
+        "s04",
+        "c01",
+        "c03",
+        "c04",
+        "terra-iski-family",
+        "terra-shiroi",
+        "terra-aoao",
+        "terra-aoao-access"
+      ],
+      "places": [
+        {
+          "id": "teine-iski",
+          "stableId": "jp-teine-iski",
+          "title": "手稻滑雪與 iSKI：按程度分組學單板",
+          "paragraphs": [
+            "手稻是這趟滑雪的雪場，iSKI 提供私人教練課。課程、纜車票和上山交通各有安排，報名前可以先把參加者程度、年齡與接送需求說清楚。",
+            "現行全天課包括教學與休息，換裝和租裝備另留時間。不同程度的人可按教練安排分組練習，各自累積控制與轉彎的經驗。"
+          ],
+          "sourceIds": [
+            "s01",
+            "s02",
+            "s03",
+            "s04",
+            "s05",
+            "terra-iski-family",
+            "terra-iski-teine",
+            "terra-teine",
+            "terra-teine-tickets",
+            "terra-teine-access"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "iSKI 在手稻雪場提供的私人教練課；課程與雪場設施分別安排。",
+              "sourceIds": [
+                "terra-iski-family",
+                "terra-iski-teine",
+                "terra-teine",
+                "terra-teine-tickets",
+                "terra-teine-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "按程度分組練習控制與轉彎，依教練安排上雪道。",
+              "sourceIds": [
+                "terra-iski-family",
+                "terra-iski-teine",
+                "terra-teine",
+                "terra-teine-tickets",
+                "terra-teine-access",
+                "s01",
+                "s02",
+                "s03",
+                "s04",
+                "s05"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "可搭 JR 到手稻站再安排上山；iSKI 基本課不含交通，Premium 方案含札幌來回接送，先確認集合區域。",
+              "sourceIds": [
+                "terra-iski-family",
+                "terra-iski-teine",
+                "terra-teine",
+                "terra-teine-tickets",
+                "terra-teine-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "現行課程 09:00–15:00，含五小時教學與一小時休息；換裝、租具另留時間。",
+              "sourceIds": [
+                "terra-iski-family",
+                "terra-iski-teine",
+                "terra-teine",
+                "terra-teine-tickets",
+                "terra-teine-access",
+                "s01",
+                "s02",
+                "s03",
+                "s04",
+                "s05"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "2026／27 手稻課程列 2026/12/21–2027/3/26；雪場營運依雪況與當日公告。",
+              "sourceIds": [
+                "terra-iski-family",
+                "terra-iski-teine",
+                "terra-teine",
+                "terra-teine-tickets",
+                "terra-teine-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "iSKI 對三歲至未滿七歲學員採分時一對一安排，報名前需備註；安全帽必備，雪票、租具、保險與基本交通另計。",
+              "sourceIds": [
+                "terra-iski-family",
+                "terra-iski-teine",
+                "terra-teine",
+                "terra-teine-tickets",
+                "terra-teine-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "第一天換裝、租裝備就花了不少時間，正式練習後，中午休息再繼續。第二天媽媽摔到尾椎，後來和較小的孩子在餐廳休息，爸爸與另一個孩子繼續滑。這兩天有進步，也真的需要按體力調整。",
+            "paragraphs": [
+              "第一天換裝、租裝備就花了不少時間，正式練習後，中午休息再繼續。第二天媽媽摔到尾椎，後來和較小的孩子在餐廳休息，爸爸與另一個孩子繼續滑。這兩天有進步，也真的需要按體力調整。"
+            ],
+            "sourceIds": [
+              "s01",
+              "s02",
+              "s03",
+              "s04",
+              "s05"
+            ]
+          },
+          "links": [
+            {
+              "label": "iSKI 鷹式一家手稻專頁",
+              "url": "https://www.iski.com.tw/eaglish_family22"
+            },
+            {
+              "label": "iSKI 26/27 手稻私人課",
+              "url": "https://www.iski.com.tw/index.php?category=teine_private&route=common/snowing_hokkaido"
+            },
+            {
+              "label": "SAPPORO TEINE 官方",
+              "url": "https://sapporo-teine.com/snow/lang/en/"
+            },
+            {
+              "label": "TEINE 26/27 纜車票",
+              "url": "https://sapporo-teine.com/snow/lang/en/tickets/"
+            },
+            {
+              "label": "TEINE 交通",
+              "url": "https://sapporo-teine.com/snow/lang/en/access/"
+            }
+          ],
+          "sectionTitle": "按程度分組學單板",
+          "images": [
+            "teine-child-board",
+            "teine-family",
+            "teine-conveyor"
+          ]
+        },
+        {
+          "id": "shiroi-koibito",
+          "stableId": "jp-shiroi-koibito",
+          "title": "白色戀人：巧克力展示與手作",
+          "paragraphs": [
+            "白色戀人公園結合甜點、工廠展示、庭園與手作。想動手做巧克力，可以先選體驗場次，再把展示和園區散步接在前後。",
+            "付費展區門票與 DIY 費用分開，部分手作還需要展區門票。挑方案時一起看活動內容、入場條件與所需時間。"
+          ],
+          "sourceIds": [
+            "c01",
+            "c02",
+            "terra-shiroi",
+            "terra-shiroi-ticket",
+            "terra-shiroi-access"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "結合甜點、工廠展示、庭園與手作的白色戀人公園。",
+              "sourceIds": [
+                "terra-shiroi",
+                "terra-shiroi-ticket",
+                "terra-shiroi-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "先安排想參加的手作場次，再選庭園或展示。",
+              "sourceIds": [
+                "terra-shiroi",
+                "terra-shiroi-ticket",
+                "terra-shiroi-access",
+                "c01",
+                "c02"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "位於札幌市西區宮の沢 2 条 2 丁目 11-36，可對照官方宮之澤方向交通圖。",
+              "sourceIds": [
+                "terra-shiroi",
+                "terra-shiroi-ticket",
+                "terra-shiroi-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 2–3 小時，依手作場次調整；我們當次約兩小時。",
+              "sourceIds": [
+                "terra-shiroi",
+                "terra-shiroi-ticket",
+                "terra-shiroi-access",
+                "c01",
+                "c02"
+              ],
+              "kind": "editorial_estimate",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "一般 10:00–18:00，付費區最後入場 16:30；2026/12/1–2027/3/31 園區延至 19:00。",
+              "sourceIds": [
+                "terra-shiroi",
+                "terra-shiroi-ticket",
+                "terra-shiroi-access",
+                "terra-shiroi-winter-2026-27",
+                "terra-shiroi-new-year-2026-27"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "室內與戶外空間並存；付費區門票與 DIY 費用分開。",
+              "sourceIds": [
+                "terra-shiroi",
+                "terra-shiroi-ticket",
+                "terra-shiroi-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "孩子選好要做的巧克力，開始畫圖、裝飾，再留下自己的記號。我們看他們慢慢完成，原本還可以繼續逛，但嬰兒到了吃飯時間，就先收尾離開，再搭地鐵往市區找午餐。",
+            "paragraphs": [
+              "孩子選好要做的巧克力，開始畫圖、裝飾，再留下自己的記號。我們看他們慢慢完成，原本還可以繼續逛，但嬰兒到了吃飯時間，就先收尾離開，再搭地鐵往市區找午餐。"
+            ],
+            "sourceIds": [
+              "c01",
+              "c02"
+            ]
+          },
+          "links": [
+            {
+              "label": "白色戀人公園官方",
+              "url": "https://www.shiroikoibitopark.jp/"
+            },
+            {
+              "label": "白色戀人入館票",
+              "url": "https://www.shiroikoibitopark.jp/facility/counter.html"
+            },
+            {
+              "label": "白色戀人交通",
+              "url": "https://www.shiroikoibitopark.jp/park-guide/access.html"
+            },
+            {
+              "label": "2026／27 冬季營業公告",
+              "url": "https://www.shiroikoibitopark.jp/information/uploads/a1ca26e8e6a480274f3d694dd861be4a_1.pdf"
+            },
+            {
+              "label": "2026／27 年末年始公告",
+              "url": "https://www.shiroikoibitopark.jp/information/uploads/a24bc4a731fc1cdad93b7b2df0570023.pdf"
+            }
+          ],
+          "extraFacts": [
+            {
+              "label": "門票參考",
+              "value": "付費區高中生以上 1,200 日圓，四歲至國中生 600 日圓，三歲以下免費；DIY 另計。",
+              "sourceIds": [
+                "terra-shiroi",
+                "terra-shiroi-ticket",
+                "terra-shiroi-access"
+              ],
+              "checkedOn": "2026-10-21"
+            },
+            {
+              "label": "冬季與年末年始",
+              "value": "冬季手作等付費設施至 17:30，各課程另列末場；2027/1/1–1/2 休館，12/31、1/3 縮短營業。",
+              "sourceIds": [
+                "terra-shiroi-winter-2026-27",
+                "terra-shiroi-new-year-2026-27"
+              ]
+            }
+          ],
+          "sectionTitle": "巧克力展示與手作",
+          "images": [
+            "shiroi-entrance",
+            "shiroi-workshop",
+            "shiroi-hall"
+          ]
+        },
+        {
+          "id": "aoao-sapporo",
+          "stableId": "jp-aoao-sapporo",
+          "title": "AOAO SAPPORO：商場樓層裡的水族館",
+          "paragraphs": [
+            "AOAO SAPPORO 位於 moyuk SAPPORO 的四至六樓，從大通或狸小路一帶可以步行前往。企鵝、水槽生物與其他展示，讓市區行程多了一種看動物的選擇。",
+            "館內為室內參觀，可按家人對水族展示的興趣安排停留。先選好入場時段，再銜接附近用餐與購物。"
+          ],
+          "sourceIds": [
+            "c02",
+            "c03",
+            "c03-extra1",
+            "c04",
+            "terra-aoao",
+            "terra-aoao-ticket",
+            "terra-aoao-access"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "位於 moyuk SAPPORO 4–6 樓的都市水族館。",
+              "sourceIds": [
+                "terra-aoao",
+                "terra-aoao-ticket",
+                "terra-aoao-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "看企鵝、水槽生物與其他展示。",
+              "sourceIds": [
+                "terra-aoao",
+                "terra-aoao-ticket",
+                "terra-aoao-access",
+                "c02",
+                "c03",
+                "c03-extra1",
+                "c04"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "大通站步行約三分鐘，狸小路電車站約一分鐘；位於南 2 条西 3 丁目 20。",
+              "sourceIds": [
+                "terra-aoao",
+                "terra-aoao-ticket",
+                "terra-aoao-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 1.5–2 小時。",
+              "sourceIds": [
+                "terra-aoao",
+                "terra-aoao-ticket",
+                "terra-aoao-access",
+                "c02",
+                "c03",
+                "c03-extra1",
+                "c04"
+              ],
+              "kind": "editorial_estimate",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "10:00–22:00，21:00 最後入館。",
+              "sourceIds": [
+                "terra-aoao",
+                "terra-aoao-ticket",
+                "terra-aoao-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "室內活動；繁忙時可能限制當日票入場，沒有專用停車場。",
+              "sourceIds": [
+                "terra-aoao",
+                "terra-aoao-ticket",
+                "terra-aoao-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "吃過午餐後，孩子還想看動物，我們就去了市區水族館。看完企鵝和其他展示，大人各自說了感想，再接著處理購物和回住處放東西的安排。",
+            "paragraphs": [
+              "吃過午餐後，孩子還想看動物，我們就去了市區水族館。看完企鵝和其他展示，大人各自說了感想，再接著處理購物和回住處放東西的安排。"
+            ],
+            "sourceIds": [
+              "c02",
+              "c03",
+              "c03-extra1",
+              "c04"
+            ]
+          },
+          "links": [
+            {
+              "label": "AOAO SAPPORO 官方",
+              "url": "https://aoao-sapporo.blue/"
+            },
+            {
+              "label": "AOAO 入館料金",
+              "url": "https://aoao-sapporo.blue/ticket/"
+            },
+            {
+              "label": "AOAO 交通",
+              "url": "https://aoao-sapporo.blue/access/"
+            }
+          ],
+          "extraFacts": [
+            {
+              "label": "門票參考",
+              "value": "高中生以上 2,200 日圓，小學生與國中生 1,100 日圓，三歲至未就學 200 日圓，未滿三歲免費。",
+              "sourceIds": [
+                "terra-aoao",
+                "terra-aoao-ticket",
+                "terra-aoao-access"
+              ],
+              "checkedOn": "2026-10-21"
+            }
+          ],
+          "sectionTitle": "商場樓層裡的水族館",
+          "images": [
+            "aoao-family-eels",
+            "aoao-seahorse",
+            "aoao-garden-eels"
+          ]
+        },
+        {
+          "id": "ario-sapporo",
+          "stableId": "jp-ario-sapporo",
+          "title": "Ario 札幌：嬰幼兒用品與生活補給",
+          "paragraphs": [
+            "Ario 札幌有用餐、購物與嬰幼兒用品店，Akachan Honpo 位在二樓。若旅行中需要補貨，可以把所需用品集中在這一段採買。",
+            "商場靠近苗穗與啤酒博物館一帶，能依住宿位置安排步行或搭車。各店、餐廳和博物館的營業時間分別確認。"
+          ],
+          "sourceIds": [
+            "c04",
+            "terra-ario"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "可用餐、購物與補充嬰幼兒用品的商場。",
+              "sourceIds": [
+                "terra-ario"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "按需要補買生活用品，並安排用餐或休息。",
+              "sourceIds": [
+                "terra-ario",
+                "c04"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "JR 苗穗站北口步行約三分鐘；Akachan Honpo 在 Ario 二樓。",
+              "sourceIds": [
+                "terra-ario"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "可先留 45–90 分鐘採買，用餐另加時間。",
+              "sourceIds": [
+                "terra-ario",
+                "c04"
+              ],
+              "kind": "editorial_estimate",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "Akachan Honpo 10:00–21:00；商場各店與餐廳營業時間分開確認。",
+              "sourceIds": [
+                "terra-ario"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "室內補給；商場、各店餐廳與周邊博物館的時間分別安排。",
+              "sourceIds": [
+                "terra-ario"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "從水族館出來後，我們先把東西放回住宿處，再到商場找需要的用品。奶奶後來帶孩子回去休息，爸爸媽媽留下來繼續買。旅行中的補給，靠這樣分頭處理才慢慢完成。",
+            "paragraphs": [
+              "從水族館出來後，我們先把東西放回住宿處，再到商場找需要的用品。奶奶後來帶孩子回去休息，爸爸媽媽留下來繼續買。旅行中的補給，靠這樣分頭處理才慢慢完成。"
+            ],
+            "sourceIds": [
+              "c04"
+            ]
+          },
+          "links": [
+            {
+              "label": "Ario 札幌 Akachan Honpo",
+              "url": "https://sapporo.ario.jp/shop/1100000005/"
+            }
+          ],
+          "sectionTitle": "嬰幼兒用品與生活補給",
+          "images": [
+            "ario-entrance",
+            "ario-child-toys",
+            "ario-breeze-sign"
+          ]
+        }
+      ],
+      "food": {
+        "title": "札幌市區午餐：最後坐進餃子店",
+        "paragraphs": [
+          "市區用餐可以把地點、候位和孩子的點餐需求一起考慮。我們在白色戀人活動後進市區找午餐，連續換了幾個選擇，最後在一家餃子店坐下來。",
+          "活動結束到真正吃到飯之間，還有搭車、走路和找座位的時間。帶著嬰兒與孩子，可以先準備同區的幾個選擇，再按當時的狀況決定。"
+        ],
+        "sourceIds": [
+          "c01",
+          "c02"
+        ],
+        "links": []
+      },
+      "stay": {
+        "title": "札幌 Airbnb：也留給照顧與休息的基地",
+        "paragraphs": [
+          "來到札幌後，我們住在啤酒博物館附近的 Airbnb，和札幌車站仍有一段距離。安排購物與外出時，也會先想好什麼時候回去放東西。",
+          "兩天滑雪時，奶奶留在住處照顧嬰兒，爸爸媽媽帶兩名男孩去上課。回來後一家人再會合；市區購物時，也有奶奶先帶孩子回去、父母繼續採買的安排。"
+        ],
+        "sourceIds": [
+          "family-hokkaido-record",
+          "s01",
+          "c04"
+        ],
+        "links": []
+      },
+      "arrival": {
+        "title": "滑雪接送與市區移動分開安排",
+        "paragraphs": [
+          "滑雪兩天，我們當次由教練到住宿處接送。換裝和租裝備又花了一段時間，因此到雪場、開始上課和真正滑起來，是不同的時間點。",
+          "市區行程則有地鐵和步行。白色戀人之後搭地鐵往大通一帶，後來再把水族館、購物、回住處放東西接起來；帶孩子走一天，照顧與補給往往會改變原本想好的順序。",
+          "我們採買後才走到札幌啤酒博物館周邊，當天已錯過館內參觀與試飲，只在外頭停留。現行館內參觀為 11:00–18:00、17:30 最後入場；想接在 Ario 採買前後，可以先安排入館，再逛商場。"
+        ],
+        "sourceIds": [
+          "s01",
+          "s02",
+          "c01",
+          "c02",
+          "c04",
+          "c05",
+          "terra-beer-visit"
+        ],
+        "links": [
+          {
+            "label": "札幌啤酒博物館參觀資訊",
+            "url": "https://www.sapporobeer.jp/brewery/s_museum/kengaku/"
+          }
+        ]
+      },
+      "rain": {
+        "title": "室內活動也要留用餐與移動時間",
+        "paragraphs": [
+          "白色戀人的巧克力體驗、市區水族館和商場，是這趟不同類型的室內停留。可以按孩子想動手、想看動物，或家人需要補買用品來選。",
+          "安排時把各館入場時間、活動長度與午餐一起看，挑一個主要活動再接附近用餐，留時間給移動和休息。"
+        ],
+        "sourceIds": [
+          "c01",
+          "c02",
+          "c03",
+          "c04",
+          "c05",
+          "terra-shiroi",
+          "terra-aoao",
+          "terra-ario"
+        ],
+        "links": []
+      },
+      "faq": [
+        {
+          "question": "手稻滑雪課要留一整天嗎？",
+          "answer": "iSKI 現行全天課為 09:00–15:00，包含五小時教學和一小時休息；換裝、租具和往返另加時間。課程時間與纜車運行時間分開看。",
+          "sourceIds": [
+            "terra-iski-teine",
+            "terra-teine"
+          ]
+        },
+        {
+          "question": "課程有含札幌接送、雪票和裝備嗎？",
+          "answer": "iSKI 基本課不含交通，Premium 方案有札幌來回接送；雪票、裝備租借與保險另計。報名前一起確認集合區、時間和參加者年齡。",
+          "sourceIds": [
+            "terra-iski-teine",
+            "terra-teine-access"
+          ]
+        },
+        {
+          "question": "滑雪時，七個月大的嬰兒怎麼安排？",
+          "answer": "我們當次由奶奶在住宿處照顧嬰兒，爸爸媽媽帶兩名男孩按程度分成兩組上課，結束後再會合。",
+          "sourceIds": [
+            "s01",
+            "s02",
+            "s05"
+          ]
+        },
+        {
+          "question": "白色戀人門票包含 DIY 嗎？",
+          "answer": "付費區門票和 DIY 分開。現行門票高中生以上 1,200 日圓、四歲至國中生 600 日圓、三歲以下免費；手作方案再確認是否需要展區票。",
+          "sourceIds": [
+            "terra-shiroi-ticket"
+          ]
+        },
+        {
+          "question": "AOAO 適合排在市區傍晚嗎？",
+          "answer": "現行開放至 22:00，21:00 最後入館，可以按家人精神和用餐時間安排。建議參觀留 1.5–2 小時，繁忙時留意當日票入場安排。",
+          "sourceIds": [
+            "terra-aoao",
+            "terra-aoao-ticket"
+          ]
+        },
+        {
+          "question": "帶學齡前孩子能參加啤酒博物館導覽嗎？",
+          "answer": "Premium 導覽不受理未就學兒童，可改看自助參觀規則。館方現行 11:00–18:00，17:30 最後入場，餐廳訂位另外安排。",
+          "sourceIds": [
+            "terra-beer-visit"
+          ]
+        }
+      ],
+      "videoSourceIds": [
+        "s01",
+        "s03",
+        "s04",
+        "s05",
+        "c01",
+        "c03",
+        "c05"
+      ],
+      "author": "鷹式一家",
+      "updatedOn": "2026-10-22",
+      "cards": [
+        {
+          "target": "teine-iski",
+          "assetId": "teine-child-board",
+          "title": "手稻雪場與 iSKI",
+          "play": "按程度分組學單板",
+          "time": "課程一整天",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "shiroi-koibito",
+          "assetId": "shiroi-entrance",
+          "title": "白色戀人公園",
+          "play": "做巧克力、看展示",
+          "time": "建議 2–3 小時",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "aoao-sapporo",
+          "assetId": "aoao-seahorse",
+          "title": "AOAO 水族館",
+          "play": "看企鵝與水槽生物",
+          "time": "建議 1.5–2 小時",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "ario-sapporo",
+          "assetId": "ario-entrance",
+          "title": "Ario 札幌",
+          "play": "嬰幼兒用品與生活補給",
+          "time": "採買約 45–90 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        }
+      ],
+      "leadFormat": "longform-context/v1",
+      "path": "/trip/guides/sapporo-with-kids/",
+      "hero": [
+        "teine-child-board",
+        "shiroi-workshop",
+        "aoao-family-eels"
+      ],
+      "planner": {
+        "title": "札幌市區與滑雪怎麼分天",
+        "paragraphs": [
+          "以下是以實訪景點組成的安排建議：一天選白色戀人與 AOAO；加上兩天滑雪課，可排三天，或用四天把市區景點分開。",
+          "滑雪日需先約好能配合 09:00 上課的接送與租具。表內預留換裝、用餐和交通時間，幼兒上課時段另與教練安排。"
+        ],
+        "sourceIds": [
+          "terra-iski-teine",
+          "terra-teine-access",
+          "terra-shiroi-winter-2026-27",
+          "terra-shiroi-new-year-2026-27",
+          "terra-aoao-guide"
+        ],
+        "routes": [
+          {
+            "id": "sapporo-city-one-day",
+            "label": "一天｜白色戀人與 AOAO",
+            "sightseeingDays": 1,
+            "pace": "leisure",
+            "note": "上午看巧克力展示，午後看水族館；手作課另按已預約場次調整。",
+            "sourceIds": [
+              "terra-shiroi-winter-2026-27",
+              "terra-shiroi-new-year-2026-27",
+              "terra-aoao-guide"
+            ],
+            "days": [
+              {
+                "title": "白色戀人與 AOAO：甜點展示、水族館各半天",
+                "description": "上午在宮之澤看巧克力展示，吃完午餐再回市中心看水族館。手作課如有預約，依實際場次調整上午。",
+                "stops": [
+                  "shiroi-koibito",
+                  "aoao-sapporo"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:00",
+                    "end": "10:00",
+                    "description": "從札幌市中心搭地鐵、步行到白色戀人公園，含入館準備，預留一小時。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-shiroi-access"
+                    ]
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "description": "看白色戀人公園的常設展示、逛庭園；若已預約手作課，把上午活動換成該場次。",
+                    "placeIds": [
+                      "shiroi-koibito"
+                    ],
+                    "sourceIds": [
+                      "terra-shiroi-winter-2026-27",
+                      "terra-shiroi-new-year-2026-27"
+                    ]
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "午餐與休息；找店及候位包含在預留時間內。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "14:00",
+                    "description": "從宮之澤搭地鐵、步行回大通與狸小路，預留一小時。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-shiroi-access",
+                      "terra-aoao-access"
+                    ]
+                  },
+                  {
+                    "start": "14:00",
+                    "end": "16:00",
+                    "description": "AOAO SAPPORO：觀察水中生物，依孩子節奏停留。",
+                    "placeIds": [
+                      "aoao-sapporo"
+                    ],
+                    "sourceIds": [
+                      "terra-aoao-guide"
+                    ]
+                  },
+                  {
+                    "start": "16:00",
+                    "end": "16:45",
+                    "description": "回住宿休息，或留在市中心用餐。",
+                    "placeIds": []
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sapporo-ski-three-days",
+            "label": "三天｜市區一天、滑雪兩天",
+            "sightseeingDays": 3,
+            "pace": "leisure",
+            "note": "市區景點合在一天，另外兩天完整留給課程與接送；先確認連續兩天教練名額。",
+            "sourceIds": [
+              "terra-iski-teine",
+              "terra-teine-access",
+              "terra-shiroi-winter-2026-27",
+              "terra-shiroi-new-year-2026-27",
+              "terra-aoao-guide"
+            ],
+            "days": [
+              {
+                "title": "白色戀人與 AOAO：甜點展示、水族館各半天",
+                "description": "上午在宮之澤看巧克力展示，吃完午餐再回市中心看水族館。手作課如有預約，依實際場次調整上午。",
+                "stops": [
+                  "shiroi-koibito",
+                  "aoao-sapporo"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:00",
+                    "end": "10:00",
+                    "description": "從札幌市中心搭地鐵、步行到白色戀人公園，含入館準備，預留一小時。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-shiroi-access"
+                    ]
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:00",
+                    "description": "看白色戀人公園的常設展示、逛庭園；若已預約手作課，把上午活動換成該場次。",
+                    "placeIds": [
+                      "shiroi-koibito"
+                    ],
+                    "sourceIds": [
+                      "terra-shiroi-winter-2026-27",
+                      "terra-shiroi-new-year-2026-27"
+                    ]
+                  },
+                  {
+                    "start": "12:00",
+                    "end": "13:00",
+                    "description": "午餐與休息；找店及候位包含在預留時間內。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "13:00",
+                    "end": "14:00",
+                    "description": "從宮之澤搭地鐵、步行回大通與狸小路，預留一小時。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-shiroi-access",
+                      "terra-aoao-access"
+                    ]
+                  },
+                  {
+                    "start": "14:00",
+                    "end": "16:00",
+                    "description": "AOAO SAPPORO：觀察水中生物，依孩子節奏停留。",
+                    "placeIds": [
+                      "aoao-sapporo"
+                    ],
+                    "sourceIds": [
+                      "terra-aoao-guide"
+                    ]
+                  },
+                  {
+                    "start": "16:00",
+                    "end": "16:45",
+                    "description": "回住宿休息，或留在市中心用餐。",
+                    "placeIds": []
+                  }
+                ]
+              },
+              {
+                "title": "手稻滑雪第 1 天：依程度上課",
+                "description": "全天課程以班級為單位，含午休。幼兒分時、照顧者安排、上山接送與集合區域須先和 iSKI 確認。",
+                "stops": [
+                  "teine-iski"
+                ],
+                "blocks": [
+                  {
+                    "start": "06:45",
+                    "end": "08:00",
+                    "description": "搭事先安排的接送，從札幌市區前往雪場集合區，預留 75 分鐘。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-teine-access"
+                    ]
+                  },
+                  {
+                    "start": "08:00",
+                    "end": "09:00",
+                    "description": "換裝、洗手間與報到預留一小時。雪具可在前一天備妥，或先約好能配合早課的租借時間。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-iski-teine"
+                    ]
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "15:00",
+                    "description": "iSKI 全天私人課：5 小時教學加 1 小時休息；午餐與休息由教練協調，幼兒僅參加事先約定的分時時段。",
+                    "placeIds": [
+                      "teine-iski"
+                    ],
+                    "sourceIds": [
+                      "terra-iski-teine"
+                    ]
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "16:00",
+                    "description": "還雪具、換裝、吃點心並集合，預留一小時。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "16:00",
+                    "end": "17:30",
+                    "description": "搭接送回札幌，預留雪天與市區交通時間；晚餐可在住宿附近吃。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-teine-access"
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "手稻滑雪第 2 天：依程度上課",
+                "description": "全天課程以班級為單位，含午休。幼兒分時、照顧者安排、上山接送與集合區域須先和 iSKI 確認。",
+                "stops": [
+                  "teine-iski"
+                ],
+                "blocks": [
+                  {
+                    "start": "06:45",
+                    "end": "08:00",
+                    "description": "搭事先安排的接送，從札幌市區前往雪場集合區，預留 75 分鐘。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-teine-access"
+                    ]
+                  },
+                  {
+                    "start": "08:00",
+                    "end": "09:00",
+                    "description": "換裝、洗手間與報到預留一小時。雪具可在前一天備妥，或先約好能配合早課的租借時間。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-iski-teine"
+                    ]
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "15:00",
+                    "description": "iSKI 全天私人課：5 小時教學加 1 小時休息；午餐與休息由教練協調，幼兒僅參加事先約定的分時時段。",
+                    "placeIds": [
+                      "teine-iski"
+                    ],
+                    "sourceIds": [
+                      "terra-iski-teine"
+                    ]
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "16:00",
+                    "description": "還雪具、換裝、吃點心並集合，預留一小時。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "16:00",
+                    "end": "17:30",
+                    "description": "搭接送回札幌，預留雪天與市區交通時間；晚餐可在住宿附近吃。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-teine-access"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "id": "sapporo-ski-four-days",
+            "label": "四天｜市區分開、滑雪兩天",
+            "sightseeingDays": 4,
+            "pace": "leisure",
+            "note": "先逛白色戀人，再上兩天滑雪課，最後用 AOAO 半日收尾；留更多休息與親子彈性。",
+            "sourceIds": [
+              "terra-iski-teine",
+              "terra-teine-access",
+              "terra-shiroi-winter-2026-27",
+              "terra-shiroi-new-year-2026-27",
+              "terra-aoao-guide"
+            ],
+            "days": [
+              {
+                "title": "白色戀人：留半天看展示與甜點",
+                "description": "上午慢慢逛，下午留給休息。想做甜點手作，可把已訂好的課程放進上午或午後，再重核時間。",
+                "stops": [
+                  "shiroi-koibito"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:00",
+                    "end": "10:00",
+                    "description": "從札幌市中心搭地鐵、步行前往宮之澤，含入館準備，預留一小時。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-shiroi-access"
+                    ]
+                  },
+                  {
+                    "start": "10:00",
+                    "end": "12:30",
+                    "description": "常設展示、園區散步與選購；冬季戶外設施依公告開放。",
+                    "placeIds": [
+                      "shiroi-koibito"
+                    ],
+                    "sourceIds": [
+                      "terra-shiroi-winter-2026-27",
+                      "terra-shiroi-new-year-2026-27"
+                    ]
+                  },
+                  {
+                    "start": "12:30",
+                    "end": "13:30",
+                    "description": "午餐、休息與照顧孩子。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "13:30",
+                    "end": "14:30",
+                    "description": "返回札幌市中心；下午自由休息，手作預約另依場次調整。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-shiroi-access"
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "手稻滑雪第 1 天：依程度上課",
+                "description": "全天課程以班級為單位，含午休。幼兒分時、照顧者安排、上山接送與集合區域須先和 iSKI 確認。",
+                "stops": [
+                  "teine-iski"
+                ],
+                "blocks": [
+                  {
+                    "start": "06:45",
+                    "end": "08:00",
+                    "description": "搭事先安排的接送，從札幌市區前往雪場集合區，預留 75 分鐘。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-teine-access"
+                    ]
+                  },
+                  {
+                    "start": "08:00",
+                    "end": "09:00",
+                    "description": "換裝、洗手間與報到預留一小時。雪具可在前一天備妥，或先約好能配合早課的租借時間。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-iski-teine"
+                    ]
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "15:00",
+                    "description": "iSKI 全天私人課：5 小時教學加 1 小時休息；午餐與休息由教練協調，幼兒僅參加事先約定的分時時段。",
+                    "placeIds": [
+                      "teine-iski"
+                    ],
+                    "sourceIds": [
+                      "terra-iski-teine"
+                    ]
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "16:00",
+                    "description": "還雪具、換裝、吃點心並集合，預留一小時。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "16:00",
+                    "end": "17:30",
+                    "description": "搭接送回札幌，預留雪天與市區交通時間；晚餐可在住宿附近吃。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-teine-access"
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "手稻滑雪第 2 天：依程度上課",
+                "description": "全天課程以班級為單位，含午休。幼兒分時、照顧者安排、上山接送與集合區域須先和 iSKI 確認。",
+                "stops": [
+                  "teine-iski"
+                ],
+                "blocks": [
+                  {
+                    "start": "06:45",
+                    "end": "08:00",
+                    "description": "搭事先安排的接送，從札幌市區前往雪場集合區，預留 75 分鐘。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-teine-access"
+                    ]
+                  },
+                  {
+                    "start": "08:00",
+                    "end": "09:00",
+                    "description": "換裝、洗手間與報到預留一小時。雪具可在前一天備妥，或先約好能配合早課的租借時間。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-iski-teine"
+                    ]
+                  },
+                  {
+                    "start": "09:00",
+                    "end": "15:00",
+                    "description": "iSKI 全天私人課：5 小時教學加 1 小時休息；午餐與休息由教練協調，幼兒僅參加事先約定的分時時段。",
+                    "placeIds": [
+                      "teine-iski"
+                    ],
+                    "sourceIds": [
+                      "terra-iski-teine"
+                    ]
+                  },
+                  {
+                    "start": "15:00",
+                    "end": "16:00",
+                    "description": "還雪具、換裝、吃點心並集合，預留一小時。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "16:00",
+                    "end": "17:30",
+                    "description": "搭接送回札幌，預留雪天與市區交通時間；晚餐可在住宿附近吃。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-teine-access"
+                    ]
+                  }
+                ]
+              },
+              {
+                "title": "AOAO：滑雪後的輕鬆室內日",
+                "description": "晚一點出門，把水族館留在上午到中午。午後可休息或整理行李，適合接在兩天滑雪之後。",
+                "stops": [
+                  "aoao-sapporo"
+                ],
+                "blocks": [
+                  {
+                    "start": "09:45",
+                    "end": "10:30",
+                    "description": "從札幌市中心住宿前往狸小路，含步行、換乘與入館準備，預留 45 分鐘。",
+                    "placeIds": [],
+                    "sourceIds": [
+                      "terra-aoao-access"
+                    ]
+                  },
+                  {
+                    "start": "10:30",
+                    "end": "12:30",
+                    "description": "AOAO SAPPORO 參觀。",
+                    "placeIds": [
+                      "aoao-sapporo"
+                    ],
+                    "sourceIds": [
+                      "terra-aoao-guide"
+                    ]
+                  },
+                  {
+                    "start": "12:30",
+                    "end": "13:30",
+                    "description": "市中心午餐與休息。",
+                    "placeIds": []
+                  },
+                  {
+                    "start": "13:30",
+                    "end": "14:15",
+                    "description": "回住宿休息、整理行李，留出照顧孩子的時間。",
+                    "placeIds": []
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "rules": [
+          {
+            "placeId": "teine-iski",
+            "validFrom": "2026-12-21",
+            "validThrough": "2027-03-26",
+            "sourceIds": [
+              "terra-iski-teine",
+              "terra-teine-access"
+            ],
+            "url": "https://www.iski.com.tw/index.php?category=teine_private&route=common/snowing_hokkaido",
+            "note": "09:00–15:00 全天班含午休；3 至未滿 7 歲採事先約定的分時一對一。先確認教練、租具、照顧者與早班接送；09:25 才到的 Big Runs 接不上 09:00 課程。",
+            "minimumMinutes": 360,
+            "needsAgeConfirmation": true,
+            "needsDateConfirmation": true,
+            "windows": [
+              {
+                "from": "2026-12-21",
+                "to": "2027-03-26",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "09:00",
+                "closes": "15:00",
+                "startTimes": [
+                  "09:00"
+                ]
+              }
+            ]
+          },
+          {
+            "placeId": "shiroi-koibito",
+            "validFrom": "2026-12-01",
+            "validThrough": "2027-03-31",
+            "sourceIds": [
+              "terra-shiroi-winter-2026-27",
+              "terra-shiroi-new-year-2026-27"
+            ],
+            "url": "https://www.shiroikoibitopark.jp/information/uploads/a24bc4a731fc1cdad93b7b2df0570023.pdf",
+            "note": "本表採冬季園內付費設施的較早結束時間，不把園區燈飾時間當手作末班。2027/1/1–1/2 休館；12/31、1/3 縮短營業。手作另依預約場次。",
+            "windows": [
+              {
+                "from": "2026-12-01",
+                "to": "2026-12-30",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "10:00",
+                "closes": "17:30"
+              },
+              {
+                "from": "2026-12-31",
+                "to": "2026-12-31",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "10:00",
+                "closes": "16:30"
+              },
+              {
+                "from": "2027-01-03",
+                "to": "2027-01-03",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "10:00",
+                "closes": "16:30"
+              },
+              {
+                "from": "2027-01-04",
+                "to": "2027-03-31",
+                "weekdays": [
+                  0,
+                  1,
+                  2,
+                  3,
+                  4,
+                  5,
+                  6
+                ],
+                "opens": "10:00",
+                "closes": "17:30"
+              }
+            ]
+          },
+          {
+            "placeId": "aoao-sapporo",
+            "validFrom": "2026-10-22",
+            "validThrough": "2026-10-22",
+            "sourceIds": [
+              "terra-aoao-guide",
+              "terra-aoao-ticket"
+            ],
+            "url": "https://aoao-sapporo.blue/guide/",
+            "note": "現行一般時間 10:00–22:00，21:00 最後入館；季節及維護可能調整。選定旅行日期後查當日公告與開賣票券。",
+            "needsDateConfirmation": true,
+            "windows": []
+          }
+        ],
+        "calendar": [
+          {
+            "placeId": "shiroi-koibito",
+            "validFrom": "2026-12-01",
+            "validThrough": "2027-03-31",
+            "closedDates": [
+              "2027-01-01",
+              "2027-01-02"
+            ],
+            "closedWeekdays": [],
+            "message": "2026/27 年末年始公告的兩天休館；未擴張為每年的固定休館。",
+            "sourceIds": [
+              "terra-shiroi-new-year-2026-27"
+            ]
+          }
+        ]
+      },
+      "extension": {
+        "title": "延伸閱讀",
+        "paragraphs": [
+          "本文的 iSKI 滑雪課為合作體驗。"
+        ],
+        "links": [
+          {
+            "label": "旭川：動物園、科學館與地方文化",
+            "url": "/trip/guides/asahikawa-with-kids/"
+          },
+          {
+            "label": "日本旅行總覽",
+            "url": "/trip/japan/"
+          }
+        ],
+        "sourceIds": [
+          "s01",
+          "s03",
+          "s04",
+          "c01",
+          "c03",
+          "c04",
+          "terra-iski-family",
+          "terra-shiroi",
+          "terra-aoao",
+          "terra-aoao-access"
+        ]
+      }
+    }
+  ],
+  "routes": [],
+  "coverage": {
+    "countryIds": [
+      "japan"
+    ],
+    "cityIds": [
+      "asahikawa",
+      "sapporo"
+    ],
+    "routeIds": []
+  }
+}

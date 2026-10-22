@@ -1,19 +1,36 @@
 {
-  "schema": "eaglish.approved-travel-registration/v1",
-  "dataPath": "trip/data/europe-malaysia-approved-travel-v1.json",
-  "expectedSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
-  "countryIds": [
-    "norway",
-    "netherlands",
-    "malaysia"
-  ],
-  "cityIds": [
-    "oslo",
-    "svalbard",
-    "tromso",
-    "amsterdam",
-    "penang",
-    "kuala-lumpur"
-  ],
-  "publication": true
+  "schema": "eaglish.approved-travel-registration/v2",
+  "packages": [
+    {
+      "dataPath": "trip/data/europe-malaysia-approved-travel-v1.json",
+      "expectedSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
+      "countryIds": [
+        "norway",
+        "netherlands",
+        "malaysia"
+      ],
+      "cityIds": [
+        "oslo",
+        "svalbard",
+        "tromso",
+        "amsterdam",
+        "penang",
+        "kuala-lumpur"
+      ],
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/japan-approved-travel-v1.json",
+      "expectedSha256": "09597e0076f2700757cd9bdfcd11ebad941b6d0197e1a260407ae92cc27a8d65",
+      "countryIds": [
+        "japan"
+      ],
+      "cityIds": [
+        "asahikawa",
+        "sapporo"
+      ],
+      "routeIds": [],
+      "publication": true
+    }
+  ]
 }
