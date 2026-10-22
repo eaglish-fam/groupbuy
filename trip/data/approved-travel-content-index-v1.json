@@ -198,7 +198,7 @@
         "photo-oslo-fram-2",
         "photo-oslo-fram-3"
       ],
-      "sha256": "c63a6286fb485d78ae55ab394af3288ce1b7c73a1ced12fbc66dd841742dbf20"
+      "sha256": "52322b19e169d0387053b09ceeeaa08f6aee7fab0f008ffb22d9c060072352d2"
     },
     {
       "path": "/trip/guides/svalbard-with-kids/",
@@ -249,7 +249,7 @@
         "photo-svalbard-glacier-cruise-2",
         "photo-svalbard-glacier-cruise-3"
       ],
-      "sha256": "f0914d3edeede6114e770c5cd0b2bd064d2f0d34af89a889be43c355aa77aaf7"
+      "sha256": "3aa23e90e486ed1c04a6081349b965fc597fe8e0b151e6a87c827a1fc632133b"
     },
     {
       "path": "/trip/guides/tromso-with-kids/",
@@ -287,7 +287,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "2121c2abbc94867c3cced8d57a6b4979354da1c4a8e1e0e564d64baaa6e0e69c"
+      "sha256": "789f5902535b25b88ff6ee270ac1ca0afbce4fe62bff06cd3785146a66c7584e"
     },
     {
       "path": "/trip/guides/amsterdam-with-kids/",
@@ -324,7 +324,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "33834cfdc1c36d298c4ad4741553b489fc3bf91645b64cb23fb2d3867ae9b044"
+      "sha256": "73016652a963225ef306b5b49f31324e575bbcf2f62521f4232b8b371538bc83"
     },
     {
       "path": "/trip/guides/penang-with-kids/",
@@ -338,7 +338,7 @@
         "my-youtube-ayuc0px5ctc",
         "my-youtube-uro4dhm3dpk"
       ],
-      "sha256": "6b1a9694651a5042a1edd4fc246254b7de6c9cb083774ea49d745d6f8d4751fc"
+      "sha256": "59e0a050ff25b5bd580d72c1a15f1df277359188c635da22e6e52cf83337437d"
     },
     {
       "path": "/trip/guides/kuala-lumpur-with-kids/",
@@ -349,7 +349,7 @@
         "my-youtube-v7id6nvbpuo",
         "my-youtube-my-7kubdvc8"
       ],
-      "sha256": "7a080b691532a97f1c32f716d1cb80aedd22e9f26a1007a7a5dbd46d1731e656"
+      "sha256": "1dbff8061f408bad6dcac970aee47ae7ffb13b66076935488d47d19e4a75b0aa"
     }
   ]
 }
