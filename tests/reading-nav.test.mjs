@@ -34,6 +34,11 @@ test('mobile reading tab uses the approved compact size without the arrow', () =
   assert.match(css, /@media\(max-width:1199px\)[\s\S]*?\.reading-nav__chevron\{display:none\}/);
 });
 
+test('phone text column clears the 24px reading tab', () => {
+  const css = readFileSync(new URL('../blog/reading-nav.css', import.meta.url), 'utf8');
+  assert.match(css, /@media\(max-width:760px\)\{[\s\S]*?body:not\(\.hummus-guide\):has\(>\.reading-nav\) :is\(\.article-layout\.wrap,\.article-body\)\{padding-left:28px\}/);
+});
+
 test('all nine New Zealand pages opt into the same reading navigation', () => {
   for (const path of ['/trip/new-zealand/',...regions.map(region=>region.route)]) {
     const page = readFileSync(new URL(`..${path}index.html`, import.meta.url),'utf8');

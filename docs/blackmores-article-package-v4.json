@@ -35,9 +35,9 @@
     "title": "澳佳寶保健食品｜5款魚油、葉黃素與乳酸菌比較｜鷹家選物誌",
     "h1": "澳佳寶保健食品｜5款魚油、葉黃素與乳酸菌比較",
     "metaDescription": "比較澳佳寶5款魚油、葉黃素與乳酸菌：機伶小子與迷你魚油的吃法、兒童與成人葉黃素的年齡及用量，以及LC-Plasma條包的菌體個數與保存方式。依完整品名與產品標示，找到想了解的那一款。",
-    "openingAnswer": "選澳佳寶保健食品，先看年齡與吃法，再比同類產品每顆含量。機伶小子魚油為4歲以上咀嚼款；兒童葉黃素適用3–17歲，成人葉黃素＋蝦紅素＋B6則為18歲以上。魚油再比較膠囊大小、Omega-3含量與食用方式；乳酸菌另看條包、菌體個數與保存條件。",
+    "openingAnswer": "選澳佳寶保健食品，先看年齡與吃法，再比同類產品每顆含量。機伶小子魚油要分開看：3歲若要食用，本檔廠商對4歲以下列的是刺破膠囊、混入飲品；咀嚼則建議4歲以上。兒童葉黃素適用3–17歲，成人葉黃素＋蝦紅素＋B6則為18歲以上。魚油再比較膠囊大小、Omega-3含量與食用方式；乳酸菌另看條包、菌體個數與保存條件。",
     "relatedQuestions": [
-      "機伶小子魚油可以整顆吞嗎？",
+      "3歲孩子可以吃機伶小子魚油嗎？",
       "兒童葉黃素每天都是1錠嗎？",
       "家裡已經有補充品，還要再買嗎？"
     ]
@@ -49,8 +49,8 @@
       "authority": "Blackmores台灣官方",
       "title": "機伶小子魚油",
       "url": "https://www.blackmores.com.tw/SalePage/Index/7362028",
-      "observedAt": "2026-10-19",
-      "usageLocator": "本頁完整食用與營養標示圖"
+      "observedAt": "2026-10-22",
+      "usageLocator": "本輪實際渲染頁：特色『適用人群：4歲以上』與FAQ對4歲以下另列吃法；不等於核實3歲咀嚼適用"
     },
     {
       "id": "official-mini",
@@ -108,16 +108,26 @@
       "authority": "NIH Office of Dietary Supplements",
       "url": "https://ods.od.nih.gov/factsheets/Omega3FattyAcids-Consumer/",
       "observedAt": "2026-10-19"
+    },
+    {
+      "id": "current-campaign-kids",
+      "kind": "manufacturer_campaign_product",
+      "authority": "Blackmores台灣本檔團購商品頁",
+      "title": "本檔組合內的機伶小子魚油，商品編號9087838",
+      "url": "https://www.blackmores.com.tw/SalePage/Index/2YHpFA-dDGe03gHqPYcnLA==",
+      "observedAt": "2026-10-22",
+      "usageLocator": "商品特色之機伶小子魚油與其常見產品問題第1題；4歲以下刺破混入飲品、4歲以上建議咀嚼"
     }
   ],
   "claims": [
     {
       "id": "kids-age",
-      "text": "機伶小子魚油標示4歲以上每日1顆、飯後咀嚼，切勿整顆吞嚥，成人監督。",
+      "text": "本檔商品頁建議4歲以上咀嚼；4歲以下可刺破膠囊混入飲品。3歲歸入後者，不能視為3歲以上皆可咀嚼；未對3歲宣稱固定每日量。",
       "type": "confirmed_product_fact",
       "sourceIds": [
-        "official-kids"
-      ]
+        "current-campaign-kids"
+      ],
+      "interpretation": "3歲屬於該頁明載的4歲以下範圍；不是來源逐字寫3歲以上的最低年齡，亦不移植4歲以上劑量。"
     },
     {
       "id": "kids-omega3",
@@ -246,6 +256,14 @@
         "official-lc",
         "kirin-product"
       ]
+    },
+    {
+      "id": "kids-official-age-current",
+      "text": "本檔機伶小子魚油對4歲以下與4歲以上提供不同吃法，正文依本檔規則區分，不採無條件3歲咀嚼敘述。",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "current-campaign-kids"
+      ]
     }
   ],
   "coverage": [
@@ -257,7 +275,7 @@
     },
     {
       "factId": "kids-directions",
-      "summary": "機伶小子4歲以上與咀嚼安全限制",
+      "summary": "本檔4歲以下刺破與4歲以上咀嚼的分齡吃法；3歲用量不擅定",
       "disposition": "body",
       "location": "fish-oil"
     },
@@ -683,9 +701,9 @@
   "answerBlocks": [
     {
       "question": "澳佳寶保健食品怎麼選？",
-      "answer": "選澳佳寶保健食品，先看年齡與吃法，再比同類產品每顆含量。機伶小子魚油為4歲以上咀嚼款；兒童葉黃素適用3–17歲，成人葉黃素＋蝦紅素＋B6則為18歲以上。魚油再比較膠囊大小、Omega-3含量與食用方式；乳酸菌另看條包、菌體個數與保存條件。",
+      "answer": "選澳佳寶保健食品，先看年齡與吃法，再比同類產品每顆含量。機伶小子魚油要分開看：3歲若要食用，本檔廠商對4歲以下列的是刺破膠囊、混入飲品；咀嚼則建議4歲以上。兒童葉黃素適用3–17歲，成人葉黃素＋蝦紅素＋B6則為18歲以上。魚油再比較膠囊大小、Omega-3含量與食用方式；乳酸菌另看條包、菌體個數與保存條件。",
       "claimIds": [
-        "kids-age",
+        "kids-official-age-current",
         "child-lutein-directions",
         "adult-directions",
         "mini-omega3",
@@ -717,6 +735,14 @@
         "lc-cell-count",
         "lc-inactivated"
       ]
+    },
+    {
+      "question": "3歲孩子可以吃機伶小子魚油嗎？",
+      "answer": "本檔廠商對4歲以下提供的方式是刺破膠囊、混入飲品；咀嚼則建議4歲以上。3歲要分開看這兩種吃法，由成人處理與陪同，不直接讓孩子咀嚼或吞膠囊。實際用量與特殊健康需求，先向醫師或藥師確認。",
+      "claimIds": [
+        "kids-age",
+        "kids-official-age-current"
+      ]
     }
   ],
   "technicalSeo": {
@@ -726,7 +752,7 @@
       "url": "https://www.eaglish.store/"
     },
     "datePublished": "2026-10-19",
-    "dateModified": "2026-10-19",
+    "dateModified": "2026-10-22",
     "social": {
       "ogImage": "https://www.eaglish.store/assets/blackmores/cover-v2.webp",
       "ogImageAlt": "澳佳寶機伶小子魚油、兒童葉黃素與LC-Plasma乳酸菌盒裝，置於淺色展示台",
@@ -740,8 +766,8 @@
     ],
     "crawlableOfferFallback": "/#catalog"
   },
-  "bodyText": "魚油、葉黃素與乳酸菌的選購重點\n選澳佳寶保健食品，先看年齡與吃法，再比同類產品每顆含量。機伶小子魚油為4歲以上咀嚼款；兒童葉黃素適用3–17歲，成人葉黃素＋蝦紅素＋B6則為18歲以上。魚油再比較膠囊大小、Omega-3含量與食用方式；乳酸菌另看條包、菌體個數與保存條件。\n替家人挑選時，可以先寫下「幾歲、想看哪一類、適合哪種吃法」。習慣咀嚼、能吞膠囊或偏好粉末，會把選項分得更清楚。接著才看一瓶有幾顆、一天吃多少，估算補貨頻率。\n01 ／ 五款總覽\n五款產品的吃法與包裝規格\n五款澳佳寶產品的選擇重點\n產品\n先看什麼\n包裝\n機伶小子魚油\n4歲以上；飯後咀嚼\n30顆\n無腥味迷你濃縮魚油\n小顆膠囊；分齡用量\n200顆\n兒童晶亮金盞花葉黃素\n3–17歲；咀嚼錠\n60錠\n金盞花葉黃素＋蝦紅素＋B6\n18歲以上；成人膠囊\n30顆\n4效特攻1000億乳酸菌\nLC-Plasma；條包粉末\n15包\n魚油、葉黃素與乳酸菌屬於不同類別，先選想了解的那一類即可。下面把相近的產品放在一起，方便對照。\n02 ／ 兩款魚油\n機伶小子與迷你濃縮魚油差在哪？\n機伶小子魚油是覆盆莓、柳橙口味的咀嚼配方。標示為4歲以上每日1顆，飯後咀嚼，\n切勿整顆吞嚥，並由成人監督食用\n。它適合先從咀嚼形式挑選的家庭。\n迷你濃縮魚油的膠囊約1.5公分，帶檸檬、香草口味。官方分齡說明為4–12歲每日2次、每次1顆；13–17歲每日3次、每次1顆，隨餐並由成人監督。小顆是尺寸差異，選購時仍要一起核對年齡、吃法和每日用量。\n以每顆為同一單位比較魚油\n比較項目\n機伶小子\n迷你濃縮\nOmega-3\n300mg／顆\n300mg／顆\n其他已列含量\nEPA 180mg、DHA 120mg／顆\n完整成分請見商品標示\n挑選重點\n飯後咀嚼的配方\n小顆膠囊與分齡用量\n兩款每顆都列300mg Omega-3，吃法和每日顆數卻各有規定。比較時，分清楚「整顆膠囊重量」與「Omega-3含量」，也把每次幾顆、每天幾次一起看。\n03 ／ 兒童與成人葉黃素\n兒童與成人葉黃素：年齡與每日用量\n兒童晶亮金盞花葉黃素為3–17歲設計，每錠含葉黃素5mg、玉米黃素1mg。3–12歲每日1錠；13–17歲每日2錠，飯後咀嚼，切勿整顆吞嚥，並由成人監督。看成分表時，記得區分「每錠」與「每日份量」。\n金盞花葉黃素＋蝦紅素＋B6則是18歲以上的成人膠囊配方，每日1顆，隨餐食用，每日上限1顆。兩款完整品名不同，適用年齡和食用方式也不同；替孩子選購時，直接對照兒童款會更清楚。\n如果家裡有不同年齡的使用者，可以在瓶身旁記下各自的每日份量；補貨前再看剩餘顆數。兒童款60錠與成人款30顆，瓶裝數量各異，按實際用量估算會比只看瓶子大小直覺。\n04 ／ LC-Plasma乳酸菌\nLC-Plasma乳酸菌：菌體個數、吃法與保存\n這款是LC-Plasma乳酸菌粉末，搭配膳食纖維，每包標示1000億個菌體，一盒15包。LC-Plasma經熱處理，屬於非活菌；這裡的「個」是菌體個數，與活菌產品使用的CFU計數不同。挑選時可以先認清這個差別。\n官方建議每日1包，可直接食用，或搭配溫開水。保存於30°C以下、乾燥避光處，並留意防潮。偏好一次一包、少了數顆粒步驟的人，可以從這種包裝形式了解起。\n05 ／ 食用提醒\n過敏、用藥與孕哺期的食用提醒\n保健食品是日常飲食之外的補充，仍要維持均衡飲食。機伶小子魚油標示含魚類與大豆成分；有過敏需求，請逐款核對收到的完整標示。若正在用藥、服用其他補充品，或處於孕期、哺乳期，先帶著成分表向醫師或藥師確認，再決定是否食用及如何搭配。\n06 ／ 食用問答\n魚油、葉黃素與補充品搭配問答\n機伶小子魚油可以整顆吞嗎？\n機伶小子的食用標示是4歲以上飯後咀嚼，切勿整顆吞嚥，並由成人監督。若孩子還無法配合這種吃法，先向專業人員確認合適的選擇。\n兒童葉黃素每天都是1錠嗎？\n官方分為3–12歲每日1錠、13–17歲每日2錠。每錠葉黃素5mg、玉米黃素1mg；看含量時要同時對照年齡與每日錠數。\n家裡已經有補充品，還要再買嗎？\n先把現有產品的成分、每日份量與食用對象列在一起，確認是否重複。若涉及用藥或特殊營養需求，帶標示詢問醫師、藥師或營養師，再按需要補充。\n澳佳寶當期團購與商品組合\n先對好完整品名、年齡和吃法，再查看買物社目前的團購入口與組合內容。販售規格、庫存及實際結帳條件，以當期賣場為準。",
-  "bodyTextExtraction": "Complete data-editorial-section text, including headings, section labels, tables and every FAQ. Excludes navigation, CTA labels, image captions and source-reference markers. No editorial paragraph or FAQ omitted.",
+  "bodyText": "魚油、 葉黃素 與 乳酸菌 的 選購重點 選澳佳寶保健食品，先看年齡與吃法，再比同類產品每顆含量。機伶小子魚油要分開看：3歲若要食用，本檔廠商對4歲以下列的是刺破膠囊、混入飲品；咀嚼則建議4歲以上。兒童葉黃素適用3–17歲，成人葉黃素＋蝦紅素＋B6則為18歲以上。魚油再比較膠囊大小、Omega-3含量與食用方式；乳酸菌另看條包、菌體個數與保存條件。 替家人挑選時，可以先寫下「幾歲、想看哪一類、適合哪種吃法」。習慣咀嚼、能吞膠囊或偏好粉末，會把選項分得更清楚。接著才看一瓶有幾顆、一天吃多少，估算補貨頻率。\n01 ／ 五款總覽 五款產品的吃法與 包裝規格 五款澳佳寶產品的選擇重點 產品 先看什麼 包裝 機伶小子魚油 3歲：刺破混入飲品；4歲以上：可咀嚼 30顆 無腥味迷你濃縮魚油 小顆膠囊；分齡用量 200顆 兒童晶亮金盞花葉黃素 3–17歲；咀嚼錠 60錠 金盞花葉黃素＋蝦紅素＋B6 18歲以上；成人膠囊 30顆 4效特攻1000億乳酸菌 LC-Plasma；條包粉末 15包 魚油、葉黃素與乳酸菌屬於不同類別，先選想了解的那一類即可。下面把相近的產品放在一起，方便對照。\n02 ／ 兩款魚油 機伶小子 與 迷你濃縮魚油 差在哪？ 機伶小子魚油是覆盆莓、柳橙口味的配方。依本檔團購頁，4歲以上每日1顆，可咀嚼或刺破；4歲以下則可將膠囊刺破、混入飲品。 3歲若要食用，由成人處理，不直接套用4歲以上的咀嚼吃法 ；用量、過敏與特殊健康狀況，先帶標示向醫師或藥師確認。 迷你濃縮魚油的膠囊約1.5公分，帶檸檬、香草口味。官方分齡說明為4–12歲每日2次、每次1顆；13–17歲每日3次、每次1顆，隨餐並由成人監督。小顆是尺寸差異，選購時仍要一起核對年齡、吃法和每日用量。 以每顆為同一單位比較魚油 比較項目 機伶小子 迷你濃縮 Omega-3 300mg／顆 300mg／顆 其他已列含量 EPA 180mg、DHA 120mg／顆 完整成分請見商品標示 挑選重點 按年齡區分咀嚼或刺破 小顆膠囊與分齡用量 兩款每顆都列300mg Omega-3，吃法和每日顆數卻各有規定。比較時，分清楚「整顆膠囊重量」與「Omega-3含量」，也把每次幾顆、每天幾次一起看。\n03 ／ 兒童與成人葉黃素 兒童與成人 葉黃素 ：年齡與 每日用量 兒童晶亮金盞花葉黃素為3–17歲設計，每錠含葉黃素5mg、玉米黃素1mg。3–12歲每日1錠；13–17歲每日2錠，飯後咀嚼，切勿整顆吞嚥，並由成人監督。看成分表時，記得區分「每錠」與「每日份量」。 金盞花葉黃素＋蝦紅素＋B6則是18歲以上的成人膠囊配方，每日1顆，隨餐食用，每日上限1顆。兩款完整品名不同，適用年齡和食用方式也不同；替孩子選購時，直接對照兒童款會更清楚。 如果家裡有不同年齡的使用者，可以在瓶身旁記下各自的每日份量；補貨前再看剩餘顆數。兒童款60錠與成人款30顆，瓶裝數量各異，按實際用量估算會比只看瓶子大小直覺。\n04 ／ LC-Plasma乳酸菌 LC-Plasma乳酸菌 ： 菌體個數 、吃法與保存 這款是LC-Plasma乳酸菌粉末，搭配膳食纖維，每包標示1000億個菌體，一盒15包。LC-Plasma經熱處理，屬於非活菌；這裡的「個」是菌體個數，與活菌產品使用的CFU計數不同。挑選時可以先認清這個差別。 官方建議每日1包，可直接食用，或搭配溫開水。保存於30°C以下、乾燥避光處，並留意防潮。偏好一次一包、少了數顆粒步驟的人，可以從這種包裝形式了解起。\n05 ／ 食用提醒 過敏、用藥與 孕哺期 的食用提醒 保健食品是日常飲食之外的補充，仍要維持均衡飲食。機伶小子魚油標示含魚類與大豆成分；有過敏需求，請逐款核對收到的完整標示。若正在用藥、服用其他補充品，或處於孕期、哺乳期，先帶著成分表向醫師或藥師確認，再決定是否食用及如何搭配。\n06 ／ 食用問答 魚油、 葉黃素 與補充品搭配問答 3歲孩子可以吃機伶小子魚油嗎？ 本檔廠商對4歲以下提供的方式是刺破膠囊、混入飲品；咀嚼則建議4歲以上。3歲要分開看這兩種吃法，由成人處理與陪同，不直接讓孩子咀嚼或吞膠囊。實際用量與特殊健康需求，先向醫師或藥師確認。 兒童葉黃素每天都是1錠嗎？ 官方分為3–12歲每日1錠、13–17歲每日2錠。每錠葉黃素5mg、玉米黃素1mg；看含量時要同時對照年齡與每日錠數。 家裡已經有補充品，還要再買嗎？ 先把現有產品的成分、每日份量與食用對象列在一起，確認是否重複。若涉及用藥或特殊營養需求，帶標示詢問醫師、藥師或營養師，再按需要補充。\n澳佳寶當期團購與商品組合 先對好完整品名、年齡和吃法，再查看買物社目前的團購入口與組合內容。販售規格、庫存及實際結帳條件，以當期賣場為準。",
+  "bodyTextExtraction": "Complete data-editorial-section text, including all headings, tables and FAQ; excludes navigation, figures/captions, dynamic CTA, source markers and internal review banner. Regenerated from this age-conflict candidate, not clipped.",
   "releaseCandidate": {
     "articleRoute": "/blog/blackmores/",
     "surfaces": [
@@ -765,11 +791,21 @@
       "/assets/blackmores/product-card-v2-480.webp",
       "/assets/blackmores/product-card-v2-960.webp"
     ],
-    "integrationStatus": "revision_candidate; shared_editorial_mappings_need_Grace_review; not_published"
+    "integrationStatus": "current_campaign_source_reconciled; awaiting required engineering baseline review and release QA"
   },
   "productionNeeds": {
     "coverAndCard": "Revised: independently composed 1600x1000 cover and 1000x750 card, with five original-RGB transparent cutouts. Shared optimizer generates website-responsive variants. See media-sources-v2.",
     "purchase": "Existing #49 Sheet-driven early/end/floating controls preserved unchanged.",
-    "finalAcceptance": "Current revision requires new actual browser acceptance and Hiram approval before merge."
+    "finalAcceptance": "Source question resolved for conditional under-four administration, not unconditional three-plus chewing. Existing frozen-content test baseline needs engineering review for five bounded content blocks; do not force a test hash locally."
+  },
+  "internalReview": {
+    "workId": "GB-001",
+    "item": 2,
+    "status": "current_campaign_source_reconciled; engineering_validation_pending",
+    "sourceScope": "This campaign's own linked product9087838, not only generic item7362028",
+    "threeYearInterpretation": "Falls in vendor stated under-four group; method is pierce and mix, not a claim of universal three-plus chewing",
+    "unconditionalMinimumAgeThreeNotAsserted": true,
+    "underFourDoseNotInvented": true,
+    "sheetWrites": false
   }
 }
