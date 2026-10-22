@@ -21,7 +21,7 @@
     },
     {
       "dataPath": "trip/data/japan-approved-travel-v1.json",
-      "expectedSha256": "09597e0076f2700757cd9bdfcd11ebad941b6d0197e1a260407ae92cc27a8d65",
+      "expectedSha256": "14c9cf49850614d6b9a97aed83114ebae797dd38d6c5b55d2147169d03720a51",
       "countryIds": [
         "japan"
       ],
@@ -29,7 +29,9 @@
         "asahikawa",
         "sapporo"
       ],
-      "routeIds": [],
+      "routeIds": [
+        "hokkaido-seven-days"
+      ],
       "publication": true
     }
   ]
