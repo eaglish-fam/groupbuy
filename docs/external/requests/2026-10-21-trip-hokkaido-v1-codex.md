@@ -136,3 +136,8 @@ FAQ 先回答讀者實際會搜的問題：幾個月大的嬰兒可以去北海�
 
 - `zoo-family-terrace`（旭山動物園輔圖）：可用。
 - `daikokuya-family`（大黑屋合照）：可用。
+
+## Hiram 照片核准（2026-10-22 08:11 台北）
+
+- `zoo-family-terrace`（旭山動物園輔圖）：可用。
+- `daikokuya-family`（大黑屋合照）：可用。
