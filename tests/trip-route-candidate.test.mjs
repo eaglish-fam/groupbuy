@@ -111,8 +111,16 @@ test('route and country pages: no sideways scroll, first TOC click clears the st
   await page.goto(base+'/trip/japan/',{waitUntil:'load'});
   // Country photos declare sizes at least as wide as they render, so a sharp variant is chosen.
   await page.locator('.th-tabs [data-country-city="sapporo"]').click();
-  const declared=await page.evaluate(()=>[...document.querySelectorAll('.th-photo-trio img, .th-city-photo img')].filter(i=>i.getBoundingClientRect().width>0).map(i=>[Math.round(i.getBoundingClientRect().width),i.currentSrc.match(/-(\d+)\.webp$/)?.[1]*1]));
-  for(const [rendered,variant] of declared)assert.ok(variant>=Math.min(rendered,1440)||variant===1440,`photo ${rendered}px wide loads a ${variant}w variant at ${width}`);
+  // Photos are lazy: right after the tab switch currentSrc can still be empty, so wait until
+  // each visible photo has chosen and finished loading its file before reading the width.
+  await page.waitForFunction(()=>[...document.querySelectorAll('.th-photo-trio img, .th-city-photo img')].filter(i=>i.getBoundingClientRect().width>0).every(i=>i.complete&&i.currentSrc));
+  const declared=await page.evaluate(()=>[...document.querySelectorAll('.th-photo-trio img, .th-city-photo img')].filter(i=>i.getBoundingClientRect().width>0).map(i=>[Math.round(i.getBoundingClientRect().width),i.currentSrc,Math.max(...i.srcset.split(',').map(e=>parseInt(e.trim().split(' ')[1])))]));
+  assert.ok(declared.length);
+  for(const [rendered,src,widest] of declared){
+   const variant=Number(src.match(/-(\d+)\.webp$/)?.[1]);
+   assert.ok(Number.isInteger(variant),`photo ${rendered}px wide has no width in its file name: ${src}`);
+   assert.ok(variant>=Math.min(rendered,widest),`photo ${rendered}px wide loads a ${variant}w variant at ${width}`);
+  }
   await page.goto(base+'/trip/japan/',{waitUntil:'load'});
   assert.equal(await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth),false,`country ${width}`);
   const select=page.locator('[data-travel-atlas-select="hokkaido"]');
