@@ -38,6 +38,10 @@
   .reading-nav__tab-label{line-height:1.3}
   .reading-nav__chevron{display:none}
 }
+@media(max-width:760px){
+  /* The 24px tab sits over the left gutter; phone gutters are 20–24px, so the first character of each line was covered. Give the text 28px (tab + 4px). */
+  body:not(.hummus-guide):has(>.reading-nav) :is(.article-layout.wrap,.article-body){padding-left:28px}
+}
 @media(min-width:1200px){
   .reading-nav__tab,.reading-nav__close,.reading-nav__shade{display:none}
   .reading-nav__panel{top:max(var(--reading-nav-top),calc(50vh - 275px));bottom:auto;left:16px;width:min(188px,calc((100vw - 920px)/2 + 8px));max-height:calc(100dvh - var(--reading-nav-top) - 40px);padding:20px 10px 16px 12px;border-radius:12px;transform:none;visibility:visible;pointer-events:auto;background:linear-gradient(135deg,#f0eee5e8,#f8f7f200);box-shadow:none;backdrop-filter:none;-webkit-backdrop-filter:none}
