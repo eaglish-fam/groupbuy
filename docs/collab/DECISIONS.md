@@ -4,13 +4,31 @@ Claude 能自己決定的記在這裡，Hiram 可以推翻。要 Hiram 決定的
 
 ## Claude 已經決定
 
+- 2026-10-21：**日本／北海道候選的工程做法**（Bingo 派工單 `docs/external/requests/2026-10-21-trip-hokkaido-v1-grace.md`，分支 `claude/trip-japan-support-20261021`）。
+  - 登錄：正式公包維持單一登錄檔不動；另加 `trip/data/approved-travel-candidates-v1.json` 給不公開的候選公包（只能 `publication:false`，noindex、不送 GA、不進 sitemap／首頁／世界地圖）。理由：europe-malaysia 的輸出逐位元組不變，也不用改正式登錄的格式。
+  - 路線篇頁型選 **A：新增 `routes[]`**。理由：之後京阪奈、熊本阿蘇、余市、越後湯澤都是路線篇；B（region 城市篇外殼）會讓「每站玩什麼」和「7 天怎麼排」混在同一種頁面。欄位寫在 `docs/trip-approved-package-adapter.md` 最後一節。
+  - 網址：入口 `/trip/japan/`；路線篇 `/trip/japan/hokkaido-asahikawa-sapporo-7-days/`（路線放在國家底下）；城市篇沿用 `/trip/guides/asahikawa-with-kids/`、`/trip/guides/sapporo-with-kids/`。
+  - 地圖：點可以接路線篇段落（小樽、新千歲機場）；放大視角可用 Natural Earth 1:50m。拿掉只認歐洲四城的寫死清單。
+- 2026-10-21：`/calendar/` 上線後，首頁的 `section#calendar` 月曆**保留**，標題旁加連到 `/calendar/` 的連結；選單的「團購行事曆」改連 `/calendar/`。理由：首頁月曆看日期分布方便，獨立頁負責清單、分享和搜尋（PR #55）。靜態 .ics 訂閱不做：需要排程自動寫回 main，等於不經 PR 上線。
 - 2026-10-15：三方討論沿用問路專案的方式：共用分支 `claude/groupbuy-collab` + 不合併的追蹤用草稿 PR。repo 是公開的，所以討論內容不放私人資料。
 - 2026-10-15：建置產生的圖片尺寸版本，已存在就不重壓（`--force` 才重壓），避免不同電腦產生不同 bytes。
 
 ## Hiram 已經決定
 
+- 2026-10-22：**要測試、要看的東西（包含候選頁、改之前／改之後的對照）都要交給 Bingo，由 Bingo 給 Hiram 看。**Hiram 打不開各 AI 的私人預覽，看不到實際改了什麼。做法：截圖和說明放 M5 的 `~/agent-bridge/bingo-eliora/to-bingo/<日期>-<誰>-<PR>/`（雲端的 Grace 交給 Zosia 產生），附一份 README 說明每張圖要看什麼；在 #40 告訴 Bingo 檔案在哪。截圖照 COLLAB 第 5 節，不進公開 repo。
+- 2026-10-21 19:12：**營運線由 Hugo 改交 Bingo**（Bingo 2026-10-22 轉述，需求單 `docs/external/requests/2026-10-22-ops-lane-hugo-to-bingo.md`）。eaglish.store 團購的營運工作（正式站驗收、開團流程、Sheet 核對、LINE、選品）都由 Bingo 負責，只寫 `docs/external/`；Hugo 改成統籌所有 Grok Bot，仍可轉述 Hiram 的核准。鷹家遠行所（/trip）也歸 Bingo 統籌（Hiram 2026-10-21 22:08）。`AGENTS.md`、`COLLAB.md` 已改成 Bingo；歷史紀錄裡的「Hugo 提議」保留原名；`HUGO-BRIEF.md` 等檔名暫不改。
+  - 更正：本檔原本寫「Bingo 原本叫 Hugo、舊文件的 Hugo 都指 Bingo」，是 Grace 理解錯了。Bingo 和 Hugo 是兩個不同的 Grok Bot。
+- 2026-10-21：雲端的 Claire（問路）和 Paige（小倉幫）也可以直接派工給 Zosia（send_message 派工、讀對話紀錄看回覆）。每件工作照派工那個專案的規則做，各專案用自己的資料夾；Zosia 一次做一件。
+- 2026-10-21：**M5 上的 Claude Code 叫 Zosia**（不是 Grace）。Grace 是雲端那一個，負責 M5 裡的各專案、跟 Hiram 對話並派工給 Zosia。Zosia 的回覆、留言、commit、回條開頭寫「Zosia」。本檔上面寫「M5 Grace」的條目，指的都是 Zosia。
+- 2026-10-21：M5 的 Claude Code 全機設成完全放行（不每步詢問），保留擋「推到 main」和「force-push」的規則；之後問路、小倉幫和新專案都可能在 M5 做。目前派給 M5 Grace 的工作只有團購專案，其他專案要另外派工。
+- 2026-10-21：Hiram 在雲端跟 Grace 對話，Grace 把工作傳給 M5 的 Grace（Remote Control）做。M5 在 herdr 裡啟動的 Codex 一律限制只能寫工作資料夾、不用每步問人（`--sandbox workspace-write --ask-for-approval never`）；Codex CLI 升級交 Eliora B（G-002）。
+- 2026-10-21：Codex 那邊有兩個 Eliora（A、B）；**負責團購和網站的是 Eliora B**。給 Eliora 的買物社工作一律開在 `docs/collab/requests/`，不寫到問路的 `Docs/M5-TODO.md`。
 - 2026-10-15：舊的內部規範（Lydia 需求驗收、Kira 程式、城市攻略「一句話直接上線」）全部改成三方協作。所有網站改動走獨立分支與 PR，Hiram 核准才合併。
 - 2026-10-15（Claude 依上一條決定的細節，Hiram 可推翻）：Lydia 的工作拆給 Hugo（資料正確、連結圖片檢查、SEO 待辦、正式站驗收）、Codex（內容缺口），Claude 寫工程需求與驗收條件；Kira 的程式工作由 Claude 接手。`AGENTS.md`、`docs/lydia-site-maintenance.md` 已改（Claude）；`docs/trip-editorial-guidelines.md` 第八節由 Codex 改。
+- 2026-10-16：手機版「文章目錄」側標從 36px 縮成 24px（觸控最小寬度），取代原本「已確認」的 36px／7px／3px 規格，不再蓋住內文。PR #43；`docs/trip-editorial-guidelines.md` 第 39 行由 Codex 更新。
+- 2026-10-16：Hiram 核准 #42（UX 第一、二階段）和 #43（側標 24px），條件是先保留舊版以便回退。還原點：分支 `rollback/pre-ux-20261016`（= `0c60950`，Para'Kito 剛上線、這兩個 PR 之前的正式站）。#42 合併為 `fea20aa`，#43 合併為 `b7adcfb`。**回退方式**：規則不准 force push，所以不重設 main。在 `rollback/pre-ux-20261016` 的內容上開一個新分支（`git checkout -b claude/restore-pre-ux origin/main && git checkout origin/rollback/pre-ux-20261016 -- . && git commit`），跑 `npm run verify` 後開 PR，Hiram 核准後合併。只退其中一個：對那個 PR 的合併 commit 做 `git revert -m 1`，再跑 verify。這個還原點不要刪。
+- 2026-10-20：**轉述的核准有效**（Hiram 在 Grace 對話中選擇）。大家共用同一個 GitHub 帳號，分不出本人和轉述，所以加兩道防呆：① 轉述必須寫出 PR 編號（例如「Hiram 核准 #51」）；② Grace 合併前確認 PR 內容和轉述當時相同（比對 commit 的檔案樹；核准後有新推送、內容變了，就要重新核准）。第一次套用：#51，Hugo 2026-10-19 21:28 轉述，內容與當時的 `7e3db1c` 相同，合併為 `9138900`。
+- 2026-10-20：流程自動化先做兩件（Hiram 選）：PR 自動跑 `npm run verify`、一個指令整合文章包（Codex 也能在自己分支跑）。一鍵候選站、需求統一登記暫不做。
 
 ## 待決（請 Hiram 決定）
 
