@@ -57,9 +57,13 @@ test('candidate pages are noindex, canonical, linked to each other and kept out 
  assert.match(route,/"@type":"Article"[^}]*"headline":"北海道 7 天親子路線：工程樣板"/);
  assert.match(route,/"name":"北海道 7 天路線","item":"https:\/\/www\.eaglish\.store\/trip\/japan\/hokkaido-asahikawa-sapporo-7-days\/"/);
  assert.match(pages['/trip/japan/'],new RegExp(`<a href="${syntheticRoutePath}" data-route-article=`));
- // The synthetic route is never built into the repository, let alone indexed.
+ // The synthetic route is never built into the repository, let alone indexed. The published
+ // Hokkaido route shares its path, so the path may be indexed only through a registered package.
  const inventory=collectIndexablePages(repo).map(p=>p.path);
- assert.ok(!inventory.includes(syntheticRoutePath));
+ const publishedRoutes=new Set(approvedTravelRegistrations(repo).flatMap(p=>(p.data.routes||[]).map(r=>r.path)));
+ assert.ok(!inventory.includes(syntheticRoutePath)||publishedRoutes.has(syntheticRoutePath));
+ const built=resolve(repo,'.'+syntheticRoutePath,'index.html');
+ if(existsSync(built))assert.doesNotMatch(readFileSync(built,'utf8'),/工程樣板/);
 });
 
 test('candidate registry: unpublished only, no path collisions, published package untouched',()=>{

@@ -8,7 +8,7 @@
     },
     {
       "dataPath": "trip/data/japan-approved-travel-v1.json",
-      "packageSha256": "09597e0076f2700757cd9bdfcd11ebad941b6d0197e1a260407ae92cc27a8d65",
+      "packageSha256": "14c9cf49850614d6b9a97aed83114ebae797dd38d6c5b55d2147169d03720a51",
       "publication": true
     }
   ],
@@ -372,7 +372,7 @@
     },
     {
       "path": "/trip/japan/",
-      "packageSha256": "09597e0076f2700757cd9bdfcd11ebad941b6d0197e1a260407ae92cc27a8d65",
+      "packageSha256": "14c9cf49850614d6b9a97aed83114ebae797dd38d6c5b55d2147169d03720a51",
       "title": "日本親子旅行：北海道旭川、札幌攻略",
       "description": "日本親子旅行先看北海道旭川與札幌：旭山動物園、科學館、手稻滑雪與市區玩法，附實訪照片、交通和嬰兒照顧經驗。",
       "updatedOn": "2026-10-22",
@@ -383,11 +383,11 @@
         "s01",
         "c01"
       ],
-      "sha256": "50adf60a28bef54c2db03a771b6248221ce3cba11801aa8f083758cea7a830df"
+      "sha256": "d1dd2a13ed6df3a82c71e4d591367e54c27b5cab146e3b9e97dfcba9443ffe7e"
     },
     {
       "path": "/trip/guides/asahikawa-with-kids/",
-      "packageSha256": "09597e0076f2700757cd9bdfcd11ebad941b6d0197e1a260407ae92cc27a8d65",
+      "packageSha256": "14c9cf49850614d6b9a97aed83114ebae797dd38d6c5b55d2147169d03720a51",
       "title": "旭川親子攻略：旭山動物園、科學館與博物館",
       "description": "一家人帶著嬰兒走進旭川，從旭山動物園到科學館、博物館，再吃烤羊肉，記下各站玩法與家庭步調。",
       "updatedOn": "2026-10-22",
@@ -401,11 +401,11 @@
         "alma-zoo-behavior",
         "alma-museum-context"
       ],
-      "sha256": "f17f5250fd8fa0fa282e38d6fd8cd697528df9c21c04a685f5a41046406a55fe"
+      "sha256": "e7fa6baf57c47a3c99a9499392b2d2ab74b71d1c65bd08f254f357ee825ec383"
     },
     {
       "path": "/trip/guides/sapporo-with-kids/",
-      "packageSha256": "09597e0076f2700757cd9bdfcd11ebad941b6d0197e1a260407ae92cc27a8d65",
+      "packageSha256": "14c9cf49850614d6b9a97aed83114ebae797dd38d6c5b55d2147169d03720a51",
       "title": "札幌親子攻略：手稻滑雪、白色戀人與 AOAO 水族館",
       "description": "我們在札幌住 Airbnb，安排兩天 iSKI 滑雪課，也帶孩子做巧克力、看水族館，記下嬰兒照顧與市區移動的實際經驗。",
       "updatedOn": "2026-10-22",
@@ -421,7 +421,7 @@
         "terra-aoao",
         "terra-aoao-access"
       ],
-      "sha256": "a5b00478f343d622ca0ae06c8386e78e7b3b0d71b4e9b6f7d749715f3b4bbc3d"
+      "sha256": "18bc852c83b49a391c218f5cf8897ffe918ae488e21a11c14c2a9388695b69fc"
     }
   ]
 }
