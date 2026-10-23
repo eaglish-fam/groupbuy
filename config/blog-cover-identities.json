@@ -298,6 +298,27 @@
         "reviewer": "Lydia",
         "reviewScope": "Personally inspected Tailnet review-page screenshots at four widths and the source artwork. Brand and plate/bottle/gift-set identities visible; small decorative copy is not intended as the mobile reading source. Actual catalogue-card acceptance is recorded separately after integration."
       }
+    },
+    "/blog/sanfufarm/": {
+      "identity": "三富",
+      "image": "/assets/sanfufarm/cover.webp",
+      "imageSha256": "c27c64fedf40fbfdc454aed39fd943f0f99909bab640a3df19f64e25aaa0381c",
+      "source": "/assets/sanfufarm/cover-source.html",
+      "sourceSha256": "5bbf2e0b2b5a9701bdb2d870bdd9c01b79dd75a421c0d6353d805c526cdd356c",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "c27c64fedf40fbfdc454aed39fd943f0f99909bab640a3df19f64e25aaa0381c",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Claude (Chloe city), automated render + visual check",
+        "reviewScope": "Cover and journal card viewed at 320/390/768/1440 px in headless Chromium; 三富 title legible, real vendor garden photo unaltered."
+      }
     }
   }
 }

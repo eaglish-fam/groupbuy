@@ -267,6 +267,14 @@
     "source": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
     "variant": "a2479c4d6ed04de35d0fd8042d00ee1f413c93a939c91d269b7ca3c183359d9e"
   },
+  "/assets/sanfufarm/cover-480.webp": {
+    "source": "c27c64fedf40fbfdc454aed39fd943f0f99909bab640a3df19f64e25aaa0381c",
+    "variant": "8c0b6c03c854580dfdc14c57c9c404acc8670f00cf3431f9cdc4f7a94e1940ac"
+  },
+  "/assets/sanfufarm/cover-960.webp": {
+    "source": "c27c64fedf40fbfdc454aed39fd943f0f99909bab640a3df19f64e25aaa0381c",
+    "variant": "3bf5f0d3dc4442a9fed5a687461447a7cee73cae4d4c762cff48a1c6f0574bd5"
+  },
   "/assets/shinwa-living/cover-480.webp": {
     "source": "976dea336e7334f2475cf2294a93ac358cac3191ed2b90e4dcba48322dbaee92",
     "variant": "1c8c98caefba39e16e4a9c84aa7fa750e51697b16dd7916ce74f20ef387fffa8"
