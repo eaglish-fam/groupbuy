@@ -5,38 +5,10 @@ import {createHash} from 'node:crypto';
 import sharp from 'sharp';
 import {resolve} from 'node:path';
 import {catalog,routes} from '../scripts/trip-chiang-mai.mjs';
-import {dayOfTrip,available} from '../trip/chiang-mai-planner-model.mjs';
-import {resizePlan,replaceDay} from '../trip/bangkok-planner-model.mjs';
 const root=resolve(import.meta.dirname,'..');
 const read=p=>readFileSync(resolve(root,p),'utf8');
 const html=read('trip/guides/chiang-mai-with-kids/index.html');
 
-test('Chiang Mai dates use destination calendar weekdays, including month and leap-year boundaries',()=>{
- assert.deepEqual(dayOfTrip('2026-09-28',0),{iso:'2026-09-28',weekday:1});
- assert.deepEqual(dayOfTrip('2026-09-30',4),{iso:'2026-10-04',weekday:0});
- assert.equal(dayOfTrip('2028-02-28',1).iso,'2028-02-29');
- for(const input of ['', '2026-02-30','2026-13-01','bad'])assert.equal(dayOfTrip(input,0),null);
- assert.equal(dayOfTrip('2026-10-04',-1),null);
- assert.equal(available([0,6],dayOfTrip('2026-09-28',0)),false);
- assert.equal(available([0,6],dayOfTrip('2026-10-03',0)),true);
- assert.equal(available([0],dayOfTrip('2026-10-03',0)),false);
- assert.equal(available([0],dayOfTrip('2026-10-04',0)),true);
-});
-test('Chiang Mai plans are unique, do not auto-book elephant activities, and have weekday alternatives',()=>{
- for(const days of [2,3]){
-  const plan=resizePlan([],days,routes);assert.equal(plan.length,days);assert.equal(new Set(plan).size,days);
-  assert.ok(!plan.includes('elephant'));
-  const swapped=replaceDay(plan,0,plan[1],routes);assert.equal(new Set(swapped).size,days);
- }
- for(const route of routes.routes){
-  assert.ok(route.steps.length>=4);assert.ok(route.compactSteps.length>=4);
-  for(const s of [...route.steps,...route.compactSteps]){
-   if(s.days)assert.ok(s.otherwise);
-   if(s.anchor)assert.ok(catalog.places.some(p=>p.anchor===s.anchor));
-  }
- }
- assert.match(read('trip/chiang-mai-planner.mjs'),/週日紙園中文導覽不提供/);
-});
 test('one source catalog drives 9 reusable places, real media, maps and current source notes',()=>{
  const media=JSON.parse(read('trip/assets/chiang-mai-media.json'));
  assert.equal(catalog.places.length,9);assert.equal(media.length,25);

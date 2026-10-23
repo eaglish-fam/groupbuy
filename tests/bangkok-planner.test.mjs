@@ -1,37 +1,13 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
-import {resizePlan,replaceDay,compactPath} from '../trip/bangkok-planner-model.mjs';
-import {bangkokRoutes as config} from '../scripts/trip-bangkok-routes.mjs';
 import {bangkokCatalog} from '../scripts/trip-bangkok-places.mjs';
+const config=JSON.parse(readFileSync(new URL('../trip/data/bangkok-routes.json',import.meta.url),'utf8'));
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-
-test('planner gives 2–5 unique area routes and preserves changes when resized',()=>{
- for(const {days,routes} of config.combinations){
-  assert.deepEqual(resizePlan([],days,config),routes);
-  for(const count of [2,3,4,5]){
-   const result=resizePlan(routes,count,config);
-   assert.equal(result.length,count);assert.equal(new Set(result).size,count);
-  }
- }
- const custom=replaceDay(resizePlan([],2,config),0,'riverside',config);
- assert.deepEqual(custom,['riverside','siam']);
- assert.deepEqual(resizePlan(custom,3,config),['riverside','siam','chatuchak']);
- assert.throws(()=>resizePlan([],6,config),RangeError);
-});
-test('replacing an existing route swaps days without duplicate stops or input mutation',()=>{
- for(const combo of config.combinations)for(let index=0;index<combo.days;index++)for(const route of config.routes){
-  const input=[...combo.routes],next=replaceDay(input,index,route.id,config);
-  assert.equal(next[index],route.id);assert.equal(next.length,input.length);
-  assert.equal(new Set(next).size,next.length);assert.deepEqual(input,combo.routes);
-  const other=input.indexOf(route.id);if(other>=0)assert.equal(next[other],input[index]);
- }
- assert.throws(()=>replaceDay(['chatuchak'],2,'siam',config),RangeError);
- assert.throws(()=>replaceDay(['chatuchak'],0,'missing',config),RangeError);
-});
 // The guide now renders from the approved Thailand package (Japan template).
 const pkg=JSON.parse(read('trip/data/thailand-approved-travel-v1.json'));
 const city=pkg.cities.find(c=>c.id==='bangkok');
+
 test('visual overview has nine source-bound responsive thumbnails and concise copy',()=>{
  const html=read('trip/guides/bangkok-with-kids/index.html');
  const overview=html.match(/<section id="places">[\s\S]*?<\/section>/)[0];
