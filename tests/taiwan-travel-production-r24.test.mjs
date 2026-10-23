@@ -32,8 +32,8 @@ test('production build renders portable53 exactly with no private or preview dat
  assert.deepEqual(actual.catalog.hero,catalog.hero);assert.deepEqual(actual.catalog.themes,catalog.themes);
  for(const type of ['countries','guides']){
   const originalIds=new Set(catalog[type].map(v=>v.id));assert.deepEqual(actual.catalog[type].filter(v=>originalIds.has(v.id)),catalog[type]);
-  // Countries migrated from legacy pages (Thailand) keep their reviewed records, so they are not additions.
-  const legacyCountryIds=new Set(catalog.countries.map(v=>v.id));
+  // Countries migrated from legacy pages (Thailand; single-destination Singapore) keep their reviewed home records.
+  const legacyCountryIds=new Set([...catalog.countries.map(v=>v.id),...(approved?.countries||[]).filter(c=>c.singleDestination).map(c=>c.id)]);
   const additions=actual.catalog[type].filter(v=>!originalIds.has(v.id)),owners=(type==='countries'?approved?.countries||[]:approved?.cities||[]).filter(v=>!legacyCountryIds.has(type==='countries'?v.id:v.countryId));
   assert.deepEqual(additions.map(v=>v.id).sort(),owners.map(v=>v.id).sort());
   for(const record of additions){const owner=owners.find(v=>v.id===record.id),asset=approved.assets.find(a=>a.assetId===(type==='countries'?owner.discovery.assetId:owner.hero[0]));assert.equal(record.href,owner.path);assert.deepEqual(record.approvedPhoto,asset);}

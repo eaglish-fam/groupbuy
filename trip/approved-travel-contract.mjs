@@ -97,7 +97,9 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
  };
  const paths=[];
  for(const c of array(data.countries)){
-  id(c.id);if(countries.has(c.id))fail('duplicate country');routePath(c.path);paths.push(c.path);
+  // A single-destination country (Singapore) has no page of its own: its path is its only guide's path.
+  if(c.singleDestination!==undefined&&c.singleDestination!==true)fail('single destination flag');
+  id(c.id);if(countries.has(c.id))fail('duplicate country');routePath(c.path);if(!c.singleDestination)paths.push(c.path);
   for(const key of ['name','englishName','flag','title','description'])text(c[key]);strings(c.intro);if(c.leadFormat!==undefined)validateCityIntro(c.intro,c.leadFormat);image(c.image);sources(c.sourceIds);faq(c.faq);
   if(!calendarDate(c.updatedOn))fail('country update date');
   if(c.packing)module(c.packing);if(c.videos)module(c.videos);if(c.related)module(c.related);if(c.planInfo)module(c.planInfo);
@@ -111,7 +113,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
    id(g.subregion);text(g.summary);image(g.assetId);sources(g.sourceIds);
    if(!Array.isArray(g.point)||g.point.length!==2||!g.point.every(Number.isFinite)||Math.abs(g.point[0])>180||Math.abs(g.point[1])>90||!/^\d{3}$/.test(g.isoNumeric))fail('discovery geography');
   }
-  unique(array(c.cityIds),'country city');if(!c.cityIds.length)fail('country without guides');countries.set(c.id,c);
+  unique(array(c.cityIds),'country city');if(!c.cityIds.length)fail('country without guides');if(c.singleDestination&&c.cityIds.length!==1)fail('single destination needs one guide');countries.set(c.id,c);
  }
  for(const c of array(data.cities)){
   id(c.id);if(cities.has(c.id))fail('duplicate city');routePath(c.path);paths.push(c.path);id(c.countryId);
@@ -238,6 +240,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
   if(allLinks.some(l=>l.url.startsWith('#')&&!anchors.has(l.url.slice(1))))fail('unresolved same-page link');
   routes.set(r.id,r);
  }
+ for(const c of countries.values())if(c.singleDestination&&cities.get(c.cityIds[0])?.path!==c.path)fail('single destination path');
  unique(paths,'public path');
  for(const c of countries.values()){
   if(c.cityIds.some(v=>cities.get(v)?.countryId!==c.id)||[...cities.values()].some(city=>city.countryId===c.id&&!c.cityIds.includes(city.id)))fail('country/city membership');

@@ -15,6 +15,11 @@
       "dataPath": "trip/data/thailand-approved-travel-v1.json",
       "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
       "publication": true
+    },
+    {
+      "dataPath": "trip/data/singapore-approved-travel-v1.json",
+      "packageSha256": "e6542d7be3f2faf6fecbf5828522a55c6d09aad4a3c04785349d50b9537a818e",
+      "publication": true
     }
   ],
   "pages": [
@@ -496,6 +501,27 @@
         "o-lalittacafe-com-about-us"
       ],
       "sha256": "b037d3bb79eecb22baac50e481c9ba6d7138497b13de97fe7e9e30527b2da064"
+    },
+    {
+      "path": "/trip/singapore/",
+      "packageSha256": "e6542d7be3f2faf6fecbf5828522a55c6d09aad4a3c04785349d50b9537a818e",
+      "title": "新加坡自由行：8 個景點、親子玩法與 2–4 日行程安排",
+      "description": "從新加坡動物園、濱海灣花園到星耀樟宜，整理鷹式一家實際走過的景點、美食與住宿經驗，搭配 2–4 日建議行程、交通及雨天安排。",
+      "updatedOn": "2026-10-03",
+      "sourceIds": [
+        "v-youtube-com-watch-v-cv5aehulhc4",
+        "v-youtube-com-watch-v-wny-jlq8tjm",
+        "v-youtube-com-watch-v-n7lacel6lww",
+        "v-youtube-com-watch-v-bw7bihyxzm",
+        "v-youtube-com-shorts-86gh1ti5m68",
+        "v-youtube-com-shorts-qtq-clsixyu",
+        "v-youtube-com-shorts-w8tdslk-trc",
+        "o-mandai-com-en-singapore-zoo-html",
+        "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai",
+        "v-youtube-com-watch-v-wny-jlq8tjm-t-0s",
+        "o-mandai-com-en-river-wonders-html"
+      ],
+      "sha256": "2bceda7b3347542871b31b5a10250c3714d6d2f1df73b4308d0064406e2a3695"
     }
   ]
 }

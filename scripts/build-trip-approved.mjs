@@ -8,7 +8,7 @@ import {renderApprovedRoute} from './trip-route-approved-adapter.mjs';
 import {writeApprovedTravelContentIndex} from './trip-approved-content-index.mjs';
 async function renderPackage(root,registration){
  const view=await readApprovedTravelPackage(root,registration);
- const pages=[...view.countries.values()].map(c=>[c.path,renderApprovedCountry(view.data,c.id,registration)]).concat([...view.cities.values()].map(c=>[c.path,renderApprovedCity(view.data,c.id,registration)]),[...view.routes.values()].map(r=>[r.path,renderApprovedRoute(view.data,r.id,registration)]));
+ const pages=[...view.countries.values()].filter(c=>!c.singleDestination).map(c=>[c.path,renderApprovedCountry(view.data,c.id,registration)]).concat([...view.cities.values()].map(c=>[c.path,renderApprovedCity(view.data,c.id,registration)]),[...view.routes.values()].map(r=>[r.path,renderApprovedRoute(view.data,r.id,registration)]));
  return {view,pages};
 }
 export async function buildApprovedTravel(root){
