@@ -175,7 +175,10 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
    id(r.id);positive(r.sightseeingDays);if(!['leisure','compact'].includes(r.pace))fail('route pace');text(r.label);text(r.note);sources(r.sourceIds);
    if(array(r.days).length!==r.sightseeingDays)fail('route day count');
    for(const day of r.days){
-    text(day.title);text(day.description);if(!array(day.stops).length||day.stops.some(v=>!places.has(v))||new Set(day.stops).size!==day.stops.length)fail('route target');
+    text(day.title);text(day.description);
+    // A published transfer day (e.g. driving on to the next base) may name no place.
+    if(day.transfer!==undefined&&(day.transfer!==true||array(day.stops).length))fail('transfer day');
+    if((!array(day.stops).length&&!day.transfer)||day.stops.some(v=>!places.has(v))||new Set(day.stops).size!==day.stops.length)fail('route target');
     let previousEnd=-1;
     for(const b of day.blocks||[]){
      if(!clockTime(b.start)||!clockTime(b.end)||b.start>=b.end||minutes(b.start)<previousEnd)fail('route time/overlap');

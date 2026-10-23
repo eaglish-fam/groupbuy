@@ -10,8 +10,6 @@ const read=path=>readFileSync(resolve(root,path),'utf8');
 const pages=[
  ['trip/index.html',travelHomeCatalog.guides.find(g=>g.id==='cebu-bohol').image.src.split('/').at(-1).replace(/\.webp$/,'')],
  ['trip/new-zealand/index.html','nz-christchurch-tram'],
- ['trip/new-zealand/christchurch/index.html','nz-christchurch-tram'],
- ['trip/new-zealand/akaroa/index.html','nz-farm'],
  ['trip/new-zealand/christchurch/3-days/index.html','nz-christchurch-tram'],
  ...regions.filter(region=>region.route!=='/trip/new-zealand/christchurch/3-days/').map(region=>[region.route.slice(1)+'index.html',region.hero]),
  ['trip/thailand/index.html','cm-thai-dress-family'],

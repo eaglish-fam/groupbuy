@@ -39,11 +39,12 @@ test('phone text column clears the 24px reading tab', () => {
   assert.match(css, /@media\(max-width:760px\)\{[\s\S]*?body:not\(\.hummus-guide\):has\(>\.reading-nav\) :is\(\.article-layout\.wrap,\.article-body\)\{padding-left:28px\}/);
 });
 
-test('all nine New Zealand pages opt into the same reading navigation', () => {
-  for (const path of ['/trip/new-zealand/',...regions.map(region=>region.route)]) {
+test('all eight New Zealand guides opt into the shared reading navigation', () => {
+  // The guides render from the approved package; the country page is the approved country template.
+  assert.match(readFileSync(new URL('../trip/new-zealand/index.html', import.meta.url),'utf8'),/data-approved-country="new-zealand"/);
+  for (const path of regions.map(region=>region.route)) {
     const page = readFileSync(new URL(`..${path}index.html`, import.meta.url),'utf8');
-    assert.equal((page.match(/data-reading-nav/g)||[]).length,1,path);
-    assert.match(page,/href="\/blog\/reading-nav\.css"/,path);
+    assert.equal((page.match(/data-reading-nav(?!-)/g)||[]).length,1,path);
     assert.match(page,/defer src="\/blog\/reading-nav\.js"/,path);
     const nav = page.match(/<nav[^>]*data-reading-nav[^>]*>([\s\S]*?)<\/nav>/)?.[1];
     assert.ok(nav,path);

@@ -107,9 +107,7 @@ test('day switcher clamps resized trips, exposes native buttons and retains a fu
   assert.match(client,/panel\.hidden=dayIndex!==index/);
   assert.match(client,/交通銜接：從 /);
   assert.doesNotMatch(client,/這一天不要當作完整遊玩日/);
-  const staticHtml = readFileSync(new URL('../trip/new-zealand/index.html',import.meta.url),'utf8');
-  const fallback = staticHtml.match(/<div class="nz-planner"[\s\S]*?<\/div><p class="nz-plan-share">/)?.[0];
-  assert.ok(fallback);
-  assert.match(fallback,/Day 1/);
-  assert.match(fallback,/Day 7/);
+  // The published guides now use the approved planner, whose static fallback lists every route day.
+  const staticHtml = readFileSync(new URL('../trip/new-zealand/north-island/index.html',import.meta.url),'utf8');
+  for (const day of ['第一天：奧克蘭','第五天：返回奧克蘭']) assert.ok(staticHtml.includes(day),day);
 });

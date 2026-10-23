@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 63,
+    "pages": 61,
     "blocking": 0,
-    "warnings": 27,
-    "total": 27
+    "warnings": 26,
+    "total": 26
   },
   "findings": [
     {
@@ -177,23 +177,16 @@
     {
       "level": "warn",
       "category": "images",
-      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
-      "file": "trip/new-zealand/akaroa/index.html",
-      "index": 4858
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
-      "file": "trip/new-zealand/christchurch/index.html",
-      "index": 6213
+      "message": "Hero/first image should not be lazy-loaded",
+      "file": "trip/new-zealand/index.html",
+      "index": 36513
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/thailand/index.html",
-      "index": 34310
+      "index": 35482
     }
   ]
 }

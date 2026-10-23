@@ -38,3 +38,13 @@
 .approved-map-pin small{display:block;font-size:9px;letter-spacing:.06em;font-weight:400}
 .approved-map-pin:hover span,.approved-map-pin:focus-visible span{border-color:#bd4029}
 @media(max-width:700px){.approved-map-pin span{font-size:13px;padding:3px 7px}.approved-map-pin small{font-size:8px}}
+.approved-map-pin--numbered{transform:translate(-50%,-50%);min-height:0;min-width:0}
+.approved-map-pin--numbered i{width:24px;height:24px;border-width:2px;display:grid;place-items:center;color:#fff;font:700 12px/1 system-ui,sans-serif;font-style:normal}
+.approved-map-pin--numbered:hover i,.approved-map-pin--numbered:focus-visible i{background:#15366a;box-shadow:0 0 0 1px #15366a}
+.approved-map-legend{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 18px}
+.approved-map-legend a{display:flex;align-items:center;gap:10px;min-height:44px;text-decoration:none;color:#494139}
+.approved-map-legend b{flex-shrink:0;display:grid;place-items:center;width:24px;height:24px;border-radius:50%;background:#bd4029;color:#fff;font:700 12px/1 system-ui,sans-serif}
+.approved-map-legend span{font-weight:700;font-size:14px;line-height:1.35}
+.approved-map-legend small{display:block;font-size:10px;font-weight:400;letter-spacing:.04em}
+.approved-map-legend a:hover span{color:#bd4029}
+@media(max-width:420px){.approved-map-legend{grid-template-columns:1fr}.approved-map-pin--numbered i{width:20px;height:20px;font-size:11px}}
