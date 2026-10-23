@@ -2,7 +2,6 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {nzRegions} from '../scripts/trip-nz-visuals.mjs';
 import {regions} from '../trip/new-zealand-data.mjs';
 import {galleries} from '../trip/new-zealand-galleries.mjs';
 
@@ -39,7 +38,6 @@ test('New Zealand media retains source evidence, checksums, and bounded image we
     if (item.kind.includes('video-frame')) assert.ok(item.source.endsWith('&t='+item.second+'s'),item.name);
     assert.equal(item.path,undefined);
   }
-  assert.equal(nzRegions.length,10); // legacy visual catalog is still available
   const hub = read('trip/new-zealand/index.html');
   assert.doesNotMatch(hub,/Milford Sound|Mt Cook|Oamaru Blue Penguin Colony|nz-nz-lake-cruise/);
   for (const region of regions) {

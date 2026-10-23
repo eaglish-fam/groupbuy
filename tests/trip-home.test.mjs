@@ -5,7 +5,6 @@ import {travelHomeCatalog} from '../trip/home-catalog.mjs';
 import {renderTravelHome, validateTravelHomeCatalog} from '../scripts/build-trip-home.mjs';
 import {prioritizeFirstTravelImage} from '../scripts/trip-image-priority.mjs';
 import {regions} from '../trip/new-zealand-data.mjs';
-import {cities} from '../trip/thailand-model.mjs';
 import {runInNewContext} from 'node:vm';
 
 const clone = () => structuredClone(travelHomeCatalog);
@@ -14,7 +13,7 @@ const read = path => readFileSync(new URL('../' + path, import.meta.url), 'utf8'
 test('travel home covers each published region with a real photo and canonical destination', () => {
   validateTravelHomeCatalog(travelHomeCatalog);
   assert.deepEqual(new Set(travelHomeCatalog.guides.filter(g => g.countryId === 'new-zealand').map(g => g.href)), new Set(regions.map(r => r.route)));
-  assert.deepEqual(new Set(travelHomeCatalog.guides.filter(g => g.countryId === 'thailand').map(g => g.href)), new Set(cities.map(c => c.guide)));
+  assert.deepEqual(new Set(travelHomeCatalog.guides.filter(g => g.countryId === 'thailand').map(g => g.href)), new Set(JSON.parse(readFileSync(new URL('../trip/data/thailand-approved-travel-v1.json',import.meta.url),'utf8')).cities.map(c => c.path)));
   for (const item of [...travelHomeCatalog.countries, ...travelHomeCatalog.guides]) {
     assert.ok(existsSync(new URL('..' + item.href + 'index.html', import.meta.url)), item.href);
     assert.ok(existsSync(new URL('..' + item.image.src, import.meta.url)), item.image.src);

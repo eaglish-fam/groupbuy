@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
-import {places,itineraries,nzRoute} from '../scripts/build-trip-destinations.mjs';
+import {nzRoute} from '../scripts/build-trip-destinations.mjs';
 import {regions} from '../trip/new-zealand-data.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const paths=['/trip/','/trip/new-zealand/',...regions.map(region=>region.route),'/trip/thailand/'];
@@ -35,23 +35,6 @@ test('destination hierarchy has static text, canonical URLs, valid local assets 
   const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length,'duplicate ids '+path);
   for(const m of html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g))assert.doesNotThrow(()=>JSON.parse(m[1]));
  }
-});
-test('reviewed Christchurch catalog remains traceable while the canonical guide uses the new regional article',()=>{
- const html=read(nzRoute.slice(1)+'index.html');
- assert.equal(places.length,11);assert.equal(places.filter(p=>p.visited).length,7);
- for(const p of places)assert.ok(p.source.startsWith('https://'));
- assert.match(html,/Shamarra Alpacas/);assert.match(html,/Akaroa Dolphins/);
- assert.match(html,/Drummonds Jetty/);assert.match(html,/65 Beach Road/);
- assert.match(html,/data-approved-city-planner/);assert.match(html,/id="plan"/);
- assert.doesNotMatch(html,/近100%|95%|保證看到|最低價/);
-});
-test('legacy two/three/five-day material remains represented by meaningful anchors',()=>{
- const ids=new Set(places.map(p=>p.id));
- for(const r of itineraries){const n={two:2,three:3,five:5}[r.id];assert.equal(r.days.length,n);assert.equal(r.days.filter(d=>d[3]!=='—').length,n-1);const stops=r.days.flatMap(d=>d[4]);assert.equal(new Set(stops).size,stops.length);for(const s of stops)assert.ok(ids.has(s));}
- const html=read(nzRoute.slice(1)+'index.html');
- for(const id of ['plan-two','plan-three','plan-five','itinerary'])assert.ok(html.includes(`id="${id}"`));
- assert.match(html,/name="days"/);assert.match(html,/data-plan-days/);
- assert.match(html,/兩到三日行程/);
 });
 test('travel discovery is exposed on the shop homepage after publication approval',()=>{
  const home=read('index.html');

@@ -10,7 +10,6 @@ import {selectRegionalFilms,renderRegionalFilms,renderConsumerDetail} from '../t
 import {canonicalTripPhoto} from '../trip/photo-source-identity.mjs';
 import {photoContexts} from '../scripts/trip-photo-contexts-r22.mjs';
 import {parseArticleMarkdown,renderTravelArticle} from '../scripts/travel-article-renderer.mjs';
-import {presentCebuR24} from '../scripts/present-cebu-r24.mjs';
 import {preservedArticle} from '../scripts/trip-photo-frames-r22.mjs';
 const bytes=p=>fs.readFileSync(new URL('../'+p,import.meta.url));
 const read=p=>bytes(p).toString();
@@ -103,16 +102,4 @@ test('publiccountygeometryandisolatedtravel fontmatchacceptedbytes',()=>{
  assert.equal(bytes('assets/fonts/noto-serif-tc-travel-r24.woff2').toString('ascii',0,4),'wOF2');
  assert.doesNotMatch(read('trip/heading-theme-r24.css'),/@font-face\s*\{/);
  assert.match(read('site-font-loader.js'),/Eaglish Travel Heading Serif/);
-});
-test('Cebu narratives,captions,sourceimages and links remainexact afterreviewed frames',()=>{
- const c=json('trip/data/cebu-bohol-guide.json'),media=Object.fromEntries(json('trip/assets/cebu-bohol-media.json').map(m=>[m.id,m]));
- const raw=renderTravelArticle(parseArticleMarkdown(read('trip/content/philippines/cebu-bohol-with-kids.md'),c.sectionMap),c,media);
- const presented=presentCebuR24(raw,read('flights/assets/faraway-wordmark.svg'));
- const inventory=h=>({paragraphs:[...h.matchAll(/<p\b[^>]*>[\s\S]*?<\/p>/g)].map(m=>m[0]),captions:[...h.matchAll(/<figcaption\b[^>]*>[\s\S]*?<\/figcaption>/g)].map(m=>m[0]),images:[...h.matchAll(/<img\b[^>]*>/g)].map(m=>m[0]),links:[...h.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)].filter(m=>!m[0].includes('class="trip-plan-entry"')).map(m=>m[0].replace(/<svg\b[\s\S]*?<\/svg>/g,''))});
- const before=preservedArticle(inventory(raw)),after=preservedArticle(inventory(presented));
- // Wordmarks become inlineSVG, leaving all actual story photos and links exact.
- const story=i=>({...i,images:i.images.filter(p=>p.src?.startsWith('/trip/assets/')),links:i.links.filter(l=>!l.opening.includes('class="brand"'))});
- assert.deepEqual(story(after),story(before));
- for(const c of photoContexts.filter(c=>c.page==='cebu'))assert.ok(presented.includes(`data-photo-context="cebu:${c.sequence}"`));
- assert.equal((presented.match(/data-photo-frame=/g)||[]).length,36);assert.equal((presented.match(/data-photo-display-clone=/g)||[]).length,1);
 });

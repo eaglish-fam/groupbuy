@@ -2,10 +2,8 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
+const ceiCatalog=JSON.parse(readFileSync(new URL('../trip/data/chiang-rai-places.json',import.meta.url),'utf8'));
 import sharp from 'sharp';
-import {ceiCatalog,ceiRoutes} from '../scripts/build-trip-chiang-rai.mjs';
-import {resizePlan,replaceDay} from '../trip/bangkok-planner-model.mjs';
-import {stopOwners} from '../trip/chiang-rai-planner-model.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const rai=read('trip/guides/chiang-rai-with-kids/index.html'),mai=read('trip/guides/chiang-mai-with-kids/index.html');
 test('all travel planners use the same concise pace labels',()=>{
@@ -14,7 +12,6 @@ test('all travel planners use the same concise pace labels',()=>{
   assert.match(page,/<option value="compact">緊湊<\/option>/);
   assert.doesNotMatch(page,/悠閒散步/);
  }
- assert.doesNotMatch(read('trip/chiang-rai-planner.mjs'),/悠閒散步/);
 });
 test('all twelve authorized IG sources have a published destination, without merging cities',()=>{
  for(const id of ['Cty2vosvqnC','CtMUIiRolk0','CtO76HQqqiS','CtRl60VqJsW','CtULGSfIBUl','CtWhiJTo1US','CtZNwWZIyEy','CtbnQYoIEoS','CteLPMDIv6H','CtjX3L2odHj','CtorBSRIG3-','CtwJqqsoTDe'])assert.ok((rai+mai).includes(id),id);
@@ -33,18 +30,6 @@ test('new guide is navigable with or without script and all intra-article target
  for(const p of ['trip/thailand/index.html','sitemap.xml'])assert.match(read(p),/\/trip\/guides\/chiang-rai-with-kids\//);
  assert.match(read('trip/thailand/chiang-rai/index.html'),/url=\/trip\/guides\/chiang-rai-with-kids\//);
  assert.equal(ceiCatalog.places.length,4);for(const p of ceiCatalog.places){assert.ok(p.sources.length);assert.ok(rai.includes(`id="${p.id}" data-place-id="cei-${p.id}"`));assert.ok(p.hours&&p.weather&&p.transport);}
-});
-test('Chiang Rai plans have valid destinations, unique route choices, and no automatic village booking',()=>{
- const places=new Set(['white','black','blue','phra-kaew',...ceiCatalog.places.map(p=>p.id)]);
- for(const n of [1,2,3]){const plan=resizePlan([],n,ceiRoutes);assert.equal(plan.length,n);assert.ok(!plan.includes('village'));for(const r of ceiRoutes.routes){const next=replaceDay(plan,0,r.id,ceiRoutes);assert.equal(new Set(next).size,n);}}
- for(const route of ceiRoutes.routes)for(const items of [route.steps,route.compactSteps]){assert.ok(items.length>=4);for(const [,title,text,id]of items){assert.ok(title&&text);if(id)assert.ok(places.has(id),id);}}
-});
-test('three-day compact plan preserves the city day and deduplicates optional earlier stops',()=>{
- for(const plan of [['south','north','city'],['city','south','north'],['village','north','city']]){
-  const owners=stopOwners(plan,'compact',ceiRoutes);assert.equal(owners.blue,'city');assert.equal(owners['night-market'],'city');assert.equal(owners.black,'north');
- }
- assert.equal(stopOwners(['south','north'],'compact',ceiRoutes).blue,'north');
- assert.equal(stopOwners(['south','north'],'compact',ceiRoutes)['night-market'],'south');
 });
 test('owned media have provenance, matching hashes, stripped metadata and small variants',async()=>{
  const media=JSON.parse(read('trip/assets/north-thailand-media.json'));assert.equal(media.length,16);

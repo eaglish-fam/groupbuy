@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {bangkokCatalog,media} from '../scripts/trip-bangkok-places.mjs';
-import {bangkokRoutes} from '../scripts/trip-bangkok-routes.mjs';
+const bangkokRoutes=JSON.parse(readFileSync(new URL('../trip/data/bangkok-routes.json',import.meta.url),'utf8'));
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const pages=['trip/index.html','trip/guides/bangkok-with-kids/index.html'];
 test('travel journal has real static content, distinct canonical pages and no internal data',()=>{
