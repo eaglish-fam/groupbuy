@@ -1,0 +1,25 @@
+/* Sanfu Farm article: local layout on the shared journal chrome. */
+.hero h1{font-size:clamp(29px,3.5vw,46px);max-width:1000px}.hero h1 em{font-size:.76em;margin-top:12px}.hero .cover img{height:auto;max-height:none;object-fit:cover;background:none}
+.article-body{max-width:850px;padding-inline:34px}.article-body>section{scroll-margin-top:88px}.opening>p:first-child{font-size:19px;line-height:2.05;color:#365949}.guide-nav{margin-top:32px}
+.table-wrap{max-width:100%;overflow-x:auto;margin:25px 0 30px;border-top:2px solid #6c795f;overscroll-behavior-x:contain}.table-wrap:focus-visible{outline:3px solid var(--rust);outline-offset:4px}table{border-collapse:collapse;width:100%;font-size:15px;line-height:1.85;min-width:530px}th,td{text-align:left;padding:16px 18px;vertical-align:top;border-bottom:1px solid var(--line)}th{font-weight:600;background:#eeeee3;color:#365949}td:first-child{min-width:130px;color:#365949;font-weight:500}tr:nth-child(even) td{background:#f5f3eb}td:last-child{min-width:260px}
+.room-photos{display:grid;grid-template-columns:1fr 1fr;gap:24px 20px;margin:34px 0 16px}.room-photos img{width:100%;aspect-ratio:4/3;object-fit:cover;height:auto}.room-photos figcaption{font-size:13px;margin-top:8px;color:var(--green)}.article-body .caption-note{font-size:12px;line-height:1.85;color:var(--muted)}
+.video-section .video-choices{display:none}.video-section .video-panel iframe,.video-section .video-poster{max-height:none;aspect-ratio:16/9}.video-section .video-poster img{object-fit:cover}.video-section .video-panel>a{font-size:13px}
+.back-link{display:inline-flex;min-height:48px;align-items:center;margin:8px 0 10px;color:var(--green)}.purchase{padding-bottom:24px!important}.sources{padding-bottom:54px}
+@media(min-width:1200px){.article-body{max-width:850px}.reading-nav__panel{width:190px}}
+@media(max-width:700px){.hero{padding-top:32px}.hero h1{font-size:29px;line-height:1.6}.hero h1 em{font-size:23px;line-height:1.6}.hero .dek{font-size:14px}.article-body{padding-inline:24px}.opening>p:first-child{font-size:17px}.article-body h2{font-size:26px;line-height:1.7}.room-photos{gap:19px 12px;margin-top:25px}.room-photos figcaption{font-size:11px}.table-wrap{margin-inline:-4px}.video-label{font-size:11px;bottom:12px;left:9px;right:9px}.play-icon{font-size:24px}.article-body>section{scroll-margin-top:78px}}
+@media(max-width:359px){.hero h1{font-size:26px}.hero h1 em{font-size:21px}.article-body{padding-inline:20px}.hero .dek br{display:none}}
+@media(max-width:700px){
+  .table-wrap table{min-width:0;font-size:14px}.table-wrap th,.table-wrap td{padding:13px 12px;min-width:0}.table-wrap td:last-child{min-width:0}
+  #rooms table,#rooms tbody,#rooms tr,#rooms td{display:block;width:100%}#rooms thead{position:absolute;clip:rect(0,0,0,0);width:1px;height:1px;overflow:hidden}
+  #rooms tr{border-bottom:1px solid var(--line);padding-bottom:15px}#rooms td{border:0;background:none!important;padding:7px 12px}
+  #rooms td:first-child{padding:13px 12px;margin-bottom:6px;background:#eeeee3!important;font-size:17px;font-weight:600}
+  #rooms td:not(:first-child){display:grid;grid-template-columns:66px 1fr;gap:12px}#rooms td:not(:first-child)::before{content:attr(data-label);font-size:12px;color:var(--muted);line-height:1.9}
+  #rooms td:nth-child(2)::before{content:'入住人數'}
+}
+
+
+.cta-row{margin:26px 0 0}
+.offer-cta{display:flex;align-items:center;justify-content:center;gap:8px;box-sizing:border-box;min-height:54px;width:100%;max-width:390px;padding:13px 27px;background:var(--green);border:1px solid var(--green);border-radius:3px;color:#fffdf8!important;font-size:16px;line-height:1.7;text-decoration:none}
+.offer-cta:hover{background:#294838}
+.offer-cta:focus-visible{outline:3px solid var(--rust);outline-offset:3px}
+.purchase .offer-cta{margin:25px auto 12px}

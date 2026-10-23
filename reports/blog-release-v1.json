@@ -1,10 +1,10 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-10-22T11:47:26.889Z",
+  "generatedAt": "2026-10-23T13:23:24.859Z",
   "status": "ready",
   "summary": {
-    "checks": 813,
-    "passed": 813,
+    "checks": 846,
+    "passed": 846,
     "failures": 0,
     "unpublishedKnowledge": 0
   },
@@ -3335,6 +3335,161 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:sanfufarm:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:title",
+      "passed": true,
+      "detail": "Title length 30."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:description",
+      "passed": true,
+      "detail": "Description length 88."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/sanfufarm/."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:sanfufarm:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
       "id": "blog:shinwa-living:index.html:reviewed-identity",
       "passed": true,
       "detail": "Article identity is bound to the catalog or reviewed metadata."
@@ -4026,6 +4181,16 @@
     },
     {
       "id": "blog-index:https://www.eaglish.store/blog/playzu/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/sanfufarm/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/sanfufarm/",
       "passed": true,
       "detail": "Blog index links to the article."
     },

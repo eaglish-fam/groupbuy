@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 61,
+    "pages": 62,
     "blocking": 0,
-    "warnings": 26,
-    "total": 26
+    "warnings": 27,
+    "total": 27
   },
   "findings": [
     {
@@ -33,6 +33,13 @@
       "message": "Link fragment not found on destination page: /#product-parakito",
       "file": "blog/parakito/index.html",
       "index": 11891
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-sanfufarm",
+      "file": "blog/sanfufarm/index.html",
+      "index": 11384
     },
     {
       "level": "warn",
@@ -151,14 +158,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43427
+      "index": 43374
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43427
+      "index": 43374
     },
     {
       "level": "warn",
