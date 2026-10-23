@@ -151,8 +151,13 @@ function detailed(resolution) {
 function renderIllustratedCountryMap(country, cities, assets) {
   const m = country.map, a = assets?.get(m.assetId);
   if (!a) throw Error('Illustrated map asset missing');
-  const pins = m.pins.map(p => { const c = cities.find(x => x.id === p.cityId); return `<a class="approved-map-pin${p.align === 'left' ? ' approved-map-pin--left' : ''}" href="${esc(c.path)}" style="--x:${p.x}%;--y:${p.y}%"><i aria-hidden="true"></i><span>${esc(c.name)}<small lang="en">${esc(c.englishName)}</small></span></a>`; }).join('');
-  return `<section class="approved-geographic-map approved-illustrated-map" aria-label="${esc(country.name)}旅行位置示意圖"><figure><div class="approved-illustrated-map-frame">${approvedPicture(a, {sizes:'(max-width:700px) calc(100vw - 40px), 580px'})}${pins}</div><figcaption>${esc(m.caption)}</figcaption></figure></section>`;
+  // Up to five places carry their name on the map; more would collide, so they become numbered dots with a legend.
+  const numbered = m.pins.length > 5, city = p => cities.find(x => x.id === p.cityId);
+  const pins = m.pins.map((p, i) => { const c = city(p); return numbered
+    ? `<a class="approved-map-pin approved-map-pin--numbered" href="${esc(c.path)}" style="--x:${p.x}%;--y:${p.y}%" aria-label="${esc(c.name)}"><i aria-hidden="true">${i + 1}</i></a>`
+    : `<a class="approved-map-pin${p.align === 'left' ? ' approved-map-pin--left' : ''}" href="${esc(c.path)}" style="--x:${p.x}%;--y:${p.y}%"><i aria-hidden="true"></i><span>${esc(c.name)}<small lang="en">${esc(c.englishName)}</small></span></a>`; }).join('');
+  const legend = numbered ? `<ol class="approved-map-legend">${m.pins.map((p, i) => { const c = city(p); return `<li><a href="${esc(c.path)}"><b aria-hidden="true">${i + 1}</b><span>${esc(c.name)}<small lang="en">${esc(c.englishName)}</small></span></a></li>`; }).join('')}</ol>` : '';
+  return `<section class="approved-geographic-map approved-illustrated-map" aria-label="${esc(country.name)}旅行位置示意圖"><figure><div class="approved-illustrated-map-frame">${approvedPicture(a, {sizes:'(max-width:700px) calc(100vw - 40px), 580px'})}${pins}</div><figcaption>${esc(m.caption)}</figcaption>${legend}</figure></section>`;
 }
 export function renderApprovedCountryMap(country, {cities = [], routes = [], assets} = {}) {
   const map = country.geographicMap;

@@ -25,6 +25,11 @@
       "dataPath": "trip/data/cebu-bohol-approved-travel-v1.json",
       "packageSha256": "9d452287100cae918e6b12d700ff1855541fbee4a38f91cc199d6b5acbca3c93",
       "publication": true
+    },
+    {
+      "dataPath": "trip/data/new-zealand-approved-travel-v1.json",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "publication": true
     }
   ],
   "pages": [
@@ -131,7 +136,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "813c28a0bbc108430a5ffee88f2a882ad104ed8b51b49361308126f9bb74b27e"
+      "sha256": "ede596aeebd94245e2a241daa0e1892fef4db48982b2254b12a31b5beb5f963f"
     },
     {
       "path": "/trip/netherlands/",
@@ -170,7 +175,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "18ce9868cfec2399aa43ca2e39b95c630b7be83437c39931abfaaeadbc66f4af"
+      "sha256": "a97d8b810b3d20f1b35fd568cdccec71071ffbf60b6975b0fad1ba900838ea2f"
     },
     {
       "path": "/trip/malaysia/",
@@ -192,7 +197,7 @@
         "my-g2-s02",
         "my-g2-s03"
       ],
-      "sha256": "b86cb909532dbbf6c98ec6a427e745fb370907b5515443edcb82e3ca88f5e822"
+      "sha256": "46700695a4d78a20c69181067305e8dbbd5494e01516ba18af32661b29f6bc8d"
     },
     {
       "path": "/trip/guides/oslo-with-kids/",
@@ -398,7 +403,7 @@
         "s01",
         "c01"
       ],
-      "sha256": "79a5c74cac05dd6369a6e4e81ca6702c14eb1ef372208d5ed71c606ba863d3c6"
+      "sha256": "86722b39c67448b87dae34d6ac948e3a21879b2d8a70dbc2f50fea4af6cd4cd6"
     },
     {
       "path": "/trip/guides/asahikawa-with-kids/",
@@ -449,7 +454,7 @@
         "v-youtube-com-watch-v-droh1lm7dmo",
         "v-instagram-com-reel-ctrl60vqjsw"
       ],
-      "sha256": "08b1de0ec0cccf9552f2c142c44d976bf7bf1f260b7effd2389e5cd1c314a9b0"
+      "sha256": "5ead05b604f0d6e17fd4793c3effd29d9f17878c75d6e386863533ccda2d48c2"
     },
     {
       "path": "/trip/guides/bangkok-with-kids/",
@@ -543,6 +548,158 @@
         "v-youtube-com-watch-v-qmngtzfpvdk-t-589s"
       ],
       "sha256": "5a12e59ff7f4f1bfe4f2258990b9fa0d293317c0ab0dcb02c8df11bdbc431f71"
+    },
+    {
+      "path": "/trip/new-zealand/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "紐西蘭親子自由行：南島、北島怎麼選？從七天到三週的路線規劃",
+      "description": "第一次帶孩子去紐西蘭，先決定想過怎樣的幾天，再挑景點：是住在城市搭車看展，開車去哈比村與滑車園區，還是把時間交給湖泊、海岸和雪山？這份總覽把我們去過的地方分成八個區域，讓你從假期長度選一條真正走得通的路線。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-ne6-znp10de",
+        "v-youtube-com-watch-v-y3ad6z2nack",
+        "v-youtube-com-watch-v-tmuskf-rakm",
+        "v-youtube-com-watch-v-ksl8zbttkje",
+        "v-instagram-com-p-c5vpj4kpq2y"
+      ],
+      "sha256": "f89dccc3d388a62df5f5e3bc4ad88daa0ed281ac6dae037a0d4756314243ba13"
+    },
+    {
+      "path": "/trip/new-zealand/north-island/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "奧克蘭出發的北島親子自駕：滑車、哈比村與動物園，三到五天怎麼選？",
+      "description": "想從城市看風景，也想帶孩子玩滑車、走進電影場景，紐西蘭北島可以把這幾種旅行放在一起。這條路線以奧克蘭為起終點，往 Hamilton、Matamata 與 Rotorua 延伸；重點是先選想玩的活動，再決定沿途住哪裡。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-ne6-znp10de-t-188s",
+        "v-youtube-com-watch-v-ne6-znp10de-t-679s",
+        "v-youtube-com-watch-v-ne6-znp10de-t-1059s",
+        "v-youtube-com-watch-v-6ymodbn2vda",
+        "v-youtube-com-watch-v-g5-8du-47w0",
+        "o-skycityauckland-co-nz-sky-tower-admissions",
+        "o-aucklandcouncil-govt-nz-en-parks-recreation-get-outdoors-aklpaths-path",
+        "o-rotorua-skyline-co-nz-things-to-do-luge-rotorua"
+      ],
+      "sha256": "b1b32b200be9357168b2677272bf5916c334f69f26947526c5453eb09780de57"
+    },
+    {
+      "path": "/trip/new-zealand/wellington/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "威靈頓親子自由行：海港、Te Papa、動物園與纜車，兩到三天怎麼排？",
+      "description": "威靈頓可以從海港一路玩進博物館，也能搭一趟沿坡而上的纜車，換個高度看城市。把我們走過的四種玩法分開安排，兩天以城市與動物園為主，多一天再放慢步調。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-y3ad6z2nack",
+        "v-youtube-com-watch-v-y3ad6z2nack-t-331s",
+        "v-youtube-com-watch-v-y3ad6z2nack-t-1449s",
+        "v-youtube-com-watch-v-y3ad6z2nack-t-2140s",
+        "o-wellingtonnz-com-visit-see-and-do-harbourside-market",
+        "o-newzealand-com-au-feature-wellingtons-colourful-markets",
+        "o-tepapa-govt-nz-visit-plan-your-visit",
+        "o-tepapa-govt-nz-visit-tickets-international-visitor-museum-entry"
+      ],
+      "sha256": "e1b385f2f3b9146aab88a01da6a8496404a37b70fbe71a665d52df7e1cd469f5"
+    },
+    {
+      "path": "/trip/new-zealand/christchurch/3-days/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "基督城＋Akaroa 親子三日：市區電車、羊駝農場與海灣出海怎麼安排？",
+      "description": "基督城適合用電車與街區散步慢慢進入南島旅行；離開城市，Akaroa 則把羊駝、海濱與出海放在同一個海灣周邊。三天可以看見兩種風景，但應該先分出城市日與海灣日，再決定要不要在 Akaroa 過夜。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-lhga49nnyfo-t-2404s",
+        "v-youtube-com-watch-v-tmuskf-rakm-t-997s",
+        "v-youtube-com-watch-v-tmuskf-rakm-t-1724s",
+        "v-youtube-com-watch-v-tmuskf-rakm-t-1796s",
+        "v-youtube-com-watch-v-tmuskf-rakm-t-1966s",
+        "o-christchurchattractions-nz-christchurch-tram",
+        "o-ninjavalley-co-nz-christchurch-hours",
+        "o-ninjavalley-co-nz-christchurch-pricing"
+      ],
+      "sha256": "743053b78f19b26aaf1f06fdb2f58f767c7f0af4af0418a8ec90d43ac208e5d4"
+    },
+    {
+      "path": "/trip/new-zealand/mid-canterbury/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "Mid Canterbury 親子自駕：Ashburton 看飛機、Methven 飛熱氣球，冬天再上 Mt Hutt",
+      "description": "從基督城往外走，Mid Canterbury 可以是看博物館的一天，也可以是滑雪、滑冰或飛上天空的活動假期。這一區最重要的選擇不是先排景點順序，而是先選季節與想玩的活動。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-lhga49nnyfo-t-941s",
+        "v-youtube-com-watch-v-kuopmocz-pq-t-800s",
+        "v-youtube-com-watch-v-1ns20ajx9yi",
+        "v-youtube-com-watch-v-i8xpzkwtvyk-t-374s",
+        "v-youtube-com-watch-v-i8xpzkwtvyk-t-1520s",
+        "v-youtube-com-watch-v-wkocj6xodmu-t-18s",
+        "o-ashburtonmuseum-co-nz-visit",
+        "o-aviationmuseum-co-nz"
+      ],
+      "sha256": "f4407f0e79024bfca860feb6df8eb64bbdbe5a37bdcae25a09ef5c75adac1d29"
+    },
+    {
+      "path": "/trip/new-zealand/kaikoura/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "Kaikōura 親子海岸：看海狗、走海邊，兩天怎麼安排？",
+      "description": "帶孩子到 Kaikōura，不一定要用一張出海船票開始。從 Ōhau Point 的觀景平台看海狗，到海岸散步，先在陸地認識這片海，再決定要不要安排海上皮划艇，就能組成一段有層次的旅行。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-tmuskf-rakm-t-576s",
+        "v-instagram-com-p-c5vpj4kpq2y",
+        "o-doc-govt-nz-kaikoura-marine",
+        "o-doc-govt-nz-give-wildlife-space"
+      ],
+      "sha256": "ede70094dbb4d6ce479d008a8e054d19e5361d9e58ab3debc713d6944f7909c4"
+    },
+    {
+      "path": "/trip/new-zealand/otago/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "Oamaru、Moeraki 到但尼丁：看圓石、走海岸，親子三天怎麼排？",
+      "description": "這段南島東岸行程，適合喜歡邊開車邊換風景的家庭：從 Oamaru 的歷史街區，到 Moeraki 的圓石沙灘，再到但尼丁的博物館、陡街與 Sandfly Bay。把三地順著旅程方向串起來，會比住在同一處每天往返更實際。參觀資訊核對：2026 年 9 月 28 日；臨時開閉與路況仍以出發當日公告為準。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-azczvsggqho",
+        "v-instagram-com-p-c5vpj4kpq2y",
+        "o-victorianoamaru-co-nz-heritage-precinct",
+        "o-doc-govt-nz-parks-and-recreation-places-to-go-otago-places-moeraki-are",
+        "o-tuhura-nz-visit-tickets",
+        "o-tuhura-nz-visit-tickets-international-pricing",
+        "o-dunedin-govt-nz-community-facilities-freedom-camping",
+        "o-doc-govt-nz-parks-and-recreation-places-to-go-otago-places-otago-penin"
+      ],
+      "sha256": "a887b138a32e0372a314e8f14a5360903b9b6893bca66872e5881af0526ea845"
+    },
+    {
+      "path": "/trip/new-zealand/queenstown-arrowtown/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "皇后鎮＋箭鎮親子自由行：滑車、蒸汽船、農場與淘金，兩到三天怎麼選？",
+      "description": "皇后鎮可以上山玩滑車，也能搭船到湖的另一邊看農場；箭鎮則把老街、博物館與淘金放在一起。從我們實際走過的地方選行程，先分成「山上、湖上、老街」三條線，就容易決定要留幾天。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-ksl8zbttkje",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-155s",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-500s",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-630s",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-834s",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-961s",
+        "o-queenstown-skyline-co-nz-activities-luge",
+        "o-realnz-com-en-experiences-tss-earnslaw-walter-peak-experiences"
+      ],
+      "sha256": "d467be9394c099ae0b5548c20b7afdccc80fa09aab41f18cf423ae77e74c3e5e"
+    },
+    {
+      "path": "/trip/new-zealand/wanaka-tekapo/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "Cardrona、Wānaka 到 Tekapo：湖區親子自駕，途中停靠與住宿怎麼分？",
+      "description": "湖邊散步、看一棵長在水邊的樹、到小教堂前看看山與湖，是南島旅行裡不必買一整天套票的玩法。這條路最需要安排的，其實是「今晚住在哪裡」：Cardrona、Wānaka 與 Tekapo 分屬不同位置，選對停靠與住宿，風景才不會只剩下車窗外的一瞬間。參觀資訊核對：2026 年 9 月 28 日；臨時開閉與",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-instagram-com-p-c5vpj4kpq2y",
+        "o-fundraise-bcf-org-nz-fundraisers-cardronabrafence",
+        "o-wanaka-co-nz-explore-waterfall-creek-track",
+        "o-wanaka-co-nz-wanaka-stories-your-guide-to-the-wanaka-tree",
+        "o-churchofthegoodshepherd-org-nz-visit"
+      ],
+      "sha256": "dded7fbb6a7e021f1d182d0f2681783d6e6290cc05c828808d8adc336a35a58b"
     }
   ]
 }

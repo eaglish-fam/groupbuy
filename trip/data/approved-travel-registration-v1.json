@@ -68,6 +68,24 @@
         "cebu-bohol"
       ],
       "publication": true
+    },
+    {
+      "dataPath": "trip/data/new-zealand-approved-travel-v1.json",
+      "expectedSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "countryIds": [
+        "new-zealand"
+      ],
+      "cityIds": [
+        "north-island",
+        "wellington",
+        "christchurch-akaroa",
+        "mid-canterbury",
+        "kaikoura",
+        "otago",
+        "queenstown-arrowtown",
+        "wanaka-tekapo"
+      ],
+      "publication": true
     }
   ]
 }
