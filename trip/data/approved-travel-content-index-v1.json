@@ -20,6 +20,11 @@
       "dataPath": "trip/data/singapore-approved-travel-v1.json",
       "packageSha256": "e6542d7be3f2faf6fecbf5828522a55c6d09aad4a3c04785349d50b9537a818e",
       "publication": true
+    },
+    {
+      "dataPath": "trip/data/cebu-bohol-approved-travel-v1.json",
+      "packageSha256": "9d452287100cae918e6b12d700ff1855541fbee4a38f91cc199d6b5acbca3c93",
+      "publication": true
     }
   ],
   "pages": [
@@ -126,7 +131,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "22792f60a9c64fed7d551dc376999a4f77844ce67a78a18236b3e64a6333bc6b"
+      "sha256": "813c28a0bbc108430a5ffee88f2a882ad104ed8b51b49361308126f9bb74b27e"
     },
     {
       "path": "/trip/netherlands/",
@@ -165,7 +170,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "cd019db70eab2d66763791c210c259b53eddd96e59130013e079c824f91c4aef"
+      "sha256": "18ce9868cfec2399aa43ca2e39b95c630b7be83437c39931abfaaeadbc66f4af"
     },
     {
       "path": "/trip/malaysia/",
@@ -187,7 +192,7 @@
         "my-g2-s02",
         "my-g2-s03"
       ],
-      "sha256": "3e03daee82041594cb405e129507dd1a9e14a9ef07cf040e9393e336ee008f8b"
+      "sha256": "b86cb909532dbbf6c98ec6a427e745fb370907b5515443edcb82e3ca88f5e822"
     },
     {
       "path": "/trip/guides/oslo-with-kids/",
@@ -222,7 +227,7 @@
         "photo-oslo-fram-2",
         "photo-oslo-fram-3"
       ],
-      "sha256": "2ae39b73f7c04ed1f8d9ff68128b9d982f2ad919d86e198ba2f38f87e52799af"
+      "sha256": "46d38751322c62d14b59b295aa777a91eab025fff190727cba6f63d3e65f5f51"
     },
     {
       "path": "/trip/guides/svalbard-with-kids/",
@@ -274,7 +279,7 @@
         "photo-svalbard-glacier-cruise-2",
         "photo-svalbard-glacier-cruise-3"
       ],
-      "sha256": "ed8974e52536a315bbf99c3b8b7e976f680bf70a377ebd737a75f4cfff046958"
+      "sha256": "34ea1fed945e076668c718c5892daa88e0d86a1240e2f6dc92140af965a561c2"
     },
     {
       "path": "/trip/guides/tromso-with-kids/",
@@ -313,7 +318,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "2b212cb982a1bfe5e91e00bfa1b0c86390f4ea9966776af787a36ae01ea18521"
+      "sha256": "cdb3e06c74588dacb61bd65c7b71bc9821602ab3ae007647d0ddc3f90589dfaa"
     },
     {
       "path": "/trip/guides/amsterdam-with-kids/",
@@ -351,7 +356,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "c2a51a1fdd2d7ccc3809478ffa71961c7ebeaec2c835f291c3fc46233d04f7ac"
+      "sha256": "74b671ffe98b29ee855dba2e75194f8eddc0c34ad4cfc8f081fa18ed18110b49"
     },
     {
       "path": "/trip/guides/penang-with-kids/",
@@ -366,7 +371,7 @@
         "my-youtube-ayuc0px5ctc",
         "my-youtube-uro4dhm3dpk"
       ],
-      "sha256": "d73cb18d8f8f9d3dc2292e8b77c18d02ac6be4fd7020b471c4116c05d508aa11"
+      "sha256": "4b2a6ec218def0168a7e4cf0f06ce92b11dc5f08ba6aefd129884082af82e481"
     },
     {
       "path": "/trip/guides/kuala-lumpur-with-kids/",
@@ -378,7 +383,7 @@
         "my-youtube-v7id6nvbpuo",
         "my-youtube-my-7kubdvc8"
       ],
-      "sha256": "14d9099f086982d35de43ce1d6a7f8e75268ef06e3545cd24a8ebe9f86fabd5d"
+      "sha256": "e06ac6689ed42877544f14353eb00ecd3a41e2a9340db43b1211712569f94b25"
     },
     {
       "path": "/trip/japan/",
@@ -393,7 +398,7 @@
         "s01",
         "c01"
       ],
-      "sha256": "57c5341d6e631e5095ad5cea3d898c20a1f68a599f122428c17c139c8289a324"
+      "sha256": "79a5c74cac05dd6369a6e4e81ca6702c14eb1ef372208d5ed71c606ba863d3c6"
     },
     {
       "path": "/trip/guides/asahikawa-with-kids/",
@@ -411,7 +416,7 @@
         "alma-zoo-behavior",
         "alma-museum-context"
       ],
-      "sha256": "e7fa6baf57c47a3c99a9499392b2d2ab74b71d1c65bd08f254f357ee825ec383"
+      "sha256": "c4fe4e56bc5f8ecae14623859cc29010eee6db46743d22d84a06e4cbd4f0703d"
     },
     {
       "path": "/trip/guides/sapporo-with-kids/",
@@ -431,7 +436,7 @@
         "terra-aoao",
         "terra-aoao-access"
       ],
-      "sha256": "18bc852c83b49a391c218f5cf8897ffe918ae488e21a11c14c2a9388695b69fc"
+      "sha256": "99392ccd67bfa728512c5d5d5da8385ade31d6c32188223bd58edc82e8f8fb97"
     },
     {
       "path": "/trip/thailand/",
@@ -444,7 +449,7 @@
         "v-youtube-com-watch-v-droh1lm7dmo",
         "v-instagram-com-reel-ctrl60vqjsw"
       ],
-      "sha256": "88c973d981ac9f8b56bd79c641b5e308098273d2c1e3f2985a2cc30b631d01b0"
+      "sha256": "08b1de0ec0cccf9552f2c142c44d976bf7bf1f260b7effd2389e5cd1c314a9b0"
     },
     {
       "path": "/trip/guides/bangkok-with-kids/",
@@ -465,7 +470,7 @@
         "o-tattpe-org-tw-uploads-content-files-e-brochure-20bangkok-28e",
         "v-youtube-com-watch-v-f5h0ggdax2c-t-742s"
       ],
-      "sha256": "127960893142a88faa7364a2b91ccc7998c5c674c3e7beb25e893097428d992d"
+      "sha256": "2173101f4d3dc5c47ab0a4b470807700391bff2b3b51d6a029a1606eb747bee3"
     },
     {
       "path": "/trip/guides/chiang-mai-with-kids/",
@@ -482,7 +487,7 @@
         "o-gingerfarmkitchen-com-welcome",
         "o-gingerfarmkitchen-com-reservations"
       ],
-      "sha256": "8f6a7cf8e2de31ca9e04e6b4fe8e3e906ac19262e9fa4998b81647e831e58f91"
+      "sha256": "43b964a635e5cdb87696159f588821b8c6820443e04afb1c85d8454ba74d931e"
     },
     {
       "path": "/trip/guides/chiang-rai-with-kids/",
@@ -500,7 +505,7 @@
         "o-singhapark-com",
         "o-lalittacafe-com-about-us"
       ],
-      "sha256": "b037d3bb79eecb22baac50e481c9ba6d7138497b13de97fe7e9e30527b2da064"
+      "sha256": "4c1b2c8ba01543d5969856bd5b2d58b8436fae6f33f5686d9e9e7d89f9bae59a"
     },
     {
       "path": "/trip/singapore/",
@@ -521,7 +526,23 @@
         "v-youtube-com-watch-v-wny-jlq8tjm-t-0s",
         "o-mandai-com-en-river-wonders-html"
       ],
-      "sha256": "2bceda7b3347542871b31b5a10250c3714d6d2f1df73b4308d0064406e2a3695"
+      "sha256": "c05f5486c9660939aaf3ca5f0045e5d5a350c8d6374174e921783a24de062076"
+    },
+    {
+      "path": "/trip/guides/cebu-bohol-with-kids/",
+      "packageSha256": "9d452287100cae918e6b12d700ff1855541fbee4a38f91cc199d6b5acbca3c93",
+      "title": "宿霧、薄荷島親子自由行：景點、餐廳與住宿，跨島怎麼排？",
+      "description": "從鷹式一家實訪的巧克力山、buggy、Bilar眼鏡猴、Loboc午餐船與Lila鯨鯊，搭配MIST、Ubeco及薄荷島住宿，按兩島交通、用餐和休息安排親子旅行。",
+      "updatedOn": "2026-09-30",
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk",
+        "o-tourism-bohol-gov-ph-visitbohol-carmen",
+        "o-tourism-bohol-gov-ph-countryside-tour",
+        "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-502s",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-589s"
+      ],
+      "sha256": "5a12e59ff7f4f1bfe4f2258990b9fa0d293317c0ab0dcb02c8df11bdbc431f71"
     }
   ]
 }

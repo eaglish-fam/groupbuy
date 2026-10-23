@@ -21,55 +21,37 @@ test('actual Alma v6 source is materialized exactly and its used media identitie
  const refs=[...source.matchAll(/^!\[[^\]]*\]\(([^)]+)\)$/gm)].map(m=>config.mediaMap[m[1]]);assert.equal(refs.length,29);
  for(const m of media){if(refs.includes(m.id))assert.ok(html.includes(m.variants.find(v=>v.width===960)?.file||m.variants.at(-1).file),m.id);assert.equal(createHash('sha256').update(readFileSync(new URL('..'+m.file,import.meta.url))).digest('hex'),m.derivedSha256);}
 });
-test('photo comparison, stable Bilar identity, source TOC, canonical and post-FAQ planner agree',()=>{
- const compare=html.slice(html.indexOf('<section id="choose"'),html.indexOf('<section id="islands"'));
+test('photo comparison, stable Bilar identity, approved chapters, canonical and post-FAQ planner agree',()=>{
+ const compare=html.slice(html.indexOf('<section id="places"'),html.indexOf('<section id="buggy"'));
  assert.equal((compare.match(/<img\b/g)||[]).length,6);assert.doesNotMatch(compare,/<table/);
  assert.match(html,/Bohol Tarsier Conservation Area/);assert.match(html,/query_place_id=ChIJORwIIvxDqjMREtkvm-C7978/);assert.doesNotMatch(html,/Corella/);
- const ids=[...html.matchAll(/<section id="([^"]+)"/g)].map(m=>m[1]);
- assert.deepEqual(ids,['choose','islands','buggy','hills','tarsier','loboc','cross','whale-shark','dining','stay','transport','faq','plan','films']);
+ const ids=[...html.matchAll(/<section id="([^"]+)"/g)].map(m=>m[1]).filter(id=>!/^(food|stay|arrival)-|^islands$/.test(id));
+ assert.deepEqual(ids,['places','buggy','hills','tarsier','loboc','cross','whale-shark','food','stay','arrival','faq','plan','videos','extension']);
  assert.equal((html.match(/<img[^>]*fetchpriority="high"/g)||[]).length,1);
- assert.ok(html.indexOf('data-cb-planner')<html.indexOf('<details class="cb-static-examples"'));
- assert.match(html,/<summary>看一至兩天的行程範例<\/summary>/);
+ assert.ok(html.indexOf('<section id="faq"')<html.indexOf('<section id="plan"'));
  for(const heading of ['一天悠閒｜山景加一種體驗','一天緊湊｜先固定午餐，再接活動','兩天悠閒｜不同玩法分兩天','兩天緊湊｜四種玩法與調整空間'])assert.ok(html.includes(heading));
  assert.match(html,/rel="canonical" href="https:\/\/www.eaglish.store\/trip\/guides\/cebu-bohol-with-kids\/"/);
  for(const [,anchor] of html.matchAll(/href="#([a-z0-9-]+)"/g))assert.ok(html.includes(`id="${anchor}"`),anchor);
+ // The old ids that the travel home and stay articles link to still land on their sections.
+ for(const [alias,target] of [['choose','places'],['dining','food'],['transport','arrival'],['films','extension']])assert.ok(html.includes(`<section id="${target}"><span id="${alias}"`),alias);
 });
 test('single-guide country entrance is explicit and does not permit unrelated duplicate routes',()=>{
  const country=travelHomeCatalog.countries.find(c=>c.id==='philippines'),guide=travelHomeCatalog.guides.find(g=>g.id==='cebu-bohol');
  assert.equal(country.href,guide.href);assert.equal(country.entryKind,'single-guide');assert.equal(validateTravelHomeCatalog(travelHomeCatalog),true);
  const invalid=structuredClone(travelHomeCatalog);invalid.countries.find(c=>c.id==='philippines').entryKind='hub';assert.throws(()=>validateTravelHomeCatalog(invalid),/duplicate route/);
 });
-test('Cebu opts into its reviewed in-flow TOC and photo-aware first-jump controller',()=>{
- const readingNav=read('blog/reading-nav.js');
- assert.match(html,/<body class="bkk-guide cb-guide" data-country="philippines" data-travel-theme="masthead-blue">/);
- assert.match(html,/<details class="r21-toc"><summary>本篇目錄<\/summary>/);
- assert.match(html,/src="\/trip\/cebu-presentation-r21-bundle\.mjs\?v=r24-20261002"/);
- assert.doesNotMatch(html,/src="\/blog\/reading-nav\.js|class="trip-plan-entry"/);
- const controller=read('trip/cebu-presentation-r21.mjs');
- assert.match(controller,/layoutPhotoGrids\(\);const masthead/);
- assert.match(controller,/document\.fonts\.ready\.then/);
- assert.match(readingNav,/querySelector\('\.journal-chrome'\) \|\|\s*document\.querySelector\('body\.cb-guide > header\.masthead\.wrap'\)/);
- assert.doesNotMatch(html,/<header class="[^"]*journal-chrome/);
- assert.match(readingNav,/padding - headerBottom\(\) - 16/);
- assert.match(readingNav,/body\.classList\.contains\('cb-guide'\) \? 1 : 0/);
- assert.match(readingNav,/behavior: reducedMotion\.matches \|\| guideRoundingBuffer \? 'instant' : 'smooth'/);
- assert.match(readingNav,/observer\.observe\(chrome\)/);
- assert.match(readingNav,/document\.fonts\?\.status === 'loading'/);
- assert.match(readingNav,/document\.fonts\.ready\.then/);
- assert.match(readingNav,/cancelled \|\| document\.activeElement !== heading/);
+test('Cebu uses the approved city-guide template and shared reading navigation',()=>{
+ assert.match(html,/class="bkk-guide city-guide approved-city-guide"/);
+ assert.match(html,/src="\/blog\/reading-nav\.js"/);
+ assert.doesNotMatch(html,/cebu-presentation-r21-bundle|class="r21-toc"|data-cb-planner/);
+ assert.match(html,/<nav class="breadcrumbs" aria-label="麵包屑"><a href="\/trip\/">鷹家遠行所<\/a> \/ <span aria-current="page">宿霧・薄荷島<\/span>/);
 });
-test('unloaded editorial images retain source dimensions and reserve reviewed cover frames',()=>{
- const css=read('trip/cebu-bohol.css');
- assert.match(css,/\.cb-guide \.cb-hero img\{[^}]*aspect-ratio:var\(--cb-photo-ratio\)/);
- assert.match(css,/\.cb-guide \.cb-gallery img\{[^}]*aspect-ratio:var\(--cb-photo-ratio\)/);
+test('unloaded editorial images retain source dimensions',()=>{
  for(const tag of html.matchAll(/<img[^>]*src="\/trip\/assets\/ph-cebu-bohol-[^>]+>/g)){
   const width=tag[0].match(/ width="(\d+)"/)[1],height=tag[0].match(/ height="(\d+)"/)[1];
-  assert.ok(tag[0].includes(`--cb-photo-ratio:${width}/${height}`));
+  assert.ok(tag[0].includes(`--photo-ratio:${width}/${height}`));
  }
- assert.match(css,/\.cb-photo-cards img\{[^}]*aspect-ratio:1\/1/);
- assert.match(read('trip/cebu-presentation-r21.css'),/aspect-ratio:var\(--photo-ratio\)/);
- assert.match(read('trip/cebu-presentation-r21.css'),/object-fit:cover/);
- assert.equal((html.match(/data-photo-frame=/g)||[]).length,36);
+ assert.match(read('trip/approved-city-guide.css'),/aspect-ratio:var\(--photo-ratio\)/);
 });
 test('v3 active-picture frames use new URLs, retain crop provenance, and leave photos identical',()=>{
  const current=JSON.parse(read('trip/assets/cebu-bohol-media.json'));
@@ -89,20 +71,19 @@ test('v3 active-picture frames use new URLs, retain crop provenance, and leave p
  }
 });
 
-test('expanded page has usable topic entrances, grouped media, ordinary flights and precise scope',()=>{
+test('expanded page keeps grouped media, ordinary flights and precise scope',()=>{
  const source=read('trip/content/philippines/cebu-bohol-with-kids.md'),article=parseArticleMarkdown(source,config.sectionMap);
- const topics=html.match(/<nav class="cb-topic-entries"[\s\S]*?<\/nav>/)[0];
- assert.equal((topics.match(/<img /g)||[]).length,3);
- for(const id of ['choose','dining','stay'])assert.ok(topics.includes(`href="#${id}"`));
- const galleries=[...html.matchAll(/<div class="cb-gallery[^"]*" data-photo-count="(\d+)"/g)].map(m=>Number(m[1]));
- assert.ok(galleries.filter(n=>n===4).length===3);assert.ok(galleries.includes(3));assert.ok(galleries.includes(2));
+ // MIST and Ubeco keep four photos each, two to a row.
+ for(const id of ['food-mist','food-ubeco']){const part=html.slice(html.indexOf(`<section id="${id}"`),html.indexOf('</section>',html.indexOf(`<section id="${id}"`)));
+  assert.deepEqual([...part.matchAll(/<div class="city-module-gallery"[\s\S]*?<\/div>/g)].map(m=>(m[0].match(/<img /g)||[]).length),[2,2]);}
  assert.match(html,/name="description" content="從鷹式一家實訪/);assert.ok(html.includes(article.metadata.description));
- assert.match(html,/href="https:\/\/www.skyscanner.com.tw\/" target="_blank" rel="noopener"/);
+ assert.match(html,/href="https:\/\/www.skyscanner.com.tw\/" target="_blank" rel="noopener noreferrer"/);
  assert.doesNotMatch(html,/不是幼兒淺池|Molly 的泳池不是|media-slot:|待核|sponsored[^>]*>Skyscanner/);
  assert.match(html,/成人與孩子在水下，周圍是藍色海水/);
- const planner=read('trip/cebu-bohol-planner-model.mjs');assert.doesNotMatch(planner,/whale-shark|Lila|Henann|MIST|Ubeco/);
+ const pkg=JSON.parse(read('trip/data/cebu-bohol-approved-travel-v1.json'));
+ assert.ok(pkg.cities[0].planner.routes.every(r=>r.days.every(d=>!d.stops.includes('whale-shark')&&!d.stops.includes('cross'))));
  const home=read('trip/index.html');
- for(const link of travelHomeCatalog.guides.find(g=>g.id==='cebu-bohol').planningLinks)assert.ok(home.includes(config.path+'#'+link.target));
+ for(const link of travelHomeCatalog.guides.find(g=>g.id==='cebu-bohol').planningLinks){assert.ok(home.includes(config.path+'#'+link.target));assert.ok(html.includes(`id="${link.target}"`),link.target);}
  assert.match(home,/機票雷達目前暫停更新/);
  assert.match(read('trip/home.js'),/planningOnly!=='true'/);
  const media=JSON.parse(read('trip/assets/cebu-bohol-media.json')),old=JSON.parse(read('trip/assets/cebu-bohol-media-v3.json'));

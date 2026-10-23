@@ -161,6 +161,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
   if(c.arrival?.diagram)routeDiagram(c.arrival.diagram);
   for(const d of c.arrival?.diagrams||[])routeDiagram(d);
   const anchors=new Set(['main','places',...['food','stay','arrival','rain'].filter(k=>c[k]),'faq','plan','videos',...(c.extension?['extension']:[]),...(c.reading?['day-reading']:[]),...places.keys()]);
+  for(const [alias,target] of Object.entries(c.anchorAliases||{})){id(alias);if(anchors.has(alias)||!anchors.has(target))fail('anchor alias');}
   const allLinks=[...c.places.flatMap(p=>p.links||[]),...['food','stay','arrival','rain','extension'].flatMap(k=>c[k]?.links||[])];
   if(allLinks.some(l=>l.url.startsWith('#')&&!anchors.has(l.url.slice(1))))fail('unresolved same-page link');
   const planner=c.planner;if(!planner||!array(planner.routes).length)fail('approved routes required');text(planner.title);strings(planner.paragraphs);sources(planner.sourceIds);
