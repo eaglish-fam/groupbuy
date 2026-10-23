@@ -10,6 +10,11 @@
       "dataPath": "trip/data/japan-approved-travel-v1.json",
       "packageSha256": "5741793a049c01eee1be72bdccb3b9c8b0c9c0e0959e8752b0035719dab379df",
       "publication": true
+    },
+    {
+      "dataPath": "trip/data/thailand-approved-travel-v1.json",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "publication": true
     }
   ],
   "pages": [
@@ -116,7 +121,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "577a8c129d3d6fe049f5f62aa12926b50f32883a751cd69efd8b3a053fd7a5e7"
+      "sha256": "22792f60a9c64fed7d551dc376999a4f77844ce67a78a18236b3e64a6333bc6b"
     },
     {
       "path": "/trip/netherlands/",
@@ -155,7 +160,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "3f3296521a84c6ccbdbb646c129a2ebc0298bcc11ce3b00f9efe68e0669fa886"
+      "sha256": "cd019db70eab2d66763791c210c259b53eddd96e59130013e079c824f91c4aef"
     },
     {
       "path": "/trip/malaysia/",
@@ -177,7 +182,7 @@
         "my-g2-s02",
         "my-g2-s03"
       ],
-      "sha256": "8f8eb680f745708c52d8c698fd74f4ca9679fd00af7e00f7717f86e84de7feb6"
+      "sha256": "3e03daee82041594cb405e129507dd1a9e14a9ef07cf040e9393e336ee008f8b"
     },
     {
       "path": "/trip/guides/oslo-with-kids/",
@@ -383,7 +388,7 @@
         "s01",
         "c01"
       ],
-      "sha256": "ddeeefafbd9e90e6a2e5a48e9e5e5a1bafb0a0de999b575ba13244e96bd61c86"
+      "sha256": "57c5341d6e631e5095ad5cea3d898c20a1f68a599f122428c17c139c8289a324"
     },
     {
       "path": "/trip/guides/asahikawa-with-kids/",
@@ -422,6 +427,75 @@
         "terra-aoao-access"
       ],
       "sha256": "18bc852c83b49a391c218f5cf8897ffe918ae488e21a11c14c2a9388695b69fc"
+    },
+    {
+      "path": "/trip/thailand/",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "title": "泰國親子旅行：曼谷、清邁、清萊",
+      "description": "看實訪照片挑曼谷、清邁與清萊的市集、手作、水族館、白廟與山景，依天數和步調串起三城旅行，再看各城完整攻略。",
+      "updatedOn": "2026-09-27",
+      "sourceIds": [
+        "v-youtube-com-watch-v-f5h0ggdax2c",
+        "v-youtube-com-watch-v-droh1lm7dmo",
+        "v-instagram-com-reel-ctrl60vqjsw"
+      ],
+      "sha256": "88c973d981ac9f8b56bd79c641b5e308098273d2c1e3f2985a2cc30b631d01b0"
+    },
+    {
+      "path": "/trip/guides/bangkok-with-kids/",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "title": "曼谷親子景點與行程：市集、搭船、動物園與侏羅紀體驗",
+      "description": "曼谷親子自由行去哪玩？整理恰圖恰、兒童館、SEA LIFE、Safari World、侏羅紀體驗、河濱夜市、暹羅蛇園、老屋餐廳與空邦龍運河搭船，附實訪照片、地圖、交通、雨備與 2～5 日區域行程。",
+      "updatedOn": "2026-09-27",
+      "sourceIds": [
+        "v-youtube-com-watch-v-f5h0ggdax2c",
+        "v-youtube-com-watch-v-f5cqv1ys69g",
+        "v-youtube-com-watch-v-f5h0ggdax2c-t-1097s",
+        "v-youtube-com-watch-v-f5h0ggdax2c-t-2370s",
+        "v-youtube-com-watch-v-f5cqv1ys69g-t-670s",
+        "v-youtube-com-watch-v-f5cqv1ys69g-t-1041s",
+        "v-youtube-com-watch-v-f5cqv1ys69g-t-1645s",
+        "o-thailandtravel-or-jp-chatuchak-weekend-market",
+        "o-publicspace-bangkok-go-th-spaces-info-2fbd1377-1bc8-4565-86c",
+        "o-tattpe-org-tw-uploads-content-files-e-brochure-20bangkok-28e",
+        "v-youtube-com-watch-v-f5h0ggdax2c-t-742s"
+      ],
+      "sha256": "127960893142a88faa7364a2b91ccc7998c5c674c3e7beb25e893097428d992d"
+    },
+    {
+      "path": "/trip/guides/chiang-mai-with-kids/",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "title": "清邁親子自由行：穿泰服逛古城、動手造紙，走進飛機咖啡廳",
+      "description": "清邁親子自由行去哪玩？古城泰服、Elefin 大象咖啡廳、Jing Jai、週日市集、大象紙園、飛機咖啡廳、One Nimman 與動物園，附實景照片、Google Maps、營業提醒、雨備及可依星期調整的行程試排。",
+      "updatedOn": "2026-09-27",
+      "sourceIds": [
+        "v-youtube-com-watch-v-droh1lm7dmo",
+        "v-youtube-com-watch-v-qd5mnwfa4lc",
+        "v-youtube-com-watch-v-tp4x3xkeax0",
+        "o-jingjaicentralchiangmai-com-market",
+        "v-youtube-com-watch-v-droh1lm7dmo-t-1030s",
+        "o-gingerfarmkitchen-com-welcome",
+        "o-gingerfarmkitchen-com-reservations"
+      ],
+      "sha256": "8f6a7cf8e2de31ca9e04e6b4fe8e3e906ac19262e9fa4998b81647e831e58f91"
+    },
+    {
+      "path": "/trip/guides/chiang-rai-with-kids/",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "title": "清萊親子自由行：花園、農場與夜市，白廟黑屋分兩區玩",
+      "description": "清萊親子自由行怎麼排？Singha Park、Lalitta 花園、Akha FarmVille 山景與羊群、村落文化參訪和夜市，搭配白廟、黑屋的分區路線。附實景照片、Google Maps、雨備與互動行程。",
+      "updatedOn": "2026-09-27",
+      "sourceIds": [
+        "v-instagram-com-reel-ctrl60vqjsw",
+        "v-instagram-com-reel-ctwhijto1us",
+        "v-instagram-com-reel-ctulgsfibul",
+        "v-instagram-com-reel-ctznwwziyey",
+        "v-instagram-com-p-cty2vosvqnc",
+        "o-thailandtravel-or-jp-singha-park",
+        "o-singhapark-com",
+        "o-lalittacafe-com-about-us"
+      ],
+      "sha256": "b037d3bb79eecb22baac50e481c9ba6d7138497b13de97fe7e9e30527b2da064"
     }
   ]
 }

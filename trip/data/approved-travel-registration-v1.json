@@ -33,6 +33,19 @@
         "hokkaido-seven-days"
       ],
       "publication": true
+    },
+    {
+      "dataPath": "trip/data/thailand-approved-travel-v1.json",
+      "expectedSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "countryIds": [
+        "thailand"
+      ],
+      "cityIds": [
+        "bangkok",
+        "chiang-mai",
+        "chiang-rai"
+      ],
+      "publication": true
     }
   ]
 }

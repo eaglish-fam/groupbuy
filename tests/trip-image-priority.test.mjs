@@ -14,13 +14,10 @@ const pages=[
  ['trip/new-zealand/akaroa/index.html','nz-farm'],
  ['trip/new-zealand/christchurch/3-days/index.html','nz-christchurch-tram'],
  ...regions.filter(region=>region.route!=='/trip/new-zealand/christchurch/3-days/').map(region=>[region.route.slice(1)+'index.html',region.hero]),
- ['trip/thailand/index.html','thailand-atlas'],
- ['trip/thailand/bangkok/index.html','bkk-bangkok-family'],
+ ['trip/thailand/index.html','cm-thai-dress-family'],
  ['trip/guides/bangkok-with-kids/index.html','bkk-bangkok-family'],
  ['trip/guides/chiang-mai-with-kids/index.html','cm-thai-dress-family'],
- ['trip/thailand/chiang-mai/index.html','cm-thai-dress-family'],
- ['trip/guides/chiang-rai-with-kids/index.html','cr-lalitta-garden'],
- ['trip/thailand/chiang-rai/index.html','cr-lalitta-garden']
+ ['trip/guides/chiang-rai-with-kids/index.html','cr-lalitta-garden']
 ];
 
 test('travel entry pages preload their first visual using the same responsive source as the image',()=>{
@@ -52,11 +49,11 @@ test('travel entry pages preload their first visual using the same responsive so
  }
 });
 
-test('Bangkok guide holds adjacent hero tiles below the main image and defers the rest',()=>{
+test('Bangkok guide (approved template) loads only its main hero eagerly and defers the place cards',()=>{
  const html=read('trip/guides/bangkok-with-kids/index.html');
- const hero=html.match(/<div class="bkk-hero">([\s\S]*?)<\/div>/)[1];
- assert.equal((hero.match(/loading="eager" fetchpriority="high"/g)||[]).length,1);
- assert.equal((hero.match(/loading="eager" fetchpriority="low"/g)||[]).length,2);
- const overview=html.match(/<div class="bkk-overview">([\s\S]*?)<\/div>/)[1];
- assert.equal((overview.match(/loading="lazy" fetchpriority="low"/g)||[]).length,9);
+ const hero=html.match(/<div class="city-guide-hero"[\s\S]*?<\/div>/)[0];
+ assert.equal((hero.match(/fetchpriority="high"/g)||[]).length,1);
+ const cards=html.match(/<section id="places">[\s\S]*?<\/section>/)[0];
+ assert.equal((cards.match(/<img\b/g)||[]).length,9);
+ assert.doesNotMatch(cards,/fetchpriority="high"|loading="eager"/);
 });

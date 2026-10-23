@@ -6,7 +6,10 @@ import {prioritizeFirstTravelImage} from '../scripts/trip-image-priority.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
 const template=read('trip/content/home-r24.html.template');
 const registrationPath=new URL('../trip/data/approved-travel-registration-v1.json',import.meta.url),registration=existsSync(registrationPath)?JSON.parse(readFileSync(registrationPath)):null;
-const approvedGuides=registration?(registration.packages||[registration]).flatMap(p=>JSON.parse(read(p.dataPath)).cities):[];
+// Countries migrated from a legacy page (Thailand) keep their reviewed home cards, so
+// only approved cities of countries new to the home catalog add a card.
+const {travelHomeCatalog}=await import('../trip/home-catalog.mjs');
+const approvedGuides=registration?(registration.packages||[registration]).flatMap(p=>JSON.parse(read(p.dataPath)).cities).filter(c=>!travelHomeCatalog.countries.some(k=>k.id===c.countryId)):[];
 
 test('home has one brief H1 then the actual map before any promoted photo or article',()=>{
  const html=renderTravelHomeR24();

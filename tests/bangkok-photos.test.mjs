@@ -12,7 +12,7 @@ test('all nine original family photographs have source metadata and appear in th
  assert.deepEqual(photos.map(p=>p.photoNumber),[1,2,3,4,5,6,7,8,9]);
  for(const p of photos){assert.ok(html.includes('/trip/assets/'+p.id+'.webp'));assert.equal(media[p.id].kind,'user-supplied-photo');assert.ok(p.originalSha256&&p.section);assert.match(scene(p.id),/loading="lazy" fetchpriority="low"/);}
  assert.equal(cities[0].image,'bkk-bangkok-family');
- const hero=html.match(/<div class="bkk-hero">([\s\S]*?)<\/div>/)[1];
+ const hero=html.match(/<div class="city-guide-hero"[\s\S]*?<\/div>/)[0];
  assert.match(hero,/bkk-bangkok-family/);assert.doesNotMatch(hero,/bkk-aquarium-reef/);
  assert.match(scene('bkk-canal-family'),/bkk-canal-family.webp 960w/);
  assert.match(scene('bkk-canal-family'),/style="--photo-ratio:960\/1280"/);
@@ -28,5 +28,7 @@ test('canal excursion connects the supplied Maps place, video chapter, photos an
  assert.ok(p.activities.some(a=>a.text.includes('下船入寺')));
  const route=bangkokRoutes.routes.find(r=>r.id==='canal');assert.deepEqual(route.placeIds,[p.id]);
  assert.equal(replaceDay(resizePlan([],2,bangkokRoutes),0,'canal',bangkokRoutes)[0],'canal');
- for(const file of ['trip/guides/bangkok-with-kids/index.html','trip/thailand/bangkok/index.html','trip/thailand/index.html'])assert.ok(read(file).includes('空邦龍水上市集'));
+ for(const file of ['trip/guides/bangkok-with-kids/index.html','trip/thailand/index.html'])assert.ok(read(file).includes('空邦龍水上市集'));
+ assert.ok(read('trip/guides/bangkok-with-kids/index.html').includes('href="https://maps.app.goo.gl/aegTtEfDUrmkHQeHA?g_st=ic"'));
+ assert.match(read('trip/thailand/bangkok/index.html'),/url=\/trip\/guides\/bangkok-with-kids\//);
 });

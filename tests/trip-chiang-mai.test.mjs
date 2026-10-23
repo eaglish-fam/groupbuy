@@ -57,13 +57,13 @@ test('one source catalog drives 9 reusable places, real media, maps and current 
  assert.doesNotMatch(html,/\/Users\/|API_KEY|AI 生成|2～4 日/);
 });
 test('Chiang Mai guide is discoverable and has accessible static content and structured metadata',()=>{
- assert.match(read('trip/thailand/index.html'),/href="\/trip\/thailand\/chiang-mai\/"/);
+ assert.match(read('trip/thailand/index.html'),/href="\/trip\/guides\/chiang-mai-with-kids\/"/);
  assert.match(read('trip/index.html'),/href="\/trip\/guides\/chiang-mai-with-kids\/"/);
- assert.match(read('trip/thailand/chiang-mai/index.html'),/href="\/trip\/guides\/chiang-mai-with-kids\/"/);
+ assert.match(read('trip/thailand/chiang-mai/index.html'),/url=\/trip\/guides\/chiang-mai-with-kids\//);
  assert.equal((html.match(/<h1>/g)||[]).length,1);
  assert.match(html,/data-reading-nav/);assert.match(html,/role="status" aria-live="polite"/);
- assert.match(html,/for="cnx-date"/);assert.match(html,/bkk-planner-fallback/);
- for(const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g))assert.ok(JSON.parse(match[1])['@type']);
+ assert.match(html,/data-approved-city-planner/);assert.match(html,/type="date"/);
+ for(const match of html.matchAll(/<script type="application\/ld\+json">(.*?)<\/script>/g)){const d=JSON.parse(match[1]);assert.ok(d['@type']||d['@graph']?.every(n=>n['@type']));}
  const ids=[...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);assert.equal(new Set(ids).size,ids.length);
  for(const match of html.matchAll(/href="#([^"]+)"/g))assert.ok(ids.includes(match[1]),match[1]);
 });
@@ -72,7 +72,7 @@ test('all ten supplied photos are visible in the guide, full-ratio originals are
  const photos=JSON.parse(read('trip/assets/chiang-mai-media.json')).filter(m=>m.kind==='user-supplied-photo');
  assert.deepEqual(photos.map(m=>m.attachmentNumber).sort((a,b)=>a-b),[1,2,3,4,5,6,7,8,9,10]);
  for(const p of photos){
-  assert.ok(html.includes(`src="/trip/assets/${p.id}.webp"`),p.id);
+  assert.ok(html.includes(`/trip/assets/${p.id}.webp`),p.id);
   const buffer=readFileSync(resolve(root,`trip/assets/${p.id}.webp`));
   assert.equal(createHash('sha256').update(buffer).digest('hex'),p.sha256);
   const meta=await sharp(buffer).metadata();assert.ok(!meta.exif);assert.ok(buffer.length<200000);
@@ -105,6 +105,7 @@ test('Elefin is a separate evidence-bound cafe and route, never an alias for Ran
   assert.equal(list.find(s=>s.anchor==='elefin').time,'10:30');
   assert.ok(!list.some(s=>['paper','plane','rantong'].includes(s.anchor)));
  }
- assert.match(html,/value="hangdong"/);assert.match(html,/9 個景點與體驗/);
+ // The Hang Dong Elefin day is still offered on its own, as a one-day route.
+ assert.match(html,/chiang-mai-1d-hangdong-leisure/);assert.match(html,/9 個景點與體驗/);
  assert.ok(!routes.combinations.some(c=>c.routes.includes('hangdong')));
 });

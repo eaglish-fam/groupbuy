@@ -17,12 +17,12 @@ test('source-bound travel details avoid unsupported ticket and venue claims',()=
  const html=read(pages[1]);assert.match(html,/Children’s Discovery Museum/);assert.match(html,/一位家長陪孩子/);assert.match(html,/Google Maps/);assert.match(html,/f5h0gGdaX2c&amp;t=1097s/);assert.match(html,/玻璃底船/);assert.doesNotMatch(html,/24小時營業|0至5歲.*免費|6262|先選一件想做的事|買東西，也是練習|market-walk\.jpg|aquarium-moment\.jpg/);
 });
 test('Bangkok place identities, facts and media are reusable in the guide and city hub',()=>{
- const article=read(pages[1]),hub=read('trip/thailand/bangkok/index.html');
+ const article=read(pages[1]);
  assert.equal(new Set(bangkokCatalog.places.map(p=>p.id)).size,bangkokCatalog.places.length);
  for(const p of bangkokCatalog.places){
   assert.ok(p.sources.length&&p.mapsQuery&&p.hours&&p.transport&&p.weather);
   assert.ok(p.intro.length>90&&p.activities.length>=2);
-  for(const html of [article,hub])assert.ok(html.includes(`data-place-id="${p.id}"`));
+  assert.ok(article.includes(`data-place-id="${p.id}"`));
   for(const id of [p.image,...p.gallery]){
    assert.ok(media[id]?.alt&&(media[id]?.second>0||media[id]?.kind==='user-supplied-photo'));
    for(const suffix of ['',...[640,960].filter(w=>w<(media[id].width||1440)).map(w=>'-'+w)])assert.ok(existsSync(new URL(`../trip/assets/${id}${suffix}.webp`,import.meta.url)));
@@ -48,7 +48,7 @@ test('Bangkok route combinations resolve to unique real place cards and preserve
  const ids=new Set(bangkokCatalog.places.map(p=>p.id));
  const routes=new Map(bangkokRoutes.routes.map(r=>[r.id,r]));
  for(const route of routes.values()){
-  assert.ok(article.includes(`id="route-${route.id}"`));
+  assert.ok(article.includes(`value="bangkok-1d-${route.id}-leisure"`));
   for(const id of route.placeIds)assert.ok(ids.has(id));
   for(const step of route.steps)if(step.anchor)assert.ok(bangkokCatalog.places.some(p=>p.anchor===step.anchor));
  }
@@ -65,15 +65,13 @@ test('travel stylesheet has mobile and reduced-motion layouts',()=>{
 });
 test('Bangkok opts into the shared mobile drawer without replacing its static TOC',()=>{
  const html=read(pages[1]);
- assert.equal((html.match(/data-reading-nav/g)||[]).length,1);
+ assert.equal((html.match(/\sdata-reading-nav[\s>]/g)||[]).length,1);
  assert.match(html,/class="toc guide-nav" data-reading-nav/);
- assert.match(html,/defer src="\/blog\/reading-nav\.js\?v=/);
- assert.match(html,/href="\/blog\/reading-nav\.css\?v=/);
+ assert.match(html,/defer src="\/blog\/reading-nav\.js/);
+ assert.match(html,/\.reading-nav\{/);
  const nav=html.match(/<nav[^>]*data-reading-nav[^>]*>([\s\S]*?)<\/nav>/)[1];
  for(const p of bangkokCatalog.places){
   assert.ok(nav.includes('href="#'+p.anchor+'"'));
-  const section=html.match(new RegExp('<section id="'+p.anchor+'"[\\s\\S]*?<h2>'))[0];
-  assert.ok(section.includes(p.englishName.split(' · ')[0].toUpperCase()));
-  assert.ok(!section.includes('/ '+p.area.toUpperCase()+'</'));
+  assert.match(html,new RegExp('<section id="'+p.anchor+'" data-place-id="'+p.id+'"><h2>'));
  }
 });

@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 66,
+    "pages": 63,
     "blocking": 0,
-    "warnings": 28,
-    "total": 28
+    "warnings": 27,
+    "total": 27
   },
   "findings": [
     {
@@ -40,6 +40,13 @@
       "message": "Link fragment not found on destination page: /#product-shinwa-living",
       "file": "blog/shinwa-living/index.html",
       "index": 15892
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /trip/guides/chiang-mai-with-kids/#reels-2023",
+      "file": "trip/guides/chiang-rai-with-kids/index.html",
+      "index": 63930
     },
     {
       "level": "warn",
@@ -163,13 +170,6 @@
     {
       "level": "warn",
       "category": "images",
-      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
-      "file": "trip/guides/bangkok-with-kids/index.html",
-      "index": 70251
-    },
-    {
-      "level": "warn",
-      "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/index.html",
       "index": 540349
@@ -191,16 +191,9 @@
     {
       "level": "warn",
       "category": "images",
-      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
-      "file": "trip/thailand/bangkok/index.html",
-      "index": 13965
-    },
-    {
-      "level": "warn",
-      "category": "images",
-      "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
+      "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/thailand/index.html",
-      "index": 24321
+      "index": 34218
     }
   ]
 }

@@ -1,3 +1,4 @@
+import {renderRelatedJournal} from './related-journal.mjs';
 import {readFileSync} from 'node:fs';
 import {validateApprovedTravelPackage,publicUrl,publicDiagramUrl,focalPoint} from '../trip/approved-travel-contract.mjs';
 import {cityGuideTemplate,cityGuideHeader,cityGuideChapters,cityGuideBody,cityGuideTemplateStyle} from './trip-city-guide-template.mjs';
@@ -28,10 +29,13 @@ export function approvedRouteDiagram(d){
 }
 const columns=assets=>{const ratios=assets.map(a=>a.width/a.height),sum=ratios.reduce((a,b)=>a+b,0);return ratios.map(r=>(ratios.length*r/sum).toFixed(6)+'fr').join(' ');};
 export function approvedAttractionGallery(images){
- if(![2,3].includes(images.length)||new Set(images.map(i=>i.assetId)).size!==images.length)throw Error('Two or three distinct approved attraction images required');
+ if(![1,2,3].includes(images.length)||new Set(images.map(i=>i.assetId)).size!==images.length)throw Error('One to three distinct approved attraction images required');
+ if(images.length===1)return `<div class="city-attraction-gallery city-attraction-gallery--single"><div class="city-gallery-lead">${approvedFigure(images[0])}</div></div>`;
  if(images.length===2)return `<div class="city-attraction-gallery city-attraction-gallery--pair"><div class="city-gallery-pair" style="--city-pair-columns:${columns(images)}">${images.map(a=>approvedFigure(a,{sizes:'(max-width:700px) calc(50vw - 24px), 380px'})).join('')}</div></div>`;
  return `<div class="city-attraction-gallery"><div class="city-gallery-lead">${approvedFigure(images[0])}</div><div class="city-gallery-pair" style="--city-pair-columns:${columns(images.slice(1))}">${images.slice(1).map(a=>approvedFigure(a,{sizes:'(max-width:700px) calc(50vw - 24px), 380px'})).join('')}</div></div>`;
 }
+// Legacy booking boxes keep rel="sponsored" on affiliate links and their disclosure.
+const placeBooking=b=>b?`<aside class="bkk-booking"><h3>${esc(b.title)}</h3><p>${esc(b.intro)}</p><div class="actions">${b.links.map(l=>`<a class="button" href="${esc(l.url)}" target="_blank" rel="${l.sponsored?'sponsored ':''}noopener">${esc(l.label)} ↗</a>`).join('')}</div><p class="affiliate-note">${esc(b.note)}</p></aside>`:'';
 const links=value=>`<div class="actions">${(value||[]).map(travelLink).join('')}</div>`;
 export function renderApprovedFactsStory(place,{level=3,storyTitle='我們那次的小記錄'}={}){
  if(![3,4].includes(level))throw Error('Invalid practical heading level');
@@ -61,7 +65,7 @@ export function renderApprovedCity(data,cityId,{publication=false}={}){
  const breadcrumbs=`${travelLink({url:'/trip/',label:'鷹家遠行所'})} / ${travelLink({url:country.path,label:country.name})} / <span aria-current="page">${esc(city.name)}</span>`;
  const header=cityGuideHeader({...city,images:city.hero.map(id=>assets.get(id)),eyebrow:city.englishName,breadcrumbs}, {esc,figure:approvedFigure}).replace('</h1>',`</h1>${city.subtitle?`<p class="city-subtitle">${esc(city.subtitle)}</p>`:''}`);
  const chapters=cityGuideChapters({details:[...(city.reading?[['day-reading',city.reading.title]]:[]),...(city.chapters||city.places).map(p=>[p.id,p.title])],extensions:city.extension?[['extension',city.extension.title]]:[],omit:['food','stay','arrival','rain'].filter(id=>!city[id])});
- const details=(city.reading?moduleHtml('day-reading',city.reading,assets):'')+(city.chapters?chapterDetails(city,assets):city.places.map(p=>`<section id="${p.id}" data-place-id="${p.stableId}"><h2>${esc(p.title)}</h2>${paragraphs(p.paragraphs)}${approvedAttractionGallery(p.images.map(a=>assets.get(a)))}${(p.additionalGalleries||[]).map(g=>`<h3>${esc(g.title)}</h3>${approvedAttractionGallery(g.images.map(a=>assets.get(a)))}`).join('')}${p.supportImages?.length?`<div class="city-module-gallery" style="--city-pair-columns:${columns(p.supportImages.map(a=>assets.get(a)))}">${p.supportImages.map(a=>approvedFigure(assets.get(a))).join('')}</div>`:''}${renderApprovedFactsStory(p)}${links(p.links)}</section>`).join(''));
+ const details=(city.reading?moduleHtml('day-reading',city.reading,assets):'')+(city.chapters?chapterDetails(city,assets):city.places.map(p=>`<section id="${p.id}" data-place-id="${p.stableId}"><h2>${esc(p.title)}</h2>${paragraphs(p.paragraphs)}${approvedAttractionGallery(p.images.map(a=>assets.get(a)))}${(p.additionalGalleries||[]).map(g=>`<h3>${esc(g.title)}</h3>${approvedAttractionGallery(g.images.map(a=>assets.get(a)))}`).join('')}${p.supportImages?.length?`<div class="city-module-gallery" style="--city-pair-columns:${columns(p.supportImages.map(a=>assets.get(a)))}">${p.supportImages.map(a=>approvedFigure(assets.get(a))).join('')}</div>`:''}${renderApprovedFactsStory(p)}${links(p.links)}${placeBooking(p.booking)}${renderRelatedJournal(p.relatedReading)}</section>`).join(''));
  const faq=`<section id="faq"><h2>${cityGuideTemplate.labels.faq}</h2>${city.faq.map(q=>`<details><summary>${esc(q.question)}</summary>${paragraphs([q.answer])}</details>`).join('')}</section>`;
  // The same source-owned routes back both the static fallback and controller.
  const plan=renderApprovedCityPlanner(city);

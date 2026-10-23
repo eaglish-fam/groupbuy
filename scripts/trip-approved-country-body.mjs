@@ -11,7 +11,7 @@ export function countryPicture(asset, {sizes='(max-width:760px) 90vw, 520px', fo
   if((card||focal)&&asset.cardPhoto)asset={...asset,...asset.cardPhoto};
   const src=asset.variants.find(v=>v.width===960)||asset.variants.at(-1);
   const position=focalPoint(focal||asset.focalPoint);
-  return `<img data-asset-id="${esc(asset.assetId)}" src="${esc(src.url)}" srcset="${esc(asset.variants.map(v=>`${v.url} ${v.width}w`).join(', '))}" sizes="${esc(sizes)}" width="${asset.width}" height="${asset.height}" alt="${esc(asset.alt)}" style="--photo-ratio:${asset.width}/${asset.height};object-position:${position[0]}% ${position[1]}%" loading="${priority?'eager':'lazy'}" fetchpriority="${priority?'high':'low'}" decoding="async">`;
+  return `<img data-asset-id="${esc(asset.assetId)}"${priority?' data-primary-travel-photo':''} src="${esc(src.url)}" srcset="${esc(asset.variants.map(v=>`${v.url} ${v.width}w`).join(', '))}" sizes="${esc(sizes)}" width="${asset.width}" height="${asset.height}" alt="${esc(asset.alt)}" style="--photo-ratio:${asset.width}/${asset.height};object-position:${position[0]}% ${position[1]}%" loading="${priority?'eager':'lazy'}" fetchpriority="${priority?'high':'low'}" decoding="async">`;
 }
 function presentationFor(country, cities) {
   const p=country.presentation||{};
