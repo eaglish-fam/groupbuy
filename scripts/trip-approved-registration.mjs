@@ -8,7 +8,8 @@ function boundPackage(root,registration){
  const view=validateApprovedTravelPackage(JSON.parse(raw),registration);
  return {...registration,data:view.data};
 }
-const pagesOf=pkg=>[...pkg.data.countries,...pkg.data.cities,...(pkg.data.routes||[])];
+// A single-destination country shares its guide's page, so it is not a page of its own.
+const pagesOf=pkg=>[...pkg.data.countries.filter(c=>!c.singleDestination),...pkg.data.cities,...(pkg.data.routes||[])];
 // v1 registers one published package; v2 lists several. Each keeps its own
 // byte-bound source file, and no two packages may claim the same page path.
 export function approvedTravelRegistrations(root){

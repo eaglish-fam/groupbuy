@@ -21,6 +21,8 @@ export function prepareApprovedR24Discovery(html,data,{catalog,config}){
   // provided the entry already points at exactly the same country and guide URLs.
   const existing=projected.countries.find(old=>old.id===c.id);
   if(existing&&existing.href===c.path&&existing.guideIds.length===c.cityIds.length&&c.cityIds.every(id=>projected.guides.some(g=>g.id===id&&g.countryId===c.id&&g.href===v.cities.get(id).path)))continue;
+  // Singapore's reviewed home card is added by trip-singapore-discovery; keep that card.
+  if(c.singleDestination&&html.includes(`data-guide-id="${c.cityIds[0]}"`)&&html.includes(`href="${c.path}"`))continue;
   added.push(c.id);
   const d=c.discovery;if(!d)throw Error('Approved country geography/discovery required');
   if(projected.countries.some(old=>old.id===c.id||old.href===c.path))throw Error('Discovery may only add explicitly new countries');

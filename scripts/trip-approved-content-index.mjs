@@ -8,7 +8,7 @@ export function writeApprovedTravelContentIndex(root,registrations=approvedTrave
  if(!registrations.length)return null;
  const index={schema:'eaglish.approved-travel-content-index/v2',
   packages:registrations.map(r=>({dataPath:r.dataPath,packageSha256:r.expectedSha256,publication:r.publication})),
-  pages:registrations.flatMap(r=>[...r.data.countries,...r.data.cities].map(page=>({path:page.path,packageSha256:r.expectedSha256,title:page.title,description:page.description,updatedOn:page.updatedOn,sourceIds:page.sourceIds,sha256:createHash('sha256').update(readFileSync(resolve(root,page.path.slice(1),'index.html'))).digest('hex')})))};
+  pages:registrations.flatMap(r=>[...r.data.countries.filter(c=>!c.singleDestination),...r.data.cities].map(page=>({path:page.path,packageSha256:r.expectedSha256,title:page.title,description:page.description,updatedOn:page.updatedOn,sourceIds:page.sourceIds,sha256:createHash('sha256').update(readFileSync(resolve(root,page.path.slice(1),'index.html'))).digest('hex')})))};
  writeFileSync(resolve(root,'trip/data/approved-travel-content-index-v1.json'),JSON.stringify(index,null,2)+'\n');
  return index;
 }

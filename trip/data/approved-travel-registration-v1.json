@@ -46,6 +46,17 @@
         "chiang-rai"
       ],
       "publication": true
+    },
+    {
+      "dataPath": "trip/data/singapore-approved-travel-v1.json",
+      "expectedSha256": "e6542d7be3f2faf6fecbf5828522a55c6d09aad4a3c04785349d50b9537a818e",
+      "countryIds": [
+        "singapore"
+      ],
+      "cityIds": [
+        "singapore"
+      ],
+      "publication": true
     }
   ]
 }

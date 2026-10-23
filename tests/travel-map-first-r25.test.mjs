@@ -9,7 +9,7 @@ const registrationPath=new URL('../trip/data/approved-travel-registration-v1.jso
 // Countries migrated from a legacy page (Thailand) keep their reviewed home cards, so
 // only approved cities of countries new to the home catalog add a card.
 const {travelHomeCatalog}=await import('../trip/home-catalog.mjs');
-const approvedGuides=registration?(registration.packages||[registration]).flatMap(p=>JSON.parse(read(p.dataPath)).cities).filter(c=>!travelHomeCatalog.countries.some(k=>k.id===c.countryId)):[];
+const approvedGuides=registration?(registration.packages||[registration]).flatMap(p=>JSON.parse(read(p.dataPath)).cities).filter(c=>!travelHomeCatalog.countries.some(k=>k.id===c.countryId)&&c.id!=='singapore'):[];
 
 test('home has one brief H1 then the actual map before any promoted photo or article',()=>{
  const html=renderTravelHomeR24();
