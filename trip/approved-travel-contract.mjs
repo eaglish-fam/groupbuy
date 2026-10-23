@@ -128,7 +128,8 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
    if(['main','places','food','stay','arrival','rain','faq','plan','videos','extension'].includes(p.id))fail('reserved place anchor');
    text(p.title);strings(p.paragraphs);if(!p.paragraphs.length)fail('place introduction required');sources(p.sourceIds);
    if(p.locality!==undefined)text(p.locality);
-   if(array(p.images).length!==3||new Set(p.images).size!==3)fail('three distinct attraction images');p.images.forEach(image);
+   // Three photos is the standard; a migrated place with only two real photos keeps two rather than borrowing another venue's.
+   if(![2,3].includes(array(p.images).length)||new Set(p.images).size!==p.images.length)fail('two or three distinct attraction images');p.images.forEach(image);
    for(const key of ['what','play','arrival','duration','availability','conditions']){const f=p.facts?.[key];if(!f)fail('six practical questions required');text(f.label);text(f.value);sources(f.sourceIds);}
    if(p.story){text(p.story.text);if(p.story.paragraphs)strings(p.story.paragraphs);sources(p.story.sourceIds);}
    for(const f of p.extraFacts||[]){text(f.label);text(f.value);sources(f.sourceIds);}
@@ -150,10 +151,11 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
    for(const key of ['title','play','time'])text(card[key]);focalPoint(card.focalPoint);return card.target;
   }),'card target');
   if(!cardTargets.length)fail('navigation cards required');
-  for(const key of ['food','stay','arrival','rain'])module(c[key]);faq(c.faq);if(c.extension)module(c.extension);if(c.reading)module(c.reading);
-  if(c.arrival.diagram)routeDiagram(c.arrival.diagram);
-  for(const d of c.arrival.diagrams||[])routeDiagram(d);
-  const anchors=new Set(['main','places','food','stay','arrival','rain','faq','plan','videos',...(c.extension?['extension']:[]),...(c.reading?['day-reading']:[]),...places.keys()]);
+  // Migrated guides omit a module the original article never had, instead of inventing one.
+  for(const key of ['food','stay','arrival','rain'])if(c[key]!==undefined)module(c[key]);faq(c.faq);if(c.extension)module(c.extension);if(c.reading)module(c.reading);
+  if(c.arrival?.diagram)routeDiagram(c.arrival.diagram);
+  for(const d of c.arrival?.diagrams||[])routeDiagram(d);
+  const anchors=new Set(['main','places',...['food','stay','arrival','rain'].filter(k=>c[k]),'faq','plan','videos',...(c.extension?['extension']:[]),...(c.reading?['day-reading']:[]),...places.keys()]);
   const allLinks=[...c.places.flatMap(p=>p.links||[]),...['food','stay','arrival','rain','extension'].flatMap(k=>c[k]?.links||[])];
   if(allLinks.some(l=>l.url.startsWith('#')&&!anchors.has(l.url.slice(1))))fail('unresolved same-page link');
   const planner=c.planner;if(!planner||!array(planner.routes).length)fail('approved routes required');text(planner.title);strings(planner.paragraphs);sources(planner.sourceIds);
@@ -254,7 +256,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
      const [path,anchor]=href.split('#');
      if(p.routeId!==undefined){const route=routes.get(p.routeId);if(path!==route.path||(anchor!==undefined&&!routeAnchors(route).includes(anchor)))fail('unresolved map article target');}
      else{const city=cities.get(p.cityId);
-     const anchors=new Set(['main','places','food','stay','arrival','rain','faq','plan','videos',...(city.extension?['extension']:[]),...(city.reading?['day-reading']:[]),...city.places.map(place=>place.id)]);
+     const anchors=new Set(['main','places',...['food','stay','arrival','rain'].filter(k=>city[k]),'faq','plan','videos',...(city.extension?['extension']:[]),...(city.reading?['day-reading']:[]),...city.places.map(place=>place.id)]);
      if(path!==city.path||(anchor!==undefined&&!anchors.has(anchor)))fail('unresolved map article target');}
     }
    }
