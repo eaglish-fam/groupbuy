@@ -26,3 +26,15 @@
 .approved-transport-sequence{font-size:13px;overflow-wrap:anywhere}
 @media(max-width:760px){.approved-transport-routes{grid-template-columns:minmax(0,1fr);gap:12px}.approved-transport-routes article{padding:16px}}
 @media(max-width:760px){.approved-country .approved-geographic-map nav{gap:4px 12px}.approved-country .approved-geographic-map{margin-block:0}}
+
+/* Illustrated country map (country.map): the original drawn map with city pins. */
+.approved-illustrated-map figure{max-width:580px;margin-inline:auto}
+.approved-illustrated-map-frame{position:relative;isolation:isolate}
+.approved-illustrated-map-frame img{border:1px solid #dcd5c9;border-radius:48% 48% 4px 4px}
+.approved-map-pin{position:absolute;left:var(--x);top:var(--y);display:flex;align-items:center;gap:8px;min-height:44px;text-decoration:none;color:#494139;transform:translate(-9px,-50%);z-index:2}
+.approved-map-pin--left{flex-direction:row-reverse;transform:translate(calc(-100% + 9px),-50%)}
+.approved-map-pin i{display:block;flex-shrink:0;width:16px;height:16px;border:3px solid #fff9f0;background:#bd4029;border-radius:50%;box-shadow:0 0 0 1px #bd4029}
+.approved-map-pin span{font-weight:700;font-size:15px;line-height:1.4;background:#fcfaf5f2;border:1px solid #dcd5c9;box-shadow:2px 3px 0 #dcd5c955;padding:4px 9px;border-radius:3px}
+.approved-map-pin small{display:block;font-size:9px;letter-spacing:.06em;font-weight:400}
+.approved-map-pin:hover span,.approved-map-pin:focus-visible span{border-color:#bd4029}
+@media(max-width:700px){.approved-map-pin span{font-size:13px;padding:3px 7px}.approved-map-pin small{font-size:8px}}

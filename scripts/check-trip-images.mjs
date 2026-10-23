@@ -6,7 +6,7 @@ import {regions} from '../trip/new-zealand-data.mjs';
 import {approvedTravelRegistrations} from './trip-approved-registration.mjs';
 
 const root=resolve(import.meta.dirname,'..');
-const pages=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',...regions.map(region=>region.route),'/trip/thailand/','/trip/thailand/bangkok/','/trip/guides/bangkok-with-kids/','/trip/thailand/chiang-mai/','/trip/guides/chiang-mai-with-kids/','/trip/guides/chiang-rai-with-kids/','/trip/thailand/chiang-rai/'];
+const pages=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',...regions.map(region=>region.route)];
 const maxBytes=width=>width<=640?120_000:width<=960?220_000:400_000;
 const approved=approvedTravelRegistrations(root);
 for(const {data} of approved)pages.push(...data.countries.map(p=>p.path),...data.cities.map(p=>p.path));

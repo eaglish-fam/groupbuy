@@ -33,12 +33,14 @@ export function cityGuideHeader({title,intro,leadFormat,author,updatedOn,eyebrow
  const [main,...rest]=title.split('：'),subtitle=rest.join('：');
  return `<nav class="breadcrumbs" aria-label="麵包屑">${breadcrumbs}</nav><p class="eyebrow">${esc(eyebrow)}</p><h1>${esc(main)}${subtitle?`<span>${esc(subtitle)}</span>`:''}</h1><div class="article-lead">${intro.map(p=>`<p>${esc(p)}</p>`).join('')}</div><p class="byline"><span>撰文・影像：${esc(author)}</span><span>更新 ${esc(updatedOn.replaceAll('-','.'))}</span></p><div class="city-guide-hero${compatClass?' '+esc(compatClass):''}" data-hero-layout="${layout.mode}" style="--hero-desktop-columns:${layout.desktopColumns};--hero-support-columns:${layout.supportColumns}">${images.map((i,n)=>figure(i,{sizes:layout.mode==='landscapes'?'(max-width:700px) 90vw, 680px':n===0?'(max-width:700px) calc(100vw - 40px), (max-width:1280px) calc(33.333vw - 40px), 387px':'(max-width:700px) calc(50vw - 24px), (max-width:1280px) calc(33.333vw - 40px), 387px'}).replace('<figure',`<figure data-hero-slot="${cityGuideTemplate.heroSlots[n]}" style="--hero-ratio:${layout.ratios[n]}"`)).join('')}</div>`;
 }
-export function cityGuideChapters({details,extensions=[]}){
+export const optionalCityModules=Object.freeze(['food','stay','arrival','rain']);
+export function cityGuideChapters({details,extensions=[],omit=[]}){
  const l=cityGuideTemplate.labels;
- return [['places',l.places],...details,...['food','stay','arrival','rain','faq','plan','videos'].map(id=>[id,l[id]]),...extensions.map(([id,label])=>[id,label||l.extension])];
+ if(omit.some(id=>!optionalCityModules.includes(id)))throw Error('Only food/stay/arrival/rain may be omitted');
+ return [['places',l.places],...details,...['food','stay','arrival','rain','faq','plan','videos'].filter(id=>!omit.includes(id)).map(id=>[id,l[id]]),...extensions.map(([id,label])=>[id,label||l.extension])];
 }
 export function cityGuideBody(modules){
- for(const id of cityGuideTemplate.order.filter(id=>id!=='extension'))if(typeof modules[id]!=='string'||!modules[id])throw Error('Missing city-guide module '+id);
+ for(const id of cityGuideTemplate.order.filter(id=>id!=='extension'))if(typeof modules[id]!=='string'||(!modules[id]&&!optionalCityModules.includes(id)))throw Error('Missing city-guide module '+id);
  if(modules.extension!==undefined&&typeof modules.extension!=='string')throw Error('Invalid city-guide extension');
  return cityGuideTemplate.order.map(id=>modules[id]||'').join('');
 }

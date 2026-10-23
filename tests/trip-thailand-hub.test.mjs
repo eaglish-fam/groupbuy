@@ -40,7 +40,7 @@ test('Country hub has static crawlable links, one priority image and late planne
 test('Country heading and overview navigation are not tied to the city count',()=>{
  const html=readFileSync(new URL('../trip/thailand/index.html',import.meta.url),'utf8');
  assert.ok(html.includes(`<span aria-hidden="true">${country.flag}</span> <span lang="en">${country.englishName}</span>`));
- assert.ok(html.includes(`data-city="all" aria-current="true">${country.overviewLabel}</a>`));
+ assert.ok(html.includes(`data-country-city="all" aria-current="true">${country.overviewLabel}</a>`));
  assert.ok(!html.includes('三城一覽'));
  assert.ok(!html.includes('THREE CITIES, YOUR WAY'));
 });

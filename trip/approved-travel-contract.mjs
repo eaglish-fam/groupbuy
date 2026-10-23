@@ -128,11 +128,15 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
    if(['main','places','food','stay','arrival','rain','faq','plan','videos','extension'].includes(p.id))fail('reserved place anchor');
    text(p.title);strings(p.paragraphs);if(!p.paragraphs.length)fail('place introduction required');sources(p.sourceIds);
    if(p.locality!==undefined)text(p.locality);
-   if(array(p.images).length!==3||new Set(p.images).size!==3)fail('three distinct attraction images');p.images.forEach(image);
+   // Three photos is the standard; a migrated place with fewer real photos keeps what it has rather than borrowing another venue's.
+   if(![1,2,3].includes(array(p.images).length)||new Set(p.images).size!==p.images.length)fail('one to three distinct attraction images');p.images.forEach(image);
    for(const key of ['what','play','arrival','duration','availability','conditions']){const f=p.facts?.[key];if(!f)fail('six practical questions required');text(f.label);text(f.value);sources(f.sourceIds);}
    if(p.story){text(p.story.text);if(p.story.paragraphs)strings(p.story.paragraphs);sources(p.story.sourceIds);}
    for(const f of p.extraFacts||[]){text(f.label);text(f.value);sources(f.sourceIds);}
    for(const a of p.supportImages||[])image(a);
+   // Optional booking box (affiliate links stay marked sponsored) and journal reading, carried over from legacy guides.
+   if(p.booking!==undefined){text(p.booking.title);text(p.booking.intro);text(p.booking.note);if(!array(p.booking.links).length)fail('empty booking');for(const l of p.booking.links){text(l.label);if(!publicUrl(l.url).startsWith('https://')||typeof l.sponsored!=='boolean')fail('booking link');}}
+   if(p.relatedReading!==undefined){const r=p.relatedReading;text(r.title);text(r.description);if(!array(r.links).length||r.links.some(l=>!/^[a-z0-9-]+$/.test(l.slug)||!l.label))fail('related reading');}
    for(const g of p.additionalGalleries||[]){text(g.title);if(array(g.images).length!==3||new Set(g.images).size!==3)fail('additional gallery needs three distinct images');g.images.forEach(image);}
    links(p.links||[]);places.set(p.id,p);
   }
@@ -150,10 +154,11 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
    for(const key of ['title','play','time'])text(card[key]);focalPoint(card.focalPoint);return card.target;
   }),'card target');
   if(!cardTargets.length)fail('navigation cards required');
-  for(const key of ['food','stay','arrival','rain'])module(c[key]);faq(c.faq);if(c.extension)module(c.extension);if(c.reading)module(c.reading);
-  if(c.arrival.diagram)routeDiagram(c.arrival.diagram);
-  for(const d of c.arrival.diagrams||[])routeDiagram(d);
-  const anchors=new Set(['main','places','food','stay','arrival','rain','faq','plan','videos',...(c.extension?['extension']:[]),...(c.reading?['day-reading']:[]),...places.keys()]);
+  // Migrated guides omit a module the original article never had, instead of inventing one.
+  for(const key of ['food','stay','arrival','rain'])if(c[key]!==undefined)module(c[key]);faq(c.faq);if(c.extension)module(c.extension);if(c.reading)module(c.reading);
+  if(c.arrival?.diagram)routeDiagram(c.arrival.diagram);
+  for(const d of c.arrival?.diagrams||[])routeDiagram(d);
+  const anchors=new Set(['main','places',...['food','stay','arrival','rain'].filter(k=>c[k]),'faq','plan','videos',...(c.extension?['extension']:[]),...(c.reading?['day-reading']:[]),...places.keys()]);
   const allLinks=[...c.places.flatMap(p=>p.links||[]),...['food','stay','arrival','rain','extension'].flatMap(k=>c[k]?.links||[])];
   if(allLinks.some(l=>l.url.startsWith('#')&&!anchors.has(l.url.slice(1))))fail('unresolved same-page link');
   const planner=c.planner;if(!planner||!array(planner.routes).length)fail('approved routes required');text(planner.title);strings(planner.paragraphs);sources(planner.sourceIds);
@@ -239,7 +244,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
   if(c.routeIds!==undefined){unique(array(c.routeIds),'country route article');if(!c.routeIds.length)fail('empty country routes');}
   if((c.routeIds||[]).some(v=>routes.get(v)?.countryId!==c.id)||[...routes.values()].some(r=>r.countryId===c.id&&!(c.routeIds||[]).includes(r.id)))fail('country/route membership');
   if(c.map){image(c.map.assetId);text(c.map.caption);sources(c.map.sourceIds);
-   unique(array(c.map.pins).map(pin=>{if(!c.cityIds.includes(pin.cityId))fail('map destination');focalPoint([pin.x,pin.y]);return pin.cityId;}),'map pin');
+   unique(array(c.map.pins).map(pin=>{if(!c.cityIds.includes(pin.cityId))fail('map destination');focalPoint([pin.x,pin.y]);if(pin.align!==undefined&&pin.align!=='left')fail('map pin label side');return pin.cityId;}),'map pin');
   }
   if(c.geographicMap){
    const m=c.geographicMap;text(m.caption);sources(m.sourceIds);if(m.detail!==undefined&&m.detail!=='50m')fail('map detail');
@@ -254,7 +259,7 @@ export function validateApprovedTravelPackage(data,{countryIds,cityIds,routeIds}
      const [path,anchor]=href.split('#');
      if(p.routeId!==undefined){const route=routes.get(p.routeId);if(path!==route.path||(anchor!==undefined&&!routeAnchors(route).includes(anchor)))fail('unresolved map article target');}
      else{const city=cities.get(p.cityId);
-     const anchors=new Set(['main','places','food','stay','arrival','rain','faq','plan','videos',...(city.extension?['extension']:[]),...(city.reading?['day-reading']:[]),...city.places.map(place=>place.id)]);
+     const anchors=new Set(['main','places',...['food','stay','arrival','rain'].filter(k=>city[k]),'faq','plan','videos',...(city.extension?['extension']:[]),...(city.reading?['day-reading']:[]),...city.places.map(place=>place.id)]);
      if(path!==city.path||(anchor!==undefined&&!anchors.has(anchor)))fail('unresolved map article target');}
     }
    }

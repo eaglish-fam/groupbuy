@@ -4,7 +4,17 @@ import {readFileSync,existsSync} from 'node:fs';
 import {places,itineraries,nzRoute} from '../scripts/build-trip-destinations.mjs';
 import {regions} from '../trip/new-zealand-data.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const paths=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',...regions.map(region=>region.route),'/trip/thailand/','/trip/thailand/bangkok/'];
+const paths=['/trip/','/trip/new-zealand/','/trip/new-zealand/christchurch/','/trip/new-zealand/akaroa/',...regions.map(region=>region.route),'/trip/thailand/'];
+// Thailand renders from its approved package; the old per-city overview pages send readers to the guides.
+test('old Thailand city overview URLs redirect to the matching guide without being indexed',()=>{
+ for(const city of ['bangkok','chiang-mai','chiang-rai']){
+  const html=read(`trip/thailand/${city}/index.html`),guide=`/trip/guides/${city}-with-kids/`;
+  assert.match(html,/<meta name="robots" content="noindex">/);
+  assert.ok(html.includes(`<link rel="canonical" href="https://www.eaglish.store${guide}">`));
+  assert.ok(html.includes(`<meta http-equiv="refresh" content="0;url=${guide}">`));
+  assert.ok(!read('sitemap.xml').includes(`<loc>https://www.eaglish.store/trip/thailand/${city}/</loc>`));
+ }
+});
 test('destination hierarchy has static text, canonical URLs, valid local assets and no private payloads',()=>{
  for(const path of paths){const html=read(path.slice(1)+'index.html');
   assert.equal((html.match(/<h1(?:\s[^>]*)?>/g)||[]).length,1,path);

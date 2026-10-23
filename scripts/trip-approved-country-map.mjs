@@ -1,3 +1,4 @@
+import {approvedPicture} from './trip-city-approved-adapter.mjs';
 import {readFileSync} from 'node:fs';
 import {feature} from 'topojson-client';
 import {geoBounds, geoMercator, geoPath} from 'd3-geo';
@@ -145,9 +146,17 @@ function detailed(resolution) {
   }
   return detailedGeography[resolution];
 }
-export function renderApprovedCountryMap(country, {cities = [], routes = []} = {}) {
+// An illustrated map image with pins (country.map), used when a migrated country page
+// keeps its original drawn map instead of a sourced Natural Earth geographicMap.
+function renderIllustratedCountryMap(country, cities, assets) {
+  const m = country.map, a = assets?.get(m.assetId);
+  if (!a) throw Error('Illustrated map asset missing');
+  const pins = m.pins.map(p => { const c = cities.find(x => x.id === p.cityId); return `<a class="approved-map-pin${p.align === 'left' ? ' approved-map-pin--left' : ''}" href="${esc(c.path)}" style="--x:${p.x}%;--y:${p.y}%"><i aria-hidden="true"></i><span>${esc(c.name)}<small lang="en">${esc(c.englishName)}</small></span></a>`; }).join('');
+  return `<section class="approved-geographic-map approved-illustrated-map" aria-label="${esc(country.name)}旅行位置示意圖"><figure><div class="approved-illustrated-map-frame">${approvedPicture(a, {sizes:'(max-width:700px) calc(100vw - 40px), 580px'})}${pins}</div><figcaption>${esc(m.caption)}</figcaption></figure></section>`;
+}
+export function renderApprovedCountryMap(country, {cities = [], routes = [], assets} = {}) {
   const map = country.geographicMap;
-  if (!map) return '';
+  if (!map) return country.map ? renderIllustratedCountryMap(country, cities, assets) : '';
   const countryKey = String(country.id || 'country').replace(/[^a-z0-9-]/g,'');
   const topology = JSON.parse(readFileSync(new URL('../trip/globe-land.json', import.meta.url), 'utf8'));
   // The already-shipped Natural Earth topology contains real ISO country
