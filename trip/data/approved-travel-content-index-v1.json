@@ -136,7 +136,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "ede596aeebd94245e2a241daa0e1892fef4db48982b2254b12a31b5beb5f963f"
+      "sha256": "1535c74671d25f314e3e93761c12d7a6bcc95ebdae1a03f1a8b44643043877d2"
     },
     {
       "path": "/trip/netherlands/",
@@ -175,7 +175,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "a97d8b810b3d20f1b35fd568cdccec71071ffbf60b6975b0fad1ba900838ea2f"
+      "sha256": "e3570a0fc531a7421bd480d773a65f3b8de9aba6a8a72f4f562a1777ed518a92"
     },
     {
       "path": "/trip/malaysia/",
@@ -197,7 +197,7 @@
         "my-g2-s02",
         "my-g2-s03"
       ],
-      "sha256": "46700695a4d78a20c69181067305e8dbbd5494e01516ba18af32661b29f6bc8d"
+      "sha256": "86f3252d8a548f41b69a3a9d02fc17c3736d04c3a2e405328936ae446f0bed7b"
     },
     {
       "path": "/trip/guides/oslo-with-kids/",
@@ -232,7 +232,7 @@
         "photo-oslo-fram-2",
         "photo-oslo-fram-3"
       ],
-      "sha256": "46d38751322c62d14b59b295aa777a91eab025fff190727cba6f63d3e65f5f51"
+      "sha256": "40f829d0ee432f5de596ba88ca405cd8f1b28c7d0b7cc141338752d5d89a72f8"
     },
     {
       "path": "/trip/guides/svalbard-with-kids/",
@@ -284,7 +284,7 @@
         "photo-svalbard-glacier-cruise-2",
         "photo-svalbard-glacier-cruise-3"
       ],
-      "sha256": "34ea1fed945e076668c718c5892daa88e0d86a1240e2f6dc92140af965a561c2"
+      "sha256": "c0b64e3411ddf15fd83d6ae3370d0a2ba82f30603fd42c71ef86bfe5b4935d7d"
     },
     {
       "path": "/trip/guides/tromso-with-kids/",
@@ -323,7 +323,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "cdb3e06c74588dacb61bd65c7b71bc9821602ab3ae007647d0ddc3f90589dfaa"
+      "sha256": "9cba0375fa751de2c4a24ba0a9288e05f96ec839fb28529f18cfe448ed76b143"
     },
     {
       "path": "/trip/guides/amsterdam-with-kids/",
@@ -361,7 +361,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "74b671ffe98b29ee855dba2e75194f8eddc0c34ad4cfc8f081fa18ed18110b49"
+      "sha256": "06ba03bc22cffc4aaec4b79a1fe7a1163697685b68e58fdf35d8b23ed2ca61a7"
     },
     {
       "path": "/trip/guides/penang-with-kids/",
@@ -376,7 +376,7 @@
         "my-youtube-ayuc0px5ctc",
         "my-youtube-uro4dhm3dpk"
       ],
-      "sha256": "4b2a6ec218def0168a7e4cf0f06ce92b11dc5f08ba6aefd129884082af82e481"
+      "sha256": "e9aaf3325f234a18311d1c2865fd3e921d9984e4382b1d689152fa7234d56d9f"
     },
     {
       "path": "/trip/guides/kuala-lumpur-with-kids/",
@@ -388,7 +388,7 @@
         "my-youtube-v7id6nvbpuo",
         "my-youtube-my-7kubdvc8"
       ],
-      "sha256": "e06ac6689ed42877544f14353eb00ecd3a41e2a9340db43b1211712569f94b25"
+      "sha256": "a07d702d04821a492666ff56f2e91b0ea5dc9c973b3a0b8342d67e347abd71db"
     },
     {
       "path": "/trip/japan/",
@@ -403,7 +403,7 @@
         "s01",
         "c01"
       ],
-      "sha256": "86722b39c67448b87dae34d6ac948e3a21879b2d8a70dbc2f50fea4af6cd4cd6"
+      "sha256": "26a8c28c8da808cddf0742c771531ca5ec2f5815d2d1b3f72c1f4341df17b7d4"
     },
     {
       "path": "/trip/guides/asahikawa-with-kids/",
@@ -421,7 +421,7 @@
         "alma-zoo-behavior",
         "alma-museum-context"
       ],
-      "sha256": "c4fe4e56bc5f8ecae14623859cc29010eee6db46743d22d84a06e4cbd4f0703d"
+      "sha256": "8f29bbebfae4428190e6a8bf32f8df62cde22f7a979a14465932905c5b508927"
     },
     {
       "path": "/trip/guides/sapporo-with-kids/",
@@ -441,7 +441,7 @@
         "terra-aoao",
         "terra-aoao-access"
       ],
-      "sha256": "99392ccd67bfa728512c5d5d5da8385ade31d6c32188223bd58edc82e8f8fb97"
+      "sha256": "513728be1553c7f323079f776213c041c327abd93cf42c5cd530f5e30116f422"
     },
     {
       "path": "/trip/thailand/",
@@ -454,7 +454,7 @@
         "v-youtube-com-watch-v-droh1lm7dmo",
         "v-instagram-com-reel-ctrl60vqjsw"
       ],
-      "sha256": "5ead05b604f0d6e17fd4793c3effd29d9f17878c75d6e386863533ccda2d48c2"
+      "sha256": "3fcaeece6412efad71c1f0aa553573056b2271d958b49cc94e8673d7cc0bc4dd"
     },
     {
       "path": "/trip/guides/bangkok-with-kids/",
@@ -475,7 +475,7 @@
         "o-tattpe-org-tw-uploads-content-files-e-brochure-20bangkok-28e",
         "v-youtube-com-watch-v-f5h0ggdax2c-t-742s"
       ],
-      "sha256": "2173101f4d3dc5c47ab0a4b470807700391bff2b3b51d6a029a1606eb747bee3"
+      "sha256": "bd3d28907e94253f3671a43dc2ea3dbb67dda841068286b0078bb03e7d9b7a4c"
     },
     {
       "path": "/trip/guides/chiang-mai-with-kids/",
@@ -492,7 +492,7 @@
         "o-gingerfarmkitchen-com-welcome",
         "o-gingerfarmkitchen-com-reservations"
       ],
-      "sha256": "43b964a635e5cdb87696159f588821b8c6820443e04afb1c85d8454ba74d931e"
+      "sha256": "ee6913d85d444ab0b6341c2297127b2341766844c5a736f5c71aa3d235e96816"
     },
     {
       "path": "/trip/guides/chiang-rai-with-kids/",
@@ -510,7 +510,7 @@
         "o-singhapark-com",
         "o-lalittacafe-com-about-us"
       ],
-      "sha256": "4c1b2c8ba01543d5969856bd5b2d58b8436fae6f33f5686d9e9e7d89f9bae59a"
+      "sha256": "967f8becb03c7975fc4c426f6ca72269f77b5ea30d87ec203dc7a3ffc8851c99"
     },
     {
       "path": "/trip/singapore/",
@@ -531,7 +531,7 @@
         "v-youtube-com-watch-v-wny-jlq8tjm-t-0s",
         "o-mandai-com-en-river-wonders-html"
       ],
-      "sha256": "c05f5486c9660939aaf3ca5f0045e5d5a350c8d6374174e921783a24de062076"
+      "sha256": "087b6edf9b31cdfadac45f2418ece35608370a98c33f14be9353a70d0ccb0430"
     },
     {
       "path": "/trip/guides/cebu-bohol-with-kids/",
@@ -547,7 +547,7 @@
         "v-youtube-com-watch-v-qmngtzfpvdk-t-502s",
         "v-youtube-com-watch-v-qmngtzfpvdk-t-589s"
       ],
-      "sha256": "5a12e59ff7f4f1bfe4f2258990b9fa0d293317c0ab0dcb02c8df11bdbc431f71"
+      "sha256": "d224be2ed7c0ec9641634a31f3c0caff7d1d0acf1ab08ad9b64841566012dddb"
     },
     {
       "path": "/trip/new-zealand/",
@@ -562,7 +562,7 @@
         "v-youtube-com-watch-v-ksl8zbttkje",
         "v-instagram-com-p-c5vpj4kpq2y"
       ],
-      "sha256": "f89dccc3d388a62df5f5e3bc4ad88daa0ed281ac6dae037a0d4756314243ba13"
+      "sha256": "5244a638ee34e0e0078ffda304f8ea269955e91d1f6635ee9d4daffc2ef71474"
     },
     {
       "path": "/trip/new-zealand/north-island/",
@@ -580,7 +580,7 @@
         "o-aucklandcouncil-govt-nz-en-parks-recreation-get-outdoors-aklpaths-path",
         "o-rotorua-skyline-co-nz-things-to-do-luge-rotorua"
       ],
-      "sha256": "b1b32b200be9357168b2677272bf5916c334f69f26947526c5453eb09780de57"
+      "sha256": "c399c3209925c361eabcc43f1e7aa3ba9b2b30af73929ad904f6e5749d7b15e1"
     },
     {
       "path": "/trip/new-zealand/wellington/",
@@ -598,7 +598,7 @@
         "o-tepapa-govt-nz-visit-plan-your-visit",
         "o-tepapa-govt-nz-visit-tickets-international-visitor-museum-entry"
       ],
-      "sha256": "e1b385f2f3b9146aab88a01da6a8496404a37b70fbe71a665d52df7e1cd469f5"
+      "sha256": "100194736144760085e6cec33f2c494845c367bdae634aef29aec685e7355c0a"
     },
     {
       "path": "/trip/new-zealand/christchurch/3-days/",
@@ -616,7 +616,7 @@
         "o-ninjavalley-co-nz-christchurch-hours",
         "o-ninjavalley-co-nz-christchurch-pricing"
       ],
-      "sha256": "743053b78f19b26aaf1f06fdb2f58f767c7f0af4af0418a8ec90d43ac208e5d4"
+      "sha256": "4960034751cdf9367189d1b7ed7eaf95f510790df954c74125d3c9382de1ff28"
     },
     {
       "path": "/trip/new-zealand/mid-canterbury/",
@@ -634,7 +634,7 @@
         "o-ashburtonmuseum-co-nz-visit",
         "o-aviationmuseum-co-nz"
       ],
-      "sha256": "f4407f0e79024bfca860feb6df8eb64bbdbe5a37bdcae25a09ef5c75adac1d29"
+      "sha256": "a250d4c7b68abc288c0ba88b030903c6aae5614ad35ba275b243b8ae3badd959"
     },
     {
       "path": "/trip/new-zealand/kaikoura/",
@@ -648,7 +648,7 @@
         "o-doc-govt-nz-kaikoura-marine",
         "o-doc-govt-nz-give-wildlife-space"
       ],
-      "sha256": "ede70094dbb4d6ce479d008a8e054d19e5361d9e58ab3debc713d6944f7909c4"
+      "sha256": "acadae97ecfca57a761e646e2dced5d29d31445bc2bb9b8d80511ede21e627c4"
     },
     {
       "path": "/trip/new-zealand/otago/",
@@ -666,7 +666,7 @@
         "o-dunedin-govt-nz-community-facilities-freedom-camping",
         "o-doc-govt-nz-parks-and-recreation-places-to-go-otago-places-otago-penin"
       ],
-      "sha256": "a887b138a32e0372a314e8f14a5360903b9b6893bca66872e5881af0526ea845"
+      "sha256": "85713583120a26727ac9bb279a9404e3b23c33654b954d62edc65bd2bfe7115a"
     },
     {
       "path": "/trip/new-zealand/queenstown-arrowtown/",
@@ -684,7 +684,7 @@
         "o-queenstown-skyline-co-nz-activities-luge",
         "o-realnz-com-en-experiences-tss-earnslaw-walter-peak-experiences"
       ],
-      "sha256": "d467be9394c099ae0b5548c20b7afdccc80fa09aab41f18cf423ae77e74c3e5e"
+      "sha256": "417447acc8da7908dbea893f1de75ca111d6daff3a0b67f6f4e5815ea5f3bcc0"
     },
     {
       "path": "/trip/new-zealand/wanaka-tekapo/",
@@ -699,7 +699,7 @@
         "o-wanaka-co-nz-wanaka-stories-your-guide-to-the-wanaka-tree",
         "o-churchofthegoodshepherd-org-nz-visit"
       ],
-      "sha256": "dded7fbb6a7e021f1d182d0f2681783d6e6290cc05c828808d8adc336a35a58b"
+      "sha256": "51c070e05594b6050fb04309f7a15203063614850f79211cb9b602c17f400fe9"
     }
   ]
 }
