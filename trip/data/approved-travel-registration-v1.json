@@ -57,6 +57,17 @@
         "singapore"
       ],
       "publication": true
+    },
+    {
+      "dataPath": "trip/data/cebu-bohol-approved-travel-v1.json",
+      "expectedSha256": "9d452287100cae918e6b12d700ff1855541fbee4a38f91cc199d6b5acbca3c93",
+      "countryIds": [
+        "philippines"
+      ],
+      "cityIds": [
+        "cebu-bohol"
+      ],
+      "publication": true
     }
   ]
 }

@@ -46,7 +46,7 @@
       "category": "links",
       "message": "Link fragment not found on destination page: /trip/guides/chiang-mai-with-kids/#reels-2023",
       "file": "trip/guides/chiang-rai-with-kids/index.html",
-      "index": 63930
+      "index": 64022
     },
     {
       "level": "warn",
@@ -193,7 +193,7 @@
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/thailand/index.html",
-      "index": 34218
+      "index": 34310
     }
   ]
 }

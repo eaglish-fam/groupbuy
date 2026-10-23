@@ -26,3 +26,4 @@
 /* The sticky table of contents starts below the sticky masthead (110px; measured by
    approved-editorial-navigation.mjs where loaded), so its first entry stays clickable. */
 .approved-city-guide .toc{top:calc(var(--approved-chrome-height,110px) + 16px);max-height:calc(100vh - var(--approved-chrome-height,110px) - 32px)}
+.approved-city-guide .approved-anchor-alias{display:block;height:0;scroll-margin-top:145px}

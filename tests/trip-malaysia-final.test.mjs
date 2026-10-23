@@ -73,7 +73,7 @@ test('normal build emits a travel index bound to final normalized HTML rather th
  const index=JSON.parse(read('trip/data/approved-travel-content-index-v1.json')),reg=JSON.parse(read('trip/data/approved-travel-registration-v1.json'));
  assert.deepEqual(index.packages,reg.packages.map(p=>({dataPath:p.dataPath,packageSha256:p.expectedSha256,publication:p.publication})));
  // Europe/Malaysia keeps its nine pages; Japan has its country page and two city guides (the route is indexed separately);
- // Thailand has its country page and three city guides; Singapore is one guide (no separate country page).
- assert.deepEqual(reg.packages.map(p=>index.pages.filter(page=>page.packageSha256===p.expectedSha256).length),[9,3,4,1]);
+ // Thailand has its country page and three city guides; Singapore and Cebu/Bohol are one guide each (no separate country page).
+ assert.deepEqual(reg.packages.map(p=>index.pages.filter(page=>page.packageSha256===p.expectedSha256).length),[9,3,4,1,1]);
  for(const p of index.pages)assert.equal(p.sha256,createHash('sha256').update(readFileSync(new URL(p.path.slice(1)+'index.html',root))).digest('hex'),p.path);
 });
