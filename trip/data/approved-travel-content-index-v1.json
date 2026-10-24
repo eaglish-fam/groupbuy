@@ -8,7 +8,7 @@
     },
     {
       "dataPath": "trip/data/japan-approved-travel-v1.json",
-      "packageSha256": "5741793a049c01eee1be72bdccb3b9c8b0c9c0e0959e8752b0035719dab379df",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
       "publication": true
     },
     {
@@ -136,7 +136,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "1535c74671d25f314e3e93761c12d7a6bcc95ebdae1a03f1a8b44643043877d2"
+      "sha256": "0bf53d503b84bf780bcdea56638a278e99d8ed6f19858d91d440e03d9dfc8120"
     },
     {
       "path": "/trip/netherlands/",
@@ -175,7 +175,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "e3570a0fc531a7421bd480d773a65f3b8de9aba6a8a72f4f562a1777ed518a92"
+      "sha256": "cad037f3b5f34dd48da0257d0024db3e4635ddf7d2c7f32a54090e9fd25d775e"
     },
     {
       "path": "/trip/malaysia/",
@@ -197,7 +197,7 @@
         "my-g2-s02",
         "my-g2-s03"
       ],
-      "sha256": "86f3252d8a548f41b69a3a9d02fc17c3736d04c3a2e405328936ae446f0bed7b"
+      "sha256": "cef1746e3fdd275ce62dd9f7fc889aa7d2fe2620e743ec63e280a117dc8989e5"
     },
     {
       "path": "/trip/guides/oslo-with-kids/",
@@ -232,7 +232,7 @@
         "photo-oslo-fram-2",
         "photo-oslo-fram-3"
       ],
-      "sha256": "40f829d0ee432f5de596ba88ca405cd8f1b28c7d0b7cc141338752d5d89a72f8"
+      "sha256": "fda5200d2bf9ae44ca2b20902c38cd3a71c0a1c293e0d8a80117c32d3d65c310"
     },
     {
       "path": "/trip/guides/svalbard-with-kids/",
@@ -284,7 +284,7 @@
         "photo-svalbard-glacier-cruise-2",
         "photo-svalbard-glacier-cruise-3"
       ],
-      "sha256": "c0b64e3411ddf15fd83d6ae3370d0a2ba82f30603fd42c71ef86bfe5b4935d7d"
+      "sha256": "08be3a05e3d374be70fbb93c75fe2276b8f2f6c2c724074e60cbfa5c331b850a"
     },
     {
       "path": "/trip/guides/tromso-with-kids/",
@@ -323,7 +323,7 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "9cba0375fa751de2c4a24ba0a9288e05f96ec839fb28529f18cfe448ed76b143"
+      "sha256": "c9e8f9f338a8f9b00be998a7f9cf082f41707bfc5cb00202b706e41488b080bc"
     },
     {
       "path": "/trip/guides/amsterdam-with-kids/",
@@ -361,7 +361,7 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "06ba03bc22cffc4aaec4b79a1fe7a1163697685b68e58fdf35d8b23ed2ca61a7"
+      "sha256": "c7a5d71fdce8b5ec070c3a3b127e37faf5a91c27e3f4c0fe331f020bd9e54876"
     },
     {
       "path": "/trip/guides/penang-with-kids/",
@@ -376,7 +376,7 @@
         "my-youtube-ayuc0px5ctc",
         "my-youtube-uro4dhm3dpk"
       ],
-      "sha256": "e9aaf3325f234a18311d1c2865fd3e921d9984e4382b1d689152fa7234d56d9f"
+      "sha256": "e4fbde4320b00c7939a82ef8a5a9f03b554394b4bbb747f010b2e536b09aef6f"
     },
     {
       "path": "/trip/guides/kuala-lumpur-with-kids/",
@@ -388,26 +388,28 @@
         "my-youtube-v7id6nvbpuo",
         "my-youtube-my-7kubdvc8"
       ],
-      "sha256": "a07d702d04821a492666ff56f2e91b0ea5dc9c973b3a0b8342d67e347abd71db"
+      "sha256": "6f335de1167315b88e0c2dd61295912f0284f740fa2190e15cadc8d7b995fd18"
     },
     {
       "path": "/trip/japan/",
-      "packageSha256": "5741793a049c01eee1be72bdccb3b9c8b0c9c0e0959e8752b0035719dab379df",
-      "title": "日本親子旅行：北海道旭川、札幌攻略",
-      "description": "日本親子旅行先看北海道旭川與札幌：旭山動物園、科學館、手稻滑雪與市區玩法，附實訪照片、交通和嬰兒照顧經驗。",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "title": "日本親子旅行：北海道旭川、札幌、小樽與余市攻略",
+      "description": "日本親子旅行先看北海道：旭川動物園、札幌滑雪與市區、小樽運河與三角市場、余市海邊度假屋與 Kiroro 玩雪，附實訪照片、交通和嬰兒照顧經驗。",
       "updatedOn": "2026-10-22",
       "sourceIds": [
         "a01",
         "a10",
         "a12",
         "s01",
-        "c01"
+        "c01",
+        "o01",
+        "y00"
       ],
-      "sha256": "26a8c28c8da808cddf0742c771531ca5ec2f5815d2d1b3f72c1f4341df17b7d4"
+      "sha256": "9060a70352ccddd783ba0b53e95774e88d588feac53833905d8d50fc11bbf63d"
     },
     {
       "path": "/trip/guides/asahikawa-with-kids/",
-      "packageSha256": "5741793a049c01eee1be72bdccb3b9c8b0c9c0e0959e8752b0035719dab379df",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
       "title": "旭川親子攻略：旭山動物園、科學館與博物館",
       "description": "一家人帶著嬰兒走進旭川，從旭山動物園到科學館、博物館，再吃烤羊肉，記下各站玩法與家庭步調。",
       "updatedOn": "2026-10-22",
@@ -421,11 +423,11 @@
         "alma-zoo-behavior",
         "alma-museum-context"
       ],
-      "sha256": "8f29bbebfae4428190e6a8bf32f8df62cde22f7a979a14465932905c5b508927"
+      "sha256": "265083903f8bdf952cb9a6d38ca45f0f0853a07c5fb9d4f7be5ad48f460d8285"
     },
     {
       "path": "/trip/guides/sapporo-with-kids/",
-      "packageSha256": "5741793a049c01eee1be72bdccb3b9c8b0c9c0e0959e8752b0035719dab379df",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
       "title": "札幌親子攻略：手稻滑雪、白色戀人與 AOAO 水族館",
       "description": "我們在札幌住 Airbnb，安排兩天 iSKI 滑雪課，也帶孩子做巧克力、看水族館，記下嬰兒照顧與市區移動的實際經驗。",
       "updatedOn": "2026-10-22",
@@ -441,7 +443,36 @@
         "terra-aoao",
         "terra-aoao-access"
       ],
-      "sha256": "513728be1553c7f323079f776213c041c327abd93cf42c5cd530f5e30116f422"
+      "sha256": "991ae4b793bc92233caae648b02b4bab1071eb583a122fa809b0ac4b53447a79"
+    },
+    {
+      "path": "/trip/guides/otaru-with-kids/",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "title": "小樽親子散步：音樂盒、運河遊船與三角市場",
+      "description": "滑雪摔傷的隔天，我們帶著嬰兒從南小樽一路逛到小樽站：音樂盒、六花亭、炸雞午餐、運河館與運河遊船，晚上在三角市場吃螃蟹；另附 2023–24 年冬天的水族館一日。",
+      "updatedOn": "2026-10-21",
+      "sourceIds": [
+        "o01",
+        "o08",
+        "o09",
+        "o10"
+      ],
+      "sha256": "1ad3f5b68fbe5c01983d0c0dfbd63d7cc4785ebaf92eac1df35c92159123e7c1"
+    },
+    {
+      "path": "/trip/guides/yoichi-with-kids/",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "title": "余市親子攻略：海邊度假屋、Kiroro 玩雪與 Nikka 酒廠",
+      "description": "冬天住在余市海邊的度假屋五天四夜：Kiroro 雪場、雪上活動、えびす岩・大黒岩、在地迴轉壽司和 Nikka 余市蒸餾所的商店。住宿與 Family Tour 為受邀體驗。",
+      "updatedOn": "2026-10-24",
+      "sourceIds": [
+        "y00",
+        "y01",
+        "y02",
+        "y10",
+        "yoichi-town-profile"
+      ],
+      "sha256": "d71da4569cc04556c95e136949b02200c3f3ef91adca58bd61725421b83b4ddc"
     },
     {
       "path": "/trip/thailand/",
@@ -454,7 +485,7 @@
         "v-youtube-com-watch-v-droh1lm7dmo",
         "v-instagram-com-reel-ctrl60vqjsw"
       ],
-      "sha256": "3fcaeece6412efad71c1f0aa553573056b2271d958b49cc94e8673d7cc0bc4dd"
+      "sha256": "00c1996240916cb42f63bc0e3c6fa6991d11f06db361c54e1ce1b9292486ca2d"
     },
     {
       "path": "/trip/guides/bangkok-with-kids/",
@@ -475,7 +506,7 @@
         "o-tattpe-org-tw-uploads-content-files-e-brochure-20bangkok-28e",
         "v-youtube-com-watch-v-f5h0ggdax2c-t-742s"
       ],
-      "sha256": "bd3d28907e94253f3671a43dc2ea3dbb67dda841068286b0078bb03e7d9b7a4c"
+      "sha256": "1248884f72cd00236ce5b535eb15a85bf3748f2f449f2d6de7961c2e4a4a9466"
     },
     {
       "path": "/trip/guides/chiang-mai-with-kids/",
@@ -492,7 +523,7 @@
         "o-gingerfarmkitchen-com-welcome",
         "o-gingerfarmkitchen-com-reservations"
       ],
-      "sha256": "ee6913d85d444ab0b6341c2297127b2341766844c5a736f5c71aa3d235e96816"
+      "sha256": "14cbf9fa59a569bcfc019e29c91bd824628eed4b8d3e4f352aa0193a5304b997"
     },
     {
       "path": "/trip/guides/chiang-rai-with-kids/",
@@ -510,7 +541,7 @@
         "o-singhapark-com",
         "o-lalittacafe-com-about-us"
       ],
-      "sha256": "967f8becb03c7975fc4c426f6ca72269f77b5ea30d87ec203dc7a3ffc8851c99"
+      "sha256": "900db5e7eb5cf1f29a9c6445454d409d87136ad41005f8a1d8d38d8cbd8b3d30"
     },
     {
       "path": "/trip/singapore/",
@@ -531,7 +562,7 @@
         "v-youtube-com-watch-v-wny-jlq8tjm-t-0s",
         "o-mandai-com-en-river-wonders-html"
       ],
-      "sha256": "087b6edf9b31cdfadac45f2418ece35608370a98c33f14be9353a70d0ccb0430"
+      "sha256": "7603b3c2de01e77a667087232313cbc859e6308cb39ecef69a5dc807053b0798"
     },
     {
       "path": "/trip/guides/cebu-bohol-with-kids/",
@@ -547,7 +578,7 @@
         "v-youtube-com-watch-v-qmngtzfpvdk-t-502s",
         "v-youtube-com-watch-v-qmngtzfpvdk-t-589s"
       ],
-      "sha256": "d224be2ed7c0ec9641634a31f3c0caff7d1d0acf1ab08ad9b64841566012dddb"
+      "sha256": "c3cc2c994934ee4823d1f85e7f0c3d3100a0fdb82af83f2b5fadd8444cd858fd"
     },
     {
       "path": "/trip/new-zealand/",
@@ -562,7 +593,7 @@
         "v-youtube-com-watch-v-ksl8zbttkje",
         "v-instagram-com-p-c5vpj4kpq2y"
       ],
-      "sha256": "5244a638ee34e0e0078ffda304f8ea269955e91d1f6635ee9d4daffc2ef71474"
+      "sha256": "82596fd614f760886ee758b8c77265e48e78900693368dc8bae3fd2ed4f35978"
     },
     {
       "path": "/trip/new-zealand/north-island/",
@@ -580,7 +611,7 @@
         "o-aucklandcouncil-govt-nz-en-parks-recreation-get-outdoors-aklpaths-path",
         "o-rotorua-skyline-co-nz-things-to-do-luge-rotorua"
       ],
-      "sha256": "c399c3209925c361eabcc43f1e7aa3ba9b2b30af73929ad904f6e5749d7b15e1"
+      "sha256": "7882eda594421b63999f02bfe47029257f06b1d1d69298cd945677de26a19862"
     },
     {
       "path": "/trip/new-zealand/wellington/",
@@ -598,7 +629,7 @@
         "o-tepapa-govt-nz-visit-plan-your-visit",
         "o-tepapa-govt-nz-visit-tickets-international-visitor-museum-entry"
       ],
-      "sha256": "100194736144760085e6cec33f2c494845c367bdae634aef29aec685e7355c0a"
+      "sha256": "79b10a253b5c82e77b08a06ecfb6cafcc24b319b167e7b70cce24009a4da8030"
     },
     {
       "path": "/trip/new-zealand/christchurch/3-days/",
@@ -616,7 +647,7 @@
         "o-ninjavalley-co-nz-christchurch-hours",
         "o-ninjavalley-co-nz-christchurch-pricing"
       ],
-      "sha256": "4960034751cdf9367189d1b7ed7eaf95f510790df954c74125d3c9382de1ff28"
+      "sha256": "f308fd4bf86c9c58b30b2d0e0fd893a2904ce2bfd6a552f12eea437988d35d30"
     },
     {
       "path": "/trip/new-zealand/mid-canterbury/",
@@ -634,7 +665,7 @@
         "o-ashburtonmuseum-co-nz-visit",
         "o-aviationmuseum-co-nz"
       ],
-      "sha256": "a250d4c7b68abc288c0ba88b030903c6aae5614ad35ba275b243b8ae3badd959"
+      "sha256": "53178babb607299183579a243e714a6bcfed4a6d2d73bdea92e43bb1e39a6f64"
     },
     {
       "path": "/trip/new-zealand/kaikoura/",
@@ -648,7 +679,7 @@
         "o-doc-govt-nz-kaikoura-marine",
         "o-doc-govt-nz-give-wildlife-space"
       ],
-      "sha256": "acadae97ecfca57a761e646e2dced5d29d31445bc2bb9b8d80511ede21e627c4"
+      "sha256": "6ea956ed871fb1f57a1d66be4a9d9fa2b638719c95024aeec1145bee692176fa"
     },
     {
       "path": "/trip/new-zealand/otago/",
@@ -666,7 +697,7 @@
         "o-dunedin-govt-nz-community-facilities-freedom-camping",
         "o-doc-govt-nz-parks-and-recreation-places-to-go-otago-places-otago-penin"
       ],
-      "sha256": "85713583120a26727ac9bb279a9404e3b23c33654b954d62edc65bd2bfe7115a"
+      "sha256": "a18244a20f8264ff1b2d944d3c31a572cb0db8ed918ba5ad8fe2bac1905133ee"
     },
     {
       "path": "/trip/new-zealand/queenstown-arrowtown/",
@@ -684,7 +715,7 @@
         "o-queenstown-skyline-co-nz-activities-luge",
         "o-realnz-com-en-experiences-tss-earnslaw-walter-peak-experiences"
       ],
-      "sha256": "417447acc8da7908dbea893f1de75ca111d6daff3a0b67f6f4e5815ea5f3bcc0"
+      "sha256": "cccbdc0522a3925667886c92b7d5ae5d183cada6ad5d13f2dd250e894fd19c80"
     },
     {
       "path": "/trip/new-zealand/wanaka-tekapo/",
@@ -699,7 +730,7 @@
         "o-wanaka-co-nz-wanaka-stories-your-guide-to-the-wanaka-tree",
         "o-churchofthegoodshepherd-org-nz-visit"
       ],
-      "sha256": "51c070e05594b6050fb04309f7a15203063614850f79211cb9b602c17f400fe9"
+      "sha256": "01dc7f7dffe0048cc1561ab683c76731bc2ecd2fe4d73739d18729eacc22eca1"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "counts": {
-    "pages": 62,
+    "pages": 64,
     "blocking": 0,
     "warnings": 27,
     "total": 27
@@ -179,7 +179,7 @@
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/index.html",
-      "index": 540349
+      "index": 540643
     },
     {
       "level": "warn",

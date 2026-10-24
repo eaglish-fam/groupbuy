@@ -927,6 +927,484 @@
       "label": "國土交通省 2006 新千歲空港概況",
       "checkedOn": "2026-10-21",
       "rights": "官方公開資訊之事實引用；未採用官方照片或整段原文。"
+    },
+    {
+      "id": "otaru-otaru-orgel-co-jp-shop",
+      "kind": "official",
+      "url": "https://www.otaru-orgel.co.jp/shop",
+      "label": "小樽音樂盒堂店鋪",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-rokkatei-co-jp-shop-sapporo",
+      "kind": "official",
+      "url": "https://www.rokkatei.co.jp/shop/sapporo/",
+      "label": "六花亭店鋪一覽・小樽運河店段",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-otaru-gr-jp-shop-wakatorijidai-naruto-honten",
+      "kind": "official",
+      "url": "https://otaru.gr.jp/shop/wakatorijidai-naruto-honten",
+      "label": "小樽觀光協會・若鶏時代なると本店",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-city-otaru-lg-jp-docs-2023031200049-otarumuseum-html",
+      "kind": "official",
+      "url": "https://www.city.otaru.lg.jp/docs/2023031200049/otarumuseum.html",
+      "label": "小樽市綜合博物館利用案內",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-city-otaru-lg-jp-docs-2020111400122",
+      "kind": "official",
+      "url": "https://www.city.otaru.lg.jp/docs/2020111400122/",
+      "label": "小樽運河館展示",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-otaru-cc-price",
+      "kind": "official",
+      "url": "https://otaru.cc/price/",
+      "label": "小樽運河 Cruise 料金",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-otaru-cc-faq",
+      "kind": "official",
+      "url": "https://otaru.cc/faq/",
+      "label": "小樽運河 Cruise FAQ",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-otaru-cc-timetable",
+      "kind": "official",
+      "url": "https://otaru.cc/timetable/",
+      "label": "小樽運河 Cruise 時刻表",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-otaru-cc-access",
+      "kind": "official",
+      "url": "https://otaru.cc/access/",
+      "label": "小樽運河 Cruise 乘船處",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-otaru-gr-jp-shop-otarusankakuichiba",
+      "kind": "official",
+      "url": "https://otaru.gr.jp/shop/otarusankakuichiba",
+      "label": "小樽觀光協會・三角市場",
+      "checkedOn": "2026-10-21",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "y11",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1122",
+      "label": "冬天的おたる水族館",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y12",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1340",
+      "label": "びっくりドンキー午餐與結冰的路",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y13",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1466",
+      "label": "第二次去小樽音樂盒堂",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y14",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1726",
+      "label": "小樽一天的路線",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "otaru-aq-hours",
+      "kind": "official",
+      "url": "https://otaru-aq.jp/guide/openningtime",
+      "label": "おたる水族館 營業期間與時間",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-aq-tickets",
+      "kind": "official",
+      "url": "https://otaru-aq.jp/guide/tickets",
+      "label": "おたる水族館 票價",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-aq-access",
+      "kind": "official",
+      "url": "https://otaru-aq.jp/guide/access",
+      "label": "おたる水族館 交通",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-aq-show",
+      "kind": "official",
+      "url": "https://otaru-aq.jp/events/showtime",
+      "label": "おたる水族館 いきもののじかん",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-aq-park",
+      "kind": "official",
+      "url": "https://otaru-aq.jp/amusementpark",
+      "label": "おたる水族館 遊樂園",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "otaru-frame-137",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=137",
+      "label": "孩子在音樂盒堂裡挑玩偶，想送給妹妹。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "otaru-frame-210",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=210",
+      "label": "音樂盒堂裡是整片木頭裝潢，樓上還有展示。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "otaru-frame-399",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=399",
+      "label": "六花亭店裡，媽媽最推薦的是大平原。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "otaru-frame-640",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=640",
+      "label": "孩子餓了，先吃若鶏時代なると的炸雞。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "otaru-frame-963",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=963",
+      "label": "運河館裡，爸爸對著畫作講小樽港的歷史。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "otaru-frame-1363",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=nAKoy93DtQw&t=1363",
+      "label": "三角市場的螃蟹晚餐。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "otaru24-frame-1208",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1208",
+      "label": "水族館的戶外區風很大，後面是冬天關閉的遊樂園。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "otaru24-frame-1283",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1283",
+      "label": "第一次這麼近看海豚表演。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "otaru24-frame-1427",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1427",
+      "label": "往運河走的路全結冰了，連孩子也滑倒。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "otaru24-frame-1548",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1548",
+      "label": "2023–24 年冬天再訪音樂盒堂，店裡很擠。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "y00",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=0",
+      "label": "余市五天四夜：抵達小樽站",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y01",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=140",
+      "label": "余市海邊的度假屋",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y02",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=295",
+      "label": "到 AEON 補買雪具與晚餐",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y03",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=440",
+      "label": "Kiroro 雪場與山上午餐",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y04",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=750",
+      "label": "房東安排的雪上活動",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y05",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1787",
+      "label": "余市海邊與えびす岩・大黒岩",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y06",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2076",
+      "label": "余市番屋迴轉壽司",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y07",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2121",
+      "label": "Nikka 余市蒸餾所商店",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y08",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2197",
+      "label": "在地公園玩雪",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y09",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2262",
+      "label": "最後一晚的日式晚餐",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "y10",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2370",
+      "label": "五天四夜總結與 Family Tour 內容",
+      "rights": "鷹式一家自有影片。"
+    },
+    {
+      "id": "yoichi-kiroro-access",
+      "kind": "official",
+      "url": "https://www.kiroro.co.jp/ja/access-winter/",
+      "label": "Kiroro 冬季交通",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "yoichi-kiroro-hours",
+      "kind": "official",
+      "url": "https://www.kiroro.co.jp/ja/operating_hours/",
+      "label": "Kiroro 2025-26 營運時間",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "yoichi-kiroro-rental",
+      "kind": "official",
+      "url": "https://www.kiroro.co.jp/ja/rental_price/",
+      "label": "Kiroro 租借價目與時間",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "yoichi-town-ebisu-daikoku",
+      "kind": "official",
+      "url": "https://www.town.yoichi.hokkaido.jp/machi/syoukai/bunnkazai-ebisudaikoku.html",
+      "label": "余市町：えびす岩・大黒岩",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "yoichi-town-profile",
+      "kind": "official",
+      "url": "https://www.town.yoichi.hokkaido.jp/machi/syoukai/files/suuji_de_miru_yoichi-2024.pdf",
+      "label": "余市町「数字でみる よいち」2024",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "yoichi-nikka-reservation",
+      "kind": "official",
+      "url": "https://distillery.nikka.com/yoichi/reservation",
+      "label": "Nikka 余市蒸餾所導覽預約",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "yoichi-nikka-access",
+      "kind": "official",
+      "url": "https://www.nikka.com/en/distilleries/yoichi/access/",
+      "label": "Nikka 余市蒸餾所交通",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "yoichi-holiday-fugoppe",
+      "kind": "official",
+      "url": "https://yoichiholiday.com/en/beach-front-fugoppe",
+      "label": "Yoichi Holiday：Beach Front Fugoppe",
+      "checkedOn": "2026-10-24",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "yoichi-frame-147",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=147",
+      "label": "抵達余市海邊的度假屋。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-190",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=190",
+      "label": "房東介紹房子，說旁邊還有一條河。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-441",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=441",
+      "label": "往雪場的路上，窗外雪一直下。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-642",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=642",
+      "label": "山上風雪很大，全身包緊。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-673",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=673",
+      "label": "搭纜車，外面霧茫茫的。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-762",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=762",
+      "label": "雪上活動的第一項：雪上摩托車。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-792",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=792",
+      "label": "一家人坐上橡皮艇，由雪上摩托車拉著跑。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-830",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=830",
+      "label": "香蕉船比較刺激，小孩不能坐。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-1803",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1803",
+      "label": "鬆鬆軟軟的雪，遠處就是えびす岩和大黒岩。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-1823",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=1823",
+      "label": "えびす岩和大黒岩的解說牌。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-2089",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2089",
+      "label": "房東說這家不是連鎖店。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-2098",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2098",
+      "label": "在余市番屋吃午餐。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-2121",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2121",
+      "label": "Nikka 余市蒸餾所的石造大門。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-2148",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2148",
+      "label": "導覽額滿，商店在後面。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-2173",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2173",
+      "label": "在後面的商店買伴手禮。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-2197",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2197",
+      "label": "下大雪也沒有擋住孩子玩雪。",
+      "rights": "鷹式一家自有影片畫格。"
+    },
+    {
+      "id": "yoichi-frame-2308",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=VThgTPbHDVU&t=2308",
+      "label": "最後一晚的私廚日式晚餐。",
+      "rights": "鷹式一家自有影片畫格。"
     }
   ],
   "assets": [
@@ -2682,6 +3160,1383 @@
         "pts": 36300264,
         "timebase": "1/30000"
       }
+    },
+    {
+      "assetId": "jp-otaru26-137",
+      "width": 1440,
+      "height": 810,
+      "alt": "孩子在音樂盒堂裡拿著一隻粉紅色的小熊玩偶。",
+      "caption": "孩子在音樂盒堂裡挑玩偶，想送給妹妹。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru-frame-137"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru26-137-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 14534,
+          "sha256": "223593c9e9dafb1236cb41fccdcd0b0e16333f43816b8192deb9d0a72c049ad1"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-137-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 23362,
+          "sha256": "a1273e528f1177e76df6c19d281e3bf39ea16d896bf8b2a3759e6a25c6d98f1b"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-137-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 37666,
+          "sha256": "2218d3e87f37f810deae1827d6532ac6ef979a9d39254f635aee13df15f059b3"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "2218d3e87f37f810deae1827d6532ac6ef979a9d39254f635aee13df15f059b3",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 12330000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-otaru26-210",
+      "width": 1440,
+      "height": 810,
+      "alt": "媽媽站在音樂盒堂木頭裝潢的樓梯旁。",
+      "caption": "音樂盒堂裡是整片木頭裝潢，樓上還有展示。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru-frame-210"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru26-210-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 28208,
+          "sha256": "184cb0e260ae496e42897cec7e9414eef2f5e337f3610f7ba651b092a5f2b821"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-210-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 45694,
+          "sha256": "44a759896999ee15d18fdffc4fdd74aaff4d05a4daed74d63e7294a65e953daf"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-210-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 71832,
+          "sha256": "c8b0a8bc4c4a8326b49ac8c33d8dfd15d108589e9917bf963a9d2a372a28549e"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "c8b0a8bc4c4a8326b49ac8c33d8dfd15d108589e9917bf963a9d2a372a28549e",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 18900000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-otaru26-399",
+      "width": 1440,
+      "height": 810,
+      "alt": "媽媽在六花亭店內說話，牆上是大平原點心的海報，櫃上擺著點心。",
+      "caption": "六花亭店裡，媽媽最推薦的是大平原。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru-frame-399"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru26-399-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 20242,
+          "sha256": "66d8be8369a4147f14b0efb9b30bd6170b910846c2a159833de61be3770d4754"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-399-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 31854,
+          "sha256": "8fb1e57c9e62de34d517c1e209c7a594e9937ae41f05b193b4c667c27b7a710d"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-399-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 50316,
+          "sha256": "29826a8788dc7ecc51e90a46141036646a572dc177c5eeeb1bb4f404aa4410b1"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "29826a8788dc7ecc51e90a46141036646a572dc177c5eeeb1bb4f404aa4410b1",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 35910000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-otaru26-640",
+      "width": 1440,
+      "height": 810,
+      "alt": "兩個孩子坐在餐桌前，桌上一盤炸雞，旁邊是奶奶和嬰兒。",
+      "caption": "孩子餓了，先吃若鶏時代なると的炸雞。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru-frame-640"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru26-640-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 27034,
+          "sha256": "bd4ea3fb511de8e03f41bc3218e147574b2b97dc5212aa3bd5b6b19249217e61"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-640-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 44204,
+          "sha256": "de537c552e09bcf9ec701383ae9b92acbda57eb8fce7a6bf76cb658e453f4a4f"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-640-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 70560,
+          "sha256": "2c341a5fe8ba6cf168f4bdc6670d69be1a34a941dd1be2a70547591a11263a4e"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "2c341a5fe8ba6cf168f4bdc6670d69be1a34a941dd1be2a70547591a11263a4e",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 57600000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-otaru26-963",
+      "width": 1440,
+      "height": 810,
+      "alt": "爸爸拿著導覽單站在運河館展示區，旁邊是港口的大型畫作。",
+      "caption": "運河館裡，爸爸對著畫作講小樽港的歷史。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru-frame-963"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru26-963-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 25660,
+          "sha256": "38d37494b765bb2df431fdddcfacca107833167c6a4f78b6e726dbba98f3ad42"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-963-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 41604,
+          "sha256": "2339d208c2e254b5e0d77f1cb189b19ca65fcb748b0834e49fd7f3cccf7a66fe"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-963-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 65364,
+          "sha256": "e65362478b58b676a2f77d545908924829bf3a76b4513b237371d5999535c0cd"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "e65362478b58b676a2f77d545908924829bf3a76b4513b237371d5999535c0cd",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 86670000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-otaru26-1363",
+      "width": 1440,
+      "height": 810,
+      "alt": "桌上一盤帝王蟹腳和一碗鮭魚卵丼，嬰兒坐在旁邊看。",
+      "caption": "三角市場的螃蟹晚餐。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru-frame-1363"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru26-1363-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 37260,
+          "sha256": "4eca4a749f743d633ff83e9b30974a84bd3798d40fcc105381ed43b153f8f53b"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-1363-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 64778,
+          "sha256": "39ba08122a3cdafa63d76bceec8882a1d65cf832aa1a0183cf4dcef931c5a891"
+        },
+        {
+          "url": "/trip/assets/jp-otaru26-1363-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 107860,
+          "sha256": "17b9b8064e364fb08afdfa971691d2eb09d3a5065a0ec4f58b5c5e8679d9dc77"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "17b9b8064e364fb08afdfa971691d2eb09d3a5065a0ec4f58b5c5e8679d9dc77",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 122670000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-otaru24-1208",
+      "width": 1440,
+      "height": 810,
+      "alt": "強風中媽媽戴著帽子，後方是積雪的戶外池與摩天輪。",
+      "caption": "水族館的戶外區風很大，後面是冬天關閉的遊樂園。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru24-frame-1208"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru24-1208-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 25976,
+          "sha256": "0cb2ea36f7b345cc47d570bd4e5ab64b4b60f17b54fca3983f0d4058269fe014"
+        },
+        {
+          "url": "/trip/assets/jp-otaru24-1208-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 43500,
+          "sha256": "945a7b29e1bb51a86e8584fda83db4014ce65369294a4e4bd95cdf3e20829a65"
+        },
+        {
+          "url": "/trip/assets/jp-otaru24-1208-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 69996,
+          "sha256": "bb49156043883279402a7f807b28034ff2d198e918cc8bfba06a677030fe736f"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "bb49156043883279402a7f807b28034ff2d198e918cc8bfba06a677030fe736f",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 108720000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-otaru24-1283",
+      "width": 1440,
+      "height": 810,
+      "alt": "孩子坐在觀眾席上專心看表演。",
+      "caption": "第一次這麼近看海豚表演。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru24-frame-1283"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru24-1283-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 20856,
+          "sha256": "6d6974484c25baad91cd8717a3e8e35a098bdc85afee6abcd64d395ac8d88978"
+        },
+        {
+          "url": "/trip/assets/jp-otaru24-1283-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 36452,
+          "sha256": "370c221bbf3f38fd4d7b10f7e795238d1385095168ec5ed3b307fef921def64d"
+        },
+        {
+          "url": "/trip/assets/jp-otaru24-1283-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 59576,
+          "sha256": "1eebed35c8d8d5138c7b5a1adff8b21bd5ca1e05a598781ae35bb2971ae815f7"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "1eebed35c8d8d5138c7b5a1adff8b21bd5ca1e05a598781ae35bb2971ae815f7",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 115470000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-otaru24-1427",
+      "width": 1440,
+      "height": 810,
+      "alt": "結冰的廣場上，媽媽彎腰扶著孩子，後面行人小心走路。",
+      "caption": "往運河走的路全結冰了，連孩子也滑倒。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru24-frame-1427"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru24-1427-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 37836,
+          "sha256": "f21db0f2b265223978d005a34de8f72ac6067f103cdff56f2e471243f676d9cc"
+        },
+        {
+          "url": "/trip/assets/jp-otaru24-1427-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 70438,
+          "sha256": "2a2c1fb0ecc9779c71025f3a5830059fa4f059a2b634080f51c2d9d54b75619a"
+        },
+        {
+          "url": "/trip/assets/jp-otaru24-1427-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 116390,
+          "sha256": "3a62f388e4c1efa9d6118d86b3782436efbf183bddb2cd63905e0159b4074802"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "3a62f388e4c1efa9d6118d86b3782436efbf183bddb2cd63905e0159b4074802",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 128430000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-otaru24-1548",
+      "width": 1440,
+      "height": 810,
+      "alt": "音樂盒堂裡層層堆疊的音樂盒展示台，旁邊是逛街的人。",
+      "caption": "2023–24 年冬天再訪音樂盒堂，店裡很擠。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "otaru24-frame-1548"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-otaru24-1548-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 25082,
+          "sha256": "66187f144d2bfbeead6a1f8a7153ce0475c7b431bf8e79b1ae20e407c14dbffd"
+        },
+        {
+          "url": "/trip/assets/jp-otaru24-1548-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 41712,
+          "sha256": "505cd3a847579988b2c95850547b7d0dda15fdce99853fbbb78dc73632006163"
+        },
+        {
+          "url": "/trip/assets/jp-otaru24-1548-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 67518,
+          "sha256": "e5673dc480af6cab54f004bd4e20b76148e25c02e3314dce1ec5544de19f9b7c"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "e5673dc480af6cab54f004bd4e20b76148e25c02e3314dce1ec5544de19f9b7c",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 139320000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-147",
+      "width": 1440,
+      "height": 810,
+      "alt": "積雪中的兩層斜屋頂度假屋外觀。",
+      "caption": "抵達余市海邊的度假屋。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-147"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-147-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 23754,
+          "sha256": "e7fc39aeb4696cd40aaba92cf03e2ef8bce586021a6e1654bbfabda1ae78a563"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-147-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 45154,
+          "sha256": "d1ced1a637d1cec48bf8fbcdcede455d572d813d3a33638515b82d1288bc74b6"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-147-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 77594,
+          "sha256": "640e0234217b282436a996b9d2838b2694ebd61f7ec856b84818a230d31abbfb"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "640e0234217b282436a996b9d2838b2694ebd61f7ec856b84818a230d31abbfb",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 13230000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-190",
+      "width": 1440,
+      "height": 810,
+      "alt": "房東在度假屋的客廳指向窗外，孩子站在餐桌旁。",
+      "caption": "房東介紹房子，說旁邊還有一條河。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-190"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-190-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 18748,
+          "sha256": "72426c89cf9c677da34cd6459b5fb5c2c79a1d1032eb2928dd37c46cd4ba6ac1"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-190-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 29480,
+          "sha256": "b93bd54178dc45bfa7fa00cc2b68a6c5ac3f4b2857712929a988af2e3325da84"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-190-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 45582,
+          "sha256": "0f7d12ee6cd17536ab626085f6510de1236efe1d5964ef71248b5e35a0303d86"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "0f7d12ee6cd17536ab626085f6510de1236efe1d5964ef71248b5e35a0303d86",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 17100000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-441",
+      "width": 1440,
+      "height": 810,
+      "alt": "孩子坐在車裡，看著窗外大雪中的路。",
+      "caption": "往雪場的路上，窗外雪一直下。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-441"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-441-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 11226,
+          "sha256": "574d6f6c96ca03f941eeafcfbea1e3a87d23a9e60715a0afdd09fec7e31b5cb9"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-441-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 18842,
+          "sha256": "8db8223867e03e8ea6d8f057f4271ea6549b260c77926e34a6201eff0caad0b5"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-441-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 31212,
+          "sha256": "a2b06cb94bffd0574e86ac58a9c69f7fd67988e95480e33ac3a77b6e23a5d1ad"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "a2b06cb94bffd0574e86ac58a9c69f7fd67988e95480e33ac3a77b6e23a5d1ad",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 39690000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-642",
+      "width": 1440,
+      "height": 810,
+      "alt": "媽媽戴著護目鏡和連帽外套，在雪場揮手。",
+      "caption": "山上風雪很大，全身包緊。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-642"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-642-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 31928,
+          "sha256": "ecd2df4c96df1a3991b617d43317071134238ec3d81adc3a0e26d0c981831d6a"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-642-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 56120,
+          "sha256": "b6ecdb5c7f0b6c218b0670d804e00b99a24ebdb037fd94834f82e8885f0ccf54"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-642-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 89006,
+          "sha256": "8d2575e7934a7284d86061c52d1810cf8d5eece53f93e753603b7e84e62bbfdb"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "8d2575e7934a7284d86061c52d1810cf8d5eece53f93e753603b7e84e62bbfdb",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 57780000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-673",
+      "width": 1440,
+      "height": 810,
+      "alt": "爸爸戴著護目鏡坐在纜車車廂裡，窗外一片白。",
+      "caption": "搭纜車，外面霧茫茫的。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-673"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-673-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 22176,
+          "sha256": "1fa8b4836460f0e5d96cb68d9e76f438f593a36ca6f3c4a6d70de15a571f7954"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-673-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 37304,
+          "sha256": "0660c3ed570dab6afda1558bf1ae6926374b9d43b2a35d9b882b72a5a373104c"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-673-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 60048,
+          "sha256": "afe367254e15ddd48ef8b3cde3be966e9a6dddfd5074ddc20e45e642a8daef74"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "afe367254e15ddd48ef8b3cde3be966e9a6dddfd5074ddc20e45e642a8daef74",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 60570000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-762",
+      "width": 1440,
+      "height": 810,
+      "alt": "媽媽和孩子戴著安全帽騎雪上摩托車，背景是雪地和山。",
+      "caption": "雪上活動的第一項：雪上摩托車。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-762"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-762-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 26522,
+          "sha256": "1df07ce0740dcce30390872491359a6c79d3dec531a2e3b1935f84c35ed00a35"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-762-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 48796,
+          "sha256": "996a43bce2112b94004aff5465867765f388de7b3eb2021f39d79572ca4c2304"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-762-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 81598,
+          "sha256": "060a3b73fcad8c46522fb619d9c31ab56859b941e6da41679b12b77a549d94dd"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "060a3b73fcad8c46522fb619d9c31ab56859b941e6da41679b12b77a549d94dd",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 68580000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-792",
+      "width": 1440,
+      "height": 810,
+      "alt": "一家人戴著安全帽坐在黃色橡皮艇裡自拍。",
+      "caption": "一家人坐上橡皮艇，由雪上摩托車拉著跑。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-792"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-792-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32404,
+          "sha256": "ce8748b276594c87fa984a4f73ceda9cbcab60176b9833741992fdce166ae103"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-792-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 54578,
+          "sha256": "69ec9db2d54cafbd8667835bc1c6829acd438e4990973ee4e010bc978d95139f"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-792-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 89670,
+          "sha256": "38c8696f9f90ce7518322c993d69f3cdd70f2ce1406b91337479b88dcfaaaf72"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "38c8696f9f90ce7518322c993d69f3cdd70f2ce1406b91337479b88dcfaaaf72",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 71280000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-830",
+      "width": 1440,
+      "height": 810,
+      "alt": "從香蕉船上看前方拉船的雪上摩托車和雪地。",
+      "caption": "香蕉船比較刺激，小孩不能坐。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-830"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-830-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 24488,
+          "sha256": "663be3e50f240b41ac76adc9f0de3944bf1e4ab21906c704d916a76f58fe52ed"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-830-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 44032,
+          "sha256": "fb5c3db9f0580a1564b40de5002fe42ef5ad80e721a6e35a0aec35d124108b0e"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-830-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 74106,
+          "sha256": "87f246891bf76169e25edc34221fedd71a2be43b0e96e363a86a2763f85ebfdc"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "87f246891bf76169e25edc34221fedd71a2be43b0e96e363a86a2763f85ebfdc",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 74700000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-1803",
+      "width": 1440,
+      "height": 810,
+      "alt": "戴手套的手按在鬆軟的雪上，遠處海上是兩塊岩石。",
+      "caption": "鬆鬆軟軟的雪，遠處就是えびす岩和大黒岩。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-1803"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-1803-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 15246,
+          "sha256": "5c56355022954a7cdaa87a974988a0cf5d0aabac569c87d97a34bf8bcd55c88a"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-1803-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 26404,
+          "sha256": "013f3eead07e92ca3bcedf1e4547b0f1842bf26ec0f7c59a324503588e3d6adf"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-1803-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 43482,
+          "sha256": "93abbbb423cf2b0728f413fc1ba54ed7d9c04d6c9b6aa6b6649c198c338a52e3"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "93abbbb423cf2b0728f413fc1ba54ed7d9c04d6c9b6aa6b6649c198c338a52e3",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 162270000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-1823",
+      "width": 1440,
+      "height": 810,
+      "alt": "海邊的えびす岩と大黒岩解說牌，後方海上可見岩石與斷崖。",
+      "caption": "えびす岩和大黒岩的解說牌。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-1823"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-1823-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 26056,
+          "sha256": "bfbc6d25e0416beeda00b4eba8bda900e0029e793c24d13b2f8f45fbb01fc1f1"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-1823-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 46166,
+          "sha256": "c923c0be041ad010b14d30923e9ca0ac0f41062cf7a019d43b1c8a942b499162"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-1823-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 74680,
+          "sha256": "127fa7c49f49e7d0a162cda8b33673903882e8b17ecd77eb1be35ecbfefb13a2"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "127fa7c49f49e7d0a162cda8b33673903882e8b17ecd77eb1be35ecbfefb13a2",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 164070000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-2089",
+      "width": 1440,
+      "height": 810,
+      "alt": "爸爸和媽媽坐在迴轉壽司店的座位自拍。",
+      "caption": "房東說這家不是連鎖店。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-2089"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-2089-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 20052,
+          "sha256": "7e04a65b5d0e85724aae3d5a3431735d74c5dcf6d12483d14d4507872533dbb2"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2089-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 37276,
+          "sha256": "640f9182b168adbb0c60f9f5c06f3139546ae009f075e209d6afe56204d6ffbd"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2089-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 67410,
+          "sha256": "fb1ad9ab236dcb40e370f78c2da779594cfc7fd2c54546af2be0e96bec9377d6"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "fb1ad9ab236dcb40e370f78c2da779594cfc7fd2c54546af2be0e96bec9377d6",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 188010000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-2098",
+      "width": 1440,
+      "height": 810,
+      "alt": "迴轉壽司吧台前，師傅遞出一盤壽司，桌上疊著盤子。",
+      "caption": "在余市番屋吃午餐。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-2098"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-2098-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 37130,
+          "sha256": "02877350fbc4ca9da274f79c3a6a42ffedd8db62d2f86d42d1a85d19c44b17ca"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2098-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 66308,
+          "sha256": "edf7e439cfaeb73a41ca32e7ded78ff985a648aa117b2ecfeeb5c02d849f9f72"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2098-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 112364,
+          "sha256": "9c068d426ff8a678b8180cc9545a564a78b384c68e6aa8e1331e9ede04b97252"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "9c068d426ff8a678b8180cc9545a564a78b384c68e6aa8e1331e9ede04b97252",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 188820000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-2121",
+      "width": 1440,
+      "height": 810,
+      "alt": "Nikka 余市蒸餾所的石造拱門。",
+      "caption": "Nikka 余市蒸餾所的石造大門。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-2121"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-2121-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 24674,
+          "sha256": "929ee8902dd89b9b46bcc4b5adda07cc0a9ca75e493b1594c718d4dca9a02689"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2121-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 44878,
+          "sha256": "ade784e7812a9b360d4100c7a95d71a792ab958c6b4a4933844352130c9698bb"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2121-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 70730,
+          "sha256": "a9b3b911e568c61bf6189a0dbb3f14b4ed2260dd2356f9f19dc2a5d83a467d0b"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "a9b3b911e568c61bf6189a0dbb3f14b4ed2260dd2356f9f19dc2a5d83a467d0b",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 190890000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-2148",
+      "width": 1440,
+      "height": 810,
+      "alt": "媽媽站在蒸餾所大門前，指向後方。",
+      "caption": "導覽額滿，商店在後面。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-2148"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-2148-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 37034,
+          "sha256": "5427756b58bf362477cea7c48e607360758ae64dea5fd49cea7d5cd57a3d5b00"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2148-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 67524,
+          "sha256": "28890d4adf8f53d954c0e16a2db322024eb1549ae950a8a868e7404d4c0c203f"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2148-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 112406,
+          "sha256": "f874c8f3bfaff70ad5a3dcfdfd1cff113ae378c747c052d845671198cd627516"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "f874c8f3bfaff70ad5a3dcfdfd1cff113ae378c747c052d845671198cd627516",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 193320000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-2173",
+      "width": 1440,
+      "height": 810,
+      "alt": "爸爸在蒸餾所商店裡拿著買好的商品。",
+      "caption": "在後面的商店買伴手禮。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-2173"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-2173-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 33294,
+          "sha256": "899c245684c15d43f3c8ce161251ad86d989dcf13c6e37b78e9eef271a5b7caa"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2173-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 53734,
+          "sha256": "5ad3f39528bae280e49310d78c974ebbea8a38a84cc2228bc4aa1a01ca3e6b84"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2173-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 83760,
+          "sha256": "513a1c15b312c909726b61941cdb548c490419b126a2b2e43eecc5fc85d95d30"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "513a1c15b312c909726b61941cdb548c490419b126a2b2e43eecc5fc85d95d30",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 195570000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-2197",
+      "width": 1440,
+      "height": 810,
+      "alt": "大雪中，孩子坐在雪橇上從雪坡滑下。",
+      "caption": "下大雪也沒有擋住孩子玩雪。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-2197"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-2197-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 12610,
+          "sha256": "2733dd775a5f6291641d0aa42d8894abe9409f5543f6ffd901db09f9c7b93d50"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2197-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 24662,
+          "sha256": "d7f0d7ab0cb4b927cb1497930cac4373121e07367978e16d918a18858e312e0c"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2197-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 43310,
+          "sha256": "4e60b12ecaeeef0796ad6503bfbb3b6824f870a9c4066a8c80790b6ecebdfa38"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "4e60b12ecaeeef0796ad6503bfbb3b6824f870a9c4066a8c80790b6ecebdfa38",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 197730000,
+        "timebase": "1/90000"
+      }
+    },
+    {
+      "assetId": "jp-yoichi24-2308",
+      "width": 1440,
+      "height": 810,
+      "alt": "晚上一家人坐在擺著花的餐桌前吃飯，後面是準備料理的廚師。",
+      "caption": "最後一晚的私廚日式晚餐。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "yoichi-frame-2308"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/jp-yoichi24-2308-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 24546,
+          "sha256": "e3a93ac73063a4ad23fd5a5b6a3bee5170b52fa95f4958d0c32721253538d5d9"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2308-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 39904,
+          "sha256": "93ea8b7406241f0bb567794e697657449c5649cc9e7d27a6114d94abd7683acc"
+        },
+        {
+          "url": "/trip/assets/jp-yoichi24-2308-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 62852,
+          "sha256": "53e9c8941de4def760489bdc8f2d0dfc1595db41a4009f34b24a3f211f774c9d"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "53e9c8941de4def760489bdc8f2d0dfc1595db41a4009f34b24a3f211f774c9d",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 207720000,
+        "timebase": "1/90000"
+      }
     }
   ],
   "countries": [
@@ -2690,28 +4545,32 @@
       "name": "日本",
       "englishName": "Japan",
       "flag": "🇯🇵",
-      "title": "日本親子旅行：北海道旭川、札幌攻略",
-      "subtitle": "動物園、科學館、巧克力體驗與手稻滑雪",
-      "metadataTitle": "日本親子旅行｜北海道旭川與札幌實訪｜鷹家遠行所",
-      "description": "日本親子旅行先看北海道旭川與札幌：旭山動物園、科學館、手稻滑雪與市區玩法，附實訪照片、交通和嬰兒照顧經驗。",
+      "title": "日本親子旅行：北海道旭川、札幌、小樽與余市攻略",
+      "subtitle": "動物園、科學館、滑雪、運河散步與海邊度假屋",
+      "metadataTitle": "日本親子旅行｜北海道旭川、札幌、小樽、余市實訪｜鷹家遠行所",
+      "description": "日本親子旅行先看北海道：旭川動物園、札幌滑雪與市區、小樽運河與三角市場、余市海邊度假屋與 Kiroro 玩雪，附實訪照片、交通和嬰兒照顧經驗。",
       "intro": [
-        "我們的日本親子旅行，這次從北海道的旭川與札幌開始：看動物、玩科學，也帶孩子上雪場。",
-        "這裡整理我們帶著七個月大嬰兒走訪北海道的紀錄，先從旭川、札幌的實際玩法與家庭分工開始。"
+        "我們的日本親子旅行從北海道開始：旭川看動物、玩科學，札幌帶孩子上雪場，小樽沿著運河散步，余市住進海邊的度假屋。",
+        "這裡整理我們兩趟冬天的北海道紀錄：一趟帶著七個月大的嬰兒走旭川、札幌與小樽，另一趟住在余市、上 Kiroro 玩雪。"
       ],
       "cityIds": [
         "asahikawa",
-        "sapporo"
+        "sapporo",
+        "otaru",
+        "yoichi"
       ],
       "sourceIds": [
         "a01",
         "a10",
         "a12",
         "s01",
-        "c01"
+        "c01",
+        "o01",
+        "y00"
       ],
       "presentation": {
         "overviewTitle": "旅行總覽",
-        "overviewText": "先挑想看的城市與玩法，再按停留時間安排動物園、室內活動與雪場。",
+        "overviewText": "先挑想看的城市與玩法，再按停留時間安排動物園、室內活動、雪場和海邊小鎮。",
         "citySummaries": [
           {
             "cityId": "asahikawa",
@@ -2734,6 +4593,26 @@
               "c01",
               "c03",
               "c04"
+            ]
+          },
+          {
+            "cityId": "otaru",
+            "tag": "散步與市場",
+            "intro": "從南小樽走到小樽站，看音樂盒、搭運河遊船，晚上到三角市場吃螃蟹；冬天再加一站水族館。",
+            "sourceIds": [
+              "o01",
+              "o08",
+              "o09"
+            ]
+          },
+          {
+            "cityId": "yoichi",
+            "tag": "海邊與雪場",
+            "intro": "住在余市海邊的度假屋，上 Kiroro 玩雪，再看海邊奇岩、逛 Nikka 蒸餾所。",
+            "sourceIds": [
+              "y00",
+              "y03",
+              "y07"
             ]
           }
         ],
@@ -2797,12 +4676,56 @@
             "themeIds": [
               "animals"
             ]
+          },
+          {
+            "cityId": "otaru",
+            "placeId": "otaru-orgel",
+            "themeIds": [
+              "hands-on"
+            ]
+          },
+          {
+            "cityId": "otaru",
+            "placeId": "otaru-canal-museum",
+            "themeIds": [
+              "local-history"
+            ]
+          },
+          {
+            "cityId": "otaru",
+            "placeId": "otaru-aquarium",
+            "themeIds": [
+              "animals"
+            ]
+          },
+          {
+            "cityId": "yoichi",
+            "placeId": "kiroro",
+            "themeIds": [
+              "snow"
+            ]
+          },
+          {
+            "cityId": "yoichi",
+            "placeId": "ebisu-daikoku-rocks",
+            "themeIds": [
+              "local-history"
+            ]
+          },
+          {
+            "cityId": "yoichi",
+            "placeId": "nikka-yoichi",
+            "themeIds": [
+              "local-history"
+            ]
           }
         ],
         "showCityEntryActions": true,
         "cityEntryLabels": {
           "asahikawa": "看旭川攻略",
-          "sapporo": "看札幌攻略"
+          "sapporo": "看札幌攻略",
+          "otaru": "看小樽攻略",
+          "yoichi": "看余市攻略"
         }
       },
       "transport": {
@@ -2902,6 +4825,17 @@
             "o10",
             "terra-jr-airport"
           ]
+        },
+        {
+          "question": "想住在海邊、慢慢玩雪，可以怎麼排？",
+          "answer": "另一趟冬天我們住在余市海邊的度假屋，第二天上 Kiroro 玩雪、下午去雪上活動，最後一天看海邊奇岩、逛 Nikka 蒸餾所；小樽水族館和音樂盒則排在中間一天。",
+          "sourceIds": [
+            "y03",
+            "y04",
+            "y05",
+            "y07",
+            "y11"
+          ]
         }
       ],
       "related": {
@@ -2912,7 +4846,9 @@
           "a10",
           "a12",
           "s01",
-          "c01"
+          "c01",
+          "o01",
+          "y00"
         ],
         "links": [
           {
@@ -2922,6 +4858,14 @@
           {
             "label": "札幌城市篇",
             "url": "/trip/guides/sapporo-with-kids/"
+          },
+          {
+            "label": "小樽城市篇",
+            "url": "/trip/guides/otaru-with-kids/"
+          },
+          {
+            "label": "余市城市篇",
+            "url": "/trip/guides/yoichi-with-kids/"
           }
         ]
       },
@@ -2930,9 +4874,9 @@
       "path": "/trip/japan/",
       "image": "teine-child-board",
       "planInfo": {
-        "title": "先安排兩座城市的遊玩日",
+        "title": "先安排各城市的遊玩日",
         "paragraphs": [
-          "旭川先選動物園或兩座室內館舍；札幌先決定是否安排兩天滑雪，再接巧克力體驗與水族館。下方可分別試排兩座城市的完整遊玩日。"
+          "旭川先選動物園或兩座室內館舍；札幌先決定是否安排兩天滑雪；小樽可以當作一天散步，余市則適合住幾晚、上雪場再看在地景點。下方可分別試排各城市的遊玩日。"
         ],
         "sourceIds": [
           "a10",
@@ -2940,7 +4884,10 @@
           "a13",
           "s01",
           "c01",
-          "c03"
+          "c03",
+          "o01",
+          "y03",
+          "y05"
         ],
         "links": []
       },
@@ -2951,7 +4898,8 @@
           "terra-geo-asahikawa",
           "terra-geo-sapporo",
           "jp-official-geo-otaru",
-          "jp-official-geo-cts"
+          "jp-official-geo-cts",
+          "yoichi-town-profile"
         ],
         "views": [
           {
@@ -3024,18 +4972,6 @@
               },
               {
                 "routeId": "hokkaido-seven-days",
-                "label": "小樽",
-                "point": [
-                  140.994444,
-                  43.190833
-                ],
-                "sourceIds": [
-                  "jp-official-geo-otaru"
-                ],
-                "href": "/trip/japan/hokkaido-asahikawa-sapporo-7-days/#day-6"
-              },
-              {
-                "routeId": "hokkaido-seven-days",
                 "label": "新千歲機場",
                 "point": [
                   141.6925,
@@ -3045,6 +4981,28 @@
                   "jp-official-geo-cts"
                 ],
                 "href": "/trip/japan/hokkaido-asahikawa-sapporo-7-days/#day-1"
+              },
+              {
+                "cityId": "otaru",
+                "label": "小樽",
+                "point": [
+                  140.994444,
+                  43.190833
+                ],
+                "sourceIds": [
+                  "jp-official-geo-otaru"
+                ]
+              },
+              {
+                "cityId": "yoichi",
+                "label": "余市",
+                "point": [
+                  140.783611,
+                  43.195278
+                ],
+                "sourceIds": [
+                  "yoichi-town-profile"
+                ]
               }
             ]
           }
@@ -3084,7 +5042,9 @@
           "a01",
           "a10",
           "s01",
-          "c01"
+          "c01",
+          "o01",
+          "y00"
         ],
         "links": [
           {
@@ -3102,6 +5062,14 @@
           {
             "label": "札幌市區親子活動",
             "url": "https://www.youtube.com/watch?v=jgQ2CHrQ6fg"
+          },
+          {
+            "label": "小樽一日散步",
+            "url": "https://www.youtube.com/watch?v=nAKoy93DtQw"
+          },
+          {
+            "label": "余市五天四夜",
+            "url": "https://www.youtube.com/watch?v=VThgTPbHDVU"
           }
         ]
       },
@@ -5813,6 +7781,1505 @@
           "terra-aoao-access"
         ]
       }
+    },
+    {
+      "id": "otaru",
+      "countryId": "japan",
+      "path": "/trip/guides/otaru-with-kids/",
+      "name": "小樽",
+      "englishName": "Otaru",
+      "destinationKind": "city",
+      "title": "小樽親子散步：音樂盒、運河遊船與三角市場",
+      "metadataTitle": "小樽親子攻略：音樂盒、運河館、運河遊船與三角市場｜鷹家遠行所",
+      "description": "滑雪摔傷的隔天，我們帶著嬰兒從南小樽一路逛到小樽站：音樂盒、六花亭、炸雞午餐、運河館與運河遊船，晚上在三角市場吃螃蟹；另附 2023–24 年冬天的水族館一日。",
+      "intro": [
+        "滑雪摔傷的隔天，我們去小樽，從南小樽一帶慢慢往小樽站方向逛。媽媽走得較慢，途中看音樂盒、吃甜點；等孩子需要吃飯和上廁所，就先結束慢逛，往炸雞餐廳走。",
+        "後來也搭上了運河遊船。稍早查票看起來已沒有位子，後來又找到可以搭的名額，讓這一天多了一段坐船的時間。"
+      ],
+      "author": "鷹式一家",
+      "updatedOn": "2026-10-21",
+      "sourceIds": [
+        "o01",
+        "o08",
+        "o09",
+        "o10"
+      ],
+      "hero": [
+        "otaru-canal-family",
+        "otaru-canal-bridge",
+        "otaru-canal-child"
+      ],
+      "places": [
+        {
+          "id": "otaru-orgel",
+          "stableId": "jp-otaru-orgel",
+          "title": "小樽音樂盒：替嬰兒挑一個紀念",
+          "paragraphs": [
+            "音樂盒店可以慢慢看造型、聽旋律，再選喜歡的款式。逛多個樓層時，也一起考慮孩子和推車的移動方式。"
+          ],
+          "sourceIds": [
+            "otaru-otaru-orgel-co-jp-shop",
+            "o01",
+            "y13"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "展示、販售不同造型音樂盒的店舖。",
+              "sourceIds": [
+                "otaru-otaru-orgel-co-jp-shop"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "慢慢看造型、聽旋律，挑選喜歡的音樂盒。",
+              "sourceIds": [
+                "otaru-otaru-orgel-co-jp-shop"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "若選本館，地址是住吉町 4-1，可接南小樽一帶的散步。",
+              "sourceIds": [
+                "otaru-otaru-orgel-co-jp-shop"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 30–60 分鐘。",
+              "sourceIds": [
+                "otaru-otaru-orgel-co-jp-shop"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "本館現行 09:00–18:00，二、三樓到 17:45。",
+              "sourceIds": [
+                "otaru-otaru-orgel-co-jp-shop"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "各樓層移動需按現場設施安排；帶推車可先詢問店員動線。",
+              "sourceIds": [
+                "otaru-otaru-orgel-co-jp-shop"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "逛到音樂盒店，爸爸和孩子想起以前買過的禮物。這次也想替嬰兒挑一個，但樓上人多、商品容易碰到，我們逛的時候得留意孩子和推車的移動。2023–24 年冬天我們也來過一次，店裡人多到有點擠。這裡可以自己選曲子，再挑上面的造型，組成自己的音樂盒；曲子要配合底座尺寸，爸爸挑了六角形的底座。",
+            "paragraphs": [
+              "逛到音樂盒店，爸爸和孩子想起以前買過的禮物。這次也想替嬰兒挑一個，但樓上人多、商品容易碰到，我們逛的時候得留意孩子和推車的移動。",
+              "2023–24 年冬天我們也來過一次，店裡人多到有點擠。這裡可以自己選曲子，再挑上面的造型，組成自己的音樂盒；曲子要配合底座尺寸，爸爸挑了六角形的底座。"
+            ],
+            "sourceIds": [
+              "o01",
+              "y13"
+            ]
+          },
+          "links": [
+            {
+              "label": "小樽音樂盒堂店鋪",
+              "url": "https://www.otaru-orgel.co.jp/shop"
+            }
+          ],
+          "images": [
+            "jp-otaru26-137",
+            "jp-otaru26-210"
+          ]
+        },
+        {
+          "id": "rokkatei-otaru",
+          "stableId": "jp-rokkatei-otaru",
+          "title": "六花亭：散步途中吃點甜的",
+          "paragraphs": [
+            "六花亭是北海道的甜點與伴手禮品牌。商店街散步途中，可以把挑點心與採買排成短暫停留，再接下一段步行。"
+          ],
+          "sourceIds": [
+            "otaru-rokkatei-co-jp-shop-sapporo",
+            "o01"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "北海道甜點與伴手禮品牌。",
+              "sourceIds": [
+                "otaru-rokkatei-co-jp-shop-sapporo"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "選點心、買伴手禮，安排短暫休息。",
+              "sourceIds": [
+                "otaru-rokkatei-co-jp-shop-sapporo"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "小樽運河店位於堺町 7-22，可接商店街步行。",
+              "sourceIds": [
+                "otaru-rokkatei-co-jp-shop-sapporo"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 20–40 分鐘。",
+              "sourceIds": [
+                "otaru-rokkatei-co-jp-shop-sapporo"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "小樽運河店現行 10:00–18:00。",
+              "sourceIds": [
+                "otaru-rokkatei-co-jp-shop-sapporo"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "店面沒有停車場；內用與其他設施依現場所選分店。",
+              "sourceIds": [
+                "otaru-rokkatei-co-jp-shop-sapporo"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "逛到六花亭時，我們看看現場品項，也買來嚐嚐。家人一邊吃、一邊談喜歡的口味；這些短停留串在一起，就是小樽這一天的散步節奏。",
+            "paragraphs": [
+              "逛到六花亭時，我們看看現場品項，也買來嚐嚐。家人一邊吃、一邊談喜歡的口味；這些短停留串在一起，就是小樽這一天的散步節奏。"
+            ],
+            "sourceIds": [
+              "o01"
+            ]
+          },
+          "links": [
+            {
+              "label": "六花亭店鋪一覽・小樽運河店段",
+              "url": "https://www.rokkatei.co.jp/shop/sapporo/"
+            }
+          ],
+          "images": [
+            "jp-otaru26-399"
+          ]
+        },
+        {
+          "id": "wakatori-naruto",
+          "stableId": "jp-wakatori-naruto",
+          "title": "炸雞午餐：孩子餓了，就先找地方坐下",
+          "paragraphs": [
+            "在小樽逛街，午餐可以安排一段坐下來吃半雞定食或其他餐點的時間。選餐廳時把步行距離、候位與孩子用餐一起考慮。"
+          ],
+          "sourceIds": [
+            "otaru-otaru-gr-jp-shop-wakatorijidai-naruto-honten",
+            "o01"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "我們這天吃了半雞定食與其他餐點。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-wakatorijidai-naruto-honten"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "留一段正餐時間，讓全家坐下來吃飯。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-wakatorijidai-naruto-honten"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "若選若鶏時代なると本店，地址為稻穗 3-16-13，小樽站步行約七至八分鐘。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-wakatorijidai-naruto-honten"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 60–90 分鐘，候位另計。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-wakatorijidai-naruto-honten"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "若鶏時代なると本店現行 11:00–21:00，20:30 最後點餐，不定休。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-wakatorijidai-naruto-honten"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "交通與時段以本店作規劃參考；店家與なると屋連鎖不同。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-wakatorijidai-naruto-honten"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "孩子開始餓了，還需要找廁所，我們便往餐廳走。媽媽前一天滑雪摔傷，這段路走得慢；終於坐下來吃半雞定食和其他餐點，才接著安排下一站。",
+            "paragraphs": [
+              "孩子開始餓了，還需要找廁所，我們便往餐廳走。媽媽前一天滑雪摔傷，這段路走得慢；終於坐下來吃半雞定食和其他餐點，才接著安排下一站。"
+            ],
+            "sourceIds": [
+              "o01"
+            ]
+          },
+          "links": [
+            {
+              "label": "小樽觀光協會・若鶏時代なると本店",
+              "url": "https://otaru.gr.jp/shop/wakatorijidai-naruto-honten"
+            }
+          ],
+          "images": [
+            "jp-otaru26-640"
+          ]
+        },
+        {
+          "id": "otaru-canal-museum",
+          "stableId": "jp-otaru-canal-museum",
+          "title": "運河館：從街道走進小樽的歷史",
+          "paragraphs": [
+            "小樽市綜合博物館運河館介紹港口、鯡魚產業與地方自然。參觀時可以把展覽中的船、地方生活與標本，和剛走過的運河街景連起來。"
+          ],
+          "sourceIds": [
+            "otaru-city-otaru-lg-jp-docs-2023031200049-otarumuseum-html",
+            "otaru-city-otaru-lg-jp-docs-2020111400122",
+            "o01"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "運河旁介紹小樽歷史與自然的博物館分館。",
+              "sourceIds": [
+                "otaru-city-otaru-lg-jp-docs-2023031200049-otarumuseum-html",
+                "otaru-city-otaru-lg-jp-docs-2020111400122"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "從港口、鯡魚產業與自然展示了解小樽。",
+              "sourceIds": [
+                "otaru-city-otaru-lg-jp-docs-2023031200049-otarumuseum-html",
+                "otaru-city-otaru-lg-jp-docs-2020111400122"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "運河館位於色內 2-1-20，可接運河周邊步行行程。",
+              "sourceIds": [
+                "otaru-city-otaru-lg-jp-docs-2023031200049-otarumuseum-html",
+                "otaru-city-otaru-lg-jp-docs-2020111400122"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "館方建議留 30–60 分鐘。",
+              "sourceIds": [
+                "otaru-city-otaru-lg-jp-docs-2023031200049-otarumuseum-html",
+                "otaru-city-otaru-lg-jp-docs-2020111400122"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "09:30–17:00，平常無固定週休；12/29–1/3 與臨時休館除外。",
+              "sourceIds": [
+                "otaru-city-otaru-lg-jp-docs-2023031200049-otarumuseum-html",
+                "otaru-city-otaru-lg-jp-docs-2020111400122"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "室內參觀，依運河館的門票與開館日安排。",
+              "sourceIds": [
+                "otaru-city-otaru-lg-jp-docs-2023031200049-otarumuseum-html",
+                "otaru-city-otaru-lg-jp-docs-2020111400122"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "extraFacts": [
+            {
+              "label": "門票參考",
+              "value": "成人 300 日圓、高中生 150 日圓、中學生以下免費。",
+              "sourceIds": [
+                "otaru-city-otaru-lg-jp-docs-2023031200049-otarumuseum-html",
+                "otaru-city-otaru-lg-jp-docs-2020111400122"
+              ]
+            }
+          ],
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "一開始以為館內只有眼前的一小區，繼續走才發現還有另一部分展示。我們從地方歷史看到自然標本，這段室內參觀，也讓一路步行的行程換了個節奏。",
+            "paragraphs": [
+              "一開始以為館內只有眼前的一小區，繼續走才發現還有另一部分展示。我們從地方歷史看到自然標本，這段室內參觀，也讓一路步行的行程換了個節奏。"
+            ],
+            "sourceIds": [
+              "o01"
+            ]
+          },
+          "links": [
+            {
+              "label": "小樽市綜合博物館利用案內",
+              "url": "https://www.city.otaru.lg.jp/docs/2023031200049/otarumuseum.html"
+            },
+            {
+              "label": "小樽運河館展示",
+              "url": "https://www.city.otaru.lg.jp/docs/2020111400122/"
+            }
+          ],
+          "images": [
+            "jp-otaru26-963"
+          ]
+        },
+        {
+          "id": "otaru-canal-cruise",
+          "stableId": "jp-otaru-canal-cruise",
+          "title": "小樽運河遊船：後來真的搭上船",
+          "paragraphs": [
+            "乘船從運河看沿岸建築，和岸邊步行是不同的視角。規劃時先選日期和航班，再留報到時間，天候與潮位也可能影響當天運行。"
+          ],
+          "sourceIds": [
+            "otaru-otaru-cc-price",
+            "otaru-otaru-cc-faq",
+            "otaru-otaru-cc-timetable",
+            "otaru-otaru-cc-access",
+            "o08"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "沿小樽運河乘船看港町景色的活動。",
+              "sourceIds": [
+                "otaru-otaru-cc-price",
+                "otaru-otaru-cc-faq",
+                "otaru-otaru-cc-timetable",
+                "otaru-otaru-cc-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "先選航班、留報到時間，再上船看沿岸景色。",
+              "sourceIds": [
+                "otaru-otaru-cc-price",
+                "otaru-otaru-cc-faq",
+                "otaru-otaru-cc-timetable",
+                "otaru-otaru-cc-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "規劃參考：Otaru Canal Cruise 在中央橋售票與登船，小樽站步行約十分鐘。",
+              "sourceIds": [
+                "otaru-otaru-cc-price",
+                "otaru-otaru-cc-faq",
+                "otaru-otaru-cc-timetable",
+                "otaru-otaru-cc-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "該業者現行航程約四十分鐘，另提前十五分鐘報到。",
+              "sourceIds": [
+                "otaru-otaru-cc-price",
+                "otaru-otaru-cc-faq",
+                "otaru-otaru-cc-timetable",
+                "otaru-otaru-cc-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "依日期選日航、夜航與冬季班次；查所選日期的官方時刻表。",
+              "sourceIds": [
+                "otaru-otaru-cc-price",
+                "otaru-otaru-cc-faq",
+                "otaru-otaru-cc-timetable",
+                "otaru-otaru-cc-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "天候、強風、潮位及能見度可能影響運行；船上無廁所，推車安排需事先向所選業者確認。",
+              "sourceIds": [
+                "otaru-otaru-cc-price",
+                "otaru-otaru-cc-faq",
+                "otaru-otaru-cc-timetable",
+                "otaru-otaru-cc-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "原本以為今天和隔天的船都沒有位子，後來再看，卻又能搭。於是把坐船加進這天，從一路走路、逛館，換成坐在船上看運河。",
+            "paragraphs": [
+              "原本以為今天和隔天的船都沒有位子，後來再看，卻又能搭。於是把坐船加進這天，從一路走路、逛館，換成坐在船上看運河。"
+            ],
+            "sourceIds": [
+              "o08"
+            ]
+          },
+          "links": [
+            {
+              "label": "小樽運河 Cruise 料金",
+              "url": "https://otaru.cc/price/"
+            },
+            {
+              "label": "小樽運河 Cruise FAQ",
+              "url": "https://otaru.cc/faq/"
+            },
+            {
+              "label": "小樽運河 Cruise 時刻表",
+              "url": "https://otaru.cc/timetable/"
+            },
+            {
+              "label": "小樽運河 Cruise 乘船處",
+              "url": "https://otaru.cc/access/"
+            }
+          ],
+          "images": [
+            "otaru-canal-family",
+            "otaru-canal-bridge",
+            "otaru-canal-child"
+          ]
+        },
+        {
+          "id": "otaru-sankaku-market",
+          "stableId": "jp-otaru-sankaku-market",
+          "title": "三角市場：先找到全家能坐下的位子",
+          "paragraphs": [
+            "三角市場聚集海鮮攤與食堂，距小樽站近。選餐點前先看計價方式與座位，一家人可以把用餐和回程搭車接在同一段安排。"
+          ],
+          "sourceIds": [
+            "otaru-otaru-gr-jp-shop-otarusankakuichiba",
+            "o09"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "小樽站附近的海鮮市場與食堂聚集處。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-otarusankakuichiba"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "看當日海鮮、計價方式與座位再決定用餐。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-otarusankakuichiba"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "小樽站出站左側約一分鐘，入口有階梯，推車需先看可行入口。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-otarusankakuichiba"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 60–90 分鐘，候位另計。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-otarusankakuichiba"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "市場約 06:00–17:00、食堂約 07:00–17:00，各店不同。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-otarusankakuichiba"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "蟹與海鮮價格按當天和店家計價；一家人可先確認能否一起入座。",
+              "sourceIds": [
+                "otaru-otaru-gr-jp-shop-otarusankakuichiba"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-21"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "市場走道推車比較擠，選店時先看能不能讓大家坐下來。螃蟹上桌後，我們比較烤的和水煮的口感；吃完再往車站走，結束小樽這一天。",
+            "paragraphs": [
+              "市場走道推車比較擠，選店時先看能不能讓大家坐下來。螃蟹上桌後，我們比較烤的和水煮的口感；吃完再往車站走，結束小樽這一天。"
+            ],
+            "sourceIds": [
+              "o09"
+            ]
+          },
+          "links": [
+            {
+              "label": "小樽觀光協會・三角市場",
+              "url": "https://otaru.gr.jp/shop/otarusankakuichiba"
+            }
+          ],
+          "images": [
+            "jp-otaru26-1363"
+          ]
+        },
+        {
+          "id": "otaru-aquarium",
+          "stableId": "jp-otaru-aquarium",
+          "title": "小樽水族館：冬天看海豚表演",
+          "paragraphs": [
+            "おたる水族館在小樽祝津的海邊，本館旁邊還有海獸公園和免費入園的遊樂園。",
+            "冬天也有營業，但冬期營業時海獸公園和遊樂園關閉。館方的動物表演與餵食時間依季節公告，出發前先看官網。"
+          ],
+          "sourceIds": [
+            "otaru-aq-hours",
+            "otaru-aq-tickets",
+            "otaru-aq-access",
+            "otaru-aq-show",
+            "otaru-aq-park",
+            "y11"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "小樽祝津海邊的水族館，本館旁有海獸公園和免費入園的遊樂園。",
+              "sourceIds": [
+                "otaru-aq-hours",
+                "otaru-aq-park"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "看館內水槽、餵食與海豚等動物表演；表演時間依季節公告。",
+              "sourceIds": [
+                "otaru-aq-show",
+                "y11"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "JR 小樽站前搭北海道中央巴士往水族館的路線；開車從札幌約 60–70 分鐘。我們是房東開車載去。",
+              "sourceIds": [
+                "otaru-aq-access",
+                "y11"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "我們冬天去，主要看表演；戶外太冷，停留時間不長。",
+              "sourceIds": [
+                "y11"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "2026 年通常營業到 11/23（10/16 起 9:00–16:00）；11/24–12/11 休館；冬期營業 2026/12/12–2027/2/23，10:00–16:00，15:30 最後入館。",
+              "sourceIds": [
+                "otaru-aq-hours"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "冬期營業時海獸公園與遊樂園關閉，戶外池邊很冷。通常營業的門票是大人 1,800 日圓、中小學生 700 日圓、3–5 歲 350 日圓。",
+              "sourceIds": [
+                "otaru-aq-hours",
+                "otaru-aq-tickets",
+                "y11"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "2023–24 年冬天我們住在余市，有一天房東先帶我們到おたる水族館。館內的建築看得出年代，戶外的池邊冷到受不了，大家鼻子都凍紅了。我們沒有待很久，主要是看餵食和海豚表演。表演很精彩，看完我們就離開海邊，進市區找暖和的地方吃飯。",
+            "paragraphs": [
+              "2023–24 年冬天我們住在余市，有一天房東先帶我們到おたる水族館。館內的建築看得出年代，戶外的池邊冷到受不了，大家鼻子都凍紅了。",
+              "我們沒有待很久，主要是看餵食和海豚表演。表演很精彩，看完我們就離開海邊，進市區找暖和的地方吃飯。"
+            ],
+            "sourceIds": [
+              "y11"
+            ]
+          },
+          "links": [
+            {
+              "label": "おたる水族館 營業時間",
+              "url": "https://otaru-aq.jp/guide/openningtime"
+            },
+            {
+              "label": "おたる水族館 交通",
+              "url": "https://otaru-aq.jp/guide/access"
+            }
+          ],
+          "images": [
+            "jp-otaru24-1208",
+            "jp-otaru24-1283"
+          ]
+        }
+      ],
+      "cards": [
+        {
+          "target": "otaru-orgel",
+          "assetId": "jp-otaru26-137",
+          "title": "小樽音樂盒",
+          "play": "慢慢看造型、聽旋律，挑選喜歡的音樂盒",
+          "time": "30–60 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "rokkatei-otaru",
+          "assetId": "jp-otaru26-399",
+          "title": "六花亭",
+          "play": "選點心、買伴手禮，安排短暫休息",
+          "time": "20–40 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "wakatori-naruto",
+          "assetId": "jp-otaru26-640",
+          "title": "炸雞午餐",
+          "play": "留一段正餐時間，讓全家坐下來吃飯",
+          "time": "60–90 分鐘，候位另計",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "otaru-canal-museum",
+          "assetId": "jp-otaru26-963",
+          "title": "運河館",
+          "play": "從港口、鯡魚產業與自然展示了解小樽",
+          "time": "30–60 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "otaru-canal-cruise",
+          "assetId": "otaru-canal-family",
+          "title": "小樽運河遊船",
+          "play": "先選航班、留報到時間，再上船看沿岸景色",
+          "time": "該業者現行航程約四十分鐘，另提前十五分鐘報到",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "otaru-sankaku-market",
+          "assetId": "jp-otaru26-1363",
+          "title": "三角市場",
+          "play": "看當日海鮮、計價方式與座位再決定用餐",
+          "time": "60–90 分鐘，候位另計",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "otaru-aquarium",
+          "assetId": "jp-otaru24-1208",
+          "title": "小樽水族館",
+          "play": "看館內水槽、餵食與海豚等動物表演；表演時間依季節公告",
+          "time": "我們冬天去，主要看表演；戶外太冷，停留時間不長",
+          "focalPoint": [
+            50,
+            50
+          ]
+        }
+      ],
+      "food": {
+        "title": "冬天的午餐：びっくりドンキー",
+        "paragraphs": [
+          "2023–24 年冬天看完水族館，我們進市區吃びっくりドンキー，是從北海道起家的漢堡排家庭餐廳。漢堡排很嫩，價格也還可以接受。",
+          "吃完走去音樂盒的路上全結冰了，比雪地還滑，有人一路滑倒；冬天走小樽的街道，鞋底止滑很重要。"
+        ],
+        "sourceIds": [
+          "y12"
+        ],
+        "links": [],
+        "images": [
+          "jp-otaru24-1427"
+        ]
+      },
+      "faq": [
+        {
+          "question": "小樽可以從札幌當天往返嗎？",
+          "answer": "我們這趟住札幌，從南小樽一帶開始逛，晚上吃完三角市場再往小樽站走，回札幌休息。",
+          "sourceIds": [
+            "o01",
+            "o10"
+          ]
+        },
+        {
+          "question": "冬天去小樽會不會太冷？",
+          "answer": "2023–24 年冬天那趟很冷，水族館戶外池邊待不住，街道也結冰。我們把戶外時間縮短，多安排室內的店和餐廳。",
+          "sourceIds": [
+            "y11",
+            "y12"
+          ]
+        }
+      ],
+      "videoSourceIds": [
+        "o01",
+        "o08",
+        "o09",
+        "o10",
+        "y11",
+        "y13"
+      ],
+      "planner": {
+        "title": "小樽一日走法",
+        "paragraphs": [
+          "我們當天從南小樽一帶慢慢往小樽站方向逛，最後在三角市場吃晚餐再回札幌。"
+        ],
+        "sourceIds": [
+          "o01",
+          "o10"
+        ],
+        "routes": [
+          {
+            "id": "otaru-1-day",
+            "label": "一天：南小樽到小樽站",
+            "sightseeingDays": 1,
+            "pace": "leisure",
+            "note": "營業時間與遊船班次依出發日期查官方資訊。",
+            "sourceIds": [
+              "o01",
+              "o08",
+              "o09",
+              "o10"
+            ],
+            "days": [
+              {
+                "title": "南小樽 → 小樽站",
+                "description": "從南小樽一帶開始散步，看音樂盒、吃甜點；孩子餓了就先吃午餐，之後搭運河遊船，晚上到三角市場吃螃蟹，再從小樽站回札幌。",
+                "stops": [
+                  "otaru-orgel",
+                  "rokkatei-otaru",
+                  "wakatori-naruto",
+                  "otaru-canal-museum",
+                  "otaru-canal-cruise",
+                  "otaru-sankaku-market"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "otaru-winter-1-day",
+            "label": "冬天一天：水族館與音樂盒",
+            "sightseeingDays": 1,
+            "pace": "leisure",
+            "note": "冬期營業時水族館的海獸公園與遊樂園關閉；表演時間依官網公告。",
+            "sourceIds": [
+              "y11",
+              "y12",
+              "y13",
+              "y14"
+            ],
+            "days": [
+              {
+                "title": "水族館 → 小樽市區",
+                "description": "上午到祝津的水族館看餵食和海豚表演，中午進市區吃飯、避寒，下午走到音樂盒堂選曲子。",
+                "stops": [
+                  "otaru-aquarium",
+                  "otaru-orgel"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "extension": {
+        "title": "北海道七天行程",
+        "paragraphs": [
+          "小樽在我們的七天建議裡和札幌市區擇一安排。"
+        ],
+        "sourceIds": [
+          "o01"
+        ],
+        "links": [
+          {
+            "label": "北海道七天親子行程",
+            "url": "/trip/japan/hokkaido-asahikawa-sapporo-7-days/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "yoichi",
+      "countryId": "japan",
+      "path": "/trip/guides/yoichi-with-kids/",
+      "name": "余市",
+      "englishName": "Yoichi",
+      "destinationKind": "region",
+      "title": "余市親子攻略：海邊度假屋、Kiroro 玩雪與 Nikka 酒廠",
+      "metadataTitle": "余市親子攻略：Kiroro 雪場、えびす岩・大黒岩與 Nikka 余市蒸餾所｜鷹家遠行所",
+      "description": "冬天住在余市海邊的度假屋五天四夜：Kiroro 雪場、雪上活動、えびす岩・大黒岩、在地迴轉壽司和 Nikka 余市蒸餾所的商店。住宿與 Family Tour 為受邀體驗。",
+      "leadFormat": "longform-context/v1",
+      "intro": [
+        "這趟冬天的北海道，我們沒有住在札幌或小樽市區，而是住在余市海邊的一間度假屋。房東到小樽站接我們，接下來幾天的雪場、雪上活動和在地景點，也都是房東開車帶我們去。",
+        "抵達小樽那天還有 7 度，天氣預報說接下來幾天會降到零下十度以下。出發前我們沒有幫孩子準備雪衣雪靴，第一晚先到 AEON 補齊裝備和火鍋料，隔天就上了 Kiroro。",
+        "這篇照我們實際走的順序，介紹 Kiroro、余市海邊的えびす岩・大黒岩和 Nikka 余市蒸餾所；小樽水族館和音樂盒那天寫在小樽篇。這趟的住宿與 Family Tour 是房東邀請我們的體驗。"
+      ],
+      "author": "鷹式一家",
+      "updatedOn": "2026-10-24",
+      "sourceIds": [
+        "y00",
+        "y01",
+        "y02",
+        "y10",
+        "yoichi-town-profile"
+      ],
+      "hero": [
+        "jp-yoichi24-792",
+        "jp-yoichi24-1823",
+        "jp-yoichi24-2121"
+      ],
+      "places": [
+        {
+          "id": "kiroro",
+          "stableId": "jp-yoichi-kiroro",
+          "title": "Kiroro 雪場：在風雪裡上山玩雪",
+          "locality": "赤井川村",
+          "paragraphs": [
+            "Kiroro 是小樽西南邊山裡的滑雪度假村，官網介紹離小樽約 30 分鐘。我們沒有租車，從余市的住處搭房東的車上山。",
+            "孩子穿著前一晚買齊的雪衣雪褲，大人到了雪場才租外套。上山後原本想在山上的餐廳吃飯，結果那間沒開，最後在另一間有暖氣的餐廳吃午餐，下午再去房東安排的雪上活動。"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "小樽西南邊山裡的滑雪度假村，官網介紹離小樽約 30 分鐘。",
+              "sourceIds": [
+                "yoichi-kiroro-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "搭纜車上山、玩雪；雪具與雪衣可在 Mountain Center 1 樓租借。",
+              "sourceIds": [
+                "yoichi-kiroro-rental",
+                "y03"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "我們由房東開車接送。官網冬季交通頁另有 JR、巴士與計程車的說明，班次與票價以官網為準。",
+              "sourceIds": [
+                "yoichi-kiroro-access",
+                "y03"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "我們 9:30 出門，上午在雪場、午餐後去雪上活動，下午 4 點才離開。",
+              "sourceIds": [
+                "y03",
+                "y04"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "2025–26 雪季高峰期纜車 9:00–15:00 運行，2 月中旬起延到 15:30；2026–27 雪季的時刻以官網公告為準。",
+              "sourceIds": [
+                "yoichi-kiroro-hours"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "我們那天遇到大雪和強風，山上起霧；官網註明積雪會影響運行的纜車。2026–27 雪季租借在纜車開始前 30 分鐘營業，最晚在結束前 1 小時借出。",
+              "sourceIds": [
+                "yoichi-kiroro-hours",
+                "yoichi-kiroro-rental",
+                "y03"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "那天早上剛起床時雪還很小，像在下雨，出門後越下越大，風也很強。雪場人很多，光是三個大人租外套就排了一段時間。上山的路上起霧，什麼都看不太清楚。進到餐廳裡很暖，大家脫到只剩內層，吃飽再出發去下午的雪上活動。",
+            "paragraphs": [
+              "那天早上剛起床時雪還很小，像在下雨，出門後越下越大，風也很強。雪場人很多，光是三個大人租外套就排了一段時間。",
+              "上山的路上起霧，什麼都看不太清楚。進到餐廳裡很暖，大家脫到只剩內層，吃飽再出發去下午的雪上活動。"
+            ],
+            "sourceIds": [
+              "y03"
+            ]
+          },
+          "links": [
+            {
+              "label": "Kiroro 冬季交通",
+              "url": "https://www.kiroro.co.jp/ja/access-winter/"
+            },
+            {
+              "label": "Kiroro 營運時間",
+              "url": "https://www.kiroro.co.jp/ja/operating_hours/"
+            }
+          ],
+          "images": [
+            "jp-yoichi24-642",
+            "jp-yoichi24-673",
+            "jp-yoichi24-441"
+          ],
+          "sourceIds": [
+            "yoichi-kiroro-access",
+            "yoichi-kiroro-rental",
+            "y03",
+            "y04",
+            "yoichi-kiroro-hours"
+          ]
+        },
+        {
+          "id": "ebisu-daikoku-rocks",
+          "stableId": "jp-yoichi-ebisu-daikoku",
+          "title": "惠比壽岩與大黑岩：余市海邊的一對奇岩",
+          "locality": "余市町白岩町",
+          "paragraphs": [
+            "えびす岩和大黒岩在余市町白岩町的海岸外，兩塊岩石並立在離岸十多公尺的淺灘上。余市町介紹，名字來自七福神的惠比壽和大黑天，也叫夫婦岩。",
+            "外側上寬下窄、看起來不太穩的是えびす岩，靠岸邊、較大較穩的是大黒岩。周圍是偏白色的斷崖，海和山在這一段貼得很近。"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "余市町白岩町海岸外的兩塊奇岩，並立在淺灘上，又叫夫婦岩。",
+              "sourceIds": [
+                "yoichi-town-ebisu-daikoku"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "在岸邊看岩石與斷崖；我們冬天停車拍照，孩子在路邊玩雪。",
+              "sourceIds": [
+                "yoichi-town-ebisu-daikoku",
+                "y05"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "我們搭房東的車到附近。余市町的介紹頁沒有寫交通與停車，開車前先用地圖確認可以停車的位置。",
+              "sourceIds": [
+                "yoichi-town-ebisu-daikoku",
+                "y05"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "我們是順路停下來拍照、玩雪，停留時間不長。",
+              "sourceIds": [
+                "y05"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "這是戶外的海岸景觀，余市町的介紹頁沒有開放時間或費用。",
+              "sourceIds": [
+                "yoichi-town-ebisu-daikoku"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "冬天路邊的雪又深又鬆，海邊風大；帶孩子下車要穿雪靴、戴防水手套。",
+              "sourceIds": [
+                "y05"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "最後一天，房東帶我們去看在地人會去的地方，第一站就是這裡。路邊的雪很鬆、很綿，房東說很多人特地來北海道滑雪，就是為了這種雪，叫 Japan powder。孩子一下車就在雪裡堆雪球，玩到不想回車上。",
+            "paragraphs": [
+              "最後一天，房東帶我們去看在地人會去的地方，第一站就是這裡。路邊的雪很鬆、很綿，房東說很多人特地來北海道滑雪，就是為了這種雪，叫 Japan powder。",
+              "孩子一下車就在雪裡堆雪球，玩到不想回車上。"
+            ],
+            "sourceIds": [
+              "y05"
+            ]
+          },
+          "links": [
+            {
+              "label": "余市町：えびす岩・大黒岩",
+              "url": "https://www.town.yoichi.hokkaido.jp/machi/syoukai/bunnkazai-ebisudaikoku.html"
+            }
+          ],
+          "images": [
+            "jp-yoichi24-1823",
+            "jp-yoichi24-1803"
+          ],
+          "sourceIds": [
+            "yoichi-town-ebisu-daikoku",
+            "y05"
+          ]
+        },
+        {
+          "id": "nikka-yoichi",
+          "stableId": "jp-yoichi-nikka",
+          "title": "Nikka 余市蒸餾所：沒預約到導覽，也能逛商店",
+          "locality": "余市町",
+          "paragraphs": [
+            "Nikka 余市蒸餾所在 JR 余市站旁，官網寫從車站步行約 5 分鐘。廠內有免費導覽，約 60 分鐘，需要事先預約。",
+            "沒有預約的訪客從商店側的入口進去，可以逛 Nikka 博物館、蒸餾所商店和 Rita's Kitchen 餐廳。"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "Nikka 威士忌在北海道的蒸餾所，在 JR 余市站旁。",
+              "sourceIds": [
+                "yoichi-nikka-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "預約制的免費導覽約 60 分鐘；沒預約也能逛博物館、商店和餐廳。",
+              "sourceIds": [
+                "yoichi-nikka-reservation",
+                "yoichi-nikka-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "JR 小樽站搭函館本線約 30 分鐘到余市站，再步行約 5 分鐘；官網提醒小樽到余市的班次不多。小樽站前搭巴士約 40 分鐘。",
+              "sourceIds": [
+                "yoichi-nikka-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "導覽約 60 分鐘；我們沒預約到，只在商店停留。",
+              "sourceIds": [
+                "yoichi-nikka-reservation",
+                "y07"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "導覽 9:30–14:30 每 30 分鐘一梯，每組 1–9 人，網路預約到前一天 11:59；12/23–1/7 休館。博物館、商店與餐廳的最後入場時間各頁寫法不同，出發前以官網為準。",
+              "sourceIds": [
+                "yoichi-nikka-reservation",
+                "yoichi-nikka-access"
+              ],
+              "kind": "source_based",
+              "checkedOn": "2026-10-24"
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "導覽可能額滿，要提早預約，我們去的那天就沒有名額。",
+              "sourceIds": [
+                "yoichi-nikka-reservation",
+                "y07"
+              ],
+              "kind": "experience",
+              "checkedOn": "2026-10-24"
+            }
+          },
+          "story": {
+            "title": "我們這次怎麼玩",
+            "text": "我們到的那天，導覽已經額滿，沒辦法進廠參觀。沒預約到也不用直接離開：可以跟工作人員拿一張地圖，商店在後面。我們開車繞到後面的商店，買了巧克力和伴手禮，大約七千日圓。外面一直下大雪，買完就上車往下一站。",
+            "paragraphs": [
+              "我們到的那天，導覽已經額滿，沒辦法進廠參觀。沒預約到也不用直接離開：可以跟工作人員拿一張地圖，商店在後面。",
+              "我們開車繞到後面的商店，買了巧克力和伴手禮，大約七千日圓。外面一直下大雪，買完就上車往下一站。"
+            ],
+            "sourceIds": [
+              "y07"
+            ]
+          },
+          "links": [
+            {
+              "label": "Nikka 余市蒸餾所導覽預約",
+              "url": "https://distillery.nikka.com/yoichi/reservation"
+            },
+            {
+              "label": "Nikka 余市蒸餾所交通",
+              "url": "https://www.nikka.com/en/distilleries/yoichi/access/"
+            }
+          ],
+          "images": [
+            "jp-yoichi24-2121",
+            "jp-yoichi24-2148",
+            "jp-yoichi24-2173"
+          ],
+          "sourceIds": [
+            "yoichi-nikka-access",
+            "yoichi-nikka-reservation",
+            "y07"
+          ]
+        }
+      ],
+      "cards": [
+        {
+          "target": "kiroro",
+          "assetId": "jp-yoichi24-642",
+          "title": "Kiroro 雪場",
+          "play": "搭纜車上山、玩雪",
+          "time": "我們 9:30 出門，上午在雪場、午餐後去雪上活動，下午 4 點才離開",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "ebisu-daikoku-rocks",
+          "assetId": "jp-yoichi24-1823",
+          "title": "惠比壽岩與大黑岩",
+          "play": "在岸邊看岩石與斷崖",
+          "time": "我們是順路停下來拍照、玩雪，停留時間不長",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "nikka-yoichi",
+          "assetId": "jp-yoichi24-2121",
+          "title": "Nikka 余市蒸餾所",
+          "play": "預約制的免費導覽約 60 分鐘",
+          "time": "導覽約 60 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        }
+      ],
+      "food": {
+        "title": "吃什麼：超市火鍋、迴轉壽司與私廚晚餐",
+        "paragraphs": [
+          "第一晚在 AEON 買了火鍋料和熟食，回度假屋自己煮。第二天玩完雪，晚餐去吃日式燒肉。",
+          "最後一天房東帶我們去余市番屋，是在地人自己開的迴轉壽司店，不是連鎖店。我們覺得光是醋飯就很好吃。",
+          "這幾天我們每餐至少一碗白飯；來北海道，很推薦吃吃看這裡的白米飯和馬鈴薯。"
+        ],
+        "sourceIds": [
+          "y02",
+          "y04",
+          "y06",
+          "y09"
+        ],
+        "links": [],
+        "images": [
+          "jp-yoichi24-2098",
+          "jp-yoichi24-2089"
+        ]
+      },
+      "stay": {
+        "title": "住宿與 Family Tour（受邀體驗）",
+        "paragraphs": [
+          "這趟我們受 Yoichi Holiday 邀請，住進 Beach Front Fugoppe，並參加五天四夜的 Family Tour。下面寫我們實際住過、玩過的內容。"
+        ],
+        "sourceIds": [
+          "y01",
+          "y10",
+          "yoichi-holiday-fugoppe"
+        ],
+        "links": [
+          {
+            "label": "Yoichi Holiday：Beach Front Fugoppe",
+            "url": "https://yoichiholiday.com/en/beach-front-fugoppe"
+          }
+        ],
+        "subsections": [
+          {
+            "id": "house",
+            "title": "海邊三層樓的度假屋",
+            "paragraphs": [
+              "度假屋有三層樓，一邊是海，旁邊有一條河。官網列出兩間雙人床房、一間單人床房，樓上開放空間另有沙發床；可住人數在不同頁面寫 6 或 7 人，訂房前先確認。",
+              "官網也提醒房子面向車多的道路，會聽到車聲。冬天每晚有除雪車來清門口的雪。"
+            ],
+            "sourceIds": [
+              "y01",
+              "yoichi-holiday-fugoppe"
+            ],
+            "links": [],
+            "images": [
+              "jp-yoichi24-147",
+              "jp-yoichi24-190"
+            ]
+          },
+          {
+            "id": "snow-activity",
+            "title": "房東安排的雪上活動",
+            "paragraphs": [
+              "午餐後房東載我們到雪上活動的場地，玩了雪上摩托車、橡皮艇和香蕉船。香蕉船比較刺激，小孩不能坐，就在旁邊有滑梯的區域玩雪。",
+              "項目大概兩三種，大人可能覺得很快就結束；孩子最開心的還是玩雪，玩到不想離開。"
+            ],
+            "sourceIds": [
+              "y04"
+            ],
+            "links": [],
+            "images": [
+              "jp-yoichi24-762",
+              "jp-yoichi24-792",
+              "jp-yoichi24-830"
+            ]
+          },
+          {
+            "id": "park",
+            "title": "在地人的公園玩雪",
+            "paragraphs": [
+              "最後一天我們去了在地人玩雪的公園，免費，剛好遇到大雪。旁邊有位年輕人穿短袖在玩，我們手都已經凍到發抖。"
+            ],
+            "sourceIds": [
+              "y08"
+            ],
+            "links": [],
+            "images": [
+              "jp-yoichi24-2197"
+            ]
+          },
+          {
+            "id": "dinner",
+            "title": "最後一晚的日式晚餐",
+            "paragraphs": [
+              "最後一晚是 Family Tour 附的私廚日式晚餐，私廚帶了兩大箱器材和食材來，在度假屋裡上菜，從前菜開始一道一道吃。"
+            ],
+            "sourceIds": [
+              "y09"
+            ],
+            "links": [],
+            "images": [
+              "jp-yoichi24-2308"
+            ]
+          },
+          {
+            "id": "tour",
+            "title": "Family Tour 包含什麼",
+            "paragraphs": [
+              "影片中提到，這個五天四夜的 Family Tour 是 5 個人 17 萬日圓，含住宿，另外附三項：雪上活動、雪場門票和日式晚餐，其餘行程是房東預先排好的建議。現行方案與價格以官網為準。",
+              "它不是整天待在雪場的滑雪行程，比較適合想帶孩子認識當地、不打算四五天都滑雪的家庭。房東也說，台灣家庭通常沒有雪具，之後會調整準備的內容。"
+            ],
+            "sourceIds": [
+              "y10"
+            ],
+            "links": []
+          }
+        ]
+      },
+      "arrival": {
+        "title": "交通：沒有租車，由房東接送",
+        "paragraphs": [
+          "我們從小樽站被接到余市，這幾天都沒有租車。房東建議來這一帶還是以自駕為主，移動比較自由；他們接待的客人大多也是自駕。",
+          "不開車的話，Nikka 官網寫 JR 小樽站到余市站約 30 分鐘，但班次不多；小樽站前搭巴士到余市約 40 分鐘。余市町介紹，從余市開車到小樽約 15 分鐘。"
+        ],
+        "sourceIds": [
+          "y00",
+          "y02",
+          "yoichi-nikka-access",
+          "yoichi-town-profile"
+        ],
+        "links": []
+      },
+      "faq": [
+        {
+          "question": "余市需要租車嗎？",
+          "answer": "我們這趟由房東接送，沒有租車；房東建議自駕比較方便。不開車可以搭 JR 或巴士到余市站一帶，但小樽到余市的火車班次不多。",
+          "sourceIds": [
+            "y02",
+            "yoichi-nikka-access"
+          ]
+        },
+        {
+          "question": "冬天帶孩子去，雪具要自己帶嗎？",
+          "answer": "我們沒帶，第一晚到 AEON 買齊孩子的雪衣雪褲；大人的外套在雪場租。冬天這一帶白天常在零下，手套和雪靴要防水。",
+          "sourceIds": [
+            "y00",
+            "y02",
+            "y03"
+          ]
+        },
+        {
+          "question": "沒預約到 Nikka 的導覽，還值得去嗎？",
+          "answer": "可以去逛博物館和商店。我們那天導覽額滿，跟工作人員拿了地圖，到後面的商店買巧克力和伴手禮。",
+          "sourceIds": [
+            "yoichi-nikka-access",
+            "y07"
+          ]
+        }
+      ],
+      "videoSourceIds": [
+        "y00",
+        "y03",
+        "y05",
+        "y07",
+        "y10"
+      ],
+      "planner": {
+        "title": "余市兩天怎麼排",
+        "paragraphs": [
+          "以下是我們實際走過的兩天：一天上雪場，一天看余市在地景點。雪場與酒廠的時間依出發日期查官網。"
+        ],
+        "sourceIds": [
+          "y03",
+          "y05",
+          "yoichi-kiroro-hours",
+          "yoichi-nikka-reservation"
+        ],
+        "routes": [
+          {
+            "id": "yoichi-2-days",
+            "label": "兩天：雪場一天、余市一天",
+            "sightseeingDays": 2,
+            "pace": "leisure",
+            "note": "我們由房東接送；自駕或搭車請另外預留移動時間。",
+            "sourceIds": [
+              "y03",
+              "y05",
+              "y07"
+            ],
+            "days": [
+              {
+                "title": "Kiroro 與雪上活動",
+                "description": "早上出發上 Kiroro，在山上吃午餐，下午去雪上活動，傍晚回余市。",
+                "stops": [
+                  "kiroro"
+                ]
+              },
+              {
+                "title": "余市海邊與 Nikka",
+                "description": "先到海邊看えびす岩・大黒岩、玩雪，中午吃迴轉壽司，再到 Nikka 余市蒸餾所逛商店。",
+                "stops": [
+                  "ebisu-daikoku-rocks",
+                  "nikka-yoichi"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "extension": {
+        "title": "延伸閱讀",
+        "paragraphs": [
+          "本篇的住宿與 Family Tour 為 Yoichi Holiday 邀請的體驗。"
+        ],
+        "sourceIds": [
+          "y10"
+        ],
+        "links": [
+          {
+            "label": "小樽：音樂盒、水族館與運河",
+            "url": "/trip/guides/otaru-with-kids/"
+          },
+          {
+            "label": "日本旅行總覽",
+            "url": "/trip/japan/"
+          }
+        ]
+      }
     }
   ],
   "routes": [
@@ -6315,7 +9782,9 @@
     ],
     "cityIds": [
       "asahikawa",
-      "sapporo"
+      "sapporo",
+      "otaru",
+      "yoichi"
     ],
     "routeIds": [
       "hokkaido-seven-days"
