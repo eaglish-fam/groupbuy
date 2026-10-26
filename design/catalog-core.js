@@ -41,10 +41,10 @@
     }
     return u;
   }
-  function classify(r) {
+  function classify(r, today) {
     const ProductContent = PC();
     const type = r["類型"] || "",
-      now = ProductContent.today(),
+      now = today || ProductContent.today(),
       start = ProductContent.date(r["開團日期"]),
       end = ProductContent.date(r["結束日期"]);
     const long = /長期|long/i.test(type);
@@ -62,7 +62,11 @@
         label: long ? "當期連結待更新" : "本次已結團",
         long,
       };
-    if ((start && now < start) || /即將|upcoming/i.test(type))
+    // A main-sheet row still typed 即將開團 once its dates have started is open: the
+    // dates are the schedule, so nobody has to remember to edit the type on launch day.
+    // Rows from the 即將開團 tab are announcements and keep their type.
+    const launched = start && end && now >= start && now <= end && !r._fromUpcomingTab;
+    if ((start && now < start) || (/即將|upcoming/i.test(type) && !launched))
       return { key: "upcoming", label: "即將開團", long };
     if (!safe(r["連結"]))
       return { key: "unknown", label: "購買入口待確認", long };
@@ -79,7 +83,7 @@
         (r) => r["品牌"]?.trim() && !/^(\/\/|---|===)/.test(r["品牌"].trim()),
       )
       .map((r) => {
-        if (upcoming) r = { ...r, 類型: "即將開團" };
+        if (upcoming) r = { ...r, 類型: "即將開團", _fromUpcomingTab: true };
         const brand = r["品牌"].trim();
         const localImage = ProductContent.entry(brand)?.cardImage || ProductContent.entry(brand)?.image || "";
         const sheetImage = imageUrl(r["圖片網址"] || r.image);
