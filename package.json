@@ -11,6 +11,7 @@
     "integrate": "node scripts/integrate-article.mjs",
     "build:trip": "node scripts/optimize-trip-images.mjs && node scripts/build-trip-globe.mjs && node scripts/build-trip.mjs && node scripts/check-trip-images.mjs",
     "build:sitemap": "node scripts/generate-sitemap.mjs",
+    "build:go": "node scripts/build-go-links.mjs",
     "normalize:blog-seo": "node scripts/normalize-blog-seo.mjs --write --touch-date",
     "check:blog-seo": "node scripts/normalize-blog-seo.mjs",
     "audit:site": "node scripts/site-maintenance-audit.mjs --write",
@@ -24,7 +25,7 @@
     "flight:scan": "node flights-pipeline/src/cli.mjs scan",
     "test": "node --test tests/*.test.mjs",
     "plan:seo": "node scripts/seo-performance-plan.mjs",
-    "verify": "npm run normalize:fonts && npm run build:content && npm run build:homepage && npm run build:trip && npm run normalize:fonts && npm run build:css && npm run normalize:site-seo && npm run build:sitemap && npm run check:blog-seo && npm run check:site-seo && npm run audit:site && npm run audit:blog && npm run audit:seo && npm test",
+    "verify": "npm run normalize:fonts && npm run build:content && npm run build:homepage && npm run build:go && npm run build:trip && npm run normalize:fonts && npm run build:css && npm run normalize:site-seo && npm run build:sitemap && npm run check:blog-seo && npm run check:site-seo && npm run audit:site && npm run audit:blog && npm run audit:seo && npm test",
     "watch:css": "tailwindcss -i src/tailwind-input.css -o tailwind.css --watch",
     "normalize:site-seo": "node scripts/normalize-site-seo.mjs --write",
     "check:site-seo": "node scripts/normalize-site-seo.mjs"

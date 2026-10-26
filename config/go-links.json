@@ -1,0 +1,16 @@
+{
+  "schema": "eaglish.go-links/v1",
+  "note": "Short redirect links for LINE and other posts: www.eaglish.store/go/<slug>/?c=<where>. The page adds the tracking codes and sends people on. Add a link here, run `npm run build:go`, open a PR. Hand-made pages under /go/ (like sanfu-farm) are not touched.",
+  "links": [
+    {
+      "slug": "cal",
+      "title": "鷹家買物社團購行事曆｜本週開團、即將截止一次看",
+      "description": "一頁看鷹式一家本週開團、即將截止與即將開團的團購，附商品介紹、選物誌與加入行事曆，加入 LINE 社群不漏團。",
+      "image": "https://www.eaglish.store/assets/calendar/og-calendar-v1.jpg",
+      "imageAlt": "鷹家買物社｜團購行事曆",
+      "destination": "/calendar/",
+      "label": "團購行事曆",
+      "utm": { "source": "line", "medium": "social", "campaign": "calendar-{yyyymm}" }
+    }
+  ]
+}
