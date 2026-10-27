@@ -2507,6 +2507,11 @@ async function loadData() {
           else if (/教育|公益|edu|charity/.test(typeRaw)) category = 'edu';
           else if (/書籍|書|book/.test(typeRaw)) category = 'book';
           else if (isEnded) category = 'long';  // 結團視為長期類，列表顯示時無倒數，靠 isEnded 走 expired 流程
+          // 類型還寫「即將開團」但開團日已到、結束日未過 → 以日期為準視為開團中（與 /calendar/ 的 CatalogCore.classify 一致）
+          if (category === 'upcoming') {
+            const start = ProductContent.date(row['開團日期'] || row['StartDate']), end = ProductContent.date(row['結束日期'] || row['EndDate']), today = ProductContent.today();
+            if (start && end && today >= start && today <= end) category = 'short';
+          }
           all.push({
             id: i + 1,
             brand,
