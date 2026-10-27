@@ -22,7 +22,7 @@ test('康軒 uses only the live brand and keeps current offers in the Sheet',()=
 });
 test('康軒 article exposes source-bound previews and local video without eager download',()=>{
  const html=readFileSync(new URL('../blog/knsh/index.html',import.meta.url),'utf8');
- for(const t of ['data-reading-nav','id="video"','id="versions"','data-current-offer','2026/10/12–10/22','102_150dpi','_443-150','_455'])assert.ok(html.includes(t));
+ for(const t of ['data-reading-nav','id="video"','id="versions"','data-current-offer','2026/10/12–10/31','102_150dpi','_443-150','_455'])assert.ok(html.includes(t));
  assert.ok(!html.includes('<video'));assert.ok(!html.includes('autoplay'));
  assert.ok(html.includes('/assets/knsh/reading-video-mobile.mp4'));
  for(const file of ['reading-video-mobile.mp4','reading-video.webm']) assert.ok(existsSync(new URL('../assets/knsh/'+file,import.meta.url)));
