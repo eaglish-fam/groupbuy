@@ -24,3 +24,16 @@ test('announcements from the 即將開團 tab keep their type even inside the wi
   const [item]=core.normalize([row()],true);
   assert.equal(item.status.key,'upcoming');
 });
+
+test('a launched row with no link is "purchase link to be confirmed" (the home page and /calendar/ both use classify), never open',()=>{
+  const day=core.classify(row({連結:''}),'2026-10-26');
+  assert.equal(day.key,'unknown');
+  assert.equal(day.label,'購買入口待確認');
+});
+test('catalog-core.js is loaded with its own cache version on the home page and /calendar/',async()=>{
+  const {readFileSync}=await import('node:fs');
+  const read=f=>readFileSync(new URL('../'+f,import.meta.url),'utf8');
+  assert.match(read('index.html'),/\/design\/catalog-core\.js\?v=20261101-gb015-6/);
+  assert.match(read('calendar/index.html'),/\/design\/catalog-core\.js\?v=20261101-gb015-6/);
+  assert.match(read('scripts/build-homepage.mjs'),/const catalogCoreRelease = '20261101-gb015-6'/);
+});
