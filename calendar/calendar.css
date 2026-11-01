@@ -41,7 +41,7 @@ img { display: block; max-width: 100%; }
 .header-nav a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
 .header-nav [aria-current] { color: var(--orange); font-weight: 600; }
 
-.calendar-hero { padding-top: 40px; padding-bottom: 36px; }
+.calendar-hero { padding-top: 40px; padding-bottom: 8px; }
 .back-link {
   display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 16px; margin-bottom: 26px;
   border: 1px solid var(--olive); border-radius: 999px; color: var(--olive); font-size: 14px; font-weight: 600; text-decoration: none;
@@ -66,6 +66,11 @@ img { display: block; max-width: 100%; }
 
 /* Month view: the homepage's calendar grid, with the picked day's campaigns as cards. */
 .month-view { padding-bottom: 34px; }
+.calendar-hero + .month-view .month-heading { border-top: 0; padding-top: 12px; }
+.calendar-intro { padding-bottom: 36px; }
+.calendar-intro .hero-actions { margin-top: 0; }
+.calendar-intro .lead { margin-top: 22px; }
+.calendar-intro .summary { margin-top: 12px; min-height: 0; }
 .month-heading { border-top: 1px solid var(--line); padding-top: 30px; margin-bottom: 18px; display: flex; justify-content: space-between; align-items: baseline; gap: 20px; }
 .month-heading h2 { font-size: 26px; line-height: 1.4; }
 .month-heading p { font-size: 14px; color: var(--muted); }
@@ -159,7 +164,8 @@ img { display: block; max-width: 100%; }
   .logo img { width: 128px; }
   .header-nav { gap: 14px; font-size: 13px; }
   .header-nav a:last-child { display: none; }
-  .calendar-hero { padding-top: 22px; padding-bottom: 26px; }
+  .calendar-hero { padding-top: 22px; padding-bottom: 4px; }
+  .calendar-hero + .month-view .month-heading { padding-top: 8px; }
   .back-link { margin-bottom: 16px; }
   .month-heading { display: block; padding-top: 24px; }
   .month-heading p { margin-top: 4px; }
