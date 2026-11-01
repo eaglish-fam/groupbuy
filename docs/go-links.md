@@ -27,6 +27,8 @@ node scripts/ga4-go-daily.mjs <ga4.csv> 2026-11-01 > daily.csv
 ```
 
 欄位：`date, source, utm_source, utm_medium, utm_campaign, utm_content, views`；`source` 是 `line`／`blog`／`other`。
+`views` 只收「瀏覽次數」欄；報表若只有「工作階段」，腳本會停下來，不把兩種指標混在一起。
+`source` 只看 `utm_content`：內容以 `blog-` 開頭就算 `blog`，不管來源是什麼。所以 LINE 貼文自己的 `?c=` 標記不要用 `blog-` 開頭。
 
 **`views` 是目的地頁（例如 /calendar/）帶著這組 utm 被打開的次數，不是 /go/ 頁的瀏覽數（/go/ 頁只轉址、不載入 GA4），也不是「按去廠商」的次數。** 「按去廠商」要看既有的 `outbound_groupbuy_click` 事件。
 

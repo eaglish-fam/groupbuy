@@ -18,7 +18,8 @@ const ALIASES={
  utm_medium:[/^(session )?(manual )?(medium|媒介)$/i,/工作階段.*媒介$/,/^媒介$/],
  utm_campaign:[/campaign/i,/廣告活動/],
  utm_content:[/(ad )?content/i,/廣告內容/],
- views:[/^views$/i,/^瀏覽次數$/,/^sessions$/i,/^工作階段$/]
+ // Page views only. Sessions and views are different metrics, so "Sessions" is not accepted.
+ views:[/^views$/i,/^瀏覽次數$/]
 };
 const OUT=['date','source','utm_source','utm_medium','utm_campaign','utm_content','views'];
 

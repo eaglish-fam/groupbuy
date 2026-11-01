@@ -13,6 +13,7 @@ test('Traditional Chinese headers work and a missing column stops the script',()
  const zh='工作階段來源,工作階段媒介,工作階段廣告活動,工作階段手動廣告內容,瀏覽次數\nline,social,calendar-202611,group1,4\n';
  assert.equal(summarize(zh,'2026-11-01')[0].views,4);
  assert.throws(()=>summarize('foo,Views\nx,1\n','2026-11-01'),/column not found: utm_source/);
+ assert.throws(()=>summarize('Session source,Session medium,Session campaign,Session manual ad content,Sessions\nline,social,c,g,1\n','2026-11-01'),/column not found: views/);
  assert.throws(()=>summarize(en,'11/01'),/date must be/);
 });
 test('csv output quotes commas and has the documented columns',()=>{
