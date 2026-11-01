@@ -40,8 +40,13 @@ test('the month follows Taipei time, not UTC',()=>{
 test('without a group tag no utm_content is sent, and a malformed tag is dropped',()=>{
  const cal=links.find(l=>l.slug==='cal');
  assert.doesNotMatch(redirect(cal).url,/utm_content/);
- for(const bad of ['?c=Group1','?c=a%20b','?c=https://evil.example','?c='+'a'.repeat(25)])assert.doesNotMatch(redirect(cal,{search:bad}).url,/utm_content/);
+ for(const bad of ['?c=Group1','?c=a%20b','?c=https://evil.example','?c='+'a'.repeat(41)])assert.doesNotMatch(redirect(cal,{search:bad}).url,/utm_content/);
  assert.match(redirect(cal,{search:'?c=group2-pin&email=a@b.c'}).url,/utm_content=group2-pin$/);
+});
+test('an article tag (blog-<article slug>) fits and becomes utm_content',()=>{
+ const cal=links.find(l=>l.slug==='cal');
+ assert.match(redirect(cal,{search:'?c=blog-caesar-kenting'}).url,/utm_content=blog-caesar-kenting$/);
+ assert.match(redirect(cal,{search:'?c=blog-'+'a'.repeat(35)}).url,/utm_content=blog-a{35}$/);
 });
 test('the config rejects anything that could send people off-site or break naming',()=>{
  const base=links[0];
