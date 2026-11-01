@@ -16,6 +16,6 @@
 // Month in Taipei, so the campaign name follows the same calendar the group buys do.
 var ym=new Date(Date.now()+8*36e5).toISOString().slice(0,7).replace("-","");
 var q=new URLSearchParams();q.set("utm_source",u.source);q.set("utm_medium",u.medium);q.set("utm_campaign",u.campaign.replace("{yyyymm}",ym));
-var c=new URLSearchParams(location.search).get("c");if(c&&/^[a-z0-9-]{1,24}$/.test(c))q.set("utm_content",c);
+var c=new URLSearchParams(location.search).get("c");if(c&&/^[a-z0-9-]{1,40}$/.test(c))q.set("utm_content",c);
 var url=d+"?"+q.toString();document.getElementById("go").href=url;location.replace(url);})();</script>
 </body></html>
