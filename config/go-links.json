@@ -22,7 +22,7 @@
       "label": "六福莊住宿團購",
       "status": "closed",
       "article": "/blog/leofoo/",
-      "notify": null,
+      "notify": { "url": "https://line.me/ti/g2/WcewqAFHz9CZ4zQRMCeiMNilA281HRQvfH71yg", "label": "加入 LINE 社群，開團第一時間通知" },
       "utm": { "source": "line", "medium": "social", "campaign": "calendar-{yyyymm}" }
     },
     {
@@ -35,7 +35,7 @@
       "label": "墾丁凱撒大飯店團購",
       "status": "closed",
       "article": "/blog/caesar-kenting/",
-      "notify": null,
+      "notify": { "url": "https://line.me/ti/g2/WcewqAFHz9CZ4zQRMCeiMNilA281HRQvfH71yg", "label": "加入 LINE 社群，開團第一時間通知" },
       "utm": { "source": "line", "medium": "social", "campaign": "calendar-{yyyymm}" }
     }
   ]

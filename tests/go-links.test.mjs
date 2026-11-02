@@ -56,6 +56,7 @@ test('the config rejects anything that could send people off-site or break namin
 });
 
 // --- G2: groups that are not open, and the sanfu-farm hall parameter ---
+const NOTIFY='https://line.me/ti/g2/WcewqAFHz9CZ4zQRMCeiMNilA281HRQvfH71yg';
 const closedPage=slug=>renderGoPage(links.find(l=>l.slug===slug));
 const run=(html,{search='',hash='',now='2026-11-02T12:00:00+08:00'}={})=>{
  const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
@@ -76,18 +77,21 @@ test('a closed group buy never redirects to a vendor or old link, and says so',(
   assert.match(html,/目前沒有開團/);
   assert.doesNotMatch(html,/location\.replace|http-equiv="refresh"/);
   assert.match(html,/<meta name="robots" content="noindex,nofollow">/);
-  assert.equal(html.match(/href="https?:\/\/[^"]*"/g)?.filter(h=>!/eaglish\.store/.test(h)).length??0,0,'no off-site link when notify is empty');
+  assert.deepEqual((html.match(/href="https?:\/\/[^"]*"/g)||[]).filter(h=>!/eaglish\.store/.test(h)),[`href="${NOTIFY}"`],'the only off-site link is the approved LINE community link');
   const r=run(html,{search:'?c=blog-'+slug});
   assert.equal(r.seen.replaced,null);
   assert.equal(r.anchor.href,'/calendar/?utm_source=line&utm_medium=social&utm_campaign=calendar-202611&utm_content=blog-'+slug);
  }
 });
-test('without a real notification link the page says the date is not announced; with one it shows only that link',()=>{
- const l=links.find(x=>x.slug==='leofoo');
- assert.match(renderGoPage(l),/開團時間待公告/);
- const withNotify=renderGoPage({...l,notify:{url:'https://line.me/ti/g2/example',label:'加入 LINE 社群收開團通知'}});
- assert.match(withNotify,/加入 LINE 社群收開團通知/);
- assert.doesNotMatch(withNotify,/開團時間待公告/);
+test('the notification button uses the LINE community link Hiram chose; with none configured the page says the date is not announced',()=>{
+ for(const slug of ['leofoo','caesar-kenting']){
+  const l=links.find(x=>x.slug===slug);
+  assert.deepEqual(l.notify,{url:NOTIFY,label:'加入 LINE 社群，開團第一時間通知'});
+  const html=renderGoPage(l);
+  assert.match(html,new RegExp(`<a class="btn" href="${NOTIFY}" rel="noopener noreferrer">加入 LINE 社群，開團第一時間通知</a>`));
+  assert.doesNotMatch(html,/開團時間待公告/);
+ }
+ assert.match(renderGoPage({...links.find(x=>x.slug==='leofoo'),notify:null}),/開團時間待公告/);
 });
 test('an unknown status uses its own wording',()=>{
  const l={...links.find(x=>x.slug==='leofoo'),status:'unknown'};
@@ -115,4 +119,5 @@ test('sanfu-farm hides the vendor booking buttons after the last sale day (Taipe
  assert.deepEqual(run(sanfu,{now:'2026-11-02T16:30:00Z'}).seen.root,['sale-over'],'UTC evening of 11/02 is already 11/03 in Taipei');
  assert.match(sanfu,/html\.sale-over \.room-list\{display:none\}/);
  assert.match(sanfu,/class="sale-over-notice"/);
+ assert.ok(sanfu.includes(`href="${NOTIFY}"`),'the sale-over notice offers the same LINE community link');
 });
