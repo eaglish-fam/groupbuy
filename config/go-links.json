@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.go-links/v1",
-  "note": "Short redirect links for LINE and other posts: www.eaglish.store/go/<slug>/?c=<where>. The page adds the tracking codes and sends people on. Add a link here, run `npm run build:go`, open a PR. Hand-made pages under /go/ (like sanfu-farm) are not touched.",
+  "note": "Short redirect links for LINE and other posts: www.eaglish.store/go/<slug>/?c=<where>. The page adds the tracking codes and sends people on. Add a link here, run `npm run build:go`, open a PR. Hand-made pages under /go/ (like sanfu-farm) are not touched. Links with status closed or unknown (a group buy that is not open) do not redirect: the page says so, offers the calendar and the article, and shows notify only when the config has a real notification link.",
   "links": [
     {
       "slug": "cal",
@@ -10,6 +10,32 @@
       "imageAlt": "鷹家買物社｜團購行事曆",
       "destination": "/calendar/",
       "label": "團購行事曆",
+      "utm": { "source": "line", "medium": "social", "campaign": "calendar-{yyyymm}" }
+    },
+    {
+      "slug": "leofoo",
+      "title": "六福莊住宿團購｜目前沒有開團，下次開團看這裡",
+      "description": "六福莊住宿團購目前沒有開團。看團購行事曆了解下次開團時間，或回到鷹家選物誌看各房型怎麼選。",
+      "image": "https://www.eaglish.store/assets/leofoo/cover.webp",
+      "imageAlt": "六福莊肯亞客房與一家人在戶外看動物的旅行畫面",
+      "destination": "/calendar/",
+      "label": "六福莊住宿團購",
+      "status": "closed",
+      "article": "/blog/leofoo/",
+      "notify": null,
+      "utm": { "source": "line", "medium": "social", "campaign": "calendar-{yyyymm}" }
+    },
+    {
+      "slug": "caesar-kenting",
+      "title": "墾丁凱撒大飯店團購｜目前沒有開團，下次開團看這裡",
+      "description": "墾丁凱撒大飯店團購目前沒有開團。看團購行事曆了解下次開團時間，或回到鷹家選物誌看各房型怎麼選。",
+      "image": "https://www.eaglish.store/assets/caesar-kenting/journal/cover-title-v2.webp",
+      "imageAlt": "墾丁凱撒大飯店親子選房指南，左側飯店名稱大字與右側真實椰林泳池",
+      "destination": "/calendar/",
+      "label": "墾丁凱撒大飯店團購",
+      "status": "closed",
+      "article": "/blog/caesar-kenting/",
+      "notify": null,
       "utm": { "source": "line", "medium": "social", "campaign": "calendar-{yyyymm}" }
     }
   ]
