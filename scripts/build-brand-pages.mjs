@@ -4,6 +4,8 @@
 // date, product list or price is written as unknown, never filled in. The buy button
 // exists only when status is "open" and an approved /go/ slug is set; otherwise the
 // page says 開團時間待公告 and has no buy link.
+// A page is indexable only when `indexable` is true; that needs a journal article that exists under blog/
+// (Bingo's rule: thin brand pages stay noindex until the brand has an article and a product card).
 import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -27,6 +29,9 @@ export function validatePages(config,goLinks){
   if(p.title.length>70)throw Error('brand-pages: title too long: '+p.slug);
   if(p.description.length<55||p.description.length>180)throw Error('brand-pages: description must be 55-180 characters (same range as the article audit): '+p.slug);
   if(!STATUS.includes(p.status))throw Error(`brand-pages: bad status ${p.status} for ${p.slug}`);
+  if(typeof p.indexable!=='boolean')throw Error('brand-pages: indexable must be true or false: '+p.slug);
+  if(p.article!==undefined&&!/^\/blog\/[a-z0-9-]+\/$/.test(p.article))throw Error('brand-pages: article must be /blog/<slug>/: '+p.slug);
+  if(p.indexable&&(!p.article||!existsSync(resolve(root,p.article.slice(1),'index.html'))))throw Error('brand-pages: an indexable page needs an existing journal article: '+p.slug);
   if(!Array.isArray(p.sections)||p.sections.length<1)throw Error('brand-pages: sections missing: '+p.slug);
   for(const s of p.sections)if(!String(s.heading||'').trim()||!String(s.text||'').trim())throw Error('brand-pages: empty section in '+p.slug);
   if(p.status==='open'){
@@ -50,7 +55,7 @@ ${marker}
 <html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(p.title)}</title>
 <meta name="description" content="${esc(p.description)}">
-<meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="robots" content="${p.indexable?'index,follow,max-image-preview:large':'noindex,follow'}">
 <link rel="canonical" href="${url}">
 <meta property="og:site_name" content="鷹家買物社"><meta property="og:type" content="website"><meta property="og:url" content="${url}">
 <meta property="og:title" content="${esc(p.title)}"><meta property="og:description" content="${esc(p.description)}">

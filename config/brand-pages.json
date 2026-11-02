@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.brand-pages/v1",
-  "note": "Brand + group-buy pages at /brand/<slug>/. Text comes from Lydia's L5 drafts (Kingdom results/GB-SEO-LYDIA). status: open | closed | unknown. buy is null until an approved, valid go slug exists; null shows 開團時間待公告 and no link. No prices, dates or product lists are invented: an unknown field says so. Run `npm run build:brand`.",
+  "note": "Brand + group-buy pages at /brand/<slug>/. Text comes from Lydia's L5 drafts (Kingdom results/GB-SEO-LYDIA). status: open | closed | unknown. buy is null until an approved, valid go slug exists; null shows 開團時間待公告 and no link. No prices, dates or product lists are invented: an unknown field says so. indexable: false renders noindex,follow and keeps the page out of the sitemap. Bingo's rule (2026-11-02): a thin brand page stays noindex until the brand has a linked journal article (set `article`, it must exist under blog/) and at least one current or past group-buy product card; then switch it to true, one brand at a time. Run `npm run build:brand`.",
   "pages": [
     {
       "slug": "tiger-family",
@@ -10,6 +10,7 @@
       "h1": "Tiger Family 團購2026：商品與開團資訊",
       "intro": "Tiger Family 的商品以兒童書包與文具、隨身配件為主。官網依年級與身高整理不同書包系列；挑選時可以先看要裝的物品、尺寸與背帶調整，再比較款式。",
       "status": "unknown",
+      "indexable": false,
       "buy": null,
       "sections": [
         {
@@ -39,6 +40,7 @@
       "h1": "Happymoon 團購2026：商品與開團資訊",
       "intro": "Happymoon 這頁整理居家遊戲用品的團購資訊。想替孩子安排在家玩耍的空間，可以先量活動範圍，再確認完整商品規格、使用方式與適用條件。",
       "status": "unknown",
+      "indexable": false,
       "buy": null,
       "sections": [
         {
@@ -68,6 +70,7 @@
       "h1": "PLAFARM 團購2026：商品與開團資訊",
       "intro": "PLAFARM 這裡整理玩具收納盒、收納拉拉車與伸縮衣架的團購資訊。想替玩具找固定位置，先看收納盒；需要移動收納或整理掛衣空間，再分別比較拉拉車與衣架。",
       "status": "unknown",
+      "indexable": false,
       "buy": null,
       "sections": [
         {

@@ -23,19 +23,31 @@ test('the three brand pages exist and each committed file has exactly the genera
   assert.ok(committed.includes(`<meta name="description" content="${p.description}">`));
  }
 });
-test('static HTML carries the brand name, title format, self canonical and no noindex',()=>{
+test('static HTML carries the brand name, title format and self canonical',()=>{
  for(const p of pages){
   const html=readFileSync(resolve(root,'brand',p.slug,'index.html'),'utf8');
   assert.match(html,new RegExp(`<title>${p.brand} 團購2026｜開團日期、商品與優惠｜鷹式一家</title>`));
   assert.match(html,new RegExp(`<h1>${p.brand} 團購2026：商品與開團資訊</h1>`));
   assert.ok(html.includes(`<link rel="canonical" href="https://www.eaglish.store/brand/${p.slug}/">`));
-  assert.doesNotMatch(html,/noindex/);
   for(const s of p.sections)assert.ok(html.includes(s.text),'section text is in the HTML: '+s.heading);
  }
 });
-test('these three pages sit in the sitemap',()=>{
+test('thin brand pages are noindex,follow and stay out of the sitemap (Bingo 2026-11-02)',()=>{
  const sitemap=readFileSync(resolve(root,'sitemap.xml'),'utf8');
- for(const p of pages)assert.ok(sitemap.includes(`<loc>https://www.eaglish.store/brand/${p.slug}/</loc>`));
+ for(const p of pages){
+  assert.equal(p.indexable,false);
+  const html=readFileSync(resolve(root,'brand',p.slug,'index.html'),'utf8');
+  assert.match(html,/<meta name="robots" content="noindex,follow">/);
+  assert.ok(!sitemap.includes(`/brand/${p.slug}/`),'noindex page is not in the sitemap');
+ }
+});
+test('a page becomes indexable only with an existing journal article, and then says index,follow',()=>{
+ const p=bySlug['plafarm'];
+ const ok={...p,indexable:true,article:'/blog/leofoo/'};
+ assert.doesNotThrow(()=>validatePages({...config,pages:[ok]},goLinks));
+ assert.match(renderBrandPage(ok),/<meta name="robots" content="index,follow,max-image-preview:large">/);
+ for(const patch of [{indexable:true},{indexable:true,article:'/blog/no-such-article/'},{indexable:true,article:'https://evil.example/'},{indexable:'yes'},{indexable:undefined},{article:'/guides/'}])
+  assert.throws(()=>validatePages({...config,pages:[{...p,...patch}]},goLinks),undefined,JSON.stringify(patch));
 });
 test('no buy link and no invented facts while the group buy is not confirmed open',()=>{
  for(const p of pages){
