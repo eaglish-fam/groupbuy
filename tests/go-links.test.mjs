@@ -59,12 +59,13 @@ test('the config rejects anything that could send people off-site or break namin
 const closedPage=slug=>renderGoPage(links.find(l=>l.slug===slug));
 const run=(html,{search='',hash='',now='2026-11-02T12:00:00+08:00'}={})=>{
  const script=html.match(/<script>([\s\S]*?)<\/script>/)[1];
- const anchor={href:''},seen={replaced:null,scrolled:[],classes:[]};
+ const anchor={href:''},seen={replaced:null,scrolled:[],classes:[],root:[]};
  const RealDate=Date,fixed=RealDate.parse(now);
  class FakeDate extends RealDate{constructor(...a){super(...(a.length?a:[fixed]));}static now(){return fixed;}}
  const section={classList:{add:c=>seen.classes.push(c)}};
+ const root={classList:{add:c=>seen.root.push(c)}};
  const el=id=>({id,closest:()=>section,scrollIntoView:()=>seen.scrolled.push(id)});
- vm.runInNewContext(script,{Date:FakeDate,URLSearchParams,Object,location:{search,hash,replace:u=>{seen.replaced=u;}},document:{getElementById:id=>id==='go'?anchor:el(id)}});
+ vm.runInNewContext(script,{Date:FakeDate,URLSearchParams,Object,location:{search,hash,replace:u=>{seen.replaced=u;}},document:{documentElement:root,getElementById:id=>id==='go'?anchor:el(id)}});
  return {anchor,seen};
 };
 test('a closed group buy never redirects to a vendor or old link, and says so',()=>{
@@ -106,4 +107,12 @@ test('sanfu-farm ?h= lands on the right hall and highlights it; unknown values d
  for(const bad of ['?h=x','?h=__proto__','?h=constructor','?h=zone-a%27','?h=']){const r=run(sanfu,{search:bad});assert.deepEqual(r.seen.scrolled,[],bad);}
  assert.deepEqual(run(sanfu,{hash:'#zone-b'}).seen.scrolled,['zone-b']);
  assert.deepEqual(run(sanfu,{hash:'#evil'}).seen.scrolled,[]);
+});
+
+test('sanfu-farm hides the vendor booking buttons after the last sale day (Taipei), not before',()=>{
+ assert.deepEqual(run(sanfu,{now:'2026-11-02T23:59:00+08:00'}).seen.root,[]);
+ assert.deepEqual(run(sanfu,{now:'2026-11-03T00:01:00+08:00'}).seen.root,['sale-over']);
+ assert.deepEqual(run(sanfu,{now:'2026-11-02T16:30:00Z'}).seen.root,['sale-over'],'UTC evening of 11/02 is already 11/03 in Taipei');
+ assert.match(sanfu,/html\.sale-over \.room-list\{display:none\}/);
+ assert.match(sanfu,/class="sale-over-notice"/);
 });
