@@ -40,6 +40,8 @@ html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
   .replaceAll('src="./', 'src="/design/')
   .replace(/content="從餐桌、居家到旅行，跟著鷹式一家發現生活選物、當期團購與真實使用筆記。"/,
     'content="鷹式一家 Eaglish Family 官方團購網站。看當期開團、團購行事曆、常駐折扣碼，以及鷹家親自用過的選物誌與親子旅行指南，從餐桌好食到居家生活與旅行選物。"')
+  // The source file wraps this tag over three lines; keep it on one line so a plain-text check (grep, curl) finds it.
+  .replace(/<meta\s+name="description"\s+content="([^"]*)"\s*\/>/, '<meta name="description" content="$1">')
   .replace('</head>', `<link rel="canonical" href="https://www.eaglish.store/">
     <meta name="google-site-verification" content="FdPBW_xSaPXriw8r-beUzCvUXbh0J4BqT-0ADmKbdSY">
     <meta property="og:site_name" content="鷹家買物社">
