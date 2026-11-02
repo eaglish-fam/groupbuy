@@ -2,52 +2,10 @@
   "counts": {
     "pages": 62,
     "blocking": 0,
-    "warnings": 27,
-    "total": 27
+    "warnings": 21,
+    "total": 21
   },
   "findings": [
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-blackmores",
-      "file": "blog/blackmores/index.html",
-      "index": 13001
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-done-by-deer",
-      "file": "blog/done-by-deer/index.html",
-      "index": 13879
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-knsh",
-      "file": "blog/knsh/index.html",
-      "index": 10613
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-parakito",
-      "file": "blog/parakito/index.html",
-      "index": 11891
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-sanfufarm",
-      "file": "blog/sanfufarm/index.html",
-      "index": 11384
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-shinwa-living",
-      "file": "blog/shinwa-living/index.html",
-      "index": 15892
-    },
     {
       "level": "warn",
       "category": "links",
@@ -158,14 +116,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43374
+      "index": 46852
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43374
+      "index": 46852
     },
     {
       "level": "warn",

@@ -1,32 +1,8 @@
 {
   "version": 1,
-  "observedAt": "2026-10-02T05:01:29.233Z",
+  "observedAt": "2026-11-02T01:11:47.430Z",
   "source": "https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/",
   "items": [
-    {
-      "id": "locknlock",
-      "brand": "樂扣樂扣",
-      "description": "孩子自己帶水、大人外帶飲料、長時間補水，從喝法、容量到每天的拆洗。",
-      "category": "居家",
-      "article": "/blog/locknlock/",
-      "image": "/assets/locknlock/product-card.webp"
-    },
-    {
-      "id": "eben-kombucha",
-      "brand": "EBEN康普茶",
-      "description": "從茶香與果香挑口味，搭配商品圖、家人試喝、微量酒精與冷藏說明，再選適合的團購組合。",
-      "category": "食品",
-      "article": "/blog/eben-kombucha/",
-      "image": "/assets/eben/cover.webp"
-    },
-    {
-      "id": "playzu",
-      "brand": "Playzu",
-      "description": "20 款花色搭配與我們家的生活照，先找到像你家的那一款，再量好尺寸。",
-      "category": "母嬰, 居家",
-      "article": "/blog/playzu/",
-      "image": "/assets/playzu/cover.webp"
-    },
     {
       "id": "kietla-kids-sunglasses",
       "brand": "法國 Ki ET LA 兒童太陽眼鏡｜墨鏡",
@@ -36,12 +12,20 @@
       "image": "/assets/kietla/cover-style-v2.webp"
     },
     {
-      "id": "5fbe2c078f7cb9c5",
-      "brand": "媽爹講故事 APP・故事機",
-      "description": "睡前與旅途中聽故事，APP 訂閱與派派故事機依孩子年齡挑選",
+      "id": "playzu",
+      "brand": "Playzu",
+      "description": "醉月星空、初衷之心、秘境沙灘：先用家具配色縮小選擇，再量好鋪設範圍。",
+      "category": "母嬰, 居家",
+      "article": "/blog/playzu/",
+      "image": "/assets/playzu/vintage-cover.webp"
+    },
+    {
+      "id": "done-by-deer",
+      "brand": "丹麥 Done by deer兒童用品",
+      "description": "依孩子階段和用途比較 Done by deer 餐盤、水壺、便當盒與禮盒。",
       "category": "母嬰",
-      "article": null,
-      "image": null
+      "article": "/blog/done-by-deer/",
+      "image": "/assets/done-by-deer/product-card.webp"
     },
     {
       "id": "chulu-aomori-drinks",
@@ -92,49 +76,9 @@
       "image": "/assets/mitoy-rice-blocks/play.webp"
     },
     {
-      "id": "e69103aacd3feb90",
-      "brand": "酪梨油品、紐西蘭食品",
-      "description": "先確認品項、使用需求與適用限制，再核對廠商最新說明。",
-      "category": "食品",
-      "article": null,
-      "image": null
-    },
-    {
-      "id": "f7097020cf9701df",
-      "brand": "冷壓初榨橄欖油",
-      "description": "來自希臘最存粹的冷壓橄欖油",
-      "category": "食品",
-      "article": null,
-      "image": null
-    },
-    {
-      "id": "shoumaji",
-      "brand": "收麻吉手捲收納袋",
-      "description": "用天數、人數與衣物厚度先算 XS、S、M 袋數，再看真實影片的收納前後與手捲步驟。",
-      "category": "居家",
-      "article": "/blog/shoumaji/",
-      "image": "/assets/shoumaji/cover.webp"
-    },
-    {
-      "id": "add22530b724b09a",
-      "brand": "Sunnylife戲水泳具",
-      "description": "泳衣、泳鏡、泳圈⋯⋯大人小孩的都有",
-      "category": "母嬰",
-      "article": null,
-      "image": null
-    },
-    {
       "id": "8c578ff118c1d1e5",
       "brand": "Kamee",
       "description": "客製化保健食品",
-      "category": "食品",
-      "article": null,
-      "image": null
-    },
-    {
-      "id": "737d1cbf9e45656f",
-      "brand": "紐登斯優格",
-      "description": "先確認品項、使用需求與適用限制，再核對廠商最新說明。",
       "category": "食品",
       "article": null,
       "image": null
@@ -164,12 +108,12 @@
       "image": null
     },
     {
-      "id": "f0380f87f93d484f",
+      "id": "shinwa-living",
       "brand": "心窪生活",
-      "description": "超音波電繡時光記憶盒",
+      "description": "陪孩子做木車，也從積木、桌椅、遊戲桌面與紀念禮物，看看手作怎麼走進每天的生活。",
       "category": "母嬰",
-      "article": null,
-      "image": null
+      "article": "/blog/shinwa-living/",
+      "image": "/assets/shinwa-living/product-card.webp"
     },
     {
       "id": "fec16029b05f93b8",
@@ -180,12 +124,68 @@
       "image": null
     },
     {
-      "id": "leofoo",
-      "brand": "六福莊住宿 A｜樂園無限玩",
-      "description": "先按人數、樓梯與動物景觀選房，再比較一晚或兩晚、動物體驗、晚餐和第四位同行者的安排。",
-      "category": "旅遊",
-      "article": "/blog/leofoo/",
-      "image": "/assets/leofoo/product-card.webp"
+      "id": "sanfufarm",
+      "brand": "三富休閒農場",
+      "description": "依人數、孩子年齡與是否帶狗，比較森林館、紫屋與欒樹館，並整理早餐、下午茶、DIY 與夜間導覽的份數。",
+      "category": "其他",
+      "article": "/blog/sanfufarm/",
+      "image": "/assets/sanfufarm/cover.webp"
+    },
+    {
+      "id": "db45089b508432f4",
+      "brand": "Giiker益智遊戲機+Gocube魔術方塊",
+      "description": "GiiKER 滑動積木、露營邏輯解謎與 GoCube 藍牙魔術方塊；依玩法和 App 需求選擇，部分款式為預購。",
+      "category": "母嬰",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "a0ec17c839c88ac5",
+      "brand": "emma 床墊",
+      "description": "德國工藝、科學睡眠，沉入雲端般的深層好眠",
+      "category": "居家",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "knsh",
+      "brand": "康軒雜誌",
+      "description": "年齡、注音、刊期與年費一次比較，搭配雜誌介紹影片、孩子共讀照片與各版試閱。",
+      "category": "母嬰",
+      "article": "/blog/knsh/",
+      "image": "/assets/knsh/product-card.webp"
+    },
+    {
+      "id": "parakito",
+      "brand": "法國帕洛防蚊液",
+      "description": "噴霧、滾珠、手環怎麼挑？比較四款配方、使用方式與補充片，搭配我們的戶外影片和照片。",
+      "category": "旅遊, 母嬰",
+      "article": "/blog/parakito/",
+      "image": "/assets/parakito/cover.webp"
+    },
+    {
+      "id": "blackmores",
+      "brand": "澳佳寶保健食品",
+      "description": "機伶小子與迷你魚油、兒童與成人葉黃素，以及LC-Plasma乳酸菌；比較五款的吃法、成分標示與適用條件。",
+      "category": "食品",
+      "article": "/blog/blackmores/",
+      "image": "/assets/blackmores/product-card-v2.webp"
+    },
+    {
+      "id": "shoumaji",
+      "brand": "收麻吉手捲收納袋",
+      "description": "用天數、人數與衣物厚度先算 XS、S、M 袋數，再看真實影片的收納前後與手捲步驟。",
+      "category": "居家",
+      "article": "/blog/shoumaji/",
+      "image": "/assets/shoumaji/cover.webp"
+    },
+    {
+      "id": "locknlock",
+      "brand": "樂扣樂扣",
+      "description": "孩子自己帶水、大人外帶飲料、長時間補水，從喝法、容量到每天的拆洗。",
+      "category": "居家",
+      "article": "/blog/locknlock/",
+      "image": "/assets/locknlock/product-card.webp"
     },
     {
       "id": "caesar-kenting",
@@ -194,6 +194,14 @@
       "category": "旅遊",
       "article": "/blog/caesar-kenting/",
       "image": "/assets/caesar-kenting/product-card.webp"
+    },
+    {
+      "id": "leofoo",
+      "brand": "六福莊住宿 B｜經典探險",
+      "description": "先按人數、樓梯與動物景觀選房，再比較一晚或兩晚、動物體驗、晚餐和第四位同行者的安排。",
+      "category": "旅遊",
+      "article": "/blog/leofoo/",
+      "image": "/assets/leofoo/product-card.webp"
     },
     {
       "id": "lange",
@@ -234,6 +242,14 @@
       "category": "居家",
       "article": "/blog/artisan-cb301/",
       "image": "/assets/artisan-cb301/blog-cover-v2.webp"
+    },
+    {
+      "id": "eben-kombucha",
+      "brand": "EBEN康普茶",
+      "description": "從茶香與果香挑口味，搭配商品圖、家人試喝、微量酒精與冷藏說明，再選適合的團購組合。",
+      "category": "食品",
+      "article": "/blog/eben-kombucha/",
+      "image": "/assets/eben/cover.webp"
     },
     {
       "id": "fushan-gifts",
