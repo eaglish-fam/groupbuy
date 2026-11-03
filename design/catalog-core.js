@@ -47,7 +47,10 @@
       now = today || ProductContent.today(),
       start = ProductContent.date(r["開團日期"]),
       end = ProductContent.date(r["結束日期"]);
-    const long = /長期|long/i.test(type);
+    // 賣完為止: a monthly drop with a few units that stays open until it sells out. The type says so in the
+    // Sheet; the end date is then only a note, so it neither closes the card nor drives a countdown.
+    const soldOutBased = /賣完為止/.test(type);
+    const long = !soldOutBased && /長期|long/i.test(type);
     if (/結團|closed|ended/.test(type))
       return { key: "closed", label: "本次已結團", long };
     if (
@@ -56,7 +59,7 @@
       (start && end && start > end)
     )
       return { key: "unknown", label: "檔期待確認", long };
-    if (end && now > end)
+    if (end && now > end && !soldOutBased)
       return {
         key: "closed",
         label: long ? "當期連結待更新" : "本次已結團",
@@ -71,7 +74,8 @@
     if (!safe(r["連結"]))
       return { key: "unknown", label: "購買入口待確認", long };
     if (r["庫存狀態"] === "售完")
-      return { key: "closed", label: "目前已售完", long };
+      return { key: "closed", label: "目前已售完", long, soldOut: soldOutBased };
+    if (soldOutBased) return { key: "open", label: "賣完為止", long: false, soldOut: true };
     if (!end && !long && !/折扣|公益|教育|書/.test(type))
       return { key: "unknown", label: "檔期待確認", long };
     return { key: "open", label: long ? "常駐開團" : "限時開團", long };
@@ -135,7 +139,7 @@
     return `最後 ${Math.floor(minutes / 60)} 小時 ${minutes % 60} 分`;
   }
   function timedCampaign(p) {
-    return !p.kind && p.status.key === "open" && !p.status.long && !!p.end;
+    return !p.kind && p.status.key === "open" && !p.status.long && !p.status.soldOut && !!p.end;
   }
   function isClosingSoon(end, now = Date.now()) {
     const remaining = Date.parse(end + "T00:00:00+08:00") + 86400000 - now;
@@ -231,7 +235,7 @@
       if (p.end && p.end < today) return;
       if (p.start && p.start >= today)
         list.push({ p, index, date: p.start, kind: "start", label: "開團" });
-      if (p.end && p.end >= today)
+      if (p.end && p.end >= today && !p.status.soldOut)
         list.push({
           p,
           index,

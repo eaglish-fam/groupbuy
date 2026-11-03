@@ -177,7 +177,7 @@ function card(p, leofooPlans = [], matchedLeofooPlans = []) {
     ${p.kind === "book" && retailerLinks ? `<div class="retailer-links">${retailerLinks}</div>` : `<div class="card-actions"><button class="button secondary" data-detail="${idx}">商品詳情</button></div>`}
     ${p.article?.article ? `<a class="card-reading" href="${esc(p.article.article)}">先讀生活筆記<span aria-hidden="true">↗</span></a>` : ""}
     ${p.videos.length ? `<button class="card-reading card-video" data-detail="${idx}">觀看使用影片</button>` : ""}
-    ${!p.kind && (p.end || p.start) && p.status.key !== "closed" ? `<button class="card-calendar" data-calendar-product="${idx}">加入行事曆</button>` : ""}
+    ${!p.kind && (p.end || p.start) && p.status.key !== "closed" && !p.status.soldOut ? `<button class="card-calendar" data-calendar-product="${idx}">加入行事曆</button>` : ""}
     ${p.kind === "book" && retailerLinks ? "" : `<div class="card-primary-action">${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">${cta}</a>` : `<button class="button secondary" data-save="${idx}">${saved.has(p.key) ? "已收藏 ✓" : "先收藏"}</button>`}</div>`}
     </div></div></article>`;
 }

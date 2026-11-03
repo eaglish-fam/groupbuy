@@ -35,7 +35,9 @@ test('a launched row with no link is "purchase link to be confirmed" (the home p
 test('catalog-core.js is loaded with its own cache version on the home page and /calendar/',async()=>{
   const {readFileSync}=await import('node:fs');
   const read=f=>readFileSync(new URL('../'+f,import.meta.url),'utf8');
-  assert.match(read('index.html'),/\/design\/catalog-core\.js\?v=20261101-gb015-6/);
-  assert.match(read('calendar/index.html'),/\/design\/catalog-core\.js\?v=20261101-gb015-6/);
-  assert.match(read('scripts/build-homepage.mjs'),/const catalogCoreRelease = '20261101-gb015-6'/);
+  const release=read('scripts/build-homepage.mjs').match(/const catalogCoreRelease = '([^']+)'/)?.[1];
+  assert.ok(release,'the home page build names a catalog-core release');
+  assert.notEqual(release,'20261021-calendar-g1','it has its own version, not the shared one');
+  assert.ok(read('index.html').includes(`/design/catalog-core.js?v=${release}`));
+  assert.ok(read('calendar/index.html').includes(`/design/catalog-core.js?v=${release}`));
 });
