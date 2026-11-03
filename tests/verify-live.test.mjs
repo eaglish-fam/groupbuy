@@ -62,6 +62,23 @@ test('a merge commit lists the PR files against its first parent, not unrelated 
   assert.deepEqual(files,['D:gone/index.html','M:blog/a/index.html','M:index.html','M:scripts/tool.mjs','A:docs/note.md'].sort());
  }finally{rmSync(dir,{recursive:true,force:true});}
 });
+test('--base compares base..commit, so several merges in a row are checked together',async()=>{
+ const {dir,sha}=fixture();
+ const base=git(dir,'rev-parse','HEAD~1');
+ const base2=git(dir,'rev-list','--max-parents=0','HEAD');
+ try{
+  const files=changedFiles(dir,sha,base2).map(c=>c.file).sort();
+  assert.ok(files.includes('unrelated.txt')&&files.includes('index.html'),'the range includes main-only and PR files: '+files);
+  const s=await site({'/':readFileSync(join(dir,'index.html')),'/blog/a/':'A2','/unrelated.txt':'u'});
+  try{
+   const r=await verifyLive({sha,base:base2,repoDir:dir,origin:s.origin,...fast});
+   assert.equal(r.ok,true,formatReport(r));
+   assert.ok(r.results.some(x=>x.label==='/unrelated.txt'));
+   assert.match(formatReport(r),new RegExp('範圍：'+base2.slice(0,7)));
+  }finally{s.close();}
+  assert.throws(()=>changedFiles(dir,sha,'no-such-ref'));
+ }finally{rmSync(dir,{recursive:true,force:true});}
+});
 test('PASS when the live site serves the commit files, removed pages are 404, and the strings are there',async()=>{
  const {dir,sha}=fixture();
  const s=await site({'/':readFileSync(join(dir,'index.html')),'/blog/a/':'A2'});
@@ -153,7 +170,8 @@ test('the check is cache-busted and sends no credentials',async()=>{
 });
 test('option parsing rejects nonsense',()=>{
  assert.deepEqual(parseArgs(['abc123','--wait-minutes','2']).waitMinutes,2);
- for(const bad of [['a','b'],['--bogus'],['a','--wait-minutes','0'],['a','--origin','ftp://x'],['a','--checks']])assert.throws(()=>parseArgs(bad),undefined,bad.join(' '));
+ assert.equal(parseArgs(['abc','--base','def']).base,'def');
+ for(const bad of [['a','b'],['a','--base'],['--bogus'],['a','--wait-minutes','0'],['a','--origin','ftp://x'],['a','--checks']])assert.throws(()=>parseArgs(bad),undefined,bad.join(' '));
 });
 test('the shipped PR #84 checks file is well formed and lists the homepage strings',()=>{
  const checks=JSON.parse(readFileSync(resolve(root,'config/verify-live/pr-84.json'),'utf8'));

@@ -2,7 +2,8 @@
 // Post-merge check of the public site (KINGDOM-068-G).
 //
 //   node scripts/verify-live.mjs <merge-commit-sha> [--checks config/verify-live/pr-84.json]
-//        [--origin https://www.eaglish.store] [--wait-minutes 15] [--interval-seconds 30] [--max-files 80]
+//        [--origin https://www.eaglish.store] [--wait-minutes 15] [--interval-seconds 30] [--max-files 80] [--base <sha>]
+//   --base compares <base>..<sha> instead of the commit against its first parent: use it after several merges in a row.
 //
 // What it does, read-only and with no keys:
 //   1. finds the files this commit changed (against its first parent, so a merge commit lists the PR's files);
@@ -34,7 +35,11 @@ const sha256=buf=>createHash('sha256').update(buf).digest('hex');
 function git(repoDir,args,{buffer=false}={}){
  return execFileSync('git',args,{cwd:repoDir,maxBuffer:256*1024*1024,encoding:buffer?'buffer':'utf8',stdio:['ignore','pipe','pipe']});
 }
-export function changedFiles(repoDir,sha){
+export function changedFiles(repoDir,sha,base=null){
+ if(base){
+  const b=git(repoDir,['rev-parse','--verify',`${base}^{commit}`]).trim();
+  return git(repoDir,['diff','--name-status','--no-renames',b,sha]).split('\n').filter(Boolean).map(line=>{const [status,...rest]=line.split('\t');return {status:status[0],file:rest.join('\t')};});
+ }
  const parents=git(repoDir,['rev-list','--parents','-n','1',sha]).trim().split(' ').slice(1);
  // A merge commit is compared with its first parent, so it lists the PR's files; a root commit lists everything it added.
  const out=parents.length
@@ -80,10 +85,10 @@ export function evaluateChecks({items,responses}){
  });
 }
 
-export async function verifyLive({sha,repoDir=process.cwd(),origin=DEFAULT_ORIGIN,checks=null,waitMs=15*60e3,intervalMs=30e3,maxFiles=80,requestTimeoutMs=20e3,fetchImpl=fetch,sleep=ms=>new Promise(r=>setTimeout(r,ms)),now=()=>Date.now(),log=()=>{}}){
+export async function verifyLive({sha,base=null,repoDir=process.cwd(),origin=DEFAULT_ORIGIN,checks=null,waitMs=15*60e3,intervalMs=30e3,maxFiles=80,requestTimeoutMs=20e3,fetchImpl=fetch,sleep=ms=>new Promise(r=>setTimeout(r,ms)),now=()=>Date.now(),log=()=>{}}){
  const full=git(repoDir,['rev-parse','--verify',`${sha}^{commit}`]).trim();
  const subject=git(repoDir,['log','-1','--format=%s',full]).trim();
- const changed=changedFiles(repoDir,full);
+ const changed=changedFiles(repoDir,full,base);
  const served=[],skippedNotServed=[];
  for(const c of changed){const p=servedPath(c.file);(p?served:skippedNotServed).push({...c,path:p});}
  const notes=[];
@@ -111,7 +116,7 @@ export async function verifyLive({sha,repoDir=process.cwd(),origin=DEFAULT_ORIGI
   await sleep(intervalMs);
  }
  const ok=results.length>0&&results.every(r=>r.ok);
- return {ok,sha:full,subject,origin,checkedAt:new Date(now()),attempts,waitedMs:now()-started,results,notes,skippedNotServed:skippedNotServed.map(c=>c.file)};
+ return {ok,sha:full,base:base?git(repoDir,['rev-parse','--verify',`${base}^{commit}`]).trim():null,subject,origin,checkedAt:new Date(now()),attempts,waitedMs:now()-started,results,notes,skippedNotServed:skippedNotServed.map(c=>c.file)};
 }
 
 const taipei=date=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Taipei',dateStyle:'short',timeStyle:'medium'}).format(date)+'（台北）';
@@ -119,7 +124,7 @@ export function formatReport(r){
  const fails=r.results.filter(x=>!x.ok).length;
  const lines=[
   `上線核實｜${new URL(r.origin).host}｜${taipei(r.checkedAt)}`,
-  `commit：${r.sha.slice(0,7)}（${r.subject}）`,
+  `commit：${r.sha.slice(0,7)}（${r.subject}）`+(r.base?`；範圍：${r.base.slice(0,7)}..${r.sha.slice(0,7)}`:''),
   `結果：${r.ok?'PASS':'FAIL'}（${r.results.length} 項，${fails} 項失敗；輪詢 ${r.attempts} 輪，約 ${Math.round(r.waitedMs/1000)} 秒）`,
   '',
   '| 項目 | 結果 | HTTP | 說明 |','|---|---|---|---|',
@@ -132,10 +137,11 @@ export function formatReport(r){
 }
 
 export function parseArgs(argv){
- const out={sha:null,checks:null,origin:DEFAULT_ORIGIN,waitMinutes:15,intervalSeconds:30,maxFiles:80};
+ const out={sha:null,base:null,checks:null,origin:DEFAULT_ORIGIN,waitMinutes:15,intervalSeconds:30,maxFiles:80};
  for(let i=0;i<argv.length;i++){
   const a=argv[i],next=()=>{if(i+1>=argv.length)throw Error(`${a} needs a value`);return argv[++i];};
   if(a==='--checks')out.checks=next();
+  else if(a==='--base')out.base=next();
   else if(a==='--origin')out.origin=next();
   else if(a==='--wait-minutes')out.waitMinutes=Number(next());
   else if(a==='--interval-seconds')out.intervalSeconds=Number(next());
@@ -155,7 +161,7 @@ if(process.argv[1]&&resolve(process.argv[1])===fileURLToPath(import.meta.url)){
   if(!args.sha){console.error('usage: node scripts/verify-live.mjs <merge-commit-sha> [--checks file.json] [--origin url]');process.exit(2);}
   const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
   const checks=args.checks?JSON.parse(readFileSync(resolve(args.checks),'utf8')):null;
-  const result=await verifyLive({sha:args.sha,repoDir:root,origin:args.origin,checks,waitMs:args.waitMinutes*60e3,intervalMs:args.intervalSeconds*1e3,maxFiles:args.maxFiles,log:m=>console.error('[verify-live] '+m)});
+  const result=await verifyLive({sha:args.sha,base:args.base,repoDir:root,origin:args.origin,checks,waitMs:args.waitMinutes*60e3,intervalMs:args.intervalSeconds*1e3,maxFiles:args.maxFiles,log:m=>console.error('[verify-live] '+m)});
   console.log(formatReport(result));
   process.exit(result.ok?0:1);
  }catch(error){
