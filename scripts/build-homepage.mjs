@@ -33,18 +33,22 @@ const journalPick=staticPick.replace(/<img [^>]*\/>/,img=>`<picture><source medi
 if(!/<article class="hero-slide is-active"[\s\S]*?<\/article>/.test(journal))throw Error('Journal hero slide missing');
 writeFileSync(journalPath,journal.replace(/<article class="hero-slide is-active"[\s\S]*?<\/article>/,journalPick.replace(/\n {16}/g,'\n          ').replace(/\n {14}<\/article>/,'\n        </article>')));
 html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
+  .replace(/<title>[^<]*<\/title>/, `<title>鷹式一家團購｜鷹家買物社：當期開團、折扣碼與選物誌</title>`)
+  .replace('<span class="sr-only">把喜歡的日常帶回家</span>', '<span class="sr-only">鷹式一家團購：把喜歡的日常帶回家</span>')
   .replace('content="noindex,nofollow"', 'content="index,follow,max-image-preview:large"')
   .replace(/<div class="preview-strip">[\s\S]*?<\/div>/, '')
   .replace('href="./" class="logo"', 'href="/" class="logo"')
   .replaceAll('href="./', 'href="/design/')
   .replaceAll('src="./', 'src="/design/')
   .replace(/content="從餐桌、居家到旅行，跟著鷹式一家發現生活選物、當期團購與真實使用筆記。"/,
-    'content="鷹式一家 Eaglish Family 官方團購網站！精選台灣、日韓、歐美優質商品團購，從餐桌好食、親子用品、居家生活到旅行選物，查看當期開團、常駐好物、折扣碼與團購行事曆，也能閱讀選物筆記與鷹家遠行所的親子旅行指南。"')
+    'content="鷹式一家 Eaglish Family 官方團購網站。看當期開團、團購行事曆、常駐折扣碼，以及鷹家親自用過的選物誌與親子旅行指南，從餐桌好食到居家生活與旅行選物。"')
+  // The source file wraps this tag over three lines; keep it on one line so a plain-text check (grep, curl) finds it.
+  .replace(/<meta\s+name="description"\s+content="([^"]*)"\s*\/>/, '<meta name="description" content="$1">')
   .replace('</head>', `<link rel="canonical" href="https://www.eaglish.store/">
     <meta name="google-site-verification" content="FdPBW_xSaPXriw8r-beUzCvUXbh0J4BqT-0ADmKbdSY">
     <meta property="og:site_name" content="鷹家買物社">
-    <meta property="og:title" content="鷹家買物社｜把喜歡的日常，帶回家">
-    <meta property="og:description" content="當期團購、生活選物筆記與鷹家遠行所旅行指南，從日常到旅途，把喜歡分享給你。">
+    <meta property="og:title" content="鷹式一家團購｜鷹家買物社：當期開團、折扣碼與選物誌">
+    <meta property="og:description" content="鷹式一家 Eaglish Family 官方團購網站。看當期開團、團購行事曆、常駐折扣碼，以及鷹家親自用過的選物誌與親子旅行指南，從餐桌好食到居家生活與旅行選物。">
     <meta property="og:url" content="https://www.eaglish.store/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="zh_TW">
@@ -53,7 +57,7 @@ html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
     <link rel="manifest" href="/icons/site.webmanifest">
     <meta name="agd-partner-manual-verification">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.eaglish.store/#organization","name":"鷹家買物社","alternateName":["鷹式一家","Eaglish Family"],"url":"https://www.eaglish.store/","logo":"https://www.eaglish.store/logo-eaglish-text.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.eaglish.store/#organization","name":"鷹家買物社","alternateName":["鷹式一家","Eaglish Family"],"url":"https://www.eaglish.store/","logo":"https://www.eaglish.store/logo-eaglish-text.png","sameAs":["https://www.facebook.com/eaglish.family/","https://www.instagram.com/eaglish.fam/","https://www.youtube.com/@eaglish.family"]},{"@type":"WebSite","@id":"https://www.eaglish.store/#website","url":"https://www.eaglish.store/","name":"鷹家買物社","alternateName":["鷹式一家團購","鷹式一家","Eaglish Family"],"inLanguage":"zh-TW","publisher":{"@id":"https://www.eaglish.store/#organization"}}]}</script>
   </head>`);
 html=html.replace(/<!-- travel-entry:start -->[\s\S]*?<!-- travel-entry:end -->/,renderHomepageTravelEntry());
 if(!html.includes('id="travel-entry"'))throw Error('Homepage travel entry insertion failed');

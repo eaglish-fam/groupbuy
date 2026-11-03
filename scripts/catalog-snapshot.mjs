@@ -31,9 +31,16 @@ export function normalizeSnapshot(csv,observedAt=new Date().toISOString()){
   if(items.length<5)throw Error('Unexpectedly empty public catalogue; preserving previous snapshot');
   return {version:1,observedAt,source:`https://docs.google.com/spreadsheets/d/${SHEET}/`,items};
 }
+// The committed snapshot can be older than an article. A card without an article gets the one the catalogue
+// now has for that brand, so a published article is not left without its homepage card link.
+export function withCatalogArticle(p){
+  if(p.article)return p;
+  const entry=content.entry(p.brand);
+  return entry?.article?{...p,article:entry.article,image:p.image||entry.cardImage||entry.image||null}:p;
+}
 export function snapshotCards(snapshot){
   const e=content.escape;
-  return snapshot.items.map(p=>`<article class="product-card" id="product-${e(p.id)}" data-snapshot-card>
+  return snapshot.items.map(withCatalogArticle).map(p=>`<article class="product-card" id="product-${e(p.id)}" data-snapshot-card>
     ${p.image?`<div class="product-picture">${p.article?`<a href="${e(p.article)}" class="image-open">`:''}<img src="${e(p.image)}" width="1000" height="750" alt="${e(p.brand)}" loading="lazy" decoding="async" fetchpriority="low">${p.article?'</a>':''}</div>`:''}
     <div class="product-body"><span class="status">${e(p.category)}</span><h3>${e(p.brand)}</h3><p class="product-description">${e(p.description||'先從使用需求出發，再確認適合的品項。')}</p>
     <div class="product-bottom">${p.article?`<a class="card-reading" href="${e(p.article)}">${e(p.brand)}選購筆記 ↗</a>`:'<a class="card-reading" href="/guides/">先看選購方向 ↗</a>'}
