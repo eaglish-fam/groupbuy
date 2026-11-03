@@ -1,0 +1,318 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://www.eaglish.store/schemas/groupbuy.product.v2.json",
+  "title": "groupbuy.product v2",
+  "description": "One product of a group buy. Facts without a source stay null and are not shown. No cost or commission fields exist on purpose. Cross-field rules are in scripts/validate-product-json.mjs. price and list_price may be absent when variants carry the prices. Keys starting with an underscore are free-form notes and are ignored.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema",
+    "slug",
+    "brand_slug",
+    "name",
+    "status",
+    "offer_type",
+    "round",
+    "article",
+    "price_scope",
+    "price_checked_at",
+    "variants",
+    "specs",
+    "age",
+    "faq",
+    "facts_source",
+    "storage_usage",
+    "shipping",
+    "contents",
+    "notes",
+    "images",
+    "disclosure",
+    "fetched_at"
+  ],
+  "properties": {
+    "schema": {
+      "enum": [
+        "groupbuy.product/v2-draft",
+        "groupbuy.product/v2"
+      ]
+    },
+    "_note": {
+      "type": "string"
+    },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 60
+    },
+    "brand_slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$",
+      "maxLength": 40
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "status": {
+      "enum": [
+        "active",
+        "ended",
+        "unconfirmed"
+      ]
+    },
+    "offer_type": {
+      "enum": [
+        "standing",
+        "limited"
+      ]
+    },
+    "round": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "round_url",
+        "start",
+        "end",
+        "link_rotates",
+        "current_link_end"
+      ],
+      "properties": {
+        "round_url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^https://"
+        },
+        "start": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "end": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "link_rotates": {
+          "enum": [
+            null,
+            "monthly",
+            "weekly",
+            "irregular"
+          ]
+        },
+        "current_link_end": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        }
+      }
+    },
+    "article": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^/blog/[a-z0-9-]+/$"
+    },
+    "price": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "list_price": {
+      "type": [
+        "number",
+        "null"
+      ],
+      "minimum": 0
+    },
+    "price_scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "price_checked_at": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "variant_slug",
+          "name",
+          "price",
+          "list_price"
+        ],
+        "properties": {
+          "variant_slug": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "price": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          },
+          "list_price": {
+            "type": [
+              "number",
+              "null"
+            ],
+            "minimum": 0
+          }
+        }
+      }
+    },
+    "specs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "value",
+          "unit"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string",
+            "minLength": 1
+          },
+          "unit": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    },
+    "age": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "faq": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "q",
+          "a",
+          "source"
+        ],
+        "properties": {
+          "q": {
+            "type": "string",
+            "minLength": 1
+          },
+          "a": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "pattern": "^https://"
+          }
+        }
+      }
+    },
+    "facts_source": {
+      "type": "object"
+    },
+    "storage_usage": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "shipping": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contents": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "images": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "url",
+          "alt",
+          "rights",
+          "source"
+        ],
+        "properties": {
+          "url": {
+            "type": "string",
+            "pattern": "^https://"
+          },
+          "alt": {
+            "type": "string",
+            "minLength": 1
+          },
+          "rights": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    },
+    "disclosure": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "fetched_at": {
+      "type": "string",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+    }
+  }
+}
