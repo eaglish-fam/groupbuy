@@ -21,7 +21,9 @@ test('a row with no dates or only a start date keeps its 即將開團 type',()=>
   assert.equal(key(row({結束日期:''}),'2026-10-26'),'upcoming');
 });
 test('announcements from the 即將開團 tab keep their type even inside the window',()=>{
-  const [item]=core.normalize([row()],true);
+  // normalize() reads the real clock, so the window is built around today (Taipei) instead of fixed dates.
+  const day=offset=>new Date(Date.now()+8*36e5+offset*864e5).toISOString().slice(0,10);
+  const [item]=core.normalize([row({開團日期:day(-1),結束日期:day(+10)})],true);
   assert.equal(item.status.key,'upcoming');
 });
 
