@@ -74,3 +74,17 @@
 - 不冒稱別的線或人已經接單、驗收或同意。外部資料附來源網址與查詢日期；推測標成推測。
 - 不提交 key、cookie、`.env`、帳號、OAuth、玩家或客人資料、私人對話紀錄。
 - **截圖**：repo 是公開的，正式站截圖常有家人和孩子。報告只寫截圖檔名，不把截圖放進 repo；真的需要附圖時，只附沒有人像的裁切圖。（Hugo 提議，2026-10-15 採用）
+
+## 6. 合併後上線核實（KINGDOM-068-G）
+
+合併到 main 之後，用腳本確認線上真的是這個版本，不靠人工點網站：
+
+```
+git fetch origin main && git checkout main && git pull
+node scripts/verify-live.mjs <合併 commit SHA> --checks config/verify-live/pr-<號碼>.json
+```
+
+- 只讀公開網站、不用金鑰；最多等 15 分鐘讓 Pages 部署（每 30 秒一輪）。
+- 版本證明＝這個 commit 改到、且網站會提供的每個檔案，線上內容必須和該 commit 裡的檔案逐位元組相同（Pages 直接從 main 發布，commit 不能含自己的雜湊，所以沒有版本標記）；被刪的頁面要回 404。
+- `--checks` 是選用的小設定檔：`{"pages":[{"path":"/","mustInclude":["…"],"mustNotInclude":["…"]}]}`，列「這個 PR 說會出現的字串」。範例：`config/verify-live/pr-84.json`。
+- 輸出一段可貼進回條的 PASS／FAIL 表；任何 FAIL 就 exit 1。證明的只是檔案一致與字串在，不代表畫面正確，也不代表 Google 已收錄。
