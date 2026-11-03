@@ -8,6 +8,8 @@ const root = new URL('../', import.meta.url);
 const release = '20261021-calendar-g1';
 const productMediaRelease = '20261021-calendar-g1';
 const designScriptRelease = '20261021-calendar-g1';
+// catalog-core.js decides open/upcoming for the home page and /calendar/; bumped so LINE and phones drop the cached copy (GB-015-6).
+const catalogCoreRelease = '20261101-gb015-6';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
   .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];
@@ -66,6 +68,7 @@ html=html.replace('正在讀取最新團購…','商品選購目錄')
 if(!html.includes('data-snapshot-card'))throw Error('Homepage snapshot insertion failed');
 html = html.replace(/((?:src|href)="\/[^"]+\.(?:js|css))(?:\?[^"]*)?"/g, '$1?v=' + release + '"');
 html = html.replace(`src="/design/design.js?v=${release}"`, `src="/design/design.js?v=${designScriptRelease}"`);
+html = html.replace(`src="/design/catalog-core.js?v=${release}"`, `src="/design/catalog-core.js?v=${catalogCoreRelease}"`);
 for (const file of ['design.css','mobile-grid.css','complete-content.css']) {
   html = html.replace(`href="/design/${file}?v=${release}"`, `href="/design/${file}?v=${productMediaRelease}"`);
 }
