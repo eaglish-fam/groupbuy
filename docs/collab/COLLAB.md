@@ -88,3 +88,4 @@ node scripts/verify-live.mjs <合併 commit SHA> --checks config/verify-live/pr-
 - 版本證明＝這個 commit 改到、且網站會提供的每個檔案，線上內容必須和該 commit 裡的檔案逐位元組相同（Pages 直接從 main 發布，commit 不能含自己的雜湊，所以沒有版本標記）；被刪的頁面要回 404。
 - `--checks` 是選用的小設定檔：`{"pages":[{"path":"/","mustInclude":["…"],"mustNotInclude":["…"]}]}`，列「這個 PR 說會出現的字串」。範例：`config/verify-live/pr-84.json`。
 - 輸出一段可貼進回條的 PASS／FAIL 表；任何 FAIL 就 exit 1。證明的只是檔案一致與字串在，不代表畫面正確，也不代表 Google 已收錄。
+- 連續合併好幾個 PR 之後，用 `--base <合併前的 main SHA>` 一次核對 `<base>..<最新 SHA>` 的所有檔案（單看較早的 commit，後面的合併可能又改了同一個檔案而誤判）。
