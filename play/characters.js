@@ -41,7 +41,7 @@
   // 拿到 GB-028 的真實彙總數字後再調整。
   const characters = [
     {
-      id: "kexin", name: "林可昕", nick: "可昕", age: 22, gender: "f",
+      id: "kexin", name: "林可昕", art: "/assets/play/characters/kexin.webp", nick: "可昕", age: 22, gender: "f",
       role: "剛畢業的行銷助理", place: "新北通勤到台北", groups: ["work"],
       color: "#d8a35d", tagline: "第一份工作第三個月，正在學著照顧自己。",
       goal: "把第一份工作做好，也把自己照顧好", goalShort: "照顧好自己",
@@ -91,7 +91,7 @@
       ],
     },
     {
-      id: "yating", name: "王雅婷", nick: "雅婷", age: 38, gender: "f",
+      id: "yating", name: "王雅婷", art: "/assets/play/characters/yating.webp", nick: "雅婷", age: 38, gender: "f",
       role: "業務主管・兩寶媽", place: "台中", groups: ["mom", "travel"],
       color: "#3f7f9a", tagline: "5 歲和 2 歲，每季一定要安排一次全家旅行。",
       goal: "讓全家輕鬆出門、開心回家", goalShort: "全家出遊",
@@ -107,7 +107,7 @@
       ],
     },
     {
-      id: "peishan", name: "吳佩珊", nick: "佩珊", age: 33, gender: "f",
+      id: "peishan", name: "吳佩珊", art: "/assets/play/characters/peishan.webp", nick: "佩珊", age: 33, gender: "f",
       role: "育嬰假中的新手媽媽", place: "台北", groups: ["mom"],
       color: "#9a6fa8", tagline: "寶寶 4 個月，夜奶兩次，正在找回自己的節奏。",
       goal: "照顧好寶寶，也找回自己的節奏", goalShort: "找回節奏",
@@ -139,7 +139,7 @@
       ],
     },
     {
-      id: "chenghan", name: "李承翰", nick: "承翰", age: 32, gender: "m",
+      id: "chenghan", name: "李承翰", art: "/assets/play/characters/chenghan.webp", nick: "承翰", age: 32, gender: "m",
       role: "第一次一個人帶女兒出遊的爸爸", place: "高雄", groups: ["dad", "travel"],
       color: "#5a6fa6", tagline: "女兒 4 歲，太太出差三天，父女倆的冒險。",
       goal: "和女兒完成第一次兩個人的小旅行", goalShort: "父女小旅行",
@@ -155,7 +155,7 @@
       ],
     },
     {
-      id: "yizhen", name: "蔡宜蓁", nick: "宜蓁", age: 27, gender: "f",
+      id: "yizhen", name: "蔡宜蓁", art: "/assets/play/characters/yizhen.webp", nick: "宜蓁", age: 27, gender: "f",
       role: "新婚、在家工作的插畫家", place: "台北小套房", groups: ["work", "home"],
       color: "#6b8e4e", tagline: "12 坪的家，兩個人、一隻貓，空間要用得很聰明。",
       goal: "12 坪也能住得清爽、工作得順", goalShort: "小家清爽",
