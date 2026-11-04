@@ -123,7 +123,7 @@
   const rank = { open: 0, upcoming: 1, unknown: 2, closed: 3 };
   async function loadProducts() {
     try {
-      const m = window.PLAY_MEDIA || await fetch(abs("/play/product-media.json")).then((r) => r.json());
+      const m = window.PLAY_MEDIA || await fetch(abs("/everyday/product-media.json")).then((r) => r.json());
       media = m.products || {};
     } catch (error) { console.warn("media unavailable", error); }
     try {
@@ -321,7 +321,7 @@
   let playing = null;
   let afterPlay = null;
   async function loadVoice() {
-    try { voice = window.PLAY_VOICE || await fetch(abs("/play/voice-manifest.json")).then((r) => r.json()); } catch { voice = { items: {} }; }
+    try { voice = window.PLAY_VOICE || await fetch(abs("/everyday/voice-manifest.json")).then((r) => r.json()); } catch { voice = { items: {} }; }
   }
   function voiceFor(cid, part) {
     const it = voice.items?.[`${cid}/${part}`];

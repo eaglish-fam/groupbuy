@@ -1,4 +1,4 @@
-// GB-028: 角色卡體驗（/play/，測試版）。
+// GB-028: 角色卡體驗「鷹家日常圖鑑」（/everyday/，準上線：網址可開，但網站沒有入口）。
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
@@ -7,7 +7,7 @@ import {createRequire} from 'node:module';
 const require = createRequire(import.meta.url);
 const root = new URL('../', import.meta.url);
 const read = (p) => readFileSync(new URL(p, root), 'utf8');
-require('../play/characters.js');
+require('../everyday/characters.js');
 const P = globalThis.PlayCharacters;
 const snapshotBrands = new Set(JSON.parse(read('config/catalog-snapshot.json')).items.map((i) => i.brand));
 
@@ -40,32 +40,31 @@ test('characters are complete, unique and mostly women as Hiram described the au
   assert.ok(P.characters.some((c) => c.gender === 'm'), 'at least one father');
 });
 
-test('the test page stays out of search and the sitemap, and the homepage links to it', () => {
-  const page = read('play/index.html');
+test('the page is live by URL only: no entry link anywhere, not indexed, not in the sitemap', async () => {
+  const page = read('everyday/index.html');
   assert.match(page, /<meta name="robots" content="noindex,follow" \/>/);
-  assert.doesNotMatch(read('sitemap.xml'), /\/play\//);
-  for (const p of ['design/index.html', 'index.html']) {
-    const nav = read(p).match(/<nav class="content-nav"[\s\S]*?<\/nav>/)[0];
-    assert.match(nav, /<a href="\/play\/">角色卡體驗（測試）<\/a>/, p);
-  }
-  // Same catalogue rules as the homepage: catalog-core loads before the page script.
-  assert.ok(page.indexOf('/design/catalog-core.js') < page.indexOf('/play/play.js'));
-  assert.ok(page.indexOf('/play/characters.js') < page.indexOf('/play/play.js'));
+  assert.doesNotMatch(read('sitemap.xml'), /\/everyday\//);
+  // Hiram 11/04：先準上線，只有知道網址的人進得來，所以網站任何地方都不放連結。
+  const {execFileSync} = await import('node:child_process');
+  const linked = execFileSync('git', ['grep', '-l', '-E', 'href="/everyday/|eaglish\\.store/everyday', '--', '*.html', '*.xml', '*.txt', '*.json'], {cwd: new URL('.', root), encoding: 'utf8'}).trim().split('\n').filter((f) => f && !f.startsWith('everyday/'));
+  assert.deepEqual(linked, []);
+  assert.ok(page.indexOf('/design/catalog-core.js') < page.indexOf('/everyday/play.js'));
+  assert.ok(page.indexOf('/everyday/characters.js') < page.indexOf('/everyday/play.js'));
 });
 
 test('the page only offers a buy link for open campaigns and keeps progress on the device', () => {
-  const js = read('play/play.js');
+  const js = read('everyday/play.js');
   assert.match(js, /url: p\.status\.key === "open" \? p\.url : ""/);
   assert.match(js, /localStorage\.setItem\(STORE/);
   assert.doesNotMatch(js, /fetch\([^)]*(?:POST|method)/i, 'no data is sent anywhere');
 });
 
 test('every scene offers alternatives or a skip, and the builder maps every choice to a real scene', () => {
-  const js = read('play/play.js');
+  const js = read('everyday/play.js');
   assert.match(js, /data-skip=/, 'a scene can be skipped (這個不需要)');
   assert.match(js, /data-toggle=/, 'a scene allows picking several products');
   assert.match(js, /data-confirm=/, 'picks are confirmed together');
-  assert.match(read('play/index.html'), /id="cart-fab"/, 'floating shopping-list button');
+  assert.match(read('everyday/index.html'), /id="cart-fab"/, 'floating shopping-list button');
   assert.match(js, /data-swap=/, 'a scene can show other products (換一個看看)');
   assert.match(js, /name="pack"/, 'the day ends with a pack list the player can untick');
   const B = P.builder;
@@ -77,7 +76,7 @@ test('every scene offers alternatives or a skip, and the builder maps every choi
 test('the product gallery is generated from published articles and points at real files', async () => {
   const {buildPlayMedia} = await import('../scripts/build-play-media.mjs');
   const fresh = buildPlayMedia();
-  assert.deepEqual(JSON.parse(read('play/product-media.json')), fresh, 'run npm run build:play');
+  assert.deepEqual(JSON.parse(read('everyday/product-media.json')), fresh, 'run npm run build:play');
   const {existsSync} = await import('node:fs');
   for (const [brand, list] of Object.entries(fresh.products)) {
     assert.ok(list.length >= 1 && list.length <= 8, brand);
@@ -92,7 +91,7 @@ test('the product gallery is generated from published articles and points at rea
 
 test('narration audio exists for every preset line and matches the current story text', async () => {
   const {lines, textHash} = await import('../scripts/build-play-voice.mjs');
-  const manifest = JSON.parse(read('play/voice-manifest.json'));
+  const manifest = JSON.parse(read('everyday/voice-manifest.json'));
   const {existsSync, statSync} = await import('node:fs');
   for (const c of P.characters) for (const l of lines(c)) {
     const it = manifest.items[l.key];
@@ -103,13 +102,13 @@ test('narration audio exists for every preset line and matches the current story
   }
   for (const e of manifest.ledger) assert.equal(e.match, true, 'VoAI usage drop must equal the quota headers');
   assert.doesNotMatch(read('scripts/build-play-voice.mjs'), /x-api-key: (?!proxy)/, 'no real key in the repo');
-  assert.match(read('play/play.js'), /語音由 AI（VoAI）生成/, 'the page discloses AI voice (VoAI EULA 2.4)');
+  assert.match(read('everyday/play.js'), /語音由 AI（VoAI）生成/, 'the page discloses AI voice (VoAI EULA 2.4)');
 });
 
 test('names the visitor types stay on the device and never reach the voice build', () => {
   const voice = read('scripts/build-play-voice.mjs');
   assert.doesNotMatch(voice, /localStorage|state\.me|kidName|petName/);
-  const js = read('play/play.js');
+  const js = read('everyday/play.js');
   assert.match(js, /\{kid\}|replaceAll\("\{kid\}"/);
   assert.doesNotMatch(js, /fetch\([^)]*voai/i, 'the page never calls VoAI');
   for (const sc of Object.values(P.sceneLibrary)) if (/\{kid\}/.test(sc.text)) assert.ok(Array.isArray(sc.kid) && sc.kid.length, sc.title);

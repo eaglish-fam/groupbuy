@@ -1,4 +1,4 @@
-// GB-028: 角色卡體驗的商品圖庫。從每篇選物誌文章抓出已公開的圖片，讓 /play/ 的商品卡可以左右滑動看多張圖。
+// GB-028: 角色卡體驗的商品圖庫。從每篇選物誌文章抓出已公開的圖片，讓 /everyday/ 的商品卡可以左右滑動看多張圖。
 // 只讀 repo 內已發布的文章與 product-content.js；不讀 Sheet、不下載任何東西。
 import {readFileSync,writeFileSync,existsSync} from 'node:fs';
 import {createRequire} from 'node:module';
@@ -51,6 +51,6 @@ export function buildPlayMedia(){
 
 if(import.meta.url===`file://${process.argv[1]}`){
   const data=buildPlayMedia();
-  writeFileSync(new URL('play/product-media.json',root),JSON.stringify(data,null,1)+'\n');
-  console.log(`play/product-media.json: ${Object.keys(data.products).length} brands`);
+  writeFileSync(new URL('everyday/product-media.json',root),JSON.stringify(data,null,1)+'\n');
+  console.log(`everyday/product-media.json: ${Object.keys(data.products).length} brands`);
 }

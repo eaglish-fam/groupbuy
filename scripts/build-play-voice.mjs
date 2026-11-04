@@ -10,7 +10,7 @@ import {createHash} from 'node:crypto';
 
 const root=new URL('../',import.meta.url);
 const require=createRequire(import.meta.url);
-require('../play/characters.js');
+require('../everyday/characters.js');
 const P=globalThis.PlayCharacters;
 const API='https://connect.voai.ai';
 const NARRATOR={speaker:'詠芯',style:'旁白'};
@@ -58,7 +58,7 @@ if(import.meta.url===`file://${process.argv[1]}`){
   const args=process.argv.slice(2);
   const only=args.includes('--only')?(args[args.indexOf('--only')+1]||'').split(',').filter(Boolean):[];
   const dry=args.includes('--dry-run');
-  const manifestFile=new URL('play/voice-manifest.json',root);
+  const manifestFile=new URL('everyday/voice-manifest.json',root);
   const manifest=existsSync(manifestFile)?JSON.parse(readFileSync(manifestFile,'utf8')):{schema:'eaglish.play-voice/v1',note:'由 scripts/build-play-voice.mjs 產生（VoAI，AI 語音）。只有文字雜湊相符的段落才會播放。',narrator:NARRATOR,voices:VOICES,items:{},ledger:[]};
   const todo=P.characters.filter(c=>!only.length||only.includes(c.id)).flatMap(lines)
     .filter(l=>manifest.items[l.key]?.hash!==textHash(l.text));
