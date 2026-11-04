@@ -5,52 +5,91 @@
   const ORIGIN = document.documentElement.dataset.origin || "";
   const abs = (u) => (u && u.startsWith("/") ? ORIGIN + u : u || "");
   const $ = (s, el = document) => el.querySelector(s);
+  const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
-  const STORE = "eaglish-play-v1";
+  const STORE = "eaglish-play-v2";
   const reduceMotion = window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
 
   // ---------- 進度 ----------
-  const blank = () => ({ done: {}, saved: [], likeMe: null, me: null });
+  const blank = () => ({ done: {}, cart: [], likeMe: null, me: null });
   let state = blank();
-  try { state = { ...blank(), ...JSON.parse(localStorage.getItem(STORE) || "{}") }; } catch {}
+  try {
+    const saved = JSON.parse(localStorage.getItem(STORE) || "null");
+    if (saved) state = { ...blank(), ...saved };
+    else {
+      const v1 = JSON.parse(localStorage.getItem("eaglish-play-v1") || "null");
+      if (v1) state.cart = Array.isArray(v1.saved) ? v1.saved : [];
+    }
+  } catch {}
   const save = () => { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch {} };
-  const progress = (id) => (state.done[id] ||= { scenes: {}, completed: false, bonus: 0 });
-  const comfort = (c) => {
-    const d = state.done[c.id];
-    if (!d) return 20;
-    const n = Object.keys(d.scenes).length;
-    return Math.min(100, 20 + Math.round((80 * n) / c.day.length) + (d.completed ? d.bonus : 0));
-  };
+  const progress = (id) => (state.done[id] ||= { picks: {}, completed: false, packed: false, bonus: 0 });
+  const answered = (d, c) => c.day.filter((_, i) => d && d.picks[i] !== undefined).length;
+
+  // ---------- 角色（預設角色＋自己建立的角色） ----------
+  const B = P.builder;
+  function meCharacter() {
+    const m = state.me;
+    if (!m) return null;
+    const look = P.extraAvatars.find((a) => a.id === m.avatar) || P.extraAvatars[0];
+    const goal = B.goals.find((g) => g.id === m.goal) || B.goals[0];
+    const rhythm = B.rhythms.find((r) => r.id === m.rhythm);
+    const family = B.family.filter((f) => m.family.includes(f.id));
+    const worries = B.worries.filter((w) => m.worries.includes(w.id));
+    const keys = [...new Set([...worries.map((w) => w.scene), goal.scene, ...family.map((f) => f.scene)])].filter((k) => P.sceneLibrary[k]);
+    for (const k of ["treat", "lunch", "sleep", "clutter"]) if (keys.length < 4 && !keys.includes(k)) keys.push(k);
+    const day = keys.slice(0, 6).map((k) => P.sceneLibrary[k]).sort((a, b) => a.order - b.order);
+    const nick = m.nick || "我";
+    const who = family.length ? `家裡有${family.map((f) => f.label.replace(/（.*）/, "")).join("、")}` : "一個人生活";
+    const story = `${nick}，${m.age || ""}，${rhythm ? rhythm.label : ""}，${who}。${goal.line}，但最近${worries.length ? worries.map((w) => w.label).join("、") : "日子有點忙"}。`;
+    return {
+      id: "me", mine: true, name: nick, nick, ageLabel: m.age || "", gender: "", role: goal.title, place: rhythm ? rhythm.label : "",
+      groups: [], color: look.color, avatar: look.avatar, tagline: `目標：${goal.label}`, goal: goal.label, goalShort: goal.label,
+      story, day,
+    };
+  }
+  const allCharacters = () => [meCharacter(), ...P.characters].filter(Boolean);
+  const getChar = (id) => allCharacters().find((c) => c.id === id);
   const completedIds = () => P.characters.filter((c) => state.done[c.id]?.completed).map((c) => c.id);
+  const progressPct = (c) => {
+    const d = state.done[c.id];
+    if (!d) return 0;
+    return Math.min(100, Math.round((100 * answered(d, c)) / c.day.length));
+  };
 
   const BADGES = [
-    { id: "first", icon: "✦", label: "第一次補給", test: () => Object.values(state.done).some((d) => Object.keys(d.scenes).length) },
+    { id: "first", icon: "✦", label: "第一個選擇", test: () => Object.values(state.done).some((d) => Object.keys(d.picks || {}).length) },
     { id: "day", icon: "☀", label: "陪伴一整天", test: () => completedIds().length >= 1 },
-    { id: "moms", icon: "♡", label: "媽媽後援會", test: () => ["shihan", "yating", "peishan"].every((i) => completedIds().includes(i)) },
+    { id: "moms", icon: "♡", label: "媽媽的後援", test: () => ["shihan", "yating", "peishan"].every((i) => completedIds().includes(i)) },
     { id: "dads", icon: "⚑", label: "爸爸同盟", test: () => ["jiahao", "chenghan"].every((i) => completedIds().includes(i)) },
     { id: "travel", icon: "✈", label: "旅行規劃師", test: () => ["yating", "chenghan"].every((i) => completedIds().includes(i)) },
-    { id: "me", icon: "☺", label: "這就是我", test: () => !!state.likeMe },
-    { id: "card", icon: "✎", label: "我的角色卡", test: () => !!state.me },
+    { id: "like", icon: "☺", label: "這就是我", test: () => !!state.likeMe },
+    { id: "mine", icon: "✎", label: "建立我的角色", test: () => !!state.me },
+    { id: "myday", icon: "⌂", label: "過完我的一天", test: () => !!state.done.me?.completed },
     { id: "all", icon: "★", label: "全圖鑑完成", test: () => completedIds().length === P.characters.length },
   ];
   const LEVELS = [
-    { min: 0, label: "見習補給官" },
-    { min: 1, label: "補給官" },
-    { min: 3, label: "資深補給官" },
-    { min: 6, label: "首席補給官" },
+    { min: 0, label: "剛認識" },
+    { min: 1, label: "好鄰居" },
+    { min: 3, label: "生活夥伴" },
+    { min: 6, label: "老朋友" },
   ];
   const level = () => [...LEVELS].reverse().find((l) => completedIds().length >= l.min).label;
 
-  // ---------- 商品資料：團購 Sheet（即時）→ 快照（備援） ----------
+  // ---------- 商品資料：團購 Sheet（即時）→ 快照（備援）；圖庫來自選物誌 ----------
   const products = new Map();
-  let live = "loading"; // loading | live | snapshot
+  let media = {};
+  let live = "loading";
   const rank = { open: 0, upcoming: 1, unknown: 2, closed: 3 };
   async function loadProducts() {
+    try {
+      const m = window.PLAY_MEDIA || await fetch(abs("/play/product-media.json")).then((r) => r.json());
+      media = m.products || {};
+    } catch (error) { console.warn("media unavailable", error); }
     try {
       const snap = window.PLAY_SNAPSHOT || await fetch(abs("/config/catalog-snapshot.json"), { cache: "no-store" }).then((r) => r.json());
       for (const i of snap.items || []) {
         if (products.has(i.brand)) continue;
-        products.set(i.brand, { brand: i.brand, image: abs(i.image), description: i.description, article: abs(i.article), status: { key: "unknown", label: "開團狀態以首頁為準" }, url: "", countdown: "" });
+        products.set(i.brand, { brand: i.brand, image: abs(i.image), images: [], description: i.description, article: abs(i.article), status: { key: "unknown", label: "開團狀態以首頁為準" }, url: "", countdown: "" });
       }
     } catch (error) { console.warn("snapshot unavailable", error); }
     try {
@@ -70,6 +109,7 @@
         products.set(brand, {
           ...base,
           image: base.image || abs(p.images?.[0] || p.fallbackImage || ""),
+          images: (p.images || []).map(abs),
           description: base.description || p.description || "",
           article: base.article || abs(p.article?.article || ""),
           status: p.status,
@@ -85,9 +125,16 @@
     }
     renderDataNote();
   }
-  const info = (brand) => products.get(brand) || { brand, image: "", description: "", article: "", status: { key: "unknown", label: "開團狀態以首頁為準" }, url: "", countdown: "" };
+  const info = (brand) => products.get(brand) || { brand, image: "", images: [], description: "", article: "", status: { key: "unknown", label: "開團狀態以首頁為準" }, url: "", countdown: "" };
+  function gallery(brand) {
+    const i = info(brand);
+    const list = [...(media[brand] || []).map((m) => ({ src: abs(m.src), alt: m.alt }))];
+    if (i.image && !list.some((m) => m.src === i.image)) list.unshift({ src: i.image, alt: brand });
+    for (const src of i.images || []) if (src && !list.some((m) => m.src === src)) list.push({ src, alt: brand });
+    return list.slice(0, 10);
+  }
 
-  // ---------- 角色頭像（SVG 插圖） ----------
+  // ---------- 角色頭像（SVG 插圖；之後換成正式插畫） ----------
   function avatar(c, size = 120) {
     const a = c.avatar;
     const hair = a.hair, skin = a.skin;
@@ -121,7 +168,7 @@
         (k.baby ? `<path d="M88 82c2-3 6-3 7 0" fill="none" stroke="${k.hair}" stroke-width="2" stroke-linecap="round"/>` : `<path d="M78 92c0-8 5-13 12-13s12 5 12 13c-3-4-7-6-12-6s-9 2-12 6z" fill="${k.hair}"/>`) +
         `<circle cx="86" cy="95" r="1.4" fill="#2f2a26"/><circle cx="94" cy="95" r="1.4" fill="#2f2a26"/><path d="M87 99q3 2 6 0" fill="none" stroke="#2f2a26" stroke-width="1.2" stroke-linecap="round"/><circle cx="83" cy="98" r="2" fill="#f19a8a" opacity=".5"/><circle cx="97" cy="98" r="2" fill="#f19a8a" opacity=".5"/></g>`;
     }
-    return `<svg class="avatar" viewBox="0 0 120 120" width="${size}" height="${size}" role="img" aria-label="${esc(c.name)}的插圖">` +
+    return `<svg class="avatar" viewBox="0 0 120 120" width="${size}" height="${size}" role="img" aria-label="${esc(c.name || "角色")}的插圖">` +
       `<circle cx="60" cy="60" r="60" fill="${c.color}" opacity=".22"/>` + backHair +
       `<path d="M26 120c0-22 15-34 34-34s34 12 34 34z" fill="${a.shirt}"/><rect x="54" y="72" width="12" height="14" rx="5" fill="${skin}"/>` +
       `<circle cx="60" cy="54" r="22" fill="${skin}"/><circle cx="38.5" cy="56" r="4" fill="${skin}"/><circle cx="81.5" cy="56" r="4" fill="${skin}"/>` +
@@ -134,61 +181,71 @@
   // ---------- 小元件 ----------
   function toast(msg) {
     const t = $("#toast");
-    const host = document.querySelector("dialog[open]") || document.body;
+    const host = $$("dialog[open]").pop() || document.body;
     if (t.parentElement !== host) host.appendChild(t);
     t.textContent = msg;
     t.classList.add("show");
     clearTimeout(toast.timer);
     toast.timer = setTimeout(() => t.classList.remove("show"), 2400);
   }
-  const meter = (value, color) => `<div class="meter" role="meter" aria-label="安心值" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${value}"><span style="width:${value}%;background:${color}"></span></div>`;
+  const meter = (value, color, label = "目標進度") => `<div class="meter" role="meter" aria-label="${label}" aria-valuemin="0" aria-valuemax="100" aria-valuenow="${value}"><span style="width:${value}%;background:${color}"></span></div>`;
   function statusBadge(i) {
     const cls = { open: "open", upcoming: "upcoming", closed: "closed" }[i.status.key] || "unknown";
     return `<span class="status ${cls}">${esc(i.status.label)}</span>` + (i.countdown ? ` <span class="countdown${i.closingSoon ? " soon" : ""}">${esc(i.countdown)}</span>` : "");
   }
-  function productCard(brand, { choose = null, compact = false } = {}) {
+  function carousel(brand, { big = false } = {}) {
+    const imgs = gallery(brand);
+    if (!imgs.length) return `<div class="carousel empty${big ? " big" : ""}"><span class="img-fallback" aria-hidden="true">${esc([...brand.replace(/^[^A-Za-z一-鿿]+/, "")][0] || "鷹")}</span></div>`;
+    const many = imgs.length > 1;
+    return `<div class="carousel${big ? " big" : ""}" data-carousel>
+      <div class="track" tabindex="0" aria-label="${esc(brand)} 的照片，可左右滑動">${imgs.map((m, n) => `<figure class="slide"><img src="${esc(m.src)}" alt="${esc(m.alt || brand)}" loading="${n ? "lazy" : "eager"}" decoding="async"></figure>`).join("")}</div>
+      ${many ? `<button type="button" class="nav prev" data-slide="-1" aria-label="上一張">‹</button><button type="button" class="nav next" data-slide="1" aria-label="下一張">›</button><span class="count" aria-hidden="true">1 / ${imgs.length}</span>` : ""}
+    </div>`;
+  }
+  // mode: choose（可選）、compact（已選）、list（清單）
+  function productCard(brand, { mode = "", scene = null } = {}) {
     const i = info(brand);
-    const saved = state.saved.includes(brand);
-    const img = i.image
-      ? `<img src="${esc(i.image)}" alt="" loading="lazy" width="320" height="240">`
-      : `<span class="img-fallback" aria-hidden="true">${esc([...brand.replace(/^[^A-Za-z一-鿿]+/, "")][0] || "鷹")}</span>`;
+    const inCart = state.cart.includes(brand);
     const actions = [
-      choose !== null ? `<button type="button" class="button primary" data-choose="${choose}" data-brand="${esc(brand)}">送出這個補給</button>` : "",
-      i.url ? `<a class="button" href="${esc(i.url)}" target="_blank" rel="noopener noreferrer">前往團購</a>` : "",
-      i.article ? `<a class="text-link" href="${esc(i.article)}">生活筆記</a>` : "",
-      `<button type="button" class="save${saved ? " on" : ""}" data-save="${esc(brand)}" aria-pressed="${saved}">${saved ? "★ 已在補給清單" : "☆ 補給清單"}</button>`,
+      mode === "choose" ? `<button type="button" class="button primary" data-pick="${scene}" data-brand="${esc(brand)}">選這個</button>` : "",
+      `<button type="button" class="button ghost" data-detail="${esc(brand)}">看更多</button>`,
+      mode !== "choose" && i.url ? `<a class="button" href="${esc(i.url)}" target="_blank" rel="noopener noreferrer">前往團購</a>` : "",
+      mode === "list" ? `<button type="button" class="text-link" data-remove="${esc(brand)}">移除</button>` : "",
+      mode === "" ? `<button type="button" class="save${inCart ? " on" : ""}" data-cart="${esc(brand)}" aria-pressed="${inCart}">${inCart ? "✓ 已在購物清單" : "＋ 購物清單"}</button>` : "",
     ].filter(Boolean).join("");
-    return `<article class="product${compact ? " compact" : ""}"><div class="product-img">${img}</div><div class="product-body"><h4>${esc(brand)}</h4>${statusBadge(i)}${compact ? "" : `<p>${esc(i.description || "商品說明以團購頁為準。")}</p>`}<div class="product-actions">${actions}</div></div></article>`;
+    return `<article class="product${mode === "compact" || mode === "list" ? " compact" : ""}">${carousel(brand)}<div class="product-body"><h4>${esc(brand)}</h4>${statusBadge(i)}${mode === "compact" || mode === "list" ? "" : `<p>${esc(i.description || "商品說明以團購頁為準。")}</p>`}<div class="product-actions">${actions}</div></div></article>`;
   }
 
-  // ---------- 首頁：進度、篩選、卡片 ----------
+  // ---------- 首頁 ----------
   let filter = "all";
   function renderStats() {
     const got = BADGES.filter((b) => b.test());
     $("#stats").innerHTML =
-      `<div class="stat"><span class="stat-label">你的稱號</span><strong>${level()}</strong></div>` +
-      `<div class="stat"><span class="stat-label">已陪伴</span><strong>${completedIds().length} / ${P.characters.length}</strong></div>` +
-      `<div class="stat"><span class="stat-label">補給清單</span><strong><button type="button" class="link-button" id="open-saved">${state.saved.length} 件</button></strong></div>` +
+      `<div class="stat"><span class="stat-label">你和大家的關係</span><strong>${level()}</strong></div>` +
+      `<div class="stat"><span class="stat-label">陪伴過的一天</span><strong>${completedIds().length} / ${P.characters.length}</strong></div>` +
+      `<div class="stat"><span class="stat-label">購物清單</span><strong><button type="button" class="link-button" id="open-cart">${state.cart.length} 件</button></strong></div>` +
       `<div class="stat badges-stat"><span class="stat-label">徽章 ${got.length} / ${BADGES.length}</span><span class="badges">${BADGES.map((b) => `<span class="badge${b.test() ? " got" : ""}" title="${esc(b.label)}"><span aria-hidden="true">${b.icon}</span><span class="sr-only">${esc(b.label)}${b.test() ? "（已獲得）" : "（未獲得）"}</span></span>`).join("")}</span></div>`;
+    $("#open-me").textContent = state.me ? "✎ 我的角色" : "✎ 建立我的角色";
   }
   function renderFilters() {
     $("#filters").innerHTML = P.groups.map((g) => `<button type="button" class="chip${filter === g.id ? " on" : ""}" data-filter="${g.id}" aria-pressed="${filter === g.id}">${g.label}</button>`).join("");
   }
+  function charCard(c) {
+    const d = state.done[c.id];
+    const steps = answered(d, c);
+    const tag = d?.completed ? `<span class="card-flag done">已陪伴</span>` : steps ? `<span class="card-flag">進行中 ${steps}/${c.day.length}</span>` : c.mine ? `<span class="card-flag mine">我的角色</span>` : "";
+    return `<button type="button" class="char-card${c.mine ? " mine" : ""}" data-open="${c.id}" style="--c:${c.color}" aria-label="打開${esc(c.name)}的角色卡">
+      <span class="char-top">${tag}${state.likeMe === c.id ? `<span class="card-flag me">像我</span>` : ""}</span>
+      ${avatar(c, 112)}
+      <span class="char-name">${esc(c.name)}<small>${esc(c.mine ? c.ageLabel : c.age + " 歲")}</small></span>
+      <span class="char-role">${esc(c.role)}</span>
+      <span class="char-goal">🎯 ${esc(c.goal)}</span>
+      <span class="char-meter"><span class="meter-label">目標進度</span>${meter(progressPct(c), c.color)}</span>
+    </button>`;
+  }
   function renderGrid() {
-    const list = P.characters.filter((c) => filter === "all" || c.groups.includes(filter));
-    $("#grid").innerHTML = list.map((c) => {
-      const d = state.done[c.id];
-      const steps = d ? Object.keys(d.scenes).length : 0;
-      const tag = d?.completed ? `<span class="card-flag done">已陪伴</span>` : steps ? `<span class="card-flag">進行中 ${steps}/${c.day.length}</span>` : "";
-      return `<button type="button" class="char-card" data-open="${c.id}" style="--c:${c.color}" aria-label="打開${esc(c.name)}的角色卡">
-        <span class="char-top">${tag}${state.likeMe === c.id ? `<span class="card-flag me">像我</span>` : ""}</span>
-        ${avatar(c, 112)}
-        <span class="char-name">${esc(c.name)}<small>${c.age} 歲</small></span>
-        <span class="char-role">${esc(c.role)}</span>
-        <span class="char-tagline">${esc(c.tagline)}</span>
-        <span class="char-meter"><span class="meter-label">安心值</span>${meter(comfort(c), c.color)}</span>
-      </button>`;
-    }).join("");
+    const list = allCharacters().filter((c) => filter === "all" || c.mine || c.groups.includes(filter));
+    $("#grid").innerHTML = list.map(charCard).join("");
   }
   function renderDataNote() {
     $("#data-note").textContent = live === "live"
@@ -200,86 +257,107 @@
   }
   function renderAll() { renderStats(); renderFilters(); renderGrid(); }
 
-  // ---------- 角色的一天 ----------
+  // ---------- 一天 ----------
   let current = null;
-  let eventFor = {};
+  const eventFor = {};
+  const swapAt = {};
+  function scenePool(s) { return [...new Set([...s.options, ...(s.alts || [])])]; }
   function renderDay() {
-    const c = current;
+    const c = current && getChar(current);
     if (!c) return;
     const d = progress(c.id);
     if (eventFor[c.id] === undefined) eventFor[c.id] = Math.floor(Math.random() * P.events.length);
     const ev = P.events[eventFor[c.id]];
-    const firstOpen = c.day.findIndex((_, i) => d.scenes[i] === undefined);
+    const firstOpen = c.day.findIndex((_, i) => d.picks[i] === undefined);
     const scenes = c.day.map((s, i) => {
-      const chosen = d.scenes[i];
+      const pick = d.picks[i];
       let body;
-      if (chosen !== undefined) {
-        body = `<p class="scene-text">${esc(s.text)}</p><p class="reaction"><span aria-hidden="true">💬</span> ${esc(s.reaction)}</p>${productCard(chosen, { compact: true })}`;
+      if (pick) {
+        body = `<p class="scene-text">${esc(s.text)}</p><p class="reaction"><span aria-hidden="true">💬</span> ${esc(s.reaction)}</p>${productCard(pick, { mode: "compact" })}<button type="button" class="text-link" data-redo="${i}">改選</button>`;
+      } else if (pick === null) {
+        body = `<p class="scene-text">${esc(s.text)}</p><p class="skipped">這一刻不需要額外的東西。</p><button type="button" class="text-link" data-redo="${i}">改選</button>`;
       } else if (i === firstOpen) {
-        body = `<p class="scene-text">${esc(s.text)}</p><p class="need"><strong>需要：</strong>${esc(s.need)}</p>
-          <p class="choose-hint">${s.options.length > 1 ? `幫${esc(c.nick)}選一個補給：` : `送${esc(c.nick)}這個補給：`}</p>
-          <div class="options">${s.options.map((b) => productCard(b, { choose: i })).join("")}</div>`;
+        const pool = scenePool(s);
+        const per = Math.min(2, pool.length);
+        const offset = (swapAt[c.id + i] || 0) % pool.length;
+        const shown = Array.from({ length: per }, (_, n) => pool[(offset + n) % pool.length]);
+        body = `<p class="scene-text">${esc(s.text)}</p><p class="need"><strong>卡住的是：</strong>${esc(s.need)}</p>
+          <p class="choose-hint">${c.mine ? "這一刻，有什麼幫得上你？" : `這一刻，有什麼幫得上${esc(c.nick)}？`}</p>
+          <div class="options">${shown.map((b) => productCard(b, { mode: "choose", scene: i })).join("")}</div>
+          <div class="scene-actions">${pool.length > per ? `<button type="button" class="button ghost" data-swap="${i}">換一個看看（${pool.length} 選 ${per}）</button>` : ""}<button type="button" class="button ghost" data-skip="${i}">這個不需要</button></div>`;
       } else {
-        body = `<p class="scene-text locked-text">這一段還沒發生。先陪${esc(c.nick)}度過上一段吧。</p>`;
+        body = `<p class="scene-text locked-text">這一段還沒發生。先走完上一段吧。</p>`;
       }
       const evHtml = i === 2 && (firstOpen === -1 || firstOpen > 2)
         ? `<li class="scene event"><span class="time">意外</span><div><h3>${esc(ev.title)}</h3><p class="scene-text">${esc(ev.text)}</p></div></li>` : "";
-      return evHtml + `<li class="scene${chosen !== undefined ? " done" : i === firstOpen ? " current" : " locked"}"><span class="time">${esc(s.time)}</span><div><h3>${esc(s.title)}</h3>${body}</div></li>`;
+      const cls = pick ? " done" : pick === null ? " skip" : i === firstOpen ? " current" : " locked";
+      return evHtml + `<li class="scene${cls}" data-scene="${i}"><span class="time">${esc(s.time)}</span><div><h3>${esc(s.title)}</h3>${body}</div></li>`;
     }).join("");
-    const finished = d.completed;
-    const summary = finished
-      ? `<section class="summary" aria-labelledby="summary-title"><h3 id="summary-title">你陪${esc(c.nick)}過完了一天 ☀</h3>
-          <p>今天的補給：${c.day.map((_, i) => esc(d.scenes[i])).filter(Boolean).map((b) => `<span class="pill">${b}</span>`).join("")}</p>
-          <div class="summary-actions"><button type="button" class="button primary" id="save-all">全部加入補給清單</button><button type="button" class="button" id="share">分享這張角色卡</button><button type="button" class="button" id="next-char">認識下一位</button></div></section>` : "";
+    let summary = "";
+    if (firstOpen === -1) {
+      const chosen = c.day.map((_, i) => d.picks[i]).filter(Boolean);
+      const unique = [...new Set(chosen)];
+      const skipped = c.day.filter((_, i) => d.picks[i] === null).map((s) => s.title);
+      summary = `<section class="summary" aria-labelledby="summary-title"><h3 id="summary-title">${c.mine ? "你的一天走完了" : `${esc(c.nick)}離目標又近了一步`} ☀</h3>
+        <p class="goal-line">🎯 ${esc(c.goal)}</p>
+        ${unique.length ? `<p>打包清單：勾選想要的，放進購物清單。</p><ul class="pack">${unique.map((b) => `<li><label><input type="checkbox" name="pack" value="${esc(b)}" checked> ${esc(b)} ${statusBadge(info(b))}</label></li>`).join("")}</ul>` : `<p>這一天都不需要額外的東西，也很好。</p>`}
+        ${skipped.length ? `<p class="small">不需要的時刻：${skipped.map(esc).join("、")}</p>` : ""}
+        <div class="summary-actions">${unique.length ? `<button type="button" class="button primary" id="pack-cart">${d.packed ? "再放一次" : "放進購物清單"}</button>` : ""}<button type="button" class="button" id="share">分享這張角色卡</button>${c.mine ? "" : `<button type="button" class="button" id="next-char">認識下一位</button>`}</div></section>`;
+    }
     $("#day-body").innerHTML = `
       <aside class="profile" style="--c:${c.color}">
         ${avatar(c, 150)}
-        <h2 id="day-title">${esc(c.name)}<small>${c.age} 歲</small></h2>
-        <p class="role">${esc(c.role)}・${esc(c.place)}</p>
+        <h2 id="day-title">${esc(c.name)}<small>${esc(c.mine ? c.ageLabel : c.age + " 歲")}</small></h2>
+        <p class="role">${esc(c.role)}${c.place ? "・" + esc(c.place) : ""}</p>
+        <p class="goal-box"><span>${c.mine ? "我想要" : "他想要"}</span>${esc(c.goal)}</p>
         <p class="story">${esc(c.story)}</p>
-        <div class="profile-meter"><span class="meter-label">安心值 ${comfort(c)}</span>${meter(comfort(c), c.color)}</div>
-        <button type="button" class="button like${state.likeMe === c.id ? " on" : ""}" id="like-me" aria-pressed="${state.likeMe === c.id}">${state.likeMe === c.id ? "☺ 這就是我" : "這就是我！"}</button>
-        <p class="data-note small" id="day-data-note">${live === "live" ? "商品開團狀態為即時資料。" : "開團狀態以首頁為準。"}</p>
+        <div class="profile-meter"><span class="meter-label">目標進度 ${progressPct(c)}%</span>${meter(progressPct(c), c.color)}</div>
+        ${c.mine ? `<button type="button" class="button" id="edit-me">修改我的角色</button>` : `<button type="button" class="button like${state.likeMe === c.id ? " on" : ""}" id="like-me" aria-pressed="${state.likeMe === c.id}">${state.likeMe === c.id ? "☺ 這就是我" : "這就是我！"}</button>`}
+        <p class="data-note small">${live === "live" ? "商品開團狀態為即時資料。" : "開團狀態以首頁為準。"}</p>
       </aside>
       <div class="timeline"><ol>${scenes}</ol>${summary}</div>`;
   }
   function openCharacter(id, { fromDraw = false } = {}) {
-    current = P.characters.find((c) => c.id === id);
-    if (!current) return;
+    if (!getChar(id)) return;
+    current = id;
     renderDay();
     const dlg = $("#day");
     if (!dlg.open) dlg.showModal();
     dlg.scrollTop = 0;
-    if (fromDraw) toast(`今天遇見的是：${current.nick}`);
+    if (fromDraw) toast(`今天遇見的是：${getChar(id).nick}`);
     history.replaceState(null, "", "#" + id);
   }
-  function choose(sceneIndex, brand) {
-    const c = current;
+  function scrollToCurrent() {
+    const next = $("#day .scene.current") || $("#day .summary");
+    next?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+  }
+  function answer(sceneIndex, brand) {
+    const c = getChar(current);
     const d = progress(c.id);
-    d.scenes[sceneIndex] = brand;
-    if (Object.keys(d.scenes).length === c.day.length && !d.completed) {
+    d.picks[sceneIndex] = brand;
+    if (answered(d, c) === c.day.length && !d.completed) {
       d.completed = true;
-      d.bonus = P.events[eventFor[c.id] ?? 0].bonus;
-      setTimeout(() => toast(`獲得徽章：陪伴${c.nick}一整天`), reduceMotion ? 0 : 300);
+      setTimeout(() => toast(c.mine ? "獲得徽章：過完我的一天" : `獲得徽章：陪伴${c.nick}一整天`), reduceMotion ? 0 : 300);
     }
     save();
     renderDay();
     renderAll();
-    const next = $("#day .scene.current") || $("#day .summary");
-    next?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+    scrollToCurrent();
   }
-  function toggleSave(brand) {
-    const i = state.saved.indexOf(brand);
-    if (i >= 0) state.saved.splice(i, 1); else state.saved.push(brand);
+  function toggleCart(brand, force) {
+    const i = state.cart.indexOf(brand);
+    const add = force ?? i < 0;
+    if (add && i < 0) state.cart.push(brand);
+    if (!add && i >= 0) state.cart.splice(i, 1);
     save();
-    toast(i >= 0 ? "已從補給清單移除" : "已加入補給清單");
-    if ($("#day").open) renderDay();
-    if ($("#saved").open) renderSaved();
     renderStats();
+    if ($("#day").open) renderDay();
+    if ($("#cart").open) renderCart();
+    if ($("#product").open) renderProduct();
   }
   async function share(c) {
-    const url = location.origin + location.pathname + "#" + c.id;
-    const text = `${c.name}，${c.age} 歲，${c.role}。${c.tagline}`;
+    const url = location.origin + location.pathname + (c.mine ? "" : "#" + c.id);
+    const text = c.mine ? `我在鷹家日常圖鑑建立了自己的角色：${c.role}，目標是「${c.goal}」。` : `${c.name}，${c.age} 歲，${c.role}。目標：${c.goal}。`;
     if (navigator.share) {
       try { await navigator.share({ title: `鷹家日常圖鑑｜${c.name}`, text, url }); return; }
       catch (error) { if (error?.name === "AbortError") return; }
@@ -298,86 +376,134 @@
     } else openCharacter(c.id, { fromDraw: true });
   }
 
-  // ---------- 補給清單 ----------
-  function renderSaved() {
-    $("#saved-body").innerHTML = state.saved.length
-      ? state.saved.map((b) => productCard(b)).join("")
-      : `<p class="empty">還沒有東西。陪角色過一天，或在商品上按「☆ 補給清單」。</p>`;
+  // ---------- 商品詳細（大圖左右滑） ----------
+  let detailBrand = null;
+  function renderProduct() {
+    const b = detailBrand;
+    const i = info(b);
+    const inCart = state.cart.includes(b);
+    $("#product-title").textContent = b;
+    $("#product-body").innerHTML = `${carousel(b, { big: true })}
+      <div class="detail-copy">${statusBadge(i)}<p>${esc(i.description || "商品說明以團購頁為準。")}</p>
+      <div class="product-actions">${i.url ? `<a class="button primary" href="${esc(i.url)}" target="_blank" rel="noopener noreferrer">前往團購</a>` : ""}${i.article ? `<a class="button" href="${esc(i.article)}">讀完整選物誌</a>` : ""}<button type="button" class="save${inCart ? " on" : ""}" data-cart="${esc(b)}" aria-pressed="${inCart}">${inCart ? "✓ 已在購物清單" : "＋ 購物清單"}</button></div>
+      <p class="small">商品、配送與售後由廠商提供，詳情以當期團購頁為準。</p></div>`;
   }
 
-  // ---------- 我的角色卡 ----------
-  function renderMeForm() {
-    const r = P.builder;
-    const me = state.me || {};
-    $("#me-body").innerHTML = `
-      <form id="me-form">
-        <fieldset><legend>你現在比較像</legend>${r.roles.map((x) => `<label class="radio"><input type="radio" name="role" value="${x.id}" ${me.role === x.id ? "checked" : ""} required> ${x.label}</label>`).join("")}</fieldset>
-        <fieldset><legend>最近的煩惱</legend>${r.worries.map((x) => `<label class="radio"><input type="radio" name="worry" value="${x.id}" ${me.worry === x.id ? "checked" : ""} required> ${x.label}</label>`).join("")}</fieldset>
-        <label class="field">卡片上的暱稱（選填，只存在這台裝置）<input name="nick" maxlength="12" value="${esc(me.nick || "")}" autocomplete="off"></label>
-        <button class="button primary" type="submit">做出我的角色卡</button>
-      </form>
-      <div id="me-result">${state.me ? meCard() : ""}</div>`;
+  // ---------- 購物清單 ----------
+  function renderCart() {
+    if (!state.cart.length) { $("#cart-body").innerHTML = `<p class="empty">還沒有東西。陪一個人過完一天，在「打包清單」勾選想要的，就會放到這裡。</p>`; return; }
+    const groups = [
+      { title: "現在可以買", test: (i) => i.status.key === "open" },
+      { title: "即將開團", test: (i) => i.status.key === "upcoming" },
+      { title: "先收著，開團再買", test: (i) => !["open", "upcoming"].includes(i.status.key) },
+    ];
+    $("#cart-body").innerHTML = groups.map((g) => {
+      const list = state.cart.filter((b) => g.test(info(b)));
+      return list.length ? `<section><h3 class="cart-group">${g.title}（${list.length}）</h3><div class="cart-list">${list.map((b) => productCard(b, { mode: "list" })).join("")}</div></section>` : "";
+    }).join("") + `<p class="small">清單只存在這台裝置。${live === "live" ? "" : "開團狀態以首頁為準。"}</p>`;
   }
-  function meCard() {
-    const r = P.builder;
-    const me = state.me;
-    const role = r.roles.find((x) => x.id === me.role);
-    const worry = r.worries.find((x) => x.id === me.worry);
-    if (!role || !worry) return "";
-    const order = (b) => rank[info(b).status.key] ?? 9;
-    const picks = [...new Set([...worry.brands, ...role.brands])].sort((a, b) => order(a) - order(b)).slice(0, 4);
-    const like = P.characters.find((c) => c.groups.some((g) => ({ work: "work", baby: "mom", toddler: "mom", kid: "dad", senior: "senior" }[me.role] === g))) || P.characters[0];
-    return `<section class="me-card" style="--c:#a84c2b"><h3>${esc(me.nick || "我")}的角色卡</h3><p class="role">${esc(role.label)}・${esc(worry.label)}</p>
-      <p>你的日子和 <button type="button" class="link-button" data-open="${like.id}">${esc(like.name)}</button> 有點像。為你挑的補給：</p>
-      <div class="options">${picks.map((b) => productCard(b)).join("")}</div></section>`;
+
+  // ---------- 建立我的角色（五步） ----------
+  let draft = null;
+  let step = 0;
+  const STEPS = ["樣子", "關於你", "家裡有誰", "目標", "卡住的地方"];
+  function renderWizard() {
+    const d = draft;
+    const head = `<ol class="steps">${STEPS.map((s, i) => `<li class="${i === step ? "on" : i < step ? "done" : ""}">${s}</li>`).join("")}</ol>`;
+    let body = "";
+    if (step === 0) body = `<fieldset><legend>選一個像你的樣子</legend><div class="avatar-grid">${P.extraAvatars.map((a) => `<label class="avatar-pick"><input type="radio" name="avatar" value="${a.id}" ${d.avatar === a.id ? "checked" : ""}>${avatar({ ...a, name: "頭像" }, 84)}</label>`).join("")}</div><p class="small">正式版會換成插畫家依風格畫的頭像。</p></fieldset>`;
+    if (step === 1) body = `<label class="field" for="me-nick">暱稱（只存在這台裝置）<input id="me-nick" name="nick" maxlength="12" value="${esc(d.nick)}" autocomplete="off" placeholder="例如：小鷹媽"></label>
+      <fieldset><legend>年齡</legend><div class="chips">${B.ages.map((a) => `<label class="chip-pick"><input type="radio" name="age" value="${a}" ${d.age === a ? "checked" : ""}> ${a}</label>`).join("")}</div></fieldset>
+      <fieldset><legend>平常的節奏</legend><div class="chips">${B.rhythms.map((r) => `<label class="chip-pick"><input type="radio" name="rhythm" value="${r.id}" ${d.rhythm === r.id ? "checked" : ""}> ${r.label}</label>`).join("")}</div></fieldset>`;
+    if (step === 2) body = `<fieldset><legend>家裡有誰？（可複選，也可以都不選）</legend><div class="chips">${B.family.map((f) => `<label class="chip-pick"><input type="checkbox" name="family" value="${f.id}" ${d.family.includes(f.id) ? "checked" : ""}> ${f.label}</label>`).join("")}</div></fieldset>`;
+    if (step === 3) body = `<fieldset><legend>你想讓日子變成什麼樣子？</legend><div class="goal-list">${B.goals.map((g) => `<label class="goal-pick"><input type="radio" name="goal" value="${g.id}" ${d.goal === g.id ? "checked" : ""}><span><strong>${g.label}</strong><small>稱號：${g.title}</small></span></label>`).join("")}</div></fieldset>`;
+    if (step === 4) body = `<fieldset><legend>最近卡住的地方（最多 3 個）</legend><div class="chips">${B.worries.map((w) => `<label class="chip-pick"><input type="checkbox" name="worries" value="${w.id}" ${d.worries.includes(w.id) ? "checked" : ""}> ${w.label}</label>`).join("")}</div></fieldset>`;
+    const preview = step > 0 ? (() => { const keep = state.me; state.me = draft; const c = meCharacter(); state.me = keep; return `<div class="me-preview" style="--c:${c.color}">${avatar(c, 64)}<div><strong>${esc(c.name)}</strong>・${esc(c.role)}<br><span class="small">${esc(c.story)}</span></div></div>`; })() : "";
+    $("#me-body").innerHTML = `${head}<form id="me-form">${body}<p class="form-error" id="me-error" role="alert"></p>
+      <div class="wizard-actions">${step ? `<button type="button" class="button ghost" id="me-back">上一步</button>` : ""}<button class="button primary" type="submit">${step === STEPS.length - 1 ? "完成，開始我的一天" : "下一步"}</button></div></form>${preview}`;
+  }
+  function readStep() {
+    const f = new FormData($("#me-form"));
+    if (step === 0) draft.avatar = f.get("avatar") || draft.avatar;
+    if (step === 1) { draft.nick = String(f.get("nick") || "").trim().slice(0, 12); draft.age = f.get("age") || draft.age; draft.rhythm = f.get("rhythm") || draft.rhythm; }
+    if (step === 2) draft.family = f.getAll("family");
+    if (step === 3) draft.goal = f.get("goal") || "";
+    if (step === 4) draft.worries = f.getAll("worries");
+  }
+  function openWizard() {
+    draft = state.me ? JSON.parse(JSON.stringify(state.me)) : { avatar: P.extraAvatars[0].id, nick: "", age: "", rhythm: "", family: [], goal: "", worries: [] };
+    step = 0;
+    renderWizard();
+    if (!$("#me").open) $("#me").showModal();
   }
 
   // ---------- 事件 ----------
   document.addEventListener("click", (e) => {
     const t = e.target.closest("button, a");
     if (!t) return;
-    if (t.dataset.open) { if ($("#me").open) $("#me").close(); openCharacter(t.dataset.open); }
-    else if (t.dataset.filter) { filter = t.dataset.filter; renderFilters(); renderGrid(); }
-    else if (t.dataset.choose !== undefined) choose(Number(t.dataset.choose), t.dataset.brand);
-    else if (t.dataset.save) toggleSave(t.dataset.save);
+    const ds = t.dataset;
+    if (ds.open) { if ($("#me").open) $("#me").close(); openCharacter(ds.open); }
+    else if (ds.filter) { filter = ds.filter; renderFilters(); renderGrid(); }
+    else if (ds.pick !== undefined) answer(Number(ds.pick), ds.brand);
+    else if (ds.skip !== undefined) answer(Number(ds.skip), null);
+    else if (ds.swap !== undefined) { const k = current + ds.swap; swapAt[k] = (swapAt[k] || 0) + Math.min(2, scenePool(getChar(current).day[Number(ds.swap)]).length); renderDay(); $(`#day [data-scene="${ds.swap}"]`)?.scrollIntoView({ block: "nearest" }); }
+    else if (ds.redo !== undefined) { const d = progress(current); delete d.picks[Number(ds.redo)]; d.completed = false; save(); renderDay(); renderAll(); $(`#day [data-scene="${ds.redo}"]`)?.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" }); }
+    else if (ds.detail) { detailBrand = ds.detail; renderProduct(); $("#product").showModal(); }
+    else if (ds.cart) { const had = state.cart.includes(ds.cart); toggleCart(ds.cart); toast(had ? "已從購物清單移除" : "已放進購物清單"); }
+    else if (ds.remove) { toggleCart(ds.remove, false); toast("已從購物清單移除"); }
+    else if (ds.slide) { const track = t.closest("[data-carousel]").querySelector(".track"); track.scrollBy({ left: Number(ds.slide) * track.clientWidth, behavior: reduceMotion ? "auto" : "smooth" }); }
     else if (t.id === "draw") draw();
-    else if (t.id === "open-saved") { renderSaved(); $("#saved").showModal(); }
-    else if (t.id === "open-me") { renderMeForm(); $("#me").showModal(); }
-    else if (t.id === "like-me") { state.likeMe = state.likeMe === current.id ? null : current.id; save(); renderDay(); renderAll(); if (state.likeMe) toast("獲得徽章：這就是我"); }
-    else if (t.id === "save-all") { current.day.forEach((_, i) => { const b = state.done[current.id].scenes[i]; if (b && !state.saved.includes(b)) state.saved.push(b); }); save(); renderDay(); renderStats(); toast("今天的補給都加入清單了"); }
-    else if (t.id === "share") share(current);
-    else if (t.id === "next-char") { const rest = P.characters.filter((c) => !state.done[c.id]?.completed); if (rest.length) openCharacter(rest[0].id); else { $("#day").close(); toast("全部角色都陪伴過了！"); } }
-    else if (t.dataset.close) $("#" + t.dataset.close).close();
-    else if (t.id === "reset") { if (confirm("清除這台裝置上的遊戲進度和補給清單？")) { state = blank(); save(); renderAll(); toast("已重新開始"); } }
+    else if (t.id === "open-cart") { renderCart(); $("#cart").showModal(); }
+    else if (t.id === "open-me" || t.id === "edit-me") { if (state.me && t.id === "open-me") openCharacter("me"); else { if ($("#day").open) $("#day").close(); openWizard(); } }
+    else if (t.id === "me-back") { readStep(); step = Math.max(0, step - 1); renderWizard(); }
+    else if (t.id === "like-me") { state.likeMe = state.likeMe === current ? null : current; save(); renderDay(); renderAll(); if (state.likeMe) toast("獲得徽章：這就是我"); }
+    else if (t.id === "pack-cart") { const boxes = $$('#day input[name="pack"]'); boxes.forEach((b) => { if (b.checked) toggleCart(b.value, true); }); progress(current).packed = true; save(); renderDay(); toast(`放進購物清單：${boxes.filter((b) => b.checked).length} 件`); }
+    else if (t.id === "share") share(getChar(current));
+    else if (t.id === "next-char") { const rest = P.characters.filter((c) => !state.done[c.id]?.completed); if (rest.length) openCharacter(rest[0].id); else { $("#day").close(); toast("每個人的一天都陪伴過了！"); } }
+    else if (ds.close) $("#" + ds.close).close();
+    else if (t.id === "reset") { $("#reset-confirm").hidden = false; }
+    else if (t.id === "reset-yes") { state = blank(); save(); $("#reset-confirm").hidden = true; renderAll(); toast("已重新開始"); }
+    else if (t.id === "reset-no") { $("#reset-confirm").hidden = true; }
   });
   document.addEventListener("submit", (e) => {
     if (e.target.id !== "me-form") return;
     e.preventDefault();
-    const f = new FormData(e.target);
-    state.me = { role: f.get("role"), worry: f.get("worry"), nick: String(f.get("nick") || "").trim().slice(0, 12) };
+    readStep();
+    const err = $("#me-error");
+    if (step === 3 && !draft.goal) { err.textContent = "選一個目標，你的一天會從這裡開始。"; return; }
+    if (step === 4 && draft.worries.length > 3) { err.textContent = "最多選 3 個，先挑最困擾的。"; return; }
+    if (step < STEPS.length - 1) { step++; renderWizard(); return; }
+    const changed = JSON.stringify(state.me) !== JSON.stringify(draft);
+    state.me = draft;
+    if (changed) delete state.done.me;
     save();
-    $("#me-result").innerHTML = meCard();
-    $("#me-result").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
-    renderStats();
-    toast("獲得徽章：我的角色卡");
+    $("#me").close();
+    renderAll();
+    toast("獲得徽章：建立我的角色");
+    openCharacter("me");
   });
-  $("#day").addEventListener("close", () => { history.replaceState(null, "", location.pathname); current = null; });
-  for (const id of ["day", "saved", "me"]) $("#" + id).addEventListener("click", (e) => { if (e.target.id === id) e.target.close(); });
-
-  // 商品圖讀不到時換成文字色塊，不留破圖。
+  // 輪播頁碼
+  document.addEventListener("scroll", (e) => {
+    const track = e.target;
+    if (!(track instanceof HTMLElement) || !track.classList.contains("track")) return;
+    const count = track.parentElement.querySelector(".count");
+    if (count) count.textContent = `${Math.round(track.scrollLeft / track.clientWidth) + 1} / ${track.children.length}`;
+  }, true);
+  // 圖讀不到時換成色塊，不留破圖。
   document.addEventListener("error", (e) => {
     const img = e.target;
-    if (!(img instanceof HTMLImageElement) || !img.closest(".product-img")) return;
-    const tile = document.createElement("span");
-    tile.className = "img-fallback";
-    tile.setAttribute("aria-hidden", "true");
-    tile.textContent = "鷹";
-    img.replaceWith(tile);
+    if (!(img instanceof HTMLImageElement) || !img.closest(".slide")) return;
+    const slide = img.closest(".slide");
+    const track = slide.parentElement;
+    slide.remove();
+    if (!track.children.length) track.closest(".carousel").innerHTML = `<span class="img-fallback" aria-hidden="true">鷹</span>`;
   }, true);
+  $("#day").addEventListener("close", () => { history.replaceState(null, "", location.pathname); current = null; });
+  for (const id of ["day", "cart", "me", "product"]) $("#" + id).addEventListener("click", (e) => { if (e.target.id === id) e.target.close(); });
 
   renderAll();
   renderDataNote();
   loadProducts().then(() => { renderAll(); });
   const hash = location.hash.slice(1);
-  if (hash && P.characters.some((c) => c.id === hash)) openCharacter(hash);
+  if (hash && getChar(hash)) openCharacter(hash);
 })();

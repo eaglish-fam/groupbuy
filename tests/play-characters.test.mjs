@@ -14,7 +14,8 @@ const snapshotBrands = new Set(JSON.parse(read('config/catalog-snapshot.json')).
 test('every product a character or the card builder mentions is a brand in the catalogue snapshot', () => {
   const used = new Set();
   for (const c of P.characters) for (const s of c.day) for (const b of s.options) used.add(b);
-  for (const x of [...P.builder.roles, ...P.builder.worries]) for (const b of x.brands) used.add(b);
+  for (const s of Object.values(P.sceneLibrary)) for (const b of [...s.options, ...s.alts]) used.add(b);
+  for (const c of P.characters) for (const s of c.day) for (const b of s.alts) used.add(b);
   const missing = [...used].filter((b) => !snapshotBrands.has(b));
   assert.deepEqual(missing, []);
   assert.ok(used.size >= 20);
@@ -24,7 +25,7 @@ test('characters are complete, unique and mostly women as Hiram described the au
   const ids = P.characters.map((c) => c.id);
   assert.equal(new Set(ids).size, ids.length);
   for (const c of P.characters) {
-    for (const k of ['name', 'nick', 'role', 'place', 'tagline', 'story', 'color']) assert.ok(c[k], `${c.id}.${k}`);
+    for (const k of ['name', 'nick', 'role', 'place', 'tagline', 'goal', 'goalShort', 'story', 'color']) assert.ok(c[k], `${c.id}.${k}`);
     assert.match(c.gender, /^[fm]$/);
     assert.ok(Number.isInteger(c.age) && c.age >= 18);
     assert.ok(c.day.length >= 4, `${c.id} needs a day`);
@@ -57,4 +58,27 @@ test('the page only offers a buy link for open campaigns and keeps progress on t
   assert.match(js, /url: p\.status\.key === "open" \? p\.url : ""/);
   assert.match(js, /localStorage\.setItem\(STORE/);
   assert.doesNotMatch(js, /fetch\([^)]*(?:POST|method)/i, 'no data is sent anywhere');
+});
+
+test('every scene offers alternatives or a skip, and the builder maps every choice to a real scene', () => {
+  const js = read('play/play.js');
+  assert.match(js, /data-skip=/, 'a scene can be skipped (這個不需要)');
+  assert.match(js, /data-swap=/, 'a scene can show other products (換一個看看)');
+  assert.match(js, /name="pack"/, 'the day ends with a pack list the player can untick');
+  const B = P.builder;
+  for (const x of [...B.family, ...B.goals, ...B.worries]) if (x.scene) assert.ok(P.sceneLibrary[x.scene], `${x.id} -> ${x.scene}`);
+  for (const g of B.goals) assert.ok(g.scene && g.title && g.line, g.id);
+  assert.ok(P.extraAvatars.length >= P.characters.length / 2, 'preset to extra avatars between 1:1 and 2:1');
+});
+
+test('the product gallery is generated from published articles and points at real files', async () => {
+  const {buildPlayMedia} = await import('../scripts/build-play-media.mjs');
+  const fresh = buildPlayMedia();
+  assert.deepEqual(JSON.parse(read('play/product-media.json')), fresh, 'run npm run build:play');
+  const {existsSync} = await import('node:fs');
+  for (const [brand, list] of Object.entries(fresh.products)) {
+    assert.ok(list.length >= 1 && list.length <= 8, brand);
+    for (const m of list) assert.ok(existsSync(new URL('.' + m.src, root)), m.src);
+  }
+  assert.ok(fresh.products['MiToy米積木'].length >= 3);
 });

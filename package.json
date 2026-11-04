@@ -27,7 +27,8 @@
     "test": "node --test tests/*.test.mjs",
     "plan:seo": "node scripts/seo-performance-plan.mjs",
     "verify:live": "node scripts/verify-live.mjs",
-    "verify": "npm run normalize:fonts && npm run build:content && npm run build:homepage && npm run build:go && npm run build:brand && npm run build:trip && npm run normalize:fonts && npm run build:css && npm run normalize:site-seo && npm run build:sitemap && npm run check:blog-seo && npm run check:site-seo && npm run audit:site && npm run audit:blog && npm run audit:seo && npm test",
+    "build:play": "node scripts/build-play-media.mjs",
+    "verify": "npm run build:play && npm run normalize:fonts && npm run build:content && npm run build:homepage && npm run build:go && npm run build:brand && npm run build:trip && npm run normalize:fonts && npm run build:css && npm run normalize:site-seo && npm run build:sitemap && npm run check:blog-seo && npm run check:site-seo && npm run audit:site && npm run audit:blog && npm run audit:seo && npm test",
     "watch:css": "tailwindcss -i src/tailwind-input.css -o tailwind.css --watch",
     "normalize:site-seo": "node scripts/normalize-site-seo.mjs --write",
     "check:site-seo": "node scripts/normalize-site-seo.mjs"
