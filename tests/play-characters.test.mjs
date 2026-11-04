@@ -63,6 +63,9 @@ test('the page only offers a buy link for open campaigns and keeps progress on t
 test('every scene offers alternatives or a skip, and the builder maps every choice to a real scene', () => {
   const js = read('play/play.js');
   assert.match(js, /data-skip=/, 'a scene can be skipped (這個不需要)');
+  assert.match(js, /data-toggle=/, 'a scene allows picking several products');
+  assert.match(js, /data-confirm=/, 'picks are confirmed together');
+  assert.match(read('play/index.html'), /id="cart-fab"/, 'floating shopping-list button');
   assert.match(js, /data-swap=/, 'a scene can show other products (換一個看看)');
   assert.match(js, /name="pack"/, 'the day ends with a pack list the player can untick');
   const B = P.builder;
@@ -81,6 +84,10 @@ test('the product gallery is generated from published articles and points at rea
     for (const m of list) assert.ok(existsSync(new URL('.' + m.src, root)), m.src);
   }
   assert.ok(fresh.products['MiToy米積木'].length >= 3);
+  // 封面與商品卡是設計過的排版圖：只有文章沒有內文照片時才當退路，且不會和內文照片同時出現。
+  for (const [brand, list] of Object.entries(fresh.products)) {
+    if (list.length > 1) for (const m of list) assert.doesNotMatch(m.src, /cover|product-card/i, `${brand}: ${m.src}`);
+  }
 });
 
 test('narration audio exists for every preset line and matches the current story text', async () => {

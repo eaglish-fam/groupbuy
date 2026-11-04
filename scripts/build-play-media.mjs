@@ -24,19 +24,29 @@ export function articleImages(html,articlePath){
   return out;
 }
 
+// 封面、商品卡、分享圖是「設計過的圖」（文字＋照片排版），裁切或重複出現都會壞掉版型。
+// 圖庫只放文章內文的照片；文章沒有內文照片時，才退回一張設計圖，並標 designed 讓頁面完整顯示。
+const DESIGNED=/(?:^|\/)[^/]*(?:cover|product-card|share|og-)[^/]*\.(?:webp|png|jpe?g)$/i;
 export function buildPlayMedia(){
   const products={};
   for(const entry of Object.values(catalog)){
     if(!entry.article)continue;
     const file=new URL('.'+entry.article+'index.html',root);
     if(!existsSync(file))continue;
-    const images=articleImages(readFileSync(file,'utf8'),entry.article)
-      .filter(i=>existsSync(new URL('.'+i.src,root)));
-    if(entry.image&&!images.some(i=>i.src===entry.image)&&existsSync(new URL('.'+entry.image,root)))images.unshift({src:entry.image,alt:entry.title||''});
+    const html=readFileSync(file,'utf8');
+    const designed=new Set([entry.cardImage].filter(Boolean));
+    const all=articleImages(html,entry.article).filter(i=>existsSync(new URL('.'+i.src,root)));
+    let images=all.filter(i=>!designed.has(i.src)&&!DESIGNED.test(i.src));
+    // 圖解放後面，先看生活照。
+    images=[...images.filter(i=>!/diagram/i.test(i.src)),...images.filter(i=>/diagram/i.test(i.src))];
+    if(!images.length){
+      const fallback=[entry.cardImage,entry.image].find(src=>src&&existsSync(new URL('.'+src,root)));
+      if(fallback)images=[{src:fallback,alt:entry.title||'',designed:true}];
+    }
     if(!images.length)continue;
     for(const brand of entry.brands)products[brand]=images.slice(0,MAX);
   }
-  return {schema:'eaglish.play-media/v1',note:'由 scripts/build-play-media.mjs 從已發布的選物誌產生，不要手改',products};
+  return {schema:'eaglish.play-media/v2',note:'由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改',products};
 }
 
 if(import.meta.url===`file://${process.argv[1]}`){

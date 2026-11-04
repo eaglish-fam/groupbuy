@@ -23,6 +23,10 @@
   } catch {}
   const save = () => { try { localStorage.setItem(STORE, JSON.stringify(state)); } catch {} };
   const progress = (id) => (state.done[id] ||= { picks: {}, completed: false, packed: false, bonus: 0 });
+  // 一個時刻可以選好幾樣；舊版存的是單一字串。
+  const asList = (v) => (v === undefined ? undefined : v === null ? null : Array.isArray(v) ? v : [v]);
+  const chosenTemp = {};
+  const tempKey = (cid, i) => `${cid}:${i}`;
   const answered = (d, c) => c.day.filter((_, i) => d && d.picks[i] !== undefined).length;
 
   // ---------- 角色（預設角色＋自己建立的角色） ----------
@@ -163,12 +167,15 @@
     renderDataNote();
   }
   const info = (brand) => products.get(brand) || { brand, image: "", images: [], description: "", article: "", status: { key: "unknown", label: "開團狀態以首頁為準" }, url: "", countdown: "" };
+  // 圖庫只用選物誌內文照片（不含封面、商品卡）；沒有內文照片才用一張設計圖或 Sheet 的圖。
   function gallery(brand) {
     const i = info(brand);
-    const list = [...(media[brand] || []).map((m) => ({ src: abs(m.src), alt: m.alt }))];
-    if (i.image && !list.some((m) => m.src === i.image)) list.unshift({ src: i.image, alt: brand });
+    const own = (media[brand] || []).map((m) => ({ src: abs(m.src), alt: m.alt }));
+    if (own.length) return own.slice(0, 8);
+    const list = [];
+    if (i.image) list.push({ src: i.image, alt: brand });
     for (const src of i.images || []) if (src && !list.some((m) => m.src === src)) list.push({ src, alt: brand });
-    return list.slice(0, 10);
+    return list.slice(0, 8);
   }
 
   // ---------- 角色頭像（SVG 插圖；之後換成正式插畫） ----------
@@ -218,6 +225,16 @@
   }
 
   // ---------- 小元件 ----------
+  function updateFab(bump = false) {
+    const fab = $("#cart-fab");
+    if (!fab) return;
+    const host = $$("dialog[open]").filter((d) => d.id !== "me" && d.id !== "cart").pop() || document.body;
+    if (fab.parentElement !== host) host.appendChild(fab);
+    fab.hidden = $("#me").open || $("#cart").open;
+    fab.querySelector(".fab-count").textContent = state.cart.length;
+    fab.setAttribute("aria-label", `打開購物清單，共 ${state.cart.length} 件`);
+    if (bump && !reduceMotion) { fab.classList.remove("bump"); void fab.offsetWidth; fab.classList.add("bump"); }
+  }
   function toast(msg) {
     const t = $("#toast");
     const host = $$("dialog[open]").pop() || document.body;
@@ -237,22 +254,22 @@
     if (!imgs.length) return `<div class="carousel empty${big ? " big" : ""}"><span class="img-fallback" aria-hidden="true">${esc([...brand.replace(/^[^A-Za-z一-鿿]+/, "")][0] || "鷹")}</span></div>`;
     const many = imgs.length > 1;
     return `<div class="carousel${big ? " big" : ""}" data-carousel>
-      <div class="track" tabindex="0" aria-label="${esc(brand)} 的照片，可左右滑動">${imgs.map((m, n) => `<figure class="slide"><img src="${esc(m.src)}" alt="${esc(m.alt || brand)}" loading="${n ? "lazy" : "eager"}" decoding="async"></figure>`).join("")}</div>
+      <div class="track" tabindex="0" aria-label="${esc(brand)} 的照片，可左右滑動">${imgs.map((m, n) => `<figure class="slide"><img class="backdrop" src="${esc(m.src)}" alt="" aria-hidden="true" loading="${n ? "lazy" : "eager"}" decoding="async"><img class="photo" src="${esc(m.src)}" alt="${esc(m.alt || brand)}" loading="${n ? "lazy" : "eager"}" decoding="async"></figure>`).join("")}</div>
       ${many ? `<button type="button" class="nav prev" data-slide="-1" aria-label="上一張">‹</button><button type="button" class="nav next" data-slide="1" aria-label="下一張">›</button><span class="count" aria-hidden="true">1 / ${imgs.length}</span>` : ""}
     </div>`;
   }
   // mode: choose（可選）、compact（已選）、list（清單）
-  function productCard(brand, { mode = "", scene = null } = {}) {
+  function productCard(brand, { mode = "", scene = null, selected = false } = {}) {
     const i = info(brand);
     const inCart = state.cart.includes(brand);
     const actions = [
-      mode === "choose" ? `<button type="button" class="button primary" data-pick="${scene}" data-brand="${esc(brand)}">選這個</button>` : "",
+      mode === "choose" ? `<button type="button" class="button ${selected ? "primary picked" : "pick"}" data-toggle="${scene}" data-brand="${esc(brand)}" aria-pressed="${selected}">${selected ? "✓ 已選" : "選這個"}</button>` : "",
       `<button type="button" class="button ghost" data-detail="${esc(brand)}">看更多</button>`,
       mode !== "choose" && i.url ? `<a class="button" href="${esc(i.url)}" target="_blank" rel="noopener noreferrer">前往團購</a>` : "",
       mode === "list" ? `<button type="button" class="text-link" data-remove="${esc(brand)}">移除</button>` : "",
       mode === "" ? `<button type="button" class="save${inCart ? " on" : ""}" data-cart="${esc(brand)}" aria-pressed="${inCart}">${inCart ? "✓ 已在購物清單" : "＋ 購物清單"}</button>` : "",
     ].filter(Boolean).join("");
-    return `<article class="product${mode === "compact" || mode === "list" ? " compact" : ""}">${carousel(brand)}<div class="product-body"><h4>${esc(brand)}</h4>${statusBadge(i)}${mode === "compact" || mode === "list" ? "" : `<p>${esc(i.description || "商品說明以團購頁為準。")}</p>`}<div class="product-actions">${actions}</div></div></article>`;
+    return `<article class="product${mode === "compact" || mode === "list" ? " compact" : ""}${selected ? " is-selected" : ""}">${carousel(brand)}<div class="product-body"><h4>${esc(brand)}</h4>${statusBadge(i)}${mode === "compact" || mode === "list" ? "" : `<p>${esc(i.description || "商品說明以團購頁為準。")}</p>`}<div class="product-actions">${actions}</div></div></article>`;
   }
 
   // ---------- 首頁 ----------
@@ -265,6 +282,7 @@
       `<div class="stat"><span class="stat-label">購物清單</span><strong><button type="button" class="link-button" id="open-cart">${state.cart.length} 件</button></strong></div>` +
       `<div class="stat badges-stat"><span class="stat-label">徽章 ${got.length} / ${BADGES.length}</span><span class="badges">${BADGES.map((b) => `<span class="badge${b.test() ? " got" : ""}" title="${esc(b.label)}"><span aria-hidden="true">${b.icon}</span><span class="sr-only">${esc(b.label)}${b.test() ? "（已獲得）" : "（未獲得）"}</span></span>`).join("")}</span></div>`;
     $("#open-me").textContent = state.me ? "✎ 我的角色" : "✎ 建立我的角色";
+    updateFab();
   }
   function renderFilters() {
     $("#filters").innerHTML = P.groups.map((g) => `<button type="button" class="chip${filter === g.id ? " on" : ""}" data-filter="${g.id}" aria-pressed="${filter === g.id}">${g.label}</button>`).join("");
@@ -345,10 +363,10 @@
     const ev = evPool[eventFor[c.id]];
     const firstOpen = c.day.findIndex((_, i) => d.picks[i] === undefined);
     const scenes = c.day.map((s, i) => {
-      const pick = d.picks[i];
+      const pick = asList(d.picks[i]);
       let body;
-      if (pick) {
-        body = `<p class="scene-text">${esc(s.text)}</p><p class="reaction"><span aria-hidden="true">💬</span> ${esc(s.reaction)}</p>${productCard(pick, { mode: "compact" })}<button type="button" class="text-link" data-redo="${i}">改選</button>`;
+      if (pick && pick.length) {
+        body = `<p class="scene-text">${esc(s.text)}</p><p class="reaction"><span aria-hidden="true">💬</span> ${esc(s.reaction)}</p><div class="chosen-list">${pick.map((b) => productCard(b, { mode: "compact" })).join("")}</div><button type="button" class="text-link" data-redo="${i}">改選</button>`;
       } else if (pick === null) {
         body = `<p class="scene-text">${esc(s.text)}</p><p class="skipped">這一刻不需要額外的東西。</p><button type="button" class="text-link" data-redo="${i}">改選</button>`;
       } else if (i === firstOpen) {
@@ -356,22 +374,25 @@
         const per = Math.min(2, pool.length);
         const offset = (swapAt[c.id + i] || 0) % pool.length;
         const shown = Array.from({ length: per }, (_, n) => pool[(offset + n) % pool.length]);
+        const sel = chosenTemp[tempKey(c.id, i)] || [];
+        const hidden = sel.filter((b) => !shown.includes(b));
         body = `<p class="scene-text">${esc(s.text)}</p><p class="need"><strong>卡住的是：</strong>${esc(s.need)}</p>
-          <p class="choose-hint">${c.mine ? "這一刻，有什麼幫得上你？" : `這一刻，有什麼幫得上${esc(c.nick)}？`}</p>
-          <div class="options">${shown.map((b) => productCard(b, { mode: "choose", scene: i })).join("")}</div>
-          <div class="scene-actions">${pool.length > per ? `<button type="button" class="button ghost" data-swap="${i}">換一個看看（${pool.length} 選 ${per}）</button>` : ""}<button type="button" class="button ghost" data-skip="${i}">這個不需要</button></div>`;
+          <p class="choose-hint">${c.mine ? "這一刻，有什麼幫得上你？" : `這一刻，有什麼幫得上${esc(c.nick)}？`}<span class="small">可以選好幾個</span></p>
+          <div class="options">${shown.map((b) => productCard(b, { mode: "choose", scene: i, selected: sel.includes(b) })).join("")}</div>
+          ${hidden.length ? `<p class="also-picked">也選了：${hidden.map((b) => `<button type="button" class="chip on" data-toggle="${i}" data-brand="${esc(b)}" aria-label="取消${esc(b)}">${esc(b)} ✕</button>`).join("")}</p>` : ""}
+          <div class="scene-actions">${pool.length > per ? `<button type="button" class="button ghost" data-swap="${i}">換一組看看（共 ${pool.length} 個）</button>` : ""}<button type="button" class="button primary" data-confirm="${i}" ${sel.length ? "" : "disabled"}>${sel.length ? `好了，帶走這 ${sel.length} 個` : "先選一個"}</button><button type="button" class="button ghost" data-skip="${i}">這個不需要</button></div>`;
       } else {
         body = `<p class="scene-text locked-text">這一段還沒發生。先走完上一段吧。</p>`;
       }
       const evHtml = i === 2 && (firstOpen === -1 || firstOpen > 2)
         ? `<li class="scene event"><span class="time">意外</span><div><h3>${esc(ev.title)}</h3><p class="scene-text">${esc(ev.text)}</p></div></li>` : "";
-      const cls = pick ? " done" : pick === null ? " skip" : i === firstOpen ? " current" : " locked";
+      const cls = pick && pick.length ? " done" : pick === null ? " skip" : i === firstOpen ? " current" : " locked";
       const listen = pick === undefined && i === firstOpen && voiceFor(c.id, "s" + i) ? ` <button type="button" class="listen" data-play="${c.id}/s${i}" aria-label="聽這一段">▶ 聽</button>` : "";
       return evHtml + `<li class="scene${cls}" data-scene="${i}"><span class="time">${esc(s.time)}</span><div><h3>${esc(s.title)}${listen}</h3>${body}</div></li>`;
     }).join("");
     let summary = "";
     if (firstOpen === -1) {
-      const chosen = c.day.map((_, i) => d.picks[i]).filter(Boolean);
+      const chosen = c.day.flatMap((_, i) => asList(d.picks[i]) || []);
       const unique = [...new Set(chosen)];
       const skipped = c.day.filter((_, i) => d.picks[i] === null).map((s) => s.title);
       summary = `<section class="summary" aria-labelledby="summary-title"><h3 id="summary-title">${c.mine ? "你的一天走完了" : `${esc(c.nick)}離目標又近了一步`} ☀</h3>
@@ -401,6 +422,7 @@
     const dlg = $("#day");
     if (!dlg.open) dlg.showModal();
     dlg.scrollTop = 0;
+    updateFab();
     if (fromDraw) toast(`今天遇見的是：${getChar(id).nick}`);
     history.replaceState(null, "", "#" + id);
   }
@@ -408,10 +430,11 @@
     const next = $("#day .scene.current") || $("#day .summary");
     next?.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
   }
-  function answer(sceneIndex, brand) {
+  function answer(sceneIndex, brands) {
     const c = getChar(current);
     const d = progress(c.id);
-    d.picks[sceneIndex] = brand;
+    d.picks[sceneIndex] = brands;
+    delete chosenTemp[tempKey(c.id, sceneIndex)];
     if (answered(d, c) === c.day.length && !d.completed) {
       d.completed = true;
       setTimeout(() => toast(c.mine ? "獲得徽章：過完我的一天" : `獲得徽章：陪伴${c.nick}一整天`), reduceMotion ? 0 : 300);
@@ -420,7 +443,7 @@
     renderDay();
     renderAll();
     scrollToCurrent();
-    if (state.autoRead && brand && !c.mine) {
+    if (state.autoRead && brands && brands.length && !c.mine) {
       const next = c.day.findIndex((_, i) => d.picks[i] === undefined);
       play(`${c.id}/r${sceneIndex}`, next >= 0 ? () => { if (current === c.id) play(`${c.id}/s${next}`); } : null);
     }
@@ -428,7 +451,7 @@
   function toggleCart(brand, force) {
     const i = state.cart.indexOf(brand);
     const add = force ?? i < 0;
-    if (add && i < 0) state.cart.push(brand);
+    if (add && i < 0) { state.cart.push(brand); setTimeout(() => updateFab(true), 0); }
     if (!add && i >= 0) state.cart.splice(i, 1);
     save();
     renderStats();
@@ -549,6 +572,7 @@
     step = state.me && !fresh ? 1 : 0;
     renderWizard();
     if (!$("#me").open) $("#me").showModal();
+    updateFab();
   }
 
   // ---------- 事件 ----------
@@ -558,17 +582,24 @@
     const ds = t.dataset;
     if (ds.open) { if ($("#me").open) $("#me").close(); openCharacter(ds.open); }
     else if (ds.filter) { filter = ds.filter; renderFilters(); renderGrid(); }
-    else if (ds.pick !== undefined) answer(Number(ds.pick), ds.brand);
+    else if (ds.toggle !== undefined) {
+      const k = tempKey(current, ds.toggle);
+      const list = chosenTemp[k] || [];
+      chosenTemp[k] = list.includes(ds.brand) ? list.filter((b) => b !== ds.brand) : [...list, ds.brand];
+      renderDay();
+      $(`#day [data-scene="${ds.toggle}"] .scene-actions`)?.scrollIntoView({ block: "nearest", behavior: reduceMotion ? "auto" : "smooth" });
+    }
+    else if (ds.confirm !== undefined) { const list = chosenTemp[tempKey(current, ds.confirm)] || []; if (list.length) answer(Number(ds.confirm), list); }
     else if (ds.skip !== undefined) answer(Number(ds.skip), null);
     else if (ds.swap !== undefined) { const k = current + ds.swap; swapAt[k] = (swapAt[k] || 0) + Math.min(2, scenePool(getChar(current).day[Number(ds.swap)]).length); renderDay(); $(`#day [data-scene="${ds.swap}"]`)?.scrollIntoView({ block: "nearest" }); }
-    else if (ds.redo !== undefined) { const d = progress(current); delete d.picks[Number(ds.redo)]; d.completed = false; save(); renderDay(); renderAll(); $(`#day [data-scene="${ds.redo}"]`)?.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" }); }
+    else if (ds.redo !== undefined) { const d = progress(current); const prev = asList(d.picks[Number(ds.redo)]); if (prev && prev.length) chosenTemp[tempKey(current, ds.redo)] = [...prev]; delete d.picks[Number(ds.redo)]; d.completed = false; save(); renderDay(); renderAll(); $(`#day [data-scene="${ds.redo}"]`)?.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" }); }
     else if (ds.play) play(ds.play);
     else if (ds.detail) { detailBrand = ds.detail; renderProduct(); $("#product").showModal(); }
     else if (ds.cart) { const had = state.cart.includes(ds.cart); toggleCart(ds.cart); toast(had ? "已從購物清單移除" : "已放進購物清單"); }
     else if (ds.remove) { toggleCart(ds.remove, false); toast("已從購物清單移除"); }
     else if (ds.slide) { const track = t.closest("[data-carousel]").querySelector(".track"); track.scrollBy({ left: Number(ds.slide) * track.clientWidth, behavior: reduceMotion ? "auto" : "smooth" }); }
     else if (t.id === "draw") draw();
-    else if (t.id === "open-cart") { renderCart(); $("#cart").showModal(); }
+    else if (t.id === "open-cart" || t.id === "cart-fab" || t.closest("#cart-fab")) { renderCart(); $("#cart").showModal(); updateFab(); }
     else if (t.id === "open-me") { if (state.me) openCharacter("me"); else openWizard({ fresh: true }); }
     else if (t.id === "edit-me") { if ($("#day").open) $("#day").close(); openWizard(); }
     else if (t.id === "restart-intro") openWizard({ fresh: true });
@@ -637,7 +668,10 @@
     if (!track.children.length) track.closest(".carousel").innerHTML = `<span class="img-fallback" aria-hidden="true">鷹</span>`;
   }, true);
   $("#day").addEventListener("close", () => { history.replaceState(null, "", location.pathname); current = null; afterPlay = null; player.pause(); markPlaying(null); });
-  for (const id of ["day", "cart", "me", "product"]) $("#" + id).addEventListener("click", (e) => { if (e.target.id === id) e.target.close(); });
+  for (const id of ["day", "cart", "me", "product"]) {
+    $("#" + id).addEventListener("click", (e) => { if (e.target.id === id) e.target.close(); });
+    $("#" + id).addEventListener("close", () => setTimeout(updateFab, 0));
+  }
 
   renderAll();
   renderDataNote();

@@ -1,12 +1,8 @@
 {
- "schema": "eaglish.play-media/v1",
- "note": "由 scripts/build-play-media.mjs 從已發布的選物誌產生，不要手改",
+ "schema": "eaglish.play-media/v2",
+ "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
   "三富休閒農場": [
-   {
-    "src": "/assets/sanfufarm/cover.webp",
-    "alt": "三富休閒農場房型怎麼選？左側為標題，右側為三富庭園水池與步道的真實照片"
-   },
    {
     "src": "/assets/sanfufarm/forest-1400.webp",
     "alt": "森林館客房的床鋪、座椅與窗外綠景"
@@ -25,10 +21,6 @@
    }
   ],
   "丹麥 Done by deer兒童用品": [
-   {
-    "src": "/assets/done-by-deer/cover.webp",
-    "alt": "Done by deer 餐盤、水壺與禮盒的真實商品圖與選購主題"
-   },
    {
     "src": "/assets/done-by-deer/product-01.webp",
     "alt": "矽膠分隔餐盤半圓三格款藍色，淡藍底色上有拖拉機、小羊和小雞插畫"
@@ -60,10 +52,6 @@
   ],
   "澳佳寶保健食品": [
    {
-    "src": "/assets/blackmores/cover-v2.webp",
-    "alt": "澳佳寶機伶小子魚油、兒童葉黃素與LC-Plasma乳酸菌盒裝，置於淺色展示台"
-   },
-   {
     "src": "/assets/blackmores/kids-fish-oil-cutout-v1.webp",
     "alt": "澳佳寶機伶小子魚油30顆完整瓶身"
    },
@@ -85,10 +73,6 @@
    }
   ],
   "法國帕洛防蚊液": [
-   {
-    "src": "/assets/parakito/cover.webp",
-    "alt": "鷹式一家四人在戶外拿著 Para’Kito 防蚊用品"
-   },
    {
     "src": "/assets/parakito/family-kit-2023.webp",
     "alt": "鷹式一家過往使用的 Para’Kito 噴霧、滾珠與手環用品"
@@ -120,10 +104,6 @@
   ],
   "康軒雜誌": [
    {
-    "src": "/assets/knsh/cover.webp",
-    "alt": "兩個孩子坐在窗邊，手拿康軒學習雜誌與 STEAM 遊戲書"
-   },
-   {
     "src": "/assets/knsh/together.webp",
     "alt": "兩個孩子躺在窗邊一起翻閱康軒學習雜誌"
    },
@@ -153,10 +133,6 @@
    }
   ],
   "樂扣樂扣": [
-   {
-    "src": "/assets/locknlock/cover.webp",
-    "alt": "孩子拿著樂扣透明杯喝水，旁邊寫著喝水這件事，先選一只帶得出門的杯"
-   },
    {
     "src": "/assets/locknlock/family-1.webp",
     "alt": "孩子在戶外雙手抱著藍色杯蓋的樂扣透明杯"
@@ -188,10 +164,6 @@
   ],
   "心窪生活": [
    {
-    "src": "/assets/shinwa-living/cover.webp",
-    "alt": "森呼吸積木在森林背景前疊成高塔，可見不同色澤的木紋"
-   },
-   {
     "src": "/assets/shinwa-living/video-woodwork.webp",
     "alt": "工作室裡，大人在木板上畫車形，孩子在一旁看"
    },
@@ -222,10 +194,6 @@
   ],
   "六福莊飯店": [
    {
-    "src": "/assets/leofoo/cover.webp",
-    "alt": "六福莊肯亞客房與一家人在戶外看動物的旅行畫面"
-   },
-   {
     "src": "/assets/leofoo/congo.webp",
     "alt": "剛果原野客房的兩張床與單層走道"
    },
@@ -247,10 +215,6 @@
    }
   ],
   "六福莊住宿 A｜樂園無限玩": [
-   {
-    "src": "/assets/leofoo/cover.webp",
-    "alt": "六福莊肯亞客房與一家人在戶外看動物的旅行畫面"
-   },
    {
     "src": "/assets/leofoo/congo.webp",
     "alt": "剛果原野客房的兩張床與單層走道"
@@ -274,10 +238,6 @@
   ],
   "六福莊住宿 B｜經典探險": [
    {
-    "src": "/assets/leofoo/cover.webp",
-    "alt": "六福莊肯亞客房與一家人在戶外看動物的旅行畫面"
-   },
-   {
     "src": "/assets/leofoo/congo.webp",
     "alt": "剛果原野客房的兩張床與單層走道"
    },
@@ -300,10 +260,6 @@
   ],
   "六福莊住宿 C｜FUN肆玩樂季": [
    {
-    "src": "/assets/leofoo/cover.webp",
-    "alt": "六福莊肯亞客房與一家人在戶外看動物的旅行畫面"
-   },
-   {
     "src": "/assets/leofoo/congo.webp",
     "alt": "剛果原野客房的兩張床與單層走道"
    },
@@ -325,10 +281,6 @@
    }
   ],
   "Branden 壓縮袋": [
-   {
-    "src": "/assets/branden/cover.webp",
-    "alt": "旅行壓縮袋怎麼選文字、鷹式一家二代綠色收納袋實拍及 Lite 米色袋組"
-   },
    {
     "src": "/assets/branden/frame-10.webp",
     "alt": "二代綠色收納袋打開放在床上，秀秀將疊好的衣物放入"
@@ -360,10 +312,6 @@
   ],
   "L'Ange 棉之境": [
    {
-    "src": "/assets/lange/cover.webp",
-    "alt": "L’Ange 棉之境紗布巾用途與尺寸指南，搭配孩子抱著包裝巾與真實商品照片"
-   },
-   {
     "src": "/assets/lange/old_04.webp",
     "alt": "桌面上的 L’Ange 棉之境多款包裝紗布巾與巾類商品"
    },
@@ -379,14 +327,11 @@
   "收麻吉手捲收納袋": [
    {
     "src": "/assets/shoumaji/cover.webp",
-    "alt": "收麻吉手捲壓縮袋旅行尺寸與袋數指南，搭配真實收納影片畫面"
+    "alt": "收麻吉手捲壓縮袋｜旅行怎麼挑尺寸與袋數？",
+    "designed": true
    }
   ],
   "瑞士 Miamily": [
-   {
-    "src": "/assets/miamily/cover.webp",
-    "alt": "MiaMily 行動頭等艙文字與我們在黑門市場的親子旅行實拍"
-   },
    {
     "src": "/assets/miamily/family-4.webp",
     "alt": "黑門市場裡，孩子坐在白色 MiaMily 行李箱上，大人在身旁"
@@ -418,10 +363,6 @@
   ],
   "墾丁凱撒大飯店": [
    {
-    "src": "/assets/caesar-kenting/journal/cover-title-v2.webp",
-    "alt": "墾丁凱撒大飯店親子選房指南，左側飯店名稱大字與右側真實椰林泳池"
-   },
-   {
     "src": "/assets/caesar-kenting/journal/family-1630.webp",
     "alt": "秀秀在凱撒房間的洗手台旁介紹衛浴與床區隔間"
    },
@@ -452,10 +393,6 @@
   ],
   "富山私房菜｜常溫品": [
    {
-    "src": "/assets/fushan/cover.webp",
-    "alt": "富山紅色禮盒與食品實拍，送禮之前先想起那個人"
-   },
-   {
     "src": "/assets/fushan/original.webp",
     "alt": "黃色圖案包裝的富山原味牛肉乾，120公克"
    },
@@ -482,10 +419,6 @@
   ],
   "鷹式一家 × 富山私房菜（常溫品）": [
    {
-    "src": "/assets/fushan/cover.webp",
-    "alt": "富山紅色禮盒與食品實拍，送禮之前先想起那個人"
-   },
-   {
     "src": "/assets/fushan/original.webp",
     "alt": "黃色圖案包裝的富山原味牛肉乾，120公克"
    },
@@ -511,10 +444,6 @@
    }
   ],
   "法國 Ki ET LA 兒童太陽眼鏡｜墨鏡": [
-   {
-    "src": "/assets/kietla/cover-style-v2.webp",
-    "alt": "在恩與在熙配戴 Ki ET LA 太陽眼鏡，封面寫著小小的臉，也有自己的風格"
-   },
    {
     "src": "/assets/kietla/family-2.webp",
     "alt": "和孩子一起出門，眼鏡也成了日常穿搭的一部分。"
@@ -546,10 +475,6 @@
   ],
   "Playzu": [
    {
-    "src": "/assets/playzu/vintage-cover.webp",
-    "alt": "Playzu 復古地墊花色怎麼挑文字，搭配孩子在藍灰色復古地墊上玩積木的品牌照片"
-   },
-   {
     "src": "/assets/playzu/pattern-05.webp",
     "alt": "醉月星空藍灰色復古地墊鋪在木地板上，可見深淺藍灰圖騰與拼接邊緣"
    },
@@ -563,10 +488,6 @@
    }
   ],
   "hereu 智慧定位器": [
-   {
-    "src": "/assets/hereu-tag/cover.webp",
-    "alt": "Hereu Tag 黑白定位器與鑰匙圈保護套，封面寫著出門前，少找一輪"
-   },
    {
     "src": "/assets/hereu-tag/find-my.webp",
     "alt": "iPhone 桌面的尋找 App，旁邊是掛在鑰匙上的 Hereu Tag"
@@ -674,18 +595,6 @@
   ],
   "EBEN康普茶": [
    {
-    "src": "/assets/eben/blog-cover.webp",
-    "alt": "EBEN 生康普茶口味挑選封面，右側人物手持双柚康普茶"
-   },
-   {
-    "src": "/assets/eben/kombucha-ingredients-diagram.webp",
-    "alt": "水彩解說圖：茶、糖與菌群匯入覆有透氣布的發酵罐"
-   },
-   {
-    "src": "/assets/eben/kombucha-fermentation-diagram.webp",
-    "alt": "水彩解說圖：酵母利用糖產生酒精與二氧化碳，醋酸菌在有氧條件下將部分酒精轉為有機酸"
-   },
-   {
     "src": "/assets/eben/vendor-tea.webp",
     "alt": "EBEN 石榴紅瓶身與台灣茶釀造、無添加香料及代糖的品牌說明"
    },
@@ -704,13 +613,17 @@
    {
     "src": "/assets/eben/vendor-roselle.webp",
     "alt": "石榴紅康普茶瓶身與紅石榴、洛神花風味"
+   },
+   {
+    "src": "/assets/eben/kombucha-ingredients-diagram.webp",
+    "alt": "水彩解說圖：茶、糖與菌群匯入覆有透氣布的發酵罐"
+   },
+   {
+    "src": "/assets/eben/kombucha-fermentation-diagram.webp",
+    "alt": "水彩解說圖：酵母利用糖產生酒精與二氧化碳，醋酸菌在有氧條件下將部分酒精轉為有機酸"
    }
   ],
   "ARTISAN浴室清潔＆小腿按摩器": [
-   {
-    "src": "/assets/artisan-cb301/blog-cover-v2.webp",
-    "alt": "ARTISAN CB301 電動清潔刷清潔浴室牆面與地板交界，封面文字寫著最難刷的往往不是最髒的地方"
-   },
    {
     "src": "/assets/artisan-cb301/long-reach.webp",
     "alt": "ARTISAN CB301 以伸縮長桿清潔浴室地板和牆面"
@@ -725,10 +638,6 @@
    }
   ],
   "Meroware 美學育兒用品": [
-   {
-    "src": "/assets/meroware/blog-cover-v1.webp",
-    "alt": "在恩與在熙身旁擺著 Meroware 水壺、餐具與零食球，封面文字寫著從第一口到自己吃"
-   },
    {
     "src": "/assets/meroware/family-two-children.webp",
     "alt": "在恩與在熙坐在一起，身旁有 Meroware 水壺、餐具、燜燒罐與零食球"
