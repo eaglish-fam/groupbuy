@@ -58,7 +58,7 @@
       ],
     },
     {
-      id: "shihan", name: "黃詩涵", nick: "詩涵", age: 30, gender: "f",
+      id: "shihan", name: "黃詩涵", art: "/assets/play/characters/shihan.webp", nick: "詩涵", age: 30, gender: "f",
       role: "雙薪家庭的媽媽・會計", place: "桃園", groups: ["mom", "work"],
       color: "#c46b4e", tagline: "女兒小米 14 個月，正扶著沙發學走路。",
       goal: "讓小米安心學走路，自己也能喘口氣", goalShort: "安心育兒",
@@ -75,7 +75,7 @@
       ],
     },
     {
-      id: "jiahao", name: "陳家豪", nick: "家豪", age: 37, gender: "m",
+      id: "jiahao", name: "陳家豪", art: "/assets/play/characters/jiahao.webp", nick: "家豪", age: 37, gender: "m",
       role: "軟體工程師・兩個孩子的爸爸", place: "新竹", groups: ["dad", "work"],
       color: "#4f7a6a", tagline: "6 歲和 9 歲，負責接送和睡前共讀。",
       goal: "少一點螢幕，多一點和孩子一起動手", goalShort: "陪孩子動手",
@@ -123,7 +123,7 @@
       ],
     },
     {
-      id: "shufen", name: "許淑芬", nick: "淑芬阿姨", age: 56, gender: "f",
+      id: "shufen", name: "許淑芬", art: "/assets/play/characters/shufen.webp", nick: "淑芬阿姨", age: 56, gender: "f",
       role: "剛退休、幫忙帶孫的阿嬤", place: "台南", groups: ["senior"],
       color: "#a5803e", tagline: "週間幫女兒帶 3 歲的孫子，週末想讓自己輕鬆一點。",
       goal: "顧好孫子、顧好家，也顧好自己的膝蓋", goalShort: "顧家也顧自己",

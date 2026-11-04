@@ -114,3 +114,13 @@ test('names the visitor types stay on the device and never reach the voice build
   assert.doesNotMatch(js, /fetch\([^)]*voai/i, 'the page never calls VoAI');
   for (const sc of Object.values(P.sceneLibrary)) if (/\{kid\}/.test(sc.text)) assert.ok(Array.isArray(sc.kid) && sc.kid.length, sc.title);
 });
+
+test('character illustrations, where set, are real files in the repo', async () => {
+  const {existsSync, statSync} = await import('node:fs');
+  for (const c of [...P.characters, ...P.extraAvatars]) {
+    if (!c.art) continue;
+    assert.match(c.art, /^\/assets\/play\/characters\/[a-z0-9-]+\.webp$/, c.id);
+    const f = new URL('.' + c.art, root);
+    assert.ok(existsSync(f) && statSync(f).size > 5000 && statSync(f).size < 300000, c.art);
+  }
+});
