@@ -584,7 +584,7 @@
     else if (t.id === "next-char") { const rest = P.characters.filter((c) => !state.done[c.id]?.completed); if (rest.length) openCharacter(rest[0].id); else { $("#day").close(); toast("每個人的一天都陪伴過了！"); } }
     else if (ds.close) $("#" + ds.close).close();
     else if (t.id === "reset") { $("#reset-confirm").hidden = false; }
-    else if (t.id === "reset-yes") { state = blank(); save(); $("#reset-confirm").hidden = true; renderAll(); toast("已重新開始"); }
+    else if (t.id === "reset-yes") { state = blank(); save(); $("#reset-confirm").hidden = true; renderAll(); openWizard({ fresh: true }); }
     else if (t.id === "reset-no") { $("#reset-confirm").hidden = true; }
   });
   document.addEventListener("change", (e) => {
