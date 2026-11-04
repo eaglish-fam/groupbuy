@@ -82,3 +82,28 @@ test('the product gallery is generated from published articles and points at rea
   }
   assert.ok(fresh.products['MiToy米積木'].length >= 3);
 });
+
+test('narration audio exists for every preset line and matches the current story text', async () => {
+  const {lines, textHash} = await import('../scripts/build-play-voice.mjs');
+  const manifest = JSON.parse(read('play/voice-manifest.json'));
+  const {existsSync, statSync} = await import('node:fs');
+  for (const c of P.characters) for (const l of lines(c)) {
+    const it = manifest.items[l.key];
+    assert.ok(it, `missing audio ${l.key}; run node scripts/build-play-voice.mjs`);
+    assert.equal(it.hash, textHash(l.text), `${l.key} text changed; re-run the voice build`);
+    assert.equal(it.text, l.text);
+    assert.ok(existsSync(new URL('.' + it.file, root)) && statSync(new URL('.' + it.file, root)).size > 2000, it.file);
+  }
+  for (const e of manifest.ledger) assert.equal(e.match, true, 'VoAI usage drop must equal the quota headers');
+  assert.doesNotMatch(read('scripts/build-play-voice.mjs'), /x-api-key: (?!proxy)/, 'no real key in the repo');
+  assert.match(read('play/play.js'), /語音由 AI（VoAI）生成/, 'the page discloses AI voice (VoAI EULA 2.4)');
+});
+
+test('names the visitor types stay on the device and never reach the voice build', () => {
+  const voice = read('scripts/build-play-voice.mjs');
+  assert.doesNotMatch(voice, /localStorage|state\.me|kidName|petName/);
+  const js = read('play/play.js');
+  assert.match(js, /\{kid\}|replaceAll\("\{kid\}"/);
+  assert.doesNotMatch(js, /fetch\([^)]*voai/i, 'the page never calls VoAI');
+  for (const sc of Object.values(P.sceneLibrary)) if (/\{kid\}/.test(sc.text)) assert.ok(Array.isArray(sc.kid) && sc.kid.length, sc.title);
+});

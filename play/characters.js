@@ -45,6 +45,7 @@
       role: "剛畢業的行銷助理", place: "新北通勤到台北", groups: ["work"],
       color: "#d8a35d", tagline: "第一份工作第三個月，正在學著照顧自己。",
       goal: "把第一份工作做好，也把自己照顧好", goalShort: "照顧好自己",
+      match: { ages: ["20 多歲"], kids: [], rhythms: ["commute"], goals: ["self", "food"] },
       story: "可昕每天搭捷運四十分鐘進公司，早上手忙腳亂、中午吃什麼總是隨便、下班時眼睛和肩膀一起抗議。她開始想：除了把工作做好，也要把自己的日子顧好。",
       avatar: { skin: "#f3d2b8", hair: "#2b211c", style: "long", shirt: "#5f7d95", acc: "earrings" },
       day: [
@@ -61,6 +62,7 @@
       role: "雙薪家庭的媽媽・會計", place: "桃園", groups: ["mom", "work"],
       color: "#c46b4e", tagline: "女兒小米 14 個月，正扶著沙發學走路。",
       goal: "讓小米安心學走路，自己也能喘口氣", goalShort: "安心育兒",
+      match: { ages: ["30 多歲"], kids: ["toddler", "baby"], rhythms: ["commute"], goals: ["kids", "self"] },
       story: "詩涵和先生都上班，白天小米給保母帶，晚上和週末是一家三口的時間。小米最近什麼都想摸、什麼都想爬，詩涵最在意的是：家裡怎麼讓她安心探索，自己又能喘口氣。",
       avatar: { skin: "#f1cdb0", hair: "#3a2a22", style: "bob", shirt: "#c46b4e", acc: "none", kid: { skin: "#f6d9c3", hair: "#3a2a22" } },
       day: [
@@ -77,6 +79,7 @@
       role: "軟體工程師・兩個孩子的爸爸", place: "新竹", groups: ["dad", "work"],
       color: "#4f7a6a", tagline: "6 歲和 9 歲，負責接送和睡前共讀。",
       goal: "少一點螢幕，多一點和孩子一起動手", goalShort: "陪孩子動手",
+      match: { ages: ["30 多歲", "40 多歲"], kids: ["school", "preschool"], rhythms: ["commute", "home-work"], goals: ["kids"] },
       story: "家豪下午四點半準時下班去接孩子，那是他和太太說好的分工。回家後功課、晚餐、洗澡、共讀，他想讓孩子少一點螢幕、多一點一起動手的時間。",
       avatar: { skin: "#e8bf9c", hair: "#1f1a17", style: "short", shirt: "#4f7a6a", acc: "glasses", kid: { skin: "#efc9a8", hair: "#1f1a17" } },
       day: [
@@ -92,6 +95,7 @@
       role: "業務主管・兩寶媽", place: "台中", groups: ["mom", "travel"],
       color: "#3f7f9a", tagline: "5 歲和 2 歲，每季一定要安排一次全家旅行。",
       goal: "讓全家輕鬆出門、開心回家", goalShort: "全家出遊",
+      match: { ages: ["30 多歲", "40 多歲"], kids: ["preschool", "toddler"], rhythms: ["commute"], goals: ["trip"] },
       story: "雅婷平常工作很滿，旅行是她給全家的固定約會。她最怕的是行李爆量、孩子曬傷被叮、到了現場才發現房型不適合。所以她習慣把功課做在前面。",
       avatar: { skin: "#f0cbae", hair: "#4a3326", style: "ponytail", shirt: "#3f7f9a", acc: "sunglasses", kid: { skin: "#f4d5bd", hair: "#4a3326" } },
       day: [
@@ -107,6 +111,7 @@
       role: "育嬰假中的新手媽媽", place: "台北", groups: ["mom"],
       color: "#9a6fa8", tagline: "寶寶 4 個月，夜奶兩次，正在找回自己的節奏。",
       goal: "照顧好寶寶，也找回自己的節奏", goalShort: "找回節奏",
+      match: { ages: ["30 多歲", "20 多歲"], kids: ["baby"], rhythms: ["leave", "carer"], goals: ["self", "kids"] },
       story: "佩珊請了半年育嬰假。她發現新手媽媽的一天沒有上下班，只有餵奶、拍嗝、洗澡和偶爾的十分鐘。她想把家裡的小事安排好，留一點力氣給自己。",
       avatar: { skin: "#f5d6bf", hair: "#2e2420", style: "bun", shirt: "#9a6fa8", acc: "none", kid: { skin: "#f8dcc8", hair: "#2e2420", baby: true } },
       day: [
@@ -122,6 +127,7 @@
       role: "剛退休、幫忙帶孫的阿嬤", place: "台南", groups: ["senior"],
       color: "#a5803e", tagline: "週間幫女兒帶 3 歲的孫子，週末想讓自己輕鬆一點。",
       goal: "顧好孫子、顧好家，也顧好自己的膝蓋", goalShort: "顧家也顧自己",
+      match: { ages: ["50 歲以上"], kids: [], rhythms: ["retired", "carer"], goals: ["home", "food"], elder: true },
       story: "淑芬退休後，生活重心變成孫子和家裡。她很會持家，但膝蓋和腰開始不聽話；逢年過節，她總是張羅送禮和家族聚餐的那個人。",
       avatar: { skin: "#ecc5a6", hair: "#8d8780", style: "short-curl", shirt: "#a5803e", acc: "glasses" },
       day: [
@@ -137,6 +143,7 @@
       role: "第一次一個人帶女兒出遊的爸爸", place: "高雄", groups: ["dad", "travel"],
       color: "#5a6fa6", tagline: "女兒 4 歲，太太出差三天，父女倆的冒險。",
       goal: "和女兒完成第一次兩個人的小旅行", goalShort: "父女小旅行",
+      match: { ages: ["30 多歲"], kids: ["preschool"], rhythms: ["commute"], goals: ["trip", "kids"] },
       story: "太太出差，承翰決定帶女兒去住一晚農場。他列了一張清單，還是很緊張：防曬、防蚊、吃飯、晚上無聊怎麼辦？",
       avatar: { skin: "#e5b993", hair: "#231c18", style: "short2", shirt: "#5a6fa6", acc: "beard", kid: { skin: "#ecc4a2", hair: "#231c18" } },
       day: [
@@ -152,6 +159,7 @@
       role: "新婚、在家工作的插畫家", place: "台北小套房", groups: ["work", "home"],
       color: "#6b8e4e", tagline: "12 坪的家，兩個人、一隻貓，空間要用得很聰明。",
       goal: "12 坪也能住得清爽、工作得順", goalShort: "小家清爽",
+      match: { ages: ["20 多歲"], kids: [], rhythms: ["home-work"], goals: ["home", "food", "self"] },
       story: "宜蓁在家接案，家就是辦公室。小套房東西一多就亂，浴室也總是有拖了很久沒處理的角落。她想要的是：每樣東西都有位置，生活不被家事追著跑。",
       avatar: { skin: "#f2d0b4", hair: "#5b3a2a", style: "bob-bangs", shirt: "#6b8e4e", acc: "earrings" },
       day: [
@@ -198,16 +206,16 @@
   // 通用的一天場景（給自己建立的角色用）。order 決定在一天裡的先後。
   const sceneLibrary = {
     lost: { order: 10, time: "07:30", title: "出門前找不到鑰匙", text: "包包翻了兩遍，鑰匙不知道又跑去哪裡。", need: "常找不到的東西，留一個線索", options: [B.hereu], alts: [], reaction: "「出門前看一眼手機就知道在哪。」" },
-    walking: { order: 12, time: "07:00", title: "孩子正在學走路", text: "扶著家具走兩步就跌坐，地板硬得讓人心驚。", need: "學走路、跌坐時的柔軟地面", options: [B.alzip, B.playzu], alts: [B.mitoy], reaction: "「跌坐下去也不怕，再站起來就好。」" },
-    bottle: { order: 14, time: "07:10", title: "出門前的水壺", text: "孩子說學校的水不好喝，水壺的蓋子又找不到。", need: "孩子願意帶、好拆洗的水壺", options: [B.locknlock, B.deer], alts: [], reaction: "「自己的水壺自己背。」" },
-    baby: { order: 20, time: "09:00", title: "幫寶寶洗澡", text: "洗完要快快包起來擦乾，拍嗝巾也總是不夠用。", need: "寶寶洗澡與拍嗝用的布巾", options: [B.lange], alts: [B.atojet], reaction: "「多備幾條，洗了晾著也不怕不夠。」" },
+    walking: { order: 12, time: "07:00", title: "孩子正在學走路", text: "{kid}扶著家具走兩步就跌坐，地板硬得讓人心驚。", kid: ["toddler", "baby"], need: "學走路、跌坐時的柔軟地面", options: [B.alzip, B.playzu], alts: [B.mitoy], reaction: "「{kid}跌坐下去也不怕，拍拍手又站起來了。」" },
+    bottle: { order: 14, time: "07:10", title: "出門前的水壺", text: "{kid}說學校的水不好喝，水壺的蓋子又找不到。", kid: ["school", "preschool"], need: "孩子願意帶、好拆洗的水壺", options: [B.locknlock, B.deer], alts: [], reaction: "「自己的水壺自己背。」" },
+    baby: { order: 20, time: "09:00", title: "幫寶寶洗澡", text: "{kid}洗完要快快包起來擦乾，拍嗝巾也總是不夠用。", kid: ["baby"], need: "寶寶洗澡與拍嗝用的布巾", options: [B.lange], alts: [B.atojet], reaction: "「多備幾條，洗了晾著也不怕不夠。」" },
     bathroom: { order: 24, time: "10:30", title: "浴室角落又黃了", text: "每次都要彎腰刷很久，拖著拖著又一週。", need: "不用一直彎腰的清潔", options: [B.artisan], alts: [B.atojet], reaction: "「站著就刷得到，終於不拖了。」" },
     lunch: { order: 30, time: "12:30", title: "午餐又隨便吃", text: "忙起來就隨便扒兩口，吃完也不覺得飽。", need: "簡單又能讓午餐像樣一點的食物", options: [B.wave], alts: [B.fushanFrozen, B.juice], reaction: "「五分鐘也能吃得像樣。」" },
     treat: { order: 36, time: "15:30", title: "給自己一點小獎勵", text: "下午有點累，想喝點不一樣的轉換心情。", need: "下午的一點小確幸", options: [B.eben, B.juice], alts: [B.blackmores], reaction: "「喝一口，重新開機。」" },
-    homework: { order: 40, time: "17:00", title: "寫功課姿勢歪歪", text: "孩子趴在餐桌寫作業，越寫越低。", need: "可以調高度的書桌", options: [B.desk], alts: [B.knsh], reaction: "「桌面斜一點，坐得直多了。」" },
-    toddler: { order: 44, time: "18:40", title: "邊煮飯邊顧孩子", text: "要準備晚餐，需要一樣孩子能專心玩一陣子的東西。", need: "讓孩子自己專心玩一陣子", options: [B.mitoy], alts: [B.shinwa], reaction: "「湯煮好了，他也蓋好一座城堡。」" },
-    meals: { order: 46, time: "18:30", title: "孩子吃飯一團亂", text: "堅持自己吃，桌上地上都是飯粒。", need: "孩子自己練習吃飯的餐具", options: [B.deer, B.meroware], alts: [B.locknlock], reaction: "「讓他自己吃，練習本來就會弄髒。」" },
-    screen: { order: 50, time: "19:30", title: "又在討平板", text: "晚餐後孩子說無聊。你想試試平板以外的辦法。", need: "不用螢幕也好玩的東西", options: [B.giiker, B.knsh], alts: [B.shinwa, B.mitoy], reaction: "「再一局！」" },
+    homework: { order: 40, time: "17:00", title: "寫功課姿勢歪歪", text: "{kid}趴在餐桌寫作業，越寫越低。", kid: ["school"], need: "可以調高度的書桌", options: [B.desk], alts: [B.knsh], reaction: "「桌面斜一點，坐得直多了。」" },
+    toddler: { order: 44, time: "18:40", title: "邊煮飯邊顧孩子", text: "要準備晚餐，需要一樣{kid}能專心玩一陣子的東西。", kid: ["toddler", "preschool"], need: "讓孩子自己專心玩一陣子", options: [B.mitoy], alts: [B.shinwa], reaction: "「湯煮好了，{kid}也蓋好一座城堡。」" },
+    meals: { order: 46, time: "18:30", title: "孩子吃飯一團亂", text: "{kid}堅持自己吃，桌上地上都是飯粒。", kid: ["preschool", "toddler"], need: "孩子自己練習吃飯的餐具", options: [B.deer, B.meroware], alts: [B.locknlock], reaction: "「讓{kid}自己吃，練習本來就會弄髒。」" },
+    screen: { order: 50, time: "19:30", title: "又在討平板", text: "晚餐後{kid}說無聊。你想試試平板以外的辦法。", kid: ["school", "preschool"], need: "不用螢幕也好玩的東西", options: [B.giiker, B.knsh], alts: [B.shinwa, B.mitoy], reaction: "「{kid}說：再一局！」" },
     clutter: { order: 60, time: "20:30", title: "東西多到收不完", text: "客廳、衣櫃、玩具區，每個角落都在提醒你該整理了。", need: "讓東西都有自己的位置", options: [B.plafarm, B.shoumaji], alts: [B.branden], reaction: "「收好之後，家像大了一點。」" },
     sleep: { order: 70, time: "23:00", title: "又是翻來覆去的一晚", text: "躺上床已經很晚了，腦袋還在轉，明天還要早起。", need: "讓睡眠好一點", options: [B.emma], alts: [B.lange], reaction: "「今晚想好好睡一覺。」" },
     trip: { order: 80, time: "週一", title: "這次要住哪裡", text: "想帶家人出去走走，先比較房型、餐食和費用。", need: "適合家人的住宿", options: [B.leofoo, B.caesar], alts: [B.sanfu], reaction: "「先算清楚，出發就不慌。」" },
@@ -215,6 +223,13 @@
     outdoor: { order: 84, time: "出遊日", title: "太陽好大、蚊子好多", text: "在戶外玩得正開心，曬和叮都來了。", need: "戶外的防曬和防蚊", options: [B.kietla, B.parakito], alts: [B.rieti], reaction: "「玩得盡興，回家也舒服。」" },
     gift: { order: 90, time: "節日前", title: "送禮送什麼", text: "要送長輩、親戚和朋友，想要體面又吃得慣的。", need: "送得出手的禮盒", options: [B.fushan], alts: [B.juice, B.eben], reaction: "「這份心意，送得剛剛好。」" },
   };
+
+  // 有毛孩時，自己的一天會出現一張毛孩事件卡（目前沒有寵物商品，只是故事）。
+  const petEvents = [
+    { title: "{pet}的早安", text: "{pet}一大早就跳上床，用鼻子把你叫醒。今天就從一個擁抱開始。", bonus: 5 },
+    { title: "{pet}搗蛋了", text: "一轉身，{pet}把拖鞋叼到沙發底下。生氣不起來，只好笑著去撿。", bonus: 5 },
+    { title: "{pet}在門口等你", text: "回到家，{pet}已經在門口等。一天的累，好像少了一半。", bonus: 10 },
+  ];
 
   const builder = {
     ages: ["20 多歲", "30 多歲", "40 多歲", "50 歲以上"],
@@ -224,6 +239,18 @@
       { id: "leave", label: "育嬰假中" },
       { id: "carer", label: "全職照顧家裡" },
       { id: "retired", label: "退休了" },
+    ],
+    kidAges: [
+      { id: "baby", label: "0–1 歲" },
+      { id: "toddler", label: "1–3 歲" },
+      { id: "preschool", label: "3–6 歲" },
+      { id: "school", label: "6–12 歲" },
+      { id: "teen", label: "12 歲以上" },
+    ],
+    pets: [
+      { id: "dog", label: "狗狗" },
+      { id: "cat", label: "貓咪" },
+      { id: "other", label: "其他毛孩" },
     ],
     family: [
       { id: "partner", label: "伴侶" },
@@ -255,5 +282,5 @@
     ],
   };
 
-  root.PlayCharacters = { brands: B, characters, events, groups, builder, sceneLibrary, extraAvatars };
+  root.PlayCharacters = { brands: B, characters, events, petEvents, groups, builder, sceneLibrary, extraAvatars };
 })(typeof globalThis !== "undefined" ? globalThis : this);

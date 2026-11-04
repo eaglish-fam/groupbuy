@@ -27,25 +27,62 @@
 
   // ---------- 角色（預設角色＋自己建立的角色） ----------
   const B = P.builder;
+  // 使用者自己輸入的名字只在這台裝置用來組故事，不送任何地方（包括 VoAI）。
+  const kidFor = (m, prefs) => {
+    const kids = m.kids || [];
+    return (prefs || []).map((a) => kids.find((k) => k.age === a && k.name)).find(Boolean) || kids.find((k) => k.name && (prefs || []).includes(k.age)) || null;
+  };
+  const fillText = (t, m, scene) => {
+    const kid = kidFor(m, scene?.kid);
+    return String(t || "").replaceAll("{kid}", kid ? kid.name : "孩子").replaceAll("{pet}", m.pet?.name || "毛孩");
+  };
   function meCharacter() {
     const m = state.me;
     if (!m) return null;
     const look = P.extraAvatars.find((a) => a.id === m.avatar) || P.extraAvatars[0];
     const goal = B.goals.find((g) => g.id === m.goal) || B.goals[0];
     const rhythm = B.rhythms.find((r) => r.id === m.rhythm);
-    const family = B.family.filter((f) => m.family.includes(f.id));
-    const worries = B.worries.filter((w) => m.worries.includes(w.id));
-    const keys = [...new Set([...worries.map((w) => w.scene), goal.scene, ...family.map((f) => f.scene)])].filter((k) => P.sceneLibrary[k]);
+    const kids = (m.kids || []).filter((k) => k.age);
+    const worries = B.worries.filter((w) => (m.worries || []).includes(w.id));
+    const kidScenes = { baby: "baby", toddler: "toddler", preschool: "meals", school: "homework" };
+    const keys = [...new Set([...worries.map((w) => w.scene), goal.scene, ...kids.map((k) => kidScenes[k.age]), m.elder ? "bathroom" : ""])].filter((k) => P.sceneLibrary[k]);
     for (const k of ["treat", "lunch", "sleep", "clutter"]) if (keys.length < 4 && !keys.includes(k)) keys.push(k);
-    const day = keys.slice(0, 6).map((k) => P.sceneLibrary[k]).sort((a, b) => a.order - b.order);
+    const day = keys.slice(0, 6).map((k) => P.sceneLibrary[k]).sort((a, b) => a.order - b.order).map((sc) => {
+      const kid = kidFor(m, sc.kid);
+      return { ...sc, title: kid ? sc.title.replace("孩子", kid.name) : sc.title, text: fillText(sc.text, m, sc), reaction: fillText(sc.reaction, m, sc) };
+    });
     const nick = m.nick || "我";
-    const who = family.length ? `家裡有${family.map((f) => f.label.replace(/（.*）/, "")).join("、")}` : "一個人生活";
-    const story = `${nick}，${m.age || ""}，${rhythm ? rhythm.label : ""}，${who}。${goal.line}，但最近${worries.length ? worries.map((w) => w.label).join("、") : "日子有點忙"}。`;
+    const ageWord = (a) => (B.kidAges.find((x) => x.id === a) || {}).label || "";
+    const kidLine = kids.length ? `家裡有${kids.map((k) => `${ageWord(k.age)}的${k.name || "孩子"}`).join("、")}` : "";
+    const petLine = m.pet?.type ? `還有一隻叫${m.pet.name || "毛孩"}的${(B.pets.find((x) => x.id === m.pet.type) || {}).label || "毛孩"}` : "";
+    const who = [kidLine, petLine].filter(Boolean).join("，") || "自己一個人生活";
+    const story = `${nick}，${m.age || ""}，${rhythm ? rhythm.label : ""}。${who}。${goal.line}，但最近${worries.length ? worries.map((w) => w.label).join("、") : "日子有點忙"}。`;
+    const event = m.pet?.type ? P.petEvents.map((e) => ({ ...e, title: fillText(e.title, m), text: fillText(e.text, m) })) : null;
     return {
-      id: "me", mine: true, name: nick, nick, ageLabel: m.age || "", gender: "", role: goal.title, place: rhythm ? rhythm.label : "",
-      groups: [], color: look.color, avatar: look.avatar, tagline: `目標：${goal.label}`, goal: goal.label, goalShort: goal.label,
-      story, day,
+      id: "me", mine: true, name: nick, nick, ageLabel: m.age || "", gender: "", role: m.goal ? goal.title : "還在想我的目標", place: rhythm ? rhythm.label : "",
+      groups: [], color: look.color, avatar: look.avatar, art: look.art, tagline: `目標：${goal.label}`, goal: goal.label, goalShort: goal.label,
+      story, day, events: event,
     };
+  }
+  // 依入口的選擇，找出最像使用者的預設角色。
+  function recommend(m) {
+    const kidAges = (m.kids || []).map((k) => k.age);
+    const worryBrands = new Set(B.worries.filter((w) => (m.worries || []).includes(w.id)).flatMap((w) => { const sc = P.sceneLibrary[w.scene]; return sc ? [...sc.options, ...sc.alts] : []; }));
+    const scored = P.characters.map((c) => {
+      const t = c.match || {};
+      let score = 0;
+      if ((t.ages || []).includes(m.age)) score += 3;
+      if ((t.rhythms || []).includes(m.rhythm)) score += 2;
+      if ((t.goals || []).includes(m.goal)) score += 3;
+      score += kidAges.filter((a) => (t.kids || []).includes(a)).length * 4;
+      if (kidAges.length && !(t.kids || []).length && !t.elder) score -= 3;
+      if (!kidAges.length && (t.kids || []).length) score -= 3;
+      if (m.elder && t.elder) score += 2;
+      const brands = new Set(c.day.flatMap((s) => s.options));
+      score += [...worryBrands].filter((b) => brands.has(b)).length;
+      return { c, score };
+    }).sort((a, b) => b.score - a.score);
+    return scored[0].c;
   }
   const allCharacters = () => [meCharacter(), ...P.characters].filter(Boolean);
   const getChar = (id) => allCharacters().find((c) => c.id === id);
@@ -136,6 +173,8 @@
 
   // ---------- 角色頭像（SVG 插圖；之後換成正式插畫） ----------
   function avatar(c, size = 120) {
+    // 正式插畫（GB-029 繪本水彩）到位後，角色資料加 art 路徑就換成插畫。
+    if (c.art) return `<img class="avatar art" src="${esc(abs(c.art))}" width="${size}" height="${size}" alt="${esc(c.name || "角色")}的插畫">`;
     const a = c.avatar;
     const hair = a.hair, skin = a.skin;
     const backHair = {
@@ -257,6 +296,41 @@
   }
   function renderAll() { renderStats(); renderFilters(); renderGrid(); }
 
+  // ---------- 語音（VoAI 事先產生；只有文字相符的段落才播） ----------
+  let voice = { items: {} };
+  const player = new Audio();
+  player.preload = "none";
+  let playing = null;
+  let afterPlay = null;
+  async function loadVoice() {
+    try { voice = window.PLAY_VOICE || await fetch(abs("/play/voice-manifest.json")).then((r) => r.json()); } catch { voice = { items: {} }; }
+  }
+  function voiceFor(cid, part) {
+    const it = voice.items?.[`${cid}/${part}`];
+    const c = P.characters.find((x) => x.id === cid);
+    if (!it || !c) return null;
+    // 文字改過就不播舊錄音。
+    if (part === "intro") return it.text.includes(c.story) ? it : null;
+    const s = c.day[Number(part.slice(1))];
+    if (!s) return null;
+    const expected = part[0] === "s" ? s.text : s.reaction.replace(/[「」]/g, "");
+    return it.text.includes(expected) ? it : null;
+  }
+  function play(key, then = null) {
+    const [cid, part] = key.split("/");
+    const it = voiceFor(cid, part);
+    if (!it) return;
+    if (playing === key && !player.paused) { player.pause(); afterPlay = null; markPlaying(null); return; }
+    afterPlay = then;
+    player.src = abs(it.file);
+    player.play().then(() => markPlaying(key)).catch(() => markPlaying(null));
+  }
+  function markPlaying(key) {
+    playing = key;
+    for (const b of $$("[data-play]")) b.classList.toggle("on", b.dataset.play === key);
+  }
+  player.addEventListener("ended", () => { markPlaying(null); const next = afterPlay; afterPlay = null; if (next) next(); });
+
   // ---------- 一天 ----------
   let current = null;
   const eventFor = {};
@@ -266,8 +340,9 @@
     const c = current && getChar(current);
     if (!c) return;
     const d = progress(c.id);
-    if (eventFor[c.id] === undefined) eventFor[c.id] = Math.floor(Math.random() * P.events.length);
-    const ev = P.events[eventFor[c.id]];
+    const evPool = c.events || P.events;
+    if (eventFor[c.id] === undefined || eventFor[c.id] >= evPool.length) eventFor[c.id] = Math.floor(Math.random() * evPool.length);
+    const ev = evPool[eventFor[c.id]];
     const firstOpen = c.day.findIndex((_, i) => d.picks[i] === undefined);
     const scenes = c.day.map((s, i) => {
       const pick = d.picks[i];
@@ -291,7 +366,8 @@
       const evHtml = i === 2 && (firstOpen === -1 || firstOpen > 2)
         ? `<li class="scene event"><span class="time">意外</span><div><h3>${esc(ev.title)}</h3><p class="scene-text">${esc(ev.text)}</p></div></li>` : "";
       const cls = pick ? " done" : pick === null ? " skip" : i === firstOpen ? " current" : " locked";
-      return evHtml + `<li class="scene${cls}" data-scene="${i}"><span class="time">${esc(s.time)}</span><div><h3>${esc(s.title)}</h3>${body}</div></li>`;
+      const listen = pick === undefined && i === firstOpen && voiceFor(c.id, "s" + i) ? ` <button type="button" class="listen" data-play="${c.id}/s${i}" aria-label="聽這一段">▶ 聽</button>` : "";
+      return evHtml + `<li class="scene${cls}" data-scene="${i}"><span class="time">${esc(s.time)}</span><div><h3>${esc(s.title)}${listen}</h3>${body}</div></li>`;
     }).join("");
     let summary = "";
     if (firstOpen === -1) {
@@ -309,8 +385,9 @@
         ${avatar(c, 150)}
         <h2 id="day-title">${esc(c.name)}<small>${esc(c.mine ? c.ageLabel : c.age + " 歲")}</small></h2>
         <p class="role">${esc(c.role)}${c.place ? "・" + esc(c.place) : ""}</p>
-        <p class="goal-box"><span>${c.mine ? "我想要" : "他想要"}</span>${esc(c.goal)}</p>
+        <p class="goal-box"><span>${c.mine ? "我想要" : c.gender === "m" ? "他想要" : "她想要"}</span>${esc(c.goal)}</p>
         <p class="story">${esc(c.story)}</p>
+        ${voiceFor(c.id, "intro") ? `<div class="voice-row"><button type="button" class="button ghost" data-play="${c.id}/intro">▶ 聽${esc(c.nick)}的故事</button><label class="auto-read"><input type="checkbox" id="auto-read" ${state.autoRead ? "checked" : ""}> 自動朗讀</label></div><p class="small">語音由 AI（VoAI）生成。</p>` : ""}
         <div class="profile-meter"><span class="meter-label">目標進度 ${progressPct(c)}%</span>${meter(progressPct(c), c.color)}</div>
         ${c.mine ? `<button type="button" class="button" id="edit-me">修改我的角色</button>` : `<button type="button" class="button like${state.likeMe === c.id ? " on" : ""}" id="like-me" aria-pressed="${state.likeMe === c.id}">${state.likeMe === c.id ? "☺ 這就是我" : "這就是我！"}</button>`}
         <p class="data-note small">${live === "live" ? "商品開團狀態為即時資料。" : "開團狀態以首頁為準。"}</p>
@@ -343,6 +420,10 @@
     renderDay();
     renderAll();
     scrollToCurrent();
+    if (state.autoRead && brand && !c.mine) {
+      const next = c.day.findIndex((_, i) => d.picks[i] === undefined);
+      play(`${c.id}/r${sceneIndex}`, next >= 0 ? () => { if (current === c.id) play(`${c.id}/s${next}`); } : null);
+    }
   }
   function toggleCart(brand, force) {
     const i = state.cart.indexOf(brand);
@@ -403,36 +484,69 @@
     }).join("") + `<p class="small">清單只存在這台裝置。${live === "live" ? "" : "開團狀態以首頁為準。"}</p>`;
   }
 
-  // ---------- 建立我的角色（五步） ----------
+  // ---------- 入口：儀式感的設定流程 → 推薦角色卡（也就是「建立我的角色」） ----------
   let draft = null;
   let step = 0;
-  const STEPS = ["樣子", "關於你", "家裡有誰", "目標", "卡住的地方"];
+  const STEPS = ["開始", "關於你", "孩子", "毛孩", "目標", "卡住的地方", "你的卡"];
+  const blankDraft = () => ({ avatar: P.extraAvatars[0].id, nick: "", age: "", rhythm: "", hasKids: null, kids: [], elder: false, pet: { type: "", name: "" }, goal: "", worries: [] });
+  function withDraft(fn) { const keep = state.me; state.me = draft; try { return fn(); } finally { state.me = keep; } }
+  function miniCard(c, label) {
+    return `<div class="reveal-card" style="--c:${c.color}"><span class="reveal-label">${label}</span>${avatar(c, 120)}<strong class="char-name">${esc(c.name)}<small>${esc(c.mine ? c.ageLabel : c.age + " 歲")}</small></strong><span class="char-role">${esc(c.role)}</span><span class="char-goal">🎯 ${esc(c.goal)}</span></div>`;
+  }
   function renderWizard() {
     const d = draft;
-    const head = `<ol class="steps">${STEPS.map((s, i) => `<li class="${i === step ? "on" : i < step ? "done" : ""}">${s}</li>`).join("")}</ol>`;
+    const dlg = $("#me");
+    dlg.classList.toggle("ritual-mode", step === 0);
+    const head = step === 0 || step === STEPS.length - 1 ? "" : `<ol class="steps" aria-label="進度">${STEPS.slice(1, -1).map((t, i) => `<li class="${i + 1 === step ? "on" : i + 1 < step ? "done" : ""}">${t}</li>`).join("")}</ol>`;
     let body = "";
-    if (step === 0) body = `<fieldset><legend>選一個像你的樣子</legend><div class="avatar-grid">${P.extraAvatars.map((a) => `<label class="avatar-pick"><input type="radio" name="avatar" value="${a.id}" ${d.avatar === a.id ? "checked" : ""}>${avatar({ ...a, name: "頭像" }, 84)}</label>`).join("")}</div><p class="small">正式版會換成插畫家依風格畫的頭像。</p></fieldset>`;
-    if (step === 1) body = `<label class="field" for="me-nick">暱稱（只存在這台裝置）<input id="me-nick" name="nick" maxlength="12" value="${esc(d.nick)}" autocomplete="off" placeholder="例如：小鷹媽"></label>
+    if (step === 0) body = `<div class="ritual"><div class="book" aria-hidden="true"><span class="page p1"></span><span class="page p2"></span><span class="page p3"></span></div>
+      <p class="eyebrow">鷹家日常圖鑑</p><h2 class="ritual-title">每一頁，<br>都是某個人的一天。</h2>
+      <p>回答幾個小問題：你幾歲、家裡有誰、想讓日子變成什麼樣子。我們幫你找到最像你的那張卡，也幫你做一張你自己的。</p>
+      <p class="small">你填的名字只存在這台裝置，不會送出去。</p></div>`;
+    if (step === 1) body = `<fieldset><legend>先選一個像你的樣子</legend><div class="avatar-grid">${P.extraAvatars.map((a) => `<label class="avatar-pick"><input type="radio" name="avatar" value="${a.id}" ${d.avatar === a.id ? "checked" : ""}>${avatar({ ...a, name: "頭像" }, 76)}</label>`).join("")}</div></fieldset>
+      <label class="field" for="me-nick">怎麼稱呼你？<input id="me-nick" name="nick" maxlength="12" value="${esc(d.nick)}" autocomplete="off" placeholder="例如：小鷹媽"></label>
       <fieldset><legend>年齡</legend><div class="chips">${B.ages.map((a) => `<label class="chip-pick"><input type="radio" name="age" value="${a}" ${d.age === a ? "checked" : ""}> ${a}</label>`).join("")}</div></fieldset>
       <fieldset><legend>平常的節奏</legend><div class="chips">${B.rhythms.map((r) => `<label class="chip-pick"><input type="radio" name="rhythm" value="${r.id}" ${d.rhythm === r.id ? "checked" : ""}> ${r.label}</label>`).join("")}</div></fieldset>`;
-    if (step === 2) body = `<fieldset><legend>家裡有誰？（可複選，也可以都不選）</legend><div class="chips">${B.family.map((f) => `<label class="chip-pick"><input type="checkbox" name="family" value="${f.id}" ${d.family.includes(f.id) ? "checked" : ""}> ${f.label}</label>`).join("")}</div></fieldset>`;
-    if (step === 3) body = `<fieldset><legend>你想讓日子變成什麼樣子？</legend><div class="goal-list">${B.goals.map((g) => `<label class="goal-pick"><input type="radio" name="goal" value="${g.id}" ${d.goal === g.id ? "checked" : ""}><span><strong>${g.label}</strong><small>稱號：${g.title}</small></span></label>`).join("")}</div></fieldset>`;
-    if (step === 4) body = `<fieldset><legend>最近卡住的地方（最多 3 個）</legend><div class="chips">${B.worries.map((w) => `<label class="chip-pick"><input type="checkbox" name="worries" value="${w.id}" ${d.worries.includes(w.id) ? "checked" : ""}> ${w.label}</label>`).join("")}</div></fieldset>`;
-    const preview = step > 0 ? (() => { const keep = state.me; state.me = draft; const c = meCharacter(); state.me = keep; return `<div class="me-preview" style="--c:${c.color}">${avatar(c, 64)}<div><strong>${esc(c.name)}</strong>・${esc(c.role)}<br><span class="small">${esc(c.story)}</span></div></div>`; })() : "";
-    $("#me-body").innerHTML = `${head}<form id="me-form">${body}<p class="form-error" id="me-error" role="alert"></p>
-      <div class="wizard-actions">${step ? `<button type="button" class="button ghost" id="me-back">上一步</button>` : ""}<button class="button primary" type="submit">${step === STEPS.length - 1 ? "完成，開始我的一天" : "下一步"}</button></div></form>${preview}`;
+    if (step === 2) body = `<fieldset><legend>家裡有小孩嗎？</legend><div class="chips"><label class="chip-pick"><input type="radio" name="hasKids" value="yes" ${d.hasKids === true ? "checked" : ""}> 有</label><label class="chip-pick"><input type="radio" name="hasKids" value="no" ${d.hasKids === false ? "checked" : ""}> 沒有</label></div></fieldset>
+      ${d.hasKids ? `<fieldset><legend>幫孩子取個名字（會出現在你的故事裡）</legend><div class="kid-rows">${d.kids.map((k, i) => `<div class="kid-row"><label class="field" for="kid-name-${i}">名字<input id="kid-name-${i}" name="kidName" maxlength="8" value="${esc(k.name)}" autocomplete="off" placeholder="例如：小米"></label><label class="field" for="kid-age-${i}">年紀<select id="kid-age-${i}" name="kidAge"><option value="">選一個</option>${B.kidAges.map((a) => `<option value="${a.id}" ${k.age === a.id ? "selected" : ""}>${a.label}</option>`).join("")}</select></label>${d.kids.length > 1 ? `<button type="button" class="text-link" data-kid-remove="${i}">移除</button>` : ""}</div>`).join("")}</div>${d.kids.length < 4 ? `<button type="button" class="button ghost" id="kid-add">＋ 再加一個孩子</button>` : ""}</fieldset>` : ""}
+      <label class="chip-pick"><input type="checkbox" name="elder" ${d.elder ? "checked" : ""}> 也和長輩同住</label>`;
+    if (step === 3) body = `<fieldset><legend>家裡有毛孩嗎？</legend><div class="chips"><label class="chip-pick"><input type="radio" name="petType" value="" ${!d.pet.type ? "checked" : ""}> 沒有</label>${B.pets.map((x) => `<label class="chip-pick"><input type="radio" name="petType" value="${x.id}" ${d.pet.type === x.id ? "checked" : ""}> ${x.label}</label>`).join("")}</div></fieldset>
+      ${d.pet.type ? `<label class="field" for="pet-name">牠叫什麼名字？<input id="pet-name" name="petName" maxlength="8" value="${esc(d.pet.name)}" autocomplete="off" placeholder="例如：豆豆"></label><p class="small">毛孩會在你的一天裡出現；目前還沒有毛孩的團購商品。</p>` : ""}`;
+    if (step === 4) body = `<fieldset><legend>你想讓日子變成什麼樣子？</legend><div class="goal-list">${B.goals.map((g) => `<label class="goal-pick"><input type="radio" name="goal" value="${g.id}" ${d.goal === g.id ? "checked" : ""}><span><strong>${g.label}</strong><small>你的稱號會是：${g.title}</small></span></label>`).join("")}</div></fieldset>`;
+    if (step === 5) body = `<fieldset><legend>最近卡住的地方（最多 3 個）</legend><div class="chips">${B.worries.map((w) => `<label class="chip-pick"><input type="checkbox" name="worries" value="${w.id}" ${d.worries.includes(w.id) ? "checked" : ""}> ${w.label}</label>`).join("")}</div></fieldset>`;
+    if (step === 6) {
+      const me = withDraft(meCharacter);
+      const rec = recommend(draft);
+      body = `<div class="reveal"><p class="eyebrow">你的卡出來了</p><div class="reveal-cards">${miniCard(rec, "最像你的人")}${miniCard(me, "你的角色卡")}</div>
+        <p class="reveal-why">${esc(rec.nick)}和你一樣${(rec.match?.goals || []).includes(draft.goal) ? `想「${esc(B.goals.find((g) => g.id === draft.goal).label)}」` : "在努力把日子過好"}。先看看${esc(rec.nick)}的一天，或直接開始你自己的。</p>
+        <div class="reveal-actions"><button type="button" class="button primary" data-open="${rec.id}">陪${esc(rec.nick)}過一天</button><button type="button" class="button" id="me-start">開始我的一天</button><button type="button" class="button ghost" id="me-browse">看看其他人的生活</button></div></div>`;
+    }
+    const preview = step > 1 && step < 6 ? withDraft(() => { const c = meCharacter(); return `<div class="me-preview" style="--c:${c.color}">${avatar(c, 56)}<div><strong>${esc(c.name)}</strong>・${esc(c.role)}<br><span class="small">${esc(c.story)}</span></div></div>`; }) : "";
+    const actions = step === 6 ? "" : `<div class="wizard-actions">${step === 0 ? `<button type="button" class="button ghost" id="me-skip">先隨便看看</button>` : `<button type="button" class="button ghost" id="me-back">上一步</button>`}<button class="button primary" type="submit">${step === 0 ? "翻開第一頁" : step === 5 ? "做出我的卡" : "下一步"}</button></div>`;
+    $("#me-body").innerHTML = `${head}<form id="me-form" novalidate>${body}<p class="form-error" id="me-error" role="alert"></p>${actions}</form>${preview}`;
+    $("#me-body").scrollTop = 0;
   }
   function readStep() {
-    const f = new FormData($("#me-form"));
-    if (step === 0) draft.avatar = f.get("avatar") || draft.avatar;
-    if (step === 1) { draft.nick = String(f.get("nick") || "").trim().slice(0, 12); draft.age = f.get("age") || draft.age; draft.rhythm = f.get("rhythm") || draft.rhythm; }
-    if (step === 2) draft.family = f.getAll("family");
-    if (step === 3) draft.goal = f.get("goal") || "";
-    if (step === 4) draft.worries = f.getAll("worries");
+    const f = $("#me-form");
+    if (!f) return;
+    const v = new FormData(f);
+    if (step === 1) { draft.avatar = v.get("avatar") || draft.avatar; draft.nick = String(v.get("nick") || "").trim().slice(0, 12); draft.age = v.get("age") || draft.age; draft.rhythm = v.get("rhythm") || draft.rhythm; }
+    if (step === 2) {
+      const has = v.get("hasKids");
+      if (has) draft.hasKids = has === "yes";
+      const names = v.getAll("kidName"), ages = v.getAll("kidAge");
+      if (draft.hasKids) draft.kids = names.map((n, i) => ({ name: String(n).trim().slice(0, 8), age: ages[i] || "" }));
+      if (draft.hasKids && !draft.kids.length) draft.kids = [{ name: "", age: "" }];
+      if (draft.hasKids === false) draft.kids = [];
+      draft.elder = v.get("elder") === "on";
+    }
+    if (step === 3) { draft.pet = { type: v.get("petType") || "", name: String(v.get("petName") || draft.pet.name || "").trim().slice(0, 8) }; if (!draft.pet.type) draft.pet.name = ""; }
+    if (step === 4) draft.goal = v.get("goal") || "";
+    if (step === 5) draft.worries = v.getAll("worries");
   }
-  function openWizard() {
-    draft = state.me ? JSON.parse(JSON.stringify(state.me)) : { avatar: P.extraAvatars[0].id, nick: "", age: "", rhythm: "", family: [], goal: "", worries: [] };
-    step = 0;
+  function openWizard({ fresh = false } = {}) {
+    draft = state.me && !fresh ? { ...blankDraft(), ...JSON.parse(JSON.stringify(state.me)) } : blankDraft();
+    step = state.me && !fresh ? 1 : 0;
     renderWizard();
     if (!$("#me").open) $("#me").showModal();
   }
@@ -448,14 +562,22 @@
     else if (ds.skip !== undefined) answer(Number(ds.skip), null);
     else if (ds.swap !== undefined) { const k = current + ds.swap; swapAt[k] = (swapAt[k] || 0) + Math.min(2, scenePool(getChar(current).day[Number(ds.swap)]).length); renderDay(); $(`#day [data-scene="${ds.swap}"]`)?.scrollIntoView({ block: "nearest" }); }
     else if (ds.redo !== undefined) { const d = progress(current); delete d.picks[Number(ds.redo)]; d.completed = false; save(); renderDay(); renderAll(); $(`#day [data-scene="${ds.redo}"]`)?.scrollIntoView({ block: "start", behavior: reduceMotion ? "auto" : "smooth" }); }
+    else if (ds.play) play(ds.play);
     else if (ds.detail) { detailBrand = ds.detail; renderProduct(); $("#product").showModal(); }
     else if (ds.cart) { const had = state.cart.includes(ds.cart); toggleCart(ds.cart); toast(had ? "已從購物清單移除" : "已放進購物清單"); }
     else if (ds.remove) { toggleCart(ds.remove, false); toast("已從購物清單移除"); }
     else if (ds.slide) { const track = t.closest("[data-carousel]").querySelector(".track"); track.scrollBy({ left: Number(ds.slide) * track.clientWidth, behavior: reduceMotion ? "auto" : "smooth" }); }
     else if (t.id === "draw") draw();
     else if (t.id === "open-cart") { renderCart(); $("#cart").showModal(); }
-    else if (t.id === "open-me" || t.id === "edit-me") { if (state.me && t.id === "open-me") openCharacter("me"); else { if ($("#day").open) $("#day").close(); openWizard(); } }
+    else if (t.id === "open-me") { if (state.me) openCharacter("me"); else openWizard({ fresh: true }); }
+    else if (t.id === "edit-me") { if ($("#day").open) $("#day").close(); openWizard(); }
+    else if (t.id === "restart-intro") openWizard({ fresh: true });
     else if (t.id === "me-back") { readStep(); step = Math.max(0, step - 1); renderWizard(); }
+    else if (t.id === "me-skip") { state.introSeen = true; save(); $("#me").close(); }
+    else if (t.id === "kid-add") { readStep(); draft.kids.push({ name: "", age: "" }); renderWizard(); }
+    else if (ds.kidRemove !== undefined) { readStep(); draft.kids.splice(Number(ds.kidRemove), 1); renderWizard(); }
+    else if (t.id === "me-start") { $("#me").close(); openCharacter("me"); }
+    else if (t.id === "me-browse") { $("#me").close(); $("#grid").scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth" }); }
     else if (t.id === "like-me") { state.likeMe = state.likeMe === current ? null : current; save(); renderDay(); renderAll(); if (state.likeMe) toast("獲得徽章：這就是我"); }
     else if (t.id === "pack-cart") { const boxes = $$('#day input[name="pack"]'); boxes.forEach((b) => { if (b.checked) toggleCart(b.value, true); }); progress(current).packed = true; save(); renderDay(); toast(`放進購物清單：${boxes.filter((b) => b.checked).length} 件`); }
     else if (t.id === "share") share(getChar(current));
@@ -465,22 +587,38 @@
     else if (t.id === "reset-yes") { state = blank(); save(); $("#reset-confirm").hidden = true; renderAll(); toast("已重新開始"); }
     else if (t.id === "reset-no") { $("#reset-confirm").hidden = true; }
   });
+  document.addEventListener("change", (e) => {
+    if (["hasKids", "petType"].includes(e.target.name) && $("#me").open) { readStep(); renderWizard(); return; }
+    if (e.target.id !== "auto-read") return;
+    state.autoRead = e.target.checked;
+    save();
+    if (state.autoRead && current) {
+      const c = getChar(current);
+      const d = progress(c.id);
+      const i = c.day.findIndex((_, n) => d.picks[n] === undefined);
+      play(i >= 0 ? `${c.id}/s${i}` : `${c.id}/intro`);
+    }
+  });
   document.addEventListener("submit", (e) => {
     if (e.target.id !== "me-form") return;
     e.preventDefault();
     readStep();
     const err = $("#me-error");
-    if (step === 3 && !draft.goal) { err.textContent = "選一個目標，你的一天會從這裡開始。"; return; }
-    if (step === 4 && draft.worries.length > 3) { err.textContent = "最多選 3 個，先挑最困擾的。"; return; }
-    if (step < STEPS.length - 1) { step++; renderWizard(); return; }
-    const changed = JSON.stringify(state.me) !== JSON.stringify(draft);
-    state.me = draft;
-    if (changed) delete state.done.me;
-    save();
-    $("#me").close();
-    renderAll();
-    toast("獲得徽章：建立我的角色");
-    openCharacter("me");
+    if (step === 2 && draft.hasKids === null) { err.textContent = "選「有」或「沒有」。"; return; }
+    if (step === 2 && draft.hasKids && draft.kids.some((k) => !k.age)) { err.textContent = "幫每個孩子選一下年紀，故事才對得上。"; return; }
+    if (step === 4 && !draft.goal) { err.textContent = "選一個目標，你的一天會從這裡開始。"; return; }
+    if (step === 5 && draft.worries.length > 3) { err.textContent = "最多選 3 個，先挑最困擾的。"; return; }
+    if (step === 5) {
+      const changed = JSON.stringify(state.me) !== JSON.stringify(draft);
+      state.me = JSON.parse(JSON.stringify(draft));
+      state.introSeen = true;
+      if (changed) delete state.done.me;
+      save();
+      renderAll();
+      toast("獲得徽章：建立我的角色");
+    }
+    step = Math.min(STEPS.length - 1, step + 1);
+    renderWizard();
   });
   // 輪播頁碼
   document.addEventListener("scroll", (e) => {
@@ -498,12 +636,14 @@
     slide.remove();
     if (!track.children.length) track.closest(".carousel").innerHTML = `<span class="img-fallback" aria-hidden="true">鷹</span>`;
   }, true);
-  $("#day").addEventListener("close", () => { history.replaceState(null, "", location.pathname); current = null; });
+  $("#day").addEventListener("close", () => { history.replaceState(null, "", location.pathname); current = null; afterPlay = null; player.pause(); markPlaying(null); });
   for (const id of ["day", "cart", "me", "product"]) $("#" + id).addEventListener("click", (e) => { if (e.target.id === id) e.target.close(); });
 
   renderAll();
   renderDataNote();
   loadProducts().then(() => { renderAll(); });
+  loadVoice().then(() => { if ($("#day").open) renderDay(); });
   const hash = location.hash.slice(1);
   if (hash && getChar(hash)) openCharacter(hash);
+  else if (!state.me && !state.introSeen) openWizard({ fresh: true });
 })();
