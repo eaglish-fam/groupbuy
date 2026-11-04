@@ -47,7 +47,7 @@
   const rank = { open: 0, upcoming: 1, unknown: 2, closed: 3 };
   async function loadProducts() {
     try {
-      const snap = await fetch(abs("/config/catalog-snapshot.json"), { cache: "no-store" }).then((r) => r.json());
+      const snap = window.PLAY_SNAPSHOT || await fetch(abs("/config/catalog-snapshot.json"), { cache: "no-store" }).then((r) => r.json());
       for (const i of snap.items || []) {
         if (products.has(i.brand)) continue;
         products.set(i.brand, { brand: i.brand, image: abs(i.image), description: i.description, article: abs(i.article), status: { key: "unknown", label: "開團狀態以首頁為準" }, url: "", countdown: "" });
@@ -280,11 +280,12 @@
   async function share(c) {
     const url = location.origin + location.pathname + "#" + c.id;
     const text = `${c.name}，${c.age} 歲，${c.role}。${c.tagline}`;
-    try {
-      if (navigator.share) { await navigator.share({ title: `鷹家日常圖鑑｜${c.name}`, text, url }); return; }
-      await navigator.clipboard.writeText(`${text} ${url}`);
-      toast("連結已複製");
-    } catch {}
+    if (navigator.share) {
+      try { await navigator.share({ title: `鷹家日常圖鑑｜${c.name}`, text, url }); return; }
+      catch (error) { if (error?.name === "AbortError") return; }
+    }
+    try { await navigator.clipboard.writeText(`${text} ${url}`); toast("連結已複製"); }
+    catch { toast(`複製這個連結分享：${url}`); }
   }
   function draw() {
     const pool = P.characters.filter((c) => !state.done[c.id]?.completed);
@@ -362,6 +363,17 @@
   });
   $("#day").addEventListener("close", () => { history.replaceState(null, "", location.pathname); current = null; });
   for (const id of ["day", "saved", "me"]) $("#" + id).addEventListener("click", (e) => { if (e.target.id === id) e.target.close(); });
+
+  // 商品圖讀不到時換成文字色塊，不留破圖。
+  document.addEventListener("error", (e) => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.closest(".product-img")) return;
+    const tile = document.createElement("span");
+    tile.className = "img-fallback";
+    tile.setAttribute("aria-hidden", "true");
+    tile.textContent = "鷹";
+    img.replaceWith(tile);
+  }, true);
 
   renderAll();
   renderDataNote();
