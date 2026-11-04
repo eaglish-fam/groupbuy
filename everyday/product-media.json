@@ -1,0 +1,671 @@
+{
+ "schema": "eaglish.play-media/v2",
+ "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
+ "products": {
+  "三富休閒農場": [
+   {
+    "src": "/assets/sanfufarm/forest-1400.webp",
+    "alt": "森林館客房的床鋪、座椅與窗外綠景"
+   },
+   {
+    "src": "/assets/sanfufarm/purple-1400.webp",
+    "alt": "紫屋生態水池房的兩張床、清水模牆面與窗外綠景"
+   },
+   {
+    "src": "/assets/sanfufarm/luan-1400.webp",
+    "alt": "欒樹館四人浴缸房的床區與陽台；此照片未拍到浴缸"
+   },
+   {
+    "src": "/assets/sanfufarm/pet-1400.webp",
+    "alt": "紫屋天井房的兩張床、青藍色牆面與入口走道"
+   }
+  ],
+  "丹麥 Done by deer兒童用品": [
+   {
+    "src": "/assets/done-by-deer/product-01.webp",
+    "alt": "矽膠分隔餐盤半圓三格款藍色，淡藍底色上有拖拉機、小羊和小雞插畫"
+   },
+   {
+    "src": "/assets/done-by-deer/product-02.webp",
+    "alt": "立體矽膠餐盤 Elphee，單格圓盤盤緣站著一隻立體小象"
+   },
+   {
+    "src": "/assets/done-by-deer/product-03.webp",
+    "alt": "保溫吸管水壺探險款沙色，不鏽鋼瓶身上有橡實葉、腳印、地圖和放大鏡插畫"
+   },
+   {
+    "src": "/assets/done-by-deer/product-04.webp",
+    "alt": "矽膠分隔餐碗半圓兩格款藍色"
+   },
+   {
+    "src": "/assets/done-by-deer/product-05.webp",
+    "alt": "矽膠餐墊藍色"
+   },
+   {
+    "src": "/assets/done-by-deer/product-06.webp",
+    "alt": "矽膠學習湯匙兩件組藍色"
+   },
+   {
+    "src": "/assets/done-by-deer/product-07.webp",
+    "alt": "兒童水壺 280ml 探險款沙色"
+   }
+  ],
+  "澳佳寶保健食品": [
+   {
+    "src": "/assets/blackmores/kids-fish-oil-cutout-v1.webp",
+    "alt": "澳佳寶機伶小子魚油30顆完整瓶身"
+   },
+   {
+    "src": "/assets/blackmores/mini-fish-oil-cutout-v1.webp",
+    "alt": "澳佳寶無腥味迷你濃縮魚油200顆完整瓶身"
+   },
+   {
+    "src": "/assets/blackmores/kids-lutein-cutout-v1.webp",
+    "alt": "澳佳寶兒童晶亮金盞花葉黃素60錠完整瓶身"
+   },
+   {
+    "src": "/assets/blackmores/adult-lutein-cutout-v1.webp",
+    "alt": "澳佳寶金盞花葉黃素加蝦紅素加B6成人配方30顆完整瓶身"
+   },
+   {
+    "src": "/assets/blackmores/lc-plasma-cutout-v1.webp",
+    "alt": "澳佳寶4效特攻1000億乳酸菌15包完整盒裝"
+   }
+  ],
+  "法國帕洛防蚊液": [
+   {
+    "src": "/assets/parakito/family-kit-2023.webp",
+    "alt": "鷹式一家過往使用的 Para’Kito 噴霧、滾珠與手環用品"
+   },
+   {
+    "src": "/assets/parakito/soothing-rollon-and-cream.webp",
+    "alt": "Para’Kito 5ml 紓緩滾珠與 40ml 紓緩霜實拍"
+   },
+   {
+    "src": "/assets/parakito/spray-6h.jpg",
+    "alt": "6H 天然滋潤護膚噴霧"
+   },
+   {
+    "src": "/assets/parakito/spray-7h.jpg",
+    "alt": "7H 天然植萃長效噴霧"
+   },
+   {
+    "src": "/assets/parakito/spray-8h-intensive.jpg",
+    "alt": "8H 天然精油強效白色噴霧"
+   },
+   {
+    "src": "/assets/parakito/spray-8h-classic.jpg",
+    "alt": "經典款 8H 天然植萃長效綠色噴霧"
+   },
+   {
+    "src": "/assets/parakito/rollon-6h.jpg",
+    "alt": "6H 防蚊滾珠 20ml"
+   }
+  ],
+  "康軒雜誌": [
+   {
+    "src": "/assets/knsh/together.webp",
+    "alt": "兩個孩子躺在窗邊一起翻閱康軒學習雜誌"
+   },
+   {
+    "src": "/assets/knsh/reading.webp",
+    "alt": "孩子坐在窗邊，用點讀筆搭配攤開的雜誌"
+   },
+   {
+    "src": "/assets/knsh/video-poster.webp",
+    "alt": "手持康軒學習雜誌，展示不同版本"
+   },
+   {
+    "src": "/assets/knsh/preschool.webp",
+    "alt": "康軒學前版過往刊物封面"
+   },
+   {
+    "src": "/assets/knsh/primary.webp",
+    "alt": "康軒初階版第 476 期跑起來封面"
+   },
+   {
+    "src": "/assets/knsh/advanced.webp",
+    "alt": "康軒進階版第 456 期富翁與貧窮主題封面"
+   },
+   {
+    "src": "/assets/knsh/hands-on.webp",
+    "alt": "孩子在桌前翻看有變色龍圖片與翻頁機關的康軒雜誌"
+   }
+  ],
+  "樂扣樂扣": [
+   {
+    "src": "/assets/locknlock/family-1.webp",
+    "alt": "孩子在戶外雙手抱著藍色杯蓋的樂扣透明杯"
+   },
+   {
+    "src": "/assets/locknlock/family-2.webp",
+    "alt": "孩子用吸管喝水，一手提起杯蓋上的黃色提帶"
+   },
+   {
+    "src": "/assets/locknlock/family-3.webp",
+    "alt": "秀秀和孩子站在旅行車旁，手上提著樂扣透明杯"
+   },
+   {
+    "src": "/assets/locknlock/family-4.webp",
+    "alt": "秀秀用手指勾起灰色提環，提著裝水的樂扣透明杯"
+   },
+   {
+    "src": "/assets/locknlock/children-500.webp",
+    "alt": "當期樂扣兒童水壺500ml，多款圖案、折疊手把與吸嘴外觀"
+   },
+   {
+    "src": "/assets/locknlock/children-450.webp",
+    "alt": "當期樂扣兒童背帶水壺450ml，兩款童趣瓶身"
+   },
+   {
+    "src": "/assets/locknlock/fun-750-set.webp",
+    "alt": "當期嚼對FUN飲透明750ml吸管杯兩入組的商品照"
+   }
+  ],
+  "心窪生活": [
+   {
+    "src": "/assets/shinwa-living/video-woodwork.webp",
+    "alt": "工作室裡，大人在木板上畫車形，孩子在一旁看"
+   },
+   {
+    "src": "/assets/shinwa-living/blocks-forest.webp",
+    "alt": "木塊塔與散落積木放在森林中的石面上"
+   },
+   {
+    "src": "/assets/shinwa-living/video-blocks.webp",
+    "alt": "桌前拿著木塊交談，旁邊疊著一座木塊塔"
+   },
+   {
+    "src": "/assets/shinwa-living/cypress-child-table-chairs.webp",
+    "alt": "沙發前的一張木桌與兩張椅子，桌面和椅面可見方格木紋"
+   },
+   {
+    "src": "/assets/shinwa-living/fold-table-mahjong.webp",
+    "alt": "繃布木框桌面放在圓餐桌上，桌面排有麻將"
+   },
+   {
+    "src": "/assets/shinwa-living/fold-table-detail.webp",
+    "alt": "雙手扶著桌框邊緣，可見木紋與扣環"
+   },
+   {
+    "src": "/assets/shinwa-living/memory-box-dog.webp",
+    "alt": "圓角木框內是彩色狗狗刺繡，擺在桌燈旁"
+   }
+  ],
+  "六福莊飯店": [
+   {
+    "src": "/assets/leofoo/congo.webp",
+    "alt": "剛果原野客房的兩張床與單層走道"
+   },
+   {
+    "src": "/assets/leofoo/kenya.webp",
+    "alt": "肯亞藍天客房的床區與通往上層的樓梯"
+   },
+   {
+    "src": "/assets/leofoo/family-room.webp",
+    "alt": "Queenie 在六福莊客房裡介紹床區與室內走道"
+   },
+   {
+    "src": "/assets/leofoo/meerkats.webp",
+    "alt": "六福莊戶外岩石旁站著兩隻狐獴"
+   },
+   {
+    "src": "/assets/leofoo/hotel-walkway-v2.webp",
+    "alt": "Queenie 與孩子走過六福莊客房外的木棧道"
+   }
+  ],
+  "六福莊住宿 A｜樂園無限玩": [
+   {
+    "src": "/assets/leofoo/congo.webp",
+    "alt": "剛果原野客房的兩張床與單層走道"
+   },
+   {
+    "src": "/assets/leofoo/kenya.webp",
+    "alt": "肯亞藍天客房的床區與通往上層的樓梯"
+   },
+   {
+    "src": "/assets/leofoo/family-room.webp",
+    "alt": "Queenie 在六福莊客房裡介紹床區與室內走道"
+   },
+   {
+    "src": "/assets/leofoo/meerkats.webp",
+    "alt": "六福莊戶外岩石旁站著兩隻狐獴"
+   },
+   {
+    "src": "/assets/leofoo/hotel-walkway-v2.webp",
+    "alt": "Queenie 與孩子走過六福莊客房外的木棧道"
+   }
+  ],
+  "六福莊住宿 B｜經典探險": [
+   {
+    "src": "/assets/leofoo/congo.webp",
+    "alt": "剛果原野客房的兩張床與單層走道"
+   },
+   {
+    "src": "/assets/leofoo/kenya.webp",
+    "alt": "肯亞藍天客房的床區與通往上層的樓梯"
+   },
+   {
+    "src": "/assets/leofoo/family-room.webp",
+    "alt": "Queenie 在六福莊客房裡介紹床區與室內走道"
+   },
+   {
+    "src": "/assets/leofoo/meerkats.webp",
+    "alt": "六福莊戶外岩石旁站著兩隻狐獴"
+   },
+   {
+    "src": "/assets/leofoo/hotel-walkway-v2.webp",
+    "alt": "Queenie 與孩子走過六福莊客房外的木棧道"
+   }
+  ],
+  "六福莊住宿 C｜FUN肆玩樂季": [
+   {
+    "src": "/assets/leofoo/congo.webp",
+    "alt": "剛果原野客房的兩張床與單層走道"
+   },
+   {
+    "src": "/assets/leofoo/kenya.webp",
+    "alt": "肯亞藍天客房的床區與通往上層的樓梯"
+   },
+   {
+    "src": "/assets/leofoo/family-room.webp",
+    "alt": "Queenie 在六福莊客房裡介紹床區與室內走道"
+   },
+   {
+    "src": "/assets/leofoo/meerkats.webp",
+    "alt": "六福莊戶外岩石旁站著兩隻狐獴"
+   },
+   {
+    "src": "/assets/leofoo/hotel-walkway-v2.webp",
+    "alt": "Queenie 與孩子走過六福莊客房外的木棧道"
+   }
+  ],
+  "Branden 壓縮袋": [
+   {
+    "src": "/assets/branden/frame-10.webp",
+    "alt": "二代綠色收納袋打開放在床上，秀秀將疊好的衣物放入"
+   },
+   {
+    "src": "/assets/branden/frame-15.webp",
+    "alt": "秀秀一手扶著二代袋子，一手操作袋身拉鍊"
+   },
+   {
+    "src": "/assets/branden/frame-20.webp",
+    "alt": "二代收納袋整理完成放在床上，秀秀在旁比讚"
+   },
+   {
+    "src": "/assets/branden/gen2-1.webp",
+    "alt": "BRANDEN 二代不同顏色的立體壓縮收納袋"
+   },
+   {
+    "src": "/assets/branden/lite-7.webp",
+    "alt": "Lite 米色網面收納袋依尺寸疊放"
+   },
+   {
+    "src": "/assets/branden/lite-4.webp",
+    "alt": "Lite 官方照片呈現手指操作拉鍊的細節"
+   },
+   {
+    "src": "/assets/branden/lite-5.webp",
+    "alt": "手握 Lite 收納袋的提把，將袋子從行李箱取出"
+   }
+  ],
+  "L'Ange 棉之境": [
+   {
+    "src": "/assets/lange/old_04.webp",
+    "alt": "桌面上的 L’Ange 棉之境多款包裝紗布巾與巾類商品"
+   },
+   {
+    "src": "/assets/lange/old_03.webp",
+    "alt": "灰色 L’Ange 棉之境包裝巾類近拍，標籤上可見連帽浴巾字樣"
+   },
+   {
+    "src": "/assets/lange/extra_02.webp",
+    "alt": "孩子抱著藍色 L’Ange 棉之境包裝紗布巾"
+   }
+  ],
+  "收麻吉手捲收納袋": [
+   {
+    "src": "/assets/shoumaji/cover.webp",
+    "alt": "收麻吉手捲壓縮袋｜旅行怎麼挑尺寸與袋數？",
+    "designed": true
+   }
+  ],
+  "瑞士 Miamily": [
+   {
+    "src": "/assets/miamily/family-4.webp",
+    "alt": "黑門市場裡，孩子坐在白色 MiaMily 行李箱上，大人在身旁"
+   },
+   {
+    "src": "/assets/miamily/family-1.webp",
+    "alt": "孩子坐在 MiaMily 座椅上，側後方可見椅背與掛著的購物袋"
+   },
+   {
+    "src": "/assets/miamily/family-3.webp",
+    "alt": "旅途中孩子坐在行李箱上、成人站在身旁，背景是車門"
+   },
+   {
+    "src": "/assets/miamily/family-5.webp",
+    "alt": "機場裡的 MiaMily 行李箱載著大背包，旁邊是一台推車"
+   },
+   {
+    "src": "/assets/miamily/family-6.webp",
+    "alt": "店裡的 MiaMily 行李箱上放著米色旅行袋，成人扶著箱子"
+   },
+   {
+    "src": "/assets/miamily/gen1.webp",
+    "alt": "第一代 MiaMily 2-in-1 香檳色行李箱品牌商品圖"
+   },
+   {
+    "src": "/assets/miamily/gen2.webp",
+    "alt": "第二代 MiaMily 3-in-1 酒紅色前開式行李箱品牌商品圖"
+   }
+  ],
+  "墾丁凱撒大飯店": [
+   {
+    "src": "/assets/caesar-kenting/journal/family-1630.webp",
+    "alt": "秀秀在凱撒房間的洗手台旁介紹衛浴與床區隔間"
+   },
+   {
+    "src": "/assets/caesar-kenting/journal/family-1644.webp",
+    "alt": "孩子在凱撒房外拿著一朵粉紅色花送給媽媽"
+   },
+   {
+    "src": "/assets/caesar-kenting/journal/superior-bed.webp",
+    "alt": "景緻客房的一張大床與藍白色系房間"
+   },
+   {
+    "src": "/assets/caesar-kenting/journal/scenic-beds.webp",
+    "alt": "景觀客房兩張大床與陽台"
+   },
+   {
+    "src": "/assets/caesar-kenting/journal/scenic-bath.webp",
+    "alt": "景觀客房室內的浴缸與淋浴間"
+   },
+   {
+    "src": "/assets/caesar-kenting/journal/scenic-balcony.webp",
+    "alt": "景觀客房陽台座椅與椰林"
+   },
+   {
+    "src": "/assets/caesar-kenting/journal/garden-beds.webp",
+    "alt": "花園客房的床區、花卉壁畫與花園"
+   }
+  ],
+  "富山私房菜｜常溫品": [
+   {
+    "src": "/assets/fushan/original.webp",
+    "alt": "黃色圖案包裝的富山原味牛肉乾，120公克"
+   },
+   {
+    "src": "/assets/fushan/spicy.webp",
+    "alt": "橘紅色包裝的富山香辣牛肉乾，120公克"
+   },
+   {
+    "src": "/assets/fushan/tea.webp",
+    "alt": "承美茶高山蜜香紅茶黑白圖案袋裝"
+   },
+   {
+    "src": "/assets/fushan/family-gift.webp",
+    "alt": "我們拍攝的紅色富山禮盒與分開擺放的食品包裝"
+   },
+   {
+    "src": "/assets/fushan/family-roe.webp",
+    "alt": "藍色盤子上的一片烏魚子實拍"
+   },
+   {
+    "src": "/assets/fushan/family-roe-box.webp",
+    "alt": "紅色富山烏魚子禮盒與獨立包裝的烏魚子實拍"
+   }
+  ],
+  "鷹式一家 × 富山私房菜（常溫品）": [
+   {
+    "src": "/assets/fushan/original.webp",
+    "alt": "黃色圖案包裝的富山原味牛肉乾，120公克"
+   },
+   {
+    "src": "/assets/fushan/spicy.webp",
+    "alt": "橘紅色包裝的富山香辣牛肉乾，120公克"
+   },
+   {
+    "src": "/assets/fushan/tea.webp",
+    "alt": "承美茶高山蜜香紅茶黑白圖案袋裝"
+   },
+   {
+    "src": "/assets/fushan/family-gift.webp",
+    "alt": "我們拍攝的紅色富山禮盒與分開擺放的食品包裝"
+   },
+   {
+    "src": "/assets/fushan/family-roe.webp",
+    "alt": "藍色盤子上的一片烏魚子實拍"
+   },
+   {
+    "src": "/assets/fushan/family-roe-box.webp",
+    "alt": "紅色富山烏魚子禮盒與獨立包裝的烏魚子實拍"
+   }
+  ],
+  "法國 Ki ET LA 兒童太陽眼鏡｜墨鏡": [
+   {
+    "src": "/assets/kietla/family-2.webp",
+    "alt": "和孩子一起出門，眼鏡也成了日常穿搭的一部分。"
+   },
+   {
+    "src": "/assets/kietla/zhouxia-3951.webp",
+    "alt": "綠色蝴蝶結配上小圓框，舟夏也有自己的出門造型。"
+   },
+   {
+    "src": "/assets/kietla/zhouxia-8508.webp",
+    "alt": "坐在餐椅上看看風景，也是我們一起出門的日常。"
+   },
+   {
+    "src": "/assets/kietla/zhouxia-5600.webp",
+    "alt": "推車裡的小瞌睡，連同這天的陽光一起記下來。"
+   },
+   {
+    "src": "/assets/kietla/zhouxia-0864.webp",
+    "alt": "藍色眼鏡、藍白格子，留下舟夏看向鏡頭的這一刻。"
+   },
+   {
+    "src": "/assets/kietla/zhouxia-0863.webp",
+    "alt": "換個姿勢，眼鏡也暫時搬到了頭上。"
+   },
+   {
+    "src": "/assets/kietla/family-16.webp",
+    "alt": "在熙小時候戴 DIABOLA，圓框包住眼睛周圍。"
+   }
+  ],
+  "Playzu": [
+   {
+    "src": "/assets/playzu/pattern-05.webp",
+    "alt": "醉月星空藍灰色復古地墊鋪在木地板上，可見深淺藍灰圖騰與拼接邊緣"
+   },
+   {
+    "src": "/assets/playzu/pattern-06.webp",
+    "alt": "初衷之心咖啡色復古地墊搭配木質書桌與米色座椅，細密暖色圖騰鋪在桌下"
+   },
+   {
+    "src": "/assets/playzu/pattern-07.webp",
+    "alt": "秘境沙灘灰藍色復古地墊的品牌情境照片，母親和孩子在淺色圖騰地墊旁看書"
+   }
+  ],
+  "hereu 智慧定位器": [
+   {
+    "src": "/assets/hereu-tag/find-my.webp",
+    "alt": "iPhone 桌面的尋找 App，旁邊是掛在鑰匙上的 Hereu Tag"
+   },
+   {
+    "src": "/assets/hereu-tag/everyday.webp",
+    "alt": "Hereu Tag 搭配行李、包袋、鑰匙與工具等物品的六種放置情境"
+   },
+   {
+    "src": "/assets/hereu-tag/contents.webp",
+    "alt": "Hereu Tag 包裝內容示意，包括內含 CR2032 電池的定位器、開殼片、說明書與保護套"
+   }
+  ],
+  "MiToy米積木": [
+   {
+    "src": "/assets/mitoy-rice-blocks/play.webp",
+    "alt": "在恩與在熙坐在一起，拿著 MiToy 米積木拼出不同作品"
+   },
+   {
+    "src": "/assets/mitoy-rice-blocks/play-detail.webp",
+    "alt": "紅、綠與米白色 MiToy 米積木相互拼接的近照"
+   },
+   {
+    "src": "/assets/mitoy-rice-blocks/set-25.webp",
+    "alt": "MiToy 米積木 25 顆享樂包與積木"
+   },
+   {
+    "src": "/assets/mitoy-rice-blocks/set-50.webp",
+    "alt": "MiToy 米積木 50 顆玩家包商品照片"
+   },
+   {
+    "src": "/assets/mitoy-rice-blocks/material.webp",
+    "alt": "廠商照片中的米白色 MiToy 積木與米粒情境"
+   },
+   {
+    "src": "/assets/mitoy-rice-blocks/home.webp",
+    "alt": "MiToy 米香積木的牛皮紙盒包裝"
+   }
+  ],
+  "台東初鹿&青森蘋果汁": [
+   {
+    "src": "/assets/chulu-aomori-drinks/flavored.webp",
+    "alt": "台東初鹿伯爵紅茶與可可調味乳放在淺色餐桌上"
+   },
+   {
+    "src": "/assets/chulu-aomori-drinks/original.webp",
+    "alt": "台東初鹿 200ml 原味保久乳與 24 瓶箱裝商品資訊"
+   },
+   {
+    "src": "/assets/chulu-aomori-drinks/uht-breakfast-promotion.webp",
+    "alt": "初鹿 200ml 原味保久乳的早餐與隨身攜帶導購情境圖"
+   },
+   {
+    "src": "/assets/chulu-aomori-drinks/flavored-break-promotion.webp",
+    "alt": "初鹿可可與伯爵紅茶牛乳搭配下午點心的導購情境圖"
+   },
+   {
+    "src": "/assets/chulu-aomori-drinks/sesame.webp",
+    "alt": "黑豆芝麻豆奶的瓶裝外觀與黑豆情境"
+   },
+   {
+    "src": "/assets/chulu-aomori-drinks/aomori.webp",
+    "alt": "廠商提供的兩杯蘋果汁與蘋果情境照片"
+   },
+   {
+    "src": "/assets/chulu-aomori-drinks/aomori-sharing-promotion.webp",
+    "alt": "青森蘋果汁 980ml 分享裝搭配早餐與點心的導購情境圖"
+   }
+  ],
+  "Atojet 濾芯蓮蓬頭": [
+   {
+    "src": "/assets/atojet/vendor-shower.webp",
+    "alt": "Atojet 蓮蓬頭的浴室出水情境"
+   },
+   {
+    "src": "/assets/atojet/video-06.webp",
+    "alt": "鷹式一家原影片截圖：手持拆下的黃褐色長條濾芯"
+   },
+   {
+    "src": "/assets/atojet/video-12.webp",
+    "alt": "鷹式一家原影片截圖：拆下圓片濾芯，展示蓮蓬頭內部"
+   },
+   {
+    "src": "/assets/atojet/home-set.webp",
+    "alt": "Atojet 家用入門組，蓮蓬頭與補充濾芯並列"
+   }
+  ],
+  "Wave 鷹嘴豆泥": [
+   {
+    "src": "/assets/wave/family.webp",
+    "alt": "Wave 鷹嘴豆泥的多種口味與鮮明色彩"
+   },
+   {
+    "src": "/assets/wave/toast.webp",
+    "alt": "把 Wave 鷹嘴豆泥抹在吐司上"
+   },
+   {
+    "src": "/assets/wave/pita.webp",
+    "alt": "以皮塔餅沾取多種口味的 Wave 鷹嘴豆泥"
+   },
+   {
+    "src": "/assets/wave/mushroom.webp",
+    "alt": "以菇類和葉菜搭配 Wave 鷹嘴豆泥"
+   }
+  ],
+  "EBEN康普茶": [
+   {
+    "src": "/assets/eben/vendor-tea.webp",
+    "alt": "EBEN 石榴紅瓶身與台灣茶釀造、無添加香料及代糖的品牌說明"
+   },
+   {
+    "src": "/assets/eben/vendor-first-brew.webp",
+    "alt": "初釀康普茶瓶身、烏龍茶底及廠商酸甜風味圖"
+   },
+   {
+    "src": "/assets/eben/vendor-double-citrus.webp",
+    "alt": "双柚康普茶瓶身、葡萄柚與黃金柚配方及酸甜圖"
+   },
+   {
+    "src": "/assets/eben/vendor-plum.webp",
+    "alt": "完熟梅康普茶瓶身、綠茶與有機梅配方及酸甜圖"
+   },
+   {
+    "src": "/assets/eben/vendor-roselle.webp",
+    "alt": "石榴紅康普茶瓶身與紅石榴、洛神花風味"
+   },
+   {
+    "src": "/assets/eben/kombucha-ingredients-diagram.webp",
+    "alt": "水彩解說圖：茶、糖與菌群匯入覆有透氣布的發酵罐"
+   },
+   {
+    "src": "/assets/eben/kombucha-fermentation-diagram.webp",
+    "alt": "水彩解說圖：酵母利用糖產生酒精與二氧化碳，醋酸菌在有氧條件下將部分酒精轉為有機酸"
+   }
+  ],
+  "ARTISAN浴室清潔＆小腿按摩器": [
+   {
+    "src": "/assets/artisan-cb301/long-reach.webp",
+    "alt": "ARTISAN CB301 以伸縮長桿清潔浴室地板和牆面"
+   },
+   {
+    "src": "/assets/artisan-cb301/contents.webp",
+    "alt": "ARTISAN CB301 主機、六種刷頭、伸縮桿與充電線"
+   },
+   {
+    "src": "/assets/artisan-cb301/surfaces.webp",
+    "alt": "ARTISAN CB301 海綿刷與菜瓜布刷的使用表面示意"
+   }
+  ],
+  "Meroware 美學育兒用品": [
+   {
+    "src": "/assets/meroware/family-two-children.webp",
+    "alt": "在恩與在熙坐在一起，身旁有 Meroware 水壺、餐具、燜燒罐與零食球"
+   },
+   {
+    "src": "/assets/meroware/family-table-20260909.webp",
+    "alt": "舟夏站在餐桌前，握著 Meroware 叉子自己吃飯，桌上放著餐碗"
+   },
+   {
+    "src": "/assets/meroware/zhousia-drinking-water-20260909.webp",
+    "alt": "舟夏坐在兒童餐椅上，雙手捧著透明水杯喝水"
+   },
+   {
+    "src": "/assets/meroware/child-water.webp",
+    "alt": "在熙戶外拿著 Meroware MATT 不鏽鋼保溫吸管杯喝水"
+   },
+   {
+    "src": "/assets/meroware/matt-color.webp",
+    "alt": "左側為 MATT 不鏽鋼保溫杯，另外兩款為透明感溫變色兒童水壺"
+   },
+   {
+    "src": "/assets/meroware/alice-family.webp",
+    "alt": "坐在推車上的孩子拿著 ALICE 嬰幼兒吸管杯喝水"
+   },
+   {
+    "src": "/assets/meroware/aya.webp",
+    "alt": "孩子拿著 AYA 小貓尾兒童水杯直接喝水"
+   }
+  ]
+ }
+}

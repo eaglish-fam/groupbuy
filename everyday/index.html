@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="zh-Hant">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>鷹家日常圖鑑｜角色卡體驗（測試版）</title>
+    <meta name="description" content="先認識一個人，再看他的一天需要什麼。鷹家買物社的角色卡購物體驗，測試中。" />
+    <meta name="robots" content="noindex,follow" />
+    <meta name="theme-color" content="#faf8f3" />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/everyday/play.css?v=20261104-gb028e" />
+    <script defer src="/design/papaparse.min.js?v=20261021-calendar-g1"></script>
+    <script defer src="/product-content.js?v=20261021-calendar-g1"></script>
+    <script defer src="/design/permanent-offers.js?v=20261021-calendar-g1"></script>
+    <script defer src="/design/catalog-core.js?v=20261103-gb026a"></script>
+    <script defer src="/everyday/characters.js?v=20261104-gb028e"></script>
+    <script defer src="/everyday/play.js?v=20261104-gb028e"></script>
+  </head>
+  <body>
+    <a class="skip" href="#grid">跳到角色卡</a>
+    <header class="topbar">
+      <a class="back" href="/">← 鷹家買物社</a>
+      <span class="beta">測試版</span>
+    </header>
+    <main>
+      <section class="hero" aria-labelledby="hero-title">
+        <p class="eyebrow">鷹家日常圖鑑</p>
+        <h1 id="hero-title">每個人，都在把日子<br />過得好一點。</h1>
+        <p class="lead">有人想讓剛學走路的孩子安心探索，有人想在 12 坪的家住得清爽，有人只是想好好睡一覺。挑一個人，看看他想完成什麼、一天裡卡在哪裡，陪他走過每個時刻。用得上的就選，用不上的就跳過，最後整理成一份購物清單。也可以建立你自己的角色，走一遍你的一天。</p>
+        <div class="hero-actions">
+          <button type="button" class="button primary big" id="draw">🎴 隨機認識一個人</button>
+          <button type="button" class="button big" id="open-me">✎ 建立我的角色</button>
+        </div>
+        <div class="stats" id="stats" aria-live="polite"></div>
+      </section>
+      <section aria-labelledby="cards-title">
+        <div class="section-head">
+          <h2 id="cards-title">角色卡</h2>
+          <div class="filters" id="filters" role="group" aria-label="篩選角色"></div>
+        </div>
+        <div class="grid" id="grid"></div>
+        <p class="data-note small" id="data-note" aria-live="polite"></p>
+      </section>
+      <section class="how" aria-labelledby="how-title">
+        <h2 id="how-title">怎麼玩</h2>
+        <ol>
+          <li><strong>認識一個人</strong>：每位角色有自己的目標、身分和故事；也可以建立你自己的角色。</li>
+          <li><strong>陪他過一天</strong>：每個時刻會卡在一件小事。看看有什麼幫得上，選一個、換一個，或跳過「這個不需要」。</li>
+          <li><strong>打包清單</strong>：一天結束後，勾選真正想要的放進購物清單；開團中的可以直接前往團購。</li>
+        </ol>
+        <p class="small">角色和故事都是虛構的；商品說明與開團狀態來自鷹家買物社的團購資料，購買前請以當期團購頁為準。遊戲進度只存在你這台裝置。<button type="button" class="link-button" id="reset">清除進度</button></p>
+        <p class="reset-confirm" id="reset-confirm" hidden>清除這台裝置上的進度、我的角色和購物清單？<button type="button" class="button" id="reset-yes">清除</button><button type="button" class="button ghost" id="reset-no">取消</button></p>
+      </section>
+    </main>
+    <dialog id="day" class="sheet" aria-labelledby="day-title">
+      <div class="sheet-bar"><button type="button" class="close" data-close="day" aria-label="關閉角色卡">✕</button></div>
+      <div class="day-body" id="day-body"></div>
+    </dialog>
+    <dialog id="cart" class="sheet narrow" aria-labelledby="cart-title">
+      <div class="sheet-bar"><h2 id="cart-title">我的購物清單</h2><button type="button" class="close" data-close="cart" aria-label="關閉購物清單">✕</button></div>
+      <div class="cart-body" id="cart-body"></div>
+    </dialog>
+    <dialog id="product" class="sheet narrow" aria-labelledby="product-title">
+      <div class="sheet-bar"><h2 id="product-title">商品</h2><button type="button" class="close" data-close="product" aria-label="關閉商品">✕</button></div>
+      <div class="product-detail" id="product-body"></div>
+    </dialog>
+    <dialog id="me" class="sheet narrow" aria-labelledby="me-title">
+      <div class="sheet-bar"><h2 id="me-title">建立我的角色</h2><button type="button" class="close" data-close="me" aria-label="關閉">✕</button></div>
+      <div class="me-body" id="me-body"></div>
+    </dialog>
+    <button type="button" class="cart-fab" id="cart-fab" aria-label="打開購物清單"><span aria-hidden="true">🛍</span><span class="fab-label">購物清單</span><span class="fab-count">0</span></button>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
+</html>
