@@ -193,14 +193,14 @@
 
   // 「建立我的角色」：額外的頭像（先用 SVG；之後換成 Codex 依選定風格畫的插圖，預設角色與額外頭像約 1:1）。
   const extraAvatars = [
-    { id: "a1", color: "#c9876a", avatar: { skin: "#f3d2b8", hair: "#2b211c", style: "ponytail", shirt: "#c9876a", acc: "none" } },
-    { id: "a2", color: "#7a8fb5", avatar: { skin: "#eac3a2", hair: "#4a3326", style: "bob-bangs", shirt: "#7a8fb5", acc: "glasses" } },
-    { id: "a3", color: "#8aa070", avatar: { skin: "#f1cdb0", hair: "#1f1a17", style: "long", shirt: "#8aa070", acc: "earrings" } },
-    { id: "a4", color: "#b58a4a", avatar: { skin: "#e5b993", hair: "#3a2a22", style: "bun", shirt: "#b58a4a", acc: "none" } },
-    { id: "a5", color: "#5d8c8a", avatar: { skin: "#e8bf9c", hair: "#231c18", style: "short", shirt: "#5d8c8a", acc: "none" } },
-    { id: "a6", color: "#8c6a9e", avatar: { skin: "#ecc5a6", hair: "#2e2420", style: "short2", shirt: "#8c6a9e", acc: "glasses" } },
-    { id: "a7", color: "#a8695a", avatar: { skin: "#ecc5a6", hair: "#9a948c", style: "short-curl", shirt: "#a8695a", acc: "none" } },
-    { id: "a8", color: "#6f7d4f", avatar: { skin: "#f5d6bf", hair: "#5b3a2a", style: "bob", shirt: "#6f7d4f", acc: "none", kid: { skin: "#f8dcc8", hair: "#5b3a2a" } } },
+    { id: "a1", art: "/assets/play/characters/a1.webp", color: "#c9876a", avatar: { skin: "#f3d2b8", hair: "#2b211c", style: "ponytail", shirt: "#c9876a", acc: "none" } },
+    { id: "a2", art: "/assets/play/characters/a2.webp", color: "#7a8fb5", avatar: { skin: "#eac3a2", hair: "#4a3326", style: "bob-bangs", shirt: "#7a8fb5", acc: "glasses" } },
+    { id: "a3", art: "/assets/play/characters/a3.webp", color: "#8aa070", avatar: { skin: "#f1cdb0", hair: "#1f1a17", style: "long", shirt: "#8aa070", acc: "earrings" } },
+    { id: "a4", art: "/assets/play/characters/a4.webp", color: "#b58a4a", avatar: { skin: "#e5b993", hair: "#3a2a22", style: "bun", shirt: "#b58a4a", acc: "none" } },
+    { id: "a5", art: "/assets/play/characters/a5.webp", color: "#5d8c8a", avatar: { skin: "#e8bf9c", hair: "#231c18", style: "short", shirt: "#5d8c8a", acc: "none" } },
+    { id: "a6", art: "/assets/play/characters/a6.webp", color: "#8c6a9e", avatar: { skin: "#ecc5a6", hair: "#2e2420", style: "short2", shirt: "#8c6a9e", acc: "glasses" } },
+    { id: "a7", art: "/assets/play/characters/a7.webp", color: "#a8695a", avatar: { skin: "#ecc5a6", hair: "#9a948c", style: "short-curl", shirt: "#a8695a", acc: "none" } },
+    { id: "a8", art: "/assets/play/characters/a8.webp", color: "#6f7d4f", avatar: { skin: "#f5d6bf", hair: "#5b3a2a", style: "bob", shirt: "#6f7d4f", acc: "none", kid: { skin: "#f8dcc8", hair: "#5b3a2a" } } },
   ];
 
   // 通用的一天場景（給自己建立的角色用）。order 決定在一天裡的先後。

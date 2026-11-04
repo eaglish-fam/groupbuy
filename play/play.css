@@ -277,3 +277,4 @@ main { padding-bottom: 96px; }
 .timeline { padding-bottom: 72px; }
 .product.compact .nav { display: none; }
 .product.compact .count { right: 4px; bottom: 4px; font-size: .7rem; }
+.avatar-pick img.avatar.art { width: 100%; height: auto; max-width: 112px; }
