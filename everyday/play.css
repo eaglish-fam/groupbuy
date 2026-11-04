@@ -19,7 +19,7 @@ html { -webkit-text-size-adjust: 100%; }
 body { margin: 0; background: var(--paper); color: var(--ink); font-family: var(--sans); line-height: 1.7; overflow-x: hidden; }
 img { max-width: 100%; display: block; }
 button { font: inherit; color: inherit; }
-:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+:focus-visible { outline: none; box-shadow: 0 0 0 3px rgba(255,255,255,.95), 0 0 0 5px rgba(70,83,58,.55); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 .skip { position: absolute; left: -999px; top: 8px; background: var(--ink); color: #fff; padding: 8px 12px; border-radius: 8px; z-index: 10; }
 .skip:focus { left: 8px; }
@@ -86,7 +86,7 @@ h1 { font-size: clamp(1.7rem, 5vw, 2.6rem); margin: 6px 0 12px; }
 .sheet { border: 0; padding: 0; width: min(1080px, 100vw); max-width: 100vw; max-height: 100dvh; height: 100dvh; margin: 0 auto; background: var(--paper); color: var(--ink); overflow-y: auto; }
 .sheet.narrow { width: min(640px, 100vw); }
 .sheet::backdrop { background: rgba(30,30,25,.45); }
-@media (min-width: 760px) { .sheet { height: auto; max-height: 92dvh; margin-top: 4dvh; border-radius: 24px; } }
+@media (min-width: 760px) { .sheet { height: fit-content; max-height: 92dvh; margin: auto; border-radius: 24px; } }
 .sheet-bar { position: sticky; top: 0; z-index: 2; display: flex; justify-content: space-between; align-items: center; gap: 10px; padding: 10px 16px; background: rgba(250,248,243,.95); border-bottom: 1px solid var(--line); }
 .sheet-bar h2 { margin: 0; font-size: 1.2rem; }
 .sheet-bar .close { margin-left: auto; width: 44px; height: 44px; border-radius: 50%; border: 1px solid var(--line); background: #fff; cursor: pointer; font-size: 1.1rem; }
@@ -278,3 +278,24 @@ main { padding-bottom: 96px; }
 .product.compact .nav { display: none; }
 .product.compact .count { right: 4px; bottom: 4px; font-size: .7rem; }
 .avatar-pick img.avatar.art { width: 100%; height: auto; max-width: 112px; }
+
+/* 入口儀式：桌機是置中的小卡、高度跟著內容；手機全螢幕但內容垂直置中 */
+#me.ritual-mode .me-body { align-content: center; }
+@media (max-width: 759px) { #me.ritual-mode .me-body { min-height: calc(100dvh - 72px); } }
+@media (min-width: 760px) {
+  #me.ritual-mode { width: min(520px, 92vw); }
+  #me.ritual-mode .me-body { padding: 8px 32px 32px; }
+  #me.ritual-mode .sheet-bar { padding-bottom: 0; }
+}
+
+/* 對話框本身不畫焦點框；用柔和的白色光暈與陰影 */
+dialog:focus, dialog:focus-visible { outline: none; }
+.sheet { box-shadow: 0 24px 60px rgba(30,30,25,.28); }
+#me.ritual-mode { box-shadow: 0 0 0 1px rgba(255,248,234,.12), 0 0 48px rgba(255,248,234,.22), 0 28px 70px rgba(0,0,0,.4); }
+#me.ritual-mode:focus-visible { box-shadow: 0 0 0 1px rgba(255,248,234,.2), 0 0 56px rgba(255,248,234,.3), 0 28px 70px rgba(0,0,0,.4); }
+/* 關閉鈕：顏色固定，不跟著對話框的字色 */
+.sheet-bar .close { color: var(--ink); }
+#me.ritual-mode .sheet-bar .close { background: rgba(255,248,234,.08); border-color: rgba(255,248,234,.35); color: #fff8ea; }
+#me.ritual-mode .sheet-bar .close:hover { background: rgba(255,248,234,.16); }
+#me.ritual-mode :focus-visible { box-shadow: 0 0 0 2px rgba(47,58,42,1), 0 0 0 4px rgba(255,248,234,.85); }
+.avatar-pick:has(input:checked) { border-color: var(--olive); background: #eef3e8; box-shadow: 0 0 0 4px rgba(70,83,58,.12); }
