@@ -1,4 +1,19 @@
 {
   "schema": "eaglish.approved-travel-candidates/v1",
-  "packages": []
+  "packages": [
+    {
+      "dataPath": "trip/data/taiwan-approved-travel-v1.json",
+      "expectedSha256": "b23532c10a9c14b9e7f861e6dde12e4d275c77d0d702ff567760dee009a7c818",
+      "countryIds": [
+        "taiwan"
+      ],
+      "cityIds": [
+        "taipei",
+        "new-taipei-keelung",
+        "yilan",
+        "kaohsiung"
+      ],
+      "publication": false
+    }
+  ]
 }
