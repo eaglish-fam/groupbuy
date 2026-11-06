@@ -340,6 +340,27 @@
         "reviewer": "Grace",
         "reviewScope": "Grace 2026-11-06 看過 cover.webp、product-card.webp 原圖，以及選物誌卡片與文章頁在 320/390/768/1440 寬的實際渲染：伯尼寢具字樣清楚、家庭實拍未改動。"
       }
+    },
+    "/blog/zoofamily-kids-camera/": {
+      "identity": "ZooFamily",
+      "image": "/assets/zoofamily-kids-camera/cover.webp",
+      "imageSha256": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+      "source": "/assets/zoofamily-kids-camera/cover-source.html",
+      "sourceSha256": "578a46c39bdf2499a34fecde7cc822e1c413eaecb6b56515d572bdb9b2935905",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-06 看過 cover.webp、product-card.webp 原圖，及選物誌卡片與文章頁在 320/390/768/1440（裝置像素比 3）實際渲染：ZooFamily 字樣與標題可讀、家庭實拍未改動。圖稿採用見 RV-20261104-X01；公開上線見 decisions/2026-11-06-hiram-gb019-zoofamily-publish-ok.md。"
+      }
     }
   }
 }

@@ -1,0 +1,1061 @@
+{
+  "schema": "eaglish.article-package/v4",
+  "editorialStatus": "blocked",
+  "identity": {
+    "productId": "zoofamily-kids-camera",
+    "productName": "ZooFamily",
+    "categoryModule": "parent_child",
+    "slug": "zoofamily-kids-camera",
+    "scope": {
+      "includedFamilies": [
+        "ZooFriends",
+        "UrbanZoo",
+        "ZooPrint",
+        "ZooVideo",
+        "Zooeyes",
+        "ZooLight",
+        "ZooBags",
+        "ZooToothbrush",
+        "感熱紙"
+      ],
+      "includedModels": [],
+      "variantsKeptTogether": [
+        "同系列動物造型"
+      ],
+      "excludedSiblings": [
+        "非本團品項"
+      ],
+      "legacyOnly": []
+    },
+    "modelScopeNote": "網站商品 id 與文章款式標籤分開；不表示任何廠商 SKU 對映",
+    "mappingStatus": "confirmed: website product-content.js id, established by Grace 2026-11-04 and integrate-article.mjs at groupbuy 3d2b91b"
+  },
+  "brief": {
+    "intent": "commercial_investigation",
+    "primaryQuery": "ZooFamily 兒童相機怎麼選",
+    "readerJob": "依年齡、觸控、列印或自拍錄影需求選擇相機",
+    "angle": "以操作和玩法比較四系列，分開實際感光與插值畫素",
+    "title": "ZooFamily 兒童相機怎麼選？四款功能、年齡與價格比較｜鷹家選物誌",
+    "h1": "ZooFamily 兒童相機怎麼選？四款功能、年齡與價格比較",
+    "metaDescription": "ZooFamily 兒童相機怎麼選？比較 ZooFriends、UrbanZoo、ZooPrint、ZooVideo 的適用年齡、觸控操作、黑白列印與自拍錄影，也說清楚實際感光畫素與軟體插值，依孩子的玩法縮小選擇。",
+    "openingAnswer": "ZooFamily 兒童相機怎麼選？四款功能、年齡與價格比較。3～7 歲、剛開始玩拍照，可以先看 ZooFriends；5 歲以上想用觸控螢幕，看 UrbanZoo；想把照片印出來，看 ZooPrint；喜歡錄影和自拍說故事，看 ZooVideo。先分清楚孩子想怎麼玩，再選喜歡的動物造型，會比只比畫素更容易挑。",
+    "relatedQuestions": [
+      "四款相機差在哪？",
+      "4800 萬畫素怎麼看？",
+      "需要另外買相紙嗎？"
+    ]
+  },
+  "sources": [
+    {
+      "id": "campaign",
+      "kind": "vendor",
+      "locator": "/Users/zosia/Agents/lydia/workspace/tasks/active/GB-019/evidence/campaign-live.txt",
+      "publicUrl": "https://p3.groupbuyforms.tw/kryjf",
+      "observedAt": "2026-10-28T08:20:18+08:00"
+    },
+    {
+      "id": "maker",
+      "kind": "manufacturer",
+      "locator": "https://www.thezoofamily.co.uk/pages/find-your-camera",
+      "observedAt": "2026-10-28"
+    },
+    {
+      "id": "features",
+      "kind": "manufacturer",
+      "locator": "https://www.thezoofamily.com/en/pages/our-products-specification",
+      "observedAt": "2026-10-28"
+    },
+    {
+      "id": "named-assets",
+      "kind": "supplied_assets",
+      "locator": "/Users/zosia/Agents/lydia/workspace/tasks/active/GB-019/revisions/20261028-article-package-r1/evidence/media-acquisition.json",
+      "observedAt": "2026-10-28",
+      "rightsStatus": "public reuse not established"
+    },
+    {
+      "id": "sheet-brand-20261101",
+      "kind": "approved_sheet",
+      "locator": "Exact brand plus purchase URL; private evidence retained in original task",
+      "observedAt": "2026-11-01",
+      "supports": [
+        "siteIntegration.brand",
+        "releaseCandidate.productLookupKey"
+      ]
+    },
+    {
+      "id": "bingo-media-use-20261101",
+      "kind": "internal_source_reconciliation",
+      "locator": "Kingdom results/GB-014/20261101-bingo-answers.md",
+      "observedAt": "2026-11-01",
+      "note": "Confirmed source use for private preparation only; no public image release inferred"
+    },
+    {
+      "id": "grace-productid-20261104",
+      "kind": "engineering_contract",
+      "locator": "Kingdom receipts/GB-019.grace-productid.md",
+      "sourceBlob": "48ea4477ac8666f71dd1e00cb76894b9f8736ce9",
+      "observedAt": "2026-11-04",
+      "supports": [
+        "identity.productId",
+        "identity.mappingStatus",
+        "mediaCoverage.idNamespace",
+        "siteIntegration.cover",
+        "siteIntegration.card",
+        "siteIntegration.coverSource"
+      ],
+      "codeRef": "eaglish-fam/groupbuy@3d2b91b:scripts/integrate-article.mjs; scripts/content-identity.mjs; docs/collab/INTEGRATE.md"
+    }
+  ],
+  "claims": [
+    {
+      "id": "friends-age",
+      "text": "ZooFriends 標示適用年齡 3～7 歲",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "friends-price",
+      "text": "ZooFriends 團購頁標示 NT$2,590",
+      "type": "current_offer_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "friends-sensor",
+      "text": "ZooFriends 實際感光畫素 320 萬，軟體插值最高 3200 萬",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign",
+        "maker"
+      ]
+    },
+    {
+      "id": "urban-age",
+      "text": "UrbanZoo 標示適用年齡 5 歲以上",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "urban-price",
+      "text": "UrbanZoo 團購頁標示 NT$3,350",
+      "type": "current_offer_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "urban-sensor",
+      "text": "UrbanZoo 實際感光畫素 480 萬，軟體插值最高 4800 萬",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign",
+        "maker"
+      ]
+    },
+    {
+      "id": "print-age",
+      "text": "ZooPrint 標示適用年齡 5 歲以上",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "print-price",
+      "text": "ZooPrint 團購頁標示 NT$4,050",
+      "type": "current_offer_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "print-sensor",
+      "text": "ZooPrint 實際感光畫素 480 萬，軟體插值最高 4800 萬",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign",
+        "maker"
+      ]
+    },
+    {
+      "id": "video-age",
+      "text": "ZooVideo 標示適用年齡 5 歲以上",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "video-price",
+      "text": "ZooVideo 團購頁標示 NT$2,950",
+      "type": "current_offer_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "video-sensor",
+      "text": "ZooVideo 實際感光畫素 450 萬，軟體插值最高 4500 萬",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign",
+        "maker"
+      ]
+    },
+    {
+      "id": "friends-operation",
+      "text": "ZooFriends 具 2 吋螢幕、拍照與錄影功能",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "urban-touch",
+      "text": "UrbanZoo 使用 3 吋觸控螢幕並可拍照、錄影、自拍",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign",
+        "features"
+      ]
+    },
+    {
+      "id": "print-operation",
+      "text": "ZooPrint 使用感熱紙列印黑白照片，頁面標示約 3 秒",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "video-operation",
+      "text": "ZooVideo 為手持攝影機造型，可錄影與自拍，沒有列印功能",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign",
+        "features"
+      ]
+    },
+    {
+      "id": "camera-common",
+      "text": "四款皆附 32GB 記憶卡，無網路功能、無內建遊戲",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "paper-refills",
+      "text": "本團一般感熱紙與貼紙感熱紙皆為 3 捲組",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "bag-size",
+      "text": "ZooBags 標示尺寸 14 × 13 × 6 公分，適配仍依實際機型",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "light-modes",
+      "text": "ZooLight 具有睡眠、行走、閱讀三種模式，睡眠模式 30 分鐘後自動關閉",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "eyes-age",
+      "text": "Zooeyes 標示 8 倍、3 歲以上，建議成人陪同",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "brush-timer",
+      "text": "ZooToothbrush 標示 3～10 歲，三種模式、30 秒提醒與 2 分鐘關機",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "payment",
+      "text": "下單隔日 23:59 前完成信用卡或虛擬帳號付款",
+      "type": "current_offer_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "shipping",
+      "text": "現貨頁寫下單後 3～5 日陸續出貨、預計 10 日內寄完，均不含六日",
+      "type": "current_offer_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    },
+    {
+      "id": "freight",
+      "text": "本島同址運費 NT$100，單筆滿 NT$2,500 免運",
+      "type": "current_offer_fact",
+      "sourceIds": [
+        "campaign"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "factId": "friends-age",
+      "summary": "ZooFriends 標示適用年齡 3～7 歲",
+      "disposition": "body",
+      "location": "models"
+    },
+    {
+      "factId": "friends-price",
+      "summary": "ZooFriends 團購頁標示 NT$2,590",
+      "disposition": "table",
+      "location": "models"
+    },
+    {
+      "factId": "friends-sensor",
+      "summary": "ZooFriends 實際感光畫素 320 萬，軟體插值最高 3200 萬",
+      "disposition": "table",
+      "location": "resolution"
+    },
+    {
+      "factId": "urban-age",
+      "summary": "UrbanZoo 標示適用年齡 5 歲以上",
+      "disposition": "body",
+      "location": "models"
+    },
+    {
+      "factId": "urban-price",
+      "summary": "UrbanZoo 團購頁標示 NT$3,350",
+      "disposition": "table",
+      "location": "models"
+    },
+    {
+      "factId": "urban-sensor",
+      "summary": "UrbanZoo 實際感光畫素 480 萬，軟體插值最高 4800 萬",
+      "disposition": "table",
+      "location": "resolution"
+    },
+    {
+      "factId": "print-age",
+      "summary": "ZooPrint 標示適用年齡 5 歲以上",
+      "disposition": "body",
+      "location": "models"
+    },
+    {
+      "factId": "print-price",
+      "summary": "ZooPrint 團購頁標示 NT$4,050",
+      "disposition": "table",
+      "location": "models"
+    },
+    {
+      "factId": "print-sensor",
+      "summary": "ZooPrint 實際感光畫素 480 萬，軟體插值最高 4800 萬",
+      "disposition": "table",
+      "location": "resolution"
+    },
+    {
+      "factId": "video-age",
+      "summary": "ZooVideo 標示適用年齡 5 歲以上",
+      "disposition": "body",
+      "location": "models"
+    },
+    {
+      "factId": "video-price",
+      "summary": "ZooVideo 團購頁標示 NT$2,950",
+      "disposition": "table",
+      "location": "models"
+    },
+    {
+      "factId": "video-sensor",
+      "summary": "ZooVideo 實際感光畫素 450 萬，軟體插值最高 4500 萬",
+      "disposition": "table",
+      "location": "resolution"
+    },
+    {
+      "factId": "friends-operation",
+      "summary": "ZooFriends 具 2 吋螢幕、拍照與錄影功能",
+      "disposition": "body",
+      "location": "models"
+    },
+    {
+      "factId": "urban-touch",
+      "summary": "UrbanZoo 使用 3 吋觸控螢幕並可拍照、錄影、自拍",
+      "disposition": "body",
+      "location": "models"
+    },
+    {
+      "factId": "print-operation",
+      "summary": "ZooPrint 使用感熱紙列印黑白照片，頁面標示約 3 秒",
+      "disposition": "body",
+      "location": "models"
+    },
+    {
+      "factId": "video-operation",
+      "summary": "ZooVideo 為手持攝影機造型，可錄影與自拍，沒有列印功能",
+      "disposition": "body",
+      "location": "models"
+    },
+    {
+      "factId": "camera-common",
+      "summary": "四款皆附 32GB 記憶卡，無網路功能、無內建遊戲",
+      "disposition": "body",
+      "location": "models"
+    },
+    {
+      "factId": "paper-refills",
+      "summary": "本團一般感熱紙與貼紙感熱紙皆為 3 捲組",
+      "disposition": "body",
+      "location": "accessories"
+    },
+    {
+      "factId": "bag-size",
+      "summary": "ZooBags 標示尺寸 14 × 13 × 6 公分，適配仍依實際機型",
+      "disposition": "body",
+      "location": "accessories"
+    },
+    {
+      "factId": "light-modes",
+      "summary": "ZooLight 具有睡眠、行走、閱讀三種模式，睡眠模式 30 分鐘後自動關閉",
+      "disposition": "body",
+      "location": "accessories"
+    },
+    {
+      "factId": "eyes-age",
+      "summary": "Zooeyes 標示 8 倍、3 歲以上，建議成人陪同",
+      "disposition": "body",
+      "location": "accessories"
+    },
+    {
+      "factId": "brush-timer",
+      "summary": "ZooToothbrush 標示 3～10 歲，三種模式、30 秒提醒與 2 分鐘關機",
+      "disposition": "body",
+      "location": "accessories"
+    },
+    {
+      "factId": "payment",
+      "summary": "下單隔日 23:59 前完成信用卡或虛擬帳號付款",
+      "disposition": "body",
+      "location": "offer"
+    },
+    {
+      "factId": "shipping",
+      "summary": "現貨頁寫下單後 3～5 日陸續出貨、預計 10 日內寄完，均不含六日",
+      "disposition": "body",
+      "location": "offer"
+    },
+    {
+      "factId": "freight",
+      "summary": "本島同址運費 NT$100，單筆滿 NT$2,500 免運",
+      "disposition": "body",
+      "location": "offer"
+    },
+    {
+      "factId": "unverified-effects",
+      "summary": "未驗證效果與比較",
+      "disposition": "omitted",
+      "reason": "不將廠商圖上的效果或成本比較擴成已驗證主張"
+    },
+    {
+      "factId": "closing-and-gifts",
+      "summary": "未確認結團日與贈品",
+      "disposition": "omitted",
+      "reason": "本次明確排除，不加入倒數或贈品說法"
+    },
+    {
+      "factId": "public-image-reuse",
+      "summary": "照片公開重用權",
+      "disposition": "blocked",
+      "reason": "本輪權限只涵蓋 M5 讀取與本機製作，沒有新增公開或分享批准"
+    }
+  ],
+  "media": [
+    {
+      "id": "hiram-04",
+      "path": "/assets/zoofamily-kids-camera/hiram-04.jpg",
+      "sourceId": "named-assets",
+      "basis": "Original Hiram supplied photo source reconfirmed by Bingo reply; current use limited to private local draft",
+      "purpose": "editorial_scene",
+      "productIds": [
+        "zooprint"
+      ],
+      "shows": "孩子雙手拿著綠色相機，左側列印艙與鏡頭外形可見",
+      "section": "models",
+      "alt": "孩子雙手拿著綠色相機，左側列印艙與鏡頭外形可見",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "private_local_composition_only; public release remains unapproved",
+      "embedded": true,
+      "sha256": "ff726bf1f2656228dbb1076022cb0e80239a42da892684f107d90633e7756999",
+      "width": 2000,
+      "height": 1500
+    },
+    {
+      "id": "hiram-05",
+      "path": "/assets/zoofamily-kids-camera/hiram-05.jpg",
+      "sourceId": "named-assets",
+      "basis": "Original Hiram supplied photo source reconfirmed by Bingo reply; current use limited to private local draft",
+      "purpose": "product_evidence",
+      "productIds": [
+        "urbanzoo"
+      ],
+      "shows": "橘色機身、粉橘鏡頭蓋與狐狸造型，置於灰色布面",
+      "section": "models",
+      "alt": "橘色機身、粉橘鏡頭蓋與狐狸造型，置於灰色布面",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "private_local_composition_only; public release remains unapproved",
+      "embedded": true,
+      "sha256": "438a41753931d5084e97a7cecfcb4feb61a82eed953993561236802ca4b975d2",
+      "width": 2000,
+      "height": 1500
+    },
+    {
+      "id": "hiram-06",
+      "path": "/assets/zoofamily-kids-camera/hiram-06.jpg",
+      "sourceId": "named-assets",
+      "basis": "Original Hiram supplied photo source reconfirmed by Bingo reply; current use limited to private local draft",
+      "purpose": "product_evidence",
+      "productIds": [
+        "zoofriends"
+      ],
+      "shows": "黃色長頸鹿相機放在灰色布面",
+      "section": "models",
+      "alt": "黃色長頸鹿相機放在灰色布面",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "private_local_composition_only; public release remains unapproved",
+      "embedded": true,
+      "sha256": "bdadc2634f34322a8db1b449b86e0d715dd25fb811f8c34bac530388013384d3",
+      "width": 2000,
+      "height": 1500
+    },
+    {
+      "id": "hiram-10",
+      "path": "/assets/zoofamily-kids-camera/hiram-10.jpg",
+      "sourceId": "named-assets",
+      "basis": "Original Hiram supplied photo source reconfirmed by Bingo reply; current use limited to private local draft",
+      "purpose": "product_evidence",
+      "productIds": [
+        "zooprint"
+      ],
+      "shows": "綠色相機、拆下的圓形鏡頭蓋與黑白照片",
+      "section": "models",
+      "alt": "綠色相機、拆下的圓形鏡頭蓋與黑白照片",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "private_local_composition_only; public release remains unapproved",
+      "embedded": true,
+      "sha256": "c245a7c7af93e8ccff269dd5e386edb718917f9a1032cda80c86717874e81c39",
+      "width": 2000,
+      "height": 1500
+    },
+    {
+      "id": "vendor-04",
+      "path": "/assets/zoofamily-kids-camera/vendor-04.jpg",
+      "sourceId": "named-assets",
+      "basis": "authorized_for_private_local_inspection_only_public_reuse_unknown",
+      "purpose": "product_evidence",
+      "productIds": [
+        "zoofriends"
+      ],
+      "shows": "長頸鹿機身前後與手持情境",
+      "section": "models",
+      "alt": "長頸鹿機身前後與手持情境",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "unknown",
+      "embedded": false,
+      "sha256": "6eaa6ac12518855f5b48325e6d060fb9fdb878284e7a010dcc0fa99551539a5d",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "id": "vendor-08",
+      "path": "/assets/zoofamily-kids-camera/vendor-08.jpg",
+      "sourceId": "named-assets",
+      "basis": "authorized_for_private_local_inspection_only_public_reuse_unknown",
+      "purpose": "product_evidence",
+      "productIds": [
+        "urbanzoo"
+      ],
+      "shows": "機身、鏡頭蓋及觸控螢幕",
+      "section": "models",
+      "alt": "機身、鏡頭蓋及觸控螢幕",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "unknown",
+      "embedded": false,
+      "sha256": "43af17b9d66554e3f79988b482bb61a0125de145616a66e97c5978b88b45e6c1",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "id": "vendor-12",
+      "path": "/assets/zoofamily-kids-camera/vendor-12.jpg",
+      "sourceId": "named-assets",
+      "basis": "authorized_for_private_local_inspection_only_public_reuse_unknown",
+      "purpose": "product_evidence",
+      "productIds": [
+        "zooprint"
+      ],
+      "shows": "粉色機身、列印艙和鏡頭蓋",
+      "section": "models",
+      "alt": "粉色機身、列印艙和鏡頭蓋",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "unknown",
+      "embedded": false,
+      "sha256": "81be53841b6bb34de3e602ece015e4dfe91b924d680e122320f0a9cf27968934",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "id": "vendor-18",
+      "path": "/assets/zoofamily-kids-camera/vendor-18.jpg",
+      "sourceId": "named-assets",
+      "basis": "authorized_for_private_local_inspection_only_public_reuse_unknown",
+      "purpose": "product_evidence",
+      "productIds": [
+        "zoovideo"
+      ],
+      "shows": "粉色攝影機、側開螢幕與按鍵",
+      "section": "models",
+      "alt": "粉色攝影機、側開螢幕與按鍵",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "unknown",
+      "embedded": false,
+      "sha256": "34fe6151951572026b06c62e5afee842b4650c07777194d955d6bf8db6812407",
+      "width": 1200,
+      "height": 960
+    },
+    {
+      "id": "vendor-23",
+      "path": "/assets/zoofamily-kids-camera/vendor-23.jpg",
+      "sourceId": "named-assets",
+      "basis": "authorized_for_private_local_inspection_only_public_reuse_unknown",
+      "purpose": "product_evidence",
+      "productIds": [
+        "zooeyes"
+      ],
+      "shows": "孩子拿著粉色雙筒望遠鏡",
+      "section": "accessories",
+      "alt": "孩子拿著粉色雙筒望遠鏡",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "unknown",
+      "embedded": false,
+      "sha256": "6b5b769c32aad0b1da508fde541036c054752cda7452b0aea8491a4eb0f6677e",
+      "width": 1100,
+      "height": 1100
+    },
+    {
+      "id": "vendor-25",
+      "path": "/assets/zoofamily-kids-camera/vendor-25.jpg",
+      "sourceId": "named-assets",
+      "basis": "authorized_for_private_local_inspection_only_public_reuse_unknown",
+      "purpose": "product_evidence",
+      "productIds": [
+        "zoolight"
+      ],
+      "shows": "六款燈具、三模式、磁吸座與充電示例",
+      "section": "accessories",
+      "alt": "六款燈具、三模式、磁吸座與充電示例",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "unknown",
+      "embedded": false,
+      "sha256": "59a69346beded7b53c6434b362770299ea075e0111da5b4fd7c18af9cda7a5e5",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "id": "vendor-31",
+      "path": "/assets/zoofamily-kids-camera/vendor-31.jpg",
+      "sourceId": "named-assets",
+      "basis": "authorized_for_private_local_inspection_only_public_reuse_unknown",
+      "purpose": "product_evidence",
+      "productIds": [
+        "zootoothbrush"
+      ],
+      "shows": "萌鹿牙刷與充電座",
+      "section": "accessories",
+      "alt": "萌鹿牙刷與充電座",
+      "caption": "",
+      "identityStatus": "confirmed",
+      "rightsStatus": "unknown",
+      "embedded": false,
+      "sha256": "91ca674e321be812fe836b9eb35848596ee99d0bb06c7e53e6a19dec9d1ebe64",
+      "width": 1200,
+      "height": 1200
+    },
+    {
+      "id": "zoofamily-cover-20261104",
+      "type": "image",
+      "locator": "/assets/zoofamily-kids-camera/cover.webp",
+      "purpose": "cover",
+      "width": 1600,
+      "height": 1000,
+      "sha256": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+      "sourceIds": [
+        "bingo-media-use-20261101"
+      ],
+      "rightsStatus": "private Kingdom review and Tailnet candidate only; no public release",
+      "derivedBy": "Original source-photo HTML/CSS composition in Chromium; no generated people or product pixels",
+      "path": "/assets/zoofamily-kids-camera/cover.webp",
+      "role": "cover",
+      "sourceId": "bingo-media-use-20261101",
+      "identityStatus": "confirmed",
+      "productIds": [
+        "zooprint"
+      ],
+      "basis": "Original photo composition; exact image bytes preserved from RV-20261104-X01",
+      "shows": "孩子雙手拿著 ZooPrint 冒險綠龍相機，旁邊是 ZooFamily 選購標題",
+      "alt": "孩子雙手拿著 ZooPrint 冒險綠龍相機；ZooFamily 四款相機怎麼選",
+      "caption": "",
+      "section": "intro"
+    },
+    {
+      "id": "zoofamily-card-20261104",
+      "type": "image",
+      "locator": "/assets/zoofamily-kids-camera/product-card.webp",
+      "purpose": "comparison",
+      "width": 1000,
+      "height": 750,
+      "sha256": "e5d9fb35d4316726eaa810beb477926870602aff41a4fb0c384bec90d3a40cbe",
+      "sourceIds": [
+        "bingo-media-use-20261101"
+      ],
+      "rightsStatus": "private Kingdom review and Tailnet candidate only; no public release",
+      "derivedBy": "Original source-photo HTML/CSS composition in Chromium; no generated people or product pixels",
+      "path": "/assets/zoofamily-kids-camera/product-card.webp",
+      "role": "card",
+      "sourceId": "bingo-media-use-20261101",
+      "identityStatus": "confirmed",
+      "productIds": [
+        "zooprint"
+      ],
+      "basis": "Original photo composition; exact image bytes preserved from RV-20261104-X01",
+      "shows": "孩子雙手拿著 ZooPrint 冒險綠龍相機，旁邊是 ZooFamily 選購標題",
+      "alt": "孩子雙手拿著 ZooPrint 冒險綠龍相機；ZooFamily 四款相機怎麼選",
+      "caption": "",
+      "section": "intro"
+    },
+    {
+      "id": "zoofamily-share-20261104",
+      "type": "image",
+      "locator": "/assets/zoofamily-kids-camera/share.webp",
+      "purpose": "editorial_scene",
+      "width": 1200,
+      "height": 630,
+      "sha256": "47e8bfb56ba621bfc425dd2c7284aa2f9ef7695327020d59a1dccea9f5f0e9dd",
+      "sourceIds": [
+        "bingo-media-use-20261101"
+      ],
+      "rightsStatus": "private Kingdom review and Tailnet candidate only; no public release",
+      "derivedBy": "Original source-photo HTML/CSS composition in Chromium; no generated people or product pixels",
+      "path": "/assets/zoofamily-kids-camera/share.webp",
+      "role": "share",
+      "sourceId": "bingo-media-use-20261101",
+      "identityStatus": "confirmed",
+      "productIds": [
+        "zooprint"
+      ],
+      "basis": "Original photo composition; exact image bytes preserved from RV-20261104-X01",
+      "shows": "孩子雙手拿著 ZooPrint 冒險綠龍相機，旁邊是 ZooFamily 選購標題",
+      "alt": "孩子雙手拿著 ZooPrint 冒險綠龍相機；ZooFamily 四款相機怎麼選",
+      "caption": "",
+      "section": "intro"
+    }
+  ],
+  "mediaCoverage": [
+    {
+      "productId": "zoofriends",
+      "idNamespace": "文章內款式標籤，不是 Sheet 或後台 ID",
+      "publicName": "ZooFriends",
+      "disposition": "blocked",
+      "mediaIds": [
+        "hiram-06",
+        "vendor-04"
+      ],
+      "location": "models",
+      "reason": "相符原圖已排入私人候選；公開發布與最終配圖驗收尚未完成"
+    },
+    {
+      "productId": "urbanzoo",
+      "idNamespace": "文章內款式標籤，不是 Sheet 或後台 ID",
+      "publicName": "UrbanZoo",
+      "disposition": "blocked",
+      "mediaIds": [
+        "hiram-05",
+        "vendor-08"
+      ],
+      "location": "models",
+      "reason": "相符原圖已排入私人候選；公開發布與最終配圖驗收尚未完成"
+    },
+    {
+      "productId": "zooprint",
+      "idNamespace": "文章內款式標籤，不是 Sheet 或後台 ID",
+      "publicName": "ZooPrint",
+      "disposition": "blocked",
+      "mediaIds": [
+        "hiram-04",
+        "hiram-10",
+        "vendor-12"
+      ],
+      "location": "models",
+      "reason": "相符原圖已排入私人候選；公開發布與最終配圖驗收尚未完成"
+    },
+    {
+      "productId": "zoovideo",
+      "idNamespace": "文章內款式標籤，不是 Sheet 或後台 ID",
+      "publicName": "ZooVideo",
+      "disposition": "blocked",
+      "mediaIds": [
+        "vendor-18"
+      ],
+      "location": "models",
+      "reason": "已看原圖與當團型號，公開重用權仍缺，本輪不嵌圖"
+    },
+    {
+      "productId": "zooeyes",
+      "idNamespace": "文章內款式標籤，不是 Sheet 或後台 ID",
+      "publicName": "Zooeyes",
+      "disposition": "blocked",
+      "mediaIds": [
+        "vendor-23"
+      ],
+      "location": "accessories",
+      "reason": "已看原圖與當團型號，公開重用權仍缺，本輪不嵌圖"
+    },
+    {
+      "productId": "zoolight",
+      "idNamespace": "文章內款式標籤，不是 Sheet 或後台 ID",
+      "publicName": "ZooLight",
+      "disposition": "blocked",
+      "mediaIds": [
+        "vendor-25"
+      ],
+      "location": "accessories",
+      "reason": "已看原圖與當團型號，公開重用權仍缺，本輪不嵌圖"
+    },
+    {
+      "productId": "zoobags",
+      "idNamespace": "文章內款式標籤，不是 Sheet 或後台 ID",
+      "publicName": "ZooBags",
+      "disposition": "text_only",
+      "mediaIds": [],
+      "location": "accessories",
+      "reason": "僅保留文字說明；沒有可用且權利完整的圖片"
+    },
+    {
+      "productId": "zootoothbrush",
+      "idNamespace": "文章內款式標籤，不是 Sheet 或後台 ID",
+      "publicName": "ZooToothbrush",
+      "disposition": "blocked",
+      "mediaIds": [
+        "vendor-31"
+      ],
+      "location": "accessories",
+      "reason": "已看原圖與當團型號，公開重用權仍缺，本輪不嵌圖"
+    },
+    {
+      "productId": "thermal-paper",
+      "idNamespace": "文章內款式標籤，不是 Sheet 或後台 ID",
+      "publicName": "感熱紙",
+      "disposition": "text_only",
+      "mediaIds": [],
+      "location": "accessories",
+      "reason": "僅保留文字說明；沒有可用且權利完整的圖片"
+    }
+  ],
+  "categoryCoverage": [
+    {
+      "question": "適用年齡如何比較？",
+      "disposition": "table",
+      "location": "models",
+      "reason": ""
+    },
+    {
+      "question": "各款能怎麼玩？",
+      "disposition": "body",
+      "location": "models",
+      "reason": ""
+    },
+    {
+      "question": "玩法能怎麼延伸？",
+      "disposition": "body",
+      "location": "models",
+      "reason": ""
+    },
+    {
+      "question": "記憶卡、相紙與收納需要哪些？",
+      "disposition": "body",
+      "location": "accessories",
+      "reason": ""
+    },
+    {
+      "question": "哪些材質或效果已確認？",
+      "disposition": "omitted",
+      "location": "",
+      "reason": "不採未查驗安全或成效宣稱，保留原來源帳"
+    },
+    {
+      "question": "哪一款適合家庭需求？",
+      "disposition": "body",
+      "location": "models",
+      "reason": ""
+    },
+    {
+      "question": "下單前要知道什麼？",
+      "disposition": "body",
+      "location": "offer",
+      "reason": ""
+    }
+  ],
+  "answerBlocks": [
+    {
+      "question": "ZooFamily 四款相機怎麼選？",
+      "answer": "3～7 歲、剛開始玩拍照，可以先看 ZooFriends；5 歲以上想用觸控螢幕，看 UrbanZoo；想把照片印出來，看 ZooPrint；喜歡錄影和自拍說故事，看 ZooVideo。先分清楚孩子想怎麼玩，再選喜歡的動物造型，會比只比畫素更容易挑。",
+      "claimIds": [
+        "friends-age",
+        "urban-age",
+        "print-age",
+        "video-age",
+        "friends-operation",
+        "urban-touch",
+        "print-operation",
+        "video-operation"
+      ]
+    },
+    {
+      "question": "ZooFamily 的插值畫素怎麼看？",
+      "answer": "插值是透過軟體補點、放大影像，不能把 4800 萬直接當成感光元件的畫素。挑第一台相機時，把螢幕、操作方式和是否需要列印放在前面，比只挑數字最大的那台更實用。",
+      "claimIds": [
+        "friends-sensor",
+        "urban-sensor",
+        "print-sensor",
+        "video-sensor"
+      ]
+    }
+  ],
+  "technicalSeo": {
+    "author": {
+      "type": "Organization",
+      "name": "鷹式一家",
+      "url": "https://www.eaglish.store/"
+    },
+    "datePublished": "2026-11-06",
+    "dateModified": "2026-11-06",
+    "social": {
+      "ogImage": "https://www.eaglish.store/assets/zoofamily-kids-camera/cover.webp",
+      "ogImageAlt": "ZooFamily 兒童相機，四款怎麼選",
+      "width": 1600,
+      "height": 1000,
+      "twitterCard": "summary_large_image",
+      "shareImage": "https://www.eaglish.store/assets/zoofamily-kids-camera/share.webp",
+      "shareWidth": 1200,
+      "shareHeight": 630
+    },
+    "structuredData": [
+      "Article",
+      "BreadcrumbList"
+    ],
+    "crawlableOfferFallback": "/#catalog",
+    "publicationStatus": "unpublished_private_tailnet_candidate"
+  },
+  "bodyText": "3～7 歲、剛開始玩拍照，可以先看 ZooFriends；5 歲以上想用觸控螢幕，看 UrbanZoo；想把照片印出來，看 ZooPrint；喜歡錄影和自拍說故事，看 ZooVideo。先分清楚孩子想怎麼玩，再選喜歡的動物造型，會比只比畫素更容易挑。\n\n出門時，可以請孩子拍今天最喜歡的三樣東西：路邊的花、一隻小狗，或自己的玩具。回家一起翻照片，聽他說為什麼想拍。第一台相機要選的，就是孩子願意拿起來、也用得懂的那一款。\n\n四款相機，差在操作和玩法\n\n系列 頁面標示年齡 團購價 主要差別\n\nZooFriends 幼童數位相機 3～7 歲 NT$2,590 2 吋螢幕，拍照、錄影與邊框編輯\n\nUrbanZoo 兒童數位相機 5 歲以上 NT$3,350 3 吋觸控螢幕，拍照、錄影與自拍\n\nZooPrint 拍立印數位相機 5 歲以上 NT$4,050 拍照、錄影，還能印出黑白小照片\n\nZooVideo 兒童手持攝影機 5 歲以上 NT$2,950 手持攝影機造型，錄影與自拍切換\n\n價格依 2026/10/28 當期團購頁整理；可選款式、庫存與成交金額以購買頁為準。\n\nZooFriends：給剛開始自己拍的孩子\n\nZooFriends 尺寸是 7.9 × 4.6 × 2.1 公分，搭配可更換的矽膠動物保護套。想先讓孩子試著取景、按快門、回看照片，可以從這款開始比較；不用為了尚未用到的列印功能增加預算。\n\n它也能錄影、加邊框與貼圖。年齡符合後，仍可一起看看孩子能不能拿穩相機、找到按鍵，再決定是否適合。\n\nUrbanZoo：在意大螢幕和觸控操作\n\nUrbanZoo 的 3 吋觸控螢幕，是它和 ZooFriends 很直覺的差別。拍照、錄影之外，也能自拍；喜歡在螢幕上操作、回看作品的孩子，可以先比較這款。\n\n如果沒有列印需求，可以先比較 ZooFriends 的按鍵操作和 UrbanZoo 的觸控螢幕；想要紙本照片，再把 ZooPrint 加入選項。\n\nZooPrint：拍完想拿到一張照片\n\nZooPrint 用感熱紙列印黑白小照片，團購頁標示約 3 秒印出。可以把照片貼進日記、做一張旅行小卡；喜歡手作、也想保留紙本的孩子，會比較用得到這項功能。\n\n機身為 12 × 9 × 5 公分，比 ZooFriends 大，挑選時也要考慮孩子拿取和外出攜帶。內附 3 捲相紙，後續要補充耗材；本團另有一般感熱紙與貼紙感熱紙，兩者都是 3 捲組，選購時看清楚。\n\nZooVideo：喜歡邊拍邊說、記錄一段過程\n\n如果孩子更想介紹玩具、拍一段散步過程，可以看 ZooVideo 的手持攝影機造型與自拍操作。本團這個系列可選狐狸、獨角獸。\n\n其他三款也能錄影，所以不用只因為「想拍影片」就直接選 ZooVideo；更值得比較的是孩子喜歡怎麼握、怎麼取景。它沒有列印功能，想把照片印出來仍要看 ZooPrint。\n\n3200 萬、4800 萬畫素，怎麼看？\n\n這幾款標示的大數字是軟體插值後的最高畫素，和實際感光畫素不同。\n\n系列 實際感光畫素 軟體插值最高畫素\n\nZooFriends 320 萬 3200 萬\n\nUrbanZoo／ZooPrint 480 萬 4800 萬\n\nZooVideo 450 萬 4500 萬\n\n實際感光與插值數字也可對照品牌的相機比較。\n\n插值是透過軟體補點、放大影像，不能把 4800 萬直接當成感光元件的畫素。挑第一台相機時，把螢幕、操作方式和是否需要列印放在前面，比只挑數字最大的那台更實用。\n\n四款都附 32GB 記憶卡，也都沒有網路功能與內建遊戲。它們仍有螢幕，拍多久、什麼時候收起來，可以先和孩子約定。\n\n相紙、收納包和其他用品，需要一起買嗎？\n\n選 ZooPrint，才需要把列印耗材一起算進預算。ZooBags 收納揹包標示 14 × 13 × 6 公分；先核對所選機型能否放入，不要只按相同動物造型配成一套。\n\n同團還有 ZooLight 小夜燈，提供睡眠、行走與閱讀三種模式，其中睡眠模式會在 30 分鐘後自動關閉；Zooeyes 是 8 倍雙筒望遠鏡，標示 3 歲以上、建議成人陪同。ZooToothbrush 電動牙刷則標示 3～10 歲，有三種模式、30 秒換區提醒與 2 分鐘自動關機。\n\n這些是不同用途的用品。先挑這次真正需要的相機，其他有需要再加，不必為了同一隻動物把整套買齊。\n\n決定款式後，再確認付款和出貨\n\n團購頁提供信用卡與虛擬帳號轉帳，下單後須在隔日 23:59 前完成付款。現貨依訂單順序與付款狀態安排，頁面寫下單後 3～5 日內陸續出貨、預計 10 日內出貨完畢，皆不含六日；若要當特定日期的禮物，先向客服確認。\n\n台灣本島同址運費 NT$100，單筆滿 NT$2,500 免運。下單前確認型號、造型和數量，並閱讀當頁退換貨說明；訂單或到貨問題可聯絡客服 LINE：@aromafamily。",
+  "releaseCandidate": {
+    "articleRoute": "/blog/zoofamily-kids-camera/",
+    "surfaces": [
+      "article",
+      "blog_index",
+      "product_card",
+      "sitemap",
+      "robots"
+    ],
+    "productLookupKey": "比利時 ZooFamily 兒童相機",
+    "assetPaths": [
+      "/assets/zoofamily-kids-camera/cover.webp",
+      "/assets/zoofamily-kids-camera/product-card.webp",
+      "/assets/zoofamily-kids-camera/share.webp",
+      "/assets/zoofamily-kids-camera/hiram-04.jpg",
+      "/assets/zoofamily-kids-camera/hiram-05.jpg",
+      "/assets/zoofamily-kids-camera/hiram-06.jpg",
+      "/assets/zoofamily-kids-camera/hiram-10.jpg",
+      "/assets/zoofamily-kids-camera/vendor-04.jpg",
+      "/assets/zoofamily-kids-camera/vendor-08.jpg",
+      "/assets/zoofamily-kids-camera/vendor-12.jpg",
+      "/assets/zoofamily-kids-camera/vendor-18.jpg",
+      "/assets/zoofamily-kids-camera/vendor-23.jpg",
+      "/assets/zoofamily-kids-camera/vendor-25.jpg",
+      "/assets/zoofamily-kids-camera/vendor-31.jpg"
+    ],
+    "isProposalOnly": true,
+    "integrationExecuted": false,
+    "mediaIntegratedInCandidate": true
+  },
+  "siteIntegration": {
+    "brand": "比利時 ZooFamily 兒童相機",
+    "brandStatus": "Exact Sheet brand and purchase locator verified 2026-11-01; original article and media unchanged",
+    "category": "親子探索",
+    "journalCategory": "母嬰",
+    "excerpt": "ZooFamily 兒童相機怎麼選？比較 ZooFriends、UrbanZoo、ZooPrint、ZooVideo 的適用年齡、觸控操作、黑白列印與自拍錄影，也說清楚實際感光畫素與軟體插值，依孩子的玩法縮小選擇。",
+    "readLabel": "比較四款相機 →",
+    "cover": "/assets/zoofamily-kids-camera/cover.webp",
+    "card": "/assets/zoofamily-kids-camera/product-card.webp",
+    "coverSource": "/assets/zoofamily-kids-camera/cover-source.html",
+    "coverIdentity": "ZooFamily",
+    "coverReview": {
+      "identityVisible": true,
+      "realPhotoPreserved": true,
+      "mobileCardLegible": true,
+      "viewportWidths": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "reviewer": "Grace",
+      "reviewScope": "Grace 2026-11-06 看過 cover.webp、product-card.webp 原圖，及選物誌卡片與文章頁在 320/390/768/1440（裝置像素比 3）實際渲染：ZooFamily 字樣與標題可讀、家庭實拍未改動。圖稿採用見 RV-20261104-X01；公開上線見 decisions/2026-11-06-hiram-gb019-zoofamily-publish-ok.md。"
+    },
+    "catalogKey": "zoofamilyKidsCamera"
+  },
+  "localCandidate": {
+    "html": "/Users/zosia/Agents/lydia/workspace/tasks/active/GB-019/revisions/20261104-productid-r5/site/blog/zoofamily-kids-camera/index.html",
+    "photosEmbedded": true,
+    "placeholderPositionsOnly": false,
+    "frozenDraftSha256": "18f4e48ea7b8d4816fcc638ca18a4b06769664bac826953fbe37d61de9e9fe04",
+    "noIndex": true,
+    "publicReleaseAuthorized": false,
+    "sharingAuthorized": false,
+    "sourceRevision": "20261104-media-r1",
+    "identityPatchApplied": true,
+    "mediaScope": "Private M5 composition after Bingo source reconciliation; no photo upload, service, public release or publication approval inferred",
+    "mediaExported": true,
+    "reviewScope": "media only; original article text and commercial facts not newly approved",
+    "productIdApplied": true,
+    "scope": "GB-019 ID/path-only private candidate update; previous source and artwork retained, not published"
+  },
+  "remaining": [
+    "Hiram visual decision RV-20261104-X01",
+    "Bingo current Sheet type/end-date verification and offer freshness",
+    "Remaining product-media coverage and full editorial/publication validation; actual datePublished not assigned"
+  ]
+}
