@@ -617,20 +617,16 @@
   ],
   "Wave 鷹嘴豆泥": [
    {
-    "src": "/assets/wave/family.webp",
-    "alt": "Wave 鷹嘴豆泥的多種口味與鮮明色彩"
+    "src": "/assets/wave/pita.webp",
+    "alt": "以皮塔餅沾取鷹嘴豆泥"
    },
    {
     "src": "/assets/wave/toast.webp",
-    "alt": "把 Wave 鷹嘴豆泥抹在吐司上"
-   },
-   {
-    "src": "/assets/wave/pita.webp",
-    "alt": "以皮塔餅沾取多種口味的 Wave 鷹嘴豆泥"
+    "alt": "把鷹嘴豆泥抹在麵包上"
    },
    {
     "src": "/assets/wave/mushroom.webp",
-    "alt": "以菇類和葉菜搭配 Wave 鷹嘴豆泥"
+    "alt": "菇類與葉菜搭配鷹嘴豆泥的餐盤"
    }
   ],
   "EBEN康普茶": [

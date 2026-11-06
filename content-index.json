@@ -143,7 +143,7 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "941355596cb595d50d8c0372700cdec7946bd267fbaea1e13506ce89fe031b60"
+      "sourceHash": "099d1b47bdfae4a4df9201680d3b2c7f0013a9473ac16903ddda0eabee60b7a6"
     },
     {
       "slug": "done-by-deer",
@@ -205,7 +205,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "0f49b53e60ef0a6dfd80697b6b471072f7fb35722ce542f9b14a672e01d91ca5"
+      "sourceHash": "b8dd7d75345f93d7661992645666f6c942016ffb67cd766bc4ff04dfef593db2"
     },
     {
       "slug": "hereu-tag",
@@ -255,7 +255,7 @@
       "prepared": "2026-10-13",
       "published": "2026-10-13",
       "modified": "2026-10-13",
-      "sourceHash": "7b7a55304cbb95722b1f76f0c1cd5359165a766012d95a0bba8c08ed421fe764"
+      "sourceHash": "4d70b7b088aaceba044d130806d93b3881d475e8c965f29b61f4f730cbf89b67"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -537,7 +537,7 @@
     {
       "slug": "wave-hummus",
       "url": "https://www.eaglish.store/blog/wave-hummus/",
-      "title": "Wave 鷹嘴豆泥怎麼吃？吐司吃膩了，也許不是吐司的問題｜鷹式一家",
+      "title": "Wave 鷹嘴豆泥怎麼吃？直接吃、沾蔬菜、配烤肉｜鷹式一家",
       "productNames": [
         "Wave 鷹嘴豆泥"
       ],
@@ -550,8 +550,8 @@
       ],
       "cluster": "table",
       "published": "2026-09-08",
-      "modified": "2026-09-11",
-      "sourceHash": "273ca38f946fd99434085f270f7bc6c3701278bf160ae06801585f831cdef3b5"
+      "modified": "2026-11-06",
+      "sourceHash": "3d3e3985106bc560e9bf0abdb31456cad52e6bb29f336736db30416f27f5c790"
     },
     {
       "slug": "zoofamily-kids-camera",

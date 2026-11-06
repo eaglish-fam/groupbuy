@@ -315,6 +315,14 @@
     "source": "4f1f97b75dd5829543ac1c86186a1f6c48d8aff60cda75337cc438ebc677230d",
     "variant": "e678c086461e3d9c20b1c37047badcaa603a43142281a2202c93bbab0d0fc895"
   },
+  "/assets/wave/cover-480.webp": {
+    "source": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+    "variant": "f503bfbbada6d03bc40e9996a37eb2ecce2760c597bc8f0e59e94c5c9cfe43a5"
+  },
+  "/assets/wave/cover-960.webp": {
+    "source": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+    "variant": "5b147c26c34650bbb8b5d00221d8f8bf10a95176fe8f2fcbcc7505c9f2279e5a"
+  },
   "/assets/wave/family-480.webp": {
     "source": "4a6a88bd35dfdee1793c8ec327cb1c66028e0378abc16569382081f8175a540d",
     "variant": "67f10b03c3107f52739e15ebd19e650115005a7700d72e31778e637ad5fa14c4"
@@ -322,6 +330,14 @@
   "/assets/wave/family-960.webp": {
     "source": "4a6a88bd35dfdee1793c8ec327cb1c66028e0378abc16569382081f8175a540d",
     "variant": "cce88d5fa74675e499ff714b3da32b1f977d0b7964da5432b505282e1cad1e90"
+  },
+  "/assets/wave/product-card-480.webp": {
+    "source": "e248b610284f3ed85f4d8e442a7ab2da17824a9241a9b72f70946c874147fe3a",
+    "variant": "25551de1ac3b4340d954ef467e037a2bd0adcd73958d5e4bafeba429bb9f2292"
+  },
+  "/assets/wave/product-card-960.webp": {
+    "source": "e248b610284f3ed85f4d8e442a7ab2da17824a9241a9b72f70946c874147fe3a",
+    "variant": "944098b29232dc0643bc4c3ff0edfe7403d10b380bd48d4b24fa4fe67f0c4af6"
   },
   "/assets/wave/toast-480.webp": {
     "source": "2f1d6c4de12bd97b5ad0bce1d3e663ee5a80266f233701d9b0e72c5e8f4085c5",
