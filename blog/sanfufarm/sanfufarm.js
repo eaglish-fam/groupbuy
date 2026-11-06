@@ -12,3 +12,9 @@
     poster.height = 360;
   }
 })();
+
+// Booking CTA floats once the reader scrolls past the cover (Hiram 2026-11-06).
+(() => {
+  const cta = document.querySelector('#offer .offer-cta');
+  if (cta && window.ArticleFloatingOffer) window.ArticleFloatingOffer.mount(cta);
+})();
