@@ -1,0 +1,42 @@
+{
+  "schema": "article-package/v4-lite",
+  "editorialStatus": "published",
+  "identity": {
+    "productId": "wave-hummus",
+    "slug": "wave-hummus"
+  },
+  "technicalSeo": {
+    "datePublished": "2026-09-08",
+    "dateModified": "2026-11-06"
+  },
+  "sources": [
+    "Kingdom results/GB-021/（Lydia 初稿）",
+    "賣場 https://www.asimonshop.com/one-page-stores/httpswwwasimonshopcomone-page-storeseaglishfamily（2026-11-06 讀）"
+  ],
+  "siteIntegration": {
+    "brand": "Wave 鷹嘴豆泥",
+    "category": "餐桌日常",
+    "journalCategory": "食品",
+    "excerpt": "Wave 鷹嘴豆泥怎麼吃？解凍拌勻就能直接吃，也能沾蔬菜、配烤肉、加進沙拉與捲餅；認識經典款與香料烤蔬菜即食盒，整理份量與保存重點。",
+    "readLabel": "看五種吃法 →",
+    "cover": "/assets/wave/cover.webp",
+    "card": "/assets/wave/product-card.webp",
+    "coverSource": "/assets/wave/cover-source.html",
+    "coverIdentity": "Wave 鷹嘴豆泥",
+    "catalogKey": "wave",
+    "cardTitle": "Wave 鷹嘴豆泥怎麼吃？直接吃、沾蔬菜、配烤肉",
+    "coverReview": {
+      "identityVisible": true,
+      "realPhotoPreserved": true,
+      "mobileCardLegible": true,
+      "viewportWidths": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "reviewer": "Grace",
+      "reviewScope": "Grace 2026-11-06 看過 GB-021R cover／card 原圖與 288px 縮圖（Ophelia mobile-288px-review.png）及文章頁 320／390／768／1440 實際渲染：品牌字清楚、實拍菇類餐盤未重畫。"
+    }
+  }
+}

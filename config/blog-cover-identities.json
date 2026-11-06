@@ -361,6 +361,27 @@
         "reviewer": "Grace",
         "reviewScope": "Grace 2026-11-06 看過 cover.webp、product-card.webp 原圖，及選物誌卡片與文章頁在 320/390/768/1440（裝置像素比 3）實際渲染：ZooFamily 字樣與標題可讀、家庭實拍未改動。圖稿採用見 RV-20261104-X01；公開上線見 decisions/2026-11-06-hiram-gb019-zoofamily-publish-ok.md。"
       }
+    },
+    "/blog/wave-hummus/": {
+      "identity": "Wave 鷹嘴豆泥",
+      "image": "/assets/wave/cover.webp",
+      "imageSha256": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+      "source": "/assets/wave/cover-source.html",
+      "sourceSha256": "e365e108cdd6c0993ed1e255bfc17fe0ee3686fdd5a6de35b8c728a4bbd53303",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-06 看過 GB-021R cover／card 原圖與 288px 縮圖（Ophelia mobile-288px-review.png）及文章頁 320／390／768／1440 實際渲染：品牌字清楚、實拍菇類餐盤未重畫。"
+      }
     }
   }
 }
