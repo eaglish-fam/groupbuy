@@ -15,6 +15,22 @@
     "source": "d5af51b7750caaee9031f90f962e4a1e4562fbf958f4c1bf637fd3435521c4f8",
     "variant": "8b031529f3d3daf17337214d058839825f8d7d5ff91af0cf125e3071321e0d64"
   },
+  "/assets/bernie/cover-480.webp": {
+    "source": "25b20050dff1403754fee055aac92cc9f09c636322673162c424d0563a9b6fda",
+    "variant": "adaca8514edf52812d3ef273acd60a237457c42fe2399b19e892200d96d68ea5"
+  },
+  "/assets/bernie/cover-960.webp": {
+    "source": "25b20050dff1403754fee055aac92cc9f09c636322673162c424d0563a9b6fda",
+    "variant": "e114a4a9f84c85ccd189b84868b2c50fa8f211a645f474bd2c7a4b6fb408de42"
+  },
+  "/assets/bernie/product-card-480.webp": {
+    "source": "f5d60059d5e9e9f8e68538840ac03210a3c040ccb789dc630e409d4c4c6551f7",
+    "variant": "f5605f6f0bfaa30ce9782fa74d318dfb2f0ce6d8412568305cc3b4488593d7b1"
+  },
+  "/assets/bernie/product-card-960.webp": {
+    "source": "f5d60059d5e9e9f8e68538840ac03210a3c040ccb789dc630e409d4c4c6551f7",
+    "variant": "50ffb28d7e665d78a152b3d4e984a460fb84277d7241d5555b8dec549973d4cc"
+  },
   "/assets/blackmores/cover-480.webp": {
     "source": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
     "variant": "ad05aedc8fbb880e650fb2fa4b6d4a09a95a4d2465abd6d5961c9581c8b5291d"

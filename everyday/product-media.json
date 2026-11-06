@@ -2,6 +2,28 @@
  "schema": "eaglish.play-media/v2",
  "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
+  "伯尼寢具": [
+   {
+    "src": "/assets/bernie/fabric.webp",
+    "alt": "手掌貼著白底彩色點點的被面"
+   },
+   {
+    "src": "/assets/bernie/reading.webp",
+    "alt": "媽媽與兩個孩子在白底點點被面上一起看繪本"
+   },
+   {
+    "src": "/assets/bernie/beige-bed.webp",
+    "alt": "米色床組鋪在窗邊的床上，媽媽側躺在床面"
+   },
+   {
+    "src": "/assets/bernie/beige-fold.webp",
+    "alt": "手捏起米色布料，布面沿指尖聚成細褶"
+   },
+   {
+    "src": "/assets/bernie/bedside-books.webp",
+    "alt": "兩本書放在素色床面一角"
+   }
+  ],
   "三富休閒農場": [
    {
     "src": "/assets/sanfufarm/forest-1400.webp",
