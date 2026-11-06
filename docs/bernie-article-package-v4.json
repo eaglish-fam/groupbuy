@@ -1,0 +1,482 @@
+{
+  "schema": "eaglish.article-package/v4",
+  "editorialStatus": "blocked",
+  "identity": {
+    "productId": "bernie",
+    "productName": "伯尼寢具",
+    "slug": "bernie",
+    "categoryModule": "household_goods",
+    "mappingStatus": "candidate slug per GB-037, product-content integration not executed",
+    "scope": {
+      "includedFamilies": [
+        "舒芙水洗被",
+        "天絲床包枕套組",
+        "60 支天絲床包兩用被組"
+      ],
+      "includedModels": [],
+      "variantsKeptTogether": [
+        "花色與尺寸"
+      ],
+      "excludedSiblings": [
+        "未討論款式"
+      ],
+      "legacyOnly": []
+    }
+  },
+  "brief": {
+    "intent": "commercial_investigation",
+    "primaryQuery": "伯尼寢具怎麼選",
+    "readerJob": "選出需要換的寢具件數、量到合適尺寸並核對出貨",
+    "angle": "先看家裡缺哪一件，再看花色與尺寸",
+    "title": "伯尼寢具選物指南：天絲床包、舒芙水洗被怎麼挑？｜鷹家選物誌",
+    "h1": "伯尼寢具：只換一件被子，還是換整套床組？",
+    "metaDescription": "伯尼寢具選物指南：用家庭實拍看白底點點和米色床面，比較舒芙水洗被、單件兩用被、無被套床包枕套組與完整床組，再按床墊高度、換洗習慣及現貨預購挑選。",
+    "openingAnswer": "伯尼寢具怎麼選？床包還合用、只想多一件被子，先看舒芙水洗被，或天絲系列的單件兩用被。想一起換床包和枕套，再看整組；如果被子不用換，選「床包枕套組（無被套）」就好。",
+    "relatedQuestions": [
+      "單買還是整套？",
+      "床包尺寸怎麼量？",
+      "天絲與水洗被怎麼洗？"
+    ]
+  },
+  "sources": [
+    {
+      "id": "offer",
+      "kind": "vendor",
+      "locator": "https://gbf.tw/jgwpo",
+      "observedAt": "2026-11-05"
+    },
+    {
+      "id": "maker",
+      "kind": "manufacturer",
+      "locator": "https://www.bonybed.com/categories/60tencel",
+      "observedAt": "2026-11-05"
+    },
+    {
+      "id": "care",
+      "kind": "manufacturer",
+      "locator": "https://www.bonybed.com/pages/sweetday",
+      "observedAt": "2026-11-05"
+    },
+    {
+      "id": "family-photos",
+      "kind": "supplied_assets",
+      "locator": "Kingdom results/GB-037/photos/",
+      "observedAt": "2026-11-05"
+    }
+  ],
+  "claims": [
+    {
+      "id": "options",
+      "text": "當團列單件舒芙被、單件兩用被、無被套床包枕套組及床包兩用被組",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "offer"
+      ]
+    },
+    {
+      "id": "size",
+      "text": "花色的規格選項不完全相同，依選定品項尺寸",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "offer"
+      ]
+    },
+    {
+      "id": "look",
+      "text": "家庭實拍顯示白底彩點與素米色床面",
+      "type": "first_party_observation",
+      "sourceIds": [
+        "family-photos"
+      ]
+    },
+    {
+      "id": "care",
+      "text": "伯尼洗護建議翻面、洗衣袋、中性洗劑、柔洗",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "care"
+      ]
+    },
+    {
+      "id": "round",
+      "text": "11/05–11/11 23:59；特定舒芙款 NT$990 且限宅配",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "offer"
+      ]
+    },
+    {
+      "id": "delivery",
+      "text": "11/06 起現貨依付款順序；混合單先現貨，後補寄預購不加運費",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "offer"
+      ]
+    },
+    {
+      "id": "freight",
+      "text": "本島一般地區滿千免運，未滿 NT$75",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "offer"
+      ]
+    },
+    {
+      "id": "origin",
+      "text": "天絲床包中國製台商監製；獨立筒枕及保潔墊台灣製",
+      "type": "confirmed_product_fact",
+      "sourceIds": [
+        "offer"
+      ]
+    }
+  ],
+  "coverage": [
+    {
+      "factId": "options",
+      "summary": "當團列單件舒芙被、單件兩用被、無被套床包枕套組及床包兩用被組",
+      "disposition": "body",
+      "location": "choose"
+    },
+    {
+      "factId": "size",
+      "summary": "花色的規格選項不完全相同，依選定品項尺寸",
+      "disposition": "body",
+      "location": "measure"
+    },
+    {
+      "factId": "look",
+      "summary": "家庭實拍顯示白底彩點與素米色床面",
+      "disposition": "body",
+      "location": "look"
+    },
+    {
+      "factId": "care",
+      "summary": "伯尼洗護建議翻面、洗衣袋、中性洗劑、柔洗",
+      "disposition": "body",
+      "location": "care"
+    },
+    {
+      "factId": "round",
+      "summary": "11/05–11/11 23:59；特定舒芙款 NT$990 且限宅配",
+      "disposition": "body",
+      "location": "buy"
+    },
+    {
+      "factId": "delivery",
+      "summary": "11/06 起現貨依付款順序；混合單先現貨，後補寄預購不加運費",
+      "disposition": "body",
+      "location": "buy"
+    },
+    {
+      "factId": "freight",
+      "summary": "本島一般地區滿千免運，未滿 NT$75",
+      "disposition": "body",
+      "location": "buy"
+    },
+    {
+      "factId": "origin",
+      "summary": "天絲床包中國製台商監製；獨立筒枕及保潔墊台灣製",
+      "disposition": "body",
+      "location": "buy"
+    },
+    {
+      "factId": "unverified-offer-floor",
+      "summary": "NT$1,980 非確定完整套組起價",
+      "disposition": "omitted",
+      "reason": "同條目含單件被與整組選項，不把顯示最低價推為完整套組"
+    },
+    {
+      "factId": "release",
+      "summary": "正式發布與照片採用",
+      "disposition": "blocked",
+      "reason": "候選尚未得到同版公開發布核准"
+    }
+  ],
+  "media": [
+    {
+      "id": "fabric",
+      "path": "/assets/bernie/fabric.webp",
+      "sourceId": "family-photos",
+      "basis": "Hiram 提供的家庭實拍，僅供私人候選審稿",
+      "purpose": "editorial_scene",
+      "productIds": [],
+      "shows": "手掌貼著白底彩色點點的被面",
+      "alt": "手掌貼著白底彩色點點的被面",
+      "caption": "",
+      "identityStatus": "generic_scene",
+      "sha256": "7290388fb7ad299350259bcf72a12cace0916fd8cc10128490a1c10c97482e05",
+      "source": {
+        "n": 5,
+        "name": "01M6MSKT2CRAQTW7B7ZA6WYMHW.jpg",
+        "sha": "b73d7b977be273999854250d198f197cc4c308eb"
+      },
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "id": "reading",
+      "path": "/assets/bernie/reading.webp",
+      "sourceId": "family-photos",
+      "basis": "Hiram 提供的家庭實拍，僅供私人候選審稿",
+      "purpose": "editorial_scene",
+      "productIds": [],
+      "shows": "媽媽與兩個孩子在白底點點被面上一起看繪本",
+      "alt": "媽媽與兩個孩子在白底點點被面上一起看繪本",
+      "caption": "",
+      "identityStatus": "generic_scene",
+      "sha256": "8d6e1f8e378febe85aa06f3d8e50d337886a3b69f1991081f2acce908fd4f55b",
+      "source": {
+        "n": 12,
+        "name": "01M6MSMFK27Z587XPQHHE14VPS.jpg",
+        "sha": "e1c298734e9cc4e073c79af07cf274688aad5077"
+      },
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "id": "beige-bed",
+      "path": "/assets/bernie/beige-bed.webp",
+      "sourceId": "family-photos",
+      "basis": "Hiram 提供的家庭實拍，僅供私人候選審稿",
+      "purpose": "editorial_scene",
+      "productIds": [],
+      "shows": "米色床組鋪在窗邊的床上，媽媽側躺在床面",
+      "alt": "米色床組鋪在窗邊的床上，媽媽側躺在床面",
+      "caption": "",
+      "identityStatus": "generic_scene",
+      "sha256": "f052c7189587f876dd7adf836812dd2e619063f9cf11a4ba04599f60137fcd68",
+      "source": {
+        "n": 22,
+        "name": "01M6MSNDAG38BEV5ESS250T6ZZ.jpg",
+        "sha": "072a600de365dee0353835a42425818ad485df74"
+      },
+      "width": 1200,
+      "height": 800
+    },
+    {
+      "id": "beige-fold",
+      "path": "/assets/bernie/beige-fold.webp",
+      "sourceId": "family-photos",
+      "basis": "Hiram 提供的家庭實拍，僅供私人候選審稿",
+      "purpose": "editorial_scene",
+      "productIds": [],
+      "shows": "手捏起米色布料，布面沿指尖聚成細褶",
+      "alt": "手捏起米色布料，布面沿指尖聚成細褶",
+      "caption": "",
+      "identityStatus": "generic_scene",
+      "sha256": "4073ad6bb48d708a1b015b1f75f913939940c8df6b69b02e0a6d3179e5a6ef2c",
+      "source": {
+        "n": 27,
+        "name": "01M6MSNY9X7BG1F4HZVFZ71GVF.jpg",
+        "sha": "44a8d055295c62a18c928ecf4d92fd098d61621c"
+      },
+      "width": 700,
+      "height": 1051
+    },
+    {
+      "id": "bedside-books",
+      "path": "/assets/bernie/bedside-books.webp",
+      "sourceId": "family-photos",
+      "basis": "Hiram 提供的家庭實拍，僅供私人候選審稿",
+      "purpose": "editorial_scene",
+      "productIds": [],
+      "shows": "兩本書放在素色床面一角",
+      "alt": "兩本書放在素色床面一角",
+      "caption": "",
+      "identityStatus": "generic_scene",
+      "sha256": "8d1db4bac39bee6bc8a753c4abc3f16ab147d7552e832297c6bcced48dc9e1b2",
+      "source": {
+        "n": 29,
+        "name": "01M6MSP6V3316HP42GRNY22XFY.jpg",
+        "sha": "d0ab71ee502a8900dc9e331cb785d022ffd39fdc"
+      },
+      "width": 700,
+      "height": 1051
+    },
+    {
+      "id": "cover",
+      "path": "/assets/bernie/cover.webp",
+      "sourceId": "family-photos",
+      "basis": "Hiram 實拍＋HTML/CSS 排字；不改人物或商品外觀",
+      "purpose": "cover",
+      "productIds": [],
+      "shows": "媽媽和兩個孩子在白底彩色點點的被面上共讀繪本，旁有伯尼寢具標題",
+      "alt": "媽媽和兩個孩子在白底彩色點點的被面上共讀繪本，旁有伯尼寢具標題",
+      "caption": "",
+      "identityStatus": "generic_scene",
+      "sha256": "25b20050dff1403754fee055aac92cc9f09c636322673162c424d0563a9b6fda",
+      "source": {
+        "n": 11,
+        "name": "01M6MSMBYAZ8F6A3X2560PBZAQ.jpg",
+        "sha": "8243e9b552fe77bd75b8e23bc486b1b8854670a2"
+      },
+      "width": 1600,
+      "height": 1000
+    },
+    {
+      "id": "product-card",
+      "path": "/assets/bernie/product-card.webp",
+      "sourceId": "family-photos",
+      "basis": "Hiram 實拍＋HTML/CSS 排字；不改人物或商品外觀",
+      "purpose": "editorial_scene",
+      "productIds": [],
+      "shows": "媽媽和兩個孩子在白底彩色點點的被面上共讀繪本，旁有伯尼寢具標題",
+      "alt": "媽媽和兩個孩子在白底彩色點點的被面上共讀繪本，旁有伯尼寢具標題",
+      "caption": "",
+      "identityStatus": "generic_scene",
+      "sha256": "f5d60059d5e9e9f8e68538840ac03210a3c040ccb789dc630e409d4c4c6551f7",
+      "source": {
+        "n": 11,
+        "name": "01M6MSMBYAZ8F6A3X2560PBZAQ.jpg",
+        "sha": "8243e9b552fe77bd75b8e23bc486b1b8854670a2"
+      },
+      "width": 1000,
+      "height": 750
+    }
+  ],
+  "mediaCoverage": [
+    {
+      "productId": "washable-quilt",
+      "publicName": "舒芙水洗被",
+      "disposition": "text_only",
+      "reason": "實拍用於生活情境及布面，不把花色或材質強綁當期 SKU",
+      "mediaIds": [],
+      "location": "choose"
+    },
+    {
+      "productId": "tencel-sheets",
+      "publicName": "天絲床包枕套組",
+      "disposition": "text_only",
+      "reason": "實拍用於生活情境及布面，不把花色或材質強綁當期 SKU",
+      "mediaIds": [],
+      "location": "choose"
+    },
+    {
+      "productId": "tencel-quilt-set",
+      "publicName": "60 支天絲床包兩用被組",
+      "disposition": "text_only",
+      "reason": "實拍用於生活情境及布面，不把花色或材質強綁當期 SKU",
+      "mediaIds": [],
+      "location": "choose"
+    }
+  ],
+  "categoryCoverage": [
+    {
+      "question": "用途",
+      "location": "choose",
+      "disposition": "body"
+    },
+    {
+      "question": "尺寸與相容",
+      "location": "measure",
+      "disposition": "body"
+    },
+    {
+      "question": "花色與搭配",
+      "location": "look",
+      "disposition": "body"
+    },
+    {
+      "question": "清洗維護",
+      "location": "care",
+      "disposition": "body"
+    },
+    {
+      "question": "下單與出貨",
+      "location": "buy",
+      "disposition": "body"
+    }
+  ],
+  "answerBlocks": [
+    {
+      "question": "伯尼寢具該買單件還是整組？",
+      "answer": "床包還合用、只想多一件被子，先看舒芙水洗被，或天絲系列的單件兩用被。想一起換床包和枕套，再看整組；如果被子不用換，選「床包枕套組（無被套）」就好。",
+      "claimIds": [
+        "options"
+      ]
+    },
+    {
+      "question": "伯尼寢具本期現貨何時出貨？",
+      "answer": "現貨自 11/06 依付款完成順序出貨；預購款依各選項的到貨標示。同單有現貨與預購，賣場說明會先寄現貨、預購到貨再補寄，不另收運費。",
+      "claimIds": [
+        "delivery"
+      ]
+    }
+  ],
+  "technicalSeo": {
+    "author": {
+      "type": "Organization",
+      "name": "鷹式一家",
+      "url": "https://www.eaglish.store/"
+    },
+    "datePublished": "2026-11-06",
+    "dateModified": "2026-11-05",
+    "social": {
+      "ogImage": "https://www.eaglish.store/assets/bernie/cover.webp",
+      "ogImageAlt": "媽媽和兩個孩子在白底彩色點點的被面上共讀繪本，旁有伯尼寢具標題",
+      "width": 1600,
+      "height": 1000,
+      "twitterCard": "summary_large_image"
+    },
+    "structuredData": [
+      "Article",
+      "BreadcrumbList"
+    ],
+    "crawlableOfferFallback": "/#catalog",
+    "publicationStatus": "private_preview_noindex; release JSON-LD pending date and integration"
+  },
+  "bodyText": "伯尼寢具怎麼選？ 床包還合用、只想多一件被子，先看舒芙水洗被，或天絲系列的單件兩用被。想一起換床包和枕套，再看整組；如果被子不用換，選「床包枕套組（無被套）」就好。 照片裡，媽媽和兩兄弟趴在床上翻繪本，白底上是一點一點的彩色紋樣。床上的布不只在睡覺時看得到，白天拉開窗簾，花色也跟著出現在房間裡。挑這次要換的寢具，可以先留住用得順手的幾件，再想哪一件最需要換。 單買還是整套 尺寸怎麼量 點點與米色 換洗與保養 本期下單須知 01 ／ 買前先數件數 只缺一件被子，還是想換整張床？ 先打開家裡的寢具櫃。能繼續用的床包、枕套和被子各有幾件？床包已經有替換，只有被子不夠，就不必為了一個喜歡的花色多買整套。反過來，如果床包常常洗了來不及乾，優先補床包，問題比較快解決。 只補一件被子 看舒芙水洗被，或天絲系列裡的「單一件兩用被」選項。這兩種都不要當成包含床包的整組。 只想換貼身那一層 看「床包枕套組（無被套）」。原本的被子與被套用得順手，就留著一起搭。 想連被面一起換 看「床包兩用被組」。同一個花色的商品頁也可能列單件；選好規格後，再對一次件數與總價。 02 ／ 床墊和被子分開量 尺寸別只看「雙人」 床包要套的是床墊。量長、寬與高度，平常一起包在裡面的保潔墊也算進去，再對選定花色的床包尺寸和可包覆高度。同一系列不是每個花色都提供相同的尺寸；先把尺寸篩掉，再選顏色，才不會到下單時才發現沒有能用的規格。 被子的大小則照家裡怎麼蓋來想：同一張床，有人兩人共蓋，有人各蓋一件。可以把現在蓋得最順手的被子攤開量一次，拿這個數字比商品標示。枕套也照枕頭的長寬和需要的件數核對，別讓「雙人」兩個字替你做完三種決定。 03 ／ 同一間房的兩種鋪法 想留一點花色，還是讓床面安靜一點？ 白底的彩色點點，遠看仍是一大片淺色；走到床邊才看得到散落的小色塊。想留一點童趣，但不想讓整間房都變得繽紛，可以把花色放在被面，床包、枕套留在原本的素色。 米色實拍裡，床面和木色、窗邊的光接在一起，畫面比較安靜。如果房間已經有花窗簾或顏色比較多的抱枕，可以先從素色挑起。手上如果有一條喜歡的被子，也可以先看看它跟家裡原有床包搭不搭，再決定需不需要買整組。 04 ／ 洗得下，才換得過來 天絲床包和整件被子，洗法分開看 天絲床包、枕套和被套，伯尼建議翻面入洗衣袋，以中性洗劑柔洗；不同款式仍以各自洗標為準。舒芙水洗被雖然可水洗，下單前也要看家裡洗衣機是否有足夠空間，以及洗後在哪裡晾。床包洗得下，不代表整件被子也能用同一種洗法。 如果只是洗了沒得換，先從最常換、最難等乾的那一件補起。家裡已有替換床包，卻沒有第二件能蓋的被子，就從單件被子選；不用先買齊一整套。也可以參考我們整理的 家庭巾類的換洗安排 ，用自己實際洗衣的間隔估數量。 05 ／ 當期團購資訊 下單前，再對一次規格和出貨 本期為 2026/11/05–11/11，11/11 晚上 23:59 關單。賣場有部分舒芙水洗被標示 NT$990（僅宅配）；天絲系列先選尺寸和件數，再看結帳金額，不拿單件被子的價錢比整組。 現貨自 11/06 依付款完成順序出貨；預購款依各選項的到貨標示。同單有現貨與預購，賣場說明會先寄現貨、預購到貨再補寄，不另收運費。本島一般地區單筆滿 NT$1,000 免運，未滿 NT$75。天絲床包標示中國製、台商監製；獨立筒枕與保潔墊標示台灣製。 選好後請確認花色、尺寸、件數與出貨狀態。價格、可選款式及出貨資訊，以賣場當下標示為準。 查看伯尼寢具本期團購 ↗ 本文為鷹式一家團購選物介紹，含團購連結。",
+  "releaseCandidate": {
+    "articleRoute": "/blog/bernie/",
+    "surfaces": [
+      "article",
+      "blog_index",
+      "product_card",
+      "sitemap",
+      "robots"
+    ],
+    "productLookupKey": "伯尼寢具",
+    "assetPaths": [
+      "/assets/bernie/fabric.webp",
+      "/assets/bernie/reading.webp",
+      "/assets/bernie/beige-bed.webp",
+      "/assets/bernie/beige-fold.webp",
+      "/assets/bernie/bedside-books.webp",
+      "/assets/bernie/cover.webp",
+      "/assets/bernie/product-card.webp"
+    ],
+    "integrationExecuted": false,
+    "isProposalOnly": true
+  },
+  "siteIntegration": {
+    "brand": "伯尼寢具",
+    "category": "居家選物",
+    "journalCategory": "居家",
+    "excerpt": "伯尼寢具選物指南：用家庭實拍看白底點點和米色床面，比較舒芙水洗被、單件兩用被、無被套床包枕套組與完整床組，再按床墊高度、換洗習慣及現貨預購挑選。",
+    "readLabel": "看床包與被子怎麼挑 →",
+    "cover": "/assets/bernie/cover.webp",
+    "card": "/assets/bernie/product-card.webp",
+    "coverSource": "/assets/bernie/cover-source.html",
+    "coverIdentity": "伯尼寢具",
+    "catalogKey": "bernie",
+    "coverReview": {
+      "identityVisible": true,
+      "realPhotoPreserved": true,
+      "mobileCardLegible": true,
+      "viewportWidths": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "reviewer": "Grace",
+      "reviewScope": "Grace 2026-11-06 看過 cover.webp、product-card.webp 原圖，以及選物誌卡片與文章頁在 320/390/768/1440 寬的實際渲染：伯尼寢具字樣清楚、家庭實拍未改動。"
+    }
+  },
+  "localCandidate": {
+    "noIndex": true,
+    "publicReleaseAuthorized": false,
+    "offerLink": "https://gbf.tw/jgwpo",
+    "offerLinkMode": "private preview verified source only; live fail-closed Sheet wiring required before release"
+  }
+}
