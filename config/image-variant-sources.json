@@ -330,5 +330,21 @@
   "/assets/wave/toast-960.webp": {
     "source": "2f1d6c4de12bd97b5ad0bce1d3e663ee5a80266f233701d9b0e72c5e8f4085c5",
     "variant": "6a5604bc1b077d88f6575fe2629dc407bdf2f81637e6ead59cee1b267ae8867a"
+  },
+  "/assets/zoofamily-kids-camera/cover-480.webp": {
+    "source": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+    "variant": "e987d9603084f4a8c0db3081c71864eebdee559d0079125108e14e679a51c370"
+  },
+  "/assets/zoofamily-kids-camera/cover-960.webp": {
+    "source": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+    "variant": "af526aeb9d1eb23352153a55ea66bed012be11a1afaf8ed5f8c5899d8e55a20a"
+  },
+  "/assets/zoofamily-kids-camera/product-card-480.webp": {
+    "source": "e5d9fb35d4316726eaa810beb477926870602aff41a4fb0c384bec90d3a40cbe",
+    "variant": "610254b0439a20e7cec79c10ff04dcf8d475310571b253e1be047a56a4c6dfa1"
+  },
+  "/assets/zoofamily-kids-camera/product-card-960.webp": {
+    "source": "e5d9fb35d4316726eaa810beb477926870602aff41a4fb0c384bec90d3a40cbe",
+    "variant": "8f66ffd9c511c32ebb2fc02020fd64607750e055f6a1ce103a28466963a23768"
   }
 }
