@@ -2,6 +2,24 @@
  "schema": "eaglish.play-media/v2",
  "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
+  "比利時 ZooFamily 兒童相機": [
+   {
+    "src": "/assets/zoofamily-kids-camera/hiram-06.webp",
+    "alt": "ZooFriends 長頸鹿造型相機"
+   },
+   {
+    "src": "/assets/zoofamily-kids-camera/hiram-05.webp",
+    "alt": "UrbanZoo 狐狸造型相機"
+   },
+   {
+    "src": "/assets/zoofamily-kids-camera/hiram-04.webp",
+    "alt": "孩子雙手拿著 ZooPrint 冒險綠龍相機"
+   },
+   {
+    "src": "/assets/zoofamily-kids-camera/hiram-10.webp",
+    "alt": "ZooPrint 冒險綠龍相機、鏡頭蓋與列印照片"
+   }
+  ],
   "伯尼寢具": [
    {
     "src": "/assets/bernie/fabric.webp",

@@ -552,6 +552,26 @@
       "published": "2026-09-08",
       "modified": "2026-09-11",
       "sourceHash": "273ca38f946fd99434085f270f7bc6c3701278bf160ae06801585f831cdef3b5"
+    },
+    {
+      "slug": "zoofamily-kids-camera",
+      "url": "https://www.eaglish.store/blog/zoofamily-kids-camera/",
+      "title": "ZooFamily 兒童相機怎麼選？四款功能、年齡與價格比較｜鷹家選物誌",
+      "productNames": [
+        "比利時 ZooFamily 兒童相機"
+      ],
+      "productId": "zoofamily-kids-camera",
+      "mode": "product",
+      "intent": "product:zoofamily-kids-camera",
+      "topics": [
+        "ZooFamily",
+        "兒童相機",
+        "拍立得相機"
+      ],
+      "cluster": null,
+      "published": "2026-11-06",
+      "modified": "2026-11-06",
+      "sourceHash": "6ab3836debb7943e20bb646bc14ce7faab048187db311d7ad60d477e5e319493"
     }
   ]
 }
