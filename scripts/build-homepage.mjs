@@ -10,6 +10,7 @@ const productMediaRelease = '20261108-insta360';
 const designScriptRelease = '20261103-gb026a';
 // catalog-core.js decides open/upcoming for the home page and /calendar/; bumped so LINE and phones drop the cached copy (GB-015-6).
 const catalogCoreRelease = '20261103-gb026a';
+const campaignBannersRelease = '20261108-luna-link';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
   .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];
@@ -69,6 +70,7 @@ if(!html.includes('data-snapshot-card'))throw Error('Homepage snapshot insertion
 html = html.replace(/((?:src|href)="\/[^"]+\.(?:js|css))(?:\?[^"]*)?"/g, '$1?v=' + release + '"');
 html = html.replace(`src="/design/design.js?v=${release}"`, `src="/design/design.js?v=${designScriptRelease}"`);
 html = html.replace(`src="/design/catalog-core.js?v=${release}"`, `src="/design/catalog-core.js?v=${catalogCoreRelease}"`);
+html = html.replace(`src="/design/campaign-banners.js?v=${release}"`, `src="/design/campaign-banners.js?v=${campaignBannersRelease}"`);
 for (const file of ['design.css','mobile-grid.css','complete-content.css']) {
   html = html.replace(`href="/design/${file}?v=${release}"`, `href="/design/${file}?v=${productMediaRelease}"`);
 }

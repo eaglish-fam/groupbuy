@@ -17,7 +17,7 @@
       period: "即日起至 11/13（五）23:59（台北時間）",
       lines: ["Luna Ultra 創作者套裝 85 折起", "Care／FlexiCare 8 折", "雲端儲存 9 折"],
       gift: "活動期間用折扣碼 INRAEZ8 購買 Luna Ultra 創作者套裝，另送迷你磁吸補光燈，總量 30 份，送完為止。",
-      url: "https://store.insta360.com/tw/product/luna-series?c=6767&from=nav_product",
+      url: "https://store.insta360.com/product/luna-series?utm_source=AffiliateCenter&utm_medium=copylink&utm_term=INRAEZ8",
       linkLabel: "前往 Luna 系列活動頁",
       note: "優惠內容、價格與贈品以 Insta360 官網活動頁為準。",
       source: "Hiram 2026-11-08 11:57（台北）Bingo 對話；Kingdom PR #1 留言 6716976149",
