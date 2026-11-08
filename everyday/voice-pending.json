@@ -1,0 +1,4 @@
+{
+  "note": "GB-028g（2026-11-08）：角色卡換成日常里新設定，這些段落的文字改了，舊錄音不再播放（play.js 只播文字相符的錄音）。重錄要用 VoAI 點數，等 Hiram 說可以再跑 node scripts/build-play-voice.mjs，跑完把這裡清空。",
+  "keys": ["shihan/intro", "shihan/s0", "shihan/r0", "shihan/s1", "shihan/r1", "shihan/s2", "shihan/r2", "shihan/s3", "shihan/r3", "shihan/s4", "shihan/r4", "shihan/s5", "shihan/r5", "shihan/s6", "shihan/r6", "jiahao/s1", "jiahao/r1", "peishan/intro", "shufen/s0"]
+}

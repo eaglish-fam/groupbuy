@@ -42,7 +42,7 @@
   const characters = [
     {
       id: "kexin", name: "林可昕", art: "/assets/play/characters/kexin.webp", nick: "可昕", age: 22, gender: "f",
-      role: "剛畢業的行銷助理", place: "新北通勤到台北", groups: ["work"],
+      role: "剛畢業的行銷助理", place: "日常大樓 3F，通勤到台北", groups: ["work"],
       color: "#d8a35d", tagline: "第一份工作第三個月，正在學著照顧自己。",
       goal: "把第一份工作做好，也把自己照顧好", goalShort: "照顧好自己",
       match: { ages: ["20 多歲"], kids: [], rhythms: ["commute"], goals: ["self", "food"] },
@@ -58,33 +58,34 @@
       ],
     },
     {
-      id: "shihan", name: "黃詩涵", art: "/assets/play/characters/shihan.webp", nick: "詩涵", age: 30, gender: "f",
-      role: "雙薪家庭的媽媽・會計", place: "桃園", groups: ["mom", "work"],
-      color: "#c46b4e", tagline: "女兒小米 14 個月，正扶著沙發學走路。",
-      goal: "讓小米安心學走路，自己也能喘口氣", goalShort: "安心育兒",
-      match: { ages: ["30 多歲"], kids: ["toddler", "baby"], rhythms: ["commute"], goals: ["kids", "self"] },
-      story: "詩涵和先生都上班，白天小米給保母帶，晚上和週末是一家三口的時間。小米最近什麼都想摸、什麼都想爬，詩涵最在意的是：家裡怎麼讓她安心探索，自己又能喘口氣。",
+      id: "shihan", name: "黃詩涵", art: "/assets/play/characters/shihan.webp", nick: "詩涵", age: 35, gender: "f",
+      role: "雙薪家庭的媽媽・會計", place: "日常大樓 7A", groups: ["mom", "work"],
+      color: "#c46b4e", tagline: "小麥 9 歲、小米 5 歲，對門 7B 是最常串門子的雅婷一家。",
+      goal: "把兩個女兒和這個家顧得好好的，也留一點時間給自己", goalShort: "顧好這個家",
+      match: { ages: ["30 多歲"], kids: ["school", "preschool"], rhythms: ["commute"], goals: ["kids", "home", "food"] },
+      story: "詩涵和先生阿哲都上班。早上趕小麥上學、送小米去幼兒園，晚上煮飯、功課、洗澡，一樣一樣排得井井有條。她常常多煮一點，裝一盒送去對門。",
       avatar: { skin: "#f1cdb0", hair: "#3a2a22", style: "bob", shirt: "#c46b4e", acc: "none", kid: { skin: "#f6d9c3", hair: "#3a2a22" } },
       day: [
-        { time: "06:40", title: "小米醒了就想往下爬", text: "她扶著床邊站起來，搖搖晃晃走了兩步就跌坐下去。客廳木地板很硬，詩涵每次都心頭一緊。", need: "學走路、跌坐時的柔軟地面", options: [B.alzip, B.playzu], alts: [B.mitoy], reaction: "「鋪好之後，她跌坐下去自己拍拍手又站起來了。」" },
-        { time: "07:30", title: "早餐自己抓著吃", text: "小米堅持自己吃，蒸地瓜捏得滿桌都是，碗也被推到地上。", need: "孩子自己練習吃飯的餐具", options: [B.deer, B.meroware], alts: [B.locknlock], reaction: "「讓她自己吃吧，練習本來就會弄髒。」" },
-        { time: "18:40", title: "邊煮飯邊顧孩子", text: "接回小米後要準備晚餐，她需要一樣小米能專心玩一陣子的東西，最好放進嘴巴也不會讓人太緊張。", need: "讓孩子自己專心玩一陣子", options: [B.mitoy], alts: [B.shinwa, B.giiker], reaction: "「她把積木疊起來又推倒，笑了好久，我終於把湯煮好了。」" },
-        { time: "20:00", title: "玩具散滿地", text: "收玩具收到懷疑人生。詩涵想要一個小米長大後自己也會用的收納。", need: "孩子也能一起收的收納", options: [B.plafarm], alts: [B.shoumaji], reaction: "「我們來比賽，誰先把積木放回家！」" },
-        { time: "20:30", title: "洗澡時間", text: "小米洗完澡一直扭來扭去，要快快包起來擦乾。", need: "孩子洗澡後的浴巾與小方巾", options: [B.lange], alts: [B.atojet], reaction: "「包起來像一顆小飯糰。」" },
-        { time: "22:30", title: "終於輪到自己", text: "孩子睡了、碗洗了，詩涵躺上床時腰還在痠。明天六點半又要起床。", need: "讓大人也睡好", options: [B.emma], alts: [B.blackmores, B.juice], reaction: "「媽媽睡飽，明天才有力氣陪她走路。」" },
+        { time: "06:50", title: "姊妹搶著自己盛早餐", text: "小米堅持要跟姊姊一樣自己盛粥，湯匙一歪，桌上又多了一灘。小麥已經在門口催了。", need: "孩子自己吃飯、不怕摔的餐具", options: [B.deer, B.meroware], alts: [B.locknlock], reaction: "「慢慢來，自己盛的最好吃。」" },
+        { time: "07:20", title: "小麥的水壺呢？", text: "校車快到了，小麥的水壺還在洗碗槽裡，蓋子不知道又跑去哪裡。", need: "孩子願意帶、好拆洗的水壺", options: [B.locknlock, B.deer], alts: [], reaction: "「自己的水壺，回家自己拿出來洗喔。」" },
+        { time: "17:40", title: "小米在客廳翻跟斗", text: "從幼兒園回來，小米精力還是滿的，在沙發和地板之間跳來跳去，樓下應該也聽得到。", need: "孩子在家跳跳跑跑的柔軟地面", options: [B.alzip, B.playzu], alts: [B.mitoy], reaction: "「鋪好之後，翻跟斗也不怕了，樓下也安靜多了。」" },
+        { time: "18:30", title: "多煮了一點，拿去！", text: "今天燉了一鍋滷肉，詩涵照例裝了一盒，端去對門給雅婷家。", need: "裝菜送鄰居、也好收進冰箱的保鮮盒", options: [B.locknlock], alts: [B.fushanFrozen], reaction: "「我多煮了一點，拿去！盒子下次再還我就好。」" },
+        { time: "19:30", title: "姊姊寫功課，妹妹要人陪", text: "小麥在寫數學，小米一直跑來問「陪我玩」。詩涵想給小米一樣能自己專心玩一陣子的東西。", need: "讓孩子自己專心玩一陣子", options: [B.mitoy], alts: [B.shinwa, B.giiker], reaction: "「妹妹蓋好一座城堡，姊姊的功課也寫完了。」" },
+        { time: "20:15", title: "玩具散滿地", text: "睡前客廳又像被颱風掃過。詩涵想要一個姊妹倆自己就會收的收納。", need: "孩子也能一起收的收納", options: [B.plafarm], alts: [B.shoumaji], reaction: "「我們來比賽，誰先把積木放回家！」" },
+        { time: "22:30", title: "終於輪到自己", text: "孩子睡了、碗洗了，明天的便當也備好了。詩涵躺上床，想好好睡一覺。", need: "讓大人也睡好", options: [B.emma], alts: [B.lange, B.juice], reaction: "「睡飽了，明天才有力氣再把日子排好。」" },
       ],
     },
     {
       id: "jiahao", name: "陳家豪", art: "/assets/play/characters/jiahao.webp", nick: "家豪", age: 37, gender: "m",
-      role: "軟體工程師・兩個孩子的爸爸", place: "新竹", groups: ["dad", "work"],
-      color: "#4f7a6a", tagline: "6 歲和 9 歲，負責接送和睡前共讀。",
+      role: "軟體工程師・兩個孩子的爸爸", place: "日常里巷子裡的三樓透天", groups: ["dad", "work"],
+      color: "#4f7a6a", tagline: "品睿 9 歲、品妍 6 歲，太太輪班，他負責接送和睡前共讀。",
       goal: "少一點螢幕，多一點和孩子一起動手", goalShort: "陪孩子動手",
       match: { ages: ["30 多歲", "40 多歲"], kids: ["school", "preschool"], rhythms: ["commute", "home-work"], goals: ["kids"] },
       story: "家豪下午四點半準時下班去接孩子，那是他和太太說好的分工。回家後功課、晚餐、洗澡、共讀，他想讓孩子少一點螢幕、多一點一起動手的時間。",
       avatar: { skin: "#e8bf9c", hair: "#1f1a17", style: "short", shirt: "#4f7a6a", acc: "glasses", kid: { skin: "#efc9a8", hair: "#1f1a17" } },
       day: [
         { time: "07:10", title: "出門前的水壺大戰", text: "老大說學校的水不好喝，老二的水壺又找不到蓋子。", need: "孩子願意帶、好拆洗的水壺", options: [B.locknlock, B.deer], alts: [], reaction: "「自己的水壺自己背，回家自己拿出來洗。」" },
-        { time: "17:00", title: "寫功課姿勢歪歪", text: "老大趴在餐桌寫作業，越寫越低，背也駝了。", need: "可以調高度的書桌", options: [B.desk], alts: [B.knsh], reaction: "「桌面斜一點，她坐得比較直了。」" },
+        { time: "17:00", title: "寫功課姿勢歪歪", text: "品睿趴在餐桌寫作業，越寫越低，背也駝了。", need: "可以調高度的書桌", options: [B.desk], alts: [B.knsh], reaction: "「桌面斜一點，他坐得比較直了。」" },
         { time: "19:30", title: "晚餐後不想給平板", text: "孩子說無聊。家豪想要一個全家能一起玩、又會動腦的東西。", need: "不用螢幕也好玩的益智遊戲", options: [B.giiker], alts: [B.shinwa, B.mitoy], reaction: "「爸爸你輸了！再一局！」" },
         { time: "20:40", title: "睡前共讀", text: "老二剛開始認注音，老大已經會自己讀短篇故事。", need: "依年齡選的共讀刊物", options: [B.knsh], alts: [B.giiker], reaction: "「每個月收到新的一期，兩個人都搶著先看。」" },
         { time: "週末", title: "跟孩子做一件作品", text: "家豪想陪孩子做點手作，最後可以留在家裡當紀念。", need: "親子一起動手的木作", options: [B.shinwa], alts: [B.mitoy], reaction: "「這台木車是我們三個一起做的。」" },
@@ -92,8 +93,8 @@
     },
     {
       id: "yating", name: "王雅婷", art: "/assets/play/characters/yating.webp", nick: "雅婷", age: 38, gender: "f",
-      role: "業務主管・兩寶媽", place: "台中", groups: ["mom", "travel"],
-      color: "#3f7f9a", tagline: "5 歲和 2 歲，每季一定要安排一次全家旅行。",
+      role: "業務主管・兩寶媽", place: "日常大樓 7B", groups: ["mom", "travel"],
+      color: "#3f7f9a", tagline: "阿樂 9 歲、小豆 2 歲，每季一定要安排一次全家旅行。",
       goal: "讓全家輕鬆出門、開心回家", goalShort: "全家出遊",
       match: { ages: ["30 多歲", "40 多歲"], kids: ["preschool", "toddler"], rhythms: ["commute"], goals: ["trip"] },
       story: "雅婷平常工作很滿，旅行是她給全家的固定約會。她最怕的是行李爆量、孩子曬傷被叮、到了現場才發現房型不適合。所以她習慣把功課做在前面。",
@@ -107,8 +108,8 @@
       ],
     },
     {
-      id: "peishan", name: "吳佩珊", art: "/assets/play/characters/peishan.webp", nick: "佩珊", age: 33, gender: "f",
-      role: "育嬰假中的新手媽媽", place: "台北", groups: ["mom"],
+      id: "peishan", name: "吳佩珊", art: "/assets/play/characters/peishan.webp", nick: "佩珊", age: 30, gender: "f",
+      role: "育嬰假中的新手媽媽", place: "日常大樓 10F", groups: ["mom"],
       color: "#9a6fa8", tagline: "寶寶 4 個月，夜奶兩次，正在找回自己的節奏。",
       goal: "照顧好寶寶，也找回自己的節奏", goalShort: "找回節奏",
       match: { ages: ["30 多歲", "20 多歲"], kids: ["baby"], rhythms: ["leave", "carer"], goals: ["self", "kids"] },
@@ -124,14 +125,14 @@
     },
     {
       id: "shufen", name: "許淑芬", art: "/assets/play/characters/shufen.webp", nick: "淑芬阿姨", age: 56, gender: "f",
-      role: "剛退休、幫忙帶孫的阿嬤", place: "台南", groups: ["senior"],
-      color: "#a5803e", tagline: "週間幫女兒帶 3 歲的孫子，週末想讓自己輕鬆一點。",
+      role: "剛退休、幫忙帶孫的阿嬤", place: "日常大樓 1F", groups: ["senior"],
+      color: "#a5803e", tagline: "住 1 樓，週間幫 7 樓的女兒顧 2 歲的小豆，整棟樓都叫她淑芬阿姨。",
       goal: "顧好孫子、顧好家，也顧好自己的膝蓋", goalShort: "顧家也顧自己",
       match: { ages: ["50 歲以上"], kids: [], rhythms: ["retired", "carer"], goals: ["home", "food"], elder: true },
       story: "淑芬退休後，生活重心變成孫子和家裡。她很會持家，但膝蓋和腰開始不聽話；逢年過節，她總是張羅送禮和家族聚餐的那個人。",
       avatar: { skin: "#ecc5a6", hair: "#8d8780", style: "short-curl", shirt: "#a5803e", acc: "glasses" },
       day: [
-        { time: "09:30", title: "孫子在客廳玩", text: "孫子 3 歲，喜歡把東西堆高再推倒。阿嬤想找安全一點、可以一起玩的玩具。", need: "祖孫一起玩的積木", options: [B.mitoy], alts: [B.shinwa, B.alzip], reaction: "「阿嬤陪你蓋一座城堡。」" },
+        { time: "09:30", title: "孫子在客廳玩", text: "小豆 2 歲，喜歡把東西堆高再推倒。阿嬤想找安全一點、可以一起玩的玩具。", need: "祖孫一起玩的積木", options: [B.mitoy], alts: [B.shinwa, B.alzip], reaction: "「阿嬤陪你蓋一座城堡。」" },
         { time: "11:00", title: "浴室要刷了", text: "浴缸和角落要彎腰刷，膝蓋越來越吃力。", need: "不用一直彎腰的清潔工具", options: [B.artisan], alts: [B.atojet], reaction: "「站著就刷得到，腰不痠了。」" },
         { time: "15:00", title: "準備中秋送禮", text: "要送親戚和女兒公婆，想要體面、大家都吃得慣的。", need: "送得出手的禮盒", options: [B.fushan], alts: [B.juice, B.eben], reaction: "「先挑口味再裝禮盒，送起來有面子。」" },
         { time: "18:00", title: "家族聚餐加菜", text: "週末全家回來吃飯，她想多加一道菜，又不想在廚房站太久。", need: "加熱就能上桌的料理", options: [B.fushanFrozen], alts: [B.fushan], reaction: "「加熱一下就上桌，大家都說好吃。」" },
@@ -140,8 +141,8 @@
     },
     {
       id: "chenghan", name: "李承翰", art: "/assets/play/characters/chenghan.webp", nick: "承翰", age: 32, gender: "m",
-      role: "第一次一個人帶女兒出遊的爸爸", place: "高雄", groups: ["dad", "travel"],
-      color: "#5a6fa6", tagline: "女兒 4 歲，太太出差三天，父女倆的冒險。",
+      role: "第一次一個人帶女兒出遊的爸爸", place: "日常里巷子", groups: ["dad", "travel"],
+      color: "#5a6fa6", tagline: "女兒朵朵 4 歲，太太小麗出差三天，父女倆的冒險。",
       goal: "和女兒完成第一次兩個人的小旅行", goalShort: "父女小旅行",
       match: { ages: ["30 多歲"], kids: ["preschool"], rhythms: ["commute"], goals: ["trip", "kids"] },
       story: "太太出差，承翰決定帶女兒去住一晚農場。他列了一張清單，還是很緊張：防曬、防蚊、吃飯、晚上無聊怎麼辦？",
@@ -156,7 +157,7 @@
     },
     {
       id: "yizhen", name: "蔡宜蓁", art: "/assets/play/characters/yizhen.webp", nick: "宜蓁", age: 27, gender: "f",
-      role: "新婚、在家工作的插畫家", place: "台北小套房", groups: ["work", "home"],
+      role: "新婚、在家工作的插畫家", place: "日常大樓 3F 小套房", groups: ["work", "home"],
       color: "#6b8e4e", tagline: "12 坪的家，兩個人、一隻貓，空間要用得很聰明。",
       goal: "12 坪也能住得清爽、工作得順", goalShort: "小家清爽",
       match: { ages: ["20 多歲"], kids: [], rhythms: ["home-work"], goals: ["home", "food", "self"] },
@@ -171,6 +172,50 @@
       ],
     },
   ];
+
+
+  // 日常里的家人與鄰居（GB-033／GB-034／GB-035 角色設計；設定見鷹家社區設定書）。角色全部虛構。
+  // art 是頭像；home 用來分組。people 是每位主角卡上「身邊的人」，可以指向主角或配角。
+  const A = (id) => `/assets/play/characters/cast/${id}.webp`;
+  const cast = {
+    azhe: { name: "阿哲", role: "詩涵的先生・37 歲", note: "很會修東西，家裡壞了什麼都找他", home: "7A", art: A("azhe") },
+    xiaomai: { name: "小麥", role: "詩涵的大女兒・9 歲小三", note: "跟對門的阿樂同班", home: "7A", art: A("xiaomai") },
+    xiaomi: { name: "小米", role: "詩涵的小女兒・5 歲", note: "什麼都想跟姊姊一樣", home: "7A", art: A("xiaomi") },
+    junhong: { name: "俊宏", role: "雅婷的先生・40 歲", note: "常出差、愛釣魚，回家就被孩子按在地上玩", home: "7B", art: A("junhong") },
+    ale: { name: "阿樂", role: "雅婷的大兒子・9 歲小三", note: "跟對門的小麥同班", home: "7B", art: A("ale") },
+    xiaodou: { name: "小豆", role: "雅婷的小兒子・2 歲", note: "黏媽媽，白天常在 1 樓外婆家", home: "7B", art: A("xiaodou") },
+    amingbo: { name: "阿明伯", role: "淑芬的先生・60 歲", note: "還在台南上班，偶爾上來", home: "1F", art: A("amingbo") },
+    ayue: { name: "阿岳", role: "宜蓁的先生・29 歲", note: "健身教練，鑰匙常常不見", home: "3F", art: A("ayue") },
+    mochi: { name: "麻粬", role: "宜蓁家的貓", note: "常偷偷溜進隔壁可昕家", home: "3F", art: A("mochi") },
+    zhihao: { name: "志豪", role: "佩珊的先生・34 歲", note: "銀行員，笨拙但很認真的新手爸爸", home: "10F", art: A("zhihao") },
+    xiaoputao: { name: "小葡萄", role: "佩珊的寶寶・4 個月", note: "大家的開心果", home: "10F", art: A("xiaoputao") },
+    yian: { name: "怡安", role: "家豪的太太・36 歲", note: "輪班護理師，家裡真正的指揮官", home: "巷子", art: A("yian") },
+    pinrui: { name: "品睿", role: "家豪的兒子・9 歲小三", note: "愛問為什麼，小麥和阿樂的同學", home: "巷子", art: A("pinrui") },
+    pinyan: { name: "品妍", role: "家豪的女兒・6 歲小一", note: "安靜愛畫畫，宜蓁的小粉絲", home: "巷子", art: A("pinyan") },
+    xiaoli: { name: "小麗", role: "承翰的太太・31 歲", note: "常出差的業務，常在視訊裡出場", home: "巷子", art: A("xiaoli") },
+    duoduo: { name: "朵朵", role: "承翰的女兒・4 歲", note: "很冷靜，把爸爸的清單當藏寶圖", home: "巷子", art: A("duoduo") },
+    chenbo: { name: "陳伯", role: "大樓管理員・65 歲", note: "整棟樓的消息都經過他", home: "社區", art: A("chenbo") },
+    asen: { name: "阿森", role: "團購取貨站站長・35 歲", note: "新商品「到貨」都是他抱來的", home: "社區", art: A("asen") },
+    xiulan: { name: "秀蘭", role: "早安小站老闆娘・45 歲", note: "記得每個人的早餐", home: "社區", art: A("xiulan") },
+    xiaohe: { name: "小禾", role: "秀蘭的女兒・9 歲小三", note: "小麥的好朋友，常來 7 樓玩", home: "社區", art: A("xiaohe") },
+    mia: { name: "Mia", role: "轉角咖啡店長・30 歲", note: "聽大家說心事", home: "社區", art: A("mia") },
+    chunmei: { name: "春美", role: "黃昏市場菜攤阿姨・52 歲", note: "嗓門大，最愛送蔥", home: "社區", art: A("chunmei") },
+    akai: { name: "阿凱", role: "春美的兒子・17 歲高二", note: "嘴笨但很會照顧人", home: "社區", art: A("akai") },
+    xiaoqing: { name: "小晴", role: "陳伯的孫女・16 歲高二", note: "成績好、會害羞", home: "社區", art: A("xiaoqing") },
+    boyu: { name: "柏宇", role: "上班族・28 歲", note: "常被自家的狗拉著走", home: "社區", art: A("boyu") },
+    pudding: { name: "布丁", role: "柏宇的狗", note: "一看到可昕就衝過去", home: "社區", art: A("pudding") },
+    teacherlin: { name: "林老師", role: "小樹苗幼兒園老師・28 歲", note: "孩子們的小祕密她都知道", home: "社區", art: A("teacherlin") },
+  };
+  const people = {
+    kexin: [["yizhen", "住隔壁的插畫家"], ["mochi"], ["boyu"], ["pudding"], ["mia"]],
+    shihan: [["azhe"], ["xiaomai"], ["xiaomi"], ["yating", "對門 7B，最常串門子"], ["teacherlin", "小米的幼兒園老師"]],
+    jiahao: [["yian"], ["pinrui"], ["pinyan"]],
+    yating: [["junhong"], ["ale"], ["xiaodou"], ["shufen", "媽媽，住 1 樓"], ["shihan", "對門 7A，常送菜過來"]],
+    peishan: [["zhihao"], ["xiaoputao"]],
+    shufen: [["amingbo"], ["yating", "女兒，住 7B"], ["xiaodou", "孫子，白天常在她家"], ["ale", "孫子"], ["chenbo", "交換消息的老朋友"]],
+    chenghan: [["xiaoli"], ["duoduo"]],
+    yizhen: [["ayue"], ["mochi"], ["kexin", "住隔壁"], ["pinyan"]],
+  };
 
   // 意外事件（八角框架第 7 項「好奇與未知」）：每位角色的一天隨機插入一張。
   const events = [
@@ -282,5 +327,5 @@
     ],
   };
 
-  root.PlayCharacters = { brands: B, characters, events, petEvents, groups, builder, sceneLibrary, extraAvatars };
+  root.PlayCharacters = { brands: B, characters, cast, people, events, petEvents, groups, builder, sceneLibrary, extraAvatars };
 })(typeof globalThis !== "undefined" ? globalThis : this);

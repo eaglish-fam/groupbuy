@@ -93,13 +93,21 @@ test('narration audio exists for every preset line and matches the current story
   const {lines, textHash} = await import('../scripts/build-play-voice.mjs');
   const manifest = JSON.parse(read('everyday/voice-manifest.json'));
   const {existsSync, statSync} = await import('node:fs');
+  // 文字改了、還沒重錄的段落要明列在 voice-pending.json（頁面不播放）；清單裡不能有其實已經相符的段落。
+  const pending = new Set(JSON.parse(read('everyday/voice-pending.json')).keys);
   for (const c of P.characters) for (const l of lines(c)) {
     const it = manifest.items[l.key];
+    if (pending.has(l.key)) {
+      assert.ok(!it || it.hash !== textHash(l.text), `${l.key} already matches; remove it from voice-pending.json`);
+      pending.delete(l.key);
+      continue;
+    }
     assert.ok(it, `missing audio ${l.key}; run node scripts/build-play-voice.mjs`);
     assert.equal(it.hash, textHash(l.text), `${l.key} text changed; re-run the voice build`);
     assert.equal(it.text, l.text);
     assert.ok(existsSync(new URL('.' + it.file, root)) && statSync(new URL('.' + it.file, root)).size > 2000, it.file);
   }
+  assert.deepEqual([...pending], [], 'voice-pending.json lists lines that no longer exist');
   for (const e of manifest.ledger) assert.equal(e.match, true, 'VoAI usage drop must equal the quota headers');
   assert.doesNotMatch(read('scripts/build-play-voice.mjs'), /x-api-key: (?!proxy)/, 'no real key in the repo');
   assert.match(read('everyday/play.js'), /語音由 AI（VoAI）生成/, 'the page discloses AI voice (VoAI EULA 2.4)');
@@ -112,6 +120,24 @@ test('names the visitor types stay on the device and never reach the voice build
   assert.match(js, /\{kid\}|replaceAll\("\{kid\}"/);
   assert.doesNotMatch(js, /fetch\([^)]*voai/i, 'the page never calls VoAI');
   for (const sc of Object.values(P.sceneLibrary)) if (/\{kid\}/.test(sc.text)) assert.ok(Array.isArray(sc.kid) && sc.kid.length, sc.title);
+});
+
+test('family and neighbours on the cards are real characters with real portraits', async () => {
+  const {existsSync, statSync} = await import('node:fs');
+  for (const [id, p] of Object.entries(P.cast)) {
+    for (const k of ['name', 'role', 'note', 'home', 'art']) assert.ok(p[k], `${id}.${k}`);
+    assert.match(p.art, /^\/assets\/play\/characters\/cast\/[a-z0-9-]+\.webp$/, id);
+    const f = new URL('.' + p.art, root);
+    assert.ok(existsSync(f) && statSync(f).size > 2000 && statSync(f).size < 60000, p.art);
+  }
+  for (const [lead, list] of Object.entries(P.people)) {
+    assert.ok(P.characters.some((c) => c.id === lead), lead);
+    for (const [id] of list) assert.ok(P.cast[id] || P.characters.some((c) => c.id === id), `${lead} -> ${id}`);
+  }
+  // 年齡要和設定書一致：詩涵 35、佩珊 30（Hiram 11/04）。
+  assert.equal(P.characters.find((c) => c.id === 'shihan').age, 35);
+  assert.equal(P.characters.find((c) => c.id === 'peishan').age, 30);
+  assert.match(read('everyday/play.js'), /startsWith\(`\$\{c\.name\}，\$\{c\.age\}歲`\)/, 'an intro recorded with an old age is not played');
 });
 
 test('character illustrations, where set, are real files in the repo', async () => {

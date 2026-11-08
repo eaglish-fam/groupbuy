@@ -299,3 +299,19 @@ dialog:focus, dialog:focus-visible { outline: none; }
 #me.ritual-mode .sheet-bar .close:hover { background: rgba(255,248,234,.16); }
 #me.ritual-mode :focus-visible { box-shadow: 0 0 0 2px rgba(47,58,42,1), 0 0 0 4px rgba(255,248,234,.85); }
 .avatar-pick:has(input:checked) { border-color: var(--olive); background: #eef3e8; box-shadow: 0 0 0 4px rgba(70,83,58,.12); }
+
+/* 身邊的人、日常里的鄰居（GB-028g） */
+.people { margin: 14px 0 6px; text-align: left; }
+.people h3 { font-size: 15px; margin: 0 0 8px; }
+.people ul, .people-grid { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.people-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); margin-top: 12px; }
+.person { display: flex; align-items: center; gap: 10px; width: 100%; padding: 6px 8px; border-radius: 14px; background: #fff; border: 1px solid #ece6da; text-align: left; font: inherit; color: inherit; }
+button.person { cursor: pointer; }
+button.person:hover { border-color: var(--c, #c9876a); }
+button.person:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+.person img { width: 56px; height: 56px; border-radius: 50%; flex: none; background: #faf8f3; object-fit: cover; }
+.person span { display: grid; gap: 2px; min-width: 0; }
+.person strong { font-size: 15px; }
+.person small { font-size: 13px; color: #6b6257; line-height: 1.4; }
+.person small.note { color: #8a8075; }
+.neighbors { margin-top: 40px; }
