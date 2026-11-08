@@ -119,6 +119,8 @@ test('narration audio exists for every preset line and matches the current story
     assert.ok(existsSync(new URL('.' + it.file, root)) && statSync(new URL('.' + it.file, root)).size > 2000, it.file);
   }
   assert.deepEqual([...pending], [], 'voice-pending.json lists lines that no longer exist');
+  const live = new Set(P.characters.flatMap((c) => lines(c).map((l) => l.key)));
+  assert.deepEqual(Object.keys(manifest.items).filter((k) => !live.has(k)), [], 'audio left over for lines that were removed');
   for (const e of manifest.ledger) assert.equal(e.match, true, 'VoAI usage drop must equal the quota headers');
   assert.doesNotMatch(read('scripts/build-play-voice.mjs'), /x-api-key: (?!proxy)/, 'no real key in the repo');
   assert.match(read('everyday/play.js'), /語音由 AI（VoAI）生成/, 'the page discloses AI voice (VoAI EULA 2.4)');
