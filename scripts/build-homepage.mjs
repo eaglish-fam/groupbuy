@@ -6,7 +6,7 @@ import {renderHomepageTravelEntry} from './homepage-travel-entry.mjs';
 const require=createRequire(import.meta.url),{catalog,escape}=require('../product-content.js');
 const root = new URL('../', import.meta.url);
 const release = '20261021-calendar-g1';
-const productMediaRelease = '20261021-calendar-g1';
+const productMediaRelease = '20261108-insta360';
 const designScriptRelease = '20261103-gb026a';
 // catalog-core.js decides open/upcoming for the home page and /calendar/; bumped so LINE and phones drop the cached copy (GB-015-6).
 const catalogCoreRelease = '20261103-gb026a';
