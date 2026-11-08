@@ -2,24 +2,10 @@
   "counts": {
     "pages": 64,
     "blocking": 0,
-    "warnings": 24,
-    "total": 24
+    "warnings": 22,
+    "total": 22
   },
   "findings": [
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-bernie",
-      "file": "blog/bernie/index.html",
-      "index": 8330
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-zoofamily-kids-camera",
-      "file": "blog/zoofamily-kids-camera/index.html",
-      "index": 11106
-    },
     {
       "level": "warn",
       "category": "links",
@@ -137,14 +123,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 47242
+      "index": 50723
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 47242
+      "index": 50723
     },
     {
       "level": "warn",

@@ -21,6 +21,17 @@ test('every product a character or the card builder mentions is a brand in the c
   assert.ok(used.size >= 20);
 });
 
+test('stories only use permanent group buys, so the always-on page never points at an expired campaign', () => {
+  // Hiram 11/08：「都用常駐團購來寫。因為這是要常駐放的嘛，用限時團購可能就會失效」
+  const permanent = new Set(P.permanentBrands);
+  assert.deepEqual(Object.values(P.brands).filter((b) => !permanent.has(b)), []);
+  const used = new Set();
+  for (const c of P.characters) for (const s of c.day) for (const b of [...s.options, ...s.alts]) used.add(b);
+  for (const s of Object.values(P.sceneLibrary)) for (const b of [...s.options, ...s.alts]) used.add(b);
+  assert.deepEqual([...used].filter((b) => !permanent.has(b)), []);
+  for (const b of permanent) assert.ok(snapshotBrands.has(b), `${b} is not in the catalogue snapshot`);
+});
+
 test('characters are complete, unique and mostly women as Hiram described the audience', () => {
   const ids = P.characters.map((c) => c.id);
   assert.equal(new Set(ids).size, ids.length);
