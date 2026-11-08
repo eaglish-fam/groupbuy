@@ -287,6 +287,25 @@
   function renderFilters() {
     $("#filters").innerHTML = P.groups.map((g) => `<button type="button" class="chip${filter === g.id ? " on" : ""}" data-filter="${g.id}" aria-pressed="${filter === g.id}">${g.label}</button>`).join("");
   }
+  // 身邊的人：家人與鄰居（角色都是虛構的）。
+  function person(id, note) {
+    const lead = P.characters.find((x) => x.id === id);
+    const p = lead ? { name: lead.name, role: `${lead.role}・${lead.age} 歲`, art: lead.art } : P.cast?.[id];
+    if (!p) return "";
+    const tag = lead ? "button" : "span";
+    return `<li><${tag}${lead ? ` type="button" class="person lead" data-open="${id}" aria-label="打開${esc(p.name)}的角色卡"` : ` class="person"`}><img src="${esc(abs(p.art))}" width="56" height="56" alt="" loading="lazy" decoding="async"><span><strong>${esc(p.name)}</strong><small>${esc(note || p.role)}</small>${!note && p.note ? `<small class="note">${esc(p.note)}</small>` : ""}</span></${tag}></li>`;
+  }
+  function peopleOf(c) {
+    const list = P.people?.[c.id];
+    if (!list || !list.length) return "";
+    return `<div class="people"><h3>${c.gender === "m" ? "他" : "她"}身邊的人</h3><ul>${list.map(([id, note]) => person(id, note)).join("")}</ul></div>`;
+  }
+  function renderNeighbors() {
+    const host = $("#neighbors");
+    if (!host || !P.cast) return;
+    const ids = Object.keys(P.cast).filter((id) => P.cast[id].home === "社區");
+    host.innerHTML = ids.map((id) => person(id)).join("");
+  }
   function charCard(c) {
     const d = state.done[c.id];
     const steps = answered(d, c);
@@ -312,7 +331,7 @@
         : "正在讀取開團狀態……";
     if ($("#day").open) renderDay();
   }
-  function renderAll() { renderStats(); renderFilters(); renderGrid(); }
+  function renderAll() { renderStats(); renderFilters(); renderGrid(); renderNeighbors(); }
 
   // ---------- 語音（VoAI 事先產生；只有文字相符的段落才播） ----------
   let voice = { items: {} };
@@ -328,7 +347,7 @@
     const c = P.characters.find((x) => x.id === cid);
     if (!it || !c) return null;
     // 文字改過就不播舊錄音。
-    if (part === "intro") return it.text.includes(c.story) ? it : null;
+    if (part === "intro") return it.text.startsWith(`${c.name}，${c.age}歲`) && it.text.includes(c.story) ? it : null;
     const s = c.day[Number(part.slice(1))];
     if (!s) return null;
     const expected = part[0] === "s" ? s.text : s.reaction.replace(/[「」]/g, "");
@@ -408,6 +427,7 @@
         <p class="role">${esc(c.role)}${c.place ? "・" + esc(c.place) : ""}</p>
         <p class="goal-box"><span>${c.mine ? "我想要" : c.gender === "m" ? "他想要" : "她想要"}</span>${esc(c.goal)}</p>
         <p class="story">${esc(c.story)}</p>
+        ${peopleOf(c)}
         ${voiceFor(c.id, "intro") ? `<div class="voice-row"><button type="button" class="button ghost" data-play="${c.id}/intro">▶ 聽${esc(c.nick)}的故事</button><label class="auto-read"><input type="checkbox" id="auto-read" ${state.autoRead ? "checked" : ""}> 自動朗讀</label></div><p class="small">語音由 AI（VoAI）生成。</p>` : ""}
         <div class="profile-meter"><span class="meter-label">目標進度 ${progressPct(c)}%</span>${meter(progressPct(c), c.color)}</div>
         ${c.mine ? `<button type="button" class="button" id="edit-me">修改我的角色</button>` : `<button type="button" class="button like${state.likeMe === c.id ? " on" : ""}" id="like-me" aria-pressed="${state.likeMe === c.id}">${state.likeMe === c.id ? "☺ 這就是我" : "這就是我！"}</button>`}
