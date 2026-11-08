@@ -1,16 +1,8 @@
 {
   "version": 1,
-  "observedAt": "2026-11-02T01:11:47.430Z",
+  "observedAt": "2026-11-08T00:41:40.867Z",
   "source": "https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/",
   "items": [
-    {
-      "id": "kietla-kids-sunglasses",
-      "brand": "法國 Ki ET LA 兒童太陽眼鏡｜墨鏡",
-      "description": "從 0–1 歲到大童，配戴照片、框型圖鑑與護眼圖解，找到孩子願意戴的那一副。",
-      "category": "母嬰",
-      "article": "/blog/kietla-kids-sunglasses/",
-      "image": "/assets/kietla/cover-style-v2.webp"
-    },
     {
       "id": "playzu",
       "brand": "Playzu",
@@ -20,12 +12,92 @@
       "image": "/assets/playzu/vintage-cover.webp"
     },
     {
-      "id": "done-by-deer",
-      "brand": "丹麥 Done by deer兒童用品",
-      "description": "依孩子階段和用途比較 Done by deer 餐盤、水壺、便當盒與禮盒。",
+      "id": "a0ec17c839c88ac5",
+      "brand": "emma 床墊",
+      "description": "德國工藝、科學睡眠，沉入雲端般的深層好眠",
+      "category": "居家",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "bernie",
+      "brand": "伯尼寢具",
+      "description": "伯尼寢具選物指南：用家庭實拍看白底點點和米色床面，比較舒芙水洗被、單件兩用被、無被套床包枕套組與完整床組，再按床墊高度、換洗習慣及現貨預購挑選。",
+      "category": "居家",
+      "article": "/blog/bernie/",
+      "image": "/assets/bernie/product-card.webp"
+    },
+    {
+      "id": "2314237f0534afd6",
+      "brand": "Simmpo 濾藍光保護貼",
+      "description": "保護貼不只防刮，連你的眼睛都保護",
+      "category": "3C 家電",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "610079c1ba98400d",
+      "brand": "Yookido 水玩具＋trixie 背包",
+      "description": "以色列水玩具夏日必備，搭配 trixi 多功能兒童背包，玩水踏青樣樣都行",
       "category": "母嬰",
-      "article": "/blog/done-by-deer/",
-      "image": "/assets/done-by-deer/product-card.webp"
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "42c4c3885664d0bb",
+      "brand": "Maylily旅行小睡床&Copper Pearl",
+      "description": "讓舟夏跟著到處旅行的折疊小睡床",
+      "category": "母嬰",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "zoofamily-kids-camera",
+      "brand": "比利時 ZooFamily 兒童相機",
+      "description": "ZooFamily 兒童相機怎麼選？比較 ZooFriends、UrbanZoo、ZooPrint、ZooVideo 的適用年齡、觸控操作、黑白列印與自拍錄影，也說清楚實際感光畫素與軟體插值，依孩子的玩法縮小選擇。",
+      "category": "母嬰, 3C 家電",
+      "article": "/blog/zoofamily-kids-camera/",
+      "image": "/assets/zoofamily-kids-camera/product-card.webp"
+    },
+    {
+      "id": "737d1cbf9e45656f",
+      "brand": "紐登斯優格",
+      "description": "先確認品項、使用需求與適用限制，再核對廠商最新說明。",
+      "category": "食品",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "shoumaji",
+      "brand": "收麻吉手捲收納袋",
+      "description": "用天數、人數與衣物厚度先算 XS、S、M 袋數，再看真實影片的收納前後與手捲步驟。",
+      "category": "居家",
+      "article": "/blog/shoumaji/",
+      "image": "/assets/shoumaji/cover.webp"
+    },
+    {
+      "id": "kietla-kids-sunglasses",
+      "brand": "法國 Ki ET LA 兒童太陽眼鏡｜墨鏡",
+      "description": "從 0–1 歲到大童，配戴照片、框型圖鑑與護眼圖解，找到孩子願意戴的那一副。",
+      "category": "母嬰",
+      "article": "/blog/kietla-kids-sunglasses/",
+      "image": "/assets/kietla/cover-style-v2.webp"
+    },
+    {
+      "id": "e69103aacd3feb90",
+      "brand": "酪梨油品、紐西蘭食品",
+      "description": "先確認品項、使用需求與適用限制，再核對廠商最新說明。",
+      "category": "食品",
+      "article": null,
+      "image": null
+    },
+    {
+      "id": "96dcfa52e4e8d0b0",
+      "brand": "Happymoon",
+      "description": "鄰居友善放電神器～從一歲玩到11歲，釋放無限活力，安全陪伴每個探索瞬間",
+      "category": "母嬰",
+      "article": null,
+      "image": null
     },
     {
       "id": "chulu-aomori-drinks",
@@ -38,10 +110,10 @@
     {
       "id": "wave-hummus",
       "brand": "Wave 鷹嘴豆泥",
-      "description": "一盒鷹嘴豆泥，從抹、沾到拌，替普通的一餐換一種心情。",
+      "description": "Wave 鷹嘴豆泥怎麼吃？解凍拌勻就能直接吃，也能沾蔬菜、配烤肉、加進沙拉與捲餅；認識經典款與香料烤蔬菜即食盒，整理份量與保存重點。",
       "category": "食品",
       "article": "/blog/wave-hummus/",
-      "image": "/assets/wave/family.webp"
+      "image": "/assets/wave/product-card.webp"
     },
     {
       "id": "miamily",
@@ -132,20 +204,12 @@
       "image": "/assets/sanfufarm/cover.webp"
     },
     {
-      "id": "db45089b508432f4",
-      "brand": "Giiker益智遊戲機+Gocube魔術方塊",
-      "description": "GiiKER 滑動積木、露營邏輯解謎與 GoCube 藍牙魔術方塊；依玩法和 App 需求選擇，部分款式為預購。",
+      "id": "done-by-deer",
+      "brand": "丹麥 Done by deer兒童用品",
+      "description": "依孩子階段和用途比較 Done by deer 餐盤、水壺、便當盒與禮盒。",
       "category": "母嬰",
-      "article": null,
-      "image": null
-    },
-    {
-      "id": "a0ec17c839c88ac5",
-      "brand": "emma 床墊",
-      "description": "德國工藝、科學睡眠，沉入雲端般的深層好眠",
-      "category": "居家",
-      "article": null,
-      "image": null
+      "article": "/blog/done-by-deer/",
+      "image": "/assets/done-by-deer/product-card.webp"
     },
     {
       "id": "knsh",
@@ -170,14 +234,6 @@
       "category": "食品",
       "article": "/blog/blackmores/",
       "image": "/assets/blackmores/product-card-v2.webp"
-    },
-    {
-      "id": "shoumaji",
-      "brand": "收麻吉手捲收納袋",
-      "description": "用天數、人數與衣物厚度先算 XS、S、M 袋數，再看真實影片的收納前後與手捲步驟。",
-      "category": "居家",
-      "article": "/blog/shoumaji/",
-      "image": "/assets/shoumaji/cover.webp"
     },
     {
       "id": "locknlock",

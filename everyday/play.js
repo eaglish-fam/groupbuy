@@ -49,8 +49,8 @@
     const kids = (m.kids || []).filter((k) => k.age);
     const worries = B.worries.filter((w) => (m.worries || []).includes(w.id));
     const kidScenes = { baby: "baby", toddler: "toddler", preschool: "meals", school: "homework" };
-    const keys = [...new Set([...worries.map((w) => w.scene), goal.scene, ...kids.map((k) => kidScenes[k.age]), m.elder ? "bathroom" : ""])].filter((k) => P.sceneLibrary[k]);
-    for (const k of ["treat", "lunch", "sleep", "clutter"]) if (keys.length < 4 && !keys.includes(k)) keys.push(k);
+    const keys = [...new Set([...worries.map((w) => w.scene), goal.scene, ...kids.map((k) => kidScenes[k.age]), m.elder ? "gift" : ""])].filter((k) => P.sceneLibrary[k]);
+    for (const k of ["treat", "lunch", "cooking", "clutter"]) if (keys.length < 4 && !keys.includes(k)) keys.push(k);
     const day = keys.slice(0, 6).map((k) => P.sceneLibrary[k]).sort((a, b) => a.order - b.order).map((sc) => {
       const kid = kidFor(m, sc.kid);
       return { ...sc, title: kid ? sc.title.replace("孩子", kid.name) : sc.title, text: fillText(sc.text, m, sc), reaction: fillText(sc.reaction, m, sc) };
