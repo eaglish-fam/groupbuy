@@ -2,16 +2,16 @@
   "counts": {
     "pages": 66,
     "blocking": 0,
-    "warnings": 24,
-    "total": 24
+    "warnings": 25,
+    "total": 25
   },
   "findings": [
     {
       "level": "warn",
       "category": "links",
-      "message": "Link fragment not found on destination page: /#product-acer-luggage",
-      "file": "blog/acer-luggage/index.html",
-      "index": 9739
+      "message": "Link fragment not found on destination page: /#product-kids-active-toys",
+      "file": "blog/kids-active-toys/index.html",
+      "index": 9713
     },
     {
       "level": "warn",
@@ -40,6 +40,13 @@
       "message": "Image exceeds 350KB (375KB): /assets/caesar-kenting/journal/pool-detail.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/caesar-kenting/index.html",
       "index": 18365
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (357KB): /assets/kids-active-toys/scoot-ride-sit.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/kids-active-toys/index.html",
+      "index": 7039
     },
     {
       "level": "warn",
@@ -123,28 +130,28 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "calendar/index.html",
-      "index": 3062
+      "index": 3068
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 4052
+      "index": 4058
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 50770
+      "index": 50809
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 50770
+      "index": 50809
     },
     {
       "level": "warn",

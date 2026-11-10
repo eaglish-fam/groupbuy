@@ -2,22 +2,34 @@
  "schema": "eaglish.play-media/v2",
  "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
-  "acer 前開式行李箱": [
+  "兒童放電神器": [
    {
-    "src": "/assets/acer-luggage/acer-20-inch.webp",
-    "alt": "acer 哥本哈根前開式行李箱 20 吋"
+    "src": "/assets/kids-active-toys/nadle-s900.webp",
+    "alt": "孩子在戶外騎 Nadle S900 平衡腳踏車"
    },
    {
-    "src": "/assets/acer-luggage/acer-28-inch.webp",
-    "alt": "acer 哥本哈根前開式行李箱 28 吋"
+    "src": "/assets/kids-active-toys/scoot-ride-sit.webp",
+    "alt": "孩子坐在 Scoot & Ride 滑板車上滑行"
    },
    {
-    "src": "/assets/acer-luggage/acer-lifestyle-sizes.webp",
-    "alt": "acer 哥本哈根前開式行李箱三種尺寸並排"
+    "src": "/assets/kids-active-toys/scoot-ride-helmet.webp",
+    "alt": "兩台 Scoot & Ride 滑板車與安全帽"
    },
    {
-    "src": "/assets/acer-luggage/acer-five-colors.webp",
-    "alt": "acer 哥本哈根前開式行李箱五色並排"
+    "src": "/assets/kids-active-toys/vespa-pair.webp",
+    "alt": "兩個孩子在河濱騎 Vespa 兒童電動車"
+   },
+   {
+    "src": "/assets/kids-active-toys/vespa-mint.webp",
+    "alt": "孩子騎薄荷綠 Vespa 兒童電動車"
+   },
+   {
+    "src": "/assets/kids-active-toys/jolly-tk300.webp",
+    "alt": "家裡客廳的 Jolly TK300 扭扭車"
+   },
+   {
+    "src": "/assets/kids-active-toys/jolly-trampoline.webp",
+    "alt": "孩子在窗邊的 Jolly 彈跳床上跳"
    }
   ],
   "Momax 定位器 X 鷹式一家": [

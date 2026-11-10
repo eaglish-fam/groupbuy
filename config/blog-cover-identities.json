@@ -404,16 +404,16 @@
         "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Momax 字樣與標題可讀；左側為賣場官方商品圖，未修改。"
       }
     },
-    "/blog/acer-luggage/": {
-      "identity": "acer",
-      "image": "/assets/acer-luggage/cover.webp",
-      "imageSha256": "9e862989edec92e32d77264c3772a5d6215b940649ecea7e6093d1fef4519bdd",
-      "source": "/assets/acer-luggage/cover-source.html",
-      "sourceSha256": "7707ba0704fae1efb6ce49a98b88953194a7244cb13371d2d5ffb77e343bebec",
+    "/blog/kids-active-toys/": {
+      "identity": "放電神器",
+      "image": "/assets/kids-active-toys/cover.webp",
+      "imageSha256": "a49128b82fa07b49f15fb5838ee8cd2fac00fb29b621fe1fdae369dc232113bc",
+      "source": "/assets/kids-active-toys/cover-source.html",
+      "sourceSha256": "630804d4ad44952c7279f656c2313f3d951e27ac55837abf602dc2514e2ab1e9",
       "review": {
         "identityVisible": true,
         "realPhotoPreserved": true,
-        "imageSha256": "9e862989edec92e32d77264c3772a5d6215b940649ecea7e6093d1fef4519bdd",
+        "imageSha256": "a49128b82fa07b49f15fb5838ee8cd2fac00fb29b621fe1fdae369dc232113bc",
         "viewportWidths": [
           320,
           390,
@@ -422,7 +422,7 @@
         ],
         "mobileCardLegible": true,
         "reviewer": "Grace",
-        "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 320/390/768/1440 的渲染：acer 字樣與標題可讀；左側為賣場官方商品圖，未修改。"
+        "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 320/390/768/1440 的渲染：放電神器字樣與標題可讀；左側為鷹家實拍，未修改。"
       }
     }
   }
