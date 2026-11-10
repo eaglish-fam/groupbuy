@@ -1,11 +1,18 @@
 {
   "counts": {
-    "pages": 66,
+    "pages": 67,
     "blocking": 0,
-    "warnings": 25,
-    "total": 25
+    "warnings": 26,
+    "total": 26
   },
   "findings": [
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-ilovekids-rotating-bookcase",
+      "file": "blog/ilovekids-rotating-bookcase/index.html",
+      "index": 8355
+    },
     {
       "level": "warn",
       "category": "links",
@@ -144,14 +151,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 50809
+      "index": 50836
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 50809
+      "index": 50836
     },
     {
       "level": "warn",

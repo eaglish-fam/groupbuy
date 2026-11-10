@@ -424,6 +424,27 @@
         "reviewer": "Grace",
         "reviewScope": "Grace 2026-11-10 重做點擊導向首圖（Hiram 11/10「要以吸引消費者點擊進來為目標」）：鷹家實拍 Vespa 電動車滿版＋大字標題「電力滿格的孩子這樣放電」＋開團徽章；照片未修改只加漸層；cover.webp、product-card.webp 在 288/390/768/1440 寬度看過，標題與放電神器字樣可讀。"
       }
+    },
+    "/blog/ilovekids-rotating-bookcase/": {
+      "identity": "旋轉書櫃",
+      "image": "/assets/ilovekids-rotating-bookcase/cover.webp",
+      "imageSha256": "754cf5f12184f5347cfd82221e06e11a0238eaab8007cd64d84306aba440fdeb",
+      "source": "/assets/ilovekids-rotating-bookcase/cover-source.html",
+      "sourceSha256": "ffb9d93a488061b57ec207ad00ba56850b8fdfc9d3781be599f18fe983a6f50a",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "754cf5f12184f5347cfd82221e06e11a0238eaab8007cd64d84306aba440fdeb",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 288/390/768/1440 的渲染：左欄大字「房間不炸書 孩子自己放回去」與旋轉書櫃字樣可讀；右側為鷹家實拍，未修改。"
+      }
     }
   }
 }

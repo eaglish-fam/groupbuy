@@ -171,6 +171,22 @@
     "source": "e7694cef420d4548436b09f8f08ed783a45fa45d01f0d1cc8bdcd6e17f739ee0",
     "variant": "7f8e4a17d59e638b770e0a9a4f4eba18ee57f7a9a1a5aa37834303d17bfb4c86"
   },
+  "/assets/ilovekids-rotating-bookcase/cover-480.webp": {
+    "source": "754cf5f12184f5347cfd82221e06e11a0238eaab8007cd64d84306aba440fdeb",
+    "variant": "f2b2439a99469e5892a3baccaa9e603446789557037e7ca3802412758627786d"
+  },
+  "/assets/ilovekids-rotating-bookcase/cover-960.webp": {
+    "source": "754cf5f12184f5347cfd82221e06e11a0238eaab8007cd64d84306aba440fdeb",
+    "variant": "3ba0ac5258c3fb62ed66407bf2c2e4d4d408aa2025dd6e6b6f44ca07060b9d24"
+  },
+  "/assets/ilovekids-rotating-bookcase/product-card-480.webp": {
+    "source": "9178cbe59f4a7209624a7789be0bcf2a041b6fda512c5295debcdc9eb2294f69",
+    "variant": "8e1a0a00146d401b462a9b44d8ab506dd03170cdb0c846566fa0aad88745f984"
+  },
+  "/assets/ilovekids-rotating-bookcase/product-card-960.webp": {
+    "source": "9178cbe59f4a7209624a7789be0bcf2a041b6fda512c5295debcdc9eb2294f69",
+    "variant": "5df029b423f7dd815dea717026e4ddb83b1282d71f60db5bd20f39d20f50cfff"
+  },
   "/assets/kids-active-toys/cover-480.webp": {
     "source": "d92224bb500ded1ed2987fd0e2eb87d7af47924c76c1e381831baadf8ac2e885",
     "variant": "3e7a0f2abad1323e166a117043ad4e85585a5588b3b6573cb36f953dc12108da"
