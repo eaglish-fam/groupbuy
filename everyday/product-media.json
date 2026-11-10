@@ -2,6 +2,28 @@
  "schema": "eaglish.play-media/v2",
  "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
+  "愛兒館 旋轉書櫃": [
+   {
+    "src": "/assets/ilovekids-rotating-bookcase/reading-chair.webp",
+    "alt": "孩子坐在小椅子上看繪本，旁邊是愛兒館旋轉書櫃"
+   },
+   {
+    "src": "/assets/ilovekids-rotating-bookcase/standing-tall.webp",
+    "alt": "孩子站在愛兒館旋轉書櫃旁，書櫃與孩子差不多高"
+   },
+   {
+    "src": "/assets/ilovekids-rotating-bookcase/reading-corner.webp",
+    "alt": "床邊放著旋轉書櫃，孩子坐在旁邊看繪本"
+   },
+   {
+    "src": "/assets/ilovekids-rotating-bookcase/pull-book.webp",
+    "alt": "孩子轉動愛兒館旋轉書櫃，從上層抽出一本繪本"
+   },
+   {
+    "src": "/assets/ilovekids-rotating-bookcase/reading-seat.webp",
+    "alt": "孩子坐在旋轉書櫃旁翻繪本"
+   }
+  ],
   "兒童放電神器": [
    {
     "src": "/assets/kids-active-toys/nadle-s900.webp",
