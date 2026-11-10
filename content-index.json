@@ -258,6 +258,29 @@
       "sourceHash": "4d70b7b088aaceba044d130806d93b3881d475e8c965f29b61f4f730cbf89b67"
     },
     {
+      "slug": "kids-active-toys",
+      "url": "https://www.eaglish.store/blog/kids-active-toys/",
+      "title": "兒童放電神器怎麼選？平衡車、扭扭車、Vespa 電動車、滑板車與彈跳床，依年齡和場地挑｜鷹家選物誌",
+      "productNames": [
+        "兒童放電神器"
+      ],
+      "productId": "kids-active-toys",
+      "mode": "product",
+      "intent": "product:kids-active-toys",
+      "topics": [
+        "放電神器",
+        "平衡車",
+        "扭扭車",
+        "兒童電動車",
+        "滑板車",
+        "彈跳床"
+      ],
+      "cluster": null,
+      "published": "2026-11-10",
+      "modified": "2026-11-10",
+      "sourceHash": "9d82b6935c1ce37d087c25166bd74b3f23aac3dffefe182ab7efc057a98df8e3"
+    },
+    {
       "slug": "kietla-kids-sunglasses",
       "url": "https://www.eaglish.store/blog/kietla-kids-sunglasses/",
       "title": "Ki ET LA 兒童太陽眼鏡怎麼選？0–1 歲起的年齡、款式與 UV 指南｜鷹家選物誌",
