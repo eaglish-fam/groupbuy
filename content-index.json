@@ -426,6 +426,32 @@
       "sourceHash": "54973ee57ba689d4bd785005482f9246176573c8494ac5e1eb9eeff454fdba85"
     },
     {
+      "slug": "momax-locator",
+      "url": "https://www.eaglish.store/blog/momax-locator/",
+      "title": "Momax 定位器怎麼選？Metro Poppies 聯名雙系統款，iPhone、Android 都能用｜鷹家選物誌",
+      "productNames": [
+        "Momax 定位器 X 鷹式一家",
+        "Momax 定位器",
+        "Momax",
+        "MOMAX 定位器",
+        "Momax 定位器 x 鷹式一家"
+      ],
+      "productId": "momax-locator",
+      "mode": "product",
+      "intent": "product:momax-locator",
+      "topics": [
+        "Momax 定位器",
+        "Find My",
+        "Find Hub",
+        "防丟器",
+        "Metro Poppies"
+      ],
+      "cluster": null,
+      "published": "2026-11-10",
+      "modified": "2026-11-10",
+      "sourceHash": "e9c027bb519cf6d36fa2da169e4fe71c21f8d1df78f42fdfcb94a2c09e629e43"
+    },
+    {
       "slug": "parakito",
       "url": "https://www.eaglish.store/blog/parakito/",
       "title": "Para’Kito 防蚊液怎麼選？四款配方、噴霧與滾珠比較｜鷹家選物誌",

@@ -1,11 +1,18 @@
 {
   "counts": {
-    "pages": 64,
+    "pages": 65,
     "blocking": 0,
-    "warnings": 22,
-    "total": 22
+    "warnings": 23,
+    "total": 23
   },
   "findings": [
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-momax-locator",
+      "file": "blog/momax-locator/index.html",
+      "index": 10239
+    },
     {
       "level": "warn",
       "category": "links",
@@ -123,14 +130,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 50797
+      "index": 50829
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 50797
+      "index": 50829
     },
     {
       "level": "warn",
