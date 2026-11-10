@@ -30,6 +30,13 @@
         return url ? [{ name: match?.[1] || new URL(url).hostname, url }] : [];
       });
   }
+  // Brands without a journal article whose Sheet image is unusable get a reviewed local photo first;
+  // the Sheet image stays as the next one. Insta360: the Drive image (insta360.jpg) is a blank canvas (2026-11-08).
+  const BRAND_IMAGES = [{ prefix: "Insta360", image: "/assets/insta360/product-card.webp" }];
+  function brandImage(brand) {
+    const b = String(brand || "").trim();
+    return BRAND_IMAGES.find((x) => b.startsWith(x.prefix))?.image || "";
+  }
   function imageUrl(value) {
     const u = safe(value);
     if (!u) return "";
@@ -89,7 +96,7 @@
       .map((r) => {
         if (upcoming) r = { ...r, 類型: "即將開團", _fromUpcomingTab: true };
         const brand = r["品牌"].trim();
-        const localImage = ProductContent.entry(brand)?.cardImage || ProductContent.entry(brand)?.image || "";
+        const localImage = ProductContent.entry(brand)?.cardImage || ProductContent.entry(brand)?.image || brandImage(brand);
         const sheetImage = imageUrl(r["圖片網址"] || r.image);
         const driveFirst = ProductContent.entry(brand)?.id === "eben-kombucha" && sheetImage;
         const primaryImages = driveFirst ? [sheetImage] : [localImage, sheetImage];
