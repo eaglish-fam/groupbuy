@@ -9,9 +9,9 @@
     {
       "level": "warn",
       "category": "links",
-      "message": "Link fragment not found on destination page: /#product-acer-luggage",
-      "file": "blog/acer-luggage/index.html",
-      "index": 9739
+      "message": "Link fragment not found on destination page: /#product-ilovekids-rotating-bookcase",
+      "file": "blog/ilovekids-rotating-bookcase/index.html",
+      "index": 8355
     },
     {
       "level": "warn",
@@ -151,14 +151,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 50776
+      "index": 50836
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 50776
+      "index": 50836
     },
     {
       "level": "warn",
