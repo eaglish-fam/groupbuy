@@ -11,7 +11,14 @@ test('the Insta360 Luna banner says exactly what Hiram asked, and nothing more',
   const c = C.campaigns.find((x) => x.id === 'insta360-luna-20261113');
   assert.ok(c);
   assert.equal(c.code, 'INRAEZ8');
-  assert.equal(c.url, 'https://store.insta360.com/tw/product/luna-series?c=6767&from=nav_product');
+  assert.equal(c.url, 'https://store.insta360.com/product/luna-series?utm_source=AffiliateCenter&utm_medium=copylink&utm_term=INRAEZ8');
+  // Hiram 11/08 17:30（韓國）：連結換成聯盟中心的網址，三個 utm 都要在，不要 /tw，也不要舊的 c=6767。
+  const u = new URL(c.url);
+  assert.equal(u.pathname, '/product/luna-series');
+  assert.equal(u.searchParams.get('utm_source'), 'AffiliateCenter');
+  assert.equal(u.searchParams.get('utm_medium'), 'copylink');
+  assert.equal(u.searchParams.get('utm_term'), 'INRAEZ8');
+  assert.doesNotMatch(c.url, /\/tw\/|c=6767/);
   assert.deepEqual(c.lines, ['Luna Ultra 創作者套裝 85 折起', 'Care／FlexiCare 8 折', '雲端儲存 9 折']);
   assert.match(c.period, /11\/13.*23:59（台北時間）/);
   assert.match(c.gift, /INRAEZ8.*Luna Ultra 創作者套裝.*迷你磁吸補光燈.*總量 30 份.*送完為止/);
@@ -32,6 +39,6 @@ test('it shows on Insta360 cards until 2026-11-13 23:59 Taipei and then disappea
 
 test('the homepage loads the banner script', () => {
   const html = read('index.html');
-  assert.match(html, /<script defer src="\/design\/campaign-banners\.js\?v=[^"]+"><\/script>/);
+  assert.match(html, /<script defer src="\/design\/campaign-banners\.js\?v=20261108-luna-link"><\/script>/, 'a new link needs a new script version so browsers do not keep the old one');
   assert.ok(html.indexOf('/design/campaign-banners.js') > html.indexOf('/design/design.js'));
 });

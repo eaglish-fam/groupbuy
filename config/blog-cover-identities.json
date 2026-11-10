@@ -382,6 +382,48 @@
         "reviewer": "Grace",
         "reviewScope": "Grace 2026-11-06 看過 GB-021R cover／card 原圖與 288px 縮圖（Ophelia mobile-288px-review.png）及文章頁 320／390／768／1440 實際渲染：品牌字清楚、實拍菇類餐盤未重畫。"
       }
+    },
+    "/blog/momax-locator/": {
+      "identity": "Momax",
+      "image": "/assets/momax-locator/cover.webp",
+      "imageSha256": "b0a7825ee3b4611176974f0b7d379072e7f1f37e6c76a90d2741473cd713c064",
+      "source": "/assets/momax-locator/cover-source.html",
+      "sourceSha256": "a52285c489c702de413216dc51842def72ac1dc839a93a7a0ed48a5a5dbd9e13",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "b0a7825ee3b4611176974f0b7d379072e7f1f37e6c76a90d2741473cd713c064",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Momax 字樣與標題可讀；左側為賣場官方商品圖，未修改。"
+      }
+    },
+    "/blog/kids-active-toys/": {
+      "identity": "放電神器",
+      "image": "/assets/kids-active-toys/cover.webp",
+      "imageSha256": "a49128b82fa07b49f15fb5838ee8cd2fac00fb29b621fe1fdae369dc232113bc",
+      "source": "/assets/kids-active-toys/cover-source.html",
+      "sourceSha256": "630804d4ad44952c7279f656c2313f3d951e27ac55837abf602dc2514e2ab1e9",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "a49128b82fa07b49f15fb5838ee8cd2fac00fb29b621fe1fdae369dc232113bc",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 320/390/768/1440 的渲染：放電神器字樣與標題可讀；左側為鷹家實拍，未修改。"
+      }
     }
   }
 }

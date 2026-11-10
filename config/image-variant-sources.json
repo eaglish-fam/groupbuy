@@ -171,6 +171,22 @@
     "source": "e7694cef420d4548436b09f8f08ed783a45fa45d01f0d1cc8bdcd6e17f739ee0",
     "variant": "7f8e4a17d59e638b770e0a9a4f4eba18ee57f7a9a1a5aa37834303d17bfb4c86"
   },
+  "/assets/kids-active-toys/cover-480.webp": {
+    "source": "a49128b82fa07b49f15fb5838ee8cd2fac00fb29b621fe1fdae369dc232113bc",
+    "variant": "8abb4c41053820145bb50bbec2574589e0cf70e8d06fd2f059ea27d7c2619e18"
+  },
+  "/assets/kids-active-toys/cover-960.webp": {
+    "source": "a49128b82fa07b49f15fb5838ee8cd2fac00fb29b621fe1fdae369dc232113bc",
+    "variant": "b3016b5f3bd34108b02cf0bc8d9905a987640ec60ac241a42ef4dfeb22e7c192"
+  },
+  "/assets/kids-active-toys/product-card-480.webp": {
+    "source": "fc15c43f48ed2b73670104e4172d60d99cf0673830394bed2a2bca6a250d77c3",
+    "variant": "9abd490acdf423048869275a86bd1fc09768e1d02c2f93a4b4068f556ad28862"
+  },
+  "/assets/kids-active-toys/product-card-960.webp": {
+    "source": "fc15c43f48ed2b73670104e4172d60d99cf0673830394bed2a2bca6a250d77c3",
+    "variant": "58f1b9c303e2f3e973f303c09b4552c9473a0928434bdd4f1d9106309b25b8d4"
+  },
   "/assets/kietla/cover-style-v2-480.webp": {
     "source": "57be3e05538912782f8eb16bfd0162a9a2b3e561f4bab7f25d89b1a875828100",
     "variant": "505ff3f2bd44822ac82d2aca473d0a8314218f35d51983a6dfb1b238938ba2b8"
@@ -258,6 +274,22 @@
   "/assets/mitoy-rice-blocks/play-960.webp": {
     "source": "f95f102f8016f9e236a938ceda0d3da629dd6c00eb86302e7a4c0c9493ee6c77",
     "variant": "b57cb6784370e71a0d7d7837f9f34b0a1cf6dce9a963d23aa03b87b9e9a9771a"
+  },
+  "/assets/momax-locator/cover-480.webp": {
+    "source": "b0a7825ee3b4611176974f0b7d379072e7f1f37e6c76a90d2741473cd713c064",
+    "variant": "be86b72847c082aa6e993b90065cc20e20c8bc0629a5a1a329d43ae7bc12b8c8"
+  },
+  "/assets/momax-locator/cover-960.webp": {
+    "source": "b0a7825ee3b4611176974f0b7d379072e7f1f37e6c76a90d2741473cd713c064",
+    "variant": "ca708793d5529a2d8c66208466e868e9457a1ca53c981be019ae98df6c2fd2e4"
+  },
+  "/assets/momax-locator/product-card-480.webp": {
+    "source": "f9dab7eba29e410d0179e425326b4b1959ea4b05dcbab697bf36fd87db127720",
+    "variant": "1892aecd3c7353a699a12c2ef9552e9445549fd2865a2898264f88061e814789"
+  },
+  "/assets/momax-locator/product-card-960.webp": {
+    "source": "f9dab7eba29e410d0179e425326b4b1959ea4b05dcbab697bf36fd87db127720",
+    "variant": "97022130abfbca63338a1446bd274cc053cbf22c87516d1a61b98c37a6ebc562"
   },
   "/assets/parakito/cover-480.webp": {
     "source": "bc16169fac7de0e85b28112909a803c4ad36bf1a68bb3487ff2ac7e75dcd6a3e",
