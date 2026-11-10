@@ -2,6 +2,24 @@
  "schema": "eaglish.play-media/v2",
  "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
+  "acer 前開式行李箱": [
+   {
+    "src": "/assets/acer-luggage/acer-20-inch.webp",
+    "alt": "acer 哥本哈根前開式行李箱 20 吋"
+   },
+   {
+    "src": "/assets/acer-luggage/acer-28-inch.webp",
+    "alt": "acer 哥本哈根前開式行李箱 28 吋"
+   },
+   {
+    "src": "/assets/acer-luggage/acer-lifestyle-sizes.webp",
+    "alt": "acer 哥本哈根前開式行李箱三種尺寸並排"
+   },
+   {
+    "src": "/assets/acer-luggage/acer-five-colors.webp",
+    "alt": "acer 哥本哈根前開式行李箱五色並排"
+   }
+  ],
   "Momax 定位器 X 鷹式一家": [
    {
     "src": "/assets/momax-locator/momax-ios-steps.webp",

@@ -1,0 +1,76 @@
+{
+ "schema": "eaglish.article-package/v1",
+ "editorialStatus": "Grace 撰寫；Bingo 工單 GB-040",
+ "identity": {
+  "slug": "acer-luggage",
+  "title": "acer 前開式行李箱怎麼選？哥本哈根 20、25、28 吋尺寸、容量與團購價"
+ },
+ "sources": [
+  {
+   "kind": "vendor-groupbuy-page",
+   "url": "https://shop.labebe.tw/urcco",
+   "readAt": "2026-11-10",
+   "facts": [
+    "團購 2026/11/09~11/15 23:59",
+    "可分期",
+    "含運",
+    "下單禮 Xplova 經典坐墊包",
+    "10-14 工作天出貨",
+    "20吋 35.5x20.5x53.5 40/45L 3.3kg NT$4,290（8,390）",
+    "25吋 44.5x30.5x66 69/78L 4.7kg NT$6,990（11,990）",
+    "28吋 51.5x33.5x78.5 92/105L 6.3kg NT$8,690（14,990）",
+    "組合 11,080／12,680／15,380／19,570",
+    "五色",
+    "保固宏碁風尚客服"
+   ]
+  }
+ ],
+ "media": "assets/acer-luggage/sources.md：賣場官方商品圖，未修改",
+ "technicalSeo": {
+  "author": {
+   "type": "Organization",
+   "name": "鷹式一家",
+   "url": "https://www.eaglish.store/"
+  },
+  "datePublished": "2026-11-10",
+  "dateModified": "2026-11-10",
+  "social": {
+   "ogImage": "https://www.eaglish.store/assets/acer-luggage/cover.webp",
+   "width": 1600,
+   "height": 1000,
+   "shareImage": "https://www.eaglish.store/assets/acer-luggage/share.webp",
+   "shareWidth": 1200,
+   "shareHeight": 630
+  },
+  "structuredData": [
+   "Article",
+   "BreadcrumbList"
+  ],
+  "crawlableOfferFallback": "/#catalog"
+ },
+ "siteIntegration": {
+  "brand": "acer 前開式行李箱",
+  "category": "旅行選物",
+  "journalCategory": "旅遊",
+  "excerpt": "acer 哥本哈根前開式行李箱 20 吋登機、25／28 吋託運：整理三種尺寸的長寬高、容量、重量與團購價，以及親子出國、過年返鄉怎麼搭。",
+  "readLabel": "比較三種尺寸 →",
+  "cover": "/assets/acer-luggage/cover.webp",
+  "card": "/assets/acer-luggage/product-card.webp",
+  "coverSource": "/assets/acer-luggage/cover-source.html",
+  "coverIdentity": "acer",
+  "coverReview": {
+   "identityVisible": true,
+   "realPhotoPreserved": true,
+   "mobileCardLegible": true,
+   "viewportWidths": [
+    320,
+    390,
+    768,
+    1440
+   ],
+   "reviewer": "Grace",
+   "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 320/390/768/1440 的渲染：acer 字樣與標題可讀；左側為賣場官方商品圖，未修改。"
+  },
+  "catalogKey": "acerLuggage"
+ }
+}
