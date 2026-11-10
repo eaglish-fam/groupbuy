@@ -130,28 +130,28 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "calendar/index.html",
-      "index": 3062
+      "index": 3068
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 4052
+      "index": 4058
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 50803
+      "index": 50809
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 50803
+      "index": 50809
     },
     {
       "level": "warn",
