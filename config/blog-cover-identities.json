@@ -424,6 +424,27 @@
         "reviewer": "Grace",
         "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 320/390/768/1440 的渲染：放電神器字樣與標題可讀；左側為鷹家實拍，未修改。"
       }
+    },
+    "/blog/acer-luggage/": {
+      "identity": "acer",
+      "image": "/assets/acer-luggage/cover.webp",
+      "imageSha256": "b1b9b15e33e77a18dfd77c3a3cbd3aa436be6c4db7de325b3c89585f50f81cbd",
+      "source": "/assets/acer-luggage/cover-source.html",
+      "sourceSha256": "280131f8707bea18ac917bace7e6595c22098c805def5a911310e0f6821c1df9",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "b1b9b15e33e77a18dfd77c3a3cbd3aa436be6c4db7de325b3c89585f50f81cbd",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 重做點擊導向首圖（Hiram 11/10「要以吸引消費者點擊進來為目標」）：左欄大字「出國拿東西不用攤開整個箱子」＋價格與截止徽章，右側賣場官方五色圖未修改；cover.webp、product-card.webp 在 288/390/768/1440 寬度看過，acer 字樣與標題可讀。"
+      }
     }
   }
 }
