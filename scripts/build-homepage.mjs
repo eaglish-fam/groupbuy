@@ -11,6 +11,8 @@ const designScriptRelease = '20261103-gb026a';
 // catalog-core.js decides open/upcoming for the home page and /calendar/; bumped so LINE and phones drop the cached copy (GB-015-6).
 const catalogCoreRelease = '20261110-insta360-img';
 const campaignBannersRelease = '20261108-luna-link';
+// First-visit「你想找什麼？」guide (Hiram 2026-11-10).
+const welcomeGuideRelease = '20261110-welcome';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
   .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];
@@ -71,6 +73,8 @@ html = html.replace(/((?:src|href)="\/[^"]+\.(?:js|css))(?:\?[^"]*)?"/g, '$1?v='
 html = html.replace(`src="/design/design.js?v=${release}"`, `src="/design/design.js?v=${designScriptRelease}"`);
 html = html.replace(`src="/design/catalog-core.js?v=${release}"`, `src="/design/catalog-core.js?v=${catalogCoreRelease}"`);
 html = html.replace(`src="/design/campaign-banners.js?v=${release}"`, `src="/design/campaign-banners.js?v=${campaignBannersRelease}"`);
+html = html.replace(`src="/design/welcome-guide.js?v=${release}"`, `src="/design/welcome-guide.js?v=${welcomeGuideRelease}"`)
+  .replace(`href="/design/welcome-guide.css?v=${release}"`, `href="/design/welcome-guide.css?v=${welcomeGuideRelease}"`);
 for (const file of ['design.css','mobile-grid.css','complete-content.css']) {
   html = html.replace(`href="/design/${file}?v=${release}"`, `href="/design/${file}?v=${productMediaRelease}"`);
 }
