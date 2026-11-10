@@ -171,6 +171,22 @@
     "source": "e7694cef420d4548436b09f8f08ed783a45fa45d01f0d1cc8bdcd6e17f739ee0",
     "variant": "7f8e4a17d59e638b770e0a9a4f4eba18ee57f7a9a1a5aa37834303d17bfb4c86"
   },
+  "/assets/kids-active-toys/cover-480.webp": {
+    "source": "a49128b82fa07b49f15fb5838ee8cd2fac00fb29b621fe1fdae369dc232113bc",
+    "variant": "8abb4c41053820145bb50bbec2574589e0cf70e8d06fd2f059ea27d7c2619e18"
+  },
+  "/assets/kids-active-toys/cover-960.webp": {
+    "source": "a49128b82fa07b49f15fb5838ee8cd2fac00fb29b621fe1fdae369dc232113bc",
+    "variant": "b3016b5f3bd34108b02cf0bc8d9905a987640ec60ac241a42ef4dfeb22e7c192"
+  },
+  "/assets/kids-active-toys/product-card-480.webp": {
+    "source": "fc15c43f48ed2b73670104e4172d60d99cf0673830394bed2a2bca6a250d77c3",
+    "variant": "9abd490acdf423048869275a86bd1fc09768e1d02c2f93a4b4068f556ad28862"
+  },
+  "/assets/kids-active-toys/product-card-960.webp": {
+    "source": "fc15c43f48ed2b73670104e4172d60d99cf0673830394bed2a2bca6a250d77c3",
+    "variant": "58f1b9c303e2f3e973f303c09b4552c9473a0928434bdd4f1d9106309b25b8d4"
+  },
   "/assets/kietla/cover-style-v2-480.webp": {
     "source": "57be3e05538912782f8eb16bfd0162a9a2b3e561f4bab7f25d89b1a875828100",
     "variant": "505ff3f2bd44822ac82d2aca473d0a8314218f35d51983a6dfb1b238938ba2b8"
