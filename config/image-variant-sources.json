@@ -1,4 +1,20 @@
 {
+  "/assets/acer-luggage/cover-480.webp": {
+    "source": "b1b9b15e33e77a18dfd77c3a3cbd3aa436be6c4db7de325b3c89585f50f81cbd",
+    "variant": "db751247729b86151dccc5a2d0f6231966ef9e0d1cb311682eee25a4bd88115c"
+  },
+  "/assets/acer-luggage/cover-960.webp": {
+    "source": "b1b9b15e33e77a18dfd77c3a3cbd3aa436be6c4db7de325b3c89585f50f81cbd",
+    "variant": "1947687349f7389f2550a14cfd9761a1ac96ee767e2f9268b7772e765d5777a7"
+  },
+  "/assets/acer-luggage/product-card-480.webp": {
+    "source": "b3f5bb7097571d14ce2ede1b1eca6d3f688b00cdcd79e71f9b7174b43a9fd796",
+    "variant": "c07c5c9b2ab6f2716a7f52bd6f762d86eedf8ff3ce57c393360a6d191c1aed5b"
+  },
+  "/assets/acer-luggage/product-card-960.webp": {
+    "source": "b3f5bb7097571d14ce2ede1b1eca6d3f688b00cdcd79e71f9b7174b43a9fd796",
+    "variant": "71abfdabfc561ab1091f031762406198e155e8249387226d71324e781ad9b516"
+  },
   "/assets/artisan-cb301/blog-cover-v2-480.webp": {
     "source": "a9aae1fbe3f47360a002a1c4cb6da576cf7a4d6972589948dbf4a9656b3b6fb1",
     "variant": "20ca8b2992e8b5778cb871a0bcc4e2258093c3748917606d508fc8cd33bedfb1"

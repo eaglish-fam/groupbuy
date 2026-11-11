@@ -3,6 +3,27 @@
   "origin": "https://www.eaglish.store",
   "articles": [
     {
+      "slug": "acer-luggage",
+      "url": "https://www.eaglish.store/blog/acer-luggage/",
+      "title": "acer 前開式行李箱怎麼選？哥本哈根 20、25、28 吋尺寸、容量與團購價｜鷹家選物誌",
+      "productNames": [
+        "acer 前開式行李箱"
+      ],
+      "productId": "acer-luggage",
+      "mode": "product",
+      "intent": "product:acer-luggage",
+      "topics": [
+        "acer 行李箱",
+        "前開式行李箱",
+        "登機箱",
+        "哥本哈根行李箱"
+      ],
+      "cluster": null,
+      "published": "2026-11-10",
+      "modified": "2026-11-10",
+      "sourceHash": "ed0bc7c2d943507b52dfbce53c920fb70ea116ba5246925b8dcc1a95599f8e9b"
+    },
+    {
       "slug": "artisan-cb301",
       "url": "https://www.eaglish.store/blog/artisan-cb301/",
       "title": "ARTISAN CB301 電動清潔刷：浴室真正難刷的，不是最髒的那一塊｜鷹式一家",
