@@ -6,9 +6,9 @@
     <meta name="robots" content="index,follow,max-image-preview:large" />
     <title>鷹式一家團購｜鷹家買物社：當期開團、折扣碼與選物誌</title>
     <meta name="description" content="鷹式一家 Eaglish Family 官方團購網站。看當期開團、團購行事曆、常駐折扣碼，以及鷹家親自用過的選物誌與親子旅行指南，從餐桌好食到居家生活與旅行選物。">
-    <link rel="stylesheet" href="/design/design.css?v=20261108-insta360" />
-    <link rel="stylesheet" href="/design/mobile-grid.css?v=20261108-insta360" />
-    <link rel="stylesheet" href="/design/complete-content.css?v=20261108-insta360" />
+    <link rel="stylesheet" href="/design/design.css?v=20261111-filter-clear" />
+    <link rel="stylesheet" href="/design/mobile-grid.css?v=20261111-filter-clear" />
+    <link rel="stylesheet" href="/design/complete-content.css?v=20261111-filter-clear" />
     <link rel="stylesheet" href="/design/travel-entry.css?v=20261021-calendar-g1" />
     <link rel="stylesheet" href="/design/welcome-guide.css?v=20261110-welcome" />
     <script defer src="/design/papaparse.min.js?v=20261021-calendar-g1"></script>
@@ -17,7 +17,7 @@
     <script defer src="/design/entry-image-widths.js?v=20261021-calendar-g1"></script>
     <script defer src="/design/editor-picks.js?v=20261021-calendar-g1"></script>
     <script defer src="/design/catalog-core.js?v=20261110-insta360-img"></script>
-    <script defer src="/design/design.js?v=20261103-gb026a"></script>
+    <script defer src="/design/design.js?v=20261111-filter-clear"></script>
     <script defer src="/design/mobile-grid.js?v=20261021-calendar-g1"></script>
     <script defer src="/design/complete-content.js?v=20261021-calendar-g1"></script>
     <script defer src="/design/campaign-banners.js?v=20261108-luna-link"></script>
@@ -207,6 +207,10 @@
             >
               看全部</button
             ><span id="result-count" role="status">商品選購目錄</span>
+          </div>
+          <div class="active-filters" id="active-filters" hidden>
+            <span id="active-filters-label"></span>
+            <button type="button" class="filter-clear" data-reset-filters>✕ 清除篩選，看全部商品</button>
           </div>
           <p class="source-status" id="source-status" aria-live="polite">先閱讀商品介紹與選購筆記；即時開團狀態載入後更新。目錄整理：2026-11-08。</p>
           <noscript><p>以下可直接閱讀商品介紹與文章。即時開團狀態、篩選及購買入口需要啟用 JavaScript；未開啟時不顯示即時優惠。</p><style>.catalog-toolbar,.filter-row,.category-links,.more-row{display:none!important}</style></noscript>
