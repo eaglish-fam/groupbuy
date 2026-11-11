@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="/design/mobile-grid.css?v=20261108-insta360" />
     <link rel="stylesheet" href="/design/complete-content.css?v=20261108-insta360" />
     <link rel="stylesheet" href="/design/travel-entry.css?v=20261021-calendar-g1" />
+    <link rel="stylesheet" href="/design/welcome-guide.css?v=20261110-welcome" />
     <script defer src="/design/papaparse.min.js?v=20261021-calendar-g1"></script>
     <script defer src="/product-content.js?v=20261021-calendar-g1"></script>
     <script defer src="/design/permanent-offers.js?v=20261021-calendar-g1"></script>
@@ -20,6 +21,7 @@
     <script defer src="/design/mobile-grid.js?v=20261021-calendar-g1"></script>
     <script defer src="/design/complete-content.js?v=20261021-calendar-g1"></script>
     <script defer src="/design/campaign-banners.js?v=20261108-luna-link"></script>
+    <script defer src="/design/welcome-guide.js?v=20261110-welcome"></script>
   <link rel="stylesheet" href="/release.css?v=20261021-calendar-g1">
 <script defer src="/site-runtime.js?v=f0f2293268b6"></script>
 <link rel="canonical" href="https://www.eaglish.store/">
@@ -133,9 +135,10 @@
           >
             看全部好物
           </button>
+          <button type="button" class="text-link welcome-reopen" data-welcome-open>不知道從哪看起？</button>
         </div>
         <div class="category-links">
-          <button data-category="食品">
+          <button type="button" class="welcome-reopen-chip" data-welcome-open aria-label="不知道從哪看起？打開分類引導">幫我找</button><button data-category="食品">
             <span>01</span>餐桌好食<small>每天都值得好好吃</small></button
           ><button data-category="居家">
             <span>02</span>舒服的家<small>把日常變得更順手</small></button
@@ -721,6 +724,21 @@
       </div>
       <small>商品由合作廠商提供，訂購、付款、配送與售後請依各賣場說明。</small>
     </footer>
+    <dialog id="welcome-guide" class="welcome-guide" aria-labelledby="welcome-title" aria-describedby="welcome-desc">
+      <p class="welcome-eyebrow">歡迎來到鷹家買物社</p>
+      <h2 id="welcome-title">你想找什麼？</h2>
+      <p id="welcome-desc">選一類，直接帶你看那一類的團購好物。</p>
+      <div class="welcome-options">
+        <button type="button" data-category="母嬰" data-welcome-choice="母嬰"><strong>母嬰</strong><small>陪伴孩子的小幫手</small></button>
+        <button type="button" data-category="食品" data-welcome-choice="食品"><strong>食品</strong><small>每天都值得好好吃</small></button>
+        <button type="button" data-category="居家" data-welcome-choice="居家"><strong>居家</strong><small>把日常變得更順手</small></button>
+        <button type="button" data-category="旅遊" data-welcome-choice="旅遊"><strong>旅遊</strong><small>帶上喜歡，一起走走</small></button>
+        <button type="button" data-category="3C 家電" data-welcome-choice="3C 家電"><strong>3C 家電</strong><small>好用的科技小物</small></button>
+        <button type="button" data-category="" data-welcome-choice="all"><strong>全部好物</strong><small>一次看所有開團</small></button>
+        <a class="welcome-everyday" href="/everyday/" data-welcome-choice="everyday"><strong>看鷹家日常，從故事挑</strong><small>跟著角色的一天，看他們用什麼</small></a>
+      </div>
+      <button type="button" class="welcome-skip" data-welcome-skip>先自己逛逛</button>
+    </dialog>
     <dialog id="product-dialog" aria-labelledby="detail-title">
       <div class="dialog-header">
         <span>選物詳情</span
