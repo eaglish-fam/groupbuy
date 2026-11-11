@@ -1,0 +1,120 @@
+/* 首次來訪引導「你想找什麼？」 */
+dialog.welcome-guide {
+  max-width: 560px;
+  width: calc(100% - 32px);
+  padding: 32px 28px 22px;
+  text-align: center;
+}
+.welcome-guide .welcome-eyebrow {
+  margin: 0;
+  font-size: 13px;
+  letter-spacing: .08em;
+  color: var(--orange);
+}
+.welcome-guide h2 {
+  margin: 8px 0 6px;
+  font-family: var(--serif);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.welcome-guide #welcome-desc {
+  margin: 0 0 20px;
+  color: var(--muted);
+  font-size: 15px;
+}
+.welcome-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.welcome-options button,
+.welcome-options a {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  min-height: 76px;
+  padding: 12px 10px;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+  color: var(--ink);
+  text-decoration: none;
+  font: inherit;
+  cursor: pointer;
+  transition: border-color .15s, background .15s;
+}
+.welcome-options strong {
+  font-size: 18px;
+}
+.welcome-options small {
+  font-size: 12px;
+  color: var(--muted);
+}
+.welcome-options button:hover,
+.welcome-options a:hover,
+.welcome-options button:focus-visible,
+.welcome-options a:focus-visible {
+  border-color: var(--olive);
+  background: var(--cream);
+  outline: none;
+}
+.welcome-options .welcome-everyday {
+  grid-column: 1 / -1;
+  background: var(--olive);
+  border-color: var(--olive);
+  color: #fff;
+}
+.welcome-options .welcome-everyday small {
+  color: #e6eadf;
+}
+.welcome-options .welcome-everyday:hover,
+.welcome-options .welcome-everyday:focus-visible {
+  background: #36412c;
+  border-color: #36412c;
+}
+.welcome-skip {
+  margin-top: 16px;
+  min-height: 44px;
+  padding: 8px 18px;
+  border: 0;
+  background: none;
+  color: var(--muted);
+  font: inherit;
+  font-size: 15px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.welcome-skip:hover,
+.welcome-skip:focus-visible {
+  color: var(--ink);
+}
+.welcome-reopen {
+  display: block;
+  margin-top: 8px;
+}
+@media (max-width: 560px) {
+  dialog.welcome-guide {
+    padding: 26px 16px 16px;
+    width: calc(100% - 20px);
+  }
+  .welcome-guide h2 {
+    font-size: 26px;
+  }
+  .welcome-options {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+/* Phones hide the discovery heading, so the reopen link rides along as the last filter chip. */
+.category-links .welcome-reopen-chip {
+  display: none;
+}
+@media (max-width: 700px) {
+  .category-links .welcome-reopen-chip {
+    display: block;
+    color: var(--olive);
+    border-style: dashed;
+  }
+}
