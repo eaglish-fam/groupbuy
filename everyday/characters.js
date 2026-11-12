@@ -237,6 +237,11 @@
     { id: "a6", art: "/assets/play/characters/me/azhe.webp", color: "#3e4a6b", avatar: { skin: "#efc9ab", hair: "#2b211c", style: "short", shirt: "#3e4a6b", acc: "none" } },
     { id: "a7", art: "/assets/play/characters/me/chunmei.webp", color: "#a0558a", avatar: { skin: "#efc9ab", hair: "#2b211c", style: "short-curl", shirt: "#a0558a", acc: "none" } },
     { id: "a8", art: "/assets/play/characters/me/zhihao.webp", color: "#7d8a96", avatar: { skin: "#efc9ab", hair: "#2b211c", style: "short", shirt: "#7d8a96", acc: "none", kid: { skin: "#f8dcc8", hair: "#3a2a22" } } },
+    // Hiram 11/12：「可以增加到 12 個人。年齡分布可以更廣，甚至有一隻是狗也可以，反正可能有人想當狗啊。」
+    { id: "a9", art: "/assets/play/characters/me/xiaoqing.webp", color: "#6b7a8f", avatar: { skin: "#efc9ab", hair: "#2b211c", style: "long", shirt: "#6b7a8f", acc: "glasses" } },
+    { id: "a10", art: "/assets/play/characters/me/xiulan.webp", color: "#c0453a", avatar: { skin: "#efc9ab", hair: "#5b3a2a", style: "short-curl", shirt: "#c0453a", acc: "none" } },
+    { id: "a11", art: "/assets/play/characters/me/amingbo.webp", color: "#9a8f7c", avatar: { skin: "#e5b993", hair: "#b8b2a8", style: "short", shirt: "#9a8f7c", acc: "none" } },
+    { id: "a12", art: "/assets/play/characters/me/pudding.webp", color: "#d08a4a", avatar: { skin: "#f3d2b8", hair: "#d08a4a", style: "short", shirt: "#d08a4a", acc: "none" } },
   ];
 
   // 通用的一天場景（給自己建立的角色用）。order 決定在一天裡的先後。
