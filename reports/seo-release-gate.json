@@ -11,28 +11,28 @@
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-acer-luggage",
       "file": "blog/acer-luggage/index.html",
-      "index": 9739
+      "index": 9773
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-ilovekids-rotating-bookcase",
       "file": "blog/ilovekids-rotating-bookcase/index.html",
-      "index": 8355
+      "index": 8389
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-kids-active-toys",
       "file": "blog/kids-active-toys/index.html",
-      "index": 9713
+      "index": 9747
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-momax-locator",
       "file": "blog/momax-locator/index.html",
-      "index": 10239
+      "index": 10273
     },
     {
       "level": "warn",
@@ -60,7 +60,7 @@
       "category": "images",
       "message": "Image exceeds 350KB (357KB): /assets/kids-active-toys/scoot-ride-sit.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kids-active-toys/index.html",
-      "index": 7039
+      "index": 7073
     },
     {
       "level": "warn",
