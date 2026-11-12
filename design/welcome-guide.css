@@ -122,9 +122,12 @@ dialog.welcome-guide {
 .welcome-reopen {
   display: inline-block;
   margin-top: 14px;
-  min-height: 44px;
-  padding: 9px 20px;
+  min-height: 48px;
+  padding: 11px 22px;
+  border-radius: 3px; /* desktop: same shape as the site's primary buttons */
   font-size: 15px;
+  font-weight: 500;
+  box-shadow: none;
 }
 .welcome-reopen:hover,
 .welcome-reopen:focus-visible,
@@ -153,7 +156,7 @@ dialog.welcome-guide {
   padding-top: 14px;
   padding-bottom: 14px;
   max-width: 1240px;
-  border-radius: 14px;
+  border-radius: 5px; /* same as product cards */
   background: var(--olive);
   color: #fff;
   text-decoration: none;
@@ -192,7 +195,7 @@ dialog.welcome-guide {
   margin-left: auto;
   flex: 0 0 auto;
   padding: 8px 16px;
-  border-radius: 999px;
+  border-radius: 3px;
   background: #fff;
   color: var(--olive);
   font-weight: 700;

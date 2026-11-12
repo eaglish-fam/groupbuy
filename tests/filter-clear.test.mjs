@@ -50,11 +50,12 @@ test('filtering shows what is filtered; one click brings back every product', {t
     assert.equal(await bar.isVisible(), false, `${width}: no bar before filtering`);
     await page.selectOption('#category', '母嬰');
     await bar.waitFor({state: 'visible'});
-    assert.equal(await page.locator('#active-filters-label').innerText(), '正在看：母嬰');
+    assert.equal(await page.locator('#active-filters-label').innerText(), '母嬰');
     await page.fill('#search', '奶');
-    assert.equal(await page.locator('#active-filters-label').innerText(), '正在看：母嬰・「奶」');
+    assert.equal(await page.locator('#active-filters-label').innerText(), '母嬰・「奶」');
     const color = await page.locator('#active-filters .filter-clear').evaluate((b) => getComputedStyle(b).backgroundColor);
     assert.equal(color, 'rgb(168, 76, 43)', 'our orange');
+    assert.equal(await page.locator('#active-filters .filter-clear').evaluate((b) => getComputedStyle(b).borderRadius), '3px', 'same corner as the site buttons (Hiram 11/12)');
     await page.locator('#active-filters .filter-clear').click();
     await bar.waitFor({state: 'hidden'});
     assert.match(await page.locator('#result-count').innerText(), /^3 件選物$/);
@@ -62,7 +63,7 @@ test('filtering shows what is filtered; one click brings back every product', {t
     assert.equal(await page.locator('#search').inputValue(), '');
     // A tab other than 全部商品 counts as a filter too; an empty result offers the same button.
     await page.locator('.status-tabs [data-status="upcoming"]').click();
-    assert.equal(await page.locator('#active-filters-label').innerText(), '正在看：即將開團');
+    assert.equal(await page.locator('#active-filters-label').innerText(), '即將開團');
     await page.locator('#products #reset-filters.filter-clear').click();
     await bar.waitFor({state: 'hidden'});
     assert.equal(await page.locator('.status-tabs [data-status="all"]').getAttribute('aria-pressed'), 'true');

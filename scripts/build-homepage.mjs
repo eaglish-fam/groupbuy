@@ -6,13 +6,13 @@ import {renderHomepageTravelEntry} from './homepage-travel-entry.mjs';
 const require=createRequire(import.meta.url),{catalog,escape}=require('../product-content.js');
 const root = new URL('../', import.meta.url);
 const release = '20261021-calendar-g1';
-const productMediaRelease = '20261111-filter-clear';
-const designScriptRelease = '20261111-filter-clear';
+const productMediaRelease = '20261112-filter-design';
+const designScriptRelease = '20261112-filter-design';
 // catalog-core.js decides open/upcoming for the home page and /calendar/; bumped so LINE and phones drop the cached copy (GB-015-6).
 const catalogCoreRelease = '20261110-insta360-img';
 const campaignBannersRelease = '20261108-luna-link';
 // First-visit「你想找什麼？」guide (Hiram 2026-11-10).
-const welcomeGuideRelease = '20261112-help-everyday';
+const welcomeGuideRelease = '20261112-design-align';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
   .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];
