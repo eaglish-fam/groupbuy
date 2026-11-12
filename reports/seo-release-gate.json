@@ -2,8 +2,8 @@
   "counts": {
     "pages": 68,
     "blocking": 0,
-    "warnings": 27,
-    "total": 27
+    "warnings": 32,
+    "total": 32
   },
   "findings": [
     {
@@ -151,21 +151,56 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 4236
+      "index": 4248
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9091
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9205
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9319
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9432
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9546
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 51394
+      "index": 52331
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 51394
+      "index": 52331
     },
     {
       "level": "warn",

@@ -12,7 +12,7 @@ const designScriptRelease = '20261111-filter-clear';
 const catalogCoreRelease = '20261110-insta360-img';
 const campaignBannersRelease = '20261108-luna-link';
 // First-visit「你想找什麼？」guide (Hiram 2026-11-10).
-const welcomeGuideRelease = '20261110-welcome';
+const welcomeGuideRelease = '20261112-help-everyday';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
   .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];

@@ -1,5 +1,5 @@
 /* 首次來訪引導「你想找什麼？」（Hiram 2026-11-10）。
- * 只在第一次進首頁、而且不是從分享連結（?p=、#product-…、#catalog 等錨點）進來時出現。
+ * 只在點「幫我找」時打開（Hiram 2026-11-12）；原本首訪自動跳出已取消。
  * 選分類 → 交給 design.js 既有的 [data-category] 點擊流程篩選並捲到目錄；
  * 「看鷹家日常」→ /everyday/；「先自己逛逛」、Esc、點背景 → 關閉。三種都記住，不再自動出現。
  * 「不知道從哪看起？」可以隨時重新打開。 */
@@ -59,7 +59,5 @@
     if (e.target.closest("[data-welcome-open]")) { track("reopen"); open(); }
   });
 
-  var storage;
-  try { storage = window.localStorage; } catch (e) { return; }
-  if (shouldShow(location, storage)) setTimeout(open, 600);
+  // Hiram 2026-11-12：不自動跳出；點「幫我找」才打開。shouldShow 保留給之後若要恢復首訪自動跳出。
 })();

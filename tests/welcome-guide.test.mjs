@@ -29,10 +29,12 @@ test('homepage ships the guide with categories, 日常, skip and a reopen link',
   assert.match(dlg, /data-category="" data-welcome-choice="all"><strong>全部好物</);
   assert.match(dlg, /<a class="welcome-everyday" href="\/everyday\/"/);
   assert.match(dlg, /data-welcome-skip>先自己逛逛</);
-  assert.match(html, /data-welcome-open>不知道從哪看起？</);
-  assert.match(html, /class="welcome-reopen-chip" data-welcome-open[^>]*>幫我找</, 'phones: reopen chip');
-  assert.match(html, /\/design\/welcome-guide\.js\?v=20261110-welcome/);
-  assert.match(html, /\/design\/welcome-guide\.css\?v=20261110-welcome/);
+  assert.match(html, /class="welcome-reopen" data-welcome-open>✦ 幫我找：你想找什麼？</);
+  assert.match(html, /class="welcome-reopen-chip" data-welcome-open[^>]*>✦ 幫我找</, 'phones: the chip');
+  assert.ok(html.indexOf('welcome-reopen-chip') < html.indexOf('<button data-category="食品">'), 'phones: 幫我找 is the first chip');
+  assert.doesNotMatch(read('design/welcome-guide.js'), /setTimeout\(open/, 'no automatic popup (Hiram 11/12: opens when tapped)');
+  assert.match(html, /\/design\/welcome-guide\.js\?v=20261112-help-everyday/);
+  assert.match(html, /\/design\/welcome-guide\.css\?v=20261112-help-everyday/);
 });
 
 test('a first-time visitor picks a category, skips, or reopens the guide', {timeout: 90_000}, async (t) => {
@@ -74,22 +76,29 @@ test('a first-time visitor picks a category, skips, or reopens the guide', {time
   };
   const dialog = (page) => page.locator('#welcome-guide');
 
-  // Phone, first visit: the guide opens, focus on the first choice, no sideways scroll.
+  // Phone, first visit: no popup; the orange 幫我找 chip opens it.
   const {page, context, errors} = await open('/', 390);
+  await page.waitForTimeout(1200);
+  assert.equal(await dialog(page).isVisible(), false, 'no automatic popup');
+  const chip = page.locator('.category-links .welcome-reopen-chip');
+  assert.equal(await chip.evaluate((b) => getComputedStyle(b).backgroundColor), 'rgb(168, 76, 43)', 'orange chip');
+  assert.equal(await chip.evaluate((b) => getComputedStyle(b).borderStyle), 'none', 'not dashed');
+  await chip.click();
   await dialog(page).waitFor({state: 'visible'});
   assert.equal(await page.evaluate(() => document.activeElement?.dataset.welcomeChoice), '母嬰');
   assert.equal(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth), false);
   const box = await dialog(page).boundingBox();
   assert.ok(box.width <= 390 && box.height <= 800, 'fits a phone screen');
+  // Phones: the carousel is the hero, the tagline block is visually gone but the h1 remains.
+  assert.equal(await page.locator('#hero-title').count(), 1);
+  assert.ok((await page.locator('.hero-copy').boundingBox()).height <= 1, 'hero tagline hidden on phones');
   // Picking 母嬰 closes the guide and filters the catalogue.
   await page.locator('#welcome-guide [data-welcome-choice="母嬰"]').click();
   assert.equal(await dialog(page).isVisible(), false);
-  await page.waitForFunction(() => /母嬰/.test(document.querySelector('#result-count, [id*="count"]')?.textContent || '') || document.querySelector('#category')?.value === '母嬰');
+  await page.waitForFunction(() => document.querySelector('#category')?.value === '母嬰');
   assert.equal(await page.locator('#category').inputValue(), '母嬰');
-  // Remembered: a reload does not ask again; the reopen link brings it back.
-  await page.reload({waitUntil: 'load'});
-  await page.waitForTimeout(900);
-  assert.equal(await dialog(page).isVisible(), false);
+  // The 鷹家日常 banner is right under the chips.
+  assert.equal(await page.locator('a.everyday-banner[href="/everyday/"]').isVisible(), true);
   await page.locator('[data-welcome-open]:visible').click();
   await dialog(page).waitFor({state: 'visible'});
   await page.keyboard.press('Escape');
@@ -97,12 +106,16 @@ test('a first-time visitor picks a category, skips, or reopens the guide', {time
   assert.deepEqual(errors, []);
   await context.close();
 
-  // Desktop, first visit: skip closes it and is remembered.
+  // Desktop: no popup; the orange button opens it; skip closes it.
   const desk = await open('/', 1440);
+  await desk.page.waitForTimeout(1200);
+  assert.equal(await dialog(desk.page).isVisible(), false);
+  await desk.page.locator('.discovery .welcome-reopen').click();
   await dialog(desk.page).waitFor({state: 'visible'});
   await desk.page.locator('[data-welcome-skip]').click();
   assert.equal(await dialog(desk.page).isVisible(), false);
-  assert.equal(await desk.page.evaluate(() => localStorage.getItem('eg_welcome_v1')), 'done');
+  assert.ok((await desk.page.locator('.hero-copy').boundingBox()).height > 100, 'desktop keeps the hero tagline');
+  assert.equal(await desk.page.locator('.content-nav a.nav-everyday[href="/everyday/"]').isVisible(), true);
   await desk.context.close();
 
   // A shared product link never shows the guide.
