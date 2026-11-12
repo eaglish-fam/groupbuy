@@ -1,0 +1,105 @@
+{
+ "model": "Neo",
+ "before": 30188,
+ "after": 29992,
+ "used": 196,
+ "match": true,
+ "items": [
+  {
+   "file": "assets/play/book/ep01/p1-1.mp3",
+   "who": "narrator",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 24,
+   "text": "星期六，下雨了。日常大樓 7 樓，兩扇門對著開。"
+  },
+  {
+   "file": "assets/play/book/ep01/p2-1.mp3",
+   "who": "xiaomi",
+   "speaker": "楷心",
+   "style": "預設",
+   "quota": 18,
+   "text": "媽媽，雨什麼時候停？公園不能去了啦。"
+  },
+  {
+   "file": "assets/play/book/ep01/p3-1.mp3",
+   "who": "ale",
+   "speaker": "軒軒",
+   "style": "預設",
+   "quota": 12,
+   "text": "交給我！我們帶了好玩的。"
+  },
+  {
+   "file": "assets/play/book/ep01/p3-2.mp3",
+   "who": "yating",
+   "speaker": "璦廷",
+   "style": "聊天",
+   "quota": 14,
+   "text": "小豆在家也悶壞了，一起玩吧。"
+  },
+  {
+   "file": "assets/play/book/ep01/p4-1.mp3",
+   "who": "narrator",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 14,
+   "text": "圓圓的積木，小手剛好握得住。"
+  },
+  {
+   "file": "assets/play/book/ep01/p4-2.mp3",
+   "who": "yating",
+   "speaker": "璦廷",
+   "style": "聊天",
+   "quota": 19,
+   "text": "小豆還會放進嘴裡，大人在旁邊看著就好。"
+  },
+  {
+   "file": "assets/play/book/ep01/p5-1.mp3",
+   "who": "narrator",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 31,
+   "text": "小豆堆高、推倒、再堆一次。小米把積木換個方向，接出了一架飛機。"
+  },
+  {
+   "file": "assets/play/book/ep01/p6-1.mp3",
+   "who": "shihan",
+   "speaker": "樂晰",
+   "style": "聊天",
+   "quota": 10,
+   "text": "我多煮了一點，拿去！"
+  },
+  {
+   "file": "assets/play/book/ep01/p6-2.mp3",
+   "who": "ale",
+   "speaker": "軒軒",
+   "style": "預設",
+   "quota": 9,
+   "text": "反過來接也可以喔！"
+  },
+  {
+   "file": "assets/play/book/ep01/p7-1.mp3",
+   "who": "xiaomi",
+   "speaker": "楷心",
+   "style": "預設",
+   "quota": 7,
+   "text": "我不要拆飛機！"
+  },
+  {
+   "file": "assets/play/book/ep01/p7-2.mp3",
+   "who": "yating",
+   "speaker": "璦廷",
+   "style": "聊天",
+   "quota": 20,
+   "text": "今天最喜歡的先放旁邊，其他的收回袋子裡。"
+  },
+  {
+   "file": "assets/play/book/ep01/p8-1.mp3",
+   "who": "narrator",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 18,
+   "text": "雨停了。對門的週末，下次換去誰家呢？"
+  }
+ ]
+}

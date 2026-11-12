@@ -1,0 +1,45 @@
+{
+ "schema": "eaglish.everyday-book/v1",
+ "id": "ep01",
+ "number": 1,
+ "title": "對門的雨天週末",
+ "teaser": "下雨的星期六，公園去不了。對門的雅婷，帶著阿樂和小豆來敲門。",
+ "minutes": 3,
+ "cast": ["shihan", "xiaomai", "xiaomi", "yating", "ale", "xiaodou"],
+ "next": "下一集：1 樓的淑芬阿嬤",
+ "artNote": "暫代圖由已採用的角色定稿組成；正式插畫由 Ophelia 以 ImageGen 繪製中（Kingdom GB-047）。",
+ "voices": {
+  "narrator": {"name": "旁白", "speaker": "詠芯", "style": "旁白"},
+  "shihan": {"name": "詩涵", "speaker": "樂晰", "style": "聊天", "face": "/assets/play/characters/cast/shihan.webp"},
+  "yating": {"name": "雅婷", "speaker": "璦廷", "style": "聊天", "face": "/assets/play/characters/cast/yating.webp"},
+  "xiaomi": {"name": "小米", "speaker": "楷心", "style": "預設", "face": "/assets/play/characters/cast/xiaomi.webp"},
+  "ale": {"name": "阿樂", "speaker": "軒軒", "style": "預設", "face": "/assets/play/characters/cast/ale.webp"}
+ },
+ "pages": [
+  {"art": "/assets/play/book/ep01/p1.webp", "alt": "日常大樓 7 樓走廊，7A 和 7B 兩扇門面對面，窗外在下雨，地上有一顆黃色的球。",
+   "lines": [{"who": "narrator", "text": "星期六，下雨了。日常大樓 7 樓，兩扇門對著開。"}]},
+  {"art": "/assets/play/book/ep01/p2.webp", "alt": "7A 客廳，小米靠在下雨的窗邊，小麥在沙發旁，詩涵在後面。",
+   "lines": [{"who": "xiaomi", "text": "媽媽，雨什麼時候停？公園不能去了啦。"}]},
+  {"art": "/assets/play/book/ep01/p3.webp", "alt": "7A 門口，雅婷和小豆、阿樂來敲門，小米在門內探頭。",
+   "lines": [{"who": "ale", "text": "交給我！我們帶了好玩的。"}, {"who": "yating", "text": "小豆在家也悶壞了，一起玩吧。"}]},
+  {"art": "/assets/play/book/ep01/p4.webp", "alt": "客廳地墊上，小豆握著一顆積木，雅婷在旁邊看著，小米靠過來。",
+   "lines": [{"who": "narrator", "text": "圓圓的積木，小手剛好握得住。"}, {"who": "yating", "text": "小豆還會放進嘴裡，大人在旁邊看著就好。"}]},
+  {"art": "/assets/play/book/ep01/p5.webp", "alt": "小豆把積木堆高又推倒，開心大笑；小米把積木接成一架小飛機。", "product": true,
+   "lines": [{"who": "narrator", "text": "小豆堆高、推倒、再堆一次。小米把積木換個方向，接出了一架飛機。"}]},
+  {"art": "/assets/play/book/ep01/p6.webp", "alt": "詩涵端著保鮮盒走過來，阿樂在教小米把積木反過來接。",
+   "lines": [{"who": "shihan", "text": "我多煮了一點，拿去！"}, {"who": "ale", "text": "反過來接也可以喔！"}]},
+  {"art": "/assets/play/book/ep01/p7.webp", "alt": "傍晚雨停了，大家把積木收進袋子，小米的飛機放在桌上。",
+   "lines": [{"who": "xiaomi", "text": "我不要拆飛機！"}, {"who": "yating", "text": "今天最喜歡的先放旁邊，其他的收回袋子裡。"}]},
+  {"art": "/assets/play/book/ep01/p8.webp", "alt": "7 樓走廊，兩家人在門口揮手道別。", "reader": true,
+   "lines": [{"who": "narrator", "text": "雨停了。對門的週末，下次換去誰家呢？"}]}
+ ],
+ "product": {
+  "brand": "MiToy米積木",
+  "name": "MiToy 米積木",
+  "photo": "/assets/mitoy-rice-blocks/set-25.webp",
+  "line": "圓潤好握、可以同向或反向接，同一盒每天拼出不同的樣子。品牌標示適合 0～6 歲，小小孩玩要大人陪著。",
+  "article": "/blog/mitoy-rice-blocks/",
+  "disclosure": "合作推廣內容，我們可能因團購連結獲得回饋。"
+ },
+ "thanks": {"from": ["shihan", "yating"], "text": "謝謝你陪我們過了一個雨天週末。下次雨天，換你來 7 樓坐坐吧！"}
+}
