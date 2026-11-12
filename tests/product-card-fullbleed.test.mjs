@@ -12,6 +12,6 @@ test('all product-card breakpoints use full-width natural-ratio images without l
   assert.match(css,/\.detail-photo img\s*\{[^}]*object-fit:\s*contain/s,'detail viewer still shows the complete source image');
 });
 test('production CSS cache versions survive homepage rebuilds',()=>{
-  for(const file of ['design.css','mobile-grid.css','complete-content.css'])assert.ok(read('index.html').includes(`/design/${file}?v=20261111-filter-clear`));
-  assert.ok(read('scripts/build-homepage.mjs').includes("const productMediaRelease = '20261111-filter-clear'"));
+  for(const file of ['design.css','mobile-grid.css','complete-content.css'])assert.ok(read('index.html').includes(`/design/${file}?v=20261112-filter-design`));
+  assert.ok(read('scripts/build-homepage.mjs').includes("const productMediaRelease = '20261112-filter-design'"));
 });

@@ -230,7 +230,7 @@ function render() {
     const typed = $("#search").value.trim();
     const active = [statusLabel, category, country, typed && `「${typed}」`].filter(Boolean);
     activeBar.hidden = !active.length;
-    $("#active-filters-label").textContent = active.length ? `正在看：${active.join("・")}` : "";
+    $("#active-filters-label").textContent = active.join("・");
   }
   document
     .querySelectorAll("[data-status]")
