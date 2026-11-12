@@ -33,8 +33,8 @@ test('homepage ships the guide with categories, 日常, skip and a reopen link',
   assert.match(html, /class="welcome-reopen-chip" data-welcome-open[^>]*>✦ 幫我找</, 'phones: the chip');
   assert.ok(html.indexOf('welcome-reopen-chip') < html.indexOf('<button data-category="食品">'), 'phones: 幫我找 is the first chip');
   assert.doesNotMatch(read('design/welcome-guide.js'), /setTimeout\(open/, 'no automatic popup (Hiram 11/12: opens when tapped)');
-  assert.match(html, /\/design\/welcome-guide\.js\?v=20261112-help-everyday/);
-  assert.match(html, /\/design\/welcome-guide\.css\?v=20261112-help-everyday/);
+  assert.match(html, /\/design\/welcome-guide\.js\?v=20261112-design-align/);
+  assert.match(html, /\/design\/welcome-guide\.css\?v=20261112-design-align/);
 });
 
 test('a first-time visitor picks a category, skips, or reopens the guide', {timeout: 90_000}, async (t) => {

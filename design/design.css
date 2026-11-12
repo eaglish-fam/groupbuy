@@ -1435,46 +1435,62 @@ a.button[data-buy-key][target="_blank"]::after {
   /* Screen readers hear "另開新分頁" instead of the arrow; older engines keep the line above. */
   content: " ↗" / "（另開新分頁）";
 }
-/* 清除篩選（Hiram 2026-11-11：要明顯、用我們的橘色）。篩選中才出現在商品上方。 */
+/* 清除篩選（Hiram 2026-11-11 要明顯、用我們的橘色；11-12 對齊網站設計語言：
+   不用圓角粉色框，改成和「今天結團」一樣的細線＋左側橘線，按鈕和主要按鈕同樣 3px 直角）。 */
 .active-filters {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 10px 16px;
+  gap: 12px 24px;
   margin: 0 0 22px;
-  padding: 12px 16px;
-  border: 1px solid var(--orange);
-  border-radius: 10px;
-  background: #f8ece4;
+  padding: 14px 0 14px 18px;
+  border-block: 1px solid var(--line);
+  border-left: 3px solid var(--orange);
   color: var(--ink);
-  font-size: 15px;
 }
 .active-filters[hidden] {
   display: none;
 }
 .active-filters span {
-  font-weight: 700;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-family: var(--serif);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.active-filters span::before {
+  content: "篩選中";
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .18em;
+  color: var(--orange);
 }
 .filter-clear {
-  min-height: 44px;
-  padding: 8px 18px;
+  min-height: 48px;
+  margin-left: auto;
+  padding: 11px 24px;
   border: 0;
-  border-radius: 999px;
+  border-radius: 3px;
   background: var(--orange);
   color: #fff;
   font: inherit;
   font-size: 15px;
-  font-weight: 700;
+  font-weight: 500;
+  letter-spacing: .02em;
   cursor: pointer;
+  transition: background .2s;
 }
 .filter-clear:hover,
 .filter-clear:focus-visible {
   background: #8a3c20;
-  outline: 3px solid #f0c9b6;
+  outline: 3px solid var(--orange);
   outline-offset: 2px;
 }
 .loading .filter-clear {
-  margin-top: 14px;
+  margin: 14px auto 0;
 }
 .filter-row .category-reset {
   color: var(--orange);
@@ -1484,9 +1500,13 @@ a.button[data-buy-key][target="_blank"]::after {
 @media (max-width: 700px) {
   .active-filters {
     margin-bottom: 16px;
-    padding: 10px 12px;
+    padding: 12px 0 12px 14px;
+  }
+  .active-filters span {
+    font-size: 16px;
   }
   .filter-clear {
     width: 100%;
+    margin-left: 0;
   }
 }
