@@ -1,7 +1,7 @@
 // GB-028: 角色卡體驗「鷹家日常圖鑑」（/everyday/，準上線：網址可開，但網站沒有入口）。
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {readFileSync} from 'node:fs';
+import {readFileSync, existsSync} from 'node:fs';
 import {createRequire} from 'node:module';
 
 const require = createRequire(import.meta.url);
@@ -165,8 +165,22 @@ test('character illustrations, where set, are real files in the repo', async () 
   const {existsSync, statSync} = await import('node:fs');
   for (const c of [...P.characters, ...P.extraAvatars]) {
     if (!c.art) continue;
-    assert.match(c.art, /^\/assets\/play\/characters\/[a-z0-9-]+\.webp$/, c.id);
+    assert.match(c.art, /^\/assets\/play\/characters\/(me\/)?[a-z0-9-]+\.webp$/, c.id);
     const f = new URL('.' + c.art, root);
     assert.ok(existsSync(f) && statSync(f).size > 5000 && statSync(f).size < 300000, c.art);
   }
+});
+
+test('「建立我的角色」 avatars are 日常里 characters in the same style, never the old watercolor set', () => {
+  // Hiram 11/12：「可以直接用裡面的角色，不一定是要另外用一個水彩風格，然後跟後面的角色差太多了。」
+  const leads = new Set(P.characters.map((c) => c.id));
+  assert.equal(P.extraAvatars.length, 8);
+  for (const a of P.extraAvatars) {
+    assert.match(a.art, /^\/assets\/play\/characters\/me\/[a-z]+\.webp$/, a.id);
+    const who = a.art.match(/me\/([a-z]+)\.webp/)[1];
+    assert.ok(!leads.has(who), `${a.id}: a supporting character, not a lead (${who})`);
+    assert.ok(existsSync(new URL(a.art.slice(1), root)), a.art);
+  }
+  assert.deepEqual(P.extraAvatars.map((a) => a.id), ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8'], 'ids kept so saved picks still work');
+  assert.ok(!existsSync(new URL('assets/play/characters/a1.webp', root)), 'watercolor set removed');
 });
