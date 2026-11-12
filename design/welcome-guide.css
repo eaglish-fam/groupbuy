@@ -107,14 +107,137 @@ dialog.welcome-guide {
     grid-template-columns: repeat(2, 1fr);
   }
 }
-/* Phones hide the discovery heading, so the reopen link rides along as the last filter chip. */
+/* 「幫我找」：實心橘色，點了才打開引導（Hiram 2026-11-12：不要虛線、要讓人想點）。 */
+.welcome-reopen,
+.category-links .welcome-reopen-chip {
+  border: 0;
+  border-radius: 999px;
+  background: var(--orange);
+  color: #fff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 4px 12px #a84c2b33;
+}
+.welcome-reopen {
+  display: inline-block;
+  margin-top: 14px;
+  min-height: 44px;
+  padding: 9px 20px;
+  font-size: 15px;
+}
+.welcome-reopen:hover,
+.welcome-reopen:focus-visible,
+.category-links .welcome-reopen-chip:hover,
+.category-links .welcome-reopen-chip:focus-visible {
+  background: #8a3c20;
+  outline: 3px solid #f0c9b6;
+  outline-offset: 2px;
+}
 .category-links .welcome-reopen-chip {
   display: none;
 }
 @media (max-width: 700px) {
   .category-links .welcome-reopen-chip {
     display: block;
-    color: var(--olive);
-    border-style: dashed;
+    color: #fff;
+    box-shadow: none; /* the chip row scrolls and would clip a shadow into a square */
+  }
+}
+/* 鷹家日常入口（首頁分類下方）。 */
+.everyday-banner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 0 auto 28px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+  max-width: 1240px;
+  border-radius: 14px;
+  background: var(--olive);
+  color: #fff;
+  text-decoration: none;
+  box-shadow: 0 6px 18px #2c362433;
+}
+.everyday-faces {
+  display: flex;
+  flex: 0 0 auto;
+}
+.everyday-faces img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 2px solid var(--olive);
+  background: #faf8f3;
+  object-fit: cover;
+}
+.everyday-faces img + img {
+  margin-left: -14px;
+}
+.everyday-text {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.everyday-text small {
+  font-size: 12px;
+  letter-spacing: .12em;
+  color: #e6d7a8;
+}
+.everyday-text strong {
+  font-size: 17px;
+  line-height: 1.4;
+}
+.everyday-go {
+  margin-left: auto;
+  flex: 0 0 auto;
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--olive);
+  font-weight: 700;
+  font-size: 14px;
+}
+.everyday-banner:hover .everyday-go,
+.everyday-banner:focus-visible .everyday-go {
+  background: #f1ece0;
+}
+.everyday-banner:focus-visible {
+  outline: 3px solid var(--orange);
+  outline-offset: 3px;
+}
+.content-nav .nav-everyday {
+  color: var(--olive);
+  font-weight: 700;
+}
+@media (max-width: 700px) {
+  .everyday-banner {
+    margin: 0 16px 20px;
+    padding: 12px 14px;
+    gap: 12px;
+  }
+  .everyday-faces img {
+    width: 38px;
+    height: 38px;
+  }
+  .everyday-faces img:nth-child(n + 4) {
+    display: none;
+  }
+  .everyday-text strong {
+    font-size: 15px;
+  }
+  .everyday-go {
+    display: none;
+  }
+  /* Phones: the Editor's Pick carousel is the hero; the tagline block goes (Hiram 2026-11-12).
+     The h1 stays for search engines and screen readers. */
+  .hero-copy {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
   }
 }

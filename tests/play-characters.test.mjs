@@ -51,21 +51,22 @@ test('characters are complete, unique and mostly women as Hiram described the au
   assert.ok(P.characters.some((c) => c.gender === 'm'), 'at least one father');
 });
 
-test('the page is not indexed, not in the sitemap, and linked only from the homepage guide', async () => {
+test('the page is not indexed, not in the sitemap, and linked only from the homepage', async () => {
   const page = read('everyday/index.html');
   assert.match(page, /<meta name="robots" content="noindex,follow" \/>/);
   assert.doesNotMatch(read('sitemap.xml'), /\/everyday\//);
   // Hiram 11/04：先準上線，只有知道網址的人進得來，所以網站任何地方都不放連結。
-  // Hiram 11/10 改為：首頁「你想找什麼？」引導「也可以讓他導向我們的日常分頁，去看故事、選產品」。
-  // 所以唯一的入口是首頁引導裡那一個連結；其他地方仍不放，也仍然 noindex、不進 sitemap。
+  // Hiram 11/10：首頁引導可以導向日常；11/12：「鷹家日常…看放哪裡讓它更明顯一點」→ 首頁選單＋分類下方橫幅＋引導。
+  // 入口只在首頁；其他頁仍不放，也仍然 noindex、不進 sitemap。
   const {execFileSync} = await import('node:child_process');
   const linked = execFileSync('git', ['grep', '-l', '-E', 'href="/everyday/|eaglish\\.store/everyday', '--', '*.html', '*.xml', '*.txt', '*.json'], {cwd: new URL('.', root), encoding: 'utf8'}).trim().split('\n').filter((f) => f && !f.startsWith('everyday/'));
   assert.deepEqual(linked.sort(), ['design/index.html', 'index.html']);
   for (const file of linked) {
     const html = read(file);
-    const guide = html.match(/<dialog id="welcome-guide"[\s\S]*?<\/dialog>/)[0];
-    assert.equal((html.match(/href="\/everyday\/"/g) || []).length, 1, file);
-    assert.match(guide, /href="\/everyday\/"/, `${file}: the one link sits in the welcome guide`);
+    assert.equal((html.match(/href="\/everyday\/"/g) || []).length, 3, `${file}: menu, banner, guide`);
+    assert.match(html.match(/<dialog id="welcome-guide"[\s\S]*?<\/dialog>/)[0], /href="\/everyday\/"/, file);
+    assert.match(html, /<nav class="content-nav"[^>]*>[\s\S]*?<a class="nav-everyday" href="\/everyday\/">鷹家日常<\/a>/, file);
+    assert.match(html, /<a class="everyday-banner wrap" href="\/everyday\/"/, file);
   }
   assert.ok(page.indexOf('/design/catalog-core.js') < page.indexOf('/everyday/play.js'));
   assert.ok(page.indexOf('/everyday/characters.js') < page.indexOf('/everyday/play.js'));
