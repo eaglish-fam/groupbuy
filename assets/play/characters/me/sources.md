@@ -12,5 +12,11 @@ Hiram 2026-11-12：「可以直接用裡面的角色，不一定是要另外用�
 - `azhe.webp`（a6）：Kingdom results/GB-034/azhe-full.png
 - `chunmei.webp`（a7）：Kingdom results/GB-035/review/b-v2/chunmei-full.png
 - `zhihao.webp`（a8）：Kingdom results/GB-035/zhihao-full.png
+- `xiaoqing.webp`（a9）：Kingdom results/GB-035/review/b-v2/xiaoqing-full.png
+- `xiulan.webp`（a10）：Kingdom results/GB-035/review/b-v2/xiulan-full.png
+- `amingbo.webp`（a11）：Kingdom results/GB-035/amingbo-full.png
+- `pudding.webp`（a12）：Kingdom results/GB-035/review/b-v2/pudding-full.png（全身，狗）
+
+Hiram 2026-11-12：增加到 12 個、年齡更廣、可以有一隻狗。
 
 採用依據：GB-034（阿哲）、GB-035 A 批（小麗、怡安、志豪）、GB-035 B 批 v2（林老師、Mia、柏宇、春美；receipts/GB-035.b-v2.adopted.md）。

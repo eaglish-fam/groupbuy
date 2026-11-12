@@ -175,13 +175,14 @@ test('character illustrations, where set, are real files in the repo', async () 
 test('「建立我的角色」 avatars are 日常里 characters in the same style, never the old watercolor set', () => {
   // Hiram 11/12：「可以直接用裡面的角色，不一定是要另外用一個水彩風格，然後跟後面的角色差太多了。」
   const leads = new Set(P.characters.map((c) => c.id));
-  assert.equal(P.extraAvatars.length, 8);
+  assert.equal(P.extraAvatars.length, 12, 'Hiram 11/12: 12 avatars');
   for (const a of P.extraAvatars) {
     assert.match(a.art, /^\/assets\/play\/characters\/me\/[a-z]+\.webp$/, a.id);
     const who = a.art.match(/me\/([a-z]+)\.webp/)[1];
     assert.ok(!leads.has(who), `${a.id}: a supporting character, not a lead (${who})`);
     assert.ok(existsSync(new URL(a.art.slice(1), root)), a.art);
   }
-  assert.deepEqual(P.extraAvatars.map((a) => a.id), ['a1', 'a2', 'a3', 'a4', 'a5', 'a6', 'a7', 'a8'], 'ids kept so saved picks still work');
+  assert.deepEqual(P.extraAvatars.map((a) => a.id), Array.from({length: 12}, (_, i) => `a${i + 1}`), 'ids kept so saved picks still work');
+  assert.ok(P.extraAvatars.some((a) => a.art.endsWith('/pudding.webp')), 'one of them is a dog');
   assert.ok(!existsSync(new URL('assets/play/characters/a1.webp', root)), 'watercolor set removed');
 });
