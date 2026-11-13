@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 68,
+    "pages": 69,
     "blocking": 0,
-    "warnings": 32,
-    "total": 32
+    "warnings": 33,
+    "total": 33
   },
   "findings": [
     {
@@ -12,6 +12,13 @@
       "message": "Link fragment not found on destination page: /#product-acer-luggage",
       "file": "blog/acer-luggage/index.html",
       "index": 9773
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-brush-baby",
+      "file": "blog/brush-baby/index.html",
+      "index": 11025
     },
     {
       "level": "warn",
@@ -158,49 +165,49 @@
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9093
+      "index": 9095
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9207
+      "index": 9209
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9321
+      "index": 9323
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9434
+      "index": 9436
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9548
+      "index": 9550
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 52333
+      "index": 52335
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 52333
+      "index": 52335
     },
     {
       "level": "warn",

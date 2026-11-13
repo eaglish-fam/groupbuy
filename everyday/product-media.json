@@ -2,6 +2,36 @@
  "schema": "eaglish.play-media/v2",
  "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
+  "Brush Baby 兒童電動牙刷": [
+   {
+    "src": "/assets/brush-baby/lineup.webp",
+    "alt": "Brush Baby 潔牙棉巾、嬰兒牙刷與各款兒童電動牙刷排在一起"
+   },
+   {
+    "src": "/assets/brush-baby/wipes.webp",
+    "alt": "Brush Baby 潔牙手指棉巾單片包裝"
+   },
+   {
+    "src": "/assets/brush-baby/baby-brushes.webp",
+    "alt": "Brush Baby 矽膠嬰兒牙刷與固齒造型牙刷"
+   },
+   {
+    "src": "/assets/brush-baby/baby-sonic.webp",
+    "alt": "Brush Baby 嬰幼兒聲波電動牙刷包裝"
+   },
+   {
+    "src": "/assets/brush-baby/baby-sonic-use.webp",
+    "alt": "孩子嘴裡含著亮燈的嬰幼兒電動牙刷"
+   },
+   {
+    "src": "/assets/brush-baby/wild-ones.webp",
+    "alt": "Brush Baby Wild Ones 企鵝造型兒童電動牙刷"
+   },
+   {
+    "src": "/assets/brush-baby/wild-ones-charge.webp",
+    "alt": "Wild Ones 企鵝電動牙刷的磁吸充電座"
+   }
+  ],
   "acer 前開式行李箱": [
    {
     "src": "/assets/acer-luggage/acer-20-inch.webp",

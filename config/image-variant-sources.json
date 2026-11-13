@@ -95,6 +95,22 @@
     "source": "4cfe308db103c88d85079fea8f55325654e7549b4bc963ed4887cb2104454451",
     "variant": "4280676311831cb6cf243b8cdd2a8ca499599235e4585211300a77de2ad4b95d"
   },
+  "/assets/brush-baby/cover-480.webp": {
+    "source": "c96f60023fa312e64cf7b8a61af2aa4de8c868b8e310ed72a5b8c206f9b2dc9b",
+    "variant": "4c3c68e10509cb699a23e8dd9bb967bb57594cb891ea008d9158742bd638b765"
+  },
+  "/assets/brush-baby/cover-960.webp": {
+    "source": "c96f60023fa312e64cf7b8a61af2aa4de8c868b8e310ed72a5b8c206f9b2dc9b",
+    "variant": "84617359be6db96d26231804f5f088dfe08ed04ba04f5ae945af51d8598785b7"
+  },
+  "/assets/brush-baby/product-card-480.webp": {
+    "source": "35b806efb91dac9be325f9e3e3231fb3587407f1f30d683ca632c7cd4272494d",
+    "variant": "f5371b5abaaf0714acdf3218e1c8a0b5ac2c1bbb68c8648a4ef9074546cb9643"
+  },
+  "/assets/brush-baby/product-card-960.webp": {
+    "source": "35b806efb91dac9be325f9e3e3231fb3587407f1f30d683ca632c7cd4272494d",
+    "variant": "baa3a8feb37bc759d81f09c4b0bbc5a2dc5fa8e0b7b4624cf8f03a48fb819db6"
+  },
   "/assets/caesar-kenting/journal/cover-title-v2-480.webp": {
     "source": "f19127dfcdf6f87f9121503040a746429843449a80df6e2250447d53f7250f08",
     "variant": "d53d22f22dbb1c26a9ecacb71981136b069bf06f5da2075da6b2f1de3730cd03"
