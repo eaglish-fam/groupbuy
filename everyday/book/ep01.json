@@ -7,7 +7,7 @@
  "minutes": 3,
  "cast": ["shihan", "xiaomai", "xiaomi", "yating", "ale", "xiaodou"],
  "next": "下一集：1 樓的淑芬阿嬤",
- "artNote": "暫代圖由已採用的角色定稿組成；正式插畫由 Ophelia 以 ImageGen 繪製中（Kingdom GB-047）。",
+ "artNote": "插畫由 Ophelia 以 ImageGen 繪製（Kingdom GB-047，11/13 Grace 判收），角色依已採用定稿；積木只畫成通用彩色積木，商品以真實照片另外呈現。",
  "voices": {
   "narrator": {"name": "旁白", "speaker": "詠芯", "style": "旁白"},
   "shihan": {"name": "詩涵", "speaker": "樂晰", "style": "聊天", "face": "/assets/play/characters/cast/shihan.webp"},

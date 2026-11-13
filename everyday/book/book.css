@@ -50,9 +50,9 @@ button { font: inherit; cursor: pointer; }
 .tool[aria-pressed="true"] { background: var(--olive); color: #fff; }
 .product-tag { position: absolute; right: 14px; bottom: 14px; display: inline-flex; align-items: center; gap: 8px; min-height: 40px; padding: 8px 14px; border: 0; border-radius: 3px; background: rgba(250, 248, 243, .94); color: var(--ink); font-weight: 600; box-shadow: 0 4px 14px rgba(30, 36, 28, .18); }
 .product-tag::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: var(--orange); }
-.reader-me { position: absolute; right: 3%; bottom: 6%; width: 17%; text-align: center; }
+.reader-me { position: absolute; right: 2.5%; bottom: 2.5%; width: 13%; text-align: center; } /* sits on the empty floor Ophelia left in p8 */
 .reader-me img { width: 100%; aspect-ratio: 1; border-radius: 50%; border: 4px solid #fff; background: #fff; object-fit: cover; box-shadow: 0 6px 18px rgba(30, 36, 28, .25); }
-.reader-me span { display: inline-block; margin-top: 6px; padding: 2px 8px; border-radius: 3px; background: rgba(250, 248, 243, .92); font-size: 13px; font-weight: 600; }
+.reader-me span { position: relative; display: inline-block; margin-top: -12px; white-space: nowrap; padding: 2px 8px; border-radius: 3px; background: rgba(250, 248, 243, .92); font-size: 13px; font-weight: 600; }
 .side { display: grid; gap: 18px; }
 .text { min-height: 120px; }
 .line { margin: 0 0 12px; font-size: 19px; line-height: 1.75; }
