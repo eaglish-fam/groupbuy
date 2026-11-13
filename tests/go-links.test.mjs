@@ -121,3 +121,23 @@ test('sanfu-farm hides the vendor booking buttons after the last sale day (Taipe
  assert.match(sanfu,/class="sale-over-notice"/);
  assert.ok(sanfu.includes(`href="${NOTIFY}"`),'the sale-over notice offers the same LINE community link');
 });
+
+// --- GB-048: an open group buy lands on its article's buy section ---
+test('kids-active-toys goes to the article buy section with LINE codes, never to a vendor URL',()=>{
+ const l=links.find(x=>x.slug==='kids-active-toys');
+ assert.ok(l,'kids-active-toys link exists');
+ const html=renderGoPage(l);
+ assert.doesNotMatch(html,/gbf\.tw|https?:\/\/(?!www\.eaglish\.store)[^"'\s]*"/,'no off-site link in the page');
+ assert.match(html,/content="0;url=\/blog\/kids-active-toys\/#offer"/);
+ const r=redirect(l,{search:'?c=push-am'});
+ assert.equal(r.url,'/blog/kids-active-toys/?utm_source=line&utm_medium=social&utm_campaign=kids-active-toys&utm_content=push-am#offer');
+ assert.equal(redirect(l).url,'/blog/kids-active-toys/?utm_source=line&utm_medium=social&utm_campaign=kids-active-toys#offer');
+ const article=readFileSync(resolve(root,'blog/kids-active-toys/index.html'),'utf8');
+ assert.match(article,/<section id="offer"[^>]*>[\s\S]*?data-sheet-offer/,'the anchor is the Sheet-driven buy section');
+});
+test('an anchor must be a plain section id',()=>{
+ const b=links.find(x=>x.slug==='cal');
+ for(const anchor of ['Offer','#offer','offer"><script>','a b','x'.repeat(41),'1offer'])
+  assert.throws(()=>validateLinks({...config,links:[{...b,anchor}]}),undefined,anchor);
+ assert.doesNotMatch(renderGoPage(b),/#offer/,'links without an anchor are unchanged');
+});

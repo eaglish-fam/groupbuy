@@ -13,6 +13,17 @@
       "utm": { "source": "line", "medium": "social", "campaign": "calendar-{yyyymm}" }
     },
     {
+      "slug": "kids-active-toys",
+      "title": "兒童放電神器團購｜平衡車、扭扭車、電動車、滑板車、彈跳床怎麼選",
+      "description": "依孩子年齡、身高和在家或出門，挑平衡車、扭扭車、Vespa 電動車、滑板車與彈跳床。團購 11/12～11/18，價格以賣場為準。",
+      "image": "https://www.eaglish.store/assets/kids-active-toys/cover.webp",
+      "imageAlt": "兩個孩子坐在 Vespa 兒童電動車旁；兒童放電神器選購筆記",
+      "destination": "/blog/kids-active-toys/",
+      "anchor": "offer",
+      "label": "兒童放電神器選物誌",
+      "utm": { "source": "line", "medium": "social", "campaign": "kids-active-toys" }
+    },
+    {
       "slug": "leofoo",
       "title": "六福莊住宿團購｜目前沒有開團，下次開團看這裡",
       "description": "六福莊住宿團購目前沒有開團。看團購行事曆了解下次開團時間，或回到鷹家選物誌看各房型怎麼選。",

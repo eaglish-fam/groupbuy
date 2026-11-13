@@ -25,7 +25,7 @@
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-kids-active-toys",
       "file": "blog/kids-active-toys/index.html",
-      "index": 9747
+      "index": 9754
     },
     {
       "level": "warn",
@@ -60,7 +60,7 @@
       "category": "images",
       "message": "Image exceeds 350KB (357KB): /assets/kids-active-toys/scoot-ride-sit.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kids-active-toys/index.html",
-      "index": 7073
+      "index": 7076
     },
     {
       "level": "warn",
