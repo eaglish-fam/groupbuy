@@ -1,6 +1,6 @@
 {
   "schema": "eaglish.go-links/v1",
-  "note": "Short redirect links for LINE and other posts: www.eaglish.store/go/<slug>/?c=<where>. The page adds the tracking codes and sends people on. Add a link here, run `npm run build:go`, open a PR. Hand-made pages under /go/ (like sanfu-farm) are not touched. Links with status closed or unknown (a group buy that is not open) do not redirect: the page says so, offers the calendar and the article, and shows notify only when the config has a real notification link.",
+  "note": "Short redirect links for LINE and other posts: www.eaglish.store/go/<slug>/?c=<where>. The page adds the tracking codes and sends people on. Add a link here, run `npm run build:go`, open a PR. Hand-made pages under /go/ (like sanfu-farm) are not touched. Links with status closed or unknown (a group buy that is not open) do not redirect: the page says so, offers the calendar and the article, and shows notify only when the config has a real notification link. LINE push links (GB-050) go in \"push\": one row per push, only slug (= utm_campaign, <YYYYMMDD>-<topic>-<am|pm>) and destination (a site path), optional anchor; the preview is copied from the destination page. See docs/go-links.md.",
   "links": [
     {
       "slug": "cal",
@@ -49,5 +49,10 @@
       "notify": { "url": "https://line.me/ti/g2/WcewqAFHz9CZ4zQRMCeiMNilA281HRQvfH71yg", "label": "加入 LINE 社群，開團第一時間通知" },
       "utm": { "source": "line", "medium": "social", "campaign": "calendar-{yyyymm}" }
     }
+  ],
+  "push": [
+    {"slug": "20261114-home-am", "destination": "/"},
+    {"slug": "20261114-meroware-am", "destination": "/blog/meroware/"},
+    {"slug": "20261117-kids-active-toys-pm", "destination": "/blog/kids-active-toys/", "anchor": "offer"}
   ]
 }

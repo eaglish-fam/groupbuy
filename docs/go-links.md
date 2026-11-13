@@ -11,6 +11,30 @@
 - 這些頁面 noindex，不進 sitemap。GA4 的流量由目的地頁面（有載入 GA4 的頁面）記錄，utm 在網址上，所以來源、媒介、活動、內容都會歸到 LINE。
 - 目前網域是 `www.eaglish.store`。`go.eaglish.store` 這種子網域要改 DNS，且 GitHub Pages 一個 repo 只能綁一個網域（`CNAME` 現在是 `www.eaglish.store`），所以需要另外的主機；沒有 Hiram 的同意不做。
 
+## LINE 推播短網址（GB-050，2026-11-13）
+
+推播文裡只放 `https://www.eaglish.store/go/<slug>/`，**不帶任何 `?`**。點進去時才補上 `utm_source=line&utm_medium=social&utm_campaign=<slug>`，由目的地頁（有 GA4）記錄，所以 GA4 的「工作階段廣告活動」分得出是哪一則推播。
+
+- **slug 就是 `utm_campaign`**：`<YYYYMMDD>-<主題>-<am|pm>`，小寫英數與連字號，最多 40 字（一般 /go/ 代碼仍是 24 字）。日期要是真的日期。
+- **資料檔**：`config/go-links.json` 的 `"push"` 清單，每則推播一列，只填：
+  - `slug`：例如 `20261114-meroware-am`
+  - `destination`：站內路徑，例如 `/`、`/blog/meroware/`、`/calendar/`（要是站上已有的頁面）
+  - `anchor`（選填）：例如 `"offer"`，落在文章下單區
+- LINE 預覽（標題、描述、圖）自動抄目的地頁的 og 標籤，不用另外填。
+- 廠商網址（gbf.tw 等）不走這裡：那些本來就短，推播直接貼、不加 UTM。
+- **Bingo 要加新列**：在 Kingdom 開短票給 Grace，寫 slug 和目的地（例：「`20261123-brushbaby-am` → `/blog/brush-baby/`」）；Grace 加列、跑 `npm run build:go`、開 PR 合併。不用改程式。
+- 舊列不用刪；頁面 noindex、不進 sitemap。
+
+範例（2026-11-13 建立）：
+
+| 推播文放 | 轉到 |
+| --- | --- |
+| `https://www.eaglish.store/go/20261114-home-am/` | `/?utm_source=line&utm_medium=social&utm_campaign=20261114-home-am` |
+| `https://www.eaglish.store/go/20261114-meroware-am/` | `/blog/meroware/?utm_source=line&utm_medium=social&utm_campaign=20261114-meroware-am` |
+| `https://www.eaglish.store/go/20261117-kids-active-toys-pm/` | `/blog/kids-active-toys/?utm_source=line&utm_medium=social&utm_campaign=20261117-kids-active-toys-pm#offer` |
+
+驗證：手機 LINE 點短網址後，在 LINE 內建瀏覽器右上角「…」→「複製連結」，貼出來的網址要帶這三個 utm。電腦上可直接看網址列。
+
 ## 選物誌文章導來的連結（2026-11-01）
 
 選物誌裡要連到 /go/ 的地方，不另加 `utm_*`（站內連結帶新的 utm，GA4 會當成新來源、蓋掉 LINE 的來源），改用 `?c=blog-<文章slug>`：
