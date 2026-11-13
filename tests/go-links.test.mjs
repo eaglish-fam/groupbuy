@@ -23,7 +23,7 @@ test('every committed go page is exactly what the generator writes, and is noind
   const html=readFileSync(resolve(root,'go',l.slug,'index.html'),'utf8');
   assert.equal(html,renderGoPage(l));
   assert.match(html,/<meta name="robots" content="noindex,nofollow">/);
-  assert.match(html,/<meta property="og:image" content="https:\/\/www\.eaglish\.store\/assets\//);
+  assert.match(html,l.push?/<meta property="og:image" content="https:\/\/www\.eaglish\.store\//:/<meta property="og:image" content="https:\/\/www\.eaglish\.store\/assets\//,'push links reuse the destination page share image');
  }
 });
 test('the calendar link adds LINE tracking codes with the Taipei month and the group tag',()=>{
@@ -140,4 +140,39 @@ test('an anchor must be a plain section id',()=>{
  for(const anchor of ['Offer','#offer','offer"><script>','a b','x'.repeat(41),'1offer'])
   assert.throws(()=>validateLinks({...config,links:[{...b,anchor}]}),undefined,anchor);
  assert.doesNotMatch(renderGoPage(b),/#offer/,'links without an anchor are unchanged');
+});
+
+// --- GB-050: LINE push links (slug = utm_campaign, no query in the push text) ---
+test('push links redirect with line/social and the push slug as the campaign',()=>{
+ const home=links.find(x=>x.slug==='20261114-home-am');
+ assert.equal(redirect(home).url,'/?utm_source=line&utm_medium=social&utm_campaign=20261114-home-am');
+ const art=links.find(x=>x.slug==='20261114-meroware-am');
+ assert.equal(redirect(art).url,'/blog/meroware/?utm_source=line&utm_medium=social&utm_campaign=20261114-meroware-am');
+ const kids=links.find(x=>x.slug==='20261117-kids-active-toys-pm');
+ assert.equal(redirect(kids).url,'/blog/kids-active-toys/?utm_source=line&utm_medium=social&utm_campaign=20261117-kids-active-toys-pm#offer');
+});
+test('push links copy the share preview from the destination page',()=>{
+ const art=links.find(x=>x.slug==='20261114-meroware-am');
+ const page=readFileSync(resolve(root,'blog/meroware/index.html'),'utf8');
+ const og=page.match(/<meta property="og:image" content="([^"]*)"/)[1];
+ const html=renderGoPage(art);
+ assert.ok(html.includes(`<meta property="og:image" content="${og}">`));
+ assert.match(html,/<meta property="og:title" content="Meroware/);
+ assert.match(html,/<meta name="robots" content="noindex,nofollow">/);
+});
+test('push rows reject bad slugs, extra fields, off-site or missing pages',()=>{
+ const ok={slug:'20261114-home-am',destination:'/'};
+ const v=row=>validateLinks({...config,push:[row]});
+ assert.doesNotThrow(()=>v(ok));
+ for(const slug of ['20261114-home','home-am','20261314-home-am','20260230-home-am','20261114-Home-am','20261114-home-noon','20261114-'+'a'.repeat(30)+'-am'])
+  assert.throws(()=>v({...ok,slug}),undefined,slug);
+ for(const destination of ['https://gbf.tw/x/','//evil.example/','/blog/no-such-article/','/blog/meroware'])
+  assert.throws(()=>v({...ok,destination}),undefined,destination);
+ assert.throws(()=>v({...ok,utm:{source:'line',medium:'social',campaign:'x'}}),undefined,'campaign comes from the slug only');
+ assert.throws(()=>v({...ok,destination:'/',anchor:'Offer'}));
+ assert.throws(()=>validateLinks({...config,push:[ok,ok]}),undefined,'duplicate');
+ assert.throws(()=>validateLinks({...config,push:[{...ok,slug:'cal'}]}));
+});
+test('every push slug fits the 40-character limit and matches its campaign',()=>{
+ for(const l of links.filter(x=>x.push)){assert.ok(l.slug.length<=40);assert.equal(l.utm.campaign,l.slug);}
 });

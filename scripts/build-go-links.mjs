@@ -15,6 +15,10 @@
 // An open group buy goes to its article instead, with "anchor" (for example
 // "offer") so people land on the buy button; that button takes the current
 // vendor link from the Sheet, so a changed vendor link never breaks a /go/ link.
+// Push links (GB-050): config "push" rows only need a slug and a site path. The slug is
+// the LINE push's utm_campaign (<YYYYMMDD>-<topic>-<am|pm>), source/medium are line/social,
+// and the share preview (title, description, image) is copied from the destination page,
+// so the push text can carry a short URL with no query at all.
 import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -43,22 +47,46 @@ function validateStatus(l){
  }
 }
 
-export function validateLinks(config){
+const pushSlug=/^(20\d{2})(\d{2})(\d{2})-[a-z0-9]+(?:-[a-z0-9]+)*-(?:am|pm)$/;
+function meta(html,re){return (html.match(re)?.[1]||'').replace(/&quot;/g,'"').replace(/&lt;/g,'<').replace(/&gt;/g,'>').replace(/&amp;/g,'&');}
+export function readDestination(path){
+ const file=resolve(root,'.'+path,'index.html');
+ if(!existsSync(file))throw Error('go-links: push destination has no page: '+path);
+ const html=readFileSync(file,'utf8');
+ const title=meta(html,/<meta property="og:title" content="([^"]*)"/)||meta(html,/<title>([^<]*)<\/title>/);
+ return {title,description:meta(html,/<meta name="description" content="([^"]*)"/),image:meta(html,/<meta property="og:image" content="([^"]*)"/),imageAlt:meta(html,/<meta property="og:image:alt" content="([^"]*)"/)||title};
+}
+export function expandPush(row,read=readDestination){
+ const extra=Object.keys(row).filter(k=>!['slug','destination','anchor'].includes(k));
+ if(extra.length)throw Error(`go-links: push rows take only slug, destination, anchor (${extra.join(', ')}): ${row.slug}`);
+ const m=pushSlug.exec(row.slug||'');
+ if(!m||row.slug.length>40)throw Error('go-links: push slug must be <YYYYMMDD>-<topic>-<am|pm>, at most 40 characters: '+row.slug);
+ const d=new Date(`${m[1]}-${m[2]}-${m[3]}T00:00:00Z`);
+ if(Number.isNaN(d.getTime())||d.toISOString().slice(0,10)!==`${m[1]}-${m[2]}-${m[3]}`)throw Error('go-links: push slug date is not a real date: '+row.slug);
+ if(!internal.test(row.destination||'')||row.destination.startsWith('//'))throw Error('go-links: destination must be an internal path: '+row.slug);
+ const page=read(row.destination);
+ return {slug:row.slug,title:page.title,description:page.description,image:page.image,imageAlt:page.imageAlt,destination:row.destination,...(row.anchor!==undefined?{anchor:row.anchor}:{}),label:page.title.split('｜')[0].trim()||page.title,utm:{source:'line',medium:'social',campaign:row.slug},push:true};
+}
+export function validateLinks(config,read=readDestination){
  if(config.schema!=='eaglish.go-links/v1'||!Array.isArray(config.links)||!config.links.length)throw Error('go-links: schema or links missing');
+ if(config.push!==undefined&&!Array.isArray(config.push))throw Error('go-links: push must be a list');
  const seen=new Set();
- for(const l of config.links){
+ const all=[...config.links,...(config.push||[]).map(r=>expandPush(r,read))];
+ for(const l of all){
   validateStatus(l);
-  if(!word.test(l.slug||'')||l.slug.length>24)throw Error('go-links: bad slug '+l.slug);
+  if(l.push){if(!pushSlug.test(l.slug)||l.slug.length>40)throw Error('go-links: bad push slug '+l.slug);}
+  else if(!word.test(l.slug||'')||l.slug.length>24)throw Error('go-links: bad slug '+l.slug);
   if(seen.has(l.slug))throw Error('go-links: duplicate slug '+l.slug);seen.add(l.slug);
   if(!internal.test(l.destination||'')||l.destination.startsWith('//'))throw Error('go-links: destination must be an internal path: '+l.slug);
   if(l.anchor!==undefined&&!/^[a-z][a-z0-9-]{0,39}$/.test(l.anchor))throw Error('go-links: anchor must be a lowercase section id: '+l.slug);
   for(const k of ['title','description','imageAlt','label'])if(!String(l[k]||'').trim())throw Error(`go-links: ${k} missing for ${l.slug}`);
-  if(!/^https:\/\/www\.eaglish\.store\/assets\//.test(l.image||''))throw Error('go-links: image must be a site asset: '+l.slug);
+  if(l.push){if(!/^https:\/\/www\.eaglish\.store\/[^?#]+\.(?:webp|png|jpe?g)$/.test(l.image||'')||!existsSync(resolve(root,'.'+new URL(l.image).pathname)))throw Error('go-links: the destination page has no site share image: '+l.slug);}
+  else if(!/^https:\/\/www\.eaglish\.store\/assets\//.test(l.image||''))throw Error('go-links: image must be a site asset: '+l.slug);
   const u=l.utm||{};
   for(const k of ['source','medium','campaign'])if(!/^[a-z0-9{}-]+$/.test(u[k]||''))throw Error(`go-links: utm.${k} must be lowercase letters, digits and hyphens: ${l.slug}`);
   if(u.campaign.replace('{yyyymm}','').includes('{'))throw Error('go-links: only {yyyymm} is allowed in campaign: '+l.slug);
  }
- return config.links;
+ return all;
 }
 
 const NOTICE={
