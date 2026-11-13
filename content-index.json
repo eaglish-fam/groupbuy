@@ -123,6 +123,28 @@
       "sourceHash": "afb3eb113c4d12de50f09dd765ff8704b870b6afd4815439f7ff53a7337f0f49"
     },
     {
+      "slug": "brush-baby",
+      "url": "https://www.eaglish.store/blog/brush-baby/",
+      "title": "孩子不愛刷牙怎麼辦？Brush Baby 從嬰兒潔牙棉巾到兒童電動牙刷，依年齡挑｜鷹家選物誌",
+      "productNames": [
+        "Brush Baby 兒童電動牙刷"
+      ],
+      "productId": "brush-baby",
+      "mode": "product",
+      "intent": "product:brush-baby",
+      "topics": [
+        "Brush Baby",
+        "兒童電動牙刷",
+        "嬰兒潔牙棉巾",
+        "孩子不愛刷牙",
+        "嬰兒牙刷"
+      ],
+      "cluster": null,
+      "published": "2026-11-13",
+      "modified": "2026-11-13",
+      "sourceHash": "f839bf254755759f356667d4f8d203394dd1070f738d30f55e0df9f84067e544"
+    },
+    {
       "slug": "caesar-kenting",
       "url": "https://www.eaglish.store/blog/caesar-kenting/",
       "title": "墾丁凱撒大飯店怎麼選房？親子房型圖解、一泊二食與訂房 FAQ｜鷹家選物誌",
