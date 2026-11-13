@@ -11,6 +11,10 @@
 // tracking codes) and the article, and shows the notification link only if the
 // config has a real one. "open" (redirect to a vendor booking page) is rejected
 // until the click can be recorded and someone owns the vendor URL.
+//
+// An open group buy goes to its article instead, with "anchor" (for example
+// "offer") so people land on the buy button; that button takes the current
+// vendor link from the Sheet, so a changed vendor link never breaks a /go/ link.
 import {readFileSync,writeFileSync,mkdirSync,existsSync} from 'node:fs';
 import {resolve,dirname} from 'node:path';
 import {fileURLToPath} from 'node:url';
@@ -47,6 +51,7 @@ export function validateLinks(config){
   if(!word.test(l.slug||'')||l.slug.length>24)throw Error('go-links: bad slug '+l.slug);
   if(seen.has(l.slug))throw Error('go-links: duplicate slug '+l.slug);seen.add(l.slug);
   if(!internal.test(l.destination||'')||l.destination.startsWith('//'))throw Error('go-links: destination must be an internal path: '+l.slug);
+  if(l.anchor!==undefined&&!/^[a-z][a-z0-9-]{0,39}$/.test(l.anchor))throw Error('go-links: anchor must be a lowercase section id: '+l.slug);
   for(const k of ['title','description','imageAlt','label'])if(!String(l[k]||'').trim())throw Error(`go-links: ${k} missing for ${l.slug}`);
   if(!/^https:\/\/www\.eaglish\.store\/assets\//.test(l.image||''))throw Error('go-links: image must be a site asset: '+l.slug);
   const u=l.utm||{};
@@ -67,6 +72,7 @@ const HINT={
 export function renderGoPage(l){
  if((l.status??'redirect')!=='redirect')return renderClosedPage(l);
  const url=`${origin}/go/${l.slug}/`,utm=JSON.stringify(l.utm),dest=JSON.stringify(l.destination);
+ const hash=l.anchor?'#'+l.anchor:'',landing=l.destination+hash;
  return `<!doctype html>
 ${marker}
 <html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -78,15 +84,15 @@ ${marker}
 <meta property="og:title" content="${esc(l.title)}"><meta property="og:description" content="${esc(l.description)}">
 <meta property="og:image" content="${esc(l.image)}"><meta property="og:image:alt" content="${esc(l.imageAlt)}"><meta property="og:locale" content="zh_TW">
 <meta name="twitter:card" content="summary_large_image">
-<noscript><meta http-equiv="refresh" content="0;url=${esc(l.destination)}"></noscript>
+<noscript><meta http-equiv="refresh" content="0;url=${esc(landing)}"></noscript>
 <style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#fbf8f1;color:#30392d;font:16px/1.7 -apple-system,"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif}main{padding:24px;text-align:center}a{color:#a84c2b}</style>
-</head><body><main><p>正在前往${esc(l.label)}…</p><p><a id="go" href="${esc(l.destination)}">沒有自動跳轉的話，按這裡前往${esc(l.label)}</a></p></main>
-<script>(function(){var d=${dest},u=${utm};
+</head><body><main><p>正在前往${esc(l.label)}…</p><p><a id="go" href="${esc(landing)}">沒有自動跳轉的話，按這裡前往${esc(l.label)}</a></p></main>
+<script>(function(){var d=${dest},u=${utm},h=${JSON.stringify(hash)};
 // Month in Taipei, so the campaign name follows the same calendar the group buys do.
 var ym=new Date(Date.now()+8*36e5).toISOString().slice(0,7).replace("-","");
 var q=new URLSearchParams();q.set("utm_source",u.source);q.set("utm_medium",u.medium);q.set("utm_campaign",u.campaign.replace("{yyyymm}",ym));
 var c=new URLSearchParams(location.search).get("c");if(c&&/^[a-z0-9-]{1,40}$/.test(c))q.set("utm_content",c);
-var url=d+"?"+q.toString();document.getElementById("go").href=url;location.replace(url);})();</script>
+var url=d+"?"+q.toString()+h;document.getElementById("go").href=url;location.replace(url);})();</script>
 </body></html>
 `;
 }
