@@ -53,6 +53,7 @@
   "push": [
     {"slug": "20261114-home-am", "destination": "/"},
     {"slug": "20261114-meroware-am", "destination": "/blog/meroware/"},
-    {"slug": "20261117-kids-active-toys-pm", "destination": "/blog/kids-active-toys/", "anchor": "offer"}
+    {"slug": "20261117-kids-active-toys-pm", "destination": "/blog/kids-active-toys/", "anchor": "offer"},
+    {"slug": "20261123-brushbaby-am", "destination": "/blog/brush-baby/"}
   ]
 }
