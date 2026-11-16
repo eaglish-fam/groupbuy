@@ -2,6 +2,36 @@
  "schema": "eaglish.play-media/v2",
  "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
+  "Jowua": [
+   {
+    "src": "/assets/jowua/cart-discount.webp",
+    "alt": "Jowua 購物車頁顯示折扣碼 eagle，掛鉤生態系 NT$1,890 折抵 NT$95，總計 NT$1,796"
+   },
+   {
+    "src": "/assets/jowua/sunshade.webp",
+    "alt": "Jowua 玻璃車頂遮陽簾 Model Y"
+   },
+   {
+    "src": "/assets/jowua/floor-liners.webp",
+    "alt": "Jowua 立體防水腳踏墊與面紙盒組合"
+   },
+   {
+    "src": "/assets/jowua/screen-protector.webp",
+    "alt": "Jowua 防眩抗指紋螢幕保護貼"
+   },
+   {
+    "src": "/assets/jowua/car-mount.webp",
+    "alt": "Jowua Qi2 製冷六維隱藏車架 MagSafe 款"
+   },
+   {
+    "src": "/assets/jowua/armrest.webp",
+    "alt": "Jowua 扶手箱收納盒組合"
+   },
+   {
+    "src": "/assets/jowua/hook.webp",
+    "alt": "Jowua 掛鉤生態系"
+   }
+  ],
   "Brush Baby 兒童電動牙刷": [
    {
     "src": "/assets/brush-baby/lineup.webp",

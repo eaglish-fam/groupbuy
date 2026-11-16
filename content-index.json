@@ -323,6 +323,28 @@
       "sourceHash": "86437d5b827e9f14604eaf6f3677517053dffaaa1c1ae0850472808c280fad3f"
     },
     {
+      "slug": "jowua",
+      "url": "https://www.eaglish.store/blog/jowua/",
+      "title": "Jowua 折扣碼 eagle 全館 95 折｜Tesla 車用配件怎麼挑、折扣碼怎麼用｜鷹家選物誌",
+      "productNames": [
+        "Jowua"
+      ],
+      "productId": "jowua",
+      "mode": "product",
+      "intent": "product:jowua",
+      "topics": [
+        "Jowua 折扣碼",
+        "Jowua",
+        "Tesla 配件",
+        "Model Y 配件",
+        "Model 3 配件"
+      ],
+      "cluster": null,
+      "published": "2026-11-16",
+      "modified": "2026-11-16",
+      "sourceHash": "4fa1e730fdff34d9d728934125a74df8a648ad1be61ec7c71413b4250182d188"
+    },
+    {
       "slug": "kids-active-toys",
       "url": "https://www.eaglish.store/blog/kids-active-toys/",
       "title": "兒童放電神器怎麼選？平衡車、扭扭車、Vespa 電動車、滑板車與彈跳床，依年齡和場地挑｜鷹家選物誌",
@@ -625,7 +647,7 @@
       "cluster": "home",
       "published": "2026-10-14",
       "modified": "2026-10-14",
-      "sourceHash": "ae62ff096860f6ee9e7ad92ea5bd98ffd66af73ea238cf83710de62054a1e67e"
+      "sourceHash": "d08b3c647fadd0d46486b236f0b6f7b42b156302f1217af69bc8f935b0ae8eae"
     },
     {
       "slug": "shoumaji",

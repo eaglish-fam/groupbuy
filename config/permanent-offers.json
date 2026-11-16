@@ -29,6 +29,34 @@
       "disclosure": "使用推薦折扣碼購買，我們可能獲得分潤。",
       "state": "published",
       "publicationNotYetAccepted": false
+    },
+    {
+      "id": "jowua-eagle",
+      "brandId": "jowua",
+      "brandName": "Jowua",
+      "title": "Jowua Tesla 車用配件",
+      "code": "eagle",
+      "discount": {
+        "percent": 5,
+        "display": "全館 95 折"
+      },
+      "destinationUrl": "https://global.jowua-life.com/eagle",
+      "articlePath": "/blog/jowua/",
+      "image": {
+        "path": "/assets/jowua/product-card.webp",
+        "sha256": "3cd34fa635b7c31a4a1ebe19195d8c23a048dd89ace6c506167c892c356dd2b3",
+        "alt": "Jowua 折扣碼 eagle 全館 95 折，Qi2 車架與車用配件"
+      },
+      "source": {
+        "kind": "hiram-supplied-offer",
+        "sha256": "a664dd55569aed584bf1c7981c70db31f52e21dbb9f3dea2416ddbeac6379cce",
+        "authority": "Hiram direct request 2026-11-16 (Grace session)"
+      },
+      "observedAt": "2026-11-16",
+      "terms": {},
+      "disclosure": "使用推薦折扣碼或連結購買，我們可能獲得分潤。",
+      "state": "published",
+      "publicationNotYetAccepted": false
     }
   ]
 }

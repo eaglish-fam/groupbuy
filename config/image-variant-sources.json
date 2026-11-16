@@ -219,6 +219,22 @@
     "source": "9178cbe59f4a7209624a7789be0bcf2a041b6fda512c5295debcdc9eb2294f69",
     "variant": "5df029b423f7dd815dea717026e4ddb83b1282d71f60db5bd20f39d20f50cfff"
   },
+  "/assets/jowua/cover-480.webp": {
+    "source": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+    "variant": "771f241c87f749ecf8c438bc3d34e8ea169290e458699d7ba76c071adfa38f90"
+  },
+  "/assets/jowua/cover-960.webp": {
+    "source": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+    "variant": "2858ef4f7e825db5848ad22961dcea1e671e7e5ca2a866213ba2299686bc6483"
+  },
+  "/assets/jowua/product-card-480.webp": {
+    "source": "3cd34fa635b7c31a4a1ebe19195d8c23a048dd89ace6c506167c892c356dd2b3",
+    "variant": "e7b06f7edcbd1718658d0b7d02a9271812cdca89ad2febfebd34bc0b3cd05002"
+  },
+  "/assets/jowua/product-card-960.webp": {
+    "source": "3cd34fa635b7c31a4a1ebe19195d8c23a048dd89ace6c506167c892c356dd2b3",
+    "variant": "9c9d7f41a43c11889e2fbfbddac60f906dfef542cee9ffd75bfc58e3cde2a767"
+  },
   "/assets/kids-active-toys/cover-480.webp": {
     "source": "d92224bb500ded1ed2987fd0e2eb87d7af47924c76c1e381831baadf8ac2e885",
     "variant": "3e7a0f2abad1323e166a117043ad4e85585a5588b3b6573cb36f953dc12108da"
