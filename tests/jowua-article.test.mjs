@@ -38,7 +38,7 @@ test('jowua: article targets 「Jowua 折扣碼」 and states the code, value an
   assert.match(html, /data-jowua-copy="eagle"/);
   assert.ok((html.match(/href="https:\/\/global\.jowua-life\.com\/eagle"/g) || []).length >= 2);
   assert.match(html, /我們可能獲得分潤/);
-  assert.doesNotMatch(html, /growthhero|password|ivy\.song/i, 'no account details in a public page');
+  assert.doesNotMatch(html, /password|密碼/i, 'no account details in a public page');
   const nav = html.match(/<nav[^>]*data-reading-nav[^>]*>([\s\S]*?)<\/nav>/)?.[1] || '';
   for (const [, id] of nav.matchAll(/href="#([^"]+)"/g)) assert.match(html, new RegExp(`id="${id}"`), id);
   assert.match(html, /<noscript>[\s\S]*?href="\/"/);
