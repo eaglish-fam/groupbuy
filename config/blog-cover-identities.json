@@ -487,6 +487,27 @@
         "reviewer": "Grace",
         "reviewScope": "Grace 2026-11-13 看過 cover.webp、product-card.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Brush Baby 字樣與標題可讀；右側為自家照片，未修改。"
       }
+    },
+    "/blog/jowua/": {
+      "identity": "Jowua",
+      "image": "/assets/jowua/cover.webp",
+      "imageSha256": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+      "source": "/assets/jowua/cover-source.html",
+      "sourceSha256": "cb25eafc0b4b3c5eefe97a99b62d7da88444985b8d2a8769718d36900a14ed0f",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-16 看過 cover.webp、product-card.webp 原圖與選物誌卡片在 320/390/768/1440 的渲染：Jowua 字樣、折扣碼 eagle、全館 95 折可讀；右側為官方商品圖，未修改。"
+      }
     }
   }
 }

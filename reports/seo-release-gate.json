@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 69,
+    "pages": 70,
     "blocking": 0,
-    "warnings": 33,
-    "total": 33
+    "warnings": 34,
+    "total": 34
   },
   "findings": [
     {
@@ -26,6 +26,13 @@
       "message": "Link fragment not found on destination page: /#product-ilovekids-rotating-bookcase",
       "file": "blog/ilovekids-rotating-bookcase/index.html",
       "index": 8389
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-jowua",
+      "file": "blog/jowua/index.html",
+      "index": 12111
     },
     {
       "level": "warn",
@@ -123,21 +130,21 @@
       "category": "images",
       "message": "Image exceeds 350KB (554KB): /assets/shinwa-living/fold-table-mahjong.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 9306
+      "index": 9317
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (495KB): /assets/shinwa-living/cat-shoehorn-whole.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 10782
+      "index": 10793
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (474KB): /assets/shinwa-living/cat-shoehorn-use.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 11069
+      "index": 11080
     },
     {
       "level": "warn",
@@ -151,63 +158,63 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "calendar/index.html",
-      "index": 3068
+      "index": 3070
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 4250
+      "index": 4252
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9095
+      "index": 9081
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9209
+      "index": 9195
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9323
+      "index": 9309
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9436
+      "index": 9422
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9550
+      "index": 9536
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 52335
+      "index": 52321
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 52335
+      "index": 52321
     },
     {
       "level": "warn",
