@@ -16,7 +16,7 @@ concurrency:
 
 jobs:
   verify:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04  # Playwright 1.56.1 has no Chromium build for ubuntu-latest (26.04) yet
     timeout-minutes: 30
     steps:
       # The branch head, not the merge preview: generated files must be committed by the author,
