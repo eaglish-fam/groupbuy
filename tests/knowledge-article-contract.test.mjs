@@ -171,7 +171,7 @@ test('unpublished knowledge becomes candidate_ready without dates, sitemap publi
 });
 
 test('candidate release rejects noindex loss, fake dates, sitemap inclusion, purchase cards and missing reviewed identity',()=>{
-  const fixture=candidateFixture(),value=fixture.root;
+  const fixture=candidateFixture(),value=fixture.root,card=fixture.card;
   const html=read(value,'blog/hummus-guide/index.html'),index=read(value,'blog/index.html'),sitemap=read(value,'sitemap.xml'),meta=read(value,'config/content-articles.json');
   const failed=id=>assert.ok(auditBlog({root:value}).failures.some(item=>item.id===id),id);
   put(value,'blog/hummus-guide/index.html',html.replace('noindex,follow','index,follow'));
@@ -182,7 +182,8 @@ test('candidate release rejects noindex loss, fake dates, sitemap inclusion, pur
   failed('blog:hummus-guide:index.html:schema-dates');put(value,'blog/index.html',index);
   put(value,'sitemap.xml',sitemap.replace('</urlset>','<url><loc>https://www.eaglish.store/blog/hummus-guide/</loc></url></urlset>'));
   failed('blog:hummus-guide:index.html:sitemap');put(value,'sitemap.xml',sitemap);
-  put(value,'blog/index.html',index.replace('<span data-status>閱讀知識指南','<a data-buy href="https://example.com/buy">buy</a><span data-status>閱讀知識指南'));
+  // Inject the purchase action into the hummus card itself; other published explainer cards may precede it.
+  put(value,'blog/index.html',index.replace(card,card.replace('<span data-status>閱讀知識指南','<a data-buy href="https://example.com/buy">buy</a><span data-status>閱讀知識指南')));
   failed('blog:hummus-guide:index.html:knowledge-shelf');put(value,'blog/index.html',index);
   put(value,'config/content-articles.json',JSON.stringify({version:1,articles:{}}));
   failed('blog:hummus-guide:index.html:reviewed-identity');put(value,'config/content-articles.json',meta);

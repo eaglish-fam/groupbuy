@@ -219,6 +219,14 @@
     "source": "9178cbe59f4a7209624a7789be0bcf2a041b6fda512c5295debcdc9eb2294f69",
     "variant": "5df029b423f7dd815dea717026e4ddb83b1282d71f60db5bd20f39d20f50cfff"
   },
+  "/assets/insta360-ezway/cover-480.webp": {
+    "source": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
+    "variant": "d41b9827ce17d49e96984f1b85a620014cbef71c43639b33bca571f7bcc906c0"
+  },
+  "/assets/insta360-ezway/cover-960.webp": {
+    "source": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
+    "variant": "349b6faf094c65dcf43e4cf6a9b4b4b1536238ccaf37d89ec64d8fc58ab8137f"
+  },
   "/assets/jowua/cover-480.webp": {
     "source": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
     "variant": "771f241c87f749ecf8c438bc3d34e8ea169290e458699d7ba76c071adfa38f90"
