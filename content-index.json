@@ -164,7 +164,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "94a6d0f560a0e4d1a906f47a681c2cdb38ef0bc49cb34b9967ee052df9eb892d"
+      "sourceHash": "7a1802b87440a70f5001b9ef69eec00e28f58cdeae8ac0cf7fe3ded8077dd1a3"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -270,7 +270,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "6e35993dadd86b52922eccf49bf7e8fc23c044678c690cf12db1927109a8e898"
+      "sourceHash": "8074bbfa8b8ef8b529ea700df59355c79b27bb45ca800c91fd37935a96f7e869"
     },
     {
       "slug": "hummus-guide",
@@ -321,6 +321,37 @@
       "published": "2026-11-10",
       "modified": "2026-11-10",
       "sourceHash": "bc4c3e0deddee10bee31e5e774b675b765f5fbfe6ebcc8e7700183dac77e104c"
+    },
+    {
+      "slug": "insta360-ezway",
+      "url": "https://www.eaglish.store/blog/insta360-ezway/",
+      "title": "Insta360 官網買相機，FedEx 要你填 EZ WAY：清單空白不用等，自己按「新增」",
+      "mode": "explainer",
+      "intent": "How to complete EZ WAY self-use declaration, real-name delegation and paper delegation for Insta360 official-store imports to Taiwan.",
+      "productNames": [],
+      "productId": null,
+      "description": "從 Insta360 官方商城買相機寄到台灣，要在 EZ WAY 完成 NCC 自用切結書、海關實名委任、紙本委任書三件事。切結書和紙本委任書清單空白是正常的，要自己按「新增」；實名委任等推播後點「申報相符」。附數量限制、課稅與保固常見問題。",
+      "image": "/assets/insta360-ezway/cover.webp",
+      "alt": "Insta360 官網直營 EZ WAY 報關教學：切結書清單空白，自己按新增",
+      "cluster": "travel",
+      "relatedArticles": [
+        "hereu-tag"
+      ],
+      "publicationState": "published",
+      "datePrepared": "2026-11-17",
+      "datePublished": "2026-11-17",
+      "dateModified": "2026-11-17",
+      "topics": [
+        "EZ WAY",
+        "Insta360 官網",
+        "自用切結書",
+        "海關實名委任",
+        "紙本委任書"
+      ],
+      "prepared": "2026-11-17",
+      "published": "2026-11-17",
+      "modified": "2026-11-17",
+      "sourceHash": "670c077a76fa911aa7a7baddc6d0c36b20d6a0bfc789c8a801892dcd9911a3d9"
     },
     {
       "slug": "jowua",
@@ -388,7 +419,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "4531bc34fbc7eed64315d392c3541d67a2f388eed39038bfe1090727f1505eb8"
+      "sourceHash": "b805a599c28081745ab3a7e4f4cdd7e58a588ed647adfe6f09be23abc9e09907"
     },
     {
       "slug": "knsh",
@@ -453,7 +484,7 @@
       "cluster": "travel",
       "published": "2026-10-02",
       "modified": "2026-10-02",
-      "sourceHash": "56abff77c5d1c633e22a4269d43989e06d4f3c92d98fd0cce98ed2519ecdcec7"
+      "sourceHash": "72f670443c394342cd178820415fbc6393a66bbc0e081258636eca4b2d644bb3"
     },
     {
       "slug": "locknlock",
@@ -514,7 +545,7 @@
       "cluster": "travel",
       "published": "2026-09-16",
       "modified": "2026-11-06",
-      "sourceHash": "311fabc87b277a8c85a2fef1792d8330d05570ba5f0638453afc9bb9d717ea99"
+      "sourceHash": "b5dac3c5e2982eff1785b13447b75e44adf835f8db0ad08235029e91de2a6200"
     },
     {
       "slug": "mitoy-rice-blocks",
@@ -625,7 +656,7 @@
       "cluster": "travel",
       "published": "2026-10-23",
       "modified": "2026-10-23",
-      "sourceHash": "ada4ee498f505120f91d27302019b9c32c2232b1500e8f9f8c2288c799cb0e8f"
+      "sourceHash": "d88543fdf4bd8134ca112568ca773156daa229e02a47b86a043a97a95b3c8336"
     },
     {
       "slug": "shinwa-living",
@@ -668,7 +699,7 @@
       "cluster": "travel",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "f567a5f1a80a3dfae9c9dbcd017237ef4888cacbcf61da983ee88d79d07af63a"
+      "sourceHash": "5e1790fdd08e5955856652a33af4ff06e2de45509aaa2a6d4b35a215472d3737"
     },
     {
       "slug": "wave-hummus",

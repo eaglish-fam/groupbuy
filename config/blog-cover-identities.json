@@ -508,6 +508,27 @@
         "reviewer": "Grace",
         "reviewScope": "Grace 2026-11-16 看過 cover.webp、product-card.webp 原圖與選物誌卡片在 320/390/768/1440 的渲染：Jowua 字樣、折扣碼 eagle、全館 95 折可讀；右側為官方商品圖，未修改。"
       }
+    },
+    "/blog/insta360-ezway/": {
+      "identity": "EZ WAY",
+      "image": "/assets/insta360-ezway/cover.webp",
+      "imageSha256": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
+      "source": "/assets/insta360-ezway/cover-source.html",
+      "sourceSha256": "58e3bbf78e462845692ab54cb54ca2c0f36d955935ffc243f7ca8c5c4507e8a1",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-17 看過 cover.webp 原圖與選物誌卡片 320/390/768/1440：EZ WAY 報關教學字樣可讀；右側為 Insta360 官方商品圖，未修改。"
+      }
     }
   }
 }
