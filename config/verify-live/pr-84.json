@@ -1,0 +1,20 @@
+{
+  "note": "Strings that must be on the live page after PR #84 (G1 homepage brand terms). Used with: node scripts/verify-live.mjs <merge-commit> --checks config/verify-live/pr-84.json",
+  "pages": [
+    {
+      "path": "/",
+      "mustInclude": [
+        "<title>鷹式一家團購｜鷹家買物社：當期開團、折扣碼與選物誌</title>",
+        "<meta name=\"description\" content=\"鷹式一家 Eaglish Family 官方團購網站。看當期開團、團購行事曆、常駐折扣碼，以及鷹家親自用過的選物誌與親子旅行指南，從餐桌好食到居家生活與旅行選物。\">",
+        "<meta property=\"og:description\" content=\"鷹式一家 Eaglish Family 官方團購網站。看當期開團、團購行事曆、常駐折扣碼，以及鷹家親自用過的選物誌與親子旅行指南，從餐桌好食到居家生活與旅行選物。\">",
+        "<meta property=\"og:title\" content=\"鷹式一家團購｜鷹家買物社：當期開團、折扣碼與選物誌\">",
+        "<span class=\"sr-only\">鷹式一家團購：把喜歡的日常帶回家</span>",
+        "\"sameAs\":[\"https://www.facebook.com/eaglish.family/\",\"https://www.instagram.com/eaglish.fam/\",\"https://www.youtube.com/@eaglish.family\"]",
+        "\"@type\":\"WebSite\""
+      ],
+      "mustNotInclude": [
+        "<title>鷹家買物社｜把喜歡的日常，帶回家</title>"
+      ]
+    }
+  ]
+}

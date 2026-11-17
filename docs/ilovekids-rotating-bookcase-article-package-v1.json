@@ -1,0 +1,80 @@
+{
+ "schema": "eaglish.article-package/v1",
+ "editorialStatus": "Grace 撰寫；Bingo 工單 GB-041",
+ "identity": {
+  "slug": "ilovekids-rotating-bookcase",
+  "title": "愛兒館旋轉書櫃好用嗎？小房間收繪本，孩子自己拿、自己放回去"
+ },
+ "sources": [
+  {
+   "kind": "groupbuy-sheet",
+   "row": "現正開團 愛兒館 旋轉書櫃（2026-11-19～11-25）",
+   "readAt": "2026-11-10"
+  },
+  {
+   "kind": "family-blog",
+   "url": "https://projecteaglet.com/ilovekids/",
+   "readAt": "2026-11-10",
+   "note": "Queenie 2023 年使用心得與實拍：房間約 2 坪、長型書架不好用、每格不深孩子好拿、單格約 46 本康軒進階雜誌（約 12 公斤）、鋁合金轉盤、每層耐重 48 公斤最高 4 層（2023 年賣場說明）"
+  },
+  {
+   "kind": "order-page",
+   "url": "https://shop.lovekidsco.com.tw/shop/427-eagle260730",
+   "readAt": "2026-11-10",
+   "note": "仍顯示上一檔 7/30–8/30 已結團頁：DIY 商品、大型貨件不送上樓、個人因素退貨扣寄件運費、拆封組裝或外箱丟棄酌收整新費、橡膠實木紋理色澤不一；本團價格規格未上架 → 文章寫以賣場為準，並標明是上一檔說明"
+  }
+ ],
+ "notStated": [
+  "價格",
+  "本團尺寸、層數選擇與承重",
+  "出貨、運費與本團退貨規則"
+ ],
+ "media": "assets/ilovekids-rotating-bookcase/sources.md：鷹家 2023 實拍；Sheet image 欄是影片縮圖未使用",
+ "technicalSeo": {
+  "author": {
+   "type": "Organization",
+   "name": "鷹式一家",
+   "url": "https://www.eaglish.store/"
+  },
+  "datePublished": "2026-11-10",
+  "dateModified": "2026-11-10",
+  "social": {
+   "ogImage": "https://www.eaglish.store/assets/ilovekids-rotating-bookcase/cover.webp",
+   "width": 1600,
+   "height": 1000,
+   "shareImage": "https://www.eaglish.store/assets/ilovekids-rotating-bookcase/share.webp",
+   "shareWidth": 1200,
+   "shareHeight": 630
+  },
+  "structuredData": [
+   "Article",
+   "BreadcrumbList"
+  ],
+  "crawlableOfferFallback": "/#catalog"
+ },
+ "siteIntegration": {
+  "brand": "愛兒館 旋轉書櫃",
+  "category": "兒童閱讀收納",
+  "journalCategory": "母嬰",
+  "excerpt": "孩子房間不到 2 坪，長型書架讓書東倒西歪。我們 2023 年開始用愛兒館旋轉書櫃：佔地小、每格不深孩子好拿放，也整理了 DIY 組裝和退貨前要知道的事。",
+  "readLabel": "看我們家怎麼用 →",
+  "cover": "/assets/ilovekids-rotating-bookcase/cover.webp",
+  "card": "/assets/ilovekids-rotating-bookcase/product-card.webp",
+  "coverSource": "/assets/ilovekids-rotating-bookcase/cover-source.html",
+  "coverIdentity": "旋轉書櫃",
+  "coverReview": {
+   "identityVisible": true,
+   "realPhotoPreserved": true,
+   "mobileCardLegible": true,
+   "viewportWidths": [
+    320,
+    390,
+    768,
+    1440
+   ],
+   "reviewer": "Grace",
+   "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 288/390/768/1440 的渲染：左欄大字「房間不炸書 孩子自己放回去」與旋轉書櫃字樣可讀；右側為鷹家實拍，未修改。"
+  },
+  "catalogKey": "ilovekidsBookcase"
+ }
+}

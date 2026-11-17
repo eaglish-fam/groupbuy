@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Wave 鷹嘴豆泥｜封面原稿</title>
+  <style>
+    @font-face{font-family:WaveCoverSerif;src:url("wave-cover-serif.woff2") format("woff2");font-style:normal;font-weight:500;font-display:block}
+    *{box-sizing:border-box}
+    html,body{margin:0;background:#f6f5ef}
+    body{font-family:WaveCoverSerif,"Noto Serif TC","Songti TC",serif;color:#193e35}
+    .frame{width:1600px;max-width:100vw;container-type:inline-size}
+    .cover{position:relative;width:100%;aspect-ratio:8/5;overflow:hidden;background:#f6f5ef}
+    .photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 20%;display:block}
+    .text{position:absolute;inset:0 auto 0 0;width:49%;padding:5.4cqw;display:flex;flex-direction:column;justify-content:center;background:#f6f5ef}
+    .series{font-family:WaveCoverSerif,serif;font-size:2cqw;font-weight:500;line-height:1.5;letter-spacing:.12em;margin:0 0 5.7cqw;color:#53635b;white-space:nowrap}
+    h1{margin:0;font-weight:500;line-height:1.15;letter-spacing:0}
+    .wave{display:block;font-size:10.5cqw;line-height:1;letter-spacing:-.035em;white-space:nowrap}
+    .name{display:block;font-size:7cqw;line-height:1.45;letter-spacing:.015em;white-space:nowrap;margin-top:.85cqw}
+    .subtitle{font-size:2.4cqw;line-height:1.6;letter-spacing:.025em;color:#53635b;margin:3.9cqw 0 0;white-space:nowrap}
+    .card{width:1000px}
+    .card .cover{aspect-ratio:4/3}
+    .card .photo{object-position:50% 8%}
+    .card .text{width:54%;padding:5.8cqw}
+    .card .series{font-size:2.5cqw;margin-bottom:6cqw}
+    .card .wave{font-size:12.5cqw}
+    .card .name{font-size:9.6cqw;margin-top:1.2cqw;line-height:1.5}
+    .card .subtitle{font-size:2.8cqw;margin-top:4.4cqw}
+    .share{width:1200px}
+    .share .cover{aspect-ratio:40/21}
+    .share .text{width:50%;padding:5cqw}
+    .share .series{font-size:2cqw;margin-bottom:3.6cqw}
+    .share .wave{font-size:9.4cqw}
+    .share .name{font-size:7.4cqw;line-height:1.45;margin-top:.6cqw}
+    .share .subtitle{font-size:2.25cqw;margin-top:2.6cqw}
+  </style>
+  <script>
+    document.addEventListener('DOMContentLoaded',()=>{
+      const variant=new URLSearchParams(location.search).get('variant');
+      if(variant==='card'||variant==='share')document.querySelector('.frame').classList.add(variant);
+    });
+  </script>
+</head>
+<body>
+  <main class="frame">
+    <div class="cover" aria-label="Wave 鷹嘴豆泥，直接吃、沾蔬菜、配烤肉">
+      <img class="photo" src="mushroom.webp" alt="鷹嘴豆泥搭配菇類與葉菜的真實餐盤照片">
+      <div class="text">
+        <p class="series">鷹家選物誌</p>
+        <h1><span class="wave">Wave</span> <span class="name">鷹嘴豆泥</span></h1>
+        <p class="subtitle">直接吃、沾蔬菜、配烤肉</p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

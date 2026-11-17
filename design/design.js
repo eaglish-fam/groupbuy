@@ -177,7 +177,7 @@ function card(p, leofooPlans = [], matchedLeofooPlans = []) {
     ${p.kind === "book" && retailerLinks ? `<div class="retailer-links">${retailerLinks}</div>` : `<div class="card-actions"><button class="button secondary" data-detail="${idx}">商品詳情</button></div>`}
     ${p.article?.article ? `<a class="card-reading" href="${esc(p.article.article)}">先讀生活筆記<span aria-hidden="true">↗</span></a>` : ""}
     ${p.videos.length ? `<button class="card-reading card-video" data-detail="${idx}">觀看使用影片</button>` : ""}
-    ${!p.kind && (p.end || p.start) && p.status.key !== "closed" ? `<button class="card-calendar" data-calendar-product="${idx}">加入行事曆</button>` : ""}
+    ${!p.kind && (p.end || p.start) && p.status.key !== "closed" && !p.status.soldOut ? `<button class="card-calendar" data-calendar-product="${idx}">加入行事曆</button>` : ""}
     ${p.kind === "book" && retailerLinks ? "" : `<div class="card-primary-action">${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">${cta}</a>` : `<button class="button secondary" data-save="${idx}">${saved.has(p.key) ? "已收藏 ✓" : "先收藏"}</button>`}</div>`}
     </div></div></article>`;
 }
@@ -209,7 +209,7 @@ function render() {
     `${displayList.length} 件選物${category ? "・" + category : ""}`;
   $("#products").innerHTML = list.length
     ? displayList.slice(0, limit).map(item => card(item.product, item.leofooPlans, item.matchedLeofooPlans)).join("")
-    : `<div class="loading">${currentStatus === "saved" ? "還沒有符合條件的收藏。點商品右上角的書籤，就能留在這裡。" : currentStatus === "upcoming" && !query && !category ? "目前沒有已公布的即將開團商品。先逛逛開團中的好物吧。" : "沒有符合條件的商品，試試其他關鍵字或分類。"}<br><button class="text-link" id="reset-filters">查看全部開團商品</button></div>`;
+    : `<div class="loading">${currentStatus === "saved" ? "還沒有符合條件的收藏。點商品右上角的書籤，就能留在這裡。" : currentStatus === "upcoming" && !query && !category ? "目前沒有已公布的即將開團商品。先逛逛開團中的好物吧。" : "沒有符合條件的商品，試試其他關鍵字或分類。"}<br><button class="filter-clear" id="reset-filters">✕ 清除篩選，看全部商品</button></div>`;
   $("#products").setAttribute("aria-busy", "false");
   $("#load-more").hidden = displayList.length <= limit;
   const remaining = Math.max(0, displayList.length - limit);
@@ -223,6 +223,15 @@ function render() {
   document.querySelectorAll("[data-category]").forEach((b) => {
     b.setAttribute("aria-pressed", String(b.dataset.category === category));
   });
+  // Orange「清除篩選」bar whenever anything narrows the list (Hiram 2026-11-11).
+  const activeBar = $("#active-filters");
+  if (activeBar) {
+    const statusLabel = currentStatus === "all" ? "" : (document.querySelector(`.status-tabs [data-status="${currentStatus}"]`)?.textContent || "").trim();
+    const typed = $("#search").value.trim();
+    const active = [statusLabel, category, country, typed && `「${typed}」`].filter(Boolean);
+    activeBar.hidden = !active.length;
+    $("#active-filters-label").textContent = active.join("・");
+  }
   document
     .querySelectorAll("[data-status]")
     .forEach((b) =>
@@ -383,7 +392,7 @@ document.addEventListener("click", (e) => {
     render();
     $("#catalog").scrollIntoView();
   }
-  if (e.target.closest("#reset-filters")) {
+  if (e.target.closest("#reset-filters, [data-reset-filters]")) {
     category = "";
     country = "";
     if ($("#country")) $("#country").value = "";

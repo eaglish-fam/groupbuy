@@ -1,0 +1,29 @@
+{
+ "schema": "eaglish.article-package/v1",
+ "editorialStatus": "Grace 撰寫；Hiram 2026-11-16 直接要求（折扣碼區＋選物誌，攻「Jowua 折扣碼」）",
+ "identity": {"slug": "jowua", "title": "Jowua 折扣碼 eagle 全館 95 折｜Tesla 車用配件怎麼挑、折扣碼怎麼用"},
+ "sources": [
+  {"kind": "hiram-supplied-offer", "readAt": "2026-11-16", "facts": ["折扣碼 eagle", "所有產品 5% off（95 折）", "導購連結 https://global.jowua-life.com/eagle"]},
+  {"kind": "browser-check", "readAt": "2026-11-16", "facts": ["從 /eagle 進入，購物車自動套用 eagle，掛鉤生態系 NT$1,890 折 NT$95 = NT$1,796（促銷價商品仍可折）", "免運門檻以折扣後金額計（顯示再消費 $204.50 免運）"]},
+  {"kind": "vendor-site", "url": "https://global.jowua-life.com/policies/shipping-policy", "readAt": "2026-11-16", "facts": ["滿 NT$2,000 免運，未滿 NT$80", "宅配出貨後 2–5 工作日；門市自取規則"]},
+  {"kind": "vendor-site", "url": "https://global.jowua-life.com/policies/refund-policy", "readAt": "2026-11-16", "facts": ["收貨 7 天內原狀退回", "10 個工作日內退款", "非瑕疵退貨不退運費手續費"]},
+  {"kind": "vendor-site", "url": "https://global.jowua-life.com/pages/warranty", "readAt": "2026-11-16", "facts": ["基本 1 年有限保固，從購買日起", "註冊延長：非帶電池 4 年 16 萬公里、帶電池 2 年 8 萬公里"]},
+  {"kind": "vendor-site", "url": "https://global.jowua-life.com/products.json", "readAt": "2026-11-16", "facts": ["商品名稱、適用車型與標價（文中標「起」，95 折後四捨五入）"]}
+ ],
+ "notStated": ["折扣碼期限", "是否與所有活動併用（只實測一件促銷商品）"],
+ "media": "assets/jowua/sources.md",
+ "technicalSeo": {"author": {"type": "Organization", "name": "鷹式一家", "url": "https://www.eaglish.store/"}, "datePublished": "2026-11-16", "dateModified": "2026-11-16", "primaryKeyword": "Jowua 折扣碼", "social": {"ogImage": "https://www.eaglish.store/assets/jowua/cover.webp", "width": 1600, "height": 1000}, "structuredData": ["Article", "BreadcrumbList"]},
+ "siteIntegration": {
+  "brand": "Jowua",
+  "category": "車用配件",
+  "journalCategory": "居家",
+  "excerpt": "Jowua 折扣碼 eagle，台灣官網全館 95 折，從連結進入自動帶入。整理 Tesla Model 3／Y 新車常買的遮陽簾、腳踏墊、保護貼與 Qi2 車架，還有運費、退貨與保固。",
+  "readLabel": "看折扣碼怎麼用 →",
+  "cover": "/assets/jowua/cover.webp",
+  "card": "/assets/jowua/product-card.webp",
+  "coverSource": "/assets/jowua/cover-source.html",
+  "coverIdentity": "Jowua",
+  "coverReview": {"identityVisible": true, "realPhotoPreserved": true, "mobileCardLegible": true, "viewportWidths": [320, 390, 768, 1440], "reviewer": "Grace", "reviewScope": "Grace 2026-11-16 看過 cover.webp、product-card.webp 原圖與選物誌卡片在 320/390/768/1440 的渲染：Jowua 字樣、折扣碼 eagle、全館 95 折可讀；右側為官方商品圖，未修改。"},
+  "catalogKey": "jowua"
+ }
+}

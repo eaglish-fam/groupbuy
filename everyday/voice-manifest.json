@@ -1,0 +1,793 @@
+{
+ "schema": "eaglish.play-voice/v1",
+ "note": "由 scripts/build-play-voice.mjs 產生（VoAI，AI 語音）。只有文字雜湊相符的段落才會播放。",
+ "narrator": {
+  "speaker": "詠芯",
+  "style": "旁白"
+ },
+ "voices": {
+  "kexin": {
+   "speaker": "竹均",
+   "style": "開心"
+  },
+  "shihan": {
+   "speaker": "樂晰",
+   "style": "聊天"
+  },
+  "jiahao": {
+   "speaker": "子墨",
+   "style": "開心"
+  },
+  "yating": {
+   "speaker": "璦廷",
+   "style": "聊天"
+  },
+  "peishan": {
+   "speaker": "欣妤",
+   "style": "預設"
+  },
+  "shufen": {
+   "speaker": "悅青",
+   "style": "預設"
+  },
+  "chenghan": {
+   "speaker": "諭書",
+   "style": "開心"
+  },
+  "yizhen": {
+   "speaker": "凡萱",
+   "style": "預設"
+  }
+ },
+ "items": {
+  "shihan/intro": {
+   "file": "/assets/play/voice/shihan/intro.mp3",
+   "hash": "351f0f52844fb5ed",
+   "text": "黃詩涵，35歲，雙薪家庭的媽媽，會計。詩涵和先生阿哲都上班。早上趕小麥上學、送小米去幼兒園，晚上煮飯、功課、洗澡，一樣一樣排得井井有條。她常常多煮一點，裝一盒送去對門。她的目標是：把兩個女兒和這個家顧得好好的，也留一點時間給自己。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 115
+  },
+  "shihan/s0": {
+   "file": "/assets/play/voice/shihan/s0.mp3",
+   "hash": "1c742ac1fd9138f6",
+   "text": "早上六點五十分，姊妹搶著自己盛早餐。小米堅持要跟姊姊一樣自己盛粥，湯匙一歪，桌上又多了一灘。小麥已經在門口催了。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 56
+  },
+  "shihan/r0": {
+   "file": "/assets/play/voice/shihan/r0.mp3",
+   "hash": "023545a8d88c0531",
+   "text": "慢慢來，自己盛的最好吃。",
+   "speaker": "樂晰",
+   "style": "聊天",
+   "quota": 12
+  },
+  "shihan/s1": {
+   "file": "/assets/play/voice/shihan/s1.mp3",
+   "hash": "ed64f09192dcfecb",
+   "text": "早上七點十五分，小麥早上吃不下。小麥說早上沒胃口，粥只吃了兩口。詩涵想讓她出門前至少吃一點東西。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 48
+  },
+  "shihan/r1": {
+   "file": "/assets/play/voice/shihan/r1.mp3",
+   "hash": "af01fdf6cdff3fbd",
+   "text": "一小杯就好，至少不是空著肚子去上學。",
+   "speaker": "樂晰",
+   "style": "聊天",
+   "quota": 18
+  },
+  "shihan/s2": {
+   "file": "/assets/play/voice/shihan/s2.mp3",
+   "hash": "1e8a3da26280d828",
+   "text": "下午五點四十分，小米在客廳翻跟斗。從幼兒園回來，小米精力還是滿的，在沙發和地板之間跳來跳去，樓下應該也聽得到。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 55
+  },
+  "shihan/r2": {
+   "file": "/assets/play/voice/shihan/r2.mp3",
+   "hash": "3fcbde3ac521864d",
+   "text": "鋪好之後，翻跟斗也不怕了，樓下也安靜多了。",
+   "speaker": "樂晰",
+   "style": "聊天",
+   "quota": 21
+  },
+  "shihan/s3": {
+   "file": "/assets/play/voice/shihan/s3.mp3",
+   "hash": "474cb4b9a8b39ed6",
+   "text": "晚上六點半，多煮了一點，拿去！。今天煎了一大盤雞腿，詩涵照例裝了一盒，端去對門給雅婷家。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 44
+  },
+  "shihan/r3": {
+   "file": "/assets/play/voice/shihan/r3.mp3",
+   "hash": "a4443c3781c9895f",
+   "text": "我多煮了一點，拿去！盒子下次再還我就好。",
+   "speaker": "樂晰",
+   "style": "聊天",
+   "quota": 20
+  },
+  "shihan/s4": {
+   "file": "/assets/play/voice/shihan/s4.mp3",
+   "hash": "2cbfa1b0564d861c",
+   "text": "晚上七點半，姊姊寫功課，妹妹要人陪。小麥在寫數學，小米一直跑來問「陪我玩」。詩涵想給小米一樣能自己專心玩一陣子的東西。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 59
+  },
+  "shihan/r4": {
+   "file": "/assets/play/voice/shihan/r4.mp3",
+   "hash": "837383bea9142418",
+   "text": "妹妹蓋好一座城堡，姊姊的功課也寫完了。",
+   "speaker": "樂晰",
+   "style": "聊天",
+   "quota": 19
+  },
+  "shihan/s5": {
+   "file": "/assets/play/voice/shihan/s5.mp3",
+   "hash": "6986656bb974660a",
+   "text": "晚上八點十五分，玩具散滿地。睡前客廳又像被颱風掃過。詩涵想要一個姊妹倆自己就會收的收納。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 44
+  },
+  "shihan/r5": {
+   "file": "/assets/play/voice/shihan/r5.mp3",
+   "hash": "1b925cca16ac5930",
+   "text": "我們來比賽，誰先把積木放回家！",
+   "speaker": "樂晰",
+   "style": "聊天",
+   "quota": 15
+  },
+  "kexin/intro": {
+   "file": "/assets/play/voice/kexin/intro.mp3",
+   "hash": "f9fd6fa208c2fe19",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 109,
+   "text": "林可昕，22歲，剛畢業的行銷助理。可昕每天搭捷運四十分鐘進公司，早上手忙腳亂、中午吃什麼總是隨便、下班時眼睛和肩膀一起抗議。她開始想：除了把工作做好，也要把自己的日子顧好。她的目標是：把第一份工作做好，也把自己照顧好。"
+  },
+  "kexin/s0": {
+   "file": "/assets/play/voice/kexin/s0.mp3",
+   "hash": "bf118d38926f7197",
+   "text": "早上七點半，來不及吃早餐。鬧鐘按掉兩次，換好衣服就得衝去捷運站。早餐又要空著肚子撐到中午了。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 46
+  },
+  "kexin/r0": {
+   "file": "/assets/play/voice/kexin/r0.mp3",
+   "hash": "233b788e2dc92d06",
+   "text": "冰箱拿一瓶就出門，捷運上也有早餐。",
+   "speaker": "竹均",
+   "style": "開心",
+   "quota": 17
+  },
+  "kexin/s1": {
+   "file": "/assets/play/voice/kexin/s1.mp3",
+   "hash": "5fc76b311e61959a",
+   "text": "中午十二點半，午餐又是便利商店。連續第五天微波便當。她想找點簡單、可以抹可以沾、帶到公司也不麻煩的東西。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 52
+  },
+  "kexin/r1": {
+   "file": "/assets/play/voice/kexin/r1.mp3",
+   "hash": "8c4f9a40eac91819",
+   "text": "配蔬菜棒和全麥餅乾，午餐突然像樣多了。",
+   "speaker": "竹均",
+   "style": "開心",
+   "quota": 19
+  },
+  "kexin/s2": {
+   "file": "/assets/play/voice/kexin/s2.mp3",
+   "hash": "0ebe5a94ebed20d5",
+   "text": "下午四點，盯螢幕一整天。簡報改到第七版，眼睛乾澀。她想了解保健食品怎麼挑，但也知道要先看清楚標示和自己的狀況。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 55
+  },
+  "kexin/r2": {
+   "file": "/assets/play/voice/kexin/r2.mp3",
+   "hash": "4c047ad5f8de4529",
+   "text": "我先把成分標示看懂，有疑問再問藥師。",
+   "speaker": "竹均",
+   "style": "開心",
+   "quota": 18
+  },
+  "kexin/s3": {
+   "file": "/assets/play/voice/kexin/s3.mp3",
+   "hash": "cad04c09b84d9a6d",
+   "text": "晚上七點半，第一次自己下廚。搬來日常大樓後，她想學著自己煮。超市站了很久，不知道該買哪一瓶油。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 47
+  },
+  "kexin/r3": {
+   "file": "/assets/play/voice/kexin/r3.mp3",
+   "hash": "adf1c0a6567f1eb3",
+   "text": "煎了一顆荷包蛋，隔壁的宜蓁說聞起來好香。",
+   "speaker": "竹均",
+   "style": "開心",
+   "quota": 20
+  },
+  "kexin/s4": {
+   "file": "/assets/play/voice/kexin/s4.mp3",
+   "hash": "54f418a458f63f08",
+   "text": "週末，跟大學朋友去海邊。第一次用自己的薪水安排小旅行，陽光很大。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 32
+  },
+  "kexin/r4": {
+   "file": "/assets/play/voice/kexin/r4.mp3",
+   "hash": "d786b163188e8c61",
+   "text": "拍照也好看，這是給自己的畢業禮物。",
+   "speaker": "竹均",
+   "style": "開心",
+   "quota": 17
+  },
+  "jiahao/intro": {
+   "file": "/assets/play/voice/jiahao/intro.mp3",
+   "hash": "f1b0f50d3edf2967",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 110,
+   "text": "陳家豪，37歲，軟體工程師，兩個孩子的爸爸。家豪下午四點半準時下班去接孩子，那是他和太太說好的分工。回家後功課、晚餐、洗澡、共讀，他想讓孩子少一點螢幕、多一點一起動手的時間。他的目標是：少一點螢幕，多一點和孩子一起動手。"
+  },
+  "jiahao/s0": {
+   "file": "/assets/play/voice/jiahao/s0.mp3",
+   "hash": "c033e7ea9430dbc8",
+   "text": "下午五點，寫功課姿勢歪歪。品睿趴在餐桌寫作業，越寫越低，背也駝了。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 33
+  },
+  "jiahao/r0": {
+   "file": "/assets/play/voice/jiahao/r0.mp3",
+   "hash": "52c9a8d079e7a5fe",
+   "text": "桌面斜一點，他坐得比較直了。",
+   "speaker": "子墨",
+   "style": "開心",
+   "quota": 14
+  },
+  "jiahao/s1": {
+   "file": "/assets/play/voice/jiahao/s1.mp3",
+   "hash": "4f63832ac13ce1a3",
+   "text": "晚上七點半，晚餐後不想給平板。孩子說無聊。家豪想要一個全家能一起玩、又會動手的東西。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 42
+  },
+  "jiahao/r1": {
+   "file": "/assets/play/voice/jiahao/r1.mp3",
+   "hash": "d56629fdb096eefd",
+   "text": "爸爸你蓋的城堡歪了！再一座！",
+   "speaker": "子墨",
+   "style": "開心",
+   "quota": 14
+  },
+  "jiahao/s2": {
+   "file": "/assets/play/voice/jiahao/s2.mp3",
+   "hash": "352c5130d8de0aec",
+   "text": "週六上午，下雨出不去。原本要去公園，結果下起大雨。兩個孩子在家跑來跑去，精力完全沒處發洩。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 45
+  },
+  "jiahao/r2": {
+   "file": "/assets/play/voice/jiahao/r2.mp3",
+   "hash": "7abe421f568f4fe9",
+   "text": "玩了一個早上，午覺睡得特別熟。",
+   "speaker": "子墨",
+   "style": "開心",
+   "quota": 15
+  },
+  "jiahao/s3": {
+   "file": "/assets/play/voice/jiahao/s3.mp3",
+   "hash": "c705ad9c932139ce",
+   "text": "週六下午，跟孩子做一件作品。家豪想陪孩子做點手作，最後可以留在家裡當紀念。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 37
+  },
+  "jiahao/r3": {
+   "file": "/assets/play/voice/jiahao/r3.mp3",
+   "hash": "575c44c1ffb5cc47",
+   "text": "這台木車是我們三個一起做的。",
+   "speaker": "子墨",
+   "style": "開心",
+   "quota": 14
+  },
+  "jiahao/s4": {
+   "file": "/assets/play/voice/jiahao/s4.mp3",
+   "hash": "bd0e5b6e3c23e2f7",
+   "text": "週日，品妍想拍宜蓁阿姨的貓。品妍每次去宜蓁家都想拍麻粬，借爸爸的手機又怕摔。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 38
+  },
+  "jiahao/r4": {
+   "file": "/assets/play/voice/jiahao/r4.mp3",
+   "hash": "e7d868b7b4d7b18c",
+   "text": "她把麻粬拍成一本小相簿，說要送給宜蓁阿姨。",
+   "speaker": "子墨",
+   "style": "開心",
+   "quota": 21
+  },
+  "yating/intro": {
+   "file": "/assets/play/voice/yating/intro.mp3",
+   "hash": "0031c6d9aa2e49f1",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 101,
+   "text": "王雅婷，38歲，業務主管，兩寶媽。雅婷平常工作很滿，旅行是她給全家的固定約會。她最怕的是行李爆量、孩子曬傷被叮、到了現場才發現房型不適合。所以她習慣把功課做在前面。她的目標是：讓全家輕鬆出門、開心回家。"
+  },
+  "yating/s0": {
+   "file": "/assets/play/voice/yating/s0.mp3",
+   "hash": "afcc085672c774d8",
+   "text": "週四，打包四個人的行李。衣服、尿布、玩具、外套……行李箱關不起來。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 33
+  },
+  "yating/r0": {
+   "file": "/assets/play/voice/yating/r0.mp3",
+   "hash": "38afe1dbdb3f0ef4",
+   "text": "一人一袋，到飯店直接拿出來，不用翻。",
+   "speaker": "璦廷",
+   "style": "聊天",
+   "quota": 18
+  },
+  "yating/s1": {
+   "file": "/assets/play/voice/yating/s1.mp3",
+   "hash": "b912858a2800cc7a",
+   "text": "出發日，小豆走不動了。逛到一半小豆說腳痠，要抱抱。雅婷手上還提著包包。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 35
+  },
+  "yating/r1": {
+   "file": "/assets/play/voice/yating/r1.mp3",
+   "hash": "8e1e8e523c55bf2c",
+   "text": "坐上去就不吵了，我的手也空出來了。",
+   "speaker": "璦廷",
+   "style": "聊天",
+   "quota": 17
+  },
+  "yating/s2": {
+   "file": "/assets/play/voice/yating/s2.mp3",
+   "hash": "ab5e2bb5d68521b5",
+   "text": "下午，海邊太陽好大。阿樂在沙灘上跑，瞇著眼睛說好刺眼，帽子戴不到五分鐘就拿掉。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 39
+  },
+  "yating/r2": {
+   "file": "/assets/play/voice/yating/r2.mp3",
+   "hash": "15ed2f23bef37f4a",
+   "text": "挑了他喜歡的顏色，終於肯戴了。",
+   "speaker": "璦廷",
+   "style": "聊天",
+   "quota": 15
+  },
+  "yating/s3": {
+   "file": "/assets/play/voice/yating/s3.mp3",
+   "hash": "cd17e0d52a5300f7",
+   "text": "傍晚，兄弟倆都想玩水。看到淺水池，阿樂和小豆都衝過去。雅婷想讓他們玩得開心，自己也不用一直追。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 47
+  },
+  "yating/r3": {
+   "file": "/assets/play/voice/yating/r3.mp3",
+   "hash": "e102d90d4d3fafe4",
+   "text": "一人一個，玩到不想回房間。",
+   "speaker": "璦廷",
+   "style": "聊天",
+   "quota": 13
+  },
+  "yating/s4": {
+   "file": "/assets/play/voice/yating/s4.mp3",
+   "hash": "2ff874ac2f8f9869",
+   "text": "晚上，小豆睡不慣。住的地方沒有嬰兒床，小豆在大床上翻來翻去，一直滾到邊邊。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 37
+  },
+  "yating/r4": {
+   "file": "/assets/play/voice/yating/r4.mp3",
+   "hash": "eb9bb6fbee30ca19",
+   "text": "睡在自己的小床上，他一下就睡著了。",
+   "speaker": "璦廷",
+   "style": "聊天",
+   "quota": 17
+  },
+  "peishan/intro": {
+   "file": "/assets/play/voice/peishan/intro.mp3",
+   "hash": "5c7af3b60a72955b",
+   "text": "吳佩珊，30歲，育嬰假中的新手媽媽。佩珊請了半年育嬰假。她發現新手媽媽的一天沒有上下班，只有餵奶、拍嗝、洗澡和偶爾的十分鐘。她想把家裡的小事安排好，留一點力氣給自己。她的目標是：照顧好寶寶，也找回自己的節奏。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 104
+  },
+  "peishan/s0": {
+   "file": "/assets/play/voice/peishan/s0.mp3",
+   "hash": "c7b6073374da63d6",
+   "text": "早上十點，小葡萄開始練趴。醫師說可以讓寶寶多趴一趴。客廳的木地板太硬，佩珊想鋪一塊軟一點的地方。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 48
+  },
+  "peishan/r0": {
+   "file": "/assets/play/voice/peishan/r0.mp3",
+   "hash": "ad8fd9341ebfc020",
+   "text": "他抬頭看我的那一秒，我差點哭出來。",
+   "speaker": "欣妤",
+   "style": "預設",
+   "quota": 17
+  },
+  "peishan/s1": {
+   "file": "/assets/play/voice/peishan/s1.mp3",
+   "hash": "8ecd0670bb97fa96",
+   "text": "下午一點，自己也要吃好。午餐常常站著扒兩口。她想把營養顧回來，但會先問醫師或藥師。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 41
+  },
+  "peishan/r1": {
+   "file": "/assets/play/voice/peishan/r1.mp3",
+   "hash": "a15805ae9b9f9366",
+   "text": "把成分表帶去問藥師，安心很多。",
+   "speaker": "欣妤",
+   "style": "預設",
+   "quota": 15
+  },
+  "peishan/s2": {
+   "file": "/assets/play/voice/peishan/s2.mp3",
+   "hash": "1181fe166ff4c20f",
+   "text": "下午二點半，白天只肯在客廳睡。小葡萄白天一放回房間就醒。佩珊想讓他在客廳也有一個自己的小床。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 46
+  },
+  "peishan/r2": {
+   "file": "/assets/play/voice/peishan/r2.mp3",
+   "hash": "e422c900fb42bc0f",
+   "text": "他在小床上睡著，我終於能坐下來喝口水。",
+   "speaker": "欣妤",
+   "style": "預設",
+   "quota": 19
+  },
+  "peishan/s3": {
+   "file": "/assets/play/voice/peishan/s3.mp3",
+   "hash": "98d263b2e0d84246",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 39,
+   "text": "下午四點，想喝點不一樣的。白開水喝膩了，想要一點果香和甜味，冰箱裡放一瓶就好。"
+  },
+  "peishan/r3": {
+   "file": "/assets/play/voice/peishan/r3.mp3",
+   "hash": "9154a8373ec48b90",
+   "speaker": "欣妤",
+   "style": "預設",
+   "quota": 13,
+   "text": "餵完奶喝一口，像重新開機。"
+  },
+  "shufen/intro": {
+   "file": "/assets/play/voice/shufen/intro.mp3",
+   "hash": "da73bea18423c07d",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 101,
+   "text": "許淑芬，56歲，剛退休、幫忙帶孫的阿嬤。淑芬退休後，生活重心變成孫子和家裡。她很會持家，但膝蓋和腰開始不聽話；逢年過節，她總是張羅送禮和家族聚餐的那個人。她的目標是：顧好孫子、顧好家，也顧好自己的膝蓋。"
+  },
+  "shufen/s0": {
+   "file": "/assets/play/voice/shufen/s0.mp3",
+   "hash": "72676ae675ac33b5",
+   "text": "早上九點半，小豆在客廳玩。小豆 2 歲，喜歡把東西堆高再推倒。阿嬤想找安全一點、可以一起玩的玩具。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 49
+  },
+  "shufen/r0": {
+   "file": "/assets/play/voice/shufen/r0.mp3",
+   "hash": "786142f75b208175",
+   "speaker": "悅青",
+   "style": "預設",
+   "quota": 10,
+   "text": "阿嬤陪你蓋一座城堡。"
+  },
+  "shufen/s1": {
+   "file": "/assets/play/voice/shufen/s1.mp3",
+   "hash": "bc2cab40c65044ca",
+   "text": "早上十點半，小豆跑太快。小豆在客廳跑來跑去，跌倒了就哭。阿嬤的膝蓋蹲下去扶他，也越來越吃力。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 46
+  },
+  "shufen/r1": {
+   "file": "/assets/play/voice/shufen/r1.mp3",
+   "hash": "9d2de4dd0dc174b0",
+   "text": "跌倒了自己爬起來，阿嬤也不用一直蹲。",
+   "speaker": "悅青",
+   "style": "預設",
+   "quota": 18
+  },
+  "shufen/s2": {
+   "file": "/assets/play/voice/shufen/s2.mp3",
+   "hash": "eb94043016d80d05",
+   "text": "下午三點，準備送禮。要送親戚和女兒公婆，想要大家都喝得慣、拿得出手的。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 35
+  },
+  "shufen/r2": {
+   "file": "/assets/play/voice/shufen/r2.mp3",
+   "hash": "639ea9426440dc53",
+   "text": "老人家和小孩都能喝，送起來剛剛好。",
+   "speaker": "悅青",
+   "style": "預設",
+   "quota": 17
+  },
+  "shufen/s3": {
+   "file": "/assets/play/voice/shufen/s3.mp3",
+   "hash": "931b88f22be96a0f",
+   "text": "晚上六點，家族聚餐加菜。週末阿明伯從台南上來，全家回來吃飯。她想煎一盤魚、多炒兩道菜。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 43
+  },
+  "shufen/r3": {
+   "file": "/assets/play/voice/shufen/r3.mp3",
+   "hash": "93a8373c91fb0bb9",
+   "text": "煎得金金黃黃，大家都說好吃。",
+   "speaker": "悅青",
+   "style": "預設",
+   "quota": 14
+  },
+  "shufen/s4": {
+   "file": "/assets/play/voice/shufen/s4.mp3",
+   "hash": "0da8b33e208b6508",
+   "text": "週末，帶孫子去公園。雅婷要加班，阿嬤帶阿樂和小豆去公園。太陽一出來，兩個孩子都說好刺眼。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 44
+  },
+  "shufen/r4": {
+   "file": "/assets/play/voice/shufen/r4.mp3",
+   "hash": "39811ce9863993c0",
+   "text": "戴上去像兩個小明星，阿嬤拍了好多張。",
+   "speaker": "悅青",
+   "style": "預設",
+   "quota": 18
+  },
+  "chenghan/intro": {
+   "file": "/assets/play/voice/chenghan/intro.mp3",
+   "hash": "b529058259ef9e9c",
+   "text": "李承翰，32歲，第一次一個人帶女兒出遊的爸爸。太太出差，承翰決定帶女兒去住一晚農場。他列了一張清單，還是很緊張：防曬、玩水、吃飯、晚上無聊怎麼辦？他的目標是：和女兒完成第一次兩個人的小旅行。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 95
+  },
+  "chenghan/s0": {
+   "file": "/assets/play/voice/chenghan/s0.mp3",
+   "hash": "e0076d2502347b03",
+   "text": "週五晚上，打包父女倆的行李。太太小麗出差前交代了一張清單。承翰照著打包，還是塞不進一個袋子。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 46
+  },
+  "chenghan/r0": {
+   "file": "/assets/play/voice/chenghan/r0.mp3",
+   "hash": "dbaca1259f6a0906",
+   "text": "清單上的都裝進去了……吧？",
+   "speaker": "諭書",
+   "style": "開心",
+   "quota": 13
+  },
+  "chenghan/s1": {
+   "file": "/assets/play/voice/chenghan/s1.mp3",
+   "hash": "3ab2bea5addbf45a",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 27,
+   "text": "週六上午，太陽好大。女兒在草地上跑，瞇著眼睛說好刺眼。"
+  },
+  "chenghan/r1": {
+   "file": "/assets/play/voice/chenghan/r1.mp3",
+   "hash": "f82a953be3dace8e",
+   "speaker": "諭書",
+   "style": "開心",
+   "quota": 17,
+   "text": "她說戴上去像明星，還要我幫她拍照。"
+  },
+  "chenghan/s2": {
+   "file": "/assets/play/voice/chenghan/s2.mp3",
+   "hash": "d16f34cc7173dcdd",
+   "text": "週六下午，朵朵看到小溪。農場旁邊有一條淺淺的小溪，朵朵站在旁邊看了很久，說想玩水。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 41
+  },
+  "chenghan/r2": {
+   "file": "/assets/play/voice/chenghan/r2.mp3",
+   "hash": "7acd02d376297a99",
+   "text": "她背著自己的小背包，冷靜地玩了一個下午。",
+   "speaker": "諭書",
+   "style": "開心",
+   "quota": 20
+  },
+  "chenghan/s3": {
+   "file": "/assets/play/voice/chenghan/s3.mp3",
+   "hash": "c03200700bc0d2ea",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 23,
+   "text": "晚餐，女兒要自己吃。她堅持要用自己的碗和杯子。"
+  },
+  "chenghan/r3": {
+   "file": "/assets/play/voice/chenghan/r3.mp3",
+   "hash": "8b8d799d375520b3",
+   "speaker": "諭書",
+   "style": "開心",
+   "quota": 18,
+   "text": "帶著自己的餐具，在哪裡吃飯都像在家。"
+  },
+  "chenghan/s4": {
+   "file": "/assets/play/voice/chenghan/s4.mp3",
+   "hash": "7dd372b1760beca5",
+   "text": "睡前，沒有電視的晚上。房間沒有平板，朵朵也不吵，拿出白天的相機一張一張翻。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 37
+  },
+  "chenghan/r4": {
+   "file": "/assets/play/voice/chenghan/r4.mp3",
+   "hash": "e2cc82489c8a294a",
+   "text": "她拍了四十張，有三十張是我。",
+   "speaker": "諭書",
+   "style": "開心",
+   "quota": 14
+  },
+  "yizhen/intro": {
+   "file": "/assets/play/voice/yizhen/intro.mp3",
+   "hash": "a87b67cb71cf8e94",
+   "text": "蔡宜蓁，27歲，新婚、在家工作的插畫家。宜蓁在家接案，家就是辦公室。小套房東西一多就亂，午餐也常常忘了吃。她想要的是：每樣東西都有位置，生活不被家事追著跑。她的目標是：12 坪也能住得清爽、工作得順。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 100
+  },
+  "yizhen/s0": {
+   "file": "/assets/play/voice/yizhen/s0.mp3",
+   "hash": "72520875922d709e",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 33,
+   "text": "早上八點半，換季，衣櫃塞爆。冬天的外套拿出來，夏天的衣服沒地方放。"
+  },
+  "yizhen/r0": {
+   "file": "/assets/play/voice/yizhen/r0.mp3",
+   "hash": "fbe21d71b6511511",
+   "speaker": "凡萱",
+   "style": "預設",
+   "quota": 15,
+   "text": "捲一捲壓一壓，衣櫃多出一整格。"
+  },
+  "yizhen/s1": {
+   "file": "/assets/play/voice/yizhen/s1.mp3",
+   "hash": "1f1de34dd307e1bf",
+   "text": "中午十二點半，一個人的午餐。工作時常常忘了吃飯。她想要冰箱裡有一樣隨手就能配的東西。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 42
+  },
+  "yizhen/r1": {
+   "file": "/assets/play/voice/yizhen/r1.mp3",
+   "hash": "1bf22393e3b3fe7f",
+   "text": "抹在吐司上，五分鐘解決一餐，還吃得到豆子。",
+   "speaker": "凡萱",
+   "style": "預設",
+   "quota": 21
+  },
+  "yizhen/s2": {
+   "file": "/assets/play/voice/yizhen/s2.mp3",
+   "hash": "00c3ff6169f280b3",
+   "text": "下午三點半，下午卡關。稿子卡住，想喝點不一樣的轉換一下。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 28
+  },
+  "yizhen/r2": {
+   "file": "/assets/play/voice/yizhen/r2.mp3",
+   "hash": "b7954650f843f843",
+   "text": "冰冰的一口，靈感回來了一點。",
+   "speaker": "凡萱",
+   "style": "預設",
+   "quota": 14
+  },
+  "yizhen/s3": {
+   "file": "/assets/play/voice/yizhen/s3.mp3",
+   "hash": "a453d207a8e9711e",
+   "text": "晚上，阿岳想試保健食品。健身教練阿岳說想吃點保健食品，宜蓁要他先搞清楚自己需要什麼。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 42
+  },
+  "yizhen/r3": {
+   "file": "/assets/play/voice/yizhen/r3.mp3",
+   "hash": "8423e5043d39b64c",
+   "text": "先看成分、問清楚，再決定。",
+   "speaker": "凡萱",
+   "style": "預設",
+   "quota": 13
+  },
+  "yizhen/s4": {
+   "file": "/assets/play/voice/yizhen/s4.mp3",
+   "hash": "d6cf59a9d1fe0173",
+   "text": "週末，品妍來家裡畫畫。巷子裡的品妍又來找宜蓁畫畫，還一直想拍麻粬。宜蓁想送她一個小禮物。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 44
+  },
+  "yizhen/r4": {
+   "file": "/assets/play/voice/yizhen/r4.mp3",
+   "hash": "ed6d0241731edf01",
+   "text": "她說長大要跟宜蓁阿姨一樣，把日常畫下來。",
+   "speaker": "凡萱",
+   "style": "預設",
+   "quota": 20
+  },
+  "shihan/s6": {
+   "file": "/assets/play/voice/shihan/s6.mp3",
+   "hash": "31d25b71e9911538",
+   "text": "週末，小麥想當攝影師。小麥一直借媽媽的手機拍照，拍了一百張小米的鬼臉。詩涵想讓她有一台自己的相機。",
+   "speaker": "詠芯",
+   "style": "旁白",
+   "quota": 49
+  },
+  "shihan/r6": {
+   "file": "/assets/play/voice/shihan/r6.mp3",
+   "hash": "a3f91594ec51dbc0",
+   "text": "她拍的全家福，比我拍的還好看。",
+   "speaker": "樂晰",
+   "style": "聊天",
+   "quota": 15
+  }
+ },
+ "ledger": [
+  {
+   "at": "2026-11-04T06:43:32.473Z",
+   "segments": 13,
+   "quotaHeaders": 495,
+   "usageBefore": 12435,
+   "usageAfter": 11940,
+   "usageDrop": 495,
+   "match": true
+  },
+  {
+   "at": "2026-11-04T06:47:36.293Z",
+   "segments": 79,
+   "quotaHeaders": 2660,
+   "usageBefore": 11940,
+   "usageAfter": 9280,
+   "usageDrop": 2660,
+   "match": true
+  },
+  {
+   "at": "2026-11-08T04:28:16.216Z",
+   "segments": 77,
+   "quotaHeaders": 2621,
+   "usageBefore": 73281,
+   "usageAfter": 70660,
+   "usageDrop": 2621,
+   "match": true
+  }
+ ]
+}

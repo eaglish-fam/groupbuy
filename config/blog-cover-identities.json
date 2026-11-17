@@ -319,6 +319,195 @@
         "reviewer": "Claude (Chloe city), automated render + visual check",
         "reviewScope": "Cover and journal card viewed at 320/390/768/1440 px in headless Chromium; 三富 title legible, real vendor garden photo unaltered."
       }
+    },
+    "/blog/bernie/": {
+      "identity": "伯尼寢具",
+      "image": "/assets/bernie/cover.webp",
+      "imageSha256": "25b20050dff1403754fee055aac92cc9f09c636322673162c424d0563a9b6fda",
+      "source": "/assets/bernie/cover-source.html",
+      "sourceSha256": "18dbda8ff502ef8d28a416d2c943438b1727a100a5abaadf3334e5fae07dcf80",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "25b20050dff1403754fee055aac92cc9f09c636322673162c424d0563a9b6fda",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-06 看過 cover.webp、product-card.webp 原圖，以及選物誌卡片與文章頁在 320/390/768/1440 寬的實際渲染：伯尼寢具字樣清楚、家庭實拍未改動。"
+      }
+    },
+    "/blog/zoofamily-kids-camera/": {
+      "identity": "ZooFamily",
+      "image": "/assets/zoofamily-kids-camera/cover.webp",
+      "imageSha256": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+      "source": "/assets/zoofamily-kids-camera/cover-source.html",
+      "sourceSha256": "c9ab20f62f8ed3c825453753186f4999e53a2cef91ec1d4c3aad378d5ea55557",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-06 看過 cover.webp、product-card.webp 原圖，及選物誌卡片與文章頁在 320/390/768/1440（裝置像素比 3）實際渲染：ZooFamily 字樣與標題可讀、家庭實拍未改動。圖稿採用見 RV-20261104-X01；公開上線見 decisions/2026-11-06-hiram-gb019-zoofamily-publish-ok.md。"
+      }
+    },
+    "/blog/wave-hummus/": {
+      "identity": "Wave 鷹嘴豆泥",
+      "image": "/assets/wave/cover.webp",
+      "imageSha256": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+      "source": "/assets/wave/cover-source.html",
+      "sourceSha256": "e365e108cdd6c0993ed1e255bfc17fe0ee3686fdd5a6de35b8c728a4bbd53303",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-06 看過 GB-021R cover／card 原圖與 288px 縮圖（Ophelia mobile-288px-review.png）及文章頁 320／390／768／1440 實際渲染：品牌字清楚、實拍菇類餐盤未重畫。"
+      }
+    },
+    "/blog/momax-locator/": {
+      "identity": "Momax",
+      "image": "/assets/momax-locator/cover.webp",
+      "imageSha256": "8b169cc005100d80b913502660034efe104824314a616f07d92f7b9900ca0393",
+      "source": "/assets/momax-locator/cover-source.html",
+      "sourceSha256": "82ee332e19b78f77db74812215642997ceb0480be89cdf04f424126628fc149d",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "8b169cc005100d80b913502660034efe104824314a616f07d92f7b9900ca0393",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 重做點擊導向首圖（Hiram 11/10「要以吸引消費者點擊進來為目標」）：左側大字標題「iPhone、Android 都能找」＋價格徽章，右側為賣場官方商品圖未修改；cover.webp、product-card.webp 在 288/390/768/1440 寬度看過，標題與 Momax 字樣可讀。"
+      }
+    },
+    "/blog/kids-active-toys/": {
+      "identity": "放電神器",
+      "image": "/assets/kids-active-toys/cover.webp",
+      "imageSha256": "d92224bb500ded1ed2987fd0e2eb87d7af47924c76c1e381831baadf8ac2e885",
+      "source": "/assets/kids-active-toys/cover-source.html",
+      "sourceSha256": "c592df231872aa74dde37787d2a67047de10bb39502da5de43b34f413e2e7a85",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "d92224bb500ded1ed2987fd0e2eb87d7af47924c76c1e381831baadf8ac2e885",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 重做點擊導向首圖（Hiram 11/10「要以吸引消費者點擊進來為目標」）：鷹家實拍 Vespa 電動車滿版＋大字標題「電力滿格的孩子這樣放電」＋開團徽章；照片未修改只加漸層；cover.webp、product-card.webp 在 288/390/768/1440 寬度看過，標題與放電神器字樣可讀。"
+      }
+    },
+    "/blog/ilovekids-rotating-bookcase/": {
+      "identity": "旋轉書櫃",
+      "image": "/assets/ilovekids-rotating-bookcase/cover.webp",
+      "imageSha256": "754cf5f12184f5347cfd82221e06e11a0238eaab8007cd64d84306aba440fdeb",
+      "source": "/assets/ilovekids-rotating-bookcase/cover-source.html",
+      "sourceSha256": "ffb9d93a488061b57ec207ad00ba56850b8fdfc9d3781be599f18fe983a6f50a",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "754cf5f12184f5347cfd82221e06e11a0238eaab8007cd64d84306aba440fdeb",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 288/390/768/1440 的渲染：左欄大字「房間不炸書 孩子自己放回去」與旋轉書櫃字樣可讀；右側為鷹家實拍，未修改。"
+      }
+    },
+    "/blog/acer-luggage/": {
+      "identity": "acer",
+      "image": "/assets/acer-luggage/cover.webp",
+      "imageSha256": "b1b9b15e33e77a18dfd77c3a3cbd3aa436be6c4db7de325b3c89585f50f81cbd",
+      "source": "/assets/acer-luggage/cover-source.html",
+      "sourceSha256": "280131f8707bea18ac917bace7e6595c22098c805def5a911310e0f6821c1df9",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "b1b9b15e33e77a18dfd77c3a3cbd3aa436be6c4db7de325b3c89585f50f81cbd",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 重做點擊導向首圖（Hiram 11/10「要以吸引消費者點擊進來為目標」）：左欄大字「出國拿東西不用攤開整個箱子」＋價格與截止徽章，右側賣場官方五色圖未修改；cover.webp、product-card.webp 在 288/390/768/1440 寬度看過，acer 字樣與標題可讀。"
+      }
+    },
+    "/blog/brush-baby/": {
+      "identity": "Brush Baby",
+      "image": "/assets/brush-baby/cover.webp",
+      "imageSha256": "c96f60023fa312e64cf7b8a61af2aa4de8c868b8e310ed72a5b8c206f9b2dc9b",
+      "source": "/assets/brush-baby/cover-source.html",
+      "sourceSha256": "85eaad016eb3e51c0a38e8b9ed8c63e1778a6825265166e5011f4c41949b549b",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "c96f60023fa312e64cf7b8a61af2aa4de8c868b8e310ed72a5b8c206f9b2dc9b",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-13 看過 cover.webp、product-card.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Brush Baby 字樣與標題可讀；右側為自家照片，未修改。"
+      }
+    },
+    "/blog/jowua/": {
+      "identity": "Jowua",
+      "image": "/assets/jowua/cover.webp",
+      "imageSha256": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+      "source": "/assets/jowua/cover-source.html",
+      "sourceSha256": "cb25eafc0b4b3c5eefe97a99b62d7da88444985b8d2a8769718d36900a14ed0f",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-16 看過 cover.webp、product-card.webp 原圖與選物誌卡片在 320/390/768/1440 的渲染：Jowua 字樣、折扣碼 eagle、全館 95 折可讀；右側為官方商品圖，未修改。"
+      }
     }
   }
 }

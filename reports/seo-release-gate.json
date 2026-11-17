@@ -1,52 +1,52 @@
 {
   "counts": {
-    "pages": 64,
+    "pages": 72,
     "blocking": 0,
-    "warnings": 27,
-    "total": 27
+    "warnings": 34,
+    "total": 34
   },
   "findings": [
     {
       "level": "warn",
       "category": "links",
-      "message": "Link fragment not found on destination page: /#product-blackmores",
-      "file": "blog/blackmores/index.html",
-      "index": 13001
+      "message": "Link fragment not found on destination page: /#product-acer-luggage",
+      "file": "blog/acer-luggage/index.html",
+      "index": 9773
     },
     {
       "level": "warn",
       "category": "links",
-      "message": "Link fragment not found on destination page: /#product-done-by-deer",
-      "file": "blog/done-by-deer/index.html",
-      "index": 13879
+      "message": "Link fragment not found on destination page: /#product-brush-baby",
+      "file": "blog/brush-baby/index.html",
+      "index": 11025
     },
     {
       "level": "warn",
       "category": "links",
-      "message": "Link fragment not found on destination page: /#product-knsh",
-      "file": "blog/knsh/index.html",
-      "index": 10613
+      "message": "Link fragment not found on destination page: /#product-ilovekids-rotating-bookcase",
+      "file": "blog/ilovekids-rotating-bookcase/index.html",
+      "index": 8389
     },
     {
       "level": "warn",
       "category": "links",
-      "message": "Link fragment not found on destination page: /#product-parakito",
-      "file": "blog/parakito/index.html",
-      "index": 11891
+      "message": "Link fragment not found on destination page: /#product-jowua",
+      "file": "blog/jowua/index.html",
+      "index": 12111
     },
     {
       "level": "warn",
       "category": "links",
-      "message": "Link fragment not found on destination page: /#product-sanfufarm",
-      "file": "blog/sanfufarm/index.html",
-      "index": 11384
+      "message": "Link fragment not found on destination page: /#product-kids-active-toys",
+      "file": "blog/kids-active-toys/index.html",
+      "index": 9754
     },
     {
       "level": "warn",
       "category": "links",
-      "message": "Link fragment not found on destination page: /#product-shinwa-living",
-      "file": "blog/shinwa-living/index.html",
-      "index": 15892
+      "message": "Link fragment not found on destination page: /#product-momax-locator",
+      "file": "blog/momax-locator/index.html",
+      "index": 10273
     },
     {
       "level": "warn",
@@ -68,6 +68,13 @@
       "message": "Image exceeds 350KB (375KB): /assets/caesar-kenting/journal/pool-detail.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/caesar-kenting/index.html",
       "index": 18365
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (357KB): /assets/kids-active-toys/scoot-ride-sit.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/kids-active-toys/index.html",
+      "index": 7076
     },
     {
       "level": "warn",
@@ -123,49 +130,91 @@
       "category": "images",
       "message": "Image exceeds 350KB (554KB): /assets/shinwa-living/fold-table-mahjong.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 9306
+      "index": 9317
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (495KB): /assets/shinwa-living/cat-shoehorn-whole.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 10782
+      "index": 10793
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (474KB): /assets/shinwa-living/cat-shoehorn-use.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 11069
+      "index": 11080
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (387KB): /assets/zoofamily-kids-camera/hiram-06.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/zoofamily-kids-camera/index.html",
+      "index": 6813
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "calendar/index.html",
-      "index": 3067
+      "index": 3070
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 3666
+      "index": 4252
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9081
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9195
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9309
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9422
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image missing meaningful alt text",
+      "file": "index.html",
+      "index": 9536
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 43374
+      "index": 52321
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 43374
+      "index": 52321
     },
     {
       "level": "warn",

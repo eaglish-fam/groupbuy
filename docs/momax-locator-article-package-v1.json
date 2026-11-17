@@ -1,0 +1,24 @@
+{
+ "schema": "eaglish.article-package/v1",
+ "editorialStatus": "Grace 撰寫（decisions/2026-11-06-hiram-grace-writes-journal-and-trip.md）；Bingo 工單 GB-044",
+ "identity": {"slug": "momax-locator", "title": "Momax 定位器怎麼選？Metro Poppies 聯名雙系統款，iPhone、Android 都能用"},
+ "sources": [
+  {"kind": "vendor-groupbuy-page", "url": "https://www.momaxshop.tw/eaglishfam", "readAt": "2026-11-10", "facts": ["檔期 11/1–11/30", "下單後五個工作天內寄出", "娃娃款 iOS／Android 皆可用，使用當下只能擇一系統", "其他款目前只支援 iOS", "超取滿 699、宅配滿 1200 免運", "單入 699（890）、2 入 1360（1780）、四色大全配 2600（3560）", "兼容 Apple Find My 及 Android Find Hub", "GRS 認證環保再生物料", "內建隱私保護機制"]}
+ ],
+ "notStated": ["電池型號", "續航時間", "防水等級", "四色正式名稱"],
+ "media": "assets/momax-locator/sources.md：全部為賣場官方商品圖，未修改",
+ "technicalSeo": {"author": {"type": "Organization", "name": "鷹式一家", "url": "https://www.eaglish.store/"}, "datePublished": "2026-11-10", "dateModified": "2026-11-10", "social": {"ogImage": "https://www.eaglish.store/assets/momax-locator/cover.webp", "width": 1600, "height": 1000, "shareImage": "https://www.eaglish.store/assets/momax-locator/share.webp", "shareWidth": 1200, "shareHeight": 630}, "structuredData": ["Article", "BreadcrumbList"], "crawlableOfferFallback": "/#catalog"},
+ "siteIntegration": {
+  "brand": "Momax 定位器 X 鷹式一家",
+  "category": "生活防丟",
+  "journalCategory": "居家",
+  "excerpt": "家裡手機有 iPhone 也有 Android？Momax Metro Poppies 聯名雙系統定位器兩種都能設定，但使用時只能擇一系統。整理它怎麼找東西、掛在哪裡最有用，以及團購價與免運門檻。",
+  "readLabel": "看雙系統怎麼用 →",
+  "cover": "/assets/momax-locator/cover.webp",
+  "card": "/assets/momax-locator/product-card.webp",
+  "coverSource": "/assets/momax-locator/cover-source.html",
+  "coverIdentity": "Momax",
+  "coverReview": {"identityVisible": true, "realPhotoPreserved": true, "mobileCardLegible": true, "viewportWidths": [320, 390, 768, 1440], "reviewer": "Grace", "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Momax 字樣與標題可讀；左側為賣場官方商品圖，未修改。"},
+  "catalogKey": "momaxLocator"
+ }
+}

@@ -35,9 +35,11 @@
     if (!slug.test(input.id || "") || !slug.test(input.brandId || "")) throw Error("Invalid permanent-offer identity");
     if (!text(input.brandName, 120) || !text(input.title, 180) || !code.test(input.code || ""))
       throw Error("Invalid permanent-offer display fields");
-    if (!input.discount || !Number.isInteger(input.discount.amount) || input.discount.amount <= 0 ||
-      input.discount.currency !== "TWD" || !text(input.discount.display, 80))
-      throw Error("Invalid permanent-offer discount");
+    // A discount is either a fixed amount in TWD or a whole-number percentage off (e.g. 5 = 95折).
+    const d = input.discount;
+    const fixed = d && Number.isInteger(d.amount) && d.amount > 0 && d.currency === "TWD" && d.percent === undefined;
+    const percent = d && Number.isInteger(d.percent) && d.percent > 0 && d.percent < 100 && d.amount === undefined && d.currency === undefined;
+    if (!(fixed || percent) || !text(d.display, 80)) throw Error("Invalid permanent-offer discount");
     exactHttpsUrl(input.destinationUrl);
     if (!articlePath.test(input.articlePath || "")) throw Error("Invalid permanent-offer article path");
     if (!input.image || !assetPath.test(input.image.path || "") || !sha256.test(input.image.sha256 || "") ||

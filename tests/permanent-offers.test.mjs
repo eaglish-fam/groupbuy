@@ -225,6 +225,8 @@ test('refresh failure keeps ordinary cards unavailable while the current publish
     const rect = element.getBoundingClientRect();
     return rect.bottom > 0 && rect.top < innerHeight;
   });
+  // Let the correction scroll queued by the late shift finish before counting, so the count only measures what happens after intent.
+  await page.evaluate(() => new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve))));
   const callsBeforeIntent = await page.evaluate(() => window.offerScrollCalls);
   await page.evaluate(() => {
     window.dispatchEvent(new PointerEvent('pointerdown'));

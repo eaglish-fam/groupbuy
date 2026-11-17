@@ -3,6 +3,27 @@
   "origin": "https://www.eaglish.store",
   "articles": [
     {
+      "slug": "acer-luggage",
+      "url": "https://www.eaglish.store/blog/acer-luggage/",
+      "title": "acer 前開式行李箱怎麼選？哥本哈根 20、25、28 吋尺寸、容量與團購價｜鷹家選物誌",
+      "productNames": [
+        "acer 前開式行李箱"
+      ],
+      "productId": "acer-luggage",
+      "mode": "product",
+      "intent": "product:acer-luggage",
+      "topics": [
+        "acer 行李箱",
+        "前開式行李箱",
+        "登機箱",
+        "哥本哈根行李箱"
+      ],
+      "cluster": null,
+      "published": "2026-11-10",
+      "modified": "2026-11-10",
+      "sourceHash": "68de7f347abf7b78d2aaada59cc721179f10681214d467dacd1c4fe34a39174e"
+    },
+    {
       "slug": "artisan-cb301",
       "url": "https://www.eaglish.store/blog/artisan-cb301/",
       "title": "ARTISAN CB301 電動清潔刷：浴室真正難刷的，不是最髒的那一塊｜鷹式一家",
@@ -19,7 +40,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "48fab5c50215fb17302a6e436a2cd49bdbb8efd4913ab39730b44838cacaa4c5"
+      "sourceHash": "7fab16b1a769f2d0bb9ea2b9acafd8c496b8245b870b370a91e8269f0ef71626"
     },
     {
       "slug": "atojet",
@@ -38,7 +59,27 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "422ed2a4654df3e8bb3e97eafdc3b33d35e8eb41cbdc0411a1fafacf3990abb4"
+      "sourceHash": "836d9a1c01a30c45a381a3bf6aca77767d9c73130b6473aee4874d7f95a7af05"
+    },
+    {
+      "slug": "bernie",
+      "url": "https://www.eaglish.store/blog/bernie/",
+      "title": "伯尼寢具選物指南：天絲床包、舒芙水洗被怎麼挑？｜鷹家選物誌",
+      "productNames": [
+        "伯尼寢具"
+      ],
+      "productId": "bernie",
+      "mode": "product",
+      "intent": "product:bernie",
+      "topics": [
+        "伯尼寢具",
+        "天絲床包",
+        "舒芙水洗被"
+      ],
+      "cluster": null,
+      "published": "2026-11-06",
+      "modified": "2026-11-06",
+      "sourceHash": "db7b25d58309a8ba58371f481c934227242b49217cf5ac2f9634d9d1aa70e34c"
     },
     {
       "slug": "blackmores",
@@ -60,7 +101,7 @@
       "cluster": null,
       "published": "2026-10-19",
       "modified": "2026-10-22",
-      "sourceHash": "c0675eb674125c178d9cb60db68010ef51023d99cd63f397594b7ddeffed6657"
+      "sourceHash": "c6a34d33e8e5f70990c7dfa99fda276ded1aff4ff53192408a3e97508cd86d37"
     },
     {
       "slug": "branden",
@@ -79,7 +120,29 @@
       "cluster": null,
       "published": "2026-09-24",
       "modified": "2026-09-24",
-      "sourceHash": "140504ff9415a52ea22d831f26dace867955036b2c9335373011ba295e147aef"
+      "sourceHash": "65f3913257bc190b60cb6aa1686bc0df1deaad376da75e56dd16f7e4304652df"
+    },
+    {
+      "slug": "brush-baby",
+      "url": "https://www.eaglish.store/blog/brush-baby/",
+      "title": "孩子不愛刷牙怎麼辦？Brush Baby 從嬰兒潔牙棉巾到兒童電動牙刷，依年齡挑｜鷹家選物誌",
+      "productNames": [
+        "Brush Baby 兒童電動牙刷"
+      ],
+      "productId": "brush-baby",
+      "mode": "product",
+      "intent": "product:brush-baby",
+      "topics": [
+        "Brush Baby",
+        "兒童電動牙刷",
+        "嬰兒潔牙棉巾",
+        "孩子不愛刷牙",
+        "嬰兒牙刷"
+      ],
+      "cluster": null,
+      "published": "2026-11-13",
+      "modified": "2026-11-13",
+      "sourceHash": "1ab6dfc8bf642d8caceb57aeffa65209bb200d9700fd4f789c72e08d40177404"
     },
     {
       "slug": "caesar-kenting",
@@ -101,7 +164,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "f2e17cc44bef3a891eb8c8e42f4a7ee3e3e60b0891428f9372ee136b5d13bcdd"
+      "sourceHash": "94a6d0f560a0e4d1a906f47a681c2cdb38ef0bc49cb34b9967ee052df9eb892d"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -123,7 +186,7 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "6da9f1ac4a4ab0e3544d4552fbd204e4a7b4927bc7e62daac8a156b7166c18e9"
+      "sourceHash": "39f5dfa219d0f6ef309aef878abc22240bb09157570f9070ee2538b74e35d6d1"
     },
     {
       "slug": "done-by-deer",
@@ -143,7 +206,7 @@
       "cluster": null,
       "published": "2026-10-22",
       "modified": "2026-10-22",
-      "sourceHash": "db3c00610ba3c986a0f513e4061dbab3b996931d0bd9246dfc554da0e961cbf1"
+      "sourceHash": "56c8cfbd07c4160abe777a73c4c6477228202e62eae1c6f121cb42b3c1a6d135"
     },
     {
       "slug": "eben-kombucha",
@@ -163,7 +226,7 @@
       "cluster": null,
       "published": "2026-09-29",
       "modified": "2026-09-29",
-      "sourceHash": "2259381ee24644b9a9e1f4a1125a93adaefa39d3db69b8189b40a88468d99582"
+      "sourceHash": "3b2dafc0fe768212ca555fb4c8e263680e419090024ff2cdd845157fd36c1260"
     },
     {
       "slug": "fushan-gifts",
@@ -185,7 +248,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "57309cd600179da701413f665f771bc40fc0c912a3099c6c21f088dd601e67e9"
+      "sourceHash": "9aa681ac7ac30c38275167dfb0ff154b4c94cb46a2bfac3270a5fd6fb63c9304"
     },
     {
       "slug": "hereu-tag",
@@ -207,7 +270,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "5087023977071934df807603a6ffdf75c9a173405db48f9a606b5dbcd2def9ac"
+      "sourceHash": "6e35993dadd86b52922eccf49bf7e8fc23c044678c690cf12db1927109a8e898"
     },
     {
       "slug": "hummus-guide",
@@ -235,7 +298,74 @@
       "prepared": "2026-10-13",
       "published": "2026-10-13",
       "modified": "2026-10-13",
-      "sourceHash": "8f3e996cc09e0ef9883ee00f541b1d89a0944a9bc2d74bbeb5e7632cecda1e0a"
+      "sourceHash": "0ec6234a90fea8c33abe97b626bcbb3bbf93b78776f497678835aed6e7adf1c2"
+    },
+    {
+      "slug": "ilovekids-rotating-bookcase",
+      "url": "https://www.eaglish.store/blog/ilovekids-rotating-bookcase/",
+      "title": "愛兒館旋轉書櫃好用嗎？小房間收繪本，孩子自己拿、自己放回去｜鷹家選物誌",
+      "productNames": [
+        "愛兒館 旋轉書櫃"
+      ],
+      "productId": "ilovekids-rotating-bookcase",
+      "mode": "product",
+      "intent": "product:ilovekids-rotating-bookcase",
+      "topics": [
+        "愛兒館",
+        "旋轉書櫃",
+        "兒童書櫃",
+        "繪本收納",
+        "ilovekids"
+      ],
+      "cluster": null,
+      "published": "2026-11-10",
+      "modified": "2026-11-10",
+      "sourceHash": "bc4c3e0deddee10bee31e5e774b675b765f5fbfe6ebcc8e7700183dac77e104c"
+    },
+    {
+      "slug": "jowua",
+      "url": "https://www.eaglish.store/blog/jowua/",
+      "title": "Jowua 折扣碼 eagle 全館 95 折｜Tesla 車用配件怎麼挑、折扣碼怎麼用｜鷹家選物誌",
+      "productNames": [
+        "Jowua"
+      ],
+      "productId": "jowua",
+      "mode": "product",
+      "intent": "product:jowua",
+      "topics": [
+        "Jowua 折扣碼",
+        "Jowua",
+        "Tesla 配件",
+        "Model Y 配件",
+        "Model 3 配件"
+      ],
+      "cluster": null,
+      "published": "2026-11-16",
+      "modified": "2026-11-16",
+      "sourceHash": "0de0b9e9ead38e2c5fb07cff1b778e46790c1a36faab4649fac6a277a689cf99"
+    },
+    {
+      "slug": "kids-active-toys",
+      "url": "https://www.eaglish.store/blog/kids-active-toys/",
+      "title": "兒童放電神器怎麼選？平衡車、扭扭車、Vespa 電動車、滑板車與彈跳床，依年齡和場地挑｜鷹家選物誌",
+      "productNames": [
+        "兒童放電神器"
+      ],
+      "productId": "kids-active-toys",
+      "mode": "product",
+      "intent": "product:kids-active-toys",
+      "topics": [
+        "放電神器",
+        "平衡車",
+        "扭扭車",
+        "兒童電動車",
+        "滑板車",
+        "彈跳床"
+      ],
+      "cluster": null,
+      "published": "2026-11-10",
+      "modified": "2026-11-10",
+      "sourceHash": "bee4a0eacfd2340b57aad04ab8736d416c96e40a3fd6e18db342cf4bccf91c43"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -258,7 +388,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "c85b0496cf2885a6e424ea42070f6db3782a57ade1d5779f1bae2f83a66a35f3"
+      "sourceHash": "4531bc34fbc7eed64315d392c3541d67a2f388eed39038bfe1090727f1505eb8"
     },
     {
       "slug": "knsh",
@@ -277,7 +407,7 @@
       "cluster": null,
       "published": "2026-10-13",
       "modified": "2026-10-14",
-      "sourceHash": "3a37f0e53c93820e6c544fe02f9054939fb06c9c103a173ff4d1dd423d83f64d"
+      "sourceHash": "b595927833f3eba76246957ce62e66fbede555fdf5110cacc3fe81e7809c3b82"
     },
     {
       "slug": "lange",
@@ -298,7 +428,7 @@
       "cluster": "family",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "9aee23adfe33e1ec4288afd82c74f8a264f109dffe97669f783da858ce7c47af"
+      "sourceHash": "d3a23ca3a55140f7a543da021c4b879b2e0b915f9db875aa70492c6de4e166b8"
     },
     {
       "slug": "leofoo",
@@ -323,7 +453,7 @@
       "cluster": "travel",
       "published": "2026-10-02",
       "modified": "2026-10-02",
-      "sourceHash": "93aae64f87cd512d562360e854778bdaf91ff600df54d89c697cabdf0409f97c"
+      "sourceHash": "56abff77c5d1c633e22a4269d43989e06d4f3c92d98fd0cce98ed2519ecdcec7"
     },
     {
       "slug": "locknlock",
@@ -344,7 +474,7 @@
       "cluster": null,
       "published": "2026-10-08",
       "modified": "2026-10-08",
-      "sourceHash": "04dd1f9e17d86ac6622141d8e0ba186d970d00275549a364d2a8eec72fc0d952"
+      "sourceHash": "e05fe4db36f0db425883f0db55dc002dac7a539634ab6cfbd9c8f1a25e05f483"
     },
     {
       "slug": "meroware",
@@ -363,7 +493,7 @@
       "cluster": "family",
       "published": "2026-09-09",
       "modified": "2026-09-11",
-      "sourceHash": "12d93f5d90e9f9718b240a32dc7476ce3380c0d01c69bd4f58227c385c471eb1"
+      "sourceHash": "db20061825aee74dd7af09280a2e490a1753835aba7b37cdba6d199fcd341dbf"
     },
     {
       "slug": "miamily",
@@ -383,8 +513,8 @@
       ],
       "cluster": "travel",
       "published": "2026-09-16",
-      "modified": "2026-09-16",
-      "sourceHash": "7b887192fb386371ad2bed5bc4cb9279b66a0d9d1bbeba82b50fd64419753cb6"
+      "modified": "2026-11-06",
+      "sourceHash": "311fabc87b277a8c85a2fef1792d8330d05570ba5f0638453afc9bb9d717ea99"
     },
     {
       "slug": "mitoy-rice-blocks",
@@ -403,7 +533,33 @@
       "cluster": "family",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "f66035bbdac45d9fad988c1b5e8da6ef55e716847d173f92fa847bbe017df107"
+      "sourceHash": "37ca3ab66d5b4a2cfc3ca2d6b3a3ee44b637797baea59b0ec0930b565dd79591"
+    },
+    {
+      "slug": "momax-locator",
+      "url": "https://www.eaglish.store/blog/momax-locator/",
+      "title": "Momax 定位器怎麼選？Metro Poppies 聯名雙系統款，iPhone、Android 都能用｜鷹家選物誌",
+      "productNames": [
+        "Momax 定位器 X 鷹式一家",
+        "Momax 定位器",
+        "Momax",
+        "MOMAX 定位器",
+        "Momax 定位器 x 鷹式一家"
+      ],
+      "productId": "momax-locator",
+      "mode": "product",
+      "intent": "product:momax-locator",
+      "topics": [
+        "Momax 定位器",
+        "Find My",
+        "Find Hub",
+        "防丟器",
+        "Metro Poppies"
+      ],
+      "cluster": null,
+      "published": "2026-11-10",
+      "modified": "2026-11-10",
+      "sourceHash": "6aae32eb44dbdd1395f039668a74715416cfd3f25f0aee92828e39a875fb0a20"
     },
     {
       "slug": "parakito",
@@ -424,7 +580,7 @@
       "cluster": null,
       "published": "2026-10-15",
       "modified": "2026-10-15",
-      "sourceHash": "27ef0abe6a24652adae70b838fd55a49277c57deef97de1873c70c5b3d5dfcd2"
+      "sourceHash": "bbc164132e1c97ac88a1025fd0504d0710133c811374d5e24db3a7870f912e23"
     },
     {
       "slug": "playzu",
@@ -445,7 +601,7 @@
       "cluster": "family",
       "published": "2026-09-11",
       "modified": "2026-10-06",
-      "sourceHash": "07cc5af096e677106c00d030765be0c323ea48528b675580dca015fb233c1aeb"
+      "sourceHash": "cd8dc3ccf5765fc0c429327d71d8ed865b22a1619154fb89a89eeddc8ca2d343"
     },
     {
       "slug": "sanfufarm",
@@ -466,10 +622,10 @@
         "欒樹館",
         "寵物房"
       ],
-      "cluster": null,
+      "cluster": "travel",
       "published": "2026-10-23",
       "modified": "2026-10-23",
-      "sourceHash": "87a87d3106d9b67636ccfde2a5d03119e996eeea2d2af0774b553af44950ef6d"
+      "sourceHash": "ada4ee498f505120f91d27302019b9c32c2232b1500e8f9f8c2288c799cb0e8f"
     },
     {
       "slug": "shinwa-living",
@@ -491,7 +647,7 @@
       "cluster": "home",
       "published": "2026-10-14",
       "modified": "2026-10-14",
-      "sourceHash": "feec32d502cf8539914b34bf88f2ddc1b1e9c0c616affafac5a9515820b847ea"
+      "sourceHash": "9d11a380aaa9894a4e148853f554102cffdccd310a47edc082e2ebcaf9a6582a"
     },
     {
       "slug": "shoumaji",
@@ -512,12 +668,12 @@
       "cluster": "travel",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "1645d8f68fe945ad3ac99bc0ad283fc8cb872127bc9af6ef04676bbf601086bd"
+      "sourceHash": "f567a5f1a80a3dfae9c9dbcd017237ef4888cacbcf61da983ee88d79d07af63a"
     },
     {
       "slug": "wave-hummus",
       "url": "https://www.eaglish.store/blog/wave-hummus/",
-      "title": "Wave 鷹嘴豆泥怎麼吃？吐司吃膩了，也許不是吐司的問題｜鷹式一家",
+      "title": "Wave 鷹嘴豆泥怎麼吃？直接吃、沾蔬菜、配烤肉｜鷹式一家",
       "productNames": [
         "Wave 鷹嘴豆泥"
       ],
@@ -530,8 +686,28 @@
       ],
       "cluster": "table",
       "published": "2026-09-08",
-      "modified": "2026-09-11",
-      "sourceHash": "365d88a5786eb7ef2b52041fa320c7f811b022c576a754196934d2c622489fe4"
+      "modified": "2026-11-06",
+      "sourceHash": "13f10eb0771a8c577cbd42bcf4e8b1c14fadaa4752149eccd1ab0e5d9690fee4"
+    },
+    {
+      "slug": "zoofamily-kids-camera",
+      "url": "https://www.eaglish.store/blog/zoofamily-kids-camera/",
+      "title": "ZooFamily 兒童相機怎麼選？四款功能、年齡與價格比較｜鷹家選物誌",
+      "productNames": [
+        "比利時 ZooFamily 兒童相機"
+      ],
+      "productId": "zoofamily-kids-camera",
+      "mode": "product",
+      "intent": "product:zoofamily-kids-camera",
+      "topics": [
+        "ZooFamily",
+        "兒童相機",
+        "拍立得相機"
+      ],
+      "cluster": null,
+      "published": "2026-11-06",
+      "modified": "2026-11-06",
+      "sourceHash": "12d2f9cc76e1ab492b8252fcb13e2f015f28145ffde107199691846939058103"
     }
   ]
 }

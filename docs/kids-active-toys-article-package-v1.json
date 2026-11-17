@@ -1,0 +1,79 @@
+{
+ "schema": "eaglish.article-package/v1",
+ "editorialStatus": "Grace 撰寫；Bingo 工單 GB-038",
+ "identity": {
+  "slug": "kids-active-toys",
+  "title": "兒童放電神器怎麼選？平衡車、扭扭車、Vespa 電動車、滑板車與彈跳床，依年齡和場地挑"
+ },
+ "sources": [
+  {
+   "kind": "groupbuy-sheet",
+   "row": "現正開團 兒童放電神器（開團 2026-11-12）",
+   "readAt": "2026-11-10"
+  },
+  {
+   "kind": "order-page",
+   "url": "https://gbf.tw/8ide0",
+   "readAt": "2026-11-10",
+   "note": "開團前只顯示標題與五個品項名稱，價格規格未上架 → 文章全部寫以賣場為準"
+  },
+  {
+   "kind": "sheet-attached-google-doc",
+   "note": "前一檔團購說明（2026/02）：五個品項、模式與場地說明；價格日期不沿用"
+  }
+ ],
+ "notStated": [
+  "價格",
+  "結束日（Sheet 日期待 GB-016 修正）",
+  "建議年齡與承重",
+  "出貨、運費、保固"
+ ],
+ "media": "assets/kids-active-toys/sources.md：鷹家實拍；Sheet image 欄是 HSBC.jpg（錯圖）未使用",
+ "technicalSeo": {
+  "author": {
+   "type": "Organization",
+   "name": "鷹式一家",
+   "url": "https://www.eaglish.store/"
+  },
+  "datePublished": "2026-11-10",
+  "dateModified": "2026-11-10",
+  "social": {
+   "ogImage": "https://www.eaglish.store/assets/kids-active-toys/cover.webp",
+   "width": 1600,
+   "height": 1000,
+   "shareImage": "https://www.eaglish.store/assets/kids-active-toys/share.webp",
+   "shareWidth": 1200,
+   "shareHeight": 630
+  },
+  "structuredData": [
+   "Article",
+   "BreadcrumbList"
+  ],
+  "crawlableOfferFallback": "/#catalog"
+ },
+ "siteIntegration": {
+  "brand": "兒童放電神器",
+  "category": "親子放電",
+  "journalCategory": "母嬰",
+  "excerpt": "平衡車、扭扭車、Vespa 電動車、滑板車和彈跳床，先看孩子年齡和常去的場地：公園玩哪幾樣、下雨天在家玩哪幾樣，用鷹家實拍整理五樣怎麼挑。",
+  "readLabel": "看五樣怎麼挑 →",
+  "cover": "/assets/kids-active-toys/cover.webp",
+  "card": "/assets/kids-active-toys/product-card.webp",
+  "coverSource": "/assets/kids-active-toys/cover-source.html",
+  "coverIdentity": "放電神器",
+  "coverReview": {
+   "identityVisible": true,
+   "realPhotoPreserved": true,
+   "mobileCardLegible": true,
+   "viewportWidths": [
+    320,
+    390,
+    768,
+    1440
+   ],
+   "reviewer": "Grace",
+   "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 320/390/768/1440 的渲染：放電神器字樣與標題可讀；左側為鷹家實拍，未修改。"
+  },
+  "catalogKey": "kidsActiveToys"
+ }
+}

@@ -39,6 +39,7 @@
       finally{busy=false;}
     }
     document.querySelectorAll('[data-plan]').forEach(b=>b.addEventListener('click',()=>refresh(b.dataset.plan)));
+    const more=document.querySelector('.purchase .more');if(more&&window.ArticleFloatingOffer)window.ArticleFloatingOffer.mount(more);
     window.addEventListener('focus',()=>refresh());refresh();setInterval(()=>refresh(),300000);
   }
   return {choose,resolve,plans,mount};

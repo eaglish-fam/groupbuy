@@ -30,6 +30,13 @@
         return url ? [{ name: match?.[1] || new URL(url).hostname, url }] : [];
       });
   }
+  // Brands without a journal article whose Sheet image is unusable get a reviewed local photo first;
+  // the Sheet image stays as the next one. Insta360: the Drive image (insta360.jpg) is a blank canvas (2026-11-08).
+  const BRAND_IMAGES = [{ prefix: "Insta360", image: "/assets/insta360/product-card.webp" }];
+  function brandImage(brand) {
+    const b = String(brand || "").trim();
+    return BRAND_IMAGES.find((x) => b.startsWith(x.prefix))?.image || "";
+  }
   function imageUrl(value) {
     const u = safe(value);
     if (!u) return "";
@@ -41,13 +48,16 @@
     }
     return u;
   }
-  function classify(r) {
+  function classify(r, today) {
     const ProductContent = PC();
     const type = r["類型"] || "",
-      now = ProductContent.today(),
+      now = today || ProductContent.today(),
       start = ProductContent.date(r["開團日期"]),
       end = ProductContent.date(r["結束日期"]);
-    const long = /長期|long/i.test(type);
+    // 賣完為止: a monthly drop with a few units that stays open until it sells out. The type says so in the
+    // Sheet; the end date is then only a note, so it neither closes the card nor drives a countdown.
+    const soldOutBased = /賣完為止/.test(type);
+    const long = !soldOutBased && /長期|long/i.test(type);
     if (/結團|closed|ended/.test(type))
       return { key: "closed", label: "本次已結團", long };
     if (
@@ -56,18 +66,23 @@
       (start && end && start > end)
     )
       return { key: "unknown", label: "檔期待確認", long };
-    if (end && now > end)
+    if (end && now > end && !soldOutBased)
       return {
         key: "closed",
         label: long ? "當期連結待更新" : "本次已結團",
         long,
       };
-    if ((start && now < start) || /即將|upcoming/i.test(type))
+    // A main-sheet row still typed 即將開團 once its dates have started is open: the
+    // dates are the schedule, so nobody has to remember to edit the type on launch day.
+    // Rows from the 即將開團 tab are announcements and keep their type.
+    const launched = start && end && now >= start && now <= end && !r._fromUpcomingTab;
+    if ((start && now < start) || (/即將|upcoming/i.test(type) && !launched))
       return { key: "upcoming", label: "即將開團", long };
     if (!safe(r["連結"]))
       return { key: "unknown", label: "購買入口待確認", long };
     if (r["庫存狀態"] === "售完")
-      return { key: "closed", label: "目前已售完", long };
+      return { key: "closed", label: "目前已售完", long, soldOut: soldOutBased };
+    if (soldOutBased) return { key: "open", label: "賣完為止", long: false, soldOut: true };
     if (!end && !long && !/折扣|公益|教育|書/.test(type))
       return { key: "unknown", label: "檔期待確認", long };
     return { key: "open", label: long ? "常駐開團" : "限時開團", long };
@@ -79,9 +94,9 @@
         (r) => r["品牌"]?.trim() && !/^(\/\/|---|===)/.test(r["品牌"].trim()),
       )
       .map((r) => {
-        if (upcoming) r = { ...r, 類型: "即將開團" };
+        if (upcoming) r = { ...r, 類型: "即將開團", _fromUpcomingTab: true };
         const brand = r["品牌"].trim();
-        const localImage = ProductContent.entry(brand)?.cardImage || ProductContent.entry(brand)?.image || "";
+        const localImage = ProductContent.entry(brand)?.cardImage || ProductContent.entry(brand)?.image || brandImage(brand);
         const sheetImage = imageUrl(r["圖片網址"] || r.image);
         const driveFirst = ProductContent.entry(brand)?.id === "eben-kombucha" && sheetImage;
         const primaryImages = driveFirst ? [sheetImage] : [localImage, sheetImage];
@@ -131,7 +146,7 @@
     return `最後 ${Math.floor(minutes / 60)} 小時 ${minutes % 60} 分`;
   }
   function timedCampaign(p) {
-    return !p.kind && p.status.key === "open" && !p.status.long && !!p.end;
+    return !p.kind && p.status.key === "open" && !p.status.long && !p.status.soldOut && !!p.end;
   }
   function isClosingSoon(end, now = Date.now()) {
     const remaining = Date.parse(end + "T00:00:00+08:00") + 86400000 - now;
@@ -227,7 +242,7 @@
       if (p.end && p.end < today) return;
       if (p.start && p.start >= today)
         list.push({ p, index, date: p.start, kind: "start", label: "開團" });
-      if (p.end && p.end >= today)
+      if (p.end && p.end >= today && !p.status.soldOut)
         list.push({
           p,
           index,
