@@ -54,6 +54,16 @@
     {"slug": "20261114-home-am", "destination": "/"},
     {"slug": "20261114-meroware-am", "destination": "/blog/meroware/"},
     {"slug": "20261117-kids-active-toys-pm", "destination": "/blog/kids-active-toys/", "anchor": "offer"},
-    {"slug": "20261123-brushbaby-am", "destination": "/blog/brush-baby/"}
+    {"slug": "20261123-brushbaby-am", "destination": "/blog/brush-baby/"},
+    {"slug": "20261119-ilovekids-am", "destination": "/blog/ilovekids-rotating-bookcase/", "anchor": "offer"},
+    {"slug": "20261119-mitoy-pm", "destination": "/blog/mitoy-rice-blocks/"},
+    {"slug": "20261120-home-am", "destination": "/"},
+    {"slug": "20261120-wave-pm", "destination": "/blog/wave-hummus/"},
+    {"slug": "20261121-playzu-am", "destination": "/blog/playzu/"},
+    {"slug": "20261122-ilovekids-pm", "destination": "/blog/ilovekids-rotating-bookcase/", "anchor": "offer"},
+    {"slug": "20261123-plafarm-pm", "destination": "/"},
+    {"slug": "20261124-ilovekids-pm", "destination": "/blog/ilovekids-rotating-bookcase/", "anchor": "offer"},
+    {"slug": "20261125-shoumaji-am", "destination": "/blog/shoumaji/"},
+    {"slug": "20261125-ilovekids-pm", "destination": "/blog/ilovekids-rotating-bookcase/", "anchor": "offer"}
   ]
 }
