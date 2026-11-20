@@ -39,7 +39,7 @@
         if (campaign.state !== 'open') { set(false); status.textContent = '目前沒有開放中的團購；文章仍可繼續閱讀，下次開團時這裡會出現購買入口。'; return; }
         set(true, ProductContent.withUTM(campaign.url, item.brands[0]));
         const end = campaign.end ? campaign.end.replace(/^(\d{4})-(\d{2})-(\d{2})$/, '$1/$2/$3') : '';
-        status.textContent = (end ? `本期團購至 ${end} 23:59；` : '') + '組合、庫存與結帳金額請在賣場確認。';
+        status.textContent = end ? `本期團購至 ${end} 23:59。` : '這一檔正在開團。';
       } catch (error) { set(false, '', true); status.textContent = '目前暫時讀取不到團購資料，點上方按鈕重新確認。'; console.warn('Sheet offer unavailable:', error.message); }
       finally { busy = false; }
     }
