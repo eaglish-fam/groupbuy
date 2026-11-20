@@ -11,42 +11,42 @@
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-acer-luggage",
       "file": "blog/acer-luggage/index.html",
-      "index": 9773
+      "index": 8524
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-brush-baby",
       "file": "blog/brush-baby/index.html",
-      "index": 11025
+      "index": 11018
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-ilovekids-rotating-bookcase",
       "file": "blog/ilovekids-rotating-bookcase/index.html",
-      "index": 8389
+      "index": 8679
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-jowua",
       "file": "blog/jowua/index.html",
-      "index": 12111
+      "index": 12195
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-kids-active-toys",
       "file": "blog/kids-active-toys/index.html",
-      "index": 9754
+      "index": 12308
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-momax-locator",
       "file": "blog/momax-locator/index.html",
-      "index": 10273
+      "index": 10519
     },
     {
       "level": "warn",
@@ -60,98 +60,98 @@
       "category": "images",
       "message": "Image exceeds 350KB (454KB): /assets/branden/gen2-1.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/branden/index.html",
-      "index": 7099
+      "index": 7073
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (375KB): /assets/caesar-kenting/journal/pool-detail.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/caesar-kenting/index.html",
-      "index": 18365
+      "index": 18378
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (357KB): /assets/kids-active-toys/scoot-ride-sit.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kids-active-toys/index.html",
-      "index": 7076
+      "index": 8554
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/spray-6h.jpg",
       "file": "blog/parakito/index.html",
-      "index": 6401
+      "index": 6378
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/spray-7h.jpg",
       "file": "blog/parakito/index.html",
-      "index": 6551
+      "index": 6528
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/spray-8h-intensive.jpg",
       "file": "blog/parakito/index.html",
-      "index": 6701
+      "index": 6678
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/spray-8h-classic.jpg",
       "file": "blog/parakito/index.html",
-      "index": 6863
+      "index": 6840
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/rollon-6h.jpg",
       "file": "blog/parakito/index.html",
-      "index": 7604
+      "index": 7577
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/rollon-7h.jpg",
       "file": "blog/parakito/index.html",
-      "index": 7759
+      "index": 7732
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/rollon-8h-intensive.jpg",
       "file": "blog/parakito/index.html",
-      "index": 7914
+      "index": 7887
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (554KB): /assets/shinwa-living/fold-table-mahjong.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 9317
+      "index": 9314
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (495KB): /assets/shinwa-living/cat-shoehorn-whole.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 10793
+      "index": 10790
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (474KB): /assets/shinwa-living/cat-shoehorn-use.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 11080
+      "index": 11077
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (387KB): /assets/zoofamily-kids-camera/hiram-06.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/zoofamily-kids-camera/index.html",
-      "index": 6813
+      "index": 6848
     },
     {
       "level": "warn",
