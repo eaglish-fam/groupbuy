@@ -1,11 +1,11 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-10-23T13:23:24.859Z",
-  "status": "ready",
+  "generatedAt": "2026-11-20T05:21:09.116Z",
+  "status": "blocked",
   "summary": {
-    "checks": 846,
-    "passed": 846,
-    "failures": 0,
+    "checks": 1145,
+    "passed": 1144,
+    "failures": 1,
     "unpublishedKnowledge": 0
   },
   "checks": [
@@ -66,6 +66,161 @@
     },
     {
       "id": "blog:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:title",
+      "passed": true,
+      "detail": "Title length 46."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:description",
+      "passed": true,
+      "detail": "Description length 82."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/acer-luggage/."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:acer-luggage:index.html:unique-description",
       "passed": true,
       "detail": "Meta description is unique."
     },
@@ -380,6 +535,161 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:bernie:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:bernie:index.html:title",
+      "passed": true,
+      "detail": "Title length 29."
+    },
+    {
+      "id": "blog:bernie:index.html:description",
+      "passed": true,
+      "detail": "Description length 67."
+    },
+    {
+      "id": "blog:bernie:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/bernie/."
+    },
+    {
+      "id": "blog:bernie:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:bernie:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:bernie:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:bernie:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:bernie:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:bernie:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:bernie:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:bernie:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:bernie:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:bernie:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:bernie:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:bernie:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:bernie:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:bernie:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:bernie:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:bernie:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:bernie:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:bernie:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:bernie:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:bernie:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:bernie:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:bernie:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:bernie:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:bernie:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:bernie:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:bernie:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:bernie:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
       "id": "blog:blackmores:index.html:reviewed-identity",
       "passed": true,
       "detail": "Article identity is bound to the catalog or reviewed metadata."
@@ -686,6 +996,161 @@
     },
     {
       "id": "blog:branden:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:brush-baby:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:brush-baby:index.html:title",
+      "passed": true,
+      "detail": "Title length 46."
+    },
+    {
+      "id": "blog:brush-baby:index.html:description",
+      "passed": true,
+      "detail": "Description length 98."
+    },
+    {
+      "id": "blog:brush-baby:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/brush-baby/."
+    },
+    {
+      "id": "blog:brush-baby:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:brush-baby:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:brush-baby:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:brush-baby:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:brush-baby:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:brush-baby:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:brush-baby:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:brush-baby:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:brush-baby:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:brush-baby:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:brush-baby:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:brush-baby:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:brush-baby:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:brush-baby:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:brush-baby:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:brush-baby:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:brush-baby:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:brush-baby:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:brush-baby:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:brush-baby:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:brush-baby:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:brush-baby:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:brush-baby:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:brush-baby:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:brush-baby:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:brush-baby:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:brush-baby:index.html:unique-description",
       "passed": true,
       "detail": "Meta description is unique."
     },
@@ -1096,7 +1561,7 @@
     },
     {
       "id": "blog:done-by-deer:index.html:answer-depth",
-      "passed": true,
+      "passed": false,
       "detail": "At least three visible reader questions support extractable answers."
     },
     {
@@ -1785,6 +2250,636 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:title",
+      "passed": true,
+      "detail": "Title length 35."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:description",
+      "passed": true,
+      "detail": "Description length 104."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/ilovekids-rotating-bookcase/."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:ilovekids-rotating-bookcase:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:title",
+      "passed": true,
+      "detail": "Title length 53."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:description",
+      "passed": true,
+      "detail": "Description length 121."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/insta360-ezway/."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:knowledge-shelf",
+      "passed": true,
+      "detail": "Knowledge card is an explicit explainer and contains no purchase action."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:knowledge-related",
+      "passed": true,
+      "detail": "Reviewed related article links remain crawlable."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "Knowledge reaches a reviewed related article without JavaScript."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:insta360-ezway:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:jowua:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:jowua:index.html:title",
+      "passed": true,
+      "detail": "Title length 50."
+    },
+    {
+      "id": "blog:jowua:index.html:description",
+      "passed": true,
+      "detail": "Description length 104."
+    },
+    {
+      "id": "blog:jowua:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/jowua/."
+    },
+    {
+      "id": "blog:jowua:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:jowua:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:jowua:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:jowua:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:jowua:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:jowua:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:jowua:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:jowua:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:jowua:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:jowua:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:jowua:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:jowua:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:jowua:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:jowua:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:jowua:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:jowua:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:jowua:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:jowua:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:jowua:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:jowua:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:jowua:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:jowua:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:jowua:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:jowua:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:jowua:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:jowua:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:jowua:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:title",
+      "passed": true,
+      "detail": "Title length 49."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:description",
+      "passed": true,
+      "detail": "Description length 175."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/kids-active-toys/."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:kids-active-toys:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
       "id": "blog:kietla-kids-sunglasses:index.html:reviewed-identity",
       "passed": true,
       "detail": "Article identity is bound to the catalog or reviewed metadata."
@@ -1952,7 +3047,7 @@
     {
       "id": "blog:knsh:index.html:description",
       "passed": true,
-      "detail": "Description length 95."
+      "detail": "Description length 88."
     },
     {
       "id": "blog:knsh:index.html:canonical",
@@ -2257,12 +3352,12 @@
     {
       "id": "blog:leofoo:index.html:title",
       "passed": true,
-      "detail": "Title length 32."
+      "detail": "Title length 30."
     },
     {
       "id": "blog:leofoo:index.html:description",
       "passed": true,
-      "detail": "Description length 71."
+      "detail": "Description length 78."
     },
     {
       "id": "blog:leofoo:index.html:canonical",
@@ -3025,6 +4120,161 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:momax-locator:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:momax-locator:index.html:title",
+      "passed": true,
+      "detail": "Title length 58."
+    },
+    {
+      "id": "blog:momax-locator:index.html:description",
+      "passed": true,
+      "detail": "Description length 128."
+    },
+    {
+      "id": "blog:momax-locator:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/momax-locator/."
+    },
+    {
+      "id": "blog:momax-locator:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:momax-locator:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:momax-locator:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:momax-locator:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:momax-locator:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:momax-locator:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:momax-locator:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:momax-locator:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:momax-locator:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:momax-locator:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:momax-locator:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:momax-locator:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:momax-locator:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:momax-locator:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:momax-locator:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:momax-locator:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:momax-locator:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:momax-locator:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:momax-locator:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:momax-locator:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:momax-locator:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:momax-locator:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:momax-locator:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:momax-locator:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:momax-locator:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:momax-locator:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:momax-locator:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
       "id": "blog:parakito:index.html:reviewed-identity",
       "passed": true,
       "detail": "Article identity is bound to the catalog or reviewed metadata."
@@ -3037,7 +4287,7 @@
     {
       "id": "blog:parakito:index.html:description",
       "passed": true,
-      "detail": "Description length 92."
+      "detail": "Description length 85."
     },
     {
       "id": "blog:parakito:index.html:canonical",
@@ -3187,12 +4437,12 @@
     {
       "id": "blog:playzu:index.html:title",
       "passed": true,
-      "detail": "Title length 35."
+      "detail": "Title length 36."
     },
     {
       "id": "blog:playzu:index.html:description",
       "passed": true,
-      "detail": "Description length 116."
+      "detail": "Description length 142."
     },
     {
       "id": "blog:playzu:index.html:canonical",
@@ -3807,12 +5057,12 @@
     {
       "id": "blog:wave-hummus:index.html:title",
       "passed": true,
-      "detail": "Title length 33."
+      "detail": "Title length 29."
     },
     {
       "id": "blog:wave-hummus:index.html:description",
       "passed": true,
-      "detail": "Description length 64."
+      "detail": "Description length 77."
     },
     {
       "id": "blog:wave-hummus:index.html:canonical",
@@ -3955,6 +5205,161 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:zoofamily-kids-camera:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:title",
+      "passed": true,
+      "detail": "Title length 36."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:description",
+      "passed": true,
+      "detail": "Description length 107."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/zoofamily-kids-camera/."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:zoofamily-kids-camera:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
       "id": "identity:artisan-cb301",
       "passed": true,
       "detail": "CB301 does not inherit the sibling leg-massager video or model."
@@ -3973,6 +5378,16 @@
       "id": "video:responsive-poster",
       "passed": true,
       "detail": "Video poster supports vertical media and an accessible play affordance."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/acer-luggage/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/acer-luggage/",
+      "passed": true,
+      "detail": "Blog index links to the article."
     },
     {
       "id": "catalog:https://www.eaglish.store/blog/artisan-cb301/",
@@ -3995,6 +5410,16 @@
       "detail": "Blog index links to the article."
     },
     {
+      "id": "catalog:https://www.eaglish.store/blog/bernie/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/bernie/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
       "id": "catalog:https://www.eaglish.store/blog/blackmores/",
       "passed": true,
       "detail": "Product-card article mapping exists."
@@ -4011,6 +5436,16 @@
     },
     {
       "id": "blog-index:https://www.eaglish.store/blog/branden/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/brush-baby/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/brush-baby/",
       "passed": true,
       "detail": "Blog index links to the article."
     },
@@ -4081,6 +5516,46 @@
     },
     {
       "id": "blog-index:https://www.eaglish.store/blog/hummus-guide/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/ilovekids-rotating-bookcase/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/ilovekids-rotating-bookcase/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/insta360-ezway/",
+      "passed": true,
+      "detail": "Reviewed knowledge has no product-card mapping."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/insta360-ezway/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/jowua/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/jowua/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/kids-active-toys/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/kids-active-toys/",
       "passed": true,
       "detail": "Blog index links to the article."
     },
@@ -4165,6 +5640,16 @@
       "detail": "Blog index links to the article."
     },
     {
+      "id": "catalog:https://www.eaglish.store/blog/momax-locator/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/momax-locator/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
       "id": "catalog:https://www.eaglish.store/blog/parakito/",
       "passed": true,
       "detail": "Product-card article mapping exists."
@@ -4225,6 +5710,16 @@
       "detail": "Blog index links to the article."
     },
     {
+      "id": "catalog:https://www.eaglish.store/blog/zoofamily-kids-camera/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/zoofamily-kids-camera/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
       "id": "homepage:meroware",
       "passed": true,
       "detail": "Homepage journal links to the Meroware article."
@@ -4240,5 +5735,11 @@
       "detail": "Meroware exposes a scannable choice map and direct FAQ answers."
     }
   ],
-  "failures": []
+  "failures": [
+    {
+      "id": "blog:done-by-deer:index.html:answer-depth",
+      "passed": false,
+      "detail": "At least three visible reader questions support extractable answers."
+    }
+  ]
 }
