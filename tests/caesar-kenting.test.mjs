@@ -23,7 +23,7 @@ test('Caesar has 20-plus real images, five room sections and useful FAQs',()=>{
  for(const m of imgs){assert.ok(existsSync(new URL('..'+m[1],import.meta.url)),m[1]);assert.match(m[0],/width="\d+"/);assert.match(m[0],/height="\d+"/);assert.match(m[0],/alt="[^"]+"/);}
  for(const id of ['superior','scenic','garden','poolside','suite'])assert.ok(html.includes('id="'+id+'"'));
  assert.equal([...html.matchAll(/<details>/g)].length,12);
- assert.ok(html.includes('NT$7,499')&&html.includes('NT$9,499'));
+ assert.ok(!html.includes('NT$7,499')&&html.includes('那一檔的房價這裡就不再列'));
  assert.ok(!html.includes('FAQPage'));
  assert.ok(html.includes('data-current-offer disabled'));
 });
