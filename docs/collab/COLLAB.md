@@ -14,6 +14,7 @@
 | 線 | 讀 |
 |---|---|
 | 全部 | `AGENTS.md`（正式站規則、SEO、旅遊攻略流程）、本文件 |
+| 寫選物誌的人（2026-11-06 起是 Grace） | `docs/journal-editorial-guidelines.md`（Hiram 2026-11-20：以當下這檔為主，禁留上一團、禁用免責套語） |
 | Codex | `docs/trip-editorial-guidelines.md`、`docs/trip-city-guide-template.md`、`trip/IMAGE_PIPELINE.md` |
 | Grokbot | `docs/collab/HUGO-BRIEF.md`（`docs/lydia-site-maintenance.md` 是舊流程，只當歷史和 backlog 參考） |
 

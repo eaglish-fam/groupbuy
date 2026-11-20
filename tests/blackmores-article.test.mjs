@@ -11,13 +11,14 @@ test('Blackmores verified prose, comparison tables and FAQ match the reviewed ba
  // Freezes the reviewed prose so unreviewed edits fail. Any intended body revision updates this hash in its own PR.
  // 2026-10-19 baseline (e00da92): de5d2a91…a8e. 2026-10-22 PR #62 (a1a5984) revised exactly five blocks for the
  // campaign's under-four method: opening answer, overview row, kids fish-oil paragraph, fish-oil table row, first FAQ.
+ // 2026-11-20 GB-061: campaign closed; dropped the 「以當期賣場為準」 line and 「本檔」 wording (opening, kids fish-oil paragraph, first FAQ, offer paragraph).
  const html=read('blog/blackmores/index.html').toString();
  const body=html.split('<div class="article-body">')[1]?.split('<footer class="sources">')[0]||'';
  const parts=[...body.matchAll(/<(?:p|table|details)\b[^>]*>[\s\S]*?<\/(?:p|table|details)>/g)]
   .map(m=>m[0]).filter(v=>!/^<p\b[^>]*(?:section-label|data-editorial-exclude)/.test(v))
   .map(v=>v.replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim());
  assert.ok(parts.length>15,'verified content blocks are present');
- assert.equal(createHash('sha256').update(parts.join('\n')).digest('hex'),'e9ee83863d4bb9e1fb7ab6442127b3781d890af2d140f7ed810231526db56b13');
+ assert.equal(createHash('sha256').update(parts.join('\n')).digest('hex'),'f583196eee580901ce71b5b136a6d5de15d16ec90df7c2752d3e5f82be6583fe');
 });
 
 test('Blackmores kids fish oil keeps the campaign age split: under four pierced into a drink, chewing from four',()=>{

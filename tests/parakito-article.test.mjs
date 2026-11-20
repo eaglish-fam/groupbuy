@@ -8,10 +8,10 @@ const read=path=>readFileSync(new URL(`../${path}`,import.meta.url));
 const row={'品牌':'法國帕洛防蚊液','連結':'https://gbf.tw/qdfm4','類型':'短期','開團日期':'2026-10-15','結束日期':'2026-10-21'};
 
 test('Para’Kito article body is the accepted #44 delivery',()=>{
- // Codex accepted this <article> in 057e6e9. Only the body is pinned: builders legitimately
+ // Codex accepted this <article> in 057e6e9; GB-061 (2026-11-20) removed closed-campaign terms. Only the body is pinned: builders legitimately
  // rewrite the shared head, navigation and related-reading blocks around it.
  const body=read('blog/parakito/index.html').toString().match(/<article>[\s\S]*?<\/article>/)?.[0];
- assert.equal(createHash('sha256').update(body||'').digest('hex'),'2215282d78f37ec57aa7fd675ae8c45f7c6b72888ece6585c1b59d43258ebaac');
+ assert.equal(createHash('sha256').update(body||'').digest('hex'),'e12eac1b77adc9cec28e2d6e934db81228b9cc39c9894086c99e3f2fb96160cc');
 });
 
 test('Para’Kito catalog entry binds only the exact Sheet brand',()=>{

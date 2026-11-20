@@ -35,6 +35,14 @@ Every website change goes through its own branch and PR, and is merged only afte
 
 ## SEO and content rules
 
+### 選物誌必讀：`docs/journal-editorial-guidelines.md`（Hiram 2026-11-20）
+
+Every new or revised `/blog/` journal article (product, coupon or explainer) must pass `docs/journal-editorial-guidelines.md` before a PR. In short:
+- Write about the current campaign. Check the live vendor page and the Sheet row first, and state this campaign's dates, items, prices, shipping and return rules as facts.
+- Never keep a previous or closed campaign's dates, links, banners or rules.
+- Never pad with disclaimer phrases such as 「以賣場為準」「請以開團後為準」「價格依某日整理」「僅供參考」「不保證」. If a fact can't be found, leave it out.
+- Own family photos and experience may stay, framed as experience.
+
 ### One-line city request: current canonical section 八
 
 Use canonical editorial v1.9 for new or revised travel media: actively inventory the verified first-party Instagram and Facebook photo posts/carousels/albums, record actual access and bounded search coverage, prefer suitable owned still photos, and independently review pictured people. For an original-photo request, confirm the available authenticated first-party browser account and adopt suitable stills in actual page slots; an unauthenticated login wall, search, candidate list or all-video-frame result does not prove completed original-photo replacement. Keep credentials in the existing browser, never in public provenance or task evidence. Replace prominent identifiable unknown tourists rather than blur or generatively remove them. Preserve frozen sources; replacement assets use new versioned URLs, source/rights/crop lineage, and re-reviewed caption/alt. Existing source ownership, publication, and HTTP success do not substitute for current accountable visual acceptance. This instruction grants no new account, connector, posting, release, or permission authority.

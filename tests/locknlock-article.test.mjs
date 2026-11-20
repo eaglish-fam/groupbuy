@@ -14,7 +14,7 @@ test('LocknLock resolves the exact live campaign and closes after October 15',()
 });
 test('LocknLock keeps actual family scenes separate from each current model photograph',()=>{
   for(const name of ['family-1','family-2','family-3','family-4','children-450','children-500','fun-750-set','flip-850','steel-720','urban-900','large-2l']) assert.ok(html.includes('/assets/locknlock/'+name+'.webp'));
-  assert.match(html,/當期款式與外觀，請對照下面的商品圖/);
+  assert.match(html,/以上是我們家的使用紀錄；各款外觀看下面的商品圖/);
   assert.doesNotMatch(html,/實測不漏|完全防漏|AI 邊界|內部審核|tailb3e7be|localhost/);
 });
 test('four real family photos form one two-column gallery without visible photo captions',()=>{
@@ -55,5 +55,5 @@ test('article uses shared navigation and model-specific care without volatile Of
   assert.match(html,/850ml 掀蓋款.*?60°C/);
   assert.match(html,/data-current-offer/);
   assert.doesNotMatch(html,/"@type":"(?:Product|Offer|FAQPage)"/);
-  assert.match(html,/團後 7–10 個工作天依序出貨/);
+  assert.match(html,/這一檔樂扣團購已在 10\/15 結束/);
 });

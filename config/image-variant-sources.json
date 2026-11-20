@@ -1,19 +1,19 @@
 {
   "/assets/acer-luggage/cover-480.webp": {
-    "source": "b1b9b15e33e77a18dfd77c3a3cbd3aa436be6c4db7de325b3c89585f50f81cbd",
-    "variant": "db751247729b86151dccc5a2d0f6231966ef9e0d1cb311682eee25a4bd88115c"
+    "source": "26f1f817ecf550852249e67e8f8a856c8bdb7a249538081c55ee26440cb3e5fb",
+    "variant": "c7c1050b4d9f82df42b34efc797b55e438d76b60500e97436b69e67627eb4841"
   },
   "/assets/acer-luggage/cover-960.webp": {
-    "source": "b1b9b15e33e77a18dfd77c3a3cbd3aa436be6c4db7de325b3c89585f50f81cbd",
-    "variant": "1947687349f7389f2550a14cfd9761a1ac96ee767e2f9268b7772e765d5777a7"
+    "source": "26f1f817ecf550852249e67e8f8a856c8bdb7a249538081c55ee26440cb3e5fb",
+    "variant": "f7c1638a4a6a9cde802b5dc6b6a9642b1a2b8fc6a29a3189bbe4d68ec71f5f13"
   },
   "/assets/acer-luggage/product-card-480.webp": {
-    "source": "b3f5bb7097571d14ce2ede1b1eca6d3f688b00cdcd79e71f9b7174b43a9fd796",
-    "variant": "c07c5c9b2ab6f2716a7f52bd6f762d86eedf8ff3ce57c393360a6d191c1aed5b"
+    "source": "e9d342e965e1d44588f25c85be8ee5eea0f58479804cfe8a1eb5630156764719",
+    "variant": "80bb922ec18b1fca4bd0b1910c50c69b28a8eff378a8fd671b289b4b04684117"
   },
   "/assets/acer-luggage/product-card-960.webp": {
-    "source": "b3f5bb7097571d14ce2ede1b1eca6d3f688b00cdcd79e71f9b7174b43a9fd796",
-    "variant": "71abfdabfc561ab1091f031762406198e155e8249387226d71324e781ad9b516"
+    "source": "e9d342e965e1d44588f25c85be8ee5eea0f58479804cfe8a1eb5630156764719",
+    "variant": "6065c6663461df18dda641f41769f3b0dc5cb5b8878297dd56405c7f6da51452"
   },
   "/assets/artisan-cb301/blog-cover-v2-480.webp": {
     "source": "a9aae1fbe3f47360a002a1c4cb6da576cf7a4d6972589948dbf4a9656b3b6fb1",
@@ -204,20 +204,20 @@
     "variant": "7f8e4a17d59e638b770e0a9a4f4eba18ee57f7a9a1a5aa37834303d17bfb4c86"
   },
   "/assets/ilovekids-rotating-bookcase/cover-480.webp": {
-    "source": "754cf5f12184f5347cfd82221e06e11a0238eaab8007cd64d84306aba440fdeb",
-    "variant": "f2b2439a99469e5892a3baccaa9e603446789557037e7ca3802412758627786d"
+    "source": "e49ff7679055b350f569d7228e7618e6b20a83e60dd5dbeea3f677f24c25adac",
+    "variant": "b0ca249a92d9a20874df6c02e1dbb11f15f4d77740c7e2c420e17a5bd17edcc6"
   },
   "/assets/ilovekids-rotating-bookcase/cover-960.webp": {
-    "source": "754cf5f12184f5347cfd82221e06e11a0238eaab8007cd64d84306aba440fdeb",
-    "variant": "3ba0ac5258c3fb62ed66407bf2c2e4d4d408aa2025dd6e6b6f44ca07060b9d24"
+    "source": "e49ff7679055b350f569d7228e7618e6b20a83e60dd5dbeea3f677f24c25adac",
+    "variant": "f04037fb18dd5ef8abde1e0226238f7c9cce8c7f8321c9a046261675ae2a4ac7"
   },
   "/assets/ilovekids-rotating-bookcase/product-card-480.webp": {
-    "source": "9178cbe59f4a7209624a7789be0bcf2a041b6fda512c5295debcdc9eb2294f69",
-    "variant": "8e1a0a00146d401b462a9b44d8ab506dd03170cdb0c846566fa0aad88745f984"
+    "source": "61dfb90790072d2fd9b6b50479dfac178c504b95cd570b8cf4bbc79c428a69c1",
+    "variant": "526e91fc76d72209331bd5478da68db55fd5a838795bd0ef311e0f0100503f68"
   },
   "/assets/ilovekids-rotating-bookcase/product-card-960.webp": {
-    "source": "9178cbe59f4a7209624a7789be0bcf2a041b6fda512c5295debcdc9eb2294f69",
-    "variant": "5df029b423f7dd815dea717026e4ddb83b1282d71f60db5bd20f39d20f50cfff"
+    "source": "61dfb90790072d2fd9b6b50479dfac178c504b95cd570b8cf4bbc79c428a69c1",
+    "variant": "15dfb0f0de898b083b8576175b2a9c0346616639c34a1179a629c96ce5c0b64a"
   },
   "/assets/insta360-ezway/cover-480.webp": {
     "source": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
