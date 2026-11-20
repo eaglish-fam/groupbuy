@@ -18,11 +18,11 @@
       const csv = await response.text(); if (/^\s*</.test(csv)) throw Error('Unexpected response');
       const parsed = Papa.parse(csv,{header:false,skipEmptyLines:true}); if(parsed.errors.length) throw Error('Invalid CSV');
       const campaign = ProductContent.campaignFor(ProductContent.sheetRows(parsed.data),'parakito');
-      if (campaign.state !== 'open') { unavailable(campaign.label, '本期購買入口目前未開放；文章仍可繼續閱讀。'); return; }
+      if (campaign.state !== 'open') { unavailable(campaign.label, '目前沒有開放中的團購；文章仍可繼續閱讀。'); return; }
       const destination = ProductContent.withUTM(campaign.url, ProductContent.catalog.parakito.brands[0]);
       offer.href = destination; offer.target = '_blank'; offer.rel = 'noopener noreferrer'; offer.removeAttribute('aria-disabled'); offer.textContent = '選購 Para’Kito 防蚊用品';
       if (early) { early.href = destination; early.target = '_blank'; early.rel = 'noopener noreferrer'; early.removeAttribute('aria-disabled'); early.textContent = '查看本期配方與組合 ↗'; }
-      status.textContent = '本期團購至 2026/10/21 23:59；款式、庫存與結帳金額請在賣場確認。'; floating.setAvailable(true);
+      status.textContent = campaign.end ? `這一檔團購開到 ${campaign.end.slice(5).replace('-','/')}。` : ''; floating.setAvailable(true);
     } catch (error) { unavailable('重新確認團購狀態', '目前暫時讀取不到團購資料，點此重新整理。'); console.warn('ParaKito offer unavailable:', error.message); }
     finally { busy = false; }
   }

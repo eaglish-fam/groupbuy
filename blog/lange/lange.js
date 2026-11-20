@@ -49,7 +49,7 @@
 
     output.innerHTML = `<p><strong>依你的換洗節奏，先這樣抓：</strong></p>
       <div class="result-list">${items}</div>
-      <p class="estimator-note">這是可調整的換洗估算，不是官方必買數量。當期顏色、入數與組合請回購買頁核對。</p>`;
+      <p class="estimator-note">這是照你家換洗節奏抓的數量，可以再依習慣加減。</p>`;
     if (shouldFocus) output.focus({ preventScroll: true });
   }
 
