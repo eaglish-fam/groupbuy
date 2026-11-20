@@ -1,7 +1,33 @@
 {
-  "activeVersion": "vintage",
+  "activeVersion": "morocco",
   "versions": {
     "all-series": {"source": "config/article-variants/playzu/all-series.json"},
+    "morocco": {
+      "source": "config/article-variants/playzu/morocco.html.txt",
+      "title": "Playzu 地墊摩洛哥系列怎麼選？兩款灰色圖騰、尺寸與清潔｜鷹家選物誌",
+      "h1": "Playzu 地墊：把低調的灰色圖騰，鋪進日常。",
+      "description": "Playzu 地墊這一檔團購是摩洛哥系列：濛霧之影（灰色）、鹽梅之寄（淺灰色），每組團購價 NT$2,394，11/30 收團。一組 6 片加 12 條邊條，單片 62 公分、鋪好 124×183 公分；從鋪設照片看兩款灰色怎麼搭，再確認拼接、清潔與滿 NT$3,000 免運的買法。",
+      "cardTitle": "Playzu 摩洛哥地墊｜兩款灰色怎麼挑？",
+      "excerpt": "濛霧之影、鹽梅之寄：一組 6 片、鋪好 124×183 公分，先量空間再挑深淺。",
+      "cover": "/assets/playzu/cover.webp",
+      "coverAlt": "我們家的 Playzu 地墊遊戲角落與不同花色，地板留給孩子、風格留給自己",
+      "dateModified": "2026-11-20",
+      "keywords": ["Playzu 地墊", "Playzu 摩洛哥系列", "灰色地墊", "地墊尺寸與清潔"],
+      "coverReview": {
+        "identity": "Playzu",
+        "image": "/assets/playzu/cover.webp",
+        "imageSha256": "478a66147a7f329e61d8fd26d9534fb4652e3381bdea6ac2e7cbe396e993f872",
+        "source": "/assets/playzu/family-1.webp",
+        "sourceSha256": "f752428da37111dd1e09b9b5cc27b1cf471c847c763f38f21769c8aacef5901e",
+        "review": {
+          "identityVisible": true,
+          "realPhotoPreserved": true,
+          "imageSha256": "478a66147a7f329e61d8fd26d9534fb4652e3381bdea6ac2e7cbe396e993f872",
+          "viewportWidths": [320, 390, 768, 1440],
+          "mobileCardLegible": true
+        }
+      }
+    },
     "vintage": {
       "source": "config/article-variants/playzu/vintage.html.txt",
       "title": "Playzu 地墊復古系列怎麼選？三款花色搭配、尺寸與清潔｜鷹家選物誌",
@@ -12,6 +38,7 @@
       "cover": "/assets/playzu/vintage-cover.webp",
       "coverAlt": "Playzu 復古地墊花色怎麼挑文字，搭配孩子在藍灰色復古地墊上玩積木的品牌照片",
       "dateModified": "2026-10-06",
+      "keywords": ["Playzu 地墊", "Playzu 復古系列", "復古地墊花色", "地墊尺寸與清潔"],
       "coverReview": {
         "identity": "Playzu",
         "image": "/assets/playzu/vintage-cover.webp",
