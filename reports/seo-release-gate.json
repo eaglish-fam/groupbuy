@@ -2,51 +2,16 @@
   "counts": {
     "pages": 73,
     "blocking": 0,
-    "warnings": 34,
-    "total": 34
+    "warnings": 29,
+    "total": 29
   },
   "findings": [
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-acer-luggage",
-      "file": "blog/acer-luggage/index.html",
-      "index": 8524
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-brush-baby",
-      "file": "blog/brush-baby/index.html",
-      "index": 11018
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-ilovekids-rotating-bookcase",
-      "file": "blog/ilovekids-rotating-bookcase/index.html",
-      "index": 8679
-    },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-jowua",
       "file": "blog/jowua/index.html",
       "index": 12195
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-kids-active-toys",
-      "file": "blog/kids-active-toys/index.html",
-      "index": 12308
-    },
-    {
-      "level": "warn",
-      "category": "links",
-      "message": "Link fragment not found on destination page: /#product-momax-locator",
-      "file": "blog/momax-locator/index.html",
-      "index": 10519
     },
     {
       "level": "warn",
@@ -207,14 +172,14 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 52319
+      "index": 56396
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 52319
+      "index": 56396
     },
     {
       "level": "warn",
