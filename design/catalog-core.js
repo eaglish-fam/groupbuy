@@ -104,7 +104,10 @@
         const localImage = ProductContent.entry(brand)?.cardImage || ProductContent.entry(brand)?.image || brandImage(brand);
         const sheetImage = imageUrl(r["圖片網址"] || r.image);
         const driveFirst = ProductContent.entry(brand)?.id === "eben-kombucha" && sheetImage;
-        const primaryImages = driveFirst ? [sheetImage] : [localImage, sheetImage];
+        // 品牌前綴配的站內圖（BRAND_IMAGES）就是這一團的首圖，不再疊上 Sheet 的 Drive 圖：
+        // Drive 未公開時那一格會破圖（GB-064）。附加圖片照舊。
+        const brandOnly = !ProductContent.entry(brand) && Boolean(brandImage(brand));
+        const primaryImages = driveFirst ? [sheetImage] : brandOnly ? [localImage] : [localImage, sheetImage];
         const urls = [
           ...primaryImages,
           ...String(r["附加圖片"] || "")
