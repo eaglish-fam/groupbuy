@@ -9,5 +9,5 @@ test('Insta360 cards use the reviewed local photo first, before the Sheet image'
   const f = new URL('../assets/insta360/product-card.webp', import.meta.url);
   assert.ok(existsSync(f) && statSync(f).size > 5000);
   for (const page of ['index.html', 'calendar/index.html', 'everyday/index.html'])
-    assert.match(read(page), /\/design\/catalog-core\.js\?v=20261121-janjul-img/, page);
+    assert.match(read(page), /\/design\/catalog-core\.js\?v=20261121-janjul-gallery/, page);
 });

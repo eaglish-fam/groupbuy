@@ -18,3 +18,14 @@ test('Jan & Jul autumn/winter cards use the local cropped photo', () => {
   }
   assert.ok(!existsSync(new URL('../assets/jan-jul/beach-1200x630.jpg', import.meta.url)));
 });
+test('Brand-prefix local images are not followed by the private Sheet Drive image', async () => {
+  const {createRequire} = await import('node:module');
+  const core = createRequire(import.meta.url)('../design/catalog-core.js');
+  const drive = 'https://drive.google.com/file/d/1o2jWiE_OdvhH1_3PMT9enmomngcckAmB/view?usp=drive_link';
+  const [p] = core.normalize([{品牌:'加拿大 Jan & Jul 秋冬保暖系列',商品描述:'外套',連結:'https://gbf.tw/iyoer',類型:'短期',開團日期:'2026-11-16',結束日期:'2026-12-07',image:drive}]);
+  assert.deepEqual(p.images, ['/assets/jan-jul/product-card.webp']);
+  const [q] = core.normalize([{品牌:'加拿大 Jan & Jul 秋冬保暖系列',連結:'https://gbf.tw/iyoer',類型:'短期',image:drive,附加圖片:'https://www.eaglish.store/assets/jan-jul/product-card-960.webp'}]);
+  assert.deepEqual(q.images, ['/assets/jan-jul/product-card.webp','/assets/jan-jul/product-card-960.webp'], 'extra images still show');
+  const [r] = core.normalize([{品牌:'其他品牌',連結:'https://example.com',類型:'長期',image:drive}]);
+  assert.deepEqual(r.images, ['https://lh3.googleusercontent.com/d/1o2jWiE_OdvhH1_3PMT9enmomngcckAmB=w1000'], 'brands without a local image keep the Sheet image');
+});
