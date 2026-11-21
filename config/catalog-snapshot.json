@@ -1,39 +1,39 @@
 {
   "version": 1,
-  "observedAt": "2026-11-08T00:41:40.867Z",
+  "observedAt": "2026-11-21T13:15:46.577Z",
   "source": "https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/",
   "items": [
     {
+      "id": "kids-active-toys",
+      "brand": "兒童放電神器",
+      "description": "平衡車、扭扭車、Vespa 電動車、滑板車和彈跳床，先看孩子年齡和常去的場地：公園玩哪幾樣、下雨天在家玩哪幾樣，用鷹家實拍整理五樣怎麼挑。",
+      "category": "母嬰",
+      "article": "/blog/kids-active-toys/",
+      "image": "/assets/kids-active-toys/product-card.webp"
+    },
+    {
+      "id": "momax-locator",
+      "brand": "Momax 定位器 X 鷹式一家",
+      "description": "家裡手機有 iPhone 也有 Android？Momax Metro Poppies 聯名雙系統定位器兩種都能設定，但使用時只能擇一系統。整理它怎麼找東西、掛在哪裡最有用，以及團購價與免運門檻。",
+      "category": "旅遊",
+      "article": "/blog/momax-locator/",
+      "image": "/assets/momax-locator/product-card.webp"
+    },
+    {
+      "id": "b74237ef0456b135",
+      "brand": "加拿大 Jan & Jul 秋冬保暖系列",
+      "description": "兒童／大人秋冬外套、刷毛長褲、帽子手套、防水靴與雪靴",
+      "category": "旅遊",
+      "article": null,
+      "image": null
+    },
+    {
       "id": "playzu",
       "brand": "Playzu",
-      "description": "醉月星空、初衷之心、秘境沙灘：先用家具配色縮小選擇，再量好鋪設範圍。",
+      "description": "濛霧之影、鹽梅之寄：一組 6 片、鋪好 124×183 公分，先量空間再挑深淺。",
       "category": "母嬰, 居家",
       "article": "/blog/playzu/",
-      "image": "/assets/playzu/vintage-cover.webp"
-    },
-    {
-      "id": "a0ec17c839c88ac5",
-      "brand": "emma 床墊",
-      "description": "德國工藝、科學睡眠，沉入雲端般的深層好眠",
-      "category": "居家",
-      "article": null,
-      "image": null
-    },
-    {
-      "id": "bernie",
-      "brand": "伯尼寢具",
-      "description": "伯尼寢具選物指南：用家庭實拍看白底點點和米色床面，比較舒芙水洗被、單件兩用被、無被套床包枕套組與完整床組，再按床墊高度、換洗習慣及現貨預購挑選。",
-      "category": "居家",
-      "article": "/blog/bernie/",
-      "image": "/assets/bernie/product-card.webp"
-    },
-    {
-      "id": "2314237f0534afd6",
-      "brand": "Simmpo 濾藍光保護貼",
-      "description": "保護貼不只防刮，連你的眼睛都保護",
-      "category": "3C 家電",
-      "article": null,
-      "image": null
+      "image": "/assets/playzu/cover.webp"
     },
     {
       "id": "610079c1ba98400d",
@@ -202,6 +202,38 @@
       "category": "其他",
       "article": "/blog/sanfufarm/",
       "image": "/assets/sanfufarm/cover.webp"
+    },
+    {
+      "id": "ilovekids-rotating-bookcase",
+      "brand": "愛兒館 旋轉書櫃",
+      "description": "孩子房間不到 2 坪，長型書架讓書東倒西歪。我們 2023 年開始用愛兒館旋轉書櫃：佔地小、每格不深孩子好拿放，也整理了 DIY 組裝和退貨前要知道的事。",
+      "category": "母嬰, 居家",
+      "article": "/blog/ilovekids-rotating-bookcase/",
+      "image": "/assets/ilovekids-rotating-bookcase/product-card.webp"
+    },
+    {
+      "id": "brush-baby",
+      "brand": "Brush Baby 兒童電動牙刷",
+      "description": "孩子不愛刷牙？先讓刷牙變好玩。照年齡整理 Brush Baby 潔牙棉巾、嬰兒牙刷到 3 歲以上電動牙刷怎麼挑，附我們家兩兄弟小時候的實際用法。",
+      "category": "母嬰",
+      "article": "/blog/brush-baby/",
+      "image": "/assets/brush-baby/product-card.webp"
+    },
+    {
+      "id": "acer-luggage",
+      "brand": "acer 前開式行李箱",
+      "description": "acer 哥本哈根前開式行李箱 20 吋登機、25／28 吋託運：整理三種尺寸的長寬高、容量、重量和五種顏色，以及親子出國、過年返鄉怎麼搭。",
+      "category": "旅遊",
+      "article": "/blog/acer-luggage/",
+      "image": "/assets/acer-luggage/product-card.webp"
+    },
+    {
+      "id": "bernie",
+      "brand": "伯尼寢具",
+      "description": "伯尼寢具選物指南：用家庭實拍看白底點點和米色床面，比較舒芙水洗被、單件兩用被、無被套床包枕套組與完整床組，再按床墊高度、換洗習慣及現貨預購挑選。",
+      "category": "居家",
+      "article": "/blog/bernie/",
+      "image": "/assets/bernie/product-card.webp"
     },
     {
       "id": "done-by-deer",
