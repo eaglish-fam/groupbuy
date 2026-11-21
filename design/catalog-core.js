@@ -32,7 +32,12 @@
   }
   // Brands without a journal article whose Sheet image is unusable get a reviewed local photo first;
   // the Sheet image stays as the next one. Insta360: the Drive image (insta360.jpg) is a blank canvas (2026-11-08).
-  const BRAND_IMAGES = [{ prefix: "Insta360", image: "/assets/insta360/product-card.webp" }];
+  const BRAND_IMAGES = [
+    { prefix: "Insta360", image: "/assets/insta360/product-card.webp" },
+    // GB-064：Jan & Jul 秋冬保暖系列用站內圖，不依賴 Drive 分享（夏季防曬那一列不套用）
+    { prefix: "加拿大 Jan & Jul 秋冬", image: "/assets/jan-jul/product-card.webp" },
+    { prefix: "Jan & Jul 秋冬", image: "/assets/jan-jul/product-card.webp" },
+  ];
   function brandImage(brand) {
     const b = String(brand || "").trim();
     return BRAND_IMAGES.find((x) => b.startsWith(x.prefix))?.image || "";
