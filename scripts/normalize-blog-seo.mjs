@@ -15,7 +15,12 @@ function text(value) {
 }
 
 function attribute(tag, name) {
-  return tag.match(new RegExp(`\\b${name}=["']([^"']+)["']`, 'i'))?.[1] || '';
+  // Decode once: upsertMeta escapes again, so "Jan &amp; Jul" must not become "&amp;amp;" (GB-066).
+  return decode(tag.match(new RegExp(`\\b${name}=["']([^"']+)["']`, 'i'))?.[1] || '');
+}
+
+function decode(value) {
+  return value.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
 }
 
 function upsertMeta(html, key, value, attributeName = 'property') {
@@ -46,8 +51,8 @@ function normalize(path) {
   html = upsertMeta(html, 'og:image:height', height);
   html = upsertMeta(html, 'og:image:alt', imageAlt);
   html = upsertMeta(html, 'twitter:card', 'summary_large_image', 'name');
-  html = upsertMeta(html, 'twitter:title', html.match(/<meta\s+[^>]*property=["']og:title["'][^>]*content=["']([^"']+)/i)?.[1] || '', 'name');
-  html = upsertMeta(html, 'twitter:description', html.match(/<meta\s+[^>]*property=["']og:description["'][^>]*content=["']([^"']+)/i)?.[1] || '', 'name');
+  html = upsertMeta(html, 'twitter:title', decode(html.match(/<meta\s+[^>]*property=["']og:title["'][^>]*content=["']([^"']+)/i)?.[1] || ''), 'name');
+  html = upsertMeta(html, 'twitter:description', decode(html.match(/<meta\s+[^>]*property=["']og:description["'][^>]*content=["']([^"']+)/i)?.[1] || ''), 'name');
   html = upsertMeta(html, 'twitter:image', ogImage, 'name');
   html = upsertMeta(html, 'twitter:image:alt', imageAlt, 'name');
 

@@ -135,7 +135,7 @@
       "id": "image-alt",
       "passed": true,
       "severity": "warning",
-      "detail": "0 of 49 static image(s) lack alt text."
+      "detail": "0 of 50 static image(s) lack alt text."
     },
     {
       "id": "iframe-title",
@@ -165,7 +165,7 @@
       "id": "sitemap-https",
       "passed": true,
       "severity": "blocking",
-      "detail": "73 sitemap URL(s) use the canonical HTTPS origin."
+      "detail": "74 sitemap URL(s) use the canonical HTTPS origin."
     },
     {
       "id": "sitemap-unique",
