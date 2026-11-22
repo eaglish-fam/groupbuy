@@ -51,7 +51,10 @@ if (!/^\d{4}-\d{2}-\d{2}$/.test(published || '')) fail('technicalSeo.datePublish
 for (const asset of [site.cover, site.card, site.coverSource].filter(Boolean)) if (!existsSync(root + asset.replace(/^\//, ''))) fail(`${asset} not found`);
 
 let html = read(articlePath);
-const meta = (attr, name) => html.match(new RegExp(`<meta[^>]*${attr}="${name}"[^>]*content="([^"]*)"`))?.[1];
+// Meta values are HTML-escaped in the page; decode them once so the catalog and journal card
+// (which escape again on output) do not show "&amp;" (GB-066: "Jan & Jul").
+const decodeEntities = (v) => v?.replace(/&quot;/g, '"').replace(/&#39;/g, "'").replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&amp;/g, '&');
+const meta = (attr, name) => decodeEntities(html.match(new RegExp(`<meta[^>]*${attr}="${name}"[^>]*content="([^"]*)"`))?.[1]);
 const title = (meta('property', 'og:title') || '').replace(/｜鷹家選物誌$/, '');
 const coverAlt = meta('property', 'og:image:alt');
 if (!title || !coverAlt) fail('article needs og:title and og:image:alt');

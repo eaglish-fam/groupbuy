@@ -1,11 +1,18 @@
 {
   "counts": {
-    "pages": 73,
+    "pages": 74,
     "blocking": 0,
-    "warnings": 29,
-    "total": 29
+    "warnings": 30,
+    "total": 30
   },
   "findings": [
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-jan-jul-winter",
+      "file": "blog/jan-jul-winter/index.html",
+      "index": 12539
+    },
     {
       "level": "warn",
       "category": "links",
@@ -137,49 +144,49 @@
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9083
+      "index": 9142
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9197
+      "index": 9256
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9311
+      "index": 9370
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9424
+      "index": 9483
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9538
+      "index": 9597
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 56400
+      "index": 56941
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 56400
+      "index": 56941
     },
     {
       "level": "warn",

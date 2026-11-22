@@ -2,6 +2,24 @@
  "schema": "eaglish.play-media/v2",
  "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
+  "加拿大 Jan & Jul 秋冬保暖系列": [
+   {
+    "src": "/assets/jan-jul-winter/jacket-kids.webp",
+    "alt": "兩個孩子穿著 Jan & Jul 兒童刷毛防水外套站在湖邊，標示全防水、透氣舒適、縫線壓膠、防風防護"
+   },
+   {
+    "src": "/assets/jan-jul-winter/jacket-layers.webp",
+    "alt": "Jan & Jul 防水外套的三層結構：無氟防潑水塗層、全密封接縫、內層防水膜"
+   },
+   {
+    "src": "/assets/jan-jul-winter/fireworks.webp",
+    "alt": "兩兄弟穿著外套，在欄杆邊看港口的煙火"
+   },
+   {
+    "src": "/assets/jan-jul-winter/snow-boots.webp",
+    "alt": "Jan & Jul 高山防水雪靴，標示耐寒 -20°C、全防水、輕鬆穿脫、輕量、內裡刷絨保暖"
+   }
+  ],
   "Jowua": [
    {
     "src": "/assets/jowua/cart-discount.webp",

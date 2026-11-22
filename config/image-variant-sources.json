@@ -227,6 +227,22 @@
     "source": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
     "variant": "349b6faf094c65dcf43e4cf6a9b4b4b1536238ccaf37d89ec64d8fc58ab8137f"
   },
+  "/assets/jan-jul-winter/cover-480.webp": {
+    "source": "29f91fb19d61a3c68e9c55a98eaa9460f27bd13bf35d51c0685c4d6ab0dfd573",
+    "variant": "9deab05654808b495e88706400145d6d25ee9789bdd9293ca3caaa188de46de6"
+  },
+  "/assets/jan-jul-winter/cover-960.webp": {
+    "source": "29f91fb19d61a3c68e9c55a98eaa9460f27bd13bf35d51c0685c4d6ab0dfd573",
+    "variant": "63e75aef79cc80a9cd3b1bd09e6834c30172f111bd0f02431e36a31d9db04ce1"
+  },
+  "/assets/jan-jul/product-card-480.webp": {
+    "source": "a94278c7a43ae0eb10a52b61a4291250e33c1b8258f889e4770666945a48853d",
+    "variant": "43ba5e91aa5e7d4762541c140a3859bc6fe6ab3f6817683abc7e26b229f3e57a"
+  },
+  "/assets/jan-jul/product-card-960.webp": {
+    "source": "a94278c7a43ae0eb10a52b61a4291250e33c1b8258f889e4770666945a48853d",
+    "variant": "58ce9b583c00ab4a6954dadb23d8beaed93a5c886376d0d04d8381ff8aac3c68"
+  },
   "/assets/jowua/cover-480.webp": {
     "source": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
     "variant": "771f241c87f749ecf8c438bc3d34e8ea169290e458699d7ba76c071adfa38f90"
