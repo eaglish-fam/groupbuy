@@ -26,9 +26,14 @@
     - `home`：完整文字放哪一頁，`english`（③，46 套）或 `chinese`（⑤，20 套）。每套只有一個 home。
     - `guide`：另外出現在哪篇導讀，`reading`（②，12 套）、`zhuyin`（④，4 套）或 `null`。導讀頁只放摘要和連到 home 的連結。
   - 點讀筆那篇放在 `pen`；英文、中文兩篇的前言放在 `enIntro`、`zhIntro`。
-  - `ages` 是從原文「適用／適讀年齡」抽出來的；原文沒寫的 29 套是 `null`，頁面標成「年齡待補」，不自己猜。
+  - `ages` 照原文「適用／適讀年齡」逐套手填（2026-11-23 依 Hugo 複核改版）：
+    - `together`＝親子共讀、`alone`＝自主閱讀、`general`＝原文沒分；都是 `[最小, 最大]`，最大是 `null` 代表原文沒寫上限（例如「4+」「4–6⁺」）。`label` 是頁面顯示的字，例如「共讀 0–3 歲／自主 3–6 歲」。
+    - 只抓書本的適讀年齡，內文另一項活動的年齡不算（例如 Math Machine 內文提到 3–4 歲看圖，主標是共讀 5–6／自主與心算 6+）。
+    - 選書器的年齡籤是半開區間：0–2、3–5、6 歲以上；書的任一段和所選年齡重疊就列出。所以 0–2 歲不會推 Odd One Out（3–6⁺），兩套 Busy 系列在共讀和自主的年齡都找得到。
+    - 原文沒寫年齡的 27 套是 `null`，頁面標成「年齡待補」，不自己猜。
   - `status` 目前都是 `pending`。等 Hiram 給停售清單和 12/31 賣場頁，才改成 `active`／`removed`；`removed` 不顯示。
-- `data/kidsread/migrated-posts.json`：三篇原文照順序的完整區塊，當作備查的原始檔。
+- `data/kidsread/migrated-posts.json`：三篇原文照順序的完整區塊，當作備查的原始檔（照片、圖說原樣保留）。
+- 公開版不放：舊團購按鈕、舊檔期，以及英文篇前言的圖說「開團表單沒看到＝絕版停賣」（當期沒上架不等於停售）。catalog 裡這則圖說已清空，原文仍在 migrated-posts.json。
 - `assets/kidsread/`：原文全部 224 張圖，原尺寸縮到最寬 1280px 的 WebP，去除相機資料。
 - `docs/kidsread/extract-old-posts.py`：當時從舊站 HTML 抽出區塊用的程式。
 
@@ -80,9 +85,12 @@
 
 ### 上線當天的順序
 1. 新六頁上線，sitemap 一起更新。
-2. 舊站三篇設定 301 轉址到對應的新網址（WordPress 用 Redirection 外掛或 Yoast Premium 的轉址功能）。
+2. 等對應的新頁都打得開、也確認舊站可以切換之後，才把舊站三篇設定 301 轉址到對應的新網址（WordPress 用 Redirection 外掛或 Yoast Premium 的轉址功能）。不先設轉址。
    - 如果沒辦法 301：舊頁留一段短介紹加連結，並在 Yoast「進階」欄把 canonical 填成新網址（免費版就有這個欄位）。
-3. 在兩個網站的 Search Console 都送出新網址請求索引；轉址至少保留一年。
+3. Search Console 分兩邊看，不混用：
+   - 舊網址只在 **projecteaglet.com 的屬性**讀回（轉址生效、舊頁曝光下降）。
+   - 新網址只在 **eaglish.store 的屬性**驗索引、送出請求索引。
+   - 轉址至少保留一年。
 4. 預期 2～6 週排名會有波動，之後由新頁接手。
 
 ### 要先拿到的資料（在 Hiram 手上）

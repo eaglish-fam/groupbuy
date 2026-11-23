@@ -449,7 +449,7 @@
    "w": 1280,
    "h": 853,
    "alt": "",
-   "cap": "有些出現在照片中的書籍，如果在開團表單沒看到，就是絕版停賣了"
+   "cap": ""
   },
   {
    "t": "p",
@@ -516,10 +516,15 @@
    "post": "kidsread-book",
    "stage": "phonics",
    "lang": "en",
-   "ages": [
-    0,
-    4
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     0,
+     4
+    ],
+    "label": "0–4 歲"
+   },
    "tags": [
     "story"
    ],
@@ -566,10 +571,15 @@
    "post": "kidsread-book",
    "stage": "alphabet",
    "lang": "en",
-   "ages": [
-    3,
-    12
-   ],
+   "ages": {
+    "together": null,
+    "alone": [
+     3,
+     null
+    ],
+    "general": null,
+    "label": "自主 3 歲以上"
+   },
    "tags": [],
    "cover": "/assets/kidsread/2026-04-IMG_1282.webp",
    "imgs": 3,
@@ -630,10 +640,15 @@
    "post": "kidsread-book",
    "stage": "phonics",
    "lang": "en",
-   "ages": [
-    0,
-    4
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     0,
+     4
+    ],
+    "label": "0–4 歲"
+   },
    "tags": [
     "touch"
    ],
@@ -708,10 +723,15 @@
    "post": "kidsread-book",
    "stage": "cvc",
    "lang": "en",
-   "ages": [
-    3,
-    5
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     3,
+     5
+    ],
+    "label": "3–5 歲"
+   },
    "tags": [],
    "cover": "/assets/kidsread/2025-11-IMG_9354.webp",
    "imgs": 2,
@@ -764,10 +784,15 @@
    "post": "kidsread-book",
    "stage": "bridge",
    "lang": "en",
-   "ages": [
-    4,
-    6
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     4,
+     6
+    ],
+    "label": "4–6 歲"
+   },
    "tags": [
     "story"
    ],
@@ -827,10 +852,15 @@
    "post": "kidsread-book",
    "stage": "sight",
    "lang": "en",
-   "ages": [
-    4,
-    12
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     4,
+     null
+    ],
+    "label": "4–6⁺ 歲"
+   },
    "tags": [
     "words"
    ],
@@ -932,10 +962,15 @@
    "post": "kidsread-book",
    "stage": "sight",
    "lang": "en",
-   "ages": [
-    4,
-    12
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     4,
+     null
+    ],
+    "label": "4 歲以上"
+   },
    "tags": [],
    "cover": "/assets/kidsread/2024-08-DSC07526.webp",
    "imgs": 1,
@@ -980,10 +1015,18 @@
    "post": "kidsread-book",
    "stage": "phonics",
    "lang": "en",
-   "ages": [
-    2,
-    6
-   ],
+   "ages": {
+    "together": [
+     2,
+     3
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 2–3 歲／自主 4–6 歲"
+   },
    "tags": [],
    "cover": "/assets/kidsread/2025-03-DSC02997-scaled.webp",
    "imgs": 2,
@@ -1041,10 +1084,15 @@
    "post": "kidsread-book",
    "stage": "alphabet",
    "lang": "en",
-   "ages": [
-    0,
-    3
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     0,
+     3
+    ],
+    "label": "0–3 歲"
+   },
    "tags": [
     "touch"
    ],
@@ -1120,10 +1168,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    2,
-    2
-   ],
+   "ages": {
+    "together": [
+     2,
+     2
+    ],
+    "alone": null,
+    "general": null,
+    "label": "共讀 2 歲"
+   },
    "tags": [
     "science"
    ],
@@ -1181,10 +1234,18 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "bi",
-   "ages": [
-    3,
-    12
-   ],
+   "ages": {
+    "together": [
+     5,
+     6
+    ],
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "共讀 5–6 歲／自主與心算 6 歲以上"
+   },
    "tags": [
     "science"
    ],
@@ -1242,10 +1303,18 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    3,
-    12
-   ],
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     5,
+     null
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 5 歲以上"
+   },
    "tags": [
     "touch",
     "science",
@@ -1317,10 +1386,18 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    0,
-    6
-   ],
+   "ages": {
+    "together": [
+     0,
+     3
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 0–3 歲／自主 4–6 歲"
+   },
    "tags": [
     "touch"
    ],
@@ -1370,10 +1447,18 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    0,
-    12
-   ],
+   "ages": {
+    "together": [
+     0,
+     3
+    ],
+    "alone": [
+     4,
+     null
+    ],
+    "general": null,
+    "label": "共讀 0–3 歲／自主 4 歲以上"
+   },
    "tags": [
     "science",
     "story"
@@ -1598,10 +1683,18 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "bi",
-   "ages": [
-    2,
-    6
-   ],
+   "ages": {
+    "together": [
+     2,
+     3
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 2–3 歲／自主 4–6 歲"
+   },
    "tags": [
     "touch",
     "words"
@@ -1667,7 +1760,18 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": null,
+   "ages": {
+    "together": [
+     0,
+     3
+    ],
+    "alone": [
+     3,
+     6
+    ],
+    "general": null,
+    "label": "共讀 0–3 歲／自主 3–6 歲"
+   },
    "tags": [
     "touch",
     "seek"
@@ -1713,7 +1817,18 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": null,
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     4,
+     null
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 4 歲以上"
+   },
    "tags": [
     "touch",
     "seek"
@@ -1764,10 +1879,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "bi",
-   "ages": [
-    3,
-    6
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     3,
+     6
+    ],
+    "label": "3–6 歲"
+   },
    "tags": [
     "touch",
     "science"
@@ -1831,10 +1951,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "bi",
-   "ages": [
-    3,
-    6
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     3,
+     6
+    ],
+    "label": "3–6 歲"
+   },
    "tags": [
     "touch",
     "science"
@@ -1935,10 +2060,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "bi",
-   "ages": [
-    0,
-    4
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     0,
+     4
+    ],
+    "label": "0–4 歲"
+   },
    "tags": [
     "words",
     "culture"
@@ -2033,10 +2163,18 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    4,
-    12
-   ],
+   "ages": {
+    "together": [
+     0,
+     3
+    ],
+    "alone": [
+     4,
+     null
+    ],
+    "general": null,
+    "label": "共讀 0–3 歲／自主 4 歲以上"
+   },
    "tags": [
     "touch"
    ],
@@ -2098,10 +2236,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    3,
-    6
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     3,
+     6
+    ],
+    "label": "3–6 歲"
+   },
    "tags": [
     "touch"
    ],
@@ -2156,10 +2299,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    0,
-    4
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     0,
+     4
+    ],
+    "label": "0–4 歲"
+   },
    "tags": [
     "touch"
    ],
@@ -2217,10 +2365,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    1,
-    4
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     1,
+     4
+    ],
+    "label": "1–4 歲"
+   },
    "tags": [
     "touch"
    ],
@@ -2296,10 +2449,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    1,
-    4
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     1,
+     4
+    ],
+    "label": "1–4 歲"
+   },
    "tags": [
     "touch"
    ],
@@ -2406,10 +2564,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    0,
-    1
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     0,
+     null
+    ],
+    "label": "1 歲以下就能開始"
+   },
    "tags": [
     "touch",
     "story"
@@ -2455,10 +2618,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    4,
-    6
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     4,
+     null
+    ],
+    "label": "4–6⁺ 歲"
+   },
    "tags": [
     "science"
    ],
@@ -2692,10 +2860,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    0,
-    6
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     3,
+     null
+    ],
+    "label": "3–6⁺ 歲"
+   },
    "tags": [
     "story",
     "seek"
@@ -2910,10 +3083,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    3,
-    6
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     3,
+     null
+    ],
+    "label": "3–6⁺ 歲"
+   },
    "tags": [
     "story",
     "words"
@@ -3001,10 +3179,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    3,
-    4
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     3,
+     4
+    ],
+    "label": "3–4 歲"
+   },
    "tags": [
     "seek"
    ],
@@ -3100,10 +3283,18 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    3,
-    8
-   ],
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     4,
+     8
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 4–8 歲"
+   },
    "tags": [
     "seek"
    ],
@@ -3171,10 +3362,15 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": [
-    4,
-    6
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     4,
+     null
+    ],
+    "label": "4–6⁺ 歲"
+   },
    "tags": [
     "story"
    ],
@@ -3330,10 +3526,15 @@
    "post": "kidsread-book",
    "stage": "bridge",
    "lang": "en",
-   "ages": [
-    4,
-    6
-   ],
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     4,
+     null
+    ],
+    "label": "4–6⁺ 歲"
+   },
    "tags": [
     "story"
    ],
@@ -3412,10 +3613,18 @@
    "post": "kidsread-book",
    "stage": "chapter",
    "lang": "en",
-   "ages": [
-    4,
-    12
-   ],
+   "ages": {
+    "together": [
+     4,
+     6
+    ],
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "共讀 4–6 歲／自主 6 歲以上"
+   },
    "tags": [
     "story"
    ],
@@ -3470,10 +3679,18 @@
    "post": "kidsread-book",
    "stage": "chapter",
    "lang": "en",
-   "ages": [
-    4,
-    12
-   ],
+   "ages": {
+    "together": [
+     4,
+     6
+    ],
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "共讀 4–6 歲／自主 6 歲以上"
+   },
    "tags": [
     "story"
    ],
@@ -3726,10 +3943,18 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": [
-    0,
-    12
-   ],
+   "ages": {
+    "together": [
+     0,
+     3
+    ],
+    "alone": [
+     4,
+     null
+    ],
+    "general": null,
+    "label": "共讀 0–3 歲／自主 4 歲以上"
+   },
    "tags": [
     "touch"
    ],
@@ -3794,10 +4019,18 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": [
-    3,
-    6
-   ],
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 4–6 歲"
+   },
    "tags": [
     "touch",
     "science"
@@ -3920,10 +4153,18 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": [
-    3,
-    6
-   ],
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 4–6 歲"
+   },
    "tags": [
     "science",
     "story"
@@ -4029,10 +4270,18 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "bi",
-   "ages": [
-    4,
-    8
-   ],
+   "ages": {
+    "together": [
+     4,
+     5
+    ],
+    "alone": [
+     6,
+     8
+    ],
+    "general": null,
+    "label": "共讀 4–5 歲／自主 6–8 歲"
+   },
    "tags": [
     "story"
    ],
@@ -4786,5 +5035,6 @@
    "redirectFrom": "https://projecteaglet.com/kidsreadchbook/",
    "fullText": true
   }
- ]
+ ],
+ "agesNote": "ages：together＝親子共讀、alone＝自主閱讀、general＝原文沒分；[min,max]，max 為 null 代表原文沒寫上限。篩選時任一段和所選年齡重疊就列出。原文沒寫年齡的是 null，顯示「年齡待補」。"
 }
