@@ -103,11 +103,6 @@
     "align": ""
    },
    {
-    "t": "button",
-    "text": "Kidsread開團優惠 7/20(一)～7/29(三)",
-    "href": "https://gbf.tw/e5asi"
-   },
-   {
     "t": "h2",
     "text": "Kidsread點讀筆優勢"
    },
@@ -224,11 +219,6 @@
       "h": 853,
       "alt": "",
       "cap": "ABCD代表四個路徑，只要一張點讀貼紙，就可以建構4種語言或是4種解釋"
-     },
-     {
-      "t": "button",
-      "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-      "href": "https://gbf.tw/e5asi"
      }
     ]
    },
@@ -294,7 +284,7 @@
      },
      {
       "t": "p",
-      "html": "過去我透過兩個部落客開團購買教材，也直接從官網購買過一次，我知道開團的價格相當優惠，而我也很開心在使用產品後，看到孩子們的英文進展非常不錯，而這次我也有機會開團，為大家介紹這款我非常愛的點讀筆教材。",
+      "html": "過去我透過兩個部落客的團購買過教材，也直接在官網買過一次。用了之後看到孩子們的英文進步很多，所以想好好介紹這款我非常愛的點讀筆教材。",
       "align": ""
      },
      {
@@ -306,11 +296,6 @@
       "cap": ""
      },
      {
-      "t": "button",
-      "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-      "href": "https://gbf.tw/e5asi"
-     },
-     {
       "t": "hr"
      },
      {
@@ -320,12 +305,12 @@
      },
      {
       "t": "p",
-      "html": "<strong><a href=\"https://projecteaglet.com/kidsread-book/\">Kidsread點讀筆「英文教材」深度開箱：功能詳解與學習資源介紹</a></strong>",
+      "html": "<strong><a href=\"/blog/kidsread-english/\">Kidsread點讀筆「英文教材」深度開箱：功能詳解與學習資源介紹</a></strong>",
       "align": "center"
      },
      {
       "t": "p",
-      "html": "<strong><a href=\"https://projecteaglet.com/kidsread-book/\">Kidsread點讀筆「中文教材」深度開箱：功能詳解與學習資源</a><a href=\"https://projecteaglet.com/kidsreadchbook/\">介紹</a></strong>",
+      "html": "<strong><a href=\"/blog/kidsread-english/\">Kidsread點讀筆「中文教材」深度開箱：功能詳解與學習資源</a><a href=\"/blog/kidsread-chinese/\">介紹</a></strong>",
       "align": "center"
      },
      {
@@ -363,11 +348,6 @@
       "t": "p",
       "html": "無論你使用的電腦是Ｗindows作業系統還是Mac OS作業系統，都能夠輕鬆為孩子錄製或灌入音檔，讓家中不是點讀功能的繪本或教材，都能具備點讀功能。",
       "align": ""
-     },
-     {
-      "t": "button",
-      "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-      "href": "https://gbf.tw/e5asi"
      }
     ]
    }
@@ -438,7 +418,7 @@
   },
   {
    "t": "p",
-   "html": "這次是開團Kidsread全品項，也會告知大家官方以及我使用後得經驗，推薦大家幾歲的孩子適合哪些教材或者英文程度在哪一階段的孩子適合那類教材，在文末最後也會給大家購買的建議。",
+   "html": "這篇整理 KidsRead 的英文教材，也分享官方建議和我們家用過的經驗：幾歲的孩子適合哪些教材、英文程度在哪一階段適合哪一類。",
    "align": ""
   },
   {
@@ -446,25 +426,20 @@
   },
   {
    "t": "p",
-   "html": "<a href=\"https://projecteaglet.com/kidsread-pen/\">為何每個孩子都需要一支點讀筆｜Kidsread 點讀筆的優點與選購指南</a>",
+   "html": "<a href=\"/blog/kidsread-pen/\">為何每個孩子都需要一支點讀筆｜Kidsread 點讀筆的優點與選購指南</a>",
    "align": "center"
   },
   {
    "t": "p",
-   "html": "<a href=\"https://projecteaglet.com/kidsreadchbook/\">KIDSREAD點讀筆『中文教材』深度開箱｜功能詳解與學習資源介紹</a>",
+   "html": "<a href=\"/blog/kidsread-chinese/\">KIDSREAD點讀筆『中文教材』深度開箱｜功能詳解與學習資源介紹</a>",
    "align": "center"
   },
   {
    "t": "hr"
   },
   {
-   "t": "button",
-   "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-   "href": "https://gbf.tw/e5asi"
-  },
-  {
    "t": "h2",
-   "text": "Kidsread開團教材介紹"
+   "text": "KidsRead 英文教材介紹"
   },
   {
    "t": "img",
@@ -522,22 +497,17 @@
   },
   {
    "t": "p",
-   "html": "<a href=\"https://projecteaglet.com/kidsread-pen/\">為何每個孩子都需要一支點讀筆｜Kidsread 點讀筆的優點與選購指南</a>",
+   "html": "<a href=\"/blog/kidsread-pen/\">為何每個孩子都需要一支點讀筆｜Kidsread 點讀筆的優點與選購指南</a>",
    "align": "center"
   },
   {
    "t": "p",
-   "html": "<strong><a href=\"https://projecteaglet.com/kidsread-book/\">Kidsread點讀筆『英文教材』深度開箱：功能詳解與學習資源介紹</a></strong>",
+   "html": "<strong><a href=\"/blog/kidsread-english/\">Kidsread點讀筆『英文教材』深度開箱：功能詳解與學習資源介紹</a></strong>",
    "align": "center"
   },
   {
-   "t": "button",
-   "text": "Kidsread 開團優惠7/20(一)～7/29(三)",
-   "href": "https://gbf.tw/e5asi"
-  },
-  {
    "t": "h2",
-   "text": "Kidsread開團中文教材介紹"
+   "text": "KidsRead 中文教材介紹"
   }
  ],
  "items": [
@@ -1120,11 +1090,6 @@
      "t": "p",
      "html": "這套的難易度很高，內容文字也比較多，四種朗讀方式「慢速朗讀×生動朗讀×逐字朗讀×清晰朗讀」，配合孩子不同的程度跟練習模式。透過閱讀動物書籍學習自然發音的同時，也能學習動物的知識。",
      "align": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     },
     {
      "t": "p",
@@ -2010,11 +1975,6 @@
      "h": 960,
      "alt": "",
      "cap": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     }
    ],
    "status": "active",
@@ -2305,11 +2265,6 @@
      "t": "p",
      "html": "一本書總共有24個主題，分別為動物、鳥類、水中生物、蔬菜、水果、食品、點心、交通工具、昆蟲、植物、日用品、樂器、衣服和飾品、玩具和體育品、臉和身體、家人、房子、自然、城市、顏色、數字、動作、反義詞、問候語。",
      "align": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     }
    ],
    "status": "removed",
@@ -2824,11 +2779,6 @@
      "h": 853,
      "alt": "",
      "cap": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     }
    ],
    "status": "removed",
@@ -3180,11 +3130,6 @@
      "h": 853,
      "alt": "",
      "cap": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     }
    ],
    "status": "removed",
@@ -3646,11 +3591,6 @@
      "h": 673,
      "alt": "",
      "cap": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     }
    ],
    "status": "removed",
@@ -4062,11 +4002,6 @@
      "h": 854,
      "alt": "",
      "cap": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     },
     {
      "t": "img",
@@ -4575,11 +4510,6 @@
      "h": 800,
      "alt": "",
      "cap": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread 開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     }
    ],
    "status": "active",
@@ -4854,11 +4784,6 @@
      "h": 855,
      "alt": "",
      "cap": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread 開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     }
    ],
    "status": "removed",
@@ -5300,11 +5225,6 @@
       }
      ],
      "cap": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread 開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     }
    ],
    "status": "active",
@@ -5578,11 +5498,6 @@
      "h": 806,
      "alt": "",
      "cap": ""
-    },
-    {
-     "t": "button",
-     "text": "Kidsread 開團優惠7/20(一)～7/29(三)",
-     "href": "https://gbf.tw/e5asi"
     },
     {
      "t": "hr"
@@ -5977,7 +5892,7 @@
     },
     {
      "t": "p",
-     "html": "廠商這次附一個恐龍抱枕，小暴龍或三角龍二選一。"
+     "html": "書附一個恐龍抱枕，小暴龍或三角龍二選一。"
     },
     {
      "t": "p",
@@ -6256,7 +6171,7 @@
    "blocks": [
     {
      "t": "p",
-     "html": "這次新加入的雙語膠片繪本，作者是韓國繪本作家김윤정。完整介紹等我們拿到書再補。"
+     "html": "韓國繪本作家김윤정的雙語膠片繪本，精裝點讀書附一張點讀小卡，適合 4–6 歲親子共讀、6 歲可以自己讀。"
     },
     {
      "t": "p",
@@ -6710,10 +6625,6 @@
        "cap": ""
       }
      ]
-    },
-    {
-     "t": "p",
-     "html": "這本是我們拿到實體書後拍的，廠商參考頁沒有列，最後是否開團以我們的賣場為準。"
     }
    ],
    "post": null,
