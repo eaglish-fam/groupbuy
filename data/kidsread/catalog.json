@@ -597,6 +597,9 @@
    "guide": "reading",
    "variants": [
     "JY Phonics Readers 自然發音點讀教材"
+   ],
+   "vendorItems": [
+    "37125289"
    ]
   },
   {
@@ -666,7 +669,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "vendorItems": []
   },
   {
    "id": "k03-phonics-cards",
@@ -752,6 +756,9 @@
    "guide": "reading",
    "variants": [
     "Phonics Cards 自然發音遊戲字卡"
+   ],
+   "vendorItems": [
+    "37125286"
    ]
   },
   {
@@ -816,6 +823,9 @@
    "guide": "reading",
    "variants": [
     "ZOOM ZOOM ZOOM PHONICS CVC自然拼音火箭"
+   ],
+   "vendorItems": [
+    "37125287"
    ]
   },
   {
@@ -887,6 +897,9 @@
    "guide": "reading",
    "variants": [
     "Forward Phonics 自然發音 橋樑書 (30冊)"
+   ],
+   "vendorItems": [
+    "37125292"
    ]
   },
   {
@@ -997,7 +1010,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "vendorItems": []
   },
   {
    "id": "k07-learn-to-read-step-1step2step3",
@@ -1050,7 +1064,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "vendorItems": []
   },
   {
    "id": "k08-animal-phonics-readers",
@@ -1122,6 +1137,9 @@
    "guide": "reading",
    "variants": [
     "Animal Phonics Readers 自然發音讀本 (24冊)"
+   ],
+   "vendorItems": [
+    "37125294"
    ]
   },
   {
@@ -1210,6 +1228,10 @@
    "variants": [
     "TALKING ALPHABET BLOCKS 有聲積木",
     "【合購優惠】 KIDsREAD 有聲積木_Talking Alphabet Blocks+自然發音遊戲字卡"
+   ],
+   "vendorItems": [
+    "37125296",
+    "37125295"
    ]
   },
   {
@@ -1279,6 +1301,9 @@
    "guide": null,
    "variants": [
     "Yoga Adventure! 瑜伽冒險書 + 瑜伽小卡"
+   ],
+   "vendorItems": [
+    "37125359"
    ]
   },
   {
@@ -1351,6 +1376,9 @@
    "guide": null,
    "variants": [
     "Math Machine 神奇數學機器"
+   ],
+   "vendorItems": [
+    "37125331"
    ]
   },
   {
@@ -1437,6 +1465,9 @@
    "guide": null,
    "variants": [
     "Magic Folding Flaps 我的第一套雙向翻頁小百科"
+   ],
+   "vendorItems": [
+    "37125332"
    ]
   },
   {
@@ -1501,6 +1532,9 @@
    "guide": null,
    "variants": [
     "Look, find & slide! 躲貓貓滑塊遊戲書"
+   ],
+   "vendorItems": [
+    "37125367"
    ]
   },
   {
@@ -1570,7 +1604,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k15-flip-flap-x",
@@ -1630,6 +1665,9 @@
    "guide": null,
    "variants": [
     "Flip Flap！色彩 × 形狀 認知翻翻書"
+   ],
+   "vendorItems": [
+    "37125366"
    ]
   },
   {
@@ -1673,6 +1711,9 @@
    "guide": null,
    "variants": [
     "Press-out play 立體拼圖遊戲書"
+   ],
+   "vendorItems": [
+    "37125365"
    ]
   },
   {
@@ -1743,7 +1784,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k18-100-words-to-learn-shopping-home",
@@ -1823,6 +1865,9 @@
    "guide": null,
    "variants": [
     "100 Words to Learn_雙語遊戲圖典 (2冊)"
+   ],
+   "vendorItems": [
+    "37125248"
    ]
   },
   {
@@ -1884,6 +1929,10 @@
    "variants": [
     "Busy Day 找找遊戲翻翻書",
     "【合購優惠】 Busy Day+Busy Helpers找找遊戲翻翻書"
+   ],
+   "vendorItems": [
+    "37125358",
+    "37125356"
    ]
   },
   {
@@ -1950,6 +1999,10 @@
    "variants": [
     "Busy Helpers 找找遊戲翻翻書",
     "【合購優惠】 Busy Day+Busy Helpers找找遊戲翻翻書"
+   ],
+   "vendorItems": [
+    "37125357",
+    "37125356"
    ]
   },
   {
@@ -2022,7 +2075,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k22-my-first-atlas-of-the-solar-syst",
@@ -2088,7 +2142,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k23-animals-endangered-species-of-th",
@@ -2131,7 +2186,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k24",
@@ -2234,7 +2290,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k25-lift-the-flap-play",
@@ -2310,6 +2367,9 @@
    "guide": null,
    "variants": [
     "LIFT-THE-FLAP&PLAY 角色扮演遊戲書 第一輯"
+   ],
+   "vendorItems": [
+    "37125368"
    ]
   },
   {
@@ -2373,7 +2433,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k27",
@@ -2439,7 +2500,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k28-jane-fosters-1",
@@ -2538,7 +2600,11 @@
     "Jane Foster's 互動硬頁操作書 第一輯(2冊)",
     "Jane Foster's 互動硬頁操作書 第二輯(2冊)"
    ],
-   "seriesNote": "多了第二輯"
+   "seriesNote": "多了第二輯",
+   "vendorItems": [
+    "37125371",
+    "37125372"
+   ]
   },
   {
    "id": "k29-imagine-if-fruits-veggies",
@@ -2619,7 +2685,12 @@
     "IMAGINE IF...BUGS & FLOWERS 互動操作書 (2冊)",
     "【合購優惠】 IMAGINE IF...FRUITS & VEGGIES+BUGS & FLOWERS 互動操作書"
    ],
-   "seriesNote": "多了 BUGS & FLOWERS"
+   "seriesNote": "多了 BUGS & FLOWERS",
+   "vendorItems": [
+    "37125364",
+    "37125362",
+    "37125361"
+   ]
   },
   {
    "id": "k30-twinkle-twinkle-little-star",
@@ -2672,6 +2743,9 @@
    "guide": null,
    "variants": [
     "Twinkle, Twinkle, Little Star 兒童經典歌謠有聲書"
+   ],
+   "vendorItems": [
+    "37125370"
    ]
   },
   {
@@ -2726,7 +2800,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k32-start-small-think-big",
@@ -2860,6 +2935,12 @@
     "Start Small, Think Big_雙語自然科普繪本 第二輯（2冊）",
     "Start Small, Think Big 雙語自然科普繪本 第三輯 (2冊)",
     "【合購優惠】 Start Small, Think Big 雙語自然科普繪本 第一+二+三輯"
+   ],
+   "vendorItems": [
+    "37125336",
+    "37125337",
+    "37125338",
+    "37125335"
    ]
   },
   {
@@ -2918,7 +2999,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k34",
@@ -2978,6 +3060,10 @@
    "variants": [
     "Sherldog Holmes 福爾摩斯與失蹤的蘭花 雙語偵探推理書",
     "【合購優惠】《狗探長的倫敦謎案大追查》抽拉式推理遊戲書+Sherldog Holmes 福爾摩斯與失蹤的蘭花 雙語偵探推理書"
+   ],
+   "vendorItems": [
+    "37125467",
+    "37125465"
    ]
   },
   {
@@ -3058,7 +3144,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k36-suzon",
@@ -3106,6 +3193,9 @@
    "guide": null,
    "variants": [
     "My small heroes_SUZON 雙語幽默繪本（3冊）"
+   ],
+   "vendorItems": [
+    "37125341"
    ]
   },
   {
@@ -3207,6 +3297,9 @@
    "guide": null,
    "variants": [
     "Die-Cut reading_夢幻紙雕童話故事書（5冊)"
+   ],
+   "vendorItems": [
+    "37125252"
    ]
   },
   {
@@ -3306,6 +3399,9 @@
    "guide": null,
    "variants": [
     "Little Skill Seekers 認知學習練習本 (6冊)"
+   ],
+   "vendorItems": [
+    "37125373"
    ]
   },
   {
@@ -3410,7 +3506,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k40-highlights-abc-town-lets-count-v",
@@ -3489,7 +3586,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k41-cranky-bear-and-friends",
@@ -3555,7 +3653,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k42-fear-street",
@@ -3608,7 +3707,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k43-walking-through-the-jungle",
@@ -3656,6 +3756,9 @@
    "guide": null,
    "variants": [
     "Walking through the Jungle 點讀繪本"
+   ],
+   "vendorItems": [
+    "37125232"
    ]
   },
   {
@@ -3743,7 +3846,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "vendorItems": []
   },
   {
    "id": "k45-dragon-tales",
@@ -3809,7 +3913,8 @@
    ],
    "status": "removed",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "vendorItems": []
   },
   {
    "id": "k46-dragon-masters-1",
@@ -3905,7 +4010,10 @@
    "variants": [
     "Dragon Masters 馴龍大師 兒童小說 點讀版 第2輯"
    ],
-   "seriesNote": "舊文是第 1 輯，這次是第 2 輯"
+   "seriesNote": "舊文是第 1 輯，這次是第 2 輯",
+   "vendorItems": [
+    "37125255"
+   ]
   },
   {
    "id": "k47",
@@ -3970,6 +4078,9 @@
    "variants": [
     "ㄅㄆㄇ 商店街 聲符篇 注音學習套裝初階 (2冊)",
     "ㄅㄆㄇ注音學習全套：故事王國＋商店街＋拼音機器人三套一起買，加贈 3 本非點讀趣味寫字本"
+   ],
+   "vendorItems": [
+    "37125318"
    ]
   },
   {
@@ -4054,6 +4165,10 @@
     "ㄅㄆㄇ故事王國 注音學習套組（進階）",
     "ㄅㄆㄇ故事王國 注音學習套組（進階）+加購3本非點讀趣味寫字本",
     "ㄅㄆㄇ注音學習全套：故事王國＋商店街＋拼音機器人三套一起買，加贈 3 本非點讀趣味寫字本"
+   ],
+   "vendorItems": [
+    "37125317",
+    "37125316"
    ]
   },
   {
@@ -4100,6 +4215,9 @@
    "variants": [
     "小康軒拼音機器人點讀版",
     "ㄅㄆㄇ注音學習全套：故事王國＋商店街＋拼音機器人三套一起買，加贈 3 本非點讀趣味寫字本"
+   ],
+   "vendorItems": [
+    "37125319"
    ]
   },
   {
@@ -4179,6 +4297,9 @@
    "guide": null,
    "variants": [
     "《加斯頓的快遞任務》 點讀互動書"
+   ],
+   "vendorItems": [
+    "37125433"
    ]
   },
   {
@@ -4248,7 +4369,8 @@
    ],
    "status": "removed",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k52-kididoc-12345",
@@ -4340,7 +4462,13 @@
     "KiDiDOC 超好玩！互動知識書 第三輯 (3冊)",
     "KiDiDOC 超好玩！互動知識書 第五輯 (2冊)"
    ],
-   "seriesNote": "這次有第 1、2、3、5 輯，沒有第 4 輯"
+   "seriesNote": "這次有第 1、2、3、5 輯，沒有第 4 輯",
+   "vendorItems": [
+    "37125428",
+    "37125429",
+    "37125430",
+    "37125426"
+   ]
   },
   {
    "id": "k53",
@@ -4408,6 +4536,9 @@
    "guide": null,
    "variants": [
     "莉莉遊世界 地理遊戲書 (3冊)"
+   ],
+   "vendorItems": [
+    "37125256"
    ]
   },
   {
@@ -4463,6 +4594,9 @@
    "guide": null,
    "variants": [
     "翻玩看世界系列 (立體書) 《天才達文西的發明》"
+   ],
+   "vendorItems": [
+    "37125436"
    ]
   },
   {
@@ -4535,6 +4669,9 @@
    "guide": null,
    "variants": [
     "小不點大夢想_名人傳記雙語點讀繪本套書"
+   ],
+   "vendorItems": [
+    "37125343"
    ]
   },
   {
@@ -4585,7 +4722,8 @@
    ],
    "status": "removed",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k57-animal-magic",
@@ -4652,6 +4790,9 @@
    "guide": null,
    "variants": [
     "Animal Magic-In the Ocean/In the Jungle 雙語百葉窗書(2冊)"
+   ],
+   "vendorItems": [
+    "37125339"
    ]
   },
   {
@@ -4713,7 +4854,8 @@
    ],
    "status": "removed",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k59-1",
@@ -4772,7 +4914,8 @@
    ],
    "status": "removed",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k60",
@@ -4826,6 +4969,9 @@
    "guide": null,
    "variants": [
     "Big Cities Little Foodies 雙語繪本 (3冊)"
+   ],
+   "vendorItems": [
+    "37125346"
    ]
   },
   {
@@ -4888,6 +5034,9 @@
    "guide": null,
    "variants": [
     "小小職人 四語互動翻翻書 (5冊)"
+   ],
+   "vendorItems": [
+    "37125257"
    ]
   },
   {
@@ -4977,7 +5126,12 @@
     "《與狗店長樂讀詩》系列硬頁操作書 - 春夏秋冬",
     "《與狗店長樂讀詩》系列硬頁操作書 - 交通工具"
    ],
-   "seriesNote": "多了春夏秋冬、交通工具"
+   "seriesNote": "多了春夏秋冬、交通工具",
+   "vendorItems": [
+    "37125284",
+    "37125283",
+    "37125285"
+   ]
   },
   {
    "id": "k63",
@@ -5024,7 +5178,8 @@
    ],
    "status": "removed",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "vendorItems": []
   },
   {
    "id": "k64",
@@ -5112,7 +5267,11 @@
     "西遊記立體書 點讀版 第2輯",
     "西遊記立體書 點讀版 第3輯"
    ],
-   "seriesNote": "舊文是第一輯，這次是第 2、3 輯"
+   "seriesNote": "舊文是第一輯，這次是第 2、3 輯",
+   "vendorItems": [
+    "37125439",
+    "37125440"
+   ]
   },
   {
    "id": "k65",
@@ -5167,6 +5326,9 @@
    "guide": null,
    "variants": [
     "那裡怪怪的 國英雙語點讀立體遊戲書"
+   ],
+   "vendorItems": [
+    "37125344"
    ]
   },
   {
@@ -5215,7 +5377,8 @@
    ],
    "status": "removed",
    "home": "chinese",
-   "guide": "zhuyin"
+   "guide": "zhuyin",
+   "vendorItems": []
   },
   {
    "id": "n01-tino-farm",
@@ -5237,6 +5400,14 @@
    },
    "summary": "翻一下書頁，相機就「印」出一張照片。跟著小象 TINO 到農場當一日攝影師，邊翻邊認識農場動物的中英文。",
    "blocks": [
+    {
+     "t": "img",
+     "f": "/assets/kidsread/2026-11-IMG_1404.webp",
+     "w": 1280,
+     "h": 960,
+     "alt": "小象 TINO 的農場攝影集實體書封面",
+     "cap": ""
+    },
     {
      "t": "p",
      "html": "小象 TINO 帶著相機、靴子和好夥伴 Risou 去農場拍照。每翻一頁，機關就會把照片「印」出來，孩子會想一直翻下去，看看下一張拍到了誰。書頁中英對照，適合 3 到 6 歲自己翻、自己點。"
@@ -5263,13 +5434,17 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "小象TINO的農場攝影集 雙語繪本"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/2026-11-IMG_1404.webp",
+   "photoSource": "ours",
+   "vendorItems": [
+    "37125462"
+   ]
   },
   {
    "id": "n02-expandable-explorations",
@@ -5316,13 +5491,17 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "《Expandable Explorations》 探索大世界 - 全景拉頁書 (中英雙語版)(2冊)"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n02-expandable-explorations.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125473"
+   ]
   },
   {
    "id": "n03-dog-detective-london",
@@ -5372,14 +5551,19 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "《狗探長的倫敦謎案大追查》 抽拉式推理遊戲書",
     "【合購優惠】《狗探長的倫敦謎案大追查》抽拉式推理遊戲書+Sherldog Holmes 福爾摩斯與失蹤的蘭花 雙語偵探推理書"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n03-dog-detective-london.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125466",
+    "37125465"
+   ]
   },
   {
    "id": "n04-shine-a-light",
@@ -5401,6 +5585,14 @@
    },
    "summary": "黑漆漆的場景裡藏著什麼？抽出手電筒照一照，找到就用點讀筆點，一路收集 120 個英文單字。",
    "blocks": [
+    {
+     "t": "img",
+     "f": "/assets/kidsread/2026-11-IMG_1424.webp",
+     "w": 1280,
+     "h": 960,
+     "alt": "SHINE-A-LIGHT 手電筒遊戲書：用手電筒道具照出太空場景",
+     "cap": ""
+    },
     {
      "t": "p",
      "html": "書頁是暗的，要用附的手電筒道具在頁面後面照，才看得到藏起來的東西。《BIG WORLD》走過海洋、太空、城市、高山、平原；《WILDLIFE》探索荒野、大草原、高山、草地和雨林。兩本一共 10 個場景、120 個尋寶任務。"
@@ -5426,13 +5618,17 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "SHINE-A-LIGHT 手電筒遊戲書 (2冊)"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/2026-11-IMG_1424.webp",
+   "photoSource": "ours",
+   "vendorItems": [
+    "37125471"
+   ]
   },
   {
    "id": "n05-goodnight-baby-dinosaurs",
@@ -5487,14 +5683,19 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "Goodnight, Baby Dinosaurs 小恐龍晚安魔法 - 夜燈書 + 小暴龍抱枕",
     "Goodnight, Baby Dinosaurs 小恐龍晚安魔法 - 夜燈書 + 三角龍抱枕"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n05-goodnight-baby-dinosaurs.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125463",
+    "37125464"
+   ]
   },
   {
    "id": "n06-word-magic",
@@ -5532,12 +5733,16 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "variants": [
     "《文字魔法世界》識字學習套裝"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n06-word-magic.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125472"
+   ]
   },
   {
    "id": "n07-kingsley",
@@ -5575,13 +5780,17 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "Kingsley 的異想世界 雙語繪本"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n07-kingsley.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125329"
+   ]
   },
   {
    "id": "n08-copy-that-copy-cat",
@@ -5603,6 +5812,14 @@
    },
    "summary": "貓咪的眼睛怎麼變成腳踏車反光片？翻開翻頁，看人類怎麼從大自然學到發明。中英一鍵切換。",
    "blocks": [
+    {
+     "t": "img",
+     "f": "/assets/kidsread/2026-11-IMG_1409.webp",
+     "w": 1280,
+     "h": 960,
+     "alt": "Copy That, Copy Cat! 實體書封面",
+     "cap": ""
+    },
     {
      "t": "p",
      "html": "「仿生科學」就是從動物身上找靈感來解決問題，例如貓咪的眼睛啟發了腳踏車反光片，壁虎腳掌上的細毛讓牠能黏在牆上。書裡 6 個發現都照「自然觀察 → 科學應用 → 解決問題」三步帶孩子想。"
@@ -5629,13 +5846,17 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "Copy That, Copy Cat! 仿生科學互動翻翻書"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/2026-11-IMG_1409.webp",
+   "photoSource": "ours",
+   "vendorItems": [
+    "37125330"
+   ]
   },
   {
    "id": "n09-gift-for-mother",
@@ -5661,14 +5882,18 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "A Gift for Mother - Message of Hands 雙語膠片繪本"
    ],
    "contentThin": true,
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n09-gift-for-mother.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125340"
+   ]
   },
   {
    "id": "n10-little-bookworm-2",
@@ -5694,14 +5919,18 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "小小書蟲俱樂部 中英雙語科普點讀繪本 第2輯"
    ],
    "contentThin": true,
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n10-little-bookworm-2.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125345"
+   ]
   },
   {
    "id": "n11-incredible-popup",
@@ -5728,14 +5957,18 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "不可思議系列(立體書) 《昆蟲驚奇之旅》《木乃伊神秘之旅》"
    ],
    "contentThin": true,
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n11-incredible-popup.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125435"
+   ]
   },
   {
    "id": "n12-flip-world-flaps",
@@ -5762,14 +5995,18 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "翻玩看世界系列 (翻翻書) 《著名建築》 《環球巡禮》"
    ],
    "contentThin": true,
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n12-flip-world-flaps.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125437"
+   ]
   },
   {
    "id": "n13-jy-books-picture",
@@ -5818,7 +6055,7 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
@@ -5848,7 +6085,35 @@
     "Down by the Station 點讀繪本",
     "Dry Bones 點讀繪本"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n13-jy-books-picture.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125203",
+    "37125204",
+    "37125207",
+    "37125208",
+    "37125209",
+    "37125210",
+    "37125212",
+    "37125213",
+    "37125214",
+    "37125215",
+    "37125216",
+    "37125217",
+    "37125218",
+    "37125226",
+    "37125227",
+    "37125229",
+    "37125230",
+    "37125231",
+    "37125233",
+    "37125234",
+    "37125235",
+    "37125236",
+    "37125237",
+    "37125238",
+    "37125239"
+   ]
   },
   {
    "id": "n14-nature-and-me",
@@ -5875,13 +6140,17 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "NATURE & ME 三語自然聲音書"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n14-nature-and-me.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125251"
+   ]
   },
   {
    "id": "n15-black-white-cards",
@@ -5928,13 +6197,66 @@
    "stage": null,
    "status": "active",
    "isNew": true,
-   "photosPending": true,
+   "photosPending": false,
    "imgs": 0,
    "guide": null,
    "variants": [
     "有聲黑白卡 Visual Stimulus Talking Cards"
    ],
-   "cover": null
+   "cover": "/assets/kidsread/vendor/v-n15-black-white-cards.webp",
+   "photoSource": "vendor",
+   "vendorItems": [
+    "37125261"
+   ]
+  },
+  {
+   "id": "n16-sensory-dictionary",
+   "name": "My First Sensory Dictionary 我的第一本認知圖典（觸覺探索系列）",
+   "home": "english",
+   "tags": [
+    "words",
+    "touch"
+   ],
+   "lang": "bi",
+   "ages": null,
+   "summary": "摸得到的單字書：鸚鵡的羽毛毛茸茸、每個圖都標中英文。寶寶邊摸邊聽，認識身邊的東西。",
+   "blocks": [
+    {
+     "t": "img",
+     "f": "/assets/kidsread/2026-11-IMG_1399.webp",
+     "w": 1280,
+     "h": 960,
+     "alt": "孩子把手放在我的第一本認知圖典封面上",
+     "cap": ""
+    },
+    {
+     "t": "img",
+     "f": "/assets/kidsread/2026-11-IMG_1398.webp",
+     "w": 1280,
+     "h": 960,
+     "alt": "孩子摸著書裡鸚鵡毛茸茸的羽毛",
+     "cap": ""
+    },
+    {
+     "t": "p",
+     "html": "「觸覺探索系列」的認知圖典。翻開每一頁都有可以摸的材質，例如鸚鵡胸前是一塊毛茸茸的布，寶寶會忍不住一直摸。旁邊的小圖都標了英文和中文，像 penguin 企鵝、duck 鴨子、swan 天鵝，封面有點讀筆標誌，可以用筆點來聽。"
+    },
+    {
+     "t": "p",
+     "html": "這本是我們拿到實體書後拍的，廠商參考頁沒有列，最後是否開團以我們的賣場為準。"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": false,
+   "imgs": 0,
+   "guide": null,
+   "variants": [],
+   "cover": "/assets/kidsread/2026-11-IMG_1399.webp",
+   "photoSource": "ours",
+   "vendorItems": []
   }
  ],
  "schema": "eaglish.kidsread-catalog/v1",
@@ -6012,5 +6334,67 @@
   }
  ],
  "agesNote": "ages：together＝親子共讀、alone＝自主閱讀、general＝原文沒分；[min,max]，max 為 null 代表原文沒寫上限。篩選時任一段和所選年齡重疊就列出。原文沒寫年齡的是 null，顯示「年齡待補」。",
- "statusNote": "status 依廠商 2026-11 品項（data/kidsread/vendor-2026-11.json）：active＝這次有、removed＝這次沒有，公開頁不顯示。"
+ "statusNote": "status 依廠商 2026-11 品項（data/kidsread/vendor-2026-11.json）：active＝這次有、removed＝這次沒有，公開頁不顯示。",
+ "picks": [
+  {
+   "age": "0-3",
+   "id": "n15-black-white-cards",
+   "why": "新生兒就能用：黑白卡刺激視覺，點一下放莫札特或白噪音"
+  },
+  {
+   "age": "0-3",
+   "id": "n13-jy-books-picture",
+   "why": "英文童謠洞洞書，0–2、2–3 歲各一組，當兒歌聽熟最容易入門"
+  },
+  {
+   "age": "0-3",
+   "id": "k29-imagine-if-fruits-veggies",
+   "why": "推、拉、翻、轉的機關書，1–2 歲爸媽陪讀就很好玩"
+  },
+  {
+   "age": "0-3",
+   "id": "n16-sensory-dictionary",
+   "why": "摸得到的單字書，寶寶邊摸邊聽中英文"
+  },
+  {
+   "age": "3-6",
+   "id": "k01-jy-phonics-readers",
+   "why": "自然發音入門：36 本點讀繪本加歌謠、唸謠，0–4 歲就能開始聽"
+  },
+  {
+   "age": "3-6",
+   "id": "k20-busy-helpers",
+   "why": "找找遊戲翻翻書，3–4 歲共讀、4 歲以上可以自己玩"
+  },
+  {
+   "age": "3-6",
+   "id": "n04-shine-a-light",
+   "why": "手電筒照一照找東西，邊玩邊收集 120 個英文單字"
+  },
+  {
+   "age": "3-6",
+   "id": "k47",
+   "why": "還沒碰過注音，先從商店街初階開始"
+  },
+  {
+   "age": "6+",
+   "id": "k46-dragon-masters-1",
+   "why": "英文章節小說第 2 輯，有逐字、段落、劇場三種朗讀"
+  },
+  {
+   "age": "6+",
+   "id": "k05-forward-phonics",
+   "why": "自然發音學完接橋樑書，30 本一階一階讀"
+  },
+  {
+   "age": "6+",
+   "id": "k52-kididoc-12345",
+   "why": "法國的立體知識書，翻、轉、拉機關，每本都有故事劇場"
+  },
+  {
+   "age": "6+",
+   "id": "n02-expandable-explorations",
+   "why": "一拉開就是整座大工程，喜歡車子和建築的孩子會很愛"
+  }
+ ]
 }
