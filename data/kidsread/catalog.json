@@ -5401,16 +5401,35 @@
    "summary": "翻一下書頁，相機就「印」出一張照片。跟著小象 TINO 到農場當一日攝影師，邊翻邊認識農場動物的中英文。",
    "blocks": [
     {
+     "t": "p",
+     "html": "小象 TINO 帶著相機、靴子和好夥伴 Risou 去農場拍照。每翻一頁，機關就會把照片「印」出來，孩子會想一直翻下去，看看下一張拍到了誰。書頁中英對照，適合 3 到 6 歲自己翻、自己點。"
+    },
+    {
      "t": "img",
-     "f": "/assets/kidsread/2026-11-IMG_1404.webp",
      "w": 1280,
      "h": 960,
+     "f": "/assets/kidsread/2026-11-IMG_1404.webp",
      "alt": "小象 TINO 的農場攝影集實體書封面",
      "cap": ""
     },
     {
-     "t": "p",
-     "html": "小象 TINO 帶著相機、靴子和好夥伴 Risou 去農場拍照。每翻一頁，機關就會把照片「印」出來，孩子會想一直翻下去，看看下一張拍到了誰。書頁中英對照，適合 3 到 6 歲自己翻、自己點。"
+     "t": "gallery",
+     "items": [
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1405.webp",
+       "alt": "翻開書頁，相機「吐出」一張小雞的照片",
+       "cap": ""
+      },
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1408.webp",
+       "alt": "孩子拿點讀筆點 TINO 的相機和小豬照片",
+       "cap": ""
+      }
+     ]
     },
     {
      "t": "h2",
@@ -5471,6 +5490,33 @@
      "html": "喜歡車子、工地、太空站的孩子，會很愛這兩本。書頁一拉開就是完整的大場景，《巨型機械 Mega Machines》看郵輪、飛機、工程車、太空站和火車；《驚奇建築 Big Builds》走進中世紀城堡、宮殿、摩天大樓、羅馬競技場和吊橋，一共 10 個場景、10 種職業。"
     },
     {
+     "t": "img",
+     "w": 1280,
+     "h": 960,
+     "f": "/assets/kidsread/2026-11-IMG_1414.webp",
+     "alt": "Big Builds 和 Mega Machines 兩本全景拉頁書",
+     "cap": ""
+    },
+    {
+     "t": "gallery",
+     "items": [
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1416.webp",
+       "alt": "拉開羅馬競技場的全景頁",
+       "cap": ""
+      },
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1415.webp",
+       "alt": "羅馬競技場全景頁的細節",
+       "cap": ""
+      }
+     ]
+    },
+    {
      "t": "h2",
      "text": "書裡有什麼"
     },
@@ -5497,8 +5543,8 @@
    "variants": [
     "《Expandable Explorations》 探索大世界 - 全景拉頁書 (中英雙語版)(2冊)"
    ],
-   "cover": "/assets/kidsread/vendor/v-n02-expandable-explorations.webp",
-   "photoSource": "vendor",
+   "cover": "/assets/kidsread/2026-11-IMG_1414.webp",
+   "photoSource": "ours",
    "vendorItems": [
     "37125473"
    ]
@@ -5525,6 +5571,40 @@
     {
      "t": "p",
      "html": "倫敦一連發生 8 起案件，狗探長邀請小讀者一起破案。8 個場景都是道地的倫敦生活：商店街、百貨公司、博物館、車站、公園、劇院、遊樂園和餐廳。每一案都要靠觀察和推理，最後拉開圖卡揭曉犯人。"
+    },
+    {
+     "t": "img",
+     "w": 1280,
+     "h": 960,
+     "f": "/assets/kidsread/2026-11-IMG_1417.webp",
+     "alt": "狗探長的倫敦謎案大追查實體書封面",
+     "cap": ""
+    },
+    {
+     "t": "gallery",
+     "items": [
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1420.webp",
+       "alt": "車站案件：四周的抽拉圖卡都是嫌疑人",
+       "cap": ""
+      },
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1419.webp",
+       "alt": "封面四邊都有可以抽出來的嫌疑人圖卡",
+       "cap": ""
+      },
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1418.webp",
+       "alt": "書裡的案件說明和抽拉圖卡",
+       "cap": ""
+      }
+     ]
     },
     {
      "t": "h2",
@@ -5558,8 +5638,8 @@
     "《狗探長的倫敦謎案大追查》 抽拉式推理遊戲書",
     "【合購優惠】《狗探長的倫敦謎案大追查》抽拉式推理遊戲書+Sherldog Holmes 福爾摩斯與失蹤的蘭花 雙語偵探推理書"
    ],
-   "cover": "/assets/kidsread/vendor/v-n03-dog-detective-london.webp",
-   "photoSource": "vendor",
+   "cover": "/assets/kidsread/2026-11-IMG_1417.webp",
+   "photoSource": "ours",
    "vendorItems": [
     "37125466",
     "37125465"
@@ -5586,16 +5666,28 @@
    "summary": "黑漆漆的場景裡藏著什麼？抽出手電筒照一照，找到就用點讀筆點，一路收集 120 個英文單字。",
    "blocks": [
     {
+     "t": "p",
+     "html": "書頁是暗的，要用附的手電筒道具在頁面後面照，才看得到藏起來的東西。《BIG WORLD》走過海洋、太空、城市、高山、平原；《WILDLIFE》探索荒野、大草原、高山、草地和雨林。兩本一共 10 個場景、120 個尋寶任務。"
+    },
+    {
      "t": "img",
-     "f": "/assets/kidsread/2026-11-IMG_1424.webp",
      "w": 1280,
      "h": 960,
-     "alt": "SHINE-A-LIGHT 手電筒遊戲書：用手電筒道具照出太空場景",
+     "f": "/assets/kidsread/2026-11-IMG_1423.webp",
+     "alt": "WILDLIFE、BIG WORLD 兩本手電筒遊戲書和手電筒道具",
      "cap": ""
     },
     {
-     "t": "p",
-     "html": "書頁是暗的，要用附的手電筒道具在頁面後面照，才看得到藏起來的東西。《BIG WORLD》走過海洋、太空、城市、高山、平原；《WILDLIFE》探索荒野、大草原、高山、草地和雨林。兩本一共 10 個場景、120 個尋寶任務。"
+     "t": "gallery",
+     "items": [
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1424.webp",
+       "alt": "用手電筒道具照出太空場景裡的太空人",
+       "cap": ""
+      }
+     ]
     },
     {
      "t": "h2",
@@ -5624,7 +5716,7 @@
    "variants": [
     "SHINE-A-LIGHT 手電筒遊戲書 (2冊)"
    ],
-   "cover": "/assets/kidsread/2026-11-IMG_1424.webp",
+   "cover": "/assets/kidsread/2026-11-IMG_1423.webp",
    "photoSource": "ours",
    "vendorItems": [
     "37125471"
@@ -5714,6 +5806,26 @@
      "html": "孩子注音熟了，接下來就是認國字。這套由康軒編輯小組編、鄒敦怜老師寫，用情境故事帶出常用字，再用「部首變身」延伸出更多字詞。和《拼音機器人》、ㄅㄆㄇ注音學習套裝是同一系列，可以接著用。"
     },
     {
+     "t": "img",
+     "w": 1280,
+     "h": 960,
+     "f": "/assets/kidsread/2026-11-IMG_1425.webp",
+     "alt": "文字魔法世界識字套裝的內容物：繪本、遊戲圖卡、錄音貼紙",
+     "cap": ""
+    },
+    {
+     "t": "gallery",
+     "items": [
+      {
+       "w": 960,
+       "h": 1280,
+       "f": "/assets/kidsread/2026-11-IMG_1426.webp",
+       "alt": "文字魔法世界的內頁",
+       "cap": ""
+      }
+     ]
+    },
+    {
      "t": "h2",
      "text": "點讀筆可以做什麼"
     },
@@ -5738,8 +5850,8 @@
    "variants": [
     "《文字魔法世界》識字學習套裝"
    ],
-   "cover": "/assets/kidsread/vendor/v-n06-word-magic.webp",
-   "photoSource": "vendor",
+   "cover": "/assets/kidsread/2026-11-IMG_1425.webp",
+   "photoSource": "ours",
    "vendorItems": [
     "37125472"
    ]
@@ -5768,6 +5880,26 @@
      "html": "Gabriel Evans 的兩個 Kingsley 故事：一個是 Kingsley 決定領養一隻「完美的人類」，一個是 Kingsley 決定去找一份「完美的工作」。故事好笑，也在說理解差異、勇敢嘗試，陪孩子找到屬於自己的答案。"
     },
     {
+     "t": "img",
+     "w": 1280,
+     "h": 960,
+     "f": "/assets/kidsread/2026-11-IMG_1421.webp",
+     "alt": "Kingsley 尋找一隻完美人類、尋找一份完美工作 兩本書",
+     "cap": ""
+    },
+    {
+     "t": "gallery",
+     "items": [
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1422.webp",
+       "alt": "Kingsley 內頁和附的原文口袋書",
+       "cap": ""
+      }
+     ]
+    },
+    {
      "t": "p",
      "html": "除了兩本 25 × 25 cm 的點讀書，還附兩本 12 × 12 cm 的原文口袋書《A Job for Kingsley》《A Human for Kingsley》，出門帶著方便。"
     },
@@ -5786,8 +5918,8 @@
    "variants": [
     "Kingsley 的異想世界 雙語繪本"
    ],
-   "cover": "/assets/kidsread/vendor/v-n07-kingsley.webp",
-   "photoSource": "vendor",
+   "cover": "/assets/kidsread/2026-11-IMG_1421.webp",
+   "photoSource": "ours",
    "vendorItems": [
     "37125329"
    ]
@@ -5813,16 +5945,35 @@
    "summary": "貓咪的眼睛怎麼變成腳踏車反光片？翻開翻頁，看人類怎麼從大自然學到發明。中英一鍵切換。",
    "blocks": [
     {
+     "t": "p",
+     "html": "「仿生科學」就是從動物身上找靈感來解決問題，例如貓咪的眼睛啟發了腳踏車反光片，壁虎腳掌上的細毛讓牠能黏在牆上。書裡 6 個發現都照「自然觀察 → 科學應用 → 解決問題」三步帶孩子想。"
+    },
+    {
      "t": "img",
-     "f": "/assets/kidsread/2026-11-IMG_1409.webp",
      "w": 1280,
      "h": 960,
+     "f": "/assets/kidsread/2026-11-IMG_1409.webp",
      "alt": "Copy That, Copy Cat! 實體書封面",
      "cap": ""
     },
     {
-     "t": "p",
-     "html": "「仿生科學」就是從動物身上找靈感來解決問題，例如貓咪的眼睛啟發了腳踏車反光片，壁虎腳掌上的細毛讓牠能黏在牆上。書裡 6 個發現都照「自然觀察 → 科學應用 → 解決問題」三步帶孩子想。"
+     "t": "gallery",
+     "items": [
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1411.webp",
+       "alt": "翻開翻頁：青蛙的腳啟發了蛙鞋",
+       "cap": ""
+      },
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1410.webp",
+       "alt": "鳥的翅膀和飛機那一頁",
+       "cap": ""
+      }
+     ]
     },
     {
      "t": "h2",
@@ -6222,24 +6373,56 @@
    "summary": "摸得到的單字書：鸚鵡的羽毛毛茸茸、每個圖都標中英文。寶寶邊摸邊聽，認識身邊的東西。",
    "blocks": [
     {
-     "t": "img",
-     "f": "/assets/kidsread/2026-11-IMG_1399.webp",
-     "w": 1280,
-     "h": 960,
-     "alt": "孩子把手放在我的第一本認知圖典封面上",
-     "cap": ""
-    },
-    {
-     "t": "img",
-     "f": "/assets/kidsread/2026-11-IMG_1398.webp",
-     "w": 1280,
-     "h": 960,
-     "alt": "孩子摸著書裡鸚鵡毛茸茸的羽毛",
-     "cap": ""
-    },
-    {
      "t": "p",
      "html": "「觸覺探索系列」的認知圖典。翻開每一頁都有可以摸的材質，例如鸚鵡胸前是一塊毛茸茸的布，寶寶會忍不住一直摸。旁邊的小圖都標了英文和中文，像 penguin 企鵝、duck 鴨子、swan 天鵝，封面有點讀筆標誌，可以用筆點來聽。"
+    },
+    {
+     "t": "img",
+     "w": 1280,
+     "h": 960,
+     "f": "/assets/kidsread/2026-11-IMG_1399.webp",
+     "alt": "孩子把手放在《我的第一本認知圖典》封面上",
+     "cap": ""
+    },
+    {
+     "t": "gallery",
+     "items": [
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1398.webp",
+       "alt": "孩子摸著書裡鸚鵡毛茸茸的羽毛",
+       "cap": ""
+      },
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1403.webp",
+       "alt": "毛茸茸的動物那一頁，孩子摸著狼的毛",
+       "cap": ""
+      },
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1395.webp",
+       "alt": "短毛動物那一頁，孩子伸手摸小馬",
+       "cap": ""
+      },
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1400.webp",
+       "alt": "食物那一頁，每樣食物都標了中英文",
+       "cap": ""
+      },
+      {
+       "w": 1280,
+       "h": 960,
+       "f": "/assets/kidsread/2026-11-IMG_1412.webp",
+       "alt": "孩子坐在窗邊，用點讀筆點認知圖典",
+       "cap": ""
+      }
+     ]
     },
     {
      "t": "p",
