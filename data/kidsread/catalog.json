@@ -561,9 +561,12 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "variants": [
+    "JY Phonics Readers 自然發音點讀教材"
+   ]
   },
   {
    "id": "k02-jy-alphabet-readers",
@@ -630,7 +633,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": "reading"
   },
@@ -713,9 +716,12 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "variants": [
+    "Phonics Cards 自然發音遊戲字卡"
+   ]
   },
   {
    "id": "k04-zoom-zoom-zoom-phonics-cvc",
@@ -774,9 +780,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "variants": [
+    "ZOOM ZOOM ZOOM PHONICS CVC自然拼音火箭"
+   ]
   },
   {
    "id": "k05-forward-phonics",
@@ -842,9 +851,12 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "variants": [
+    "Forward Phonics 自然發音 橋樑書 (30冊)"
+   ]
   },
   {
    "id": "k06-jy-sight-word-readers",
@@ -952,7 +964,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": "reading"
   },
@@ -1005,7 +1017,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": "reading"
   },
@@ -1074,9 +1086,12 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "variants": [
+    "Animal Phonics Readers 自然發音讀本 (24冊)"
+   ]
   },
   {
    "id": "k09-kidsread-talking-alphabet-blocks",
@@ -1158,9 +1173,13 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "variants": [
+    "TALKING ALPHABET BLOCKS 有聲積木",
+    "【合購優惠】 KIDsREAD 有聲積木_Talking Alphabet Blocks+自然發音遊戲字卡"
+   ]
   },
   {
    "id": "k10-yoga-adventure",
@@ -1224,9 +1243,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Yoga Adventure! 瑜伽冒險書 + 瑜伽小卡"
+   ]
   },
   {
    "id": "k11-math-machine",
@@ -1293,9 +1315,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Math Machine 神奇數學機器"
+   ]
   },
   {
    "id": "k12-magic-folding-flaps",
@@ -1376,9 +1401,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Magic Folding Flaps 我的第一套雙向翻頁小百科"
+   ]
   },
   {
    "id": "k13-look-find-slide",
@@ -1437,9 +1465,12 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Look, find & slide! 躲貓貓滑塊遊戲書"
+   ]
   },
   {
    "id": "k14-oh-the-animals",
@@ -1506,7 +1537,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -1563,9 +1594,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Flip Flap！色彩 × 形狀 認知翻翻書"
+   ]
   },
   {
    "id": "k16-press-out-play",
@@ -1603,9 +1637,12 @@
      "cap": "每一頁的內容都有一個立體小玩伴"
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Press-out play 立體拼圖遊戲書"
+   ]
   },
   {
    "id": "k17-interactive-audiobook",
@@ -1673,7 +1710,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -1750,9 +1787,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "100 Words to Learn_雙語遊戲圖典 (2冊)"
+   ]
   },
   {
    "id": "k19-busy-day",
@@ -1807,9 +1847,13 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Busy Day 找找遊戲翻翻書",
+    "【合購優惠】 Busy Day+Busy Helpers找找遊戲翻翻書"
+   ]
   },
   {
    "id": "k20-busy-helpers",
@@ -1869,9 +1913,13 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Busy Helpers 找找遊戲翻翻書",
+    "【合購優惠】 Busy Day+Busy Helpers找找遊戲翻翻書"
+   ]
   },
   {
    "id": "k21",
@@ -1941,7 +1989,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -2007,7 +2055,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -2050,7 +2098,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -2153,7 +2201,7 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -2226,9 +2274,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "LIFT-THE-FLAP&PLAY 角色扮演遊戲書 第一輯"
+   ]
   },
   {
    "id": "k26-playtime-construction-market",
@@ -2289,7 +2340,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -2355,7 +2406,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -2439,9 +2490,14 @@
      "cap": "很多小機關可以抽拉，每個頁都能點擊題目"
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Jane Foster's 互動硬頁操作書 第一輯(2冊)",
+    "Jane Foster's 互動硬頁操作書 第二輯(2冊)"
+   ],
+   "seriesNote": "多了第二輯"
   },
   {
    "id": "k29-imagine-if-fruits-veggies",
@@ -2504,9 +2560,15 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "IMAGINE IF...FRUITS & VEGGIES 互動操作書 (2冊)",
+    "IMAGINE IF...BUGS & FLOWERS 互動操作書 (2冊)",
+    "【合購優惠】 IMAGINE IF...FRUITS & VEGGIES+BUGS & FLOWERS 互動操作書"
+   ],
+   "seriesNote": "多了 BUGS & FLOWERS"
   },
   {
    "id": "k30-twinkle-twinkle-little-star",
@@ -2554,9 +2616,12 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Twinkle, Twinkle, Little Star 兒童經典歌謠有聲書"
+   ]
   },
   {
    "id": "k31-10-button-book",
@@ -2608,7 +2673,7 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -2736,9 +2801,15 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Start Small, Think Big_雙語自然科普繪本 第一輯（2冊）",
+    "Start Small, Think Big_雙語自然科普繪本 第二輯（2冊）",
+    "Start Small, Think Big 雙語自然科普繪本 第三輯 (2冊)",
+    "【合購優惠】 Start Small, Think Big 雙語自然科普繪本 第一+二+三輯"
+   ]
   },
   {
    "id": "k33-fly-guy-presents",
@@ -2794,7 +2865,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -2850,9 +2921,13 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Sherldog Holmes 福爾摩斯與失蹤的蘭花 雙語偵探推理書",
+    "【合購優惠】《狗探長的倫敦謎案大追查》抽拉式推理遊戲書+Sherldog Holmes 福爾摩斯與失蹤的蘭花 雙語偵探推理書"
+   ]
   },
   {
    "id": "k35-odd-one-out",
@@ -2930,7 +3005,7 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -2975,9 +3050,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "My small heroes_SUZON 雙語幽默繪本（3冊）"
+   ]
   },
   {
    "id": "k37",
@@ -3073,9 +3151,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Die-Cut reading_夢幻紙雕童話故事書（5冊)"
+   ]
   },
   {
    "id": "k38-little-skill-seekers",
@@ -3169,9 +3250,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Little Skill Seekers 認知學習練習本 (6冊)"
+   ]
   },
   {
    "id": "k39-highlights-playscenes-12",
@@ -3273,7 +3357,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -3352,7 +3436,7 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -3418,7 +3502,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -3471,7 +3555,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": null
   },
@@ -3516,9 +3600,12 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Walking through the Jungle 點讀繪本"
+   ]
   },
   {
    "id": "k44-fly-guy-and-buzz",
@@ -3603,7 +3690,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": "reading"
   },
@@ -3669,7 +3756,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "english",
    "guide": "reading"
   },
@@ -3751,9 +3838,13 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "english",
-   "guide": "reading"
+   "guide": "reading",
+   "variants": [
+    "Dragon Masters 馴龍大師 兒童小說 點讀版 第2輯"
+   ],
+   "seriesNote": "舊文是第 1 輯，這次是第 2 輯"
   },
   {
    "id": "k47",
@@ -3812,9 +3903,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": "zhuyin"
+   "guide": "zhuyin",
+   "variants": [
+    "ㄅㄆㄇ 商店街 聲符篇 注音學習套裝初階 (2冊)"
+   ]
   },
   {
    "id": "k48",
@@ -3891,9 +3985,13 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": "zhuyin"
+   "guide": "zhuyin",
+   "variants": [
+    "ㄅㄆㄇ故事王國 注音學習套組（進階）",
+    "ㄅㄆㄇ故事王國 注音學習套組（進階）+加購3本非點讀趣味寫字本"
+   ]
   },
   {
    "id": "k49",
@@ -3933,9 +4031,12 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": "zhuyin"
+   "guide": "zhuyin",
+   "variants": [
+    "小康軒拼音機器人點讀版"
+   ]
   },
   {
    "id": "k50",
@@ -4009,9 +4110,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "《加斯頓的快遞任務》 點讀互動書"
+   ]
   },
   {
    "id": "k51",
@@ -4078,7 +4182,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "chinese",
    "guide": null
   },
@@ -4143,9 +4247,16 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "KiDiDOC 超好玩！互動知識書 第一輯 (3冊)",
+    "KiDiDOC 超好玩!互動知識書 第二輯 (3冊)",
+    "KiDiDOC 超好玩！互動知識書 第三輯 (3冊)",
+    "KiDiDOC 超好玩！互動知識書 第五輯 (2冊)"
+   ],
+   "seriesNote": "這次有第 1、2、3、5 輯，沒有第 4 輯"
   },
   {
    "id": "k53",
@@ -4208,9 +4319,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "莉莉遊世界 地理遊戲書 (3冊)"
+   ]
   },
   {
    "id": "k54",
@@ -4260,9 +4374,12 @@
      "cap": "每頁都有各樣的小機關，讓孩子聽故事也能動手操作"
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "翻玩看世界系列 (立體書) 《天才達文西的發明》"
+   ]
   },
   {
    "id": "k55",
@@ -4329,9 +4446,12 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "小不點大夢想_名人傳記雙語點讀繪本套書"
+   ]
   },
   {
    "id": "k56-hey-you-colin-the-chameleon",
@@ -4379,7 +4499,7 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "chinese",
    "guide": null
   },
@@ -4443,9 +4563,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Animal Magic-In the Ocean/In the Jungle 雙語百葉窗書(2冊)"
+   ]
   },
   {
    "id": "k58-the-human-body",
@@ -4504,7 +4627,7 @@
      "align": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "chinese",
    "guide": null
   },
@@ -4563,7 +4686,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "chinese",
    "guide": null
   },
@@ -4614,9 +4737,12 @@
      "cap": "台北的書籍中介紹台灣的美食，也會把形狀認知加入。"
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "Big Cities Little Foodies 雙語繪本 (3冊)"
+   ]
   },
   {
    "id": "k61",
@@ -4673,9 +4799,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "小小職人 四語互動翻翻書 (5冊)"
+   ]
   },
   {
    "id": "k62",
@@ -4737,9 +4866,15 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "《與狗店長樂讀詩》系列硬頁操作書 - 遊山玩水",
+    "《與狗店長樂讀詩》系列硬頁操作書 - 春夏秋冬",
+    "《與狗店長樂讀詩》系列硬頁操作書 - 交通工具"
+   ],
+   "seriesNote": "多了春夏秋冬、交通工具"
   },
   {
    "id": "k63",
@@ -4784,7 +4919,7 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "chinese",
    "guide": null
   },
@@ -4857,9 +4992,14 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "西遊記立體書 點讀版 第2輯",
+    "西遊記立體書 點讀版 第3輯"
+   ],
+   "seriesNote": "舊文是第一輯，這次是第 2、3 輯"
   },
   {
    "id": "k65",
@@ -4909,9 +5049,12 @@
      "cap": ""
     }
    ],
-   "status": "pending",
+   "status": "active",
    "home": "chinese",
-   "guide": null
+   "guide": null,
+   "variants": [
+    "那裡怪怪的 國英雙語點讀立體遊戲書"
+   ]
   },
   {
    "id": "k66",
@@ -4957,7 +5100,7 @@
      "t": "hr"
     }
    ],
-   "status": "pending",
+   "status": "removed",
    "home": "chinese",
    "guide": "zhuyin"
   }
@@ -5036,5 +5179,6 @@
    "fullText": true
   }
  ],
- "agesNote": "ages：together＝親子共讀、alone＝自主閱讀、general＝原文沒分；[min,max]，max 為 null 代表原文沒寫上限。篩選時任一段和所選年齡重疊就列出。原文沒寫年齡的是 null，顯示「年齡待補」。"
+ "agesNote": "ages：together＝親子共讀、alone＝自主閱讀、general＝原文沒分；[min,max]，max 為 null 代表原文沒寫上限。篩選時任一段和所選年齡重疊就列出。原文沒寫年齡的是 null，顯示「年齡待補」。",
+ "statusNote": "status 依廠商 2026-11 品項（data/kidsread/vendor-2026-11.json）：active＝這次有、removed＝這次沒有，公開頁不顯示。"
 }
