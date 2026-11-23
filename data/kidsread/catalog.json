@@ -514,7 +514,6 @@
    "id": "k01-jy-phonics-readers",
    "name": "JY Phonics Readers 自然發音點讀教材",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "phonics",
    "lang": "en",
    "ages": [
@@ -557,13 +556,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k02-jy-alphabet-readers",
    "name": "JY Alphabet Readers 英文字母說唱點讀教材",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "alphabet",
    "lang": "en",
    "ages": [
@@ -620,13 +620,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k03-phonics-cards",
    "name": "自然發音遊戲字卡 Phonics Cards",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "phonics",
    "lang": "en",
    "ages": [
@@ -697,13 +698,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k04-zoom-zoom-zoom-phonics-cvc",
    "name": "ZOOM ZOOM ZOOM PHONICS CVC自然拼音火箭",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "cvc",
    "lang": "en",
    "ages": [
@@ -752,13 +754,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k05-forward-phonics",
    "name": "Forward Phonics 自然發音 橋樑書",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "bridge",
    "lang": "en",
    "ages": [
@@ -814,13 +817,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k06-jy-sight-word-readers",
    "name": "JY Sight Word Readers 常見字讀本",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "sight",
    "lang": "en",
    "ages": [
@@ -918,13 +922,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k07-learn-to-read-step-1step2step3",
    "name": "Learn to Read 分階點讀英文讀本 Step 1（Step2、Step3）",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "sight",
    "lang": "en",
    "ages": [
@@ -965,13 +970,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k08-animal-phonics-readers",
    "name": "Animal Phonics Readers 自然發音讀本",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "phonics",
    "lang": "en",
    "ages": [
@@ -1025,13 +1031,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k09-kidsread-talking-alphabet-blocks",
    "name": "KidsRead 有聲積木_Talking Alphabet Blocks",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "alphabet",
    "lang": "en",
    "ages": [
@@ -1103,13 +1110,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k10-yoga-adventure",
    "name": "Yoga Adventure ! 瑜伽冒險書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -1163,13 +1171,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k11-math-machine",
    "name": "Math Machine 神奇數學機器",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "bi",
    "ages": [
@@ -1223,13 +1232,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k12-magic-folding-flaps",
    "name": "Magic Folding Flaps 我的第一套雙向翻頁小百科（新書）",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -1297,13 +1307,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k13-look-find-slide",
    "name": "Look, find & slide! 躲貓貓滑塊遊戲書（新書）",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -1349,13 +1360,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k14-oh-the-animals",
    "name": "Oh! The Animals 絶美鏤空藝術繪本 (新書)",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -1409,13 +1421,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k15-flip-flap-x",
    "name": "Flip Flap 色彩x形狀 認知翻翻書（新書）",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -1465,13 +1478,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k16-press-out-play",
    "name": "Press-out play 立體拼圖遊戲書（新書）",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -1504,13 +1518,14 @@
      "cap": "每一頁的內容都有一個立體小玩伴"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k17-interactive-audiobook",
    "name": "Interactive Audiobook 手指點讀互動圖典",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "bi",
    "ages": null,
@@ -1573,13 +1588,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k18-100-words-to-learn-shopping-home",
    "name": "100 Words to Learn-Shopping & Home 雙語遊戲圖典",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "bi",
    "ages": [
@@ -1641,13 +1657,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k19-busy-day",
    "name": "Busy Day 找找遊戲翻翻書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -1686,13 +1703,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k20-busy-helpers",
    "name": "Busy Helpers 找找遊戲翻翻書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -1736,13 +1754,14 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k21",
    "name": "我的第一本地圖集 點讀版",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "bi",
    "ages": [
@@ -1802,13 +1821,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k22-my-first-atlas-of-the-solar-syst",
    "name": "my first ATLAS of the Solar System 雙語立體太陽科普書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "bi",
    "ages": [
@@ -1862,13 +1882,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k23-animals-endangered-species-of-th",
    "name": "全球瀕危動物 拼圖書 Animals _ Endangered Species of the Planet",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "bi",
    "ages": null,
@@ -1904,13 +1925,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k24",
    "name": "四語圖解字典",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "bi",
    "ages": [
@@ -2001,13 +2023,14 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k25-lift-the-flap-play",
    "name": "LIFT-THE-FLAP&PLAY 角色扮演遊戲書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -2065,13 +2088,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k26-playtime-construction-market",
    "name": "Playtime幼兒認知學習操作書 Construction / Market",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -2122,13 +2146,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k27",
    "name": "幼兒發展 氣味翻翻書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -2182,13 +2207,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k28-jane-fosters-1",
    "name": "Jane Foster’s 互動硬頁操作書 第1輯",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -2260,13 +2286,14 @@
      "cap": "很多小機關可以抽拉，每個頁都能點擊題目"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k29-imagine-if-fruits-veggies",
    "name": "IMAGINE IF 想像力點讀互動操作書 – FRUITS & VEGGIES",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -2319,13 +2346,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k30-twinkle-twinkle-little-star",
    "name": "Twinkle, Twinkle, Little Star 點讀音樂有聲書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -2368,13 +2396,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k31-10-button-book",
    "name": "10 Button Book 點讀繪本",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -2416,13 +2445,14 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k32-start-small-think-big",
    "name": "START SMALL, THINK BIG 小起步大夢想科 普點讀書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -2538,13 +2568,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k33-fly-guy-presents",
    "name": "Fly Guy Presents 兒童科普點讀套書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -2595,13 +2626,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k34",
    "name": "福爾摩斯與失蹤的蘭花 點讀偵探推理書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -2650,13 +2682,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k35-odd-one-out",
    "name": "Odd One Out 英文益智點讀繪本",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -2724,13 +2757,14 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k36-suzon",
    "name": "調皮的Suzon：上學去&夏令營&野餐吧 雙語點讀繪本",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "bi",
    "ages": null,
@@ -2768,13 +2802,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k37",
    "name": "夢幻紙雕童話 點讀套書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -2865,13 +2900,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k38-little-skill-seekers",
    "name": "Little Skill Seekers 認知學習英文點讀練習本",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -2955,13 +2991,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k39-highlights-playscenes-12",
    "name": "Highlights 英文找找點讀書 Playscenes 1、2",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -3053,13 +3090,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k40-highlights-abc-town-lets-count-v",
    "name": "Highlights 英文找找點讀書 ABC Town & Let’s Count Vehicles 兩本合售",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -3123,13 +3161,14 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k41-cranky-bear-and-friends",
    "name": "Cranky Bear and Friends 四書合售",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": [
@@ -3183,13 +3222,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k42-fear-street",
    "name": "Fear Street 恐懼街 點讀翻翻書",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -3235,13 +3275,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k43-walking-through-the-jungle",
    "name": "Walking Through the Jungle 點讀繪本",
    "post": "kidsread-book",
-   "article": "en-books",
    "stage": null,
    "lang": "en",
    "ages": null,
@@ -3279,13 +3320,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": null
   },
   {
    "id": "k44-fly-guy-and-buzz",
    "name": "Fly Guy and Buzz 英文閱讀橋梁書",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "bridge",
    "lang": "en",
    "ages": [
@@ -3360,13 +3402,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k45-dragon-tales",
    "name": "Dragon Tales 點讀輕小說",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "chapter",
    "lang": "en",
    "ages": [
@@ -3417,13 +3460,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k46-dragon-masters-1",
    "name": "Dragon Masters 馴龍大師 兒童小說 點讀版 第1輯",
    "post": "kidsread-book",
-   "article": "reading",
    "stage": "chapter",
    "lang": "en",
    "ages": [
@@ -3490,13 +3534,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "english",
+   "guide": "reading"
   },
   {
    "id": "k47",
    "name": "ㄅㄆㄇ商店街注音學習套裝（初階）",
    "post": "kidsreadchbook",
-   "article": "zhuyin",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -3550,13 +3595,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": "zhuyin"
   },
   {
    "id": "k48",
    "name": "ㄅㄆㄇ故事王國 注音學習套組（進階）",
    "post": "kidsreadchbook",
-   "article": "zhuyin",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -3628,13 +3674,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": "zhuyin"
   },
   {
    "id": "k49",
    "name": "小康軒拼音機器人點讀版",
    "post": "kidsreadchbook",
-   "article": "zhuyin",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -3669,13 +3716,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": "zhuyin"
   },
   {
    "id": "k50",
    "name": "加斯頓的快遞任務 點讀互動書",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "zh",
    "ages": [
@@ -3736,13 +3784,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k51",
    "name": "我和我的身體 互動立體翻翻書",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "zh",
    "ages": [
@@ -3796,13 +3845,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k52-kididoc-12345",
    "name": "KiDiDOC 超好玩互動知識書 第1、2、3、4、5輯",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -3860,13 +3910,14 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k53",
    "name": "莉莉遊世界 兒童地理點讀遊戲書",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "zh",
    "ages": [
@@ -3916,13 +3967,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k54",
    "name": "翻玩看世界：天才達文西的發明 點讀立體書",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -3967,13 +4019,14 @@
      "cap": "每頁都有各樣的小機關，讓孩子聽故事也能動手操作"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k55",
    "name": "小不點大夢想 名人傳記雙語點讀繪本套書",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "bi",
    "ages": [
@@ -4027,13 +4080,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k56-hey-you-colin-the-chameleon",
    "name": "Hey You! 嘿，你! & Colin the chameleon 不會變色的變色龍 雙語雙封面點讀繪本",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "bi",
    "ages": null,
@@ -4076,13 +4130,14 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k57-animal-magic",
    "name": "Animal Magic-海洋裡&叢林中 點讀百葉窗書",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -4139,13 +4194,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k58-the-human-body",
    "name": "The Human Body 人體大解密 拼圖書",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "bi",
    "ages": null,
@@ -4199,13 +4255,14 @@
      "align": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k59-1",
    "name": "我的知識探索繪本 第1輯 進入身體裡面的世界／身體遇見外面的世界",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -4257,13 +4314,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k60",
    "name": "大城市與小小美食家",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "bi",
    "ages": null,
@@ -4307,13 +4365,14 @@
      "cap": "台北的書籍中介紹台灣的美食，也會把形狀認知加入。"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k61",
    "name": "小小職人翻翻書 國台客粵四語互動點讀書",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "bi",
    "ages": null,
@@ -4365,13 +4424,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k62",
    "name": "《與狗店長樂讀詩》系列硬頁操作書 – 遊山玩水",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "bi",
    "ages": null,
@@ -4428,13 +4488,14 @@
      "href": "https://gbf.tw/e5asi"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k63",
    "name": "傳統節慶立體書 春節.端午.中秋 點讀版",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -4474,13 +4535,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k64",
    "name": "西遊記立體書 點讀版 第一輯",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -4546,13 +4608,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k65",
    "name": "那裡怪怪的 國英雙語點讀立體遊戲書",
    "post": "kidsreadchbook",
-   "article": "zh-books",
    "stage": null,
    "lang": "bi",
    "ages": null,
@@ -4597,13 +4660,14 @@
      "cap": ""
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": null
   },
   {
    "id": "k66",
    "name": "搖擺九乘九 九九乘法唱學專輯",
    "post": "kidsreadchbook",
-   "article": "zhuyin",
    "stage": null,
    "lang": "zh",
    "ages": null,
@@ -4644,7 +4708,9 @@
      "t": "hr"
     }
    ],
-   "status": "pending"
+   "status": "pending",
+   "home": "chinese",
+   "guide": "zhuyin"
   }
  ],
  "schema": "eaglish.kidsread-catalog/v1",
@@ -4656,5 +4722,69 @@
   ],
   "migratedAt": "2026-11-23",
   "authority": "Kingdom decisions/2026-11-23-hiram-kidsread-migration.md"
- }
+ },
+ "pages": [
+  {
+   "id": "hub",
+   "slug": "/blog/kidsread/",
+   "title": "KidsRead 點讀筆完整指南",
+   "targets": [
+    "KidsRead 點讀筆",
+    "kidsread"
+   ],
+   "fullText": false
+  },
+  {
+   "id": "pen",
+   "slug": "/blog/kidsread-pen/",
+   "title": "為什麼需要點讀筆：KidsRead 的三個優勢",
+   "targets": [
+    "點讀筆推薦",
+    "點讀筆怎麼選"
+   ],
+   "redirectFrom": "https://projecteaglet.com/kidsread-pen/",
+   "fullText": true
+  },
+  {
+   "id": "reading",
+   "slug": "/blog/kidsread-phonics-roadmap/",
+   "title": "自然發音怎麼教：從字母到英文小說的點讀路線",
+   "targets": [
+    "自然發音怎麼教",
+    "英文分級讀本",
+    "點讀橋樑書"
+   ],
+   "fullText": false
+  },
+  {
+   "id": "english",
+   "slug": "/blog/kidsread-english/",
+   "title": "KidsRead 英文教材全書單",
+   "targets": [
+    "KidsRead 英文教材"
+   ],
+   "redirectFrom": "https://projecteaglet.com/kidsread-book/",
+   "fullText": true
+  },
+  {
+   "id": "zhuyin",
+   "slug": "/blog/kidsread-zhuyin/",
+   "title": "注音怎麼學：ㄅㄆㄇ點讀教材初階到進階",
+   "targets": [
+    "注音怎麼學",
+    "ㄅㄆㄇ教材"
+   ],
+   "fullText": false
+  },
+  {
+   "id": "chinese",
+   "slug": "/blog/kidsread-chinese/",
+   "title": "KidsRead 中文教材全書單",
+   "targets": [
+    "KidsRead 中文教材"
+   ],
+   "redirectFrom": "https://projecteaglet.com/kidsreadchbook/",
+   "fullText": true
+  }
+ ]
 }

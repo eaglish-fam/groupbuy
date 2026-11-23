@@ -7,19 +7,24 @@
 
 ## 頁面
 
-| 頁面 | 網址 | 主要互動 |
-|---|---|---|
-| ⓪ KidsRead 指南（入口） | `/blog/kidsread/` | 年齡 × 主題篩選、即時書單、五篇導覽 |
-| ① 為什麼需要點讀筆 | `/blog/kidsread-pen/` | 點讀貼紙 A/B/C/D 四路徑切換示意 |
-| ② 英文閱讀路線圖 | `/blog/kidsread-english-reading/` | 六階路線（字母 → 自然發音 → 拼讀 → 常見字與分階 → 橋樑書 → 章節小說） |
-| ③ 英文點讀繪本 | `/blog/kidsread-english-books/` | 年齡、類型篩選、書卡展開 |
-| ④ 注音與數學 | `/blog/kidsread-zhuyin/` | 初階／進階對照 |
-| ⑤ 中文點讀繪本 | `/blog/kidsread-chinese-books/` | 年齡、主題篩選、書卡展開 |
+| 頁面 | 網址 | 主打搜尋 | 主要互動 | 舊站 301 來源 |
+|---|---|---|---|---|
+| ⓪ KidsRead 指南（入口） | `/blog/kidsread/` | KidsRead 點讀筆 | 年齡 × 主題篩選、即時書單（只放摘要）、五篇導覽 | — |
+| ① 為什麼需要點讀筆 | `/blog/kidsread-pen/` | 點讀筆推薦、點讀筆怎麼用 | 點讀貼紙 A/B/C/D 四路徑切換示意 | `projecteaglet.com/kidsread-pen/` |
+| ② 自然發音路線圖 | `/blog/kidsread-phonics-roadmap/` | 自然發音怎麼教、英文分級讀本、點讀橋樑書 | 六階路線（字母 → 自然發音 → 拼讀 → 常見字與分階 → 橋樑書 → 章節小說），書卡連到③ | — |
+| ③ KidsRead 英文教材全書單 | `/blog/kidsread-english/` | KidsRead 英文教材、英文點讀繪本 | 年齡、類型篩選、書卡展開；**英文書完整文字只放這裡** | `projecteaglet.com/kidsread-book/` |
+| ④ 注音初階到進階 | `/blog/kidsread-zhuyin/` | 注音怎麼學、ㄅㄆㄇ教材 | 初階／進階對照，書卡連到⑤ | — |
+| ⑤ KidsRead 中文教材全書單 | `/blog/kidsread-chinese/` | KidsRead 中文教材、中文點讀繪本 | 年齡、主題篩選、書卡展開；**中文書完整文字只放這裡** | `projecteaglet.com/kidsreadchbook/` |
+
+標題、H1 和主打字是暫定的，等 projecteaglet.com 的 Search Console 匯出再依真實關鍵字定稿（見文末 SEO 段）。
 
 ## 資料
 
 - `data/kidsread/catalog.json`：唯一的內容來源。
-  - 共 66 套教材，每套欄位：`id`、`name`、`article`、`stage`、`lang`、`ages`、`tags`、`cover`、`blocks`（原文圖文）、`status`。
+  - `pages`：六頁的 id、網址、標題、主打字、`redirectFrom`（舊站網址，只有①③⑤有）。建置程式和 sitemap 都從這裡讀。
+  - 共 66 套教材，每套欄位：`id`、`name`、`home`、`guide`、`stage`、`lang`、`ages`、`tags`、`cover`、`blocks`（原文圖文）、`status`。
+    - `home`：完整文字放哪一頁，`english`（③，46 套）或 `chinese`（⑤，20 套）。每套只有一個 home。
+    - `guide`：另外出現在哪篇導讀，`reading`（②，12 套）、`zhuyin`（④，4 套）或 `null`。導讀頁只放摘要和連到 home 的連結。
   - 點讀筆那篇放在 `pen`；英文、中文兩篇的前言放在 `enIntro`、`zhIntro`。
   - `ages` 是從原文「適用／適讀年齡」抽出來的；原文沒寫的 29 套是 `null`，頁面標成「年齡待補」，不自己猜。
   - `status` 目前都是 `pending`。等 Hiram 給停售清單和 12/31 賣場頁，才改成 `active`／`removed`；`removed` 不顯示。
@@ -49,7 +54,7 @@
 1. Hiram 給停售商品清單 → 更新 `status`。
 2. 12/31 賣場頁 → 核對品項、補當期價格與缺的年齡。
 3. 寫建置程式與 `kidsread.js`，六頁上線（12/31 開團前）。
-4. 舊部落格三篇改成導流頁，連到新文章；能設 301 轉址最好。
+4. 舊部落格三篇一對一 301 到①③⑤（做不到就改 canonical，見下方）。
 
 ## SEO：舊站三篇的排名怎麼接過來（2026-11-23 補）
 
