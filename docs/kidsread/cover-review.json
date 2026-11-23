@@ -1,0 +1,86 @@
+{
+ "hub": {
+  "identityVisible": true,
+  "realPhotoPreserved": true,
+  "imageSha256": "a28575982492053cf9e3ebc593c5c37b6ad7490aaf1de92396531ff3dac4b0d9",
+  "viewportWidths": [
+   320,
+   390,
+   768,
+   1440
+  ],
+  "mobileCardLegible": true,
+  "reviewer": "Grace",
+  "reviewScope": "Grace 2026-11-23：看過六張封面 960px 原圖（左側深綠標題區寫 KidsRead＋頁名，右側是鷹式一家自己拍的實拍照，非廠商圖），以及選物誌首頁 KidsRead 卡片在 320/390/768/1440 的渲染：KidsRead 字樣在封面與卡片標題都看得到。"
+ },
+ "pen": {
+  "identityVisible": true,
+  "realPhotoPreserved": true,
+  "imageSha256": "22d63655240184c9ebd1b2b8ff67d62edf49c98c962fd31a384c00f5af82d77f",
+  "viewportWidths": [
+   320,
+   390,
+   768,
+   1440
+  ],
+  "mobileCardLegible": true,
+  "reviewer": "Grace",
+  "reviewScope": "Grace 2026-11-23：看過六張封面 960px 原圖（左側深綠標題區寫 KidsRead＋頁名，右側是鷹式一家自己拍的實拍照，非廠商圖），以及選物誌首頁 KidsRead 卡片在 320/390/768/1440 的渲染：KidsRead 字樣在封面與卡片標題都看得到。"
+ },
+ "reading": {
+  "identityVisible": true,
+  "realPhotoPreserved": true,
+  "imageSha256": "0726a2bf9303f4b7e6625e64aa9f9a4db31baf00b757f020ba2a59301fc79582",
+  "viewportWidths": [
+   320,
+   390,
+   768,
+   1440
+  ],
+  "mobileCardLegible": true,
+  "reviewer": "Grace",
+  "reviewScope": "Grace 2026-11-23：看過六張封面 960px 原圖（左側深綠標題區寫 KidsRead＋頁名，右側是鷹式一家自己拍的實拍照，非廠商圖），以及選物誌首頁 KidsRead 卡片在 320/390/768/1440 的渲染：KidsRead 字樣在封面與卡片標題都看得到。"
+ },
+ "english": {
+  "identityVisible": true,
+  "realPhotoPreserved": true,
+  "imageSha256": "8013261bee372cc8696db169beb3cae9442edcaf085ea96c7754ba5e11bc3d1c",
+  "viewportWidths": [
+   320,
+   390,
+   768,
+   1440
+  ],
+  "mobileCardLegible": true,
+  "reviewer": "Grace",
+  "reviewScope": "Grace 2026-11-23：看過六張封面 960px 原圖（左側深綠標題區寫 KidsRead＋頁名，右側是鷹式一家自己拍的實拍照，非廠商圖），以及選物誌首頁 KidsRead 卡片在 320/390/768/1440 的渲染：KidsRead 字樣在封面與卡片標題都看得到。"
+ },
+ "zhuyin": {
+  "identityVisible": true,
+  "realPhotoPreserved": true,
+  "imageSha256": "3ed8033914f8960afa66fdb8ca962e1c7a79461c5600c867ab6f68eb8703f1d2",
+  "viewportWidths": [
+   320,
+   390,
+   768,
+   1440
+  ],
+  "mobileCardLegible": true,
+  "reviewer": "Grace",
+  "reviewScope": "Grace 2026-11-23：看過六張封面 960px 原圖（左側深綠標題區寫 KidsRead＋頁名，右側是鷹式一家自己拍的實拍照，非廠商圖），以及選物誌首頁 KidsRead 卡片在 320/390/768/1440 的渲染：KidsRead 字樣在封面與卡片標題都看得到。"
+ },
+ "chinese": {
+  "identityVisible": true,
+  "realPhotoPreserved": true,
+  "imageSha256": "020a03fc3bd4bca9a5cd211e764deab43f45bf96bc0e90d68d396b35e37ad772",
+  "viewportWidths": [
+   320,
+   390,
+   768,
+   1440
+  ],
+  "mobileCardLegible": true,
+  "reviewer": "Grace",
+  "reviewScope": "Grace 2026-11-23：看過六張封面 960px 原圖（左側深綠標題區寫 KidsRead＋頁名，右側是鷹式一家自己拍的實拍照，非廠商圖），以及選物誌首頁 KidsRead 卡片在 320/390/768/1440 的渲染：KidsRead 字樣在封面與卡片標題都看得到。"
+ }
+}

@@ -34,6 +34,132 @@
       "datePublished": "2026-11-17",
       "dateModified": "2026-11-17",
       "datePrepared": "2026-11-17"
+    },
+    "kidsread": {
+      "mode": "explainer",
+      "intent": "KidsRead series (hub): KidsRead, KidsRead 點讀筆, 點讀筆推薦",
+      "title": "KidsRead 點讀筆完整指南：幾歲開始、怎麼選、這次有哪些點讀教材",
+      "description": "KidsRead 點讀筆怎麼選？鷹式一家整理這次開團的 56 套點讀教材：依孩子年齡和想學的內容篩選，看鷹家推薦、點讀筆單筆套組和單筆差在哪，再連到英文、中文教材全書單與自然發音、注音路線。",
+      "image": "/assets/kidsread/covers/hub.webp",
+      "alt": "KidsRead點讀筆指南：依年齡挑教材，一次看懂",
+      "productNames": [],
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread-pen",
+        "kidsread-phonics-roadmap",
+        "kidsread-english",
+        "kidsread-zhuyin",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "datePrepared": "2026-11-23"
+    },
+    "kidsread-pen": {
+      "mode": "explainer",
+      "intent": "KidsRead series (pen): KidsRead 點讀筆, 錄音點讀筆, 點讀筆推薦",
+      "title": "為什麼需要 KidsRead 點讀筆？錄音貼紙、四種聲音與孩子自學的心得",
+      "description": "KidsRead 錄音點讀筆能點讀全系列教材，也能用錄音貼紙把家裡原本的書變成點讀書，一張貼紙可以錄中文、英文、第三種語言和解釋。整理鷹式一家用點讀筆陪孩子學習的心得，和 PLUS 3.0 單筆套組怎麼選。",
+      "image": "/assets/kidsread/covers/pen.webp",
+      "alt": "為什麼需要點讀筆？：KidsRead 錄音貼紙與自學心得",
+      "productNames": [],
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-phonics-roadmap",
+        "kidsread-english",
+        "kidsread-zhuyin",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "datePrepared": "2026-11-23"
+    },
+    "kidsread-phonics-roadmap": {
+      "mode": "explainer",
+      "intent": "KidsRead series (reading): 自然發音怎麼教, 英文分級讀本, 點讀橋樑書",
+      "title": "KidsRead 自然發音路線圖：從字母、拼讀到英文小說，一階一階往上",
+      "description": "自然發音怎麼教？把 KidsRead 英文點讀教材照程度排成六階：字母、自然發音、CVC 拼讀、常見字與分級讀本、橋樑書、章節小說。每一階列出適合的教材和年齡，看孩子現在在哪一階、下一步讀什麼。",
+      "image": "/assets/kidsread/covers/reading.webp",
+      "alt": "自然發音路線圖：KidsRead 從字母讀到小說",
+      "productNames": [],
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-pen",
+        "kidsread-english",
+        "kidsread-zhuyin",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "datePrepared": "2026-11-23"
+    },
+    "kidsread-english": {
+      "mode": "explainer",
+      "intent": "KidsRead series (english): KidsRead 英文教材, 英文點讀繪本, 英文繪本推薦",
+      "title": "KidsRead 英文教材全書單：自然發音、英文繪本、翻翻書依年齡挑",
+      "description": "KidsRead 英文點讀教材全書單：自然發音讀本、JY Books 英文繪本與童謠洞洞書、找找書、翻翻書、科普和故事，共 36 套。每套寫清楚適讀年齡、內容物和點讀筆能做什麼，可以依年齡和類型篩選。",
+      "image": "/assets/kidsread/covers/english.webp",
+      "alt": "英文教材全書單：KidsRead 依年齡挑英文點讀書",
+      "productNames": [],
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-pen",
+        "kidsread-phonics-roadmap",
+        "kidsread-zhuyin",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "datePrepared": "2026-11-23"
+    },
+    "kidsread-zhuyin": {
+      "mode": "explainer",
+      "intent": "KidsRead series (zhuyin): 注音怎麼學, ㄅㄆㄇ教材, 注音點讀",
+      "title": "KidsRead 注音教材怎麼選：ㄅㄆㄇ初階、進階、拼音練習到認國字",
+      "description": "孩子學注音從哪一套開始？KidsRead 的小康軒注音教材分初階商店街、進階故事王國和拼音機器人，學完再用文字魔法世界認常用國字。依孩子的程度和年齡比較，三套注音教材也可以一起買。",
+      "image": "/assets/kidsread/covers/zhuyin.webp",
+      "alt": "注音教材怎麼選：KidsRead ㄅㄆㄇ初階到進階",
+      "productNames": [],
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-pen",
+        "kidsread-phonics-roadmap",
+        "kidsread-english",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "datePrepared": "2026-11-23"
+    },
+    "kidsread-chinese": {
+      "mode": "explainer",
+      "intent": "KidsRead series (chinese): KidsRead 中文教材, 中文點讀書, 注音點讀",
+      "title": "KidsRead 中文教材全書單：注音、識字、知識立體書、唐詩與名人故事",
+      "description": "KidsRead 中文與雙語點讀教材全書單：注音與識字、KiDiDOC 知識立體書、西遊記立體書、與狗店長樂讀詩、小不點大夢想名人傳記等，共 20 套。每套寫清楚適讀年齡、內容物和點讀功能，可以依年齡和主題篩選。",
+      "image": "/assets/kidsread/covers/chinese.webp",
+      "alt": "中文教材全書單：KidsRead 注音、知識書、唐詩",
+      "productNames": [],
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-pen",
+        "kidsread-phonics-roadmap",
+        "kidsread-english",
+        "kidsread-zhuyin"
+      ],
+      "publicationState": "published",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "datePrepared": "2026-11-23"
     }
   }
 }
