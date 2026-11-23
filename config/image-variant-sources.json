@@ -275,6 +275,54 @@
     "source": "f20fa489e975dc273df8b771fb9282a0c12f74f0aa77a4f6c425147dc4a1a95a",
     "variant": "3f71260620e7a74f9ae4283aa2f53f092a61522eeb8933de83fd66a2288703ba"
   },
+  "/assets/kidsread/covers/chinese-480.webp": {
+    "source": "8342c88a4e9963ca3a037e33605d708b3e480ef8521610b9050e88de839c4abc",
+    "variant": "2eaf4c7e81b06d6e368b0f15c2317f3362416604dc86578da4153443cdc8aae3"
+  },
+  "/assets/kidsread/covers/chinese-960.webp": {
+    "source": "8342c88a4e9963ca3a037e33605d708b3e480ef8521610b9050e88de839c4abc",
+    "variant": "34f8183878db93f0e2f73e601650b4f4e41336fe6e43b5352732137986afb8bd"
+  },
+  "/assets/kidsread/covers/english-480.webp": {
+    "source": "e0d2a0666481c9584d7dc0bef3aeaf10d57c673ac29dfc142bfe5ba57f356751",
+    "variant": "9df30bc52d9b3aff2793b78fec7c2cd265e26f3fa7ce985619c4a0ca40bc01ed"
+  },
+  "/assets/kidsread/covers/english-960.webp": {
+    "source": "e0d2a0666481c9584d7dc0bef3aeaf10d57c673ac29dfc142bfe5ba57f356751",
+    "variant": "15ef951626d735d1ee8672e7dcfdc5772da14c2b89f00fea128c4e512ab17aff"
+  },
+  "/assets/kidsread/covers/hub-480.webp": {
+    "source": "6755a4ade6cfa1580934d81049dd31a848e6823cb8f096f40b196d9f57fed087",
+    "variant": "20ac7c1d6a771c934caf83e4b08ad540a61107375a720f8f646b1da891680b9e"
+  },
+  "/assets/kidsread/covers/hub-960.webp": {
+    "source": "6755a4ade6cfa1580934d81049dd31a848e6823cb8f096f40b196d9f57fed087",
+    "variant": "b860a93ab83164378ec8a244b8f6b707485e3fab44cac0b773be04199612755c"
+  },
+  "/assets/kidsread/covers/pen-480.webp": {
+    "source": "0debdf17d4d4625d473edb333e6c8d1fa6190af4ea2d3f6460b04293abc68be0",
+    "variant": "1e987ed77a0b7e20ab9d7bc39664d9fd889c5369d8ace5bc98a947dde6356346"
+  },
+  "/assets/kidsread/covers/pen-960.webp": {
+    "source": "0debdf17d4d4625d473edb333e6c8d1fa6190af4ea2d3f6460b04293abc68be0",
+    "variant": "31e01dd0e6f7ae521d59a78c0068f46354b42092eafd540117392ab38eeb88e4"
+  },
+  "/assets/kidsread/covers/reading-480.webp": {
+    "source": "2213f36ab64697ec8fa981d7d3f6976ffd7d542d76b5aeac69901267df9be0a3",
+    "variant": "2da6e03616cc800a62d38f0dc8508c7c330a0efddbe9b8874975668cd9f5ccef"
+  },
+  "/assets/kidsread/covers/reading-960.webp": {
+    "source": "2213f36ab64697ec8fa981d7d3f6976ffd7d542d76b5aeac69901267df9be0a3",
+    "variant": "ce552e67f462131db89ac12842c3ec0c68c56d303238d6de129723bd0f007f20"
+  },
+  "/assets/kidsread/covers/zhuyin-480.webp": {
+    "source": "9ea9723cc49890538bcc1b235e8494c6c77d7ed3732a02f332134d1777485f7e",
+    "variant": "4c58a1df6ca991301521ae5a0b9f8ba34c3bea8d330fb688bad5896c9aa3ff8f"
+  },
+  "/assets/kidsread/covers/zhuyin-960.webp": {
+    "source": "9ea9723cc49890538bcc1b235e8494c6c77d7ed3732a02f332134d1777485f7e",
+    "variant": "ccced60d6e6e32b2ecaf75c1a7ce14fb6b7d70fc3967ba7fc6b97a42c217cba1"
+  },
   "/assets/kietla/cover-style-v2-480.webp": {
     "source": "57be3e05538912782f8eb16bfd0162a9a2b3e561f4bab7f25d89b1a875828100",
     "variant": "505ff3f2bd44822ac82d2aca473d0a8314218f35d51983a6dfb1b238938ba2b8"
