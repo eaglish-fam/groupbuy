@@ -1613,7 +1613,19 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": null,
+   "ages": {
+    "together": [
+     0,
+     3
+    ],
+    "alone": [
+     3,
+     null
+    ],
+    "general": null,
+    "label": "共讀 0–3 歲／自主 3 歲以上",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch"
    ],
@@ -1676,7 +1688,19 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": null,
+   "ages": {
+    "together": [
+     0,
+     3
+    ],
+    "alone": [
+     3,
+     null
+    ],
+    "general": null,
+    "label": "共讀 0–3 歲／自主 3 歲以上",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch"
    ],
@@ -2698,7 +2722,16 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": null,
+   "ages": {
+    "together": [
+     0,
+     1
+    ],
+    "alone": null,
+    "general": null,
+    "label": "共讀 0–1 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch"
    ],
@@ -3008,7 +3041,19 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": null,
+   "ages": {
+    "together": [
+     4,
+     6
+    ],
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "共讀 4–6 歲／自主 6 歲以上",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "story",
     "seek"
@@ -3153,7 +3198,19 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "bi",
-   "ages": null,
+   "ages": {
+    "together": [
+     4,
+     6
+    ],
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "共讀 4–6 歲／自主 6 歲以上",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "story"
    ],
@@ -3204,7 +3261,19 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": null,
+   "ages": {
+    "together": [
+     4,
+     5
+    ],
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "共讀 4–5 歲／6 歲可自己讀",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "story"
    ],
@@ -3716,7 +3785,19 @@
    "post": "kidsread-book",
    "stage": null,
    "lang": "en",
-   "ages": null,
+   "ages": {
+    "together": [
+     0,
+     2
+    ],
+    "alone": [
+     3,
+     4
+    ],
+    "general": null,
+    "label": "共讀 0–2 歲／自主 3–4 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "story"
    ],
@@ -4021,7 +4102,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     5,
+     6
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 5–6 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "story"
    ],
@@ -4089,7 +4182,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": [
+     4,
+     5
+    ],
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "共讀 4–5 歲／6 歲可自己讀",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "story"
    ],
@@ -4177,7 +4282,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": [
+     4,
+     5
+    ],
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "共讀 4–5 歲／6 歲可自己讀",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "story"
    ],
@@ -4378,7 +4495,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     5,
+     8
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 5–8 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch",
     "science",
@@ -4547,7 +4676,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 4–6 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch",
     "science",
@@ -4731,7 +4872,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": [
+     1,
+     2
+    ],
+    "alone": [
+     3,
+     4
+    ],
+    "general": null,
+    "label": "共讀 1–2 歲／自主 3–4 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch"
    ],
@@ -4923,7 +5076,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "bi",
-   "ages": null,
+   "ages": {
+    "together": [
+     1,
+     3
+    ],
+    "alone": [
+     4,
+     5
+    ],
+    "general": null,
+    "label": "共讀 1–3 歲／自主 4–5 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "story",
     "words"
@@ -4980,7 +5145,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "bi",
-   "ages": null,
+   "ages": {
+    "together": [
+     1,
+     3
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 1–3 歲／自主 4–6 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch",
     "words",
@@ -5045,7 +5222,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "bi",
-   "ages": null,
+   "ages": {
+    "together": [
+     1,
+     3
+    ],
+    "alone": [
+     4,
+     5
+    ],
+    "general": null,
+    "label": "共讀 1–3 歲／自主 4–5 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch",
     "story",
@@ -5187,7 +5376,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     5,
+     8
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 5–8 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch",
     "story",
@@ -5279,7 +5480,19 @@
    "post": "kidsreadchbook",
    "stage": null,
    "lang": "bi",
-   "ages": null,
+   "ages": {
+    "together": [
+     1,
+     2
+    ],
+    "alone": [
+     3,
+     4
+    ],
+    "general": null,
+    "label": "共讀 1–2 歲／自主 3–4 歲",
+    "source": "KidsRead 官網"
+   },
    "tags": [
     "touch",
     "story",
@@ -5798,7 +6011,16 @@
     "words"
    ],
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": null,
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "自主 6 歲以上",
+    "source": "KidsRead 官網"
+   },
    "summary": "注音學完之後的下一步：用繪本、遊戲圖卡和部首變身，認識常用國字。康軒編輯小組編。",
    "blocks": [
     {
@@ -6017,7 +6239,19 @@
     "story"
    ],
    "lang": "bi",
-   "ages": null,
+   "ages": {
+    "together": [
+     4,
+     6
+    ],
+    "alone": [
+     6,
+     null
+    ],
+    "general": null,
+    "label": "共讀 4–6 歲／6 歲可自己讀",
+    "source": "KidsRead 官網"
+   },
    "summary": "韓國繪本作家김윤정的雙語膠片繪本，附一張點讀小卡。",
    "blocks": [
     {
@@ -6054,7 +6288,19 @@
     "science"
    ],
    "lang": "bi",
-   "ages": null,
+   "ages": {
+    "together": [
+     2,
+     3
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 2–3 歲／自主 4–6 歲",
+    "source": "KidsRead 官網"
+   },
    "summary": "雨林、恐龍、石頭、昆蟲，四本「來聊聊」科普繪本，中英雙語點讀。",
    "blocks": [
     {
@@ -6092,7 +6338,19 @@
     "touch"
    ],
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 4–6 歲",
+    "source": "KidsRead 官網"
+   },
    "summary": "每本有 20 個小翻頁和超大立體機關，一本看昆蟲，一本看木乃伊。",
    "blocks": [
     {
@@ -6130,7 +6388,19 @@
     "touch"
    ],
    "lang": "zh",
-   "ages": null,
+   "ages": {
+    "together": [
+     3,
+     4
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 3–4 歲／自主 4–6 歲",
+    "source": "KidsRead 官網"
+   },
    "summary": "《天才達文西的發明》的同系列翻翻書：看世界著名建築，再來一趟環球旅行。",
    "blocks": [
     {
@@ -6168,13 +6438,17 @@
    ],
    "lang": "en",
    "ages": {
-    "together": null,
-    "alone": null,
-    "general": [
+    "together": [
      0,
-     3
+     4
     ],
-    "label": "洞洞書 0–2、2–3 歲；其他套組年齡待補"
+    "alone": [
+     2,
+     6
+    ],
+    "general": null,
+    "label": "依套組：共讀 0–4 歲、自己讀 2–6 歲",
+    "source": "KidsRead 官網"
    },
    "summary": "Eric Carle、Keith Baker 等名家繪本和英文童謠洞洞書，每本都有歌曲、朗讀、唸謠、伴奏四種聽法。可以整套買，也可以單本挑。",
    "blocks": [
@@ -6189,12 +6463,13 @@
     {
      "t": "ul",
      "items": [
-      "<strong>艾瑞卡爾經典繪本</strong>：The Very Hungry Caterpillar、Brown Bear, Brown Bear, What Do You See?、Today Is Monday（三本也可單買）",
-      "<strong>JY Books 英文故事繪本 套組 1</strong>：1-2-3 Peas、LMNO Peas（Keith Baker 代表作，跟著小豌豆學數字 1 到 100、字母 A 到 Z）、Where Is the Green Sheep?（句型重複、單字一路堆疊）、Hooray for Fish!（跟著小魚認顏色、圖案、形狀和表情）",
-      "<strong>經典童謠洞洞書 寶貝組（0–2 歲）</strong>：Cows in the Kitchen、The Wheels on the Bus、Five Little Ducks",
-      "<strong>經典童謠洞洞書 幼幼組（2–3 歲）</strong>：Down in the Jungle、Dry Bones、Down by the Station",
-      "<strong>其他單本</strong>：Up, Up, Up!、A Hole in the Bottom of the Sea（Barefoot Books，節奏越唱越快）、Dear Zoo、Cleo’s Alphabet Book、Who Stole the Cookies from the Cookie Jar?、We All Go Traveling By、Walking Through the Jungle 等",
-      "另有「幼兒英文學習繪本」「精選音樂繪本（4 冊）」兩個套組，內容等拿到書再補"
+      "<strong>艾瑞卡爾經典繪本</strong>：The Very Hungry Caterpillar、Brown Bear, Brown Bear, What Do You See?、Today Is Monday（0–2 歲共讀、2–3 歲自己讀）",
+      "<strong>JY Books 英文故事繪本 套組 1</strong>：1-2-3 Peas、LMNO Peas（Keith Baker 代表作，跟著小豌豆學數字 1 到 100、字母 A 到 Z）、Where Is the Green Sheep?（句型重複、單字一路堆疊）、Hooray for Fish!（跟著小魚認顏色、圖案、形狀和表情）。2–4 歲共讀、4–6 歲自己讀",
+      "<strong>經典童謠洞洞書 寶貝組</strong>：Cows in the Kitchen、The Wheels on the Bus、Five Little Ducks（0–2 歲共讀、3–6 歲自己讀）",
+      "<strong>經典童謠洞洞書 幼幼組</strong>：Down in the Jungle、Dry Bones、Down by the Station（0–2 歲共讀、3–6 歲自己讀）",
+      "<strong>幼兒英文學習繪本</strong>：Cleo’s Alphabet Book、Dear Zoo、Who Stole the Cookies from the Cookie Jar?（0–2 歲共讀、3–6 歲自己讀）",
+      "<strong>精選音樂繪本（4 冊）</strong>：Walking Through the Jungle、We All Go Traveling By、Up, Up, Up!、A Hole in the Bottom of the Sea（0–2 歲共讀、3–4 歲自己讀）",
+      "<strong>單本也可以買</strong>：上面每一本都能單買，例如 The Very Hungry Caterpillar、Dear Zoo、Walking Through the Jungle"
      ]
     },
     {
@@ -6275,7 +6550,19 @@
     "science"
    ],
    "lang": "multi",
-   "ages": null,
+   "ages": {
+    "together": [
+     0,
+     3
+    ],
+    "alone": [
+     4,
+     6
+    ],
+    "general": null,
+    "label": "共讀 0–3 歲／自主 4–6 歲",
+    "source": "KidsRead 官網"
+   },
    "summary": "英文、中文、法文三種語言切換，20 個自然場景、117 個詞彙，封面標示超過 100 種聲音。",
    "blocks": [
     {
