@@ -39,6 +39,9 @@
     - 原文沒寫年齡的 27 套是 `null`，頁面標成「年齡待補」，不自己猜。
   - `status`：依廠商給的 2026-11 品項（`data/kidsread/vendor-2026-11.json`）比對，`active` 40 套、`removed` 26 套；`removed` 不顯示，資料留著備查。
   - `variants`：這次可買的品項名稱（例如分輯、合購）；`seriesNote`：這次和舊文不同的地方（例如舊文寫第 1 輯，這次是第 2 輯）。
+- 新品（`id` 以 `n` 開頭，15 套）：內容只寫廠商頁圖片上印的事實，不寫我們家的使用心得（還沒用過）。`isNew`、`photosPending`（`cover` 是 null，等 Hiram 補照片）；`contentThin` 表示廠商圖只看得到內容物和書名，介紹比較短，拿到書再補。
+  - 換輯的舊品（Dragon Masters、西遊記、KiDiDOC、與狗店長、IMAGINE IF、Jane Foster）在原文最前面加一段「這次開團的是…」（區塊有 `series: true`）。
+  - `pen.products`／`pen.specs`：點讀筆 PLUS 3.0 單筆套組與單筆的內容物，入口頁「怎麼買」用。
 - `data/kidsread/vendor-2026-11.json`：廠商頁擷取的品項對照（我們的 id ↔ 廠商品項）、這次沒有的舊品、新品清單。那是別團的頁面，價格只當參考，不寫進網站。
 - `data/kidsread/migrated-posts.json`：三篇原文照順序的完整區塊，當作備查的原始檔（照片、圖說原樣保留）。
 - 公開版不放：舊團購按鈕、舊檔期，以及英文篇前言的圖說「開團表單沒看到＝絕版停賣」（當期沒上架不等於停售）。catalog 裡這則圖說已清空，原文仍在 migrated-posts.json。

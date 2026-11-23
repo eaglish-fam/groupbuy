@@ -371,6 +371,37 @@
      }
     ]
    }
+  ],
+  "products": [
+   {
+    "name": "魔法錄音點讀筆 PLUS 3.0 單筆套組",
+    "contents": [
+     "點讀筆",
+     "商品保固卡",
+     "充電傳輸線組",
+     "使用手冊",
+     "iREAD 小浣熊吊飾",
+     "錄音貼紙冊（編號 0501–2320，含 ABCD 分層、錄音播放、循環播放補充貼紙）"
+    ],
+    "who": "第一次買點讀筆選這組：有錄音貼紙，可以把家裡原本的書變成點讀書。"
+   },
+   {
+    "name": "魔法錄音點讀筆 PLUS 3.0 單筆",
+    "contents": [
+     "點讀筆",
+     "商品保固卡",
+     "充電傳輸線組",
+     "使用手冊",
+     "iREAD 小浣熊吊飾"
+    ],
+    "who": "家裡已經有錄音貼紙、想多一支給第二個孩子用，選這個。不含錄音貼紙、魔法隨身聽、功能書籤。"
+   }
+  ],
+  "specs": [
+   "3.0 魔法核心升級",
+   "附 32G 記憶卡",
+   "USB 充電，續航約 4 小時",
+   "Type-C 接頭"
   ]
  },
  "enIntro": [
@@ -2433,6 +2464,16 @@
    "summary": "適用學習年齡：1-4歲Let’s Play & Dress Up兩冊 推拉、翻翻、轉盤操作，訓練小肌肉",
    "blocks": [
     {
+     "t": "h2",
+     "text": "這次多了第二輯",
+     "series": true
+    },
+    {
+     "t": "p",
+     "html": "這次除了第 1 輯，也有第 2 輯，一樣兩本一組。",
+     "series": true
+    },
+    {
      "t": "p",
      "html": "<strong>適用學習年齡：1-4歲<br>Let’s Play & Dress Up兩冊 推拉、翻翻、轉盤操作，訓練小肌肉</strong>",
      "align": "center"
@@ -2521,6 +2562,16 @@
    "imgs": 3,
    "summary": "適用學習年齡：1-4歲動動小手，推、拉、翻、轉，進入想像世界",
    "blocks": [
+    {
+     "t": "h2",
+     "text": "這次多了第二彈 BUGS & FLOWERS",
+     "series": true
+    },
+    {
+     "t": "p",
+     "html": "除了下面介紹的 FRUITS & VEGGIES，這次還有第二彈《IMAGINE IF... BUGS!》《IMAGINE IF... FLOWERS!》兩本一組，一樣推、拉、翻、轉的機關，全英語韻文朗讀，點單字可以單獨聽發音。1–2 歲親子共讀、3–4 歲可以自己讀。兩組也可以合購。",
+     "series": true
+    },
     {
      "t": "p",
      "html": "<strong>適用學習年齡：1-4歲<br>動動小手，推、拉、翻、轉，進入想像世界</strong>",
@@ -3786,6 +3837,16 @@
    "summary": "4-6歲親子共讀｜6歲以上可自己閱讀點讀書籤 5張 (4×9.8cm) 、點讀書 5本 (13.3×19.5cm)",
    "blocks": [
     {
+     "t": "h2",
+     "text": "這次開團的是第 2 輯（第 6–10 集）",
+     "series": true
+    },
+    {
+     "t": "p",
+     "html": "下面是我們家讀第 1 輯的心得。這次開團的是第 2 輯，一樣 5 本書、5 張點讀小卡：月龍之翔、尋覓電龍、雷龍之嘯、冰龍之寒、喚醒虹龍。點讀有逐字朗讀、段落朗讀、劇場朗讀三種音檔，另附點讀書籤，可以切換段落或逐字、播放各章節。",
+     "series": true
+    },
+    {
      "t": "p",
      "html": "<strong>4-6歲親子共讀｜6歲以上可自己閱讀<br>點讀書籤 5張 (4×9.8cm) 、點讀書 5本 (13.3×19.5cm)</strong>",
      "align": "center"
@@ -3907,7 +3968,8 @@
    "home": "chinese",
    "guide": "zhuyin",
    "variants": [
-    "ㄅㄆㄇ 商店街 聲符篇 注音學習套裝初階 (2冊)"
+    "ㄅㄆㄇ 商店街 聲符篇 注音學習套裝初階 (2冊)",
+    "ㄅㄆㄇ注音學習全套：故事王國＋商店街＋拼音機器人三套一起買，加贈 3 本非點讀趣味寫字本"
    ]
   },
   {
@@ -3990,7 +4052,8 @@
    "guide": "zhuyin",
    "variants": [
     "ㄅㄆㄇ故事王國 注音學習套組（進階）",
-    "ㄅㄆㄇ故事王國 注音學習套組（進階）+加購3本非點讀趣味寫字本"
+    "ㄅㄆㄇ故事王國 注音學習套組（進階）+加購3本非點讀趣味寫字本",
+    "ㄅㄆㄇ注音學習全套：故事王國＋商店街＋拼音機器人三套一起買，加贈 3 本非點讀趣味寫字本"
    ]
   },
   {
@@ -4035,7 +4098,8 @@
    "home": "chinese",
    "guide": "zhuyin",
    "variants": [
-    "小康軒拼音機器人點讀版"
+    "小康軒拼音機器人點讀版",
+    "ㄅㄆㄇ注音學習全套：故事王國＋商店街＋拼音機器人三套一起買，加贈 3 本非點讀趣味寫字本"
    ]
   },
   {
@@ -4202,6 +4266,26 @@
    "imgs": 3,
    "summary": "3本立體操作書、3張點讀小卡（第4輯與第5輯為兩本，其他每輯3本）",
    "blocks": [
+    {
+     "t": "h2",
+     "text": "這次開團的是第 1、2、3、5 輯",
+     "series": true
+    },
+    {
+     "t": "ul",
+     "items": [
+      "第 1 輯：下面有什麼？、動物大解密、100 個為什麼？",
+      "第 2 輯：人體大發現、驚奇恐龍世界、太空有什麼？",
+      "第 3 輯：古老希臘神話、神奇交通工具、大自然的奧祕",
+      "第 5 輯：勇闖古老城堡、航向海盜王國（3–4 歲親子共讀、5–8 歲可自己閱讀）"
+     ],
+     "series": true
+    },
+    {
+     "t": "p",
+     "html": "每本都有情境故事劇場、全書朗讀、書末知識小考驗和系列主題曲。這次沒有第 4 輯。",
+     "series": true
+    },
     {
      "t": "p",
      "html": "<strong>3本立體操作書、3張點讀小卡</strong><br>（第4輯與第5輯為兩本，其他每輯3本）",
@@ -4823,6 +4907,25 @@
    "summary": "沙漠之旅 、泛舟之旅 、老街之旅 、夜遊之旅 、隨身點讀小卡 2張",
    "blocks": [
     {
+     "t": "h2",
+     "text": "這次有三輯可以挑",
+     "series": true
+    },
+    {
+     "t": "ul",
+     "items": [
+      "春夏秋冬（第一輯）：《春曉》《憫農詩》《秋夜寄邱員外》《江雪》",
+      "遊山玩水（第三輯）：《涼州詞》《早發白帝城》《烏衣巷》《楓橋夜泊》",
+      "交通工具（第四輯，新出）：單車讀《登樂遊原》、火車讀《雜詩》、飛機讀《尋隱者不遇》、渡輪讀《宿建德江》"
+     ],
+     "series": true
+    },
+    {
+     "t": "p",
+     "html": "每輯 4 本書、2 張點讀小卡。每首詩都有注音、漢語拼音和中英雙語故事，點讀可以聽中文故事、英文故事、唐詩朗誦、唐詩童謠和伴唱。",
+     "series": true
+    },
+    {
      "t": "p",
      "html": "<strong>沙漠之旅 、泛舟之旅 、老街之旅 、夜遊之旅 、隨身點讀小卡 2張</strong>",
      "align": "center"
@@ -4939,6 +5042,16 @@
    "imgs": 4,
    "summary": "4本點讀立體書、1張點讀小卡",
    "blocks": [
+    {
+     "t": "h2",
+     "text": "這次開團的是第 2、3 輯",
+     "series": true
+    },
+    {
+     "t": "p",
+     "html": "下面是我們家讀第一輯的心得。這次開團的是第 2、3 輯，各 4 本書、1 張點讀小卡。第 2 輯：唐僧逐悟空、智鬥金銀角、大戰紅孩兒、車遲國鬥法；第 3 輯：三借芭蕉扇、火燒盤絲洞、獅駝嶺遇險、如來賜真經。",
+     "series": true
+    },
     {
      "t": "p",
      "html": "<strong>4本點讀立體書、1張點讀小卡</strong>",
@@ -5103,6 +5216,725 @@
    "status": "removed",
    "home": "chinese",
    "guide": "zhuyin"
+  },
+  {
+   "id": "n01-tino-farm",
+   "name": "小象 TINO 的農場攝影集 雙語繪本",
+   "home": "english",
+   "tags": [
+    "touch",
+    "seek"
+   ],
+   "lang": "bi",
+   "ages": {
+    "together": null,
+    "alone": [
+     3,
+     6
+    ],
+    "general": null,
+    "label": "自主 3–6 歲"
+   },
+   "summary": "翻一下書頁，相機就「印」出一張照片。跟著小象 TINO 到農場當一日攝影師，邊翻邊認識農場動物的中英文。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "小象 TINO 帶著相機、靴子和好夥伴 Risou 去農場拍照。每翻一頁，機關就會把照片「印」出來，孩子會想一直翻下去，看看下一張拍到了誰。書頁中英對照，適合 3 到 6 歲自己翻、自己點。"
+    },
+    {
+     "t": "h2",
+     "text": "點讀筆可以做什麼"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "點動物：聽單字和對白輪流播放",
+      "點物件：聽單字",
+      "點角色：聽有趣的對白",
+      "附一張遊戲貼紙：點星星開始挑戰、點紅色方塊結束，40 多題「農場來找碴」，數一數、找一找"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 1 本、遊戲貼紙 1 張<br>適讀年齡：3–6 歲自主閱讀<br>尺寸：書 18.5 × 18.8 cm、貼紙 16 × 10.5 cm</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "小象TINO的農場攝影集 雙語繪本"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n02-expandable-explorations",
+   "name": "Expandable Explorations 探索大世界 全景拉頁書（中英雙語，2 冊）",
+   "home": "english",
+   "tags": [
+    "science",
+    "seek"
+   ],
+   "lang": "bi",
+   "ages": {
+    "together": [
+     6,
+     null
+    ],
+    "alone": null,
+    "general": null,
+    "label": "共讀 6 歲以上"
+   },
+   "summary": "一拉開就是一整座大工程。《巨型機械》《驚奇建築》兩本全景拉頁書，看郵輪、太空站、城堡和吊橋是怎麼運作的。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "喜歡車子、工地、太空站的孩子，會很愛這兩本。書頁一拉開就是完整的大場景，《巨型機械 Mega Machines》看郵輪、飛機、工程車、太空站和火車；《驚奇建築 Big Builds》走進中世紀城堡、宮殿、摩天大樓、羅馬競技場和吊橋，一共 10 個場景、10 種職業。"
+    },
+    {
+     "t": "h2",
+     "text": "書裡有什麼"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "全景拉頁：一拉展開整個場景，邊看職人導覽，邊認識工程的原理",
+      "眼力挑戰：從場景裡找線索",
+      "20 題進階遊戲，例如「競技場裡有幾隻動物？」，用點讀筆點選答案"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 2 本（巨型機械、驚奇建築）<br>適讀年齡：6 歲以上親子共讀<br>尺寸：23 × 32 cm</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "《Expandable Explorations》 探索大世界 - 全景拉頁書 (中英雙語版)(2冊)"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n03-dog-detective-london",
+   "name": "狗探長的倫敦謎案大追查 抽拉式推理遊戲書",
+   "home": "chinese",
+   "tags": [
+    "seek"
+   ],
+   "lang": "zh",
+   "ages": {
+    "together": null,
+    "alone": [
+     4,
+     null
+    ],
+    "general": null,
+    "label": "自主 4 歲以上"
+   },
+   "summary": "倫敦發生 8 起案件，孩子當小偵探：聽目擊者怎麼說、從圖卡找線索、排除嫌疑人，抽出最後的犯人。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "倫敦一連發生 8 起案件，狗探長邀請小讀者一起破案。8 個場景都是道地的倫敦生活：商店街、百貨公司、博物館、車站、公園、劇院、遊樂園和餐廳。每一案都要靠觀察和推理，最後拉開圖卡揭曉犯人。"
+    },
+    {
+     "t": "h2",
+     "text": "破案三步驟"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "搜查：用點讀筆聽目擊者的說法",
+      "觀察：找出藏在圖卡裡的關鍵線索",
+      "推理：排除可疑人物，鎖定犯人"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "喜歡偵探故事的孩子，可以和《福爾摩斯與失蹤的蘭花》雙語偵探推理書一起看。"
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 1 本<br>適讀年齡：4 歲以上自主閱讀<br>尺寸：23.8 × 23.5 cm</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "《狗探長的倫敦謎案大追查》 抽拉式推理遊戲書",
+    "【合購優惠】《狗探長的倫敦謎案大追查》抽拉式推理遊戲書+Sherldog Holmes 福爾摩斯與失蹤的蘭花 雙語偵探推理書"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n04-shine-a-light",
+   "name": "SHINE-A-LIGHT 手電筒遊戲書（2 冊）",
+   "home": "english",
+   "tags": [
+    "seek",
+    "words"
+   ],
+   "lang": "en",
+   "ages": {
+    "together": [
+     3,
+     5
+    ],
+    "alone": null,
+    "general": null,
+    "label": "共讀 3–5 歲"
+   },
+   "summary": "黑漆漆的場景裡藏著什麼？抽出手電筒照一照，找到就用點讀筆點，一路收集 120 個英文單字。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "書頁是暗的，要用附的手電筒道具在頁面後面照，才看得到藏起來的東西。《BIG WORLD》走過海洋、太空、城市、高山、平原；《WILDLIFE》探索荒野、大草原、高山、草地和雨林。兩本一共 10 個場景、120 個尋寶任務。"
+    },
+    {
+     "t": "h2",
+     "text": "點讀筆可以做什麼"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "聽題目，例如 “Tap on the woodpecker when you find it.”，找到就點",
+      "點答案，聽解答和小知識",
+      "20 題挑戰：點星星開始、點方塊結束"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 2 本（WILDLIFE、BIG WORLD）、手電筒道具 2 支<br>適讀年齡：3–5 歲親子共讀<br>尺寸：23.5 × 24 cm</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "SHINE-A-LIGHT 手電筒遊戲書 (2冊)"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n05-goodnight-baby-dinosaurs",
+   "name": "Goodnight, Baby Dinosaurs 小恐龍晚安魔法 夜燈書＋恐龍抱枕",
+   "home": "english",
+   "tags": [
+    "story"
+   ],
+   "lang": "en",
+   "ages": {
+    "together": [
+     0,
+     3
+    ],
+    "alone": [
+     4,
+     null
+    ],
+    "general": null,
+    "label": "共讀 0–3 歲／自主 4 歲以上"
+   },
+   "summary": "一本會變成小夜燈的立體書。睡前認識 7 種小恐龍，點夜燈背景還有 4 首舒眠曲。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "書一轉開就立起來，變成一盞 USB 充電的小夜燈，很適合當睡前儀式。書裡 7 隻小恐龍用第一人稱介紹自己，孩子邊聽邊認識牠們的外型和特徵。0 到 3 歲爸媽陪著讀，4 歲以上可以自己點。"
+    },
+    {
+     "t": "h2",
+     "text": "點讀筆可以做什麼"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "點背景：聽親子對話式的朗讀",
+      "點物件：聽音效",
+      "點角色：聽英文對白",
+      "點文字：聽英文朗讀",
+      "點夜燈背景：聽 4 首舒眠曲"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "廠商這次附一個恐龍抱枕，小暴龍或三角龍二選一。"
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：立體點讀書 1 本、恐龍抱枕 1 個（小暴龍或三角龍）<br>適讀年齡：0–3 歲親子共讀、4 歲以上自主閱讀<br>尺寸：20 × 20 cm</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "Goodnight, Baby Dinosaurs 小恐龍晚安魔法 - 夜燈書 + 小暴龍抱枕",
+    "Goodnight, Baby Dinosaurs 小恐龍晚安魔法 - 夜燈書 + 三角龍抱枕"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n06-word-magic",
+   "name": "文字魔法世界 識字學習套裝",
+   "home": "chinese",
+   "guide": "zhuyin",
+   "tags": [
+    "words"
+   ],
+   "lang": "zh",
+   "ages": null,
+   "summary": "注音學完之後的下一步：用繪本、遊戲圖卡和部首變身，認識常用國字。康軒編輯小組編。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "孩子注音熟了，接下來就是認國字。這套由康軒編輯小組編、鄒敦怜老師寫，用情境故事帶出常用字，再用「部首變身」延伸出更多字詞。和《拼音機器人》、ㄅㄆㄇ注音學習套裝是同一系列，可以接著用。"
+    },
+    {
+     "t": "h2",
+     "text": "點讀筆可以做什麼"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "精裝繪本：我會認字、部首變身、聽國字、聽句子、聽故事、聽短文、探索情境、點讀遊戲",
+      "遊戲圖卡＋功能卡：學認字、玩遊戲、玩拼圖"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：精裝繪本 2 本、指導手冊 1 本、點讀遊戲圖卡 50 張、點讀功能卡 3 張、點讀錄音貼紙 266 張</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "variants": [
+    "《文字魔法世界》識字學習套裝"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n07-kingsley",
+   "name": "Kingsley 的異想世界 雙語繪本（附原文口袋書）",
+   "home": "english",
+   "tags": [
+    "story"
+   ],
+   "lang": "bi",
+   "ages": {
+    "together": null,
+    "alone": [
+     4,
+     null
+    ],
+    "general": null,
+    "label": "自主 4 歲以上"
+   },
+   "summary": "一隻想領養人類、又想找份完美工作的狗狗 Kingsley。兩個幽默又暖心的故事，談自我認同和勇敢嘗試。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "Gabriel Evans 的兩個 Kingsley 故事：一個是 Kingsley 決定領養一隻「完美的人類」，一個是 Kingsley 決定去找一份「完美的工作」。故事好笑，也在說理解差異、勇敢嘗試，陪孩子找到屬於自己的答案。"
+    },
+    {
+     "t": "p",
+     "html": "除了兩本 25 × 25 cm 的點讀書，還附兩本 12 × 12 cm 的原文口袋書《A Job for Kingsley》《A Human for Kingsley》，出門帶著方便。"
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 2 本、原文口袋書 2 本<br>適讀年齡：4 歲以上自主閱讀</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "Kingsley 的異想世界 雙語繪本"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n08-copy-that-copy-cat",
+   "name": "Copy That, Copy Cat! 仿生科學互動翻翻書",
+   "home": "english",
+   "tags": [
+    "science",
+    "touch"
+   ],
+   "lang": "bi",
+   "ages": {
+    "together": [
+     4,
+     6
+    ],
+    "alone": null,
+    "general": null,
+    "label": "共讀 4–6 歲"
+   },
+   "summary": "貓咪的眼睛怎麼變成腳踏車反光片？翻開翻頁，看人類怎麼從大自然學到發明。中英一鍵切換。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "「仿生科學」就是從動物身上找靈感來解決問題，例如貓咪的眼睛啟發了腳踏車反光片，壁虎腳掌上的細毛讓牠能黏在牆上。書裡 6 個發現都照「自然觀察 → 科學應用 → 解決問題」三步帶孩子想。"
+    },
+    {
+     "t": "h2",
+     "text": "書裡有什麼"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "6 個仿生科學發現",
+      "另有 6 個靈感小百科，例如鯊魚皮怎麼變成不容易沾髒的醫院牆面",
+      "動動腦小挑戰，例如「穿哪雙鞋比較容易陷進雪地？」",
+      "點讀可以中英文一秒切換"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 1 本<br>適讀年齡：4–6 歲親子共讀<br>尺寸：22 × 22 cm</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "Copy That, Copy Cat! 仿生科學互動翻翻書"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n09-gift-for-mother",
+   "name": "A Gift for Mother – Message of Hands 雙語膠片繪本",
+   "home": "chinese",
+   "tags": [
+    "story"
+   ],
+   "lang": "bi",
+   "ages": null,
+   "summary": "韓國繪本作家김윤정的雙語膠片繪本，附一張點讀小卡。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "這次新加入的雙語膠片繪本，作者是韓國繪本作家김윤정。完整介紹等我們拿到書再補。"
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 1 本、點讀小卡 1 張</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "A Gift for Mother - Message of Hands 雙語膠片繪本"
+   ],
+   "contentThin": true,
+   "cover": null
+  },
+  {
+   "id": "n10-little-bookworm-2",
+   "name": "小小書蟲俱樂部 中英雙語科普點讀繪本 第 2 輯",
+   "home": "chinese",
+   "tags": [
+    "science"
+   ],
+   "lang": "bi",
+   "ages": null,
+   "summary": "雨林、恐龍、石頭、昆蟲，四本「來聊聊」科普繪本，中英雙語點讀。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "四本主題各自獨立：《來聊聊雨林吧》《來聊聊恐龍吧！》《來聊聊石頭吧！》《來聊聊昆蟲吧！》，都是中英雙語點讀版，附一張中英雙語點讀小卡。"
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 4 本、點讀小卡 1 張</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "小小書蟲俱樂部 中英雙語科普點讀繪本 第2輯"
+   ],
+   "contentThin": true,
+   "cover": null
+  },
+  {
+   "id": "n11-incredible-popup",
+   "name": "不可思議系列 立體書：昆蟲驚奇之旅、木乃伊神秘之旅",
+   "home": "chinese",
+   "tags": [
+    "science",
+    "touch"
+   ],
+   "lang": "zh",
+   "ages": null,
+   "summary": "每本有 20 個小翻頁和超大立體機關，一本看昆蟲，一本看木乃伊。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "青林出版的立體知識書。《不可思議！昆蟲驚奇之旅》和《不可思議！木乃伊神秘之旅》各有 20 個小翻頁和超大的立體機關，讓孩子動手翻、動手拉，走進昆蟲和木乃伊的世界。附一張點讀小卡，有播放和暫停鍵。"
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 2 本、點讀小卡 1 張</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "不可思議系列(立體書) 《昆蟲驚奇之旅》《木乃伊神秘之旅》"
+   ],
+   "contentThin": true,
+   "cover": null
+  },
+  {
+   "id": "n12-flip-world-flaps",
+   "name": "翻玩看世界系列 翻翻書：著名建築、環球巡禮",
+   "home": "chinese",
+   "tags": [
+    "culture",
+    "touch"
+   ],
+   "lang": "zh",
+   "ages": null,
+   "summary": "《天才達文西的發明》的同系列翻翻書：看世界著名建築，再來一趟環球旅行。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "和《翻玩看世界：天才達文西的發明》同一系列，這兩本是翻翻書：《著名建築》和《環球巡禮》，附一張點讀小卡。"
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 2 本、點讀小卡 1 張</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "翻玩看世界系列 (翻翻書) 《著名建築》 《環球巡禮》"
+   ],
+   "contentThin": true,
+   "cover": null
+  },
+  {
+   "id": "n13-jy-books-picture",
+   "name": "JY Books 英文點讀繪本與經典童謠洞洞書",
+   "home": "english",
+   "tags": [
+    "story"
+   ],
+   "lang": "en",
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     0,
+     3
+    ],
+    "label": "洞洞書 0–2、2–3 歲；其他套組年齡待補"
+   },
+   "summary": "Eric Carle、Keith Baker 等名家繪本和英文童謠洞洞書，每本都有歌曲、朗讀、唸謠、伴奏四種聽法。可以整套買，也可以單本挑。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "JY Books 的點讀繪本，每本都有歌曲、朗讀、唸謠、伴奏四種模式，最適合英文啟蒙：先當兒歌聽熟，再回到書上指著字讀。這次可以整套買，也可以單本挑。"
+    },
+    {
+     "t": "h2",
+     "text": "這次有的套組"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "<strong>艾瑞卡爾經典繪本</strong>：The Very Hungry Caterpillar、Brown Bear, Brown Bear, What Do You See?、Today Is Monday（三本也可單買）",
+      "<strong>JY Books 英文故事繪本 套組 1</strong>：1-2-3 Peas、LMNO Peas（Keith Baker 代表作，跟著小豌豆學數字 1 到 100、字母 A 到 Z）、Where Is the Green Sheep?（句型重複、單字一路堆疊）、Hooray for Fish!（跟著小魚認顏色、圖案、形狀和表情）",
+      "<strong>經典童謠洞洞書 寶貝組（0–2 歲）</strong>：Cows in the Kitchen、The Wheels on the Bus、Five Little Ducks",
+      "<strong>經典童謠洞洞書 幼幼組（2–3 歲）</strong>：Down in the Jungle、Dry Bones、Down by the Station",
+      "<strong>其他單本</strong>：Up, Up, Up!、A Hole in the Bottom of the Sea（Barefoot Books，節奏越唱越快）、Dear Zoo、Cleo’s Alphabet Book、Who Stole the Cookies from the Cookie Jar?、We All Go Traveling By、Walking Through the Jungle 等",
+      "另有「幼兒英文學習繪本」「精選音樂繪本（4 冊）」兩個套組，內容等拿到書再補"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "洞洞書每本都有韻謠、朗讀、歌曲、伴唱四種聽法，書頁上的洞讓寶寶邊唱邊用手指探索。"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "艾瑞卡爾經典繪本",
+    "JY books 英文故事繪本套組1",
+    "幼兒英文學習繪本",
+    "精選音樂繪本 (4冊)",
+    "經典童謠洞洞書_寶貝組（0-2歲）",
+    "經典童謠洞洞書_幼幼組（2-3歲）",
+    "The Very Hungry Caterpillar",
+    "Brown Bear， Brown Bear， What Do You See? 點讀繪本",
+    "Today Is Monday 點讀繪本",
+    "1-2-3 Peas 點讀繪本",
+    "Hooray for Fish 點讀繪本",
+    "Where Is the Green Sheep? 點讀繪本",
+    "LMNO peas 點讀繪本",
+    "Cleo's Alphabet Book 點讀繪本",
+    "Dear Zoo 點讀繪本",
+    "Who Stole the Cookies from the Cookie Jar? 點讀繪本",
+    "We All Go Traveling By 點讀繪本",
+    "Up Up Up 點讀繪本",
+    "A Hole in the Bottom of the Sea 點讀繪本",
+    "Cows in the Kitchen 點讀繪本",
+    "Five Little Ducks 點讀繪本",
+    "The Wheels on the Bus 點讀繪本",
+    "Down in the Jungle 點讀繪本",
+    "Down by the Station 點讀繪本",
+    "Dry Bones 點讀繪本"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n14-nature-and-me",
+   "name": "NATURE & ME 自然與我 三語聲音書",
+   "home": "english",
+   "tags": [
+    "words",
+    "science"
+   ],
+   "lang": "multi",
+   "ages": null,
+   "summary": "英文、中文、法文三種語言切換，20 個自然場景、117 個詞彙，封面標示超過 100 種聲音。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "「我的聲音書」系列的自然篇，Lucie Bruneillière 繪。翻開是退潮、漲潮、叢林等 20 個自然場景，每個動物和東西都標了中英文名字，點讀時可以切換英文、中文、法文三種語言。"
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀書 1 本<br>內容：20 個自然場景、117 個詞彙、13 個句子<br>語言：英文、中文、法文</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "NATURE & ME 三語自然聲音書"
+   ],
+   "cover": null
+  },
+  {
+   "id": "n15-black-white-cards",
+   "name": "有聲黑白卡 Visual Stimulus Talking Cards",
+   "home": "english",
+   "tags": [
+    "words"
+   ],
+   "lang": "none",
+   "ages": {
+    "together": null,
+    "alone": null,
+    "general": [
+     0,
+     null
+    ],
+    "label": "新生兒起"
+   },
+   "summary": "新生兒的第一套點讀卡：黑白、形狀、色彩分階刺激視覺，點一下還能放莫札特、白噪音，或爸媽自己錄的聲音。",
+   "blocks": [
+    {
+     "t": "p",
+     "html": "給新生兒和小嬰兒的視覺卡。12 張正反雙面、共 24 組圖，從黑白基本形狀、形狀變化，到加入 6 種顏色、強烈對比，一步一步刺激寶寶的視覺和視線追蹤。卡片 17 × 18.5 cm，夠大、圓角、雙面上膜，口水奶漬擦得掉。"
+    },
+    {
+     "t": "h2",
+     "text": "點讀筆可以做什麼"
+    },
+    {
+     "t": "ul",
+     "items": [
+      "莫札特古典樂 12 首",
+      "環境白噪音 12 首：海浪、叢林、雨聲、鳥鳴、流水、泡泡、蟲鳴",
+      "爸媽親自錄音 24 處，可以錄自己的聲音陪寶寶",
+      "單曲循環，聲音不會中斷"
+     ]
+    },
+    {
+     "t": "p",
+     "html": "<strong>內容物：點讀視覺卡 12 張（正反雙面，共 24 組圖）<br>尺寸：17 × 18.5 cm</strong>"
+    }
+   ],
+   "post": null,
+   "stage": null,
+   "status": "active",
+   "isNew": true,
+   "photosPending": true,
+   "imgs": 0,
+   "guide": null,
+   "variants": [
+    "有聲黑白卡 Visual Stimulus Talking Cards"
+   ],
+   "cover": null
   }
  ],
  "schema": "eaglish.kidsread-catalog/v1",
