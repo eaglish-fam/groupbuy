@@ -1,11 +1,11 @@
 {
   "schema": "eaglish.blog-release-audit/v1",
-  "generatedAt": "2026-11-20T05:21:09.116Z",
-  "status": "blocked",
+  "generatedAt": "2026-11-23T12:54:57.865Z",
+  "status": "ready",
   "summary": {
-    "checks": 1145,
-    "passed": 1144,
-    "failures": 1,
+    "checks": 1388,
+    "passed": 1388,
+    "failures": 0,
     "unpublishedKnowledge": 0
   },
   "checks": [
@@ -1561,7 +1561,7 @@
     },
     {
       "id": "blog:done-by-deer:index.html:answer-depth",
-      "passed": false,
+      "passed": true,
       "detail": "At least three visible reader questions support extractable answers."
     },
     {
@@ -2570,6 +2570,161 @@
       "detail": "Meta description is unique."
     },
     {
+      "id": "blog:jan-jul-winter:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:title",
+      "passed": true,
+      "detail": "Title length 55."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:description",
+      "passed": true,
+      "detail": "Description length 113."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/jan-jul-winter/."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "A stable crawlable fallback reaches the live catalogue without JavaScript."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:jan-jul-winter:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
       "id": "blog:jowua:index.html:reviewed-identity",
       "passed": true,
       "detail": "Article identity is bound to the catalog or reviewed metadata."
@@ -2876,6 +3031,996 @@
     },
     {
       "id": "blog:kids-active-toys:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:title",
+      "passed": true,
+      "detail": "Title length 42."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:description",
+      "passed": true,
+      "detail": "Description length 106."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/kidsread-chinese/."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:knowledge-shelf",
+      "passed": true,
+      "detail": "Knowledge card is an explicit explainer and contains no purchase action."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:knowledge-related",
+      "passed": true,
+      "detail": "Reviewed related article links remain crawlable."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "Knowledge reaches a reviewed related article without JavaScript."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:kidsread-chinese:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:title",
+      "passed": true,
+      "detail": "Title length 40."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:description",
+      "passed": true,
+      "detail": "Description length 100."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/kidsread-english/."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:knowledge-shelf",
+      "passed": true,
+      "detail": "Knowledge card is an explicit explainer and contains no purchase action."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:knowledge-related",
+      "passed": true,
+      "detail": "Reviewed related article links remain crawlable."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "Knowledge reaches a reviewed related article without JavaScript."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:kidsread-english:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:title",
+      "passed": true,
+      "detail": "Title length 42."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:description",
+      "passed": true,
+      "detail": "Description length 103."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/kidsread-pen/."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:knowledge-shelf",
+      "passed": true,
+      "detail": "Knowledge card is an explicit explainer and contains no purchase action."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:knowledge-related",
+      "passed": true,
+      "detail": "Reviewed related article links remain crawlable."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "Knowledge reaches a reviewed related article without JavaScript."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:kidsread-pen:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:title",
+      "passed": true,
+      "detail": "Title length 41."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:description",
+      "passed": true,
+      "detail": "Description length 97."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/kidsread-phonics-roadmap/."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:knowledge-shelf",
+      "passed": true,
+      "detail": "Knowledge card is an explicit explainer and contains no purchase action."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:knowledge-related",
+      "passed": true,
+      "detail": "Reviewed related article links remain crawlable."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "Knowledge reaches a reviewed related article without JavaScript."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:kidsread-phonics-roadmap:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:title",
+      "passed": true,
+      "detail": "Title length 40."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:description",
+      "passed": true,
+      "detail": "Description length 90."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/kidsread-zhuyin/."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:knowledge-shelf",
+      "passed": true,
+      "detail": "Knowledge card is an explicit explainer and contains no purchase action."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:knowledge-related",
+      "passed": true,
+      "detail": "Reviewed related article links remain crawlable."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "Knowledge reaches a reviewed related article without JavaScript."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:kidsread-zhuyin:index.html:unique-description",
+      "passed": true,
+      "detail": "Meta description is unique."
+    },
+    {
+      "id": "blog:kidsread:index.html:reviewed-identity",
+      "passed": true,
+      "detail": "Article identity is bound to the catalog or reviewed metadata."
+    },
+    {
+      "id": "blog:kidsread:index.html:title",
+      "passed": true,
+      "detail": "Title length 41."
+    },
+    {
+      "id": "blog:kidsread:index.html:description",
+      "passed": true,
+      "detail": "Description length 95."
+    },
+    {
+      "id": "blog:kidsread:index.html:canonical",
+      "passed": true,
+      "detail": "Canonical https://www.eaglish.store/blog/kidsread/."
+    },
+    {
+      "id": "blog:kidsread:index.html:indexable",
+      "passed": true,
+      "detail": "Robots index,follow,max-image-preview:large; published page must be indexable."
+    },
+    {
+      "id": "blog:kidsread:index.html:single-h1",
+      "passed": true,
+      "detail": "Exactly one H1."
+    },
+    {
+      "id": "blog:kidsread:index.html:search-phrase",
+      "passed": true,
+      "detail": "Title and H1 include ."
+    },
+    {
+      "id": "blog:kidsread:index.html:schema",
+      "passed": true,
+      "detail": "Article structured data parses."
+    },
+    {
+      "id": "blog:kidsread:index.html:cover-identity",
+      "passed": true,
+      "detail": "Cover identity review matches asset, article, index and shared editorial card."
+    },
+    {
+      "id": "blog:kidsread:index.html:breadcrumb",
+      "passed": true,
+      "detail": "BreadcrumbList structured data parses."
+    },
+    {
+      "id": "blog:kidsread:index.html:author",
+      "passed": true,
+      "detail": "Author is the Eaglish organization with a stable URL."
+    },
+    {
+      "id": "blog:kidsread:index.html:publisher",
+      "passed": true,
+      "detail": "Publisher is the Eaglish organization."
+    },
+    {
+      "id": "blog:kidsread:index.html:schema-url",
+      "passed": true,
+      "detail": "Article mainEntityOfPage matches canonical."
+    },
+    {
+      "id": "blog:kidsread:index.html:schema-dates",
+      "passed": true,
+      "detail": "Published and modified dates are valid and match reviewed knowledge metadata when applicable."
+    },
+    {
+      "id": "blog:kidsread:index.html:sitemap-lastmod",
+      "passed": true,
+      "detail": "Sitemap lastmod matches the significant article update date."
+    },
+    {
+      "id": "blog:kidsread:index.html:knowledge-shelf",
+      "passed": true,
+      "detail": "Knowledge card is an explicit explainer and contains no purchase action."
+    },
+    {
+      "id": "blog:kidsread:index.html:knowledge-related",
+      "passed": true,
+      "detail": "Reviewed related article links remain crawlable."
+    },
+    {
+      "id": "blog:kidsread:index.html:schema-images",
+      "passed": true,
+      "detail": "Article images use absolute first-party URLs."
+    },
+    {
+      "id": "blog:kidsread:index.html:schema-keywords",
+      "passed": true,
+      "detail": "Article has a restrained query/topic cluster."
+    },
+    {
+      "id": "blog:kidsread:index.html:schema-noise",
+      "passed": true,
+      "detail": "No unsupported commercial FAQ or volatile Product/Offer markup."
+    },
+    {
+      "id": "blog:kidsread:index.html:opening-answer",
+      "passed": true,
+      "detail": "A source-grounded direct answer is visible near the opening."
+    },
+    {
+      "id": "blog:kidsread:index.html:answer-depth",
+      "passed": true,
+      "detail": "At least three visible reader questions support extractable answers."
+    },
+    {
+      "id": "blog:kidsread:index.html:crawlable-offer-fallback",
+      "passed": true,
+      "detail": "Knowledge reaches a reviewed related article without JavaScript."
+    },
+    {
+      "id": "blog:kidsread:index.html:content-depth",
+      "passed": true,
+      "detail": "Article has substantive consumer-facing depth."
+    },
+    {
+      "id": "blog:kidsread:index.html:social-card",
+      "passed": true,
+      "detail": "Twitter/X card mirrors the Open Graph card."
+    },
+    {
+      "id": "blog:kidsread:index.html:og-image-contract",
+      "passed": true,
+      "detail": "OG image has dimensions and alt text."
+    },
+    {
+      "id": "blog:kidsread:index.html:image-alt",
+      "passed": true,
+      "detail": "Every non-decorative image has descriptive alt text."
+    },
+    {
+      "id": "blog:kidsread:index.html:video-runtime-version",
+      "passed": true,
+      "detail": "Article uses the current resilient video runtime and styles."
+    },
+    {
+      "id": "blog:kidsread:index.html:sitemap",
+      "passed": true,
+      "detail": "Canonical URL is in sitemap."
+    },
+    {
+      "id": "blog:kidsread:index.html:consumer-copy",
+      "passed": true,
+      "detail": "No internal review language is visible."
+    },
+    {
+      "id": "blog:kidsread:index.html:local-assets",
+      "passed": true,
+      "detail": "Local assets resolve."
+    },
+    {
+      "id": "blog:kidsread:index.html:unique-title",
+      "passed": true,
+      "detail": "Title is unique."
+    },
+    {
+      "id": "blog:kidsread:index.html:unique-description",
       "passed": true,
       "detail": "Meta description is unique."
     },
@@ -5540,6 +6685,16 @@
       "detail": "Blog index links to the article."
     },
     {
+      "id": "catalog:https://www.eaglish.store/blog/jan-jul-winter/",
+      "passed": true,
+      "detail": "Product-card article mapping exists."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/jan-jul-winter/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
       "id": "catalog:https://www.eaglish.store/blog/jowua/",
       "passed": true,
       "detail": "Product-card article mapping exists."
@@ -5556,6 +6711,66 @@
     },
     {
       "id": "blog-index:https://www.eaglish.store/blog/kids-active-toys/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/kidsread-chinese/",
+      "passed": true,
+      "detail": "Reviewed knowledge has no product-card mapping."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/kidsread-chinese/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/kidsread-english/",
+      "passed": true,
+      "detail": "Reviewed knowledge has no product-card mapping."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/kidsread-english/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/kidsread-pen/",
+      "passed": true,
+      "detail": "Reviewed knowledge has no product-card mapping."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/kidsread-pen/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/kidsread-phonics-roadmap/",
+      "passed": true,
+      "detail": "Reviewed knowledge has no product-card mapping."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/kidsread-phonics-roadmap/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/kidsread-zhuyin/",
+      "passed": true,
+      "detail": "Reviewed knowledge has no product-card mapping."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/kidsread-zhuyin/",
+      "passed": true,
+      "detail": "Blog index links to the article."
+    },
+    {
+      "id": "catalog:https://www.eaglish.store/blog/kidsread/",
+      "passed": true,
+      "detail": "Reviewed knowledge has no product-card mapping."
+    },
+    {
+      "id": "blog-index:https://www.eaglish.store/blog/kidsread/",
       "passed": true,
       "detail": "Blog index links to the article."
     },
@@ -5735,11 +6950,5 @@
       "detail": "Meroware exposes a scannable choice map and direct FAQ answers."
     }
   ],
-  "failures": [
-    {
-      "id": "blog:done-by-deer:index.html:answer-depth",
-      "passed": false,
-      "detail": "At least three visible reader questions support extractable answers."
-    }
-  ]
+  "failures": []
 }

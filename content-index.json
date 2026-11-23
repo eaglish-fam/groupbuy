@@ -21,7 +21,7 @@
       "cluster": null,
       "published": "2026-11-10",
       "modified": "2026-11-10",
-      "sourceHash": "82a5d7ad62a5affcf8d8f3ba41701abcdc40a7cdd0b4982ece2877a8d8a8b491"
+      "sourceHash": "f4cf86843f95384f1790f40444b8ddd40999df82174d1c68890a9ed45253319c"
     },
     {
       "slug": "artisan-cb301",
@@ -40,7 +40,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "34b04fb0af4a131242d56e9986f72ede52728008d20114562722fad04966daa3"
+      "sourceHash": "28806ff936ae7fba589d967a4de6053ecaf8c6f3af5756cdf751b4607f9a9cb3"
     },
     {
       "slug": "atojet",
@@ -59,7 +59,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "fa269b83a42fdb75d48ff551d455087818a025c78f04191de85495b828afae3a"
+      "sourceHash": "2b8241da87c3f39454ba89c2e3b3cd0f48194e5c3a2bcbf89424332633681aed"
     },
     {
       "slug": "bernie",
@@ -79,7 +79,7 @@
       "cluster": null,
       "published": "2026-11-06",
       "modified": "2026-11-06",
-      "sourceHash": "4a18d41eb9e81b73f08e007de362b5ae71eaa307c8eb62cc0e525184f6ccdd7e"
+      "sourceHash": "8fad358b3c0fd8625e91736e6f8c69a8897d954d066f30076cf04e9d7e773858"
     },
     {
       "slug": "blackmores",
@@ -101,7 +101,7 @@
       "cluster": null,
       "published": "2026-10-19",
       "modified": "2026-10-22",
-      "sourceHash": "7d83df94e3f974ad19df90c5c2273eb42250c13e406e45631bc976b997b9de1c"
+      "sourceHash": "66a378acc266e79abf145868761c0df6a1bd52127a8d9e19f71a8eb5a0a0923d"
     },
     {
       "slug": "branden",
@@ -120,7 +120,7 @@
       "cluster": null,
       "published": "2026-09-24",
       "modified": "2026-09-24",
-      "sourceHash": "2650d41ab5ee4522d3df868eb3dbaef26449930a5ba305ef7aefbd2036705e3f"
+      "sourceHash": "2f0223b835f5b35580d03b668660c5e1902a4dc506901b28e0a1c6027e4edbf5"
     },
     {
       "slug": "brush-baby",
@@ -142,7 +142,7 @@
       "cluster": null,
       "published": "2026-11-13",
       "modified": "2026-11-13",
-      "sourceHash": "9a46fe1172727ef92722095af7515898bbca993a33cfefce44494263623ce059"
+      "sourceHash": "ed2d63f1fe3d952f790ceb8c64ba4e51b17db7f878647070fa8f1565935d73e1"
     },
     {
       "slug": "caesar-kenting",
@@ -164,7 +164,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "5b67c6460f52f1e62adc850fc44d64c7275f387c8031e3d1457067cc8f88d1e3"
+      "sourceHash": "8882d2e217e1efa3c825a33dd6c6c107ab6dc1f53bc382893f2d95c73200f57d"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -186,7 +186,7 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "ec8df19d1719229638c665020b2c5820fdee5c021d46c2e49e9e722f65aa6707"
+      "sourceHash": "f116b74a9f0ad565e95394fe198cba9ecc67656c49173aaa82a03dacdad750c2"
     },
     {
       "slug": "done-by-deer",
@@ -206,7 +206,7 @@
       "cluster": null,
       "published": "2026-10-22",
       "modified": "2026-10-22",
-      "sourceHash": "d7dc1d2db624d8703509dac0d9e383d7d457559e53917b0e427baadc1bdc3d47"
+      "sourceHash": "0065961688a645ae37131635a11c5dd547df3d8387ad1eb2845f8fe250d485f8"
     },
     {
       "slug": "eben-kombucha",
@@ -226,7 +226,7 @@
       "cluster": null,
       "published": "2026-09-29",
       "modified": "2026-09-29",
-      "sourceHash": "84f596ae2f9ae56fc02293e6496dd0c5268084c43c4cac693255bb97607186d2"
+      "sourceHash": "aebeb83e767e977d7e5f762cd938fd3f50563c8fb82929e02d1c1b3099aa5b59"
     },
     {
       "slug": "fushan-gifts",
@@ -248,7 +248,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "b5a78f2c16aad1786cf1a302d0a740221857c89f33fc2a7c030c705c31c48dcf"
+      "sourceHash": "92d3311a135ba5e5c4a876c0525716fbed22f4a718453f7cc733214c473164b0"
     },
     {
       "slug": "hereu-tag",
@@ -270,7 +270,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "30de2ecf2426f4367a9e14c99ca3f7dfc0f806027e6b40eba9a138f48f031ab0"
+      "sourceHash": "d8eeb994daaffea60f45a4a964194eb81e495c4dbd76121c460a2baba7d2644e"
     },
     {
       "slug": "hummus-guide",
@@ -298,7 +298,7 @@
       "prepared": "2026-10-13",
       "published": "2026-10-13",
       "modified": "2026-10-13",
-      "sourceHash": "14b115d0db339e86edde7233a743008e55d51e39b1c02087e01257eedea5bbd5"
+      "sourceHash": "d1f5bb64609bb41b9a72bcb9456ff4d9926db4a3af8319a03f91db8c40270c8f"
     },
     {
       "slug": "ilovekids-rotating-bookcase",
@@ -320,7 +320,7 @@
       "cluster": null,
       "published": "2026-11-10",
       "modified": "2026-11-10",
-      "sourceHash": "b55c1126fd34b690c7d3727576de95c0efb86e144176b69933f2f768a125489c"
+      "sourceHash": "25e6f48297706199921d4555fa38ebaf36df168d0a2104e91a44f8cab0c868d1"
     },
     {
       "slug": "insta360-ezway",
@@ -351,7 +351,7 @@
       "prepared": "2026-11-17",
       "published": "2026-11-17",
       "modified": "2026-11-17",
-      "sourceHash": "2700f91f84e442cdd227a5301a889a8e641e624f219502e1b70fa77698e200f1"
+      "sourceHash": "1772b9676cc5bc6a5312bbd4e05f966cd4009cb6af15d314e7c413eb62202d75"
     },
     {
       "slug": "jan-jul-winter",
@@ -374,7 +374,7 @@
       "cluster": null,
       "published": "2026-11-22",
       "modified": "2026-11-22",
-      "sourceHash": "ae0115c23ba36c14a3b86b3425126cd688b3a927f5ec3fc0bcbccadc34597294"
+      "sourceHash": "942eb8dccc826b41edea243e8c69c1348c96b68351da4cd41980c6773068b7b4"
     },
     {
       "slug": "jowua",
@@ -396,7 +396,7 @@
       "cluster": null,
       "published": "2026-11-16",
       "modified": "2026-11-16",
-      "sourceHash": "2e256ccdb4c2f65cfd721d52d6354773ef8fc45dff54aed3a918d5717a3e2894"
+      "sourceHash": "832486a8c4b4d0f9e38c0aa9dae4e71836e6e839981e8d29bed6bc91db7a4518"
     },
     {
       "slug": "kids-active-toys",
@@ -419,7 +419,217 @@
       "cluster": null,
       "published": "2026-11-10",
       "modified": "2026-11-10",
-      "sourceHash": "56c421b1ef759a69b260d7f4076cd3d1c06ceeb282a207e34627b01a3e319bae"
+      "sourceHash": "c320f1eface93627a9f3d0c6cc202c5e1d3c13fa77c478270f1302d880e1fb55"
+    },
+    {
+      "slug": "kidsread",
+      "url": "https://www.eaglish.store/blog/kidsread/",
+      "title": "KidsRead 點讀筆完整指南：幾歲開始、怎麼選、這次有哪些點讀教材",
+      "mode": "explainer",
+      "intent": "KidsRead series (hub): KidsRead, KidsRead 點讀筆, 點讀筆推薦",
+      "productNames": [],
+      "productId": null,
+      "description": "KidsRead 點讀筆怎麼選？鷹式一家整理這次開團的 56 套點讀教材：依孩子年齡和想學的內容篩選，看鷹家推薦、點讀筆單筆套組和單筆差在哪，再連到英文、中文教材全書單與自然發音、注音路線。",
+      "image": "/assets/kidsread/covers/hub.webp",
+      "alt": "KidsRead點讀筆指南：依年齡挑教材，一次看懂",
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread-pen",
+        "kidsread-phonics-roadmap",
+        "kidsread-english",
+        "kidsread-zhuyin",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePrepared": "2026-11-23",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "topics": [
+        "KidsRead",
+        "KidsRead 點讀筆",
+        "點讀筆推薦",
+        "點讀教材",
+        "幼兒英文啟蒙"
+      ],
+      "prepared": "2026-11-23",
+      "published": "2026-11-23",
+      "modified": "2026-11-23",
+      "sourceHash": "e544620a164064ddef9aab9a66b2c53c8c80f3f4cbd0243e3d5ccae853d4d963"
+    },
+    {
+      "slug": "kidsread-chinese",
+      "url": "https://www.eaglish.store/blog/kidsread-chinese/",
+      "title": "KidsRead 中文教材全書單：注音、識字、知識立體書、唐詩與名人故事",
+      "mode": "explainer",
+      "intent": "KidsRead series (chinese): KidsRead 中文教材, 中文點讀書, 注音點讀",
+      "productNames": [],
+      "productId": null,
+      "description": "KidsRead 中文與雙語點讀教材全書單：注音與識字、KiDiDOC 知識立體書、西遊記立體書、與狗店長樂讀詩、小不點大夢想名人傳記等，共 20 套。每套寫清楚適讀年齡、內容物和點讀功能，可以依年齡和主題篩選。",
+      "image": "/assets/kidsread/covers/chinese.webp",
+      "alt": "中文教材全書單：KidsRead 注音、知識書、唐詩",
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-pen",
+        "kidsread-phonics-roadmap",
+        "kidsread-english",
+        "kidsread-zhuyin"
+      ],
+      "publicationState": "published",
+      "datePrepared": "2026-11-23",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "topics": [
+        "KidsRead 中文教材",
+        "中文點讀書",
+        "注音點讀",
+        "兒童知識立體書",
+        "點讀筆教材"
+      ],
+      "prepared": "2026-11-23",
+      "published": "2026-11-23",
+      "modified": "2026-11-23",
+      "sourceHash": "4e65fc65b4f866b3490d26b84fb05c759d2e16bce7b331267bf40b53f5b97830"
+    },
+    {
+      "slug": "kidsread-english",
+      "url": "https://www.eaglish.store/blog/kidsread-english/",
+      "title": "KidsRead 英文教材全書單：自然發音、英文繪本、翻翻書依年齡挑",
+      "mode": "explainer",
+      "intent": "KidsRead series (english): KidsRead 英文教材, 英文點讀繪本, 英文繪本推薦",
+      "productNames": [],
+      "productId": null,
+      "description": "KidsRead 英文點讀教材全書單：自然發音讀本、JY Books 英文繪本與童謠洞洞書、找找書、翻翻書、科普和故事，共 36 套。每套寫清楚適讀年齡、內容物和點讀筆能做什麼，可以依年齡和類型篩選。",
+      "image": "/assets/kidsread/covers/english.webp",
+      "alt": "英文教材全書單：KidsRead 依年齡挑英文點讀書",
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-pen",
+        "kidsread-phonics-roadmap",
+        "kidsread-zhuyin",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePrepared": "2026-11-23",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "topics": [
+        "KidsRead 英文教材",
+        "英文點讀繪本",
+        "英文繪本推薦",
+        "幼兒英文教材",
+        "點讀筆教材"
+      ],
+      "prepared": "2026-11-23",
+      "published": "2026-11-23",
+      "modified": "2026-11-23",
+      "sourceHash": "aaecb5eb1d0eda47a9516c00fe8cdaab10194a5c1e0ecf10961c6b9212be0343"
+    },
+    {
+      "slug": "kidsread-pen",
+      "url": "https://www.eaglish.store/blog/kidsread-pen/",
+      "title": "為什麼需要 KidsRead 點讀筆？錄音貼紙、四種聲音與孩子自學的心得",
+      "mode": "explainer",
+      "intent": "KidsRead series (pen): KidsRead 點讀筆, 錄音點讀筆, 點讀筆推薦",
+      "productNames": [],
+      "productId": null,
+      "description": "KidsRead 錄音點讀筆能點讀全系列教材，也能用錄音貼紙把家裡原本的書變成點讀書，一張貼紙可以錄中文、英文、第三種語言和解釋。整理鷹式一家用點讀筆陪孩子學習的心得，和 PLUS 3.0 單筆套組怎麼選。",
+      "image": "/assets/kidsread/covers/pen.webp",
+      "alt": "為什麼需要點讀筆？：KidsRead 錄音貼紙與自學心得",
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-phonics-roadmap",
+        "kidsread-english",
+        "kidsread-zhuyin",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePrepared": "2026-11-23",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "topics": [
+        "KidsRead 點讀筆",
+        "錄音點讀筆",
+        "點讀筆推薦",
+        "錄音貼紙",
+        "PLUS 3.0"
+      ],
+      "prepared": "2026-11-23",
+      "published": "2026-11-23",
+      "modified": "2026-11-23",
+      "sourceHash": "48518961f46033cf6b668540325e1625a50b2874126517cf40955349567f8c7c"
+    },
+    {
+      "slug": "kidsread-phonics-roadmap",
+      "url": "https://www.eaglish.store/blog/kidsread-phonics-roadmap/",
+      "title": "KidsRead 自然發音路線圖：從字母、拼讀到英文小說，一階一階往上",
+      "mode": "explainer",
+      "intent": "KidsRead series (reading): 自然發音怎麼教, 英文分級讀本, 點讀橋樑書",
+      "productNames": [],
+      "productId": null,
+      "description": "自然發音怎麼教？把 KidsRead 英文點讀教材照程度排成六階：字母、自然發音、CVC 拼讀、常見字與分級讀本、橋樑書、章節小說。每一階列出適合的教材和年齡，看孩子現在在哪一階、下一步讀什麼。",
+      "image": "/assets/kidsread/covers/reading.webp",
+      "alt": "自然發音路線圖：KidsRead 從字母讀到小說",
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-pen",
+        "kidsread-english",
+        "kidsread-zhuyin",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePrepared": "2026-11-23",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "topics": [
+        "自然發音怎麼教",
+        "英文分級讀本",
+        "點讀橋樑書",
+        "KidsRead 自然發音",
+        "英文閱讀路線"
+      ],
+      "prepared": "2026-11-23",
+      "published": "2026-11-23",
+      "modified": "2026-11-23",
+      "sourceHash": "fb241d944086c6ff22e1b133c714f10ae8b90f4eb272bcf64f1578335db2e1a5"
+    },
+    {
+      "slug": "kidsread-zhuyin",
+      "url": "https://www.eaglish.store/blog/kidsread-zhuyin/",
+      "title": "KidsRead 注音教材怎麼選：ㄅㄆㄇ初階、進階、拼音練習到認國字",
+      "mode": "explainer",
+      "intent": "KidsRead series (zhuyin): 注音怎麼學, ㄅㄆㄇ教材, 注音點讀",
+      "productNames": [],
+      "productId": null,
+      "description": "孩子學注音從哪一套開始？KidsRead 的小康軒注音教材分初階商店街、進階故事王國和拼音機器人，學完再用文字魔法世界認常用國字。依孩子的程度和年齡比較，三套注音教材也可以一起買。",
+      "image": "/assets/kidsread/covers/zhuyin.webp",
+      "alt": "注音教材怎麼選：KidsRead ㄅㄆㄇ初階到進階",
+      "cluster": "family",
+      "relatedArticles": [
+        "kidsread",
+        "kidsread-pen",
+        "kidsread-phonics-roadmap",
+        "kidsread-english",
+        "kidsread-chinese"
+      ],
+      "publicationState": "published",
+      "datePrepared": "2026-11-23",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "topics": [
+        "注音怎麼學",
+        "ㄅㄆㄇ教材",
+        "注音點讀",
+        "小康軒注音",
+        "KidsRead 注音"
+      ],
+      "prepared": "2026-11-23",
+      "published": "2026-11-23",
+      "modified": "2026-11-23",
+      "sourceHash": "3cf74e7937639ffbac3dbb44cbc44b3395b766b10a1005b565c61c1b29814b8c"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -442,7 +652,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "5597bfa3386e7e94d961d66925efd0e56ccc842ffb44d55ae44ad6f9fa9b5684"
+      "sourceHash": "89e32bd46ffcdcbeb022ff44729f70787bf6fede73fbf2f6504b903436744483"
     },
     {
       "slug": "knsh",
@@ -461,7 +671,7 @@
       "cluster": null,
       "published": "2026-10-13",
       "modified": "2026-10-14",
-      "sourceHash": "e741145b5a1edeec6a4017c8e8fd78ebc0c8d930eee6c89570cbe6ae714f433c"
+      "sourceHash": "619e24b6cef1dbae6a654ad15b49051876a32c5b0a00e7a42db6b2cc542d2945"
     },
     {
       "slug": "lange",
@@ -482,7 +692,7 @@
       "cluster": "family",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "c833443eefd181ba92e974a5827decac5158ed86880b2443669655874d012a17"
+      "sourceHash": "1b2f2a6f235d15ce24780bc81d88c7324bfb9644a103e1d1afef4c8947a1e0ca"
     },
     {
       "slug": "leofoo",
@@ -507,7 +717,7 @@
       "cluster": "travel",
       "published": "2026-10-02",
       "modified": "2026-10-02",
-      "sourceHash": "13e9af9477c5c2c4ee357a9fb01d8a099c80ee79f0d7f33be04b08758c749c36"
+      "sourceHash": "c94e86a9622e2458f64f25083a2e6b5058c36d2ff2282f8e59a407afa85bc9c6"
     },
     {
       "slug": "locknlock",
@@ -528,7 +738,7 @@
       "cluster": null,
       "published": "2026-10-08",
       "modified": "2026-10-08",
-      "sourceHash": "6ef785b458efa85d1c20c17f68db542a59bcb67fecf80afe5162d13de5fb732a"
+      "sourceHash": "c391c308bb995f7fcc9edbfdfcdc48afe2b9ffa4d075780639882671e0505af7"
     },
     {
       "slug": "meroware",
@@ -547,7 +757,7 @@
       "cluster": "family",
       "published": "2026-09-09",
       "modified": "2026-09-11",
-      "sourceHash": "1304308731024c884afd5f08a361c63f4774f8268b087ed9bdebd8bcc4b3f6ba"
+      "sourceHash": "661c849f1fbc7e5a32bdb88284521f2adf402d29b768b6e7c4d6e92ca75c0342"
     },
     {
       "slug": "miamily",
@@ -568,7 +778,7 @@
       "cluster": "travel",
       "published": "2026-09-16",
       "modified": "2026-11-06",
-      "sourceHash": "6106563d0ad7ada47fc2cdf031838e9d436ac73e7c2eb3f9636d932a7c42ca77"
+      "sourceHash": "3e5165180f7283fba0c4b1e49040c9563884a9c9e62b6f9fb8cc42c91037d739"
     },
     {
       "slug": "mitoy-rice-blocks",
@@ -587,7 +797,7 @@
       "cluster": "family",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "08e46edafc3ec80be206b66ccbdad026e281080990fdee3d9ce4ed2e068baa07"
+      "sourceHash": "575d8c46594a7167ef57534ca4d322c48297f02e83eca50e8fffd32c81f57c9d"
     },
     {
       "slug": "momax-locator",
@@ -613,7 +823,7 @@
       "cluster": null,
       "published": "2026-11-10",
       "modified": "2026-11-20",
-      "sourceHash": "3d0809848b4ceb93189518e656fe8155ed78d097150470a380829c94a8a66287"
+      "sourceHash": "6a3d590e2baea4de6de36193abee5a571a1294b781c73014a08b2830b2fcedab"
     },
     {
       "slug": "parakito",
@@ -634,7 +844,7 @@
       "cluster": null,
       "published": "2026-10-15",
       "modified": "2026-10-15",
-      "sourceHash": "f3bf4dfc5313753b2ef45978406305a54a3b8ee1ad8da7f3cb03289e11d8b29a"
+      "sourceHash": "34ac509281efee1b2be571e065e9d8db8f3444e54fb8a135b07d925dc1e7ab7f"
     },
     {
       "slug": "playzu",
@@ -655,7 +865,7 @@
       "cluster": "family",
       "published": "2026-09-11",
       "modified": "2026-11-20",
-      "sourceHash": "0db4921249bbee93ddcfd30a631df29025aa72e9b96ab9b1175fcc1fd2eba043"
+      "sourceHash": "4f42343aef4e6f90d9a9e740d597f10ef8801804685ce5473bf070b6b6a1c1a8"
     },
     {
       "slug": "sanfufarm",
@@ -679,7 +889,7 @@
       "cluster": "travel",
       "published": "2026-10-23",
       "modified": "2026-10-23",
-      "sourceHash": "e340edf0e3d02e84fc64febb83eb821e8bf056c7936d45d69f390f0e21c6eeca"
+      "sourceHash": "f4b1c9dcf29b87389025047ebc5eba60d771cf74441948731349918bcdc09182"
     },
     {
       "slug": "shinwa-living",
@@ -701,7 +911,7 @@
       "cluster": "home",
       "published": "2026-10-14",
       "modified": "2026-10-14",
-      "sourceHash": "07b1e8d331c73aa0495bf7691347a2682b5ab1b8373d3d8cc43b9c4ce06bc768"
+      "sourceHash": "f6e130d2285759dac8e4fa9c53e05d4c832e19942a517eb85a4ecfb1974b046a"
     },
     {
       "slug": "shoumaji",
@@ -722,7 +932,7 @@
       "cluster": "travel",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "43ea1ba98a2cc231ba3fa1cb3b3ea989eb4010aff7dae83d24ba802e670def07"
+      "sourceHash": "c51229dc880102373254d68a89a9325468fc63139bf79abde4b8cf2fcf83dadb"
     },
     {
       "slug": "wave-hummus",
@@ -741,7 +951,7 @@
       "cluster": "table",
       "published": "2026-09-08",
       "modified": "2026-11-06",
-      "sourceHash": "f4149faa04a79e67a54fc40bc25aa80ae3be5459b706920324224b90535f6951"
+      "sourceHash": "9640c9e487e20ee37f72cc051a6eac08063b80b02219ee90ebd0f7b25e4581d2"
     },
     {
       "slug": "zoofamily-kids-camera",
@@ -761,7 +971,7 @@
       "cluster": null,
       "published": "2026-11-06",
       "modified": "2026-11-06",
-      "sourceHash": "0d602267f2d43cc40076886f2235cf7162543c70ef0eb0fb3a867005fb2427e1"
+      "sourceHash": "2ba792c92dc14e0e2e965cdabb1fe7b79b1772370a0f04837cd5d6673c5da385"
     }
   ]
 }

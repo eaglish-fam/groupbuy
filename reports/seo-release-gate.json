@@ -1,9 +1,9 @@
 {
   "counts": {
-    "pages": 74,
+    "pages": 80,
     "blocking": 0,
-    "warnings": 30,
-    "total": 30
+    "warnings": 34,
+    "total": 34
   },
   "findings": [
     {
@@ -47,6 +47,34 @@
       "message": "Image exceeds 350KB (357KB): /assets/kids-active-toys/scoot-ride-sit.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kids-active-toys/index.html",
       "index": 8554
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/kidsread/index.html",
+      "index": 11051
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/kidsread-english/index.html",
+      "index": 12706
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/kidsread-english/index.html",
+      "index": 39236
+    },
+    {
+      "level": "warn",
+      "category": "images",
+      "message": "Image exceeds 350KB (443KB): /assets/kidsread/2026-07-IMG_9537.webp. File weight alone does not guarantee ranking; only flagged for review.",
+      "file": "blog/kidsread-english/index.html",
+      "index": 51719
     },
     {
       "level": "warn",
