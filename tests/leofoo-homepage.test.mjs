@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import http from 'node:http';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import { extname, resolve } from 'node:path';
-import vm from 'node:vm';
+import { createRequire } from 'node:module';
 import { loadBrowserRuntime } from './browser-runtime.mjs';
 
 const root = resolve(import.meta.dirname, '..');
@@ -22,15 +22,8 @@ const urls = {
 };
 
 function homepageHelpers() {
-  const constants = source.slice(
-    source.indexOf('const LEOFOO_PLANS'),
-    source.indexOf('const catalogueFallback'),
-  );
-  const helpers = source.slice(
-    source.indexOf('function leofooPlanFor('),
-    source.indexOf('function leofooCard('),
-  );
-  return vm.runInNewContext(`${constants}\n${helpers}\n({ LEOFOO_PLANS, groupLeofooForDisplay, applyLeofooCampaignStatus, leofooGroupStatus })`);
+  // The Leofoo plan rules moved to the shared catalogue module the homepage loads.
+  return createRequire(import.meta.url)('../design/catalog-core.js');
 }
 
 test('Leofoo display grouping retains the three actual normalized products and display counts', () => {
@@ -91,9 +84,12 @@ test('Leofoo homepage markup keeps exact links, modal defaults and accessibility
   assert.match(source, /href="\/blog\/leofoo\/">閱讀選房指南<\/a>/);
   assert.match(source, /p\.article\?\.id === "leofoo"[\s\S]*?name === "方案詳情"/);
   const loadSource = source.slice(source.indexOf('async function performLoad()'), source.indexOf('function load()'));
-  assert.match(loadSource, /const rows = await fetchRows\("現正開團"\)/);
+  assert.match(loadSource, /const rows = await CatalogCore\.fetchRows\("現正開團"\)/);
+  assert.match(loadSource, /CatalogCore\.buildCatalog\(rows, permanentRegistry\)/);
   assert.doesNotMatch(loadSource, /即將開團/);
-  assert.ok(loadSource.indexOf('ProductContent.campaignFor(rows, "leofoo")') < loadSource.indexOf('normalize(rows)'));
+  const core = readFileSync(resolve(root, 'design/catalog-core.js'), 'utf8');
+  const build = core.slice(core.indexOf('function buildCatalog('), core.indexOf('function collectEvents('));
+  assert.ok(build.indexOf('PC().campaignFor(rows, "leofoo")') > -1 && build.indexOf('PC().campaignFor(rows, "leofoo")') < build.indexOf('normalize(rows)'));
   assert.match(css, /\.leofoo-plan-titles\s*\{[\s\S]*?gap:\s*8px/);
   assert.match(css, /\.leofoo-plan-title\s*\{[\s\S]*?min-height:\s*44px/);
   assert.match(css, /\.leofoo-plan-title:focus-visible/);

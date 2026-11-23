@@ -3,7 +3,8 @@ import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import vm from 'node:vm';
 const read = p => readFileSync(new URL('../'+p, import.meta.url),'utf8');
-for (const [city,end] of [['chiang-mai','video'],['chiang-rai','films']]) {
+// Both guides now render from the approved template, whose film section is #videos.
+for (const [city,end] of [['chiang-mai','videos'],['chiang-rai','videos']]) {
   test(`${city}: places first, planner before films, four-character launcher`,()=>{
     const html=read(`trip/guides/${city}-with-kids/index.html`);
     assert.equal((html.match(/id="plan"/g)||[]).length,1);

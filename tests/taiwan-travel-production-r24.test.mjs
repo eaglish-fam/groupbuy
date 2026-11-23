@@ -10,7 +10,6 @@ import {selectRegionalFilms,renderRegionalFilms,renderConsumerDetail} from '../t
 import {canonicalTripPhoto} from '../trip/photo-source-identity.mjs';
 import {photoContexts} from '../scripts/trip-photo-contexts-r22.mjs';
 import {parseArticleMarkdown,renderTravelArticle} from '../scripts/travel-article-renderer.mjs';
-import {presentCebuR24} from '../scripts/present-cebu-r24.mjs';
 import {preservedArticle} from '../scripts/trip-photo-frames-r22.mjs';
 const bytes=p=>fs.readFileSync(new URL('../'+p,import.meta.url));
 const read=p=>bytes(p).toString();
@@ -19,7 +18,11 @@ const hash=b=>createHash('sha256').update(b).digest('hex');
 const config=json('trip/data/taiwan-atlas-r24.json'),{data,catalog}=config;
 const release=json('trip/data/taiwan-atlas-release-r24.json');
 const registrationPath=new URL('../trip/data/approved-travel-registration-v1.json',import.meta.url);
-const approved=fs.existsSync(registrationPath)?json(JSON.parse(fs.readFileSync(registrationPath)).dataPath):null;
+// Every published package contributes; the merged view keeps their records together.
+const approved=fs.existsSync(registrationPath)?(registration=>{
+ const packages=(registration.packages||[registration]).map(p=>json(p.dataPath));
+ return {countries:packages.flatMap(p=>p.countries),cities:packages.flatMap(p=>p.cities),assets:packages.flatMap(p=>p.assets)};
+})(JSON.parse(fs.readFileSync(registrationPath))):null;
 const reduce=(s,a)=>reducePlaceExperience(s,a,data.geography,catalog,data);
 
 test('production build renders portable53 exactly with no private or preview data',()=>{
@@ -28,7 +31,9 @@ test('production build renders portable53 exactly with no private or preview dat
  assert.deepEqual(actual.catalog.hero,catalog.hero);assert.deepEqual(actual.catalog.themes,catalog.themes);
  for(const type of ['countries','guides']){
   const originalIds=new Set(catalog[type].map(v=>v.id));assert.deepEqual(actual.catalog[type].filter(v=>originalIds.has(v.id)),catalog[type]);
-  const additions=actual.catalog[type].filter(v=>!originalIds.has(v.id)),owners=type==='countries'?approved?.countries||[]:approved?.cities||[];
+  // Countries migrated from legacy pages (Thailand; single-destination Singapore) keep their reviewed home records.
+  const legacyCountryIds=new Set([...catalog.countries.map(v=>v.id),...(approved?.countries||[]).filter(c=>c.singleDestination).map(c=>c.id)]);
+  const additions=actual.catalog[type].filter(v=>!originalIds.has(v.id)),owners=(type==='countries'?approved?.countries||[]:approved?.cities||[]).filter(v=>!legacyCountryIds.has(type==='countries'?v.id:v.countryId));
   assert.deepEqual(additions.map(v=>v.id).sort(),owners.map(v=>v.id).sort());
   for(const record of additions){const owner=owners.find(v=>v.id===record.id),asset=approved.assets.find(a=>a.assetId===(type==='countries'?owner.discovery.assetId:owner.hero[0]));assert.equal(record.href,owner.path);assert.deepEqual(record.approvedPhoto,asset);}
  }
@@ -97,16 +102,4 @@ test('publiccountygeometryandisolatedtravel fontmatchacceptedbytes',()=>{
  assert.equal(bytes('assets/fonts/noto-serif-tc-travel-r24.woff2').toString('ascii',0,4),'wOF2');
  assert.doesNotMatch(read('trip/heading-theme-r24.css'),/@font-face\s*\{/);
  assert.match(read('site-font-loader.js'),/Eaglish Travel Heading Serif/);
-});
-test('Cebu narratives,captions,sourceimages and links remainexact afterreviewed frames',()=>{
- const c=json('trip/data/cebu-bohol-guide.json'),media=Object.fromEntries(json('trip/assets/cebu-bohol-media.json').map(m=>[m.id,m]));
- const raw=renderTravelArticle(parseArticleMarkdown(read('trip/content/philippines/cebu-bohol-with-kids.md'),c.sectionMap),c,media);
- const presented=presentCebuR24(raw,read('flights/assets/faraway-wordmark.svg'));
- const inventory=h=>({paragraphs:[...h.matchAll(/<p\b[^>]*>[\s\S]*?<\/p>/g)].map(m=>m[0]),captions:[...h.matchAll(/<figcaption\b[^>]*>[\s\S]*?<\/figcaption>/g)].map(m=>m[0]),images:[...h.matchAll(/<img\b[^>]*>/g)].map(m=>m[0]),links:[...h.matchAll(/<a\b[^>]*>[\s\S]*?<\/a>/g)].filter(m=>!m[0].includes('class="trip-plan-entry"')).map(m=>m[0].replace(/<svg\b[\s\S]*?<\/svg>/g,''))});
- const before=preservedArticle(inventory(raw)),after=preservedArticle(inventory(presented));
- // Wordmarks become inlineSVG, leaving all actual story photos and links exact.
- const story=i=>({...i,images:i.images.filter(p=>p.src?.startsWith('/trip/assets/')),links:i.links.filter(l=>!l.opening.includes('class="brand"'))});
- assert.deepEqual(story(after),story(before));
- for(const c of photoContexts.filter(c=>c.page==='cebu'))assert.ok(presented.includes(`data-photo-context="cebu:${c.sequence}"`));
- assert.equal((presented.match(/data-photo-frame=/g)||[]).length,36);assert.equal((presented.match(/data-photo-display-clone=/g)||[]).length,1);
 });

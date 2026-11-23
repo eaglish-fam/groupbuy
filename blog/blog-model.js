@@ -3,6 +3,8 @@
   function rowFor(rows,key){return ProductContent.rowForArticle(rows,key);}
   function stateForArticle(rows,key,now=ProductContent.today(),contentKind='product'){
     if(contentKind==='explainer'&&!ProductContent.catalog[key])return {shelf:'journal',label:'閱讀知識指南'};
+    // A permanent discount-code article has no Sheet campaign; it is always a recommended offer.
+    if(contentKind==='coupon')return {shelf:'journal',label:'推薦優惠'};
     if(!ProductContent.catalog[key]?.planBrands)return stateFor(rowFor(rows,key),now);
     const campaign=ProductContent.campaignFor(rows,key,now);
     if(campaign.state==='open')return {shelf:'open',label:'開團中',url:campaign.url};

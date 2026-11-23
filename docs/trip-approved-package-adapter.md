@@ -87,3 +87,41 @@ sourceIds, exact calendarDays and contiguous numbered days with public paragraph
 are validated. It does not create a new selectable allocation route or certify
 flight availability. Free destination checkboxes are not exposed: route choices
 come only from allocation.routes, with visible individual city-planner links.
+
+# 路線篇（routes[]）與候選登錄（2026-10-21，Grace）
+
+## 候選登錄
+
+- 正式公包照舊只登錄在 `trip/data/approved-travel-registration-v1.json`（`publication:true`），它的內容索引、首頁和世界地圖入口都不變。
+- 還沒核准上線的公包登錄在 `trip/data/approved-travel-candidates-v1.json` 的 `packages[]`：每筆 `{dataPath, expectedSha256, countryIds, cityIds, routeIds, publication:false}`。
+- 候選公包一律 `publication:false`：頁面 `noindex,nofollow`、不載 `site-runtime.js`（不送 GA）、不進 sitemap、不進首頁或世界地圖。網址不能和正式公包或另一個候選重複。
+- 上線時（Hiram 核准 PR 編號後）：把這筆移到正式登錄、改 `publication:true`，再走 R24 discovery 的同版更新加日本與亞洲入口。
+
+## routes[] 欄位
+
+路線篇是「一條固定的多日路線」，逐日寫怎麼排、怎麼移動；每天連到城市篇的景點。不做試排。
+
+| 欄位 | 規則 |
+|---|---|
+| `id`、`countryId`、`path` | `countryId` 要存在；`path` 和其他頁不重複 |
+| `name` | 麵包屑和國家頁卡片用，例如「北海道 7 天路線」 |
+| `englishName` | 首屏英文 eyebrow |
+| `title`、`subtitle`（選填）、`metadataTitle`（選填）、`description`、`author`、`updatedOn` | 同城市篇；`title` 用「主標：副標」 |
+| `intro`、`leadFormat`（選填） | 同城市篇：兩句，或 `longform-context/v1` 三到四段 |
+| `hero` | 三張不同的圖（一主兩輔），同城市篇首屏 |
+| `cityIds` | 這條路線連到的城市篇（同一國家） |
+| `facts`（選填） | 最多 8 列 `{label, value, sourceIds}`，放在「路線一覽」 |
+| `calendarDays`、`days[]` | `days.length === calendarDays`；每天 `{day（1 起連號）, kind, destination, title, paragraphs, sourceIds, overnight?, images?（剛好 3 張）, places?, links?}` |
+| `days[].kind` | 同 `referencePlans`：`international_outbound`、`arrival`、`full_play`、`full_play_flexible`、`full_play_regional`、`transfer`、`international_departure`、`international_arrival` |
+| `days[].places` | `[{cityId, placeId}]`，必須是 `cityIds` 裡城市篇的景點 |
+| `transport`、`stay`、`packing`、`related`（選填） | 一般 module（`title`、`paragraphs`、`sourceIds`、`links`） |
+| `plan`（選填） | `{title, paragraphs, sourceIds}`；`#plan` 自動列出逐日總表 |
+| `faq`、`videoSourceIds` | 同城市篇 |
+
+頁面順序：首屏 → `#overview` 路線一覽（facts＋城市篇卡片）→ `#day-1`…`#day-N` → transport／stay／packing → `#faq` → `#plan` 逐日總表 → `#videos` → `#related`。
+
+## 國家頁與地圖
+
+- `countries[].routeIds`：列出這個國家的全部路線篇，國家頁出現「完整路線篇」卡片。`referencePlans[].routeId`（選填）在參考時間表裡加「看完整路線篇」。
+- `geographicMap.views[].points[]`：每個點只能二選一，`cityId`（城市篇）或 `routeId`＋`href`（路線篇的段落，例如 `#day-5`）。不是城市篇的地點（小樽、新千歲機場）用後者。
+- `geographicMap.detail: '50m'`（選填）：放大視角改用 Natural Earth 1:50m 海岸線與國界（`world-atlas` 套件，建置時讀取）。北海道放大建議用這個。

@@ -1,9 +1,9 @@
+import {approvedPicture} from './trip-city-approved-adapter.mjs';
 import {readFileSync} from 'node:fs';
 import {feature} from 'topojson-client';
 import {geoBounds, geoMercator, geoPath} from 'd3-geo';
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[c]));
-const approvedGuideIds = new Set(['oslo', 'tromso', 'svalbard', 'amsterdam']);
 const n = value => Number(value.toFixed(3));
 const pct = (value, extent) => `${n(value / extent * 100)}%`;
 
@@ -15,13 +15,13 @@ function guideTarget(point, country, cities) {
     if (!valid(point.href)) throw new Error(`Invalid map destination: ${point.cityId}`);
     return point.href;
   }
-  const city = cities.find(c => c.id === point.cityId);
+  // Route-article points (e.g. a port town or airport) carry routeId instead.
+  const city = cities.find(c => c.id === (point.cityId ?? point.routeId));
   if (city) {
     if (!valid(city.path)) throw new Error(`Invalid guide path: ${point.cityId}`);
     return city.path;
   }
-  if (!approvedGuideIds.has(point.cityId) || !country.cityIds?.includes(point.cityId)) throw new Error(`Unresolved map city: ${point.cityId}`);
-  return `/trip/guides/${point.cityId}-with-kids/`;
+  throw new Error(`Unresolved map city: ${point.cityId}`);
 }
 
 /** Fit exactly the supplied geographic bounds; no illustrative substitute geometry. */
@@ -58,7 +58,9 @@ function component(view, geography, config, country, cities) {
   const clipId = `atlas-${country.id}-${key}-${view.id}`.replace(/[^a-z0-9-]/g, '');
   // SVG clips the geography after drawing, so geographic bounds never acquire
   // false coastline strokes along their rectangular cut edges.
-  const path = geoPath(projection.clipExtent(null));
+  // Detailed geometry is pre-clipped just outside the box (the cut edges stay
+  // hidden by the SVG clip) so a zoomed view does not inline a whole continent.
+  const path = geoPath(geography.detail ? projection.clipExtent([[box[0]-24, box[1]-24], [box[0]+box[2]+24, box[1]+box[3]+24]]) : projection.clipExtent(null));
   const coast = `<path class="travel-atlas-coast" d="${esc(path(geography.land))}"/>`;
   const territory = geography.territory ? `<path class="travel-atlas-territory" data-geometry-country="${esc(geography.territory.id)}" d="${esc(path(geography.territory))}"/>` : '';
   const boxClip = `<defs><clipPath id="${clipId}-bounds"><rect x="${box[0]}" y="${box[1]}" width="${box[2]}" height="${box[3]}"/></clipPath></defs>`;
@@ -102,10 +104,12 @@ function renderMultiViewCountryMap(country, cities, geography) {
     if (!Array.isArray(view.bounds) || view.bounds.length !== 4 || view.bounds[0] < -180 || view.bounds[2] > 180 || !Array.isArray(view.points) || view.points.length > 12) throw new Error('Invalid atlas view bounds or points');
     projectAtlasView(view, [28, 16, 544, 330]);
     for (const point of view.points) {
-      atlasId(point.cityId, 'city id');
+      const ownerId = point.cityId ?? point.routeId;
+      atlasId(ownerId, 'city id');
       boundedAtlasText(point.label, 64, 'point label');
-      const city = cities.find(c => c.id === point.cityId);
-      if (!country.cityIds?.includes(point.cityId) || !city) throw new Error('Unresolved atlas guide');
+      const city = cities.find(c => c.id === ownerId);
+      const owned = point.routeId !== undefined ? point.cityId === undefined && country.routeIds?.includes(point.routeId) : country.cityIds?.includes(point.cityId);
+      if (!owned || !city) throw new Error('Unresolved atlas guide');
       const route = guideTarget({...point, href: undefined}, country, cities);
       const target = guideTarget(point, country, cities);
       if (route.length > 512 || target.length > 512) throw new Error('Atlas guide destination is too long');
@@ -131,16 +135,44 @@ function renderMultiViewCountryMap(country, cities, geography) {
   return `<section class="approved-geographic-map travel-atlas-country travel-atlas-country--multiview" data-travel-atlas-root aria-label="${esc(country.name)}目的地位置圖">${controls}<div id="travel-atlas-${countryKey}" class="travel-atlas travel-atlas--country travel-atlas--multiview" data-travel-atlas data-atlas-active="${esc(firstId)}">${panels}</div><p class="travel-atlas-status" data-travel-atlas-status role="status" aria-live="polite">目前顯示：${esc(views[0].label)}</p><p class="travel-atlas-country-caption">${esc(map.caption)}</p><nav class="travel-atlas-destinations" aria-label="地圖目的地文字入口">${unique.map(point=>`<a href="${esc(guideTarget(point,country,cities))}">${esc(point.label)}</a>`).join('')}</nav><p class="approved-map-credit">Natural Earth · 目的地位置示意</p></section>`;
 }
 
-export function renderApprovedCountryMap(country, {cities = []} = {}) {
+const detailedGeography = {};
+function detailed(resolution) {
+  if (resolution !== '50m') throw new Error('Unsupported atlas detail');
+  if (!detailedGeography[resolution]) {
+    // Natural Earth 1:50m from the pinned world-atlas package, read at build time only.
+    const read = name => JSON.parse(readFileSync(new URL(`../node_modules/world-atlas/${name}-${resolution}.json`, import.meta.url), 'utf8'));
+    const land = read('land'), countries = read('countries');
+    detailedGeography[resolution] = {land:feature(land, land.objects.land), countries:feature(countries, countries.objects.countries).features};
+  }
+  return detailedGeography[resolution];
+}
+// An illustrated map image with pins (country.map), used when a migrated country page
+// keeps its original drawn map instead of a sourced Natural Earth geographicMap.
+function renderIllustratedCountryMap(country, cities, assets) {
+  const m = country.map, a = assets?.get(m.assetId);
+  if (!a) throw Error('Illustrated map asset missing');
+  // Up to five places carry their name on the map; more would collide, so they become numbered dots with a legend.
+  const numbered = m.pins.length > 5, city = p => cities.find(x => x.id === p.cityId);
+  const pins = m.pins.map((p, i) => { const c = city(p); return numbered
+    ? `<a class="approved-map-pin approved-map-pin--numbered" href="${esc(c.path)}" style="--x:${p.x}%;--y:${p.y}%" aria-label="${esc(c.name)}"><i aria-hidden="true">${i + 1}</i></a>`
+    : `<a class="approved-map-pin${p.align === 'left' ? ' approved-map-pin--left' : ''}" href="${esc(c.path)}" style="--x:${p.x}%;--y:${p.y}%"><i aria-hidden="true"></i><span>${esc(c.name)}<small lang="en">${esc(c.englishName)}</small></span></a>`; }).join('');
+  const legend = numbered ? `<ol class="approved-map-legend">${m.pins.map((p, i) => { const c = city(p); return `<li><a href="${esc(c.path)}"><b aria-hidden="true">${i + 1}</b><span>${esc(c.name)}<small lang="en">${esc(c.englishName)}</small></span></a></li>`; }).join('')}</ol>` : '';
+  return `<section class="approved-geographic-map approved-illustrated-map" aria-label="${esc(country.name)}旅行位置示意圖"><figure><div class="approved-illustrated-map-frame">${approvedPicture(a, {sizes:'(max-width:700px) calc(100vw - 40px), 580px'})}${pins}</div><figcaption>${esc(m.caption)}</figcaption>${legend}</figure></section>`;
+}
+export function renderApprovedCountryMap(country, {cities = [], routes = [], assets} = {}) {
   const map = country.geographicMap;
-  if (!map) return '';
+  if (!map) return country.map ? renderIllustratedCountryMap(country, cities, assets) : '';
   const countryKey = String(country.id || 'country').replace(/[^a-z0-9-]/g,'');
   const topology = JSON.parse(readFileSync(new URL('../trip/globe-land.json', import.meta.url), 'utf8'));
   // The already-shipped Natural Earth topology contains real ISO country
   // polygons as well as coastlines. Country borders are not viewport edges.
   const geography = {land:feature(topology, topology.objects.land),territory:feature(topology, topology.objects.countries).features.find(f=>f.id===country.discovery?.isoNumeric)};
   const norway = country.id === 'norway';
-  if (!norway && Array.isArray(map.views) && map.views.length > 1) return renderMultiViewCountryMap(country, cities, geography);
+  if (map.detail) {
+    const fine = detailed(map.detail);
+    Object.assign(geography, {land:fine.land, territory:fine.countries.find(f=>f.id===country.discovery?.isoNumeric), detail:map.detail});
+  }
+  if (!norway && Array.isArray(map.views) && map.views.length > 1) return renderMultiViewCountryMap(country, [...cities, ...routes], geography);
   const width = 600, height = norway ? 760 : 560;
   const mainland = map.views.find(v => v.id === 'mainland');
   const island = map.views.find(v => v.id === 'svalbard-inset');

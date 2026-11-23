@@ -4,10 +4,16 @@
   const robots = document.querySelector?.('meta[name="robots"]')?.content || "";
   const production = ["www.eaglish.store", "eaglish.store"].includes(location.hostname)
     && !/^\/(?:design|lab|docs)\//.test(location.pathname) && !/noindex/i.test(robots);
-  // Page and referral identity do not require search parameters or fragments.
+  // GA4 attributes sessions from these parameters. Every other query value may
+  // carry personal data such as an email or token, so it is dropped with the fragment.
+  const attributionParams = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content", "utm_id", "gclid", "gbraid", "wbraid", "fbclid"];
   const cleanPageUrl = value => {
     if (!value) return '';
-    try { const url = new URL(value, location.href); return url.origin + url.pathname; }
+    try {
+      const url = new URL(value, location.href);
+      for (const key of [...url.searchParams.keys()]) if (!attributionParams.includes(key)) url.searchParams.delete(key);
+      return url.origin + url.pathname + url.search;
+    }
     catch { return ''; }
   };
   const track = (name, data = {}) => {
@@ -60,7 +66,11 @@
     const contentGroup = location.pathname.startsWith('/trip/') ? 'travel'
       : location.pathname.startsWith('/blog/') ? 'journal'
       : location.pathname.startsWith('/guides/') ? 'shopping_guides' : 'shopping';
-    window.gtag("config", "G-7SW2X9B19H", { send_page_view: true, content_group: contentGroup, page_location: cleanPageUrl(location.href), page_referrer: cleanPageUrl(document.referrer) });
+    const pageConfig = { send_page_view: true, content_group: contentGroup, page_location: cleanPageUrl(location.href) };
+    // A direct visit has no referrer; an empty value must not be reported as one.
+    const pageReferrer = cleanPageUrl(document.referrer);
+    if (pageReferrer) pageConfig.page_referrer = pageReferrer;
+    window.gtag("config", "G-7SW2X9B19H", pageConfig);
     const loadAnalytics = () => {
       if (document.querySelector?.('script[data-site-analytics]')) return;
       const script = document.createElement("script");
@@ -184,8 +194,12 @@
       track("click_social", { social_platform: u.hostname, event_category: "engagement" });
   });
   if (production && "serviceWorker" in navigator) {
+    // A first visit is already served fresh from the network. Reloading it when the
+    // new worker claims the page would log a second page_view referred by itself.
+    const upgrading = Boolean(navigator.serviceWorker.controller);
     navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" }).then(r => r.update()).catch(() => {});
     navigator.serviceWorker.addEventListener("controllerchange", () => {
+      if (!upgrading) return;
       try {
         const key = "eaglish-upgraded-20260909";
         if (!sessionStorage.getItem(key)) { sessionStorage.setItem(key, "1"); location.reload(); }

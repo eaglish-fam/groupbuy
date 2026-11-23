@@ -3,7 +3,7 @@ import {readFileSync} from 'node:fs';
 import {travelHomeCatalog} from '../trip/home-catalog.mjs';
 import {validateTravelHomeCatalog} from './build-trip-home.mjs';
 import {addSingaporeDiscovery} from './trip-singapore-discovery.mjs';
-import {approvedTravelRegistration} from './trip-approved-registration.mjs';
+import {approvedTravelRegistrations} from './trip-approved-registration.mjs';
 import {prepareApprovedR24Discovery} from './trip-approved-discovery.mjs';
 import {fileURLToPath} from 'node:url';
 const read=rel=>readFileSync(new URL('../'+rel,import.meta.url),'utf8');
@@ -19,8 +19,8 @@ export function renderTravelHomeR24(){
  // The shared destination writer promotes the first image once. The reviewed
  // snapshot already contained a preload, so remove that before the normal pass.
  let html=addSingaporeDiscovery(mapFirstTravelHome(template)),projection=config;
- const approved=approvedTravelRegistration(fileURLToPath(new URL('..',import.meta.url)));
- if(approved){const added=prepareApprovedR24Discovery(html,approved.data,{catalog:travelHomeCatalog,config});html=added.html;projection=added.config;}
+ const approved=approvedTravelRegistrations(fileURLToPath(new URL('..',import.meta.url)));
+ if(approved.length){const added=prepareApprovedR24Discovery(html,approved.map(r=>r.data),{catalog:travelHomeCatalog,config});html=added.html;projection=added.config;}
  return inlineTravelStyles(html.replace('</head>','<link rel="stylesheet" href="/trip/travel-entry.css"><link rel="stylesheet" href="/trip/atlas-navigation.css"></head>').replace('{{ATLAS_CONFIG}}',JSON.stringify(projection).replaceAll('<','\\u003c'))
   .replace('/trip/atlas-ui-bundle.mjs?v=r24-20261002','/trip/atlas-ui-bundle.mjs?v=globe-copy-g2-20261014')
   .replace(/<link\b[^>]*rel="preload"[^>]*as="image"[^>]*>/g,''));

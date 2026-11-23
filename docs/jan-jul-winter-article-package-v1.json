@@ -1,0 +1,99 @@
+{
+  "schema": "eaglish.article-package/v1",
+  "editorialStatus": "Grace 撰寫（decisions/2026-11-06-hiram-grace-writes-journal-and-trip.md）；Bingo 工單 GB-066；依 docs/journal-editorial-guidelines.md",
+  "identity": {
+    "slug": "jan-jul-winter",
+    "title": "Jan & Jul 秋冬保暖怎麼挑？防水外套、刷毛褲、雪靴與手套，出國玩雪和台灣濕冷都好穿"
+  },
+  "sources": [
+    {
+      "kind": "vendor-groupbuy-page",
+      "url": "https://gbf.tw/iyoer",
+      "readAt": "2026-11-22",
+      "facts": [
+        "團購即日起～12/7 23:59；預計 12 月上旬陸續出貨，六日與國定假日不出貨",
+        "本島單筆滿 NT$3,000 免運，未滿 NT$90；外島 NT$200；預購商品到齊一起寄",
+        "非瑕疵換貨自付來回運費、限一次；未依標示清洗造成縮水褪色變形不算瑕疵",
+        "付款：ATM 虛擬帳號、信用卡（3 期 0 利率）、LINE Pay",
+        "兒童刷毛保暖外套 NT$1,980（原價 NT$2,400）；部分花色（粉杏花、粉紅森林、深海軍藍）NT$2,180（原價 NT$2,600）、10,000mm、接縫與內膜全密封、無拉繩、3T–14T",
+        "單層防風防水外套 NT$1,780 起、10,000mm、5,000g/m²/24h、不到 350g、反光條、可冷水機洗",
+        "中長版鋪棉外套 NT$2,980、-30°C、長版蓋到大腿；青少年內刷毛防水外套 NT$2,380、-5°C、8Y–16Y",
+        "兒童刷毛保暖長褲 NT$1,380 起（原價 NT$1,700 起；多數花色 NT$1,480／原價 NT$1,850）、10,000mm＋5,000g、-5°C；青少年網布內裡防水長褲 NT$1,680",
+        "Base Layer 打底衣 NT$690、打底褲 NT$590；立領搖粒絨外套 NT$990；搖粒絨背心 NT$790（約 200g）；搖粒絨連帽外套 NT$430 起、長褲 NT$395 起（團價已折）",
+        "輕量保暖防水靴 NT$1,480、100% 防水、-10°C、可機洗；高山防水雪靴 NT$2,380、-20°C、深齒紋止滑",
+        "防水滑雪分指手套 NT$890、連指 NT$790、-15°C、3M 新雪麗；搖粒絨手套 NT$520；防風保暖帽 NT$890、-15°C",
+        "大人 Coast／Peak 內刷毛防風防水外套 NT$3,980、XS–XXL；雙面羊羔絨外套女款 NT$2,280、童款 NT$1,980、-5°C；大人 Base Layer NT$690"
+      ]
+    },
+    {
+      "kind": "groupbuy-sheet",
+      "readAt": "2026-11-22",
+      "facts": [
+        "品牌「加拿大 Jan & Jul 秋冬保暖系列」",
+        "2026-11-16～2026-12-07",
+        "連結 https://gbf.tw/iyoer"
+      ]
+    },
+    {
+      "kind": "owner-photos",
+      "readAt": "2026-11-22",
+      "facts": [
+        "Hiram 2026-11-21 提供的家庭照片（海邊、煙火），孩子穿的是這一團的衣服；型號廠商未確認，文中不寫型號"
+      ]
+    }
+  ],
+  "notStated": [
+    "照片中衣服的確切型號",
+    "手套、帽子以外各品項的保固"
+  ],
+  "media": "assets/jan-jul-winter/sources.md",
+  "technicalSeo": {
+    "author": {
+      "type": "Organization",
+      "name": "鷹式一家",
+      "url": "https://www.eaglish.store/"
+    },
+    "datePublished": "2026-11-22",
+    "dateModified": "2026-11-22",
+    "social": {
+      "ogImage": "https://www.eaglish.store/assets/jan-jul-winter/cover.webp",
+      "width": 1600,
+      "height": 1000,
+      "shareImage": "https://www.eaglish.store/assets/jan-jul-winter/share.webp",
+      "shareWidth": 1200,
+      "shareHeight": 630
+    },
+    "structuredData": [
+      "Article",
+      "BreadcrumbList"
+    ],
+    "crawlableOfferFallback": "/#catalog"
+  },
+  "siteIntegration": {
+    "brand": "加拿大 Jan & Jul 秋冬保暖系列",
+    "category": "秋冬保暖",
+    "journalCategory": "旅遊",
+    "excerpt": "過年去日本、韓國玩雪，或台灣冬天濕冷通勤：照用途整理 Jan & Jul 防水外套、刷毛褲、雪靴和手套怎麼配，附我們家兩兄弟的實拍。",
+    "readLabel": "看兩種行程怎麼配 →",
+    "cover": "/assets/jan-jul-winter/cover.webp",
+    "card": "/assets/jan-jul/product-card.webp",
+    "coverSource": "/assets/jan-jul-winter/cover-source.html",
+    "coverIdentity": "Jan",
+    "coverReview": {
+      "identityVisible": true,
+      "realPhotoPreserved": true,
+      "mobileCardLegible": true,
+      "viewportWidths": [
+        320,
+        390,
+        768,
+        1440
+      ],
+      "reviewer": "Grace",
+      "reviewScope": "Grace 2026-11-22 看過 cover.webp、product-card.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Jan & Jul 字樣與標題可讀；右側為 Hiram 提供的家庭照片裁切，未修改。"
+    },
+    "catalogKey": "janJulWinter",
+    "cardTitle": "Jan & Jul 秋冬保暖怎麼挑？防水外套、刷毛褲、雪靴與手套，出國玩雪和台灣濕冷都好穿",
+    "readingTitle": "Jan & Jul 秋冬保暖怎麼挑？防水外套、刷毛褲、雪靴與手套，出國玩雪和台灣濕冷都好穿"
+  }
+}

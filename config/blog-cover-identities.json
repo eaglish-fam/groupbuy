@@ -65,14 +65,14 @@
     },
     "/blog/playzu/": {
       "identity": "Playzu",
-      "image": "/assets/playzu/vintage-cover.webp",
-      "imageSha256": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
-      "source": "/assets/playzu/vintage-cover-source.svg",
-      "sourceSha256": "d7aa2805d6075e3eb9947c552d90ccd70e4b79c0395c60aa0317cd9a1f0629cc",
+      "image": "/assets/playzu/cover.webp",
+      "imageSha256": "478a66147a7f329e61d8fd26d9534fb4652e3381bdea6ac2e7cbe396e993f872",
+      "source": "/assets/playzu/family-1.webp",
+      "sourceSha256": "f752428da37111dd1e09b9b5cc27b1cf471c847c763f38f21769c8aacef5901e",
       "review": {
         "identityVisible": true,
         "realPhotoPreserved": true,
-        "imageSha256": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
+        "imageSha256": "478a66147a7f329e61d8fd26d9534fb4652e3381bdea6ac2e7cbe396e993f872",
         "viewportWidths": [
           320,
           390,
@@ -234,6 +234,321 @@
         "mobileCardLegible": true,
         "reviewer": "Kira accountable integration chat",
         "rootFinalAcceptance": false
+      }
+    },
+    "/blog/parakito/": {
+      "identity": "Para’Kito",
+      "image": "/assets/parakito/cover.webp",
+      "imageSha256": "bc16169fac7de0e85b28112909a803c4ad36bf1a68bb3487ff2ac7e75dcd6a3e",
+      "source": "/assets/parakito/cover-source.webp",
+      "sourceSha256": "d19bb9c0e319a21f881aa69352155eef1375eafaac051baf748a0d8b5eb698ef",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "bc16169fac7de0e85b28112909a803c4ad36bf1a68bb3487ff2ac7e75dcd6a3e",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Codex editorial acceptance (#44) + Grace rendered review on the integration branch",
+        "reviewScope": "Unchanged #44 pixels: Codex accepted 320/390/768/1440 before handoff; Grace re-checked the article hero and the journal card at 320/390/768/1440 on 2026-10-16. The cover is a crop of cover-source.webp and the parakito package is legible in the father's hand."
+      }
+    },
+    "/blog/blackmores/": {
+      "identity": "澳佳寶",
+      "image": "/assets/blackmores/cover-v2.webp",
+      "imageSha256": "d54bab94e7a47bbb61fc811e7f9a9ac667c14d1af438d6dcfbb18ea2e9f50137",
+      "source": "/assets/blackmores/cover-source-v2.html",
+      "sourceSha256": "e52dfbbbaf43effb379ad201fc53dc4e39e2a398bcee18e3b677228ce714f226",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "d54bab94e7a47bbb61fc811e7f9a9ac667c14d1af438d6dcfbb18ea2e9f50137",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Eliora accountable Codex content chat",
+        "reviewScope": "New v2 cover pixels personally inspected full resolution and in the actual 320/390/768/1440 Tailnet article plus the 390px journal card. Original product RGB retained with true-alpha background removal; studio background generated. Full publication/integration review remains separate."
+      }
+    },
+    "/blog/done-by-deer/": {
+      "identity": "Done by deer",
+      "image": "/assets/done-by-deer/cover.webp",
+      "imageSha256": "0d3f12e5da6f72d12c06e387b7d9a44467bb83724e08885d8c929b400c6442ee",
+      "source": "/assets/done-by-deer/cover-source.html",
+      "sourceSha256": "77b2fb900a1b5efeb13a232c322873ef0756e1a9b578619bb2858b5e375bea76",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "0d3f12e5da6f72d12c06e387b7d9a44467bb83724e08885d8c929b400c6442ee",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Lydia",
+        "reviewScope": "Personally inspected Tailnet review-page screenshots at four widths and the source artwork. Brand and plate/bottle/gift-set identities visible; small decorative copy is not intended as the mobile reading source. Actual catalogue-card acceptance is recorded separately after integration."
+      }
+    },
+    "/blog/sanfufarm/": {
+      "identity": "三富",
+      "image": "/assets/sanfufarm/cover.webp",
+      "imageSha256": "c27c64fedf40fbfdc454aed39fd943f0f99909bab640a3df19f64e25aaa0381c",
+      "source": "/assets/sanfufarm/cover-source.html",
+      "sourceSha256": "5bbf2e0b2b5a9701bdb2d870bdd9c01b79dd75a421c0d6353d805c526cdd356c",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "c27c64fedf40fbfdc454aed39fd943f0f99909bab640a3df19f64e25aaa0381c",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Claude (Chloe city), automated render + visual check",
+        "reviewScope": "Cover and journal card viewed at 320/390/768/1440 px in headless Chromium; 三富 title legible, real vendor garden photo unaltered."
+      }
+    },
+    "/blog/bernie/": {
+      "identity": "伯尼寢具",
+      "image": "/assets/bernie/cover.webp",
+      "imageSha256": "25b20050dff1403754fee055aac92cc9f09c636322673162c424d0563a9b6fda",
+      "source": "/assets/bernie/cover-source.html",
+      "sourceSha256": "18dbda8ff502ef8d28a416d2c943438b1727a100a5abaadf3334e5fae07dcf80",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "25b20050dff1403754fee055aac92cc9f09c636322673162c424d0563a9b6fda",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-06 看過 cover.webp、product-card.webp 原圖，以及選物誌卡片與文章頁在 320/390/768/1440 寬的實際渲染：伯尼寢具字樣清楚、家庭實拍未改動。"
+      }
+    },
+    "/blog/zoofamily-kids-camera/": {
+      "identity": "ZooFamily",
+      "image": "/assets/zoofamily-kids-camera/cover.webp",
+      "imageSha256": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+      "source": "/assets/zoofamily-kids-camera/cover-source.html",
+      "sourceSha256": "c9ab20f62f8ed3c825453753186f4999e53a2cef91ec1d4c3aad378d5ea55557",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-06 看過 cover.webp、product-card.webp 原圖，及選物誌卡片與文章頁在 320/390/768/1440（裝置像素比 3）實際渲染：ZooFamily 字樣與標題可讀、家庭實拍未改動。圖稿採用見 RV-20261104-X01；公開上線見 decisions/2026-11-06-hiram-gb019-zoofamily-publish-ok.md。"
+      }
+    },
+    "/blog/wave-hummus/": {
+      "identity": "Wave 鷹嘴豆泥",
+      "image": "/assets/wave/cover.webp",
+      "imageSha256": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+      "source": "/assets/wave/cover-source.html",
+      "sourceSha256": "e365e108cdd6c0993ed1e255bfc17fe0ee3686fdd5a6de35b8c728a4bbd53303",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-06 看過 GB-021R cover／card 原圖與 288px 縮圖（Ophelia mobile-288px-review.png）及文章頁 320／390／768／1440 實際渲染：品牌字清楚、實拍菇類餐盤未重畫。"
+      }
+    },
+    "/blog/momax-locator/": {
+      "identity": "Momax",
+      "image": "/assets/momax-locator/cover.webp",
+      "imageSha256": "8b169cc005100d80b913502660034efe104824314a616f07d92f7b9900ca0393",
+      "source": "/assets/momax-locator/cover-source.html",
+      "sourceSha256": "82ee332e19b78f77db74812215642997ceb0480be89cdf04f424126628fc149d",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "8b169cc005100d80b913502660034efe104824314a616f07d92f7b9900ca0393",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 重做點擊導向首圖（Hiram 11/10「要以吸引消費者點擊進來為目標」）：左側大字標題「iPhone、Android 都能找」＋價格徽章，右側為賣場官方商品圖未修改；cover.webp、product-card.webp 在 288/390/768/1440 寬度看過，標題與 Momax 字樣可讀。"
+      }
+    },
+    "/blog/kids-active-toys/": {
+      "identity": "放電神器",
+      "image": "/assets/kids-active-toys/cover.webp",
+      "imageSha256": "d92224bb500ded1ed2987fd0e2eb87d7af47924c76c1e381831baadf8ac2e885",
+      "source": "/assets/kids-active-toys/cover-source.html",
+      "sourceSha256": "c592df231872aa74dde37787d2a67047de10bb39502da5de43b34f413e2e7a85",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "d92224bb500ded1ed2987fd0e2eb87d7af47924c76c1e381831baadf8ac2e885",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 重做點擊導向首圖（Hiram 11/10「要以吸引消費者點擊進來為目標」）：鷹家實拍 Vespa 電動車滿版＋大字標題「電力滿格的孩子這樣放電」＋開團徽章；照片未修改只加漸層；cover.webp、product-card.webp 在 288/390/768/1440 寬度看過，標題與放電神器字樣可讀。"
+      }
+    },
+    "/blog/ilovekids-rotating-bookcase/": {
+      "identity": "旋轉書櫃",
+      "image": "/assets/ilovekids-rotating-bookcase/cover.webp",
+      "imageSha256": "e49ff7679055b350f569d7228e7618e6b20a83e60dd5dbeea3f677f24c25adac",
+      "source": "/assets/ilovekids-rotating-bookcase/cover-source.html",
+      "sourceSha256": "7c56b5e9486f1cb2218de66db7a2ac594bbd26ec8a109019ab7f1e1b6dbac280",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "e49ff7679055b350f569d7228e7618e6b20a83e60dd5dbeea3f677f24c25adac",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 看過 cover.webp、product-card.webp 與文章、選物誌卡片在 288/390/768/1440 的渲染：左欄大字「房間不炸書 孩子自己放回去」與旋轉書櫃字樣可讀；右側為鷹家實拍，未修改。；2026-11-20 GB-061 徽章檔期依賣場改 11/19–11/28，cover、product-card、share 重出後實看可讀。"
+      }
+    },
+    "/blog/acer-luggage/": {
+      "identity": "acer",
+      "image": "/assets/acer-luggage/cover.webp",
+      "imageSha256": "26f1f817ecf550852249e67e8f8a856c8bdb7a249538081c55ee26440cb3e5fb",
+      "source": "/assets/acer-luggage/cover-source.html",
+      "sourceSha256": "ca89dc3f7b6c2b5816b03eea306e73eb70a4b66c348906298840ee7441e62ecb",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "26f1f817ecf550852249e67e8f8a856c8bdb7a249538081c55ee26440cb3e5fb",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-10 重做點擊導向首圖（Hiram 11/10「要以吸引消費者點擊進來為目標」）：左欄大字「出國拿東西不用攤開整個箱子」，右側賣場官方五色圖未修改。2026-11-20 GB-061 拿掉已結團的價格與「11/15 截止」徽章，改「前開式・上蓋直接拿」「五色可選」；cover、product-card、share 重出後實看可讀。"
+      }
+    },
+    "/blog/brush-baby/": {
+      "identity": "Brush Baby",
+      "image": "/assets/brush-baby/cover.webp",
+      "imageSha256": "c96f60023fa312e64cf7b8a61af2aa4de8c868b8e310ed72a5b8c206f9b2dc9b",
+      "source": "/assets/brush-baby/cover-source.html",
+      "sourceSha256": "85eaad016eb3e51c0a38e8b9ed8c63e1778a6825265166e5011f4c41949b549b",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "c96f60023fa312e64cf7b8a61af2aa4de8c868b8e310ed72a5b8c206f9b2dc9b",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-13 看過 cover.webp、product-card.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Brush Baby 字樣與標題可讀；右側為自家照片，未修改。"
+      }
+    },
+    "/blog/jowua/": {
+      "identity": "Jowua",
+      "image": "/assets/jowua/cover.webp",
+      "imageSha256": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+      "source": "/assets/jowua/cover-source.html",
+      "sourceSha256": "cb25eafc0b4b3c5eefe97a99b62d7da88444985b8d2a8769718d36900a14ed0f",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-16 看過 cover.webp、product-card.webp 原圖與選物誌卡片在 320/390/768/1440 的渲染：Jowua 字樣、折扣碼 eagle、全館 95 折可讀；右側為官方商品圖，未修改。"
+      }
+    },
+    "/blog/insta360-ezway/": {
+      "identity": "EZ WAY",
+      "image": "/assets/insta360-ezway/cover.webp",
+      "imageSha256": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
+      "source": "/assets/insta360-ezway/cover-source.html",
+      "sourceSha256": "58e3bbf78e462845692ab54cb54ca2c0f36d955935ffc243f7ca8c5c4507e8a1",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-17 看過 cover.webp 原圖與選物誌卡片 320/390/768/1440：EZ WAY 報關教學字樣可讀；右側為 Insta360 官方商品圖，未修改。"
+      }
+    },
+    "/blog/jan-jul-winter/": {
+      "identity": "Jan",
+      "image": "/assets/jan-jul-winter/cover.webp",
+      "imageSha256": "29f91fb19d61a3c68e9c55a98eaa9460f27bd13bf35d51c0685c4d6ab0dfd573",
+      "source": "/assets/jan-jul-winter/cover-source.html",
+      "sourceSha256": "9da7f4e3233d7672a251daef07f522857bbe956b49b96c73cf5d2ce4b711fa70",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "29f91fb19d61a3c68e9c55a98eaa9460f27bd13bf35d51c0685c4d6ab0dfd573",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-22 看過 cover.webp、product-card.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Jan & Jul 字樣與標題可讀；右側為 Hiram 提供的家庭照片裁切，未修改。"
       }
     }
   }

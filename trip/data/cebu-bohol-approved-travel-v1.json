@@ -1,0 +1,2822 @@
+{
+  "schema": "eaglish.approved-travel-package/v1",
+  "approved": true,
+  "sources": [
+    {
+      "id": "v-youtube-com-watch-v-qmngtzfpvdk",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+      "label": "《宿霧親子旅遊之薄荷島三日遊》完整影片",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "m-photo-02",
+      "kind": "photo",
+      "url": "https://www.eaglish.store/trip/guides/cebu-bohol-with-kids/",
+      "label": "雨衣、安全帽都穿戴好，全家一起坐上 buggy。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "m-photo-03",
+      "kind": "photo",
+      "url": "https://www.eaglish.store/trip/guides/cebu-bohol-with-kids/",
+      "label": "buggy 行程途中，導遊幫我們拍照；拿著安全帽的拍法，是孩子自己的創意。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "m-photo-04",
+      "kind": "photo",
+      "url": "https://www.eaglish.store/trip/guides/cebu-bohol-with-kids/",
+      "label": "山丘前，和 buggy 一起留下全家合照。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "m-photo-05",
+      "kind": "photo",
+      "url": "https://www.eaglish.store/trip/guides/cebu-bohol-with-kids/",
+      "label": "雨絲留在照片裡。活動後多留一段換乾衣服的時間，再接下一站。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "m-photo-07",
+      "kind": "photo",
+      "url": "https://www.eaglish.store/trip/guides/cebu-bohol-with-kids/",
+      "label": "先找最近的一座，再看看更遠的山丘藏在哪裡。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "m-photo-08",
+      "kind": "photo",
+      "url": "https://www.eaglish.store/trip/guides/cebu-bohol-with-kids/",
+      "label": "家人一起入鏡，眼鏡猴就藏在上方枝葉間。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "m-photo-01",
+      "kind": "photo",
+      "url": "https://www.eaglish.store/trip/guides/cebu-bohol-with-kids/",
+      "label": "合照之外，也記得抬頭看看天花板。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "o-tourism-bohol-gov-ph-visitbohol-carmen",
+      "kind": "official",
+      "url": "https://tourism.bohol.gov.ph/visitbohol-carmen/",
+      "label": "Carmen 官方旅遊資訊",
+      "checkedOn": "2026-09-30",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-tourism-bohol-gov-ph-countryside-tour",
+      "kind": "official",
+      "url": "https://tourism.bohol.gov.ph/countryside-tour/",
+      "label": "官方鄉村路線",
+      "checkedOn": "2026-09-30",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+      "kind": "official",
+      "url": "https://ppdo.bohol.gov.ph/ppdofiles/Profile/SocioEconomicProfile/EconomicDevelopment/TourismProfile2025.pdf#page=82",
+      "label": "薄荷島省府 Bilar 地點資料",
+      "checkedOn": "2026-09-30",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-qmngtzfpvdk-t-502s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=502s",
+      "label": "影片 08:22 的參觀段落",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "v-youtube-com-watch-v-qmngtzfpvdk-t-589s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=589s",
+      "label": "看我們的 Lila 實訪影片 09:49",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "o-bohol-gov-ph-2026-05-01-bohol-strengthens-marine-wildlife-protection-t",
+      "kind": "official",
+      "url": "https://bohol.gov.ph/2026/05/01/bohol-strengthens-marine-wildlife-protection-through-enhanced-ordinance-irr/",
+      "label": "省府互動季與許可說明",
+      "checkedOn": "2026-09-30",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-bohol-gov-ph-2026-05-12-bohol-strengthens-marine-wildlife-protection-a",
+      "kind": "official",
+      "url": "https://bohol.gov.ph/2026/05/12/bohol-strengthens-marine-wildlife-protection-and-coastal-resource-management-efforts/",
+      "label": "現行互動規範",
+      "checkedOn": "2026-09-30",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-qmngtzfpvdk-t-180s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=180s",
+      "label": "MIST 午餐 03:00",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "v-youtube-com-watch-v-qmngtzfpvdk-t-225s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=225s",
+      "label": "Molly 住宿 03:45",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "v-youtube-com-watch-v-qmngtzfpvdk-t-304s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=304s",
+      "label": "Ubeco 晚餐 05:04",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "v-youtube-com-watch-v-qmngtzfpvdk-t-565s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=565s",
+      "label": "Henann 住宿 09:25",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    },
+    {
+      "id": "m-photo-06",
+      "kind": "photo",
+      "url": "https://www.eaglish.store/trip/guides/cebu-bohol-with-kids/",
+      "label": "我們在巧克力山的合照。家人在左邊，綠色山丘一路延伸到右邊。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站宿霧、薄荷島攻略。"
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "photo-02",
+      "width": 1024,
+      "height": 1280,
+      "alt": "一家四口穿紫色雨衣、戴安全帽坐在藍色 buggy 上，後方是山丘與椰子樹。",
+      "caption": "雨衣、安全帽都穿戴好，全家一起坐上 buggy。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-photo-02"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-02-buggy-raincoats-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 112388,
+          "sha256": "99ec9384024eaf0d6787edfca9e9e4ff4a3fa88431238ffee1b3d9705797edbd"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-02-buggy-raincoats-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 201540,
+          "sha256": "3d5c307df0771090fffe8a6ba68a2812dcff249a503b0924d290593eb1a2f3c0"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-02-buggy-raincoats.webp",
+          "width": 1024,
+          "height": 1280,
+          "bytes": 317484,
+          "sha256": "00e4e319ba4bfebe7ecd461f7c07f570fa5d20cf7a79103366754d786ba5c3e2"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "00e4e319ba4bfebe7ecd461f7c07f570fa5d20cf7a79103366754d786ba5c3e2",
+        "sourceWidth": 1024,
+        "sourceHeight": 1280,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 1280
+        }
+      },
+      "legacyProvenance": {
+        "originalSha256": "e57649415e6f00616d8d681c044ae813b3ea32fc9fc351e4bb25d098cebaa922",
+        "derivedSha256": "00e4e319ba4bfebe7ecd461f7c07f570fa5d20cf7a79103366754d786ba5c3e2",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "photo-03",
+      "width": 1280,
+      "height": 853,
+      "alt": "兩個孩子一起拿著紅色安全帽，後方可見家人與丘陵。",
+      "caption": "buggy 行程途中，導遊幫我們拍照；拿著安全帽的拍法，是孩子自己的創意。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-photo-03"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-03-kids-helmet-640.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 22260,
+          "sha256": "f1777365a1c6a8ef2d18f9c699e130c680ab512892875a8838003146f05aa6b9"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-03-kids-helmet-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 34550,
+          "sha256": "13eaeae855ee699a7c7a6d054fb6b675f933257cd3b18f50d259b969c4d1abe1"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-03-kids-helmet.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 70976,
+          "sha256": "e71e7e39f52d284a272ea496cbc52f1085f66adf194edcb892bf2e90cf0dd8a2"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "e71e7e39f52d284a272ea496cbc52f1085f66adf194edcb892bf2e90cf0dd8a2",
+        "sourceWidth": 1280,
+        "sourceHeight": 853,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 853
+        }
+      },
+      "legacyProvenance": {
+        "originalSha256": "49236e54c525bb93b614547870075f301d21fb736539dbedd3a4ad0c6fcb6a66",
+        "derivedSha256": "e71e7e39f52d284a272ea496cbc52f1085f66adf194edcb892bf2e90cf0dd8a2",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "photo-04",
+      "width": 1024,
+      "height": 1280,
+      "alt": "一家四口站在藍色 buggy 旁合照，後方是場地招牌與綠色丘陵。",
+      "caption": "山丘前，和 buggy 一起留下全家合照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-photo-04"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-04-family-buggy-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 65546,
+          "sha256": "f5e7079de54ab89533f98dd5c0b2e308a2766e3f0b3605a0e85a7798793909f3"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-04-family-buggy-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 115314,
+          "sha256": "1094fcc13373577aa2d2959b3cc6eae1fbee05ee74384c18ace0c2f0cfbbd0ef"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-04-family-buggy.webp",
+          "width": 1024,
+          "height": 1280,
+          "bytes": 206140,
+          "sha256": "3ddc44d2cd3024054978cdb47886755ed2a635ef74c695d8a8d2e815e48f3c79"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "3ddc44d2cd3024054978cdb47886755ed2a635ef74c695d8a8d2e815e48f3c79",
+        "sourceWidth": 1024,
+        "sourceHeight": 1280,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 1280
+        }
+      },
+      "legacyProvenance": {
+        "originalSha256": "c6a4ab0b2824eac7b20ddec619fa3dd162b3ee6913cfe26773fcfdadab3238e2",
+        "derivedSha256": "3ddc44d2cd3024054978cdb47886755ed2a635ef74c695d8a8d2e815e48f3c79",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "photo-05",
+      "width": 1280,
+      "height": 853,
+      "alt": "雨中一家四口穿雨衣坐在藍色 buggy 裡，車頂與道路濕亮。",
+      "caption": "雨絲留在照片裡。活動後多留一段換乾衣服的時間，再接下一站。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-photo-05"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-05-buggy-rain-640.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 41746,
+          "sha256": "81d41f964ff33106936d2491dcbba5f4fd69eb5803eedeaa9cccab807713cdef"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-05-buggy-rain-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 68866,
+          "sha256": "140f5eb6799837b7edf33a8c1d4f00d3181f8ed58be07d719dfd42f16e224d51"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-05-buggy-rain.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 152288,
+          "sha256": "b44cea35bcb4cdd2134b6f0cbddb819c0dcd7b15d00418e13350b865f6e7fe55"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b44cea35bcb4cdd2134b6f0cbddb819c0dcd7b15d00418e13350b865f6e7fe55",
+        "sourceWidth": 1280,
+        "sourceHeight": 853,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 853
+        }
+      },
+      "legacyProvenance": {
+        "originalSha256": "8126377352becb04ec308ec3723ebe2745f574bd57d1671836e0039e84f986f3",
+        "derivedSha256": "b44cea35bcb4cdd2134b6f0cbddb819c0dcd7b15d00418e13350b865f6e7fe55",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "photo-07",
+      "width": 1280,
+      "height": 853,
+      "alt": "多雲天空下，綠色巧克力山與樹林延伸到遠方。",
+      "caption": "先找最近的一座，再看看更遠的山丘藏在哪裡。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-photo-07"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-07-chocolate-hills-landscape-640.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 27674,
+          "sha256": "519043a26ede2119dd00a50add58e5ec4db9aad3df56b19c3ddd2e12ead0d04f"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-07-chocolate-hills-landscape-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 50686,
+          "sha256": "99b1f010f6ba2153b03e28c53276e84eb2142d960c963faf5c0e3f6e91abbf18"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-07-chocolate-hills-landscape.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 139408,
+          "sha256": "b7232b90ab6fb803d5bf76f86667de747ff594d810ecbaeee24eafc6cdce52a4"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b7232b90ab6fb803d5bf76f86667de747ff594d810ecbaeee24eafc6cdce52a4",
+        "sourceWidth": 1280,
+        "sourceHeight": 853,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 853
+        }
+      },
+      "legacyProvenance": {
+        "originalSha256": "16db86168ed936d060875ba0140771dfc1214be1efe8efaaa2b7c9cc9d820c83",
+        "derivedSha256": "b7232b90ab6fb803d5bf76f86667de747ff594d810ecbaeee24eafc6cdce52a4",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-09",
+      "width": 1440,
+      "height": 810,
+      "alt": "爸爸跟在孩子後方走上巧克力山階梯，兩側有欄杆與植物。",
+      "caption": "孩子走在前面，爸爸跟在後面，一起往觀景台走。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-09-chocolate-hills-stairs-v3-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 34792,
+          "sha256": "b87b5315140495efe941f7d17e02aa45030f7f8b6db4b14b23644675a50d751b"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-09-chocolate-hills-stairs-v3-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 62136,
+          "sha256": "0a117faa821f293fb164a746e6fca83a4d7e29d4d1c7b302c3a522705eb10935"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-09-chocolate-hills-stairs-v3-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 97072,
+          "sha256": "7c23cb28b1657f903f455e20c325eaffbea16241e8585b771557ccf99f6dfaba"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "7c23cb28b1657f903f455e20c325eaffbea16241e8585b771557ccf99f6dfaba",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 42750708,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "d37bc089ec630017327acaba8876ca7f8c44c77c213cf2132b0c6db93bbe0f19",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "07:55.007867",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-10",
+      "width": 1440,
+      "height": 810,
+      "alt": "康先生站在巧克力山觀景平台的紅色欄杆旁，後方是丘陵。",
+      "caption": "走上來後，留時間看景與拍照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-10-chocolate-hills-father-view-v3-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 17580,
+          "sha256": "10cd2f37a77dafcf4856e5c565e455014c3e273e7dd5a5e09007164d73b31ce0"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-10-chocolate-hills-father-view-v3-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 29886,
+          "sha256": "38a0e8f336d94894c2ad357be932948f16e7c8a3efa976d824dc0e1a7a322f0e"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-10-chocolate-hills-father-view-v3-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 48278,
+          "sha256": "0b6c6371fe4d75c634e35c6e34a11ebc0609bdff615a49bab41c6e285299ce4c"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "0b6c6371fe4d75c634e35c6e34a11ebc0609bdff615a49bab41c6e285299ce4c",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 43111068,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "b90758a8e451b21bf47f18555b9618e79685a5736880a3b7467bb74943d78929",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "07:59.011867",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "photo-08",
+      "width": 960,
+      "height": 1280,
+      "alt": "眼鏡猴停在左上方葉片旁，一家四口站在右下方的園內步道。",
+      "caption": "家人一起入鏡，眼鏡猴就藏在上方枝葉間。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-photo-08"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-08-tarsier-family-640.webp",
+          "width": 640,
+          "height": 853,
+          "bytes": 58512,
+          "sha256": "2bc887ee03eec163c351e37036cc063ae00084fc7d09530ce805b8d428d31aeb"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-08-tarsier-family.webp",
+          "width": 960,
+          "height": 1280,
+          "bytes": 160464,
+          "sha256": "b266f8c51b436bd0501626051cfad4ae3885600fdea64c0408841c31c204e1e1"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b266f8c51b436bd0501626051cfad4ae3885600fdea64c0408841c31c204e1e1",
+        "sourceWidth": 960,
+        "sourceHeight": 1280,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 960,
+          "height": 1280
+        }
+      },
+      "legacyProvenance": {
+        "originalSha256": "55872687867e08f9e4f0ae3b71834bfb1bc4dc00fd1220f3d30de14f388a48f9",
+        "derivedSha256": "b266f8c51b436bd0501626051cfad4ae3885600fdea64c0408841c31c204e1e1",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-11",
+      "width": 1440,
+      "height": 810,
+      "alt": "秀秀與孩子站在 Bohol Tarsier Conservation Area 的綠色入口字樣前。",
+      "caption": "入口畫面與 影片 08:22 的參觀段落，可以接著看。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-11-tarsier-visit-courtyard-v3-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 44998,
+          "sha256": "1ed971df6f7b144d76a70337d3319a8448db1efe42d64f6a5e042e8f933eb1ec"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-11-tarsier-visit-courtyard-v3-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 88430,
+          "sha256": "69d762591c371651fd0b121d2de5c208843bc646051e7241bdb00df03656b035"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-11-tarsier-visit-courtyard-v3-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 144258,
+          "sha256": "ebefccfbce9cf07a477cf96bc94701332961200b68bcc30b9948312674def861"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "ebefccfbce9cf07a477cf96bc94701332961200b68bcc30b9948312674def861",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 45450405,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "8197ce08cbfb6bfa1eff6d93563a742d63d9835f85129a53b90c5559c699b121",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "08:25.004500",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-12",
+      "width": 1440,
+      "height": 648,
+      "alt": "眼鏡猴停在葉片與枝條間的近景。",
+      "caption": "小小的身影停在枝葉間。在現場輕聲觀察，按指引保持距離、關掉閃光燈。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-12-tarsier-leaf-closeup-v3-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 13956,
+          "sha256": "f06cd9aeffd84dd01d6e3a7a590c08e48f51de5f054066fbbbfa72c1f6ec7ea9"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-12-tarsier-leaf-closeup-v3-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 23922,
+          "sha256": "be544bdb0fd72421d4635304ce4b12d45bf4fef850c2c7a97d90bf29dfe8b8f8"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-12-tarsier-leaf-closeup-v3-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 37214,
+          "sha256": "bc0688b78ba9dbe77aaa94b6e3058982c0dd8c1c1ee87dd7d507c5fd08e4cccc"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "bc0688b78ba9dbe77aaa94b6e3058982c0dd8c1c1ee87dd7d507c5fd08e4cccc",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 46081035,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "813839012f2041c6eb691a66ef8c98faa51cb9ba257c0ce91a3c1a901f4fbac8",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "08:32.011500",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-13",
+      "width": 1440,
+      "height": 648,
+      "alt": "Loboc 河上另一艘有頂篷、座位與乘客的餐飲船，後方是河岸。",
+      "caption": "另一艘餐飲船沿河駛過，兩岸都是綠意。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-13-loboc-river-restaurant-boat-v3-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 26328,
+          "sha256": "7d62434d7c7f10e188a3bf373b14bf830324c94f5482715e21d7f1711930a6c4"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-13-loboc-river-restaurant-boat-v3-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 49876,
+          "sha256": "1c2e39fd3b8f18a923262167baaa7e5a2b648757bfca659409abab8423e3428b"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-13-loboc-river-restaurant-boat-v3-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 81634,
+          "sha256": "91f4885f193690becb389d52ba42a24ab0ffb06fa14836f0c8bec404d3918146"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "91f4885f193690becb389d52ba42a24ab0ffb06fa14836f0c8bec404d3918146",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 49231182,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "9a274ca1e445c158df37f59b3d194c7f0a993ce345b022984823302898d8b045",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "09:07.013133",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-14",
+      "width": 1440,
+      "height": 648,
+      "alt": "船上午餐餐盤近景，可見蝦、白飯、炸物與串物。",
+      "caption": "白飯、蝦與炸物，當年船上午餐的一盤。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-14-loboc-lunch-plate-v3-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 22978,
+          "sha256": "a610c74283a9150740ca291c12afca933299481aabf6837560d4ba6530a6803e"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-14-loboc-lunch-plate-v3-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 39430,
+          "sha256": "b15461b610e385b86ada657e8198ce4df79e8810830bd3957a224eb87e94cb16"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-14-loboc-lunch-plate-v3-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 60172,
+          "sha256": "52a99c44382a92bc63f1f3ff15d9bb48d680cbeb902a1062c3c6b61e15a0a029"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "52a99c44382a92bc63f1f3ff15d9bb48d680cbeb902a1062c3c6b61e15a0a029",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 48780732,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "f773f99de3431aa16df2f640d9e682c1894304083a940abcc723c4efd709eb5f",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "09:02.008133",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-15",
+      "width": 1440,
+      "height": 648,
+      "alt": "一家四口圍坐船上餐桌用餐，旁邊是開放的河岸視野。",
+      "caption": "一家人坐下來吃飯，是內陸行程中的另一種節奏。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-15-loboc-family-lunch-v3-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 24286,
+          "sha256": "93dc50438b10b48a16788331d75a17e4ca4302c73b743d77141370e230fa2d26"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-15-loboc-family-lunch-v3-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 40958,
+          "sha256": "bbf9860d5179965a77ab2400f4532fc73f8d023216136cc88aed8caab726620e"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-15-loboc-family-lunch-v3-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 62912,
+          "sha256": "c59cc30c7455bee34b48f59e18bce780374cce8deef183f1ec4e919dc67949eb"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "c59cc30c7455bee34b48f59e18bce780374cce8deef183f1ec4e919dc67949eb",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 48870822,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "6dcef1a5b973c8a8dff8f8a61a8dcecde618231f3be41dd13f1c64b61b16a27f",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "09:03.009133",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "photo-01",
+      "width": 1024,
+      "height": 1280,
+      "alt": "一家四口在麥哲倫十字架前合照，上方是亭內壁畫。",
+      "caption": "合照之外，也記得抬頭看看天花板。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-photo-01"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-01-magellans-cross-family-640.webp",
+          "width": 640,
+          "height": 800,
+          "bytes": 58654,
+          "sha256": "113bd003e18490dde85bd982252e5937e0e21dba98546da691441418a23bf81e"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-01-magellans-cross-family-960.webp",
+          "width": 960,
+          "height": 1200,
+          "bytes": 100612,
+          "sha256": "f00160d86d143b7e228b0403be60c1f5a24a0ab717def372cfe1b31890c73cba"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-01-magellans-cross-family.webp",
+          "width": 1024,
+          "height": 1280,
+          "bytes": 189360,
+          "sha256": "51c8aaf948c8ae87265f5db0d5777bce8e2dfac15ff7445e4493ee5daf310dc8"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "51c8aaf948c8ae87265f5db0d5777bce8e2dfac15ff7445e4493ee5daf310dc8",
+        "sourceWidth": 1024,
+        "sourceHeight": 1280,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1024,
+          "height": 1280
+        }
+      },
+      "legacyProvenance": {
+        "originalSha256": "b2b24a4670d2ac3c0c5633d7ee8e9a074b6908de6c3dd5757ffd381546f1daff",
+        "derivedSha256": "51c8aaf948c8ae87265f5db0d5777bce8e2dfac15ff7445e4493ee5daf310dc8",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-27",
+      "width": 1440,
+      "height": 810,
+      "alt": "水下鯨鯊側身游過，上方可見船體與水面。",
+      "caption": "水下的鯨鯊身上，一點一點的斑紋很清楚。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-27-lila-whale-shark-v4-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 13078,
+          "sha256": "31d786a741a1327c07905012475e1bdb8e30f2a95761f29e7050821a6921b3d7"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-27-lila-whale-shark-v4-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 23120,
+          "sha256": "0ee2dde3537808cfbd15ec494d216fd53eb876d0159535df289e2b96968734cf"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-27-lila-whale-shark-v4-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 36878,
+          "sha256": "3a254f5706a291a521ddceef74a7e18c335f70469ce80a29166b6b4afcd30995"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "3a254f5706a291a521ddceef74a7e18c335f70469ce80a29166b6b4afcd30995",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 61381320,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "2d4d39d8c914f4a7b2b7f032cd4d6caee35579274ebe3db051975a5d5a62394a",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "11:22.014667",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-28",
+      "width": 1440,
+      "height": 810,
+      "alt": "家人與船員坐在小船上，周圍是海面與其他船隻。",
+      "caption": "先搭船出海，也可以選擇在船上觀看。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-28-lila-family-boat-v4-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 29292,
+          "sha256": "b892af779f2bbe6bdca1070c96e6feacdd46b93eb66e5efb7c10f797b35a3ece"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-28-lila-family-boat-v4-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 54146,
+          "sha256": "3b2943f90b99637aabd06672236572f19442dcc9989db618bd288b37acd52518"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-28-lila-family-boat-v4-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 89292,
+          "sha256": "19407cabbdfd5c2127b6bc3fd7e2b9e988f36bf937f84aec74b32815a848ea73"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "19407cabbdfd5c2127b6bc3fd7e2b9e988f36bf937f84aec74b32815a848ea73",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 55171116,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "5781a356516b284ecf2ea4865f7a2c54a3ac066f2d48ef2aef688463b8310890",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "10:13.012400",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-30",
+      "width": 1440,
+      "height": 810,
+      "alt": "成人與孩子在水下，周圍是藍色海水。",
+      "caption": "我們當年的水下體驗；現在參與要依新的距離與互動規範。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-30-lila-swimmer-and-whale-v4-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 18610,
+          "sha256": "0bbb417ee22df4b375063bf1cdf383b2a3da91c1f5a0aa2adcdd459c5072d579"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-30-lila-swimmer-and-whale-v4-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 32624,
+          "sha256": "5e1840945edcbcc652c73f282ec82d2e9b0f58db80c6ee6ecff7d9e4915bf5d5"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-30-lila-swimmer-and-whale-v4-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 51626,
+          "sha256": "b4e730fe8463f72d37a3645d968d2a2b7156d0ba8752bd737dd5c22dd7634235"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b4e730fe8463f72d37a3645d968d2a2b7156d0ba8752bd737dd5c22dd7634235",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 61920358,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "a39747067e6a4eb8bc3ddcfdd5114668b1ecf873c0270a69b0c24eafb88671c3",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "11:28.003983",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-29",
+      "width": 1440,
+      "height": 648,
+      "alt": "戴面鏡的孩子在船邊水面，旁邊有成人手臂扶著。",
+      "caption": "船邊的孩子，有成人陪在身旁。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-29-lila-child-by-boat-v4-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 22936,
+          "sha256": "a27102ff966801059165133b163b8bd5bfa0bcdb42381a77b88bbe5c7927fa00"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-29-lila-child-by-boat-v4-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 43278,
+          "sha256": "4a2c850bb76a36958c015ea8cfdaf599f446a47001a017ea106c06f24c9f4c76"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-29-lila-child-by-boat-v4-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 73264,
+          "sha256": "b8f961411b113c0b38c803a5a84b8b9b644666b8fbdffdf67e6ed9b52c0efca2"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b8f961411b113c0b38c803a5a84b8b9b644666b8fbdffdf67e6ed9b52c0efca2",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 56520965,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "4e466c0dae32cd8d6fff02fe90f79c9bafdc2232ab4568c6cc16afbe4f56b25c",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "10:28.010717",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-18",
+      "width": 1440,
+      "height": 810,
+      "alt": "孩子在 MIST 網繩空間裡，旁邊有木地板、靠枕與用餐座位。",
+      "caption": "木地板旁的網繩空間，也是孩子停下來看看的一角。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-18-mist-family-net-space-v4-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 40682,
+          "sha256": "acfcc4bde4d76e1929b96c359cfaadd4e7b0216d2718adfd44e9c0e2d9cbf120"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-18-mist-family-net-space-v4-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 68306,
+          "sha256": "4800940cddd47428eae6ece970e86155b01d79f7a0d8243a8e3c6b0857e49a65"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-18-mist-family-net-space-v4-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 104516,
+          "sha256": "18706c9a47dd970384606e0208efbfb831f879312eb8aa3171b0231a215d4a3e"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "18706c9a47dd970384606e0208efbfb831f879312eb8aa3171b0231a215d4a3e",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 17551034,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "4b209c859d186700647065197b40b913f38c5a4473d6ffb0510b3d0f06806fc0",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "03:15.011483",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-17",
+      "width": 1440,
+      "height": 648,
+      "alt": "白色盤中的麵條與帶殼貝類近景。",
+      "caption": "我們當時點的麵，盤裡也有帶殼的貝類。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-17-mist-pasta-plate-v4-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 20630,
+          "sha256": "d18988cc5588e92830b82f58442fdaa52c7f3c686cf82f4f2f5d386737d518b4"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-17-mist-pasta-plate-v4-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 34754,
+          "sha256": "5547bbf8bb560d037e91ddfc922615a357f3b85d6c7b2c6ca0297ed9b6fa8ad4"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-17-mist-pasta-plate-v4-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 54358,
+          "sha256": "efa8accd5b51f6a6bb4e3c82efe4dab521aa1c885c2c36a7386ff20945f3ef1b"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "efa8accd5b51f6a6bb4e3c82efe4dab521aa1c885c2c36a7386ff20945f3ef1b",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 19620101,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "446eb0af522fe85c04f6d5d2d0558788cbe019d2a667b45a63633d4f928b7b67",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "03:38.001117",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-16",
+      "width": 1440,
+      "height": 648,
+      "alt": "帶皮魚料理與配菜盛在白色盤中。",
+      "caption": "另一盤是魚料理，和麵分開上桌。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-16-mist-fish-plate-v4-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 20220,
+          "sha256": "2bd83c00498da3808da5e0556269361200bf678cb993cd28971763f069cd372d"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-16-mist-fish-plate-v4-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 35060,
+          "sha256": "4273f3f84fe859fd162ef38d73126d3e274b6704d2fcfe482777c8b1fe722d40"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-16-mist-fish-plate-v4-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 56254,
+          "sha256": "ab3d9de62eccfcd1c8449c1cb2bc25cbbc8af471582e56c635e0475e694457b6"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "ab3d9de62eccfcd1c8449c1cb2bc25cbbc8af471582e56c635e0475e694457b6",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 19710191,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "71587b6da06bd4a0b899fee0c7373271772a91df9ee8f8cdd5f1b6a6bc4ebf70",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "03:39.002117",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-19",
+      "width": 1440,
+      "height": 648,
+      "alt": "孩子坐在 MIST 木桌旁，桌上有薯條與飲品。",
+      "caption": "午餐桌邊，還有薯條與一杯飲品。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-19-mist-child-fries-drink-v4-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 16882,
+          "sha256": "8f5bf2ee8b6cda081cc7c1ba681dd642e37f4392723b59394b6cf83b96eeda8c"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-19-mist-child-fries-drink-v4-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 26802,
+          "sha256": "73138900afce11f91a32e83608f55e891d7d982072e6a2c3412e6ade8ea62b03"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-19-mist-child-fries-drink-v4-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 41840,
+          "sha256": "27b19c12382a2d07fa977a52895a139b95623b6ee22d223cf277677f7cf1dfb3"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "27b19c12382a2d07fa977a52895a139b95623b6ee22d223cf277677f7cf1dfb3",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 19441422,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "b5ef1e97acacce98fd888c47456ead027c1b03cabd6f052eaba06ee9a99e53b5",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "03:36.015800",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-20",
+      "width": 1440,
+      "height": 648,
+      "alt": "Ubeco 餐桌上有麵盤、飯類、薯條、麵包與飲品。",
+      "caption": "晚餐的餐桌，麵與飯都在上面。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-20-ubeco-dinner-spread-v4-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 20750,
+          "sha256": "adb6c9ca7809b57e536c56bd76bf68aabe98d9058113013ec583bfaa6cd3ce87"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-20-ubeco-dinner-spread-v4-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 34306,
+          "sha256": "fb883860794d2eacdf3e832a5af26491d4d592ca5e72e7ffa20f24a31ba045b9"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-20-ubeco-dinner-spread-v4-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 53816,
+          "sha256": "a35f2cdb9017d115eb61da175252342ee65fb5eba2afb68728252d5d9ab2b008"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "a35f2cdb9017d115eb61da175252342ee65fb5eba2afb68728252d5d9ab2b008",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 28261233,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "e142f890a1b7639af8af01a484165d852cbf66bbae8dca532740be4cf20099e5",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "05:14.013700",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-21",
+      "width": 1440,
+      "height": 810,
+      "alt": "家人走入 Ubeco 用餐空間，牆面海報可見店名。",
+      "caption": "進門後，牆上的海報也寫著 Ubeco。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-21-ubeco-name-and-interior-v4-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 25486,
+          "sha256": "1d06840bc6d09f57b9dcb377e383b0abb658f71054dcc7cc485c269eed58d2fc"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-21-ubeco-name-and-interior-v4-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 41582,
+          "sha256": "c548bf3a2e79d39e7bba23ddf9f1208204c99dbd2c1591af5e3489e8acc3a830"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-21-ubeco-name-and-interior-v4-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 64766,
+          "sha256": "145e0a7f87e4a0b11e2496004a6c2076594597fe4baf019e45901d2017a68206"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "145e0a7f87e4a0b11e2496004a6c2076594597fe4baf019e45901d2017a68206",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 27360333,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "03480204427d458a8923ba7c598abbadfa03302c81d81a6af1f15e3038f23fa0",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "05:04.003700",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-22",
+      "width": 1440,
+      "height": 648,
+      "alt": "秀秀與孩子坐在 Ubeco 餐桌旁，秀秀正在吃麵。",
+      "caption": "一天的活動後，坐下來把晚餐吃完。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-22-ubeco-family-pasta-v4-active-640.webp",
+          "width": 640,
+          "height": 288,
+          "bytes": 13382,
+          "sha256": "f8624445ba8f7407347de9d457cda681257ebd7fb4db5cf924b20eb299b35eea"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-22-ubeco-family-pasta-v4-active-960.webp",
+          "width": 960,
+          "height": 432,
+          "bytes": 21274,
+          "sha256": "2bce5bd469868fc0df2a9785410d863d7c90acd90f96379453f1443f8801b175"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-22-ubeco-family-pasta-v4-active-1440.webp",
+          "width": 1440,
+          "height": 648,
+          "bytes": 32748,
+          "sha256": "b38ef6f1318251f2bf2c49ec1a2860fa4e559c47bd75b6cdc3d5d9e488b224d5"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b38ef6f1318251f2bf2c49ec1a2860fa4e559c47bd75b6cdc3d5d9e488b224d5",
+        "sourceWidth": 1440,
+        "sourceHeight": 648,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 648
+        },
+        "pts": 28800272,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "c58f0aef0a9cf7667c5324de3ce98183ebc6b79a6ce001daf29a5e8c5e0c4d61",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "05:20.003017",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-23",
+      "width": 1440,
+      "height": 810,
+      "alt": "Ubeco 的米飯餐盤，上方放著煎蛋。",
+      "caption": "除了麵，也點了一盤上面有煎蛋的米飯。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-23-ubeco-rice-egg-closeup-v4-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 16536,
+          "sha256": "811e33a66a765d0ea751cc4e8a59777675f2835747c5a444a8b20cd754902dd1"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-23-ubeco-rice-egg-closeup-v4-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 26492,
+          "sha256": "4434cb30390d60fa21e7b23c28e34155f314ea448275704fe3dc9110e68da255"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-23-ubeco-rice-egg-closeup-v4-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 42470,
+          "sha256": "202ef559282eea15b51e5ce6bcf5d2b4a8fee9e4bed1a858d3b70a971e96fbac"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "202ef559282eea15b51e5ce6bcf5d2b4a8fee9e4bed1a858d3b70a971e96fbac",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 29881352,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "d428bcb19ac216b40155c2441b4fa8a82de13931cf8dba5c0b2569b695f6862d",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "05:32.015017",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-24",
+      "width": 1440,
+      "height": 810,
+      "alt": "Molly Resort Bohol 的長形泳池、客房陽台與池邊躺椅。",
+      "caption": "到達後先安頓，再留一段泳池時間。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-24-molly-pool-overview-v4-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 27744,
+          "sha256": "bf8a578255cc567683f735a873338f11d0f159d1a8c4666b332ad6558a41ed8a"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-24-molly-pool-overview-v4-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 49224,
+          "sha256": "da43ee5f524ef99018ed4c4f56552905d1939a96da8a039ee6d3cd1fedeeb551"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-24-molly-pool-overview-v4-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 77548,
+          "sha256": "b54fa2ef43e8cb514c7fb947fc8bd6a6fd3e42b79bf240ec7ef1601e70697417"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b54fa2ef43e8cb514c7fb947fc8bd6a6fd3e42b79bf240ec7ef1601e70697417",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 22411389,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "a9132002d3bd30630f1f9c03e59d29e02f71d05b3f38d7c0c8de4ff7b395840f",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "04:09.015433",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "frame-31",
+      "width": 1440,
+      "height": 810,
+      "alt": "我們當年 Henann 品牌住宿的客房建築與泳池。",
+      "caption": "泳池與休息，也要在行程裡留得出時間。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-31-henann-brand-pool-v4-active-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 53078,
+          "sha256": "243234e4ee48dc5fdaa7253a3ad676ac532f52600d956d6448adb6ac29c75387"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-31-henann-brand-pool-v4-active-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 102840,
+          "sha256": "9f9d3a9b26053e030ed124d92149b156216d3593c4f9a6e57263954fe037a86d"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-31-henann-brand-pool-v4-active-1440.webp",
+          "width": 1440,
+          "height": 810,
+          "bytes": 171932,
+          "sha256": "d0418f00ae342124bc3e81f9a02d2214418ac8758803bfb4cbb1982f83a184cd"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "d0418f00ae342124bc3e81f9a02d2214418ac8758803bfb4cbb1982f83a184cd",
+        "sourceWidth": 1440,
+        "sourceHeight": 810,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 810
+        },
+        "pts": 51120069,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "originalSha256": "646e22ae077095f6604740ae09819de0b8d4b500b7cd787423f764a01c44ced9",
+        "derivedSha256": "7d6dd0a53b44cec7c6b0f913e9755b721a508d2f9425eff9e2eb58ee0181775a",
+        "sourceUrl": "https://www.youtube.com/watch?v=QmngtzfPVDk",
+        "timecode": "09:28.000767",
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "photo-06",
+      "width": 1280,
+      "height": 853,
+      "alt": "一家四口站在巧克力山觀景平台的紅色欄杆旁，身後延伸大片綠色丘陵。",
+      "caption": "我們在巧克力山的合照。家人在左邊，綠色山丘一路延伸到右邊。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-photo-06"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/ph-cebu-bohol-06-chocolate-hills-family-640.webp",
+          "width": 640,
+          "height": 426,
+          "bytes": 30658,
+          "sha256": "4676f2e279245a83039b71a8ed3154747226c9cfffec9c9c9f01b2fc9b119eb2"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-06-chocolate-hills-family-960.webp",
+          "width": 960,
+          "height": 640,
+          "bytes": 54440,
+          "sha256": "88c3d35953b4275a41e93d54201242ceb3279a740f1c8b5a4680347693ced506"
+        },
+        {
+          "url": "/trip/assets/ph-cebu-bohol-06-chocolate-hills-family.webp",
+          "width": 1280,
+          "height": 853,
+          "bytes": 131044,
+          "sha256": "3f5543992b4ca62ca469705ed9edb110a229a07bccab8b8a0cd4eac9d526bbe5"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "3f5543992b4ca62ca469705ed9edb110a229a07bccab8b8a0cd4eac9d526bbe5",
+        "sourceWidth": 1280,
+        "sourceHeight": 853,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 853
+        }
+      },
+      "legacyProvenance": {
+        "originalSha256": "cc0af23df0f181371c0a11702186316139ca5d1bdf84bb510eb929760aa796e1",
+        "derivedSha256": "3f5543992b4ca62ca469705ed9edb110a229a07bccab8b8a0cd4eac9d526bbe5",
+        "creator": "鷹式一家"
+      }
+    }
+  ],
+  "countries": [
+    {
+      "id": "philippines",
+      "path": "/trip/guides/cebu-bohol-with-kids/",
+      "singleDestination": true,
+      "name": "菲律賓",
+      "englishName": "Philippines",
+      "flag": "🇵🇭",
+      "title": "宿霧、薄荷島親子自由行：景點、餐廳與住宿，跨島怎麼排？",
+      "description": "從鷹式一家實訪的巧克力山、buggy、Bilar眼鏡猴、Loboc午餐船與Lila鯨鯊，搭配MIST、Ubeco及薄荷島住宿，按兩島交通、用餐和休息安排親子旅行。",
+      "intro": [
+        "想帶孩子看山、坐越野車、觀察動物，也留時間好好吃飯、在飯店休息？從我們實際玩過、吃過與住過的地方挑選，再把宿霧、薄荷島與住宿位置接起來，排出適合全家的旅行。",
+        "薄荷島內陸可以看巧克力山、坐 buggy、觀察眼鏡猴，或在 Loboc 河上吃午餐；我們也曾在薄荷島 Lila 看鯨鯊。麥哲倫十字架則在宿霧市區。先分清活動的位置，再選最想玩的，不必每一站都去。"
+      ],
+      "author": "鷹式一家",
+      "updatedOn": "2026-09-30",
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk"
+      ],
+      "cityIds": [
+        "cebu-bohol"
+      ],
+      "image": "photo-06",
+      "faq": [
+        {
+          "question": "一天能玩完薄荷島四種內陸體驗嗎？",
+          "answer": "可詢問緊湊路線，但要一起看 buggy 長度、Bilar 園區安排與午餐船場次。想悠閒或保留午睡，先選山景加一種活動；四種都想玩，留兩個完整日較容易。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ]
+        }
+      ]
+    }
+  ],
+  "cities": [
+    {
+      "id": "cebu-bohol",
+      "countryId": "philippines",
+      "path": "/trip/guides/cebu-bohol-with-kids/",
+      "name": "宿霧・薄荷島",
+      "englishName": "Cebu · Bohol",
+      "destinationKind": "region",
+      "title": "宿霧、薄荷島親子自由行：景點、餐廳與住宿，跨島怎麼排？",
+      "description": "從鷹式一家實訪的巧克力山、buggy、Bilar眼鏡猴、Loboc午餐船與Lila鯨鯊，搭配MIST、Ubeco及薄荷島住宿，按兩島交通、用餐和休息安排親子旅行。",
+      "intro": [
+        "想帶孩子看山、坐越野車、觀察動物，也留時間好好吃飯、在飯店休息？從我們實際玩過、吃過與住過的地方挑選，再把宿霧、薄荷島與住宿位置接起來，排出適合全家的旅行。",
+        "薄荷島內陸可以看巧克力山、坐 buggy、觀察眼鏡猴，或在 Loboc 河上吃午餐；我們也曾在薄荷島 Lila 看鯨鯊。麥哲倫十字架則在宿霧市區。先分清活動的位置，再選最想玩的，不必每一站都去。"
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk",
+        "o-tourism-bohol-gov-ph-visitbohol-carmen",
+        "o-tourism-bohol-gov-ph-countryside-tour",
+        "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-502s",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-589s"
+      ],
+      "author": "鷹式一家",
+      "updatedOn": "2026-09-30",
+      "hero": [
+        "photo-06",
+        "photo-02",
+        "photo-08"
+      ],
+      "places": [
+        {
+          "id": "buggy",
+          "stableId": "cebu-bohol-buggy",
+          "title": "家庭 buggy：坐在一起，從泥土路看丘陵",
+          "paragraphs": [
+            "看山也能換個視角。照片裡，我們穿雨衣、戴安全帽，坐上有車架與頂篷的藍色 buggy，旁邊就是山丘與泥土路。",
+            "buggy 與跨坐式 ATV 的座位、操控方式不同。預約時附上孩子年齡、身高及全家人數，一次問清車型、駕駛資格、兒童乘坐、安全帶與頭盔，以及帶隊或代駕選項。"
+          ],
+          "sourceIds": [
+            "o-tourism-bohol-gov-ph-visitbohol-carmen",
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "有車架與頂篷的家庭 buggy，全家坐在一起，從泥土路看山丘。",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-visitbohol-carmen"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "一起坐車走進丘陵與泥土路",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-visitbohol-carmen"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "與 Carmen 山景段一起詢問接送，使用業者確認的集合點。",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-visitbohol-carmen"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議先留 1～1.5 小時，包含準備與換裝；較長路線再增加時間。",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-visitbohol-carmen"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "場次、費用與雨天改期方式在預約時確認。",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-visitbohol-carmen"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "預約時附上孩子年齡、身高及全家人數，一次問清車型、駕駛資格、兒童乘坐、安全帶與頭盔，以及帶隊或代駕選項；若路線取消，就改用餐或休息。",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-visitbohol-carmen"
+              ]
+            }
+          },
+          "images": [
+            "photo-02",
+            "photo-03",
+            "photo-04"
+          ],
+          "supportImages": [
+            "photo-05"
+          ],
+          "links": [
+            {
+              "label": "Carmen buggy 地圖搜尋",
+              "url": "https://www.google.com/maps/search/?api=1&query=buggy+Carmen+Bohol"
+            },
+            {
+              "label": "Carmen 官方旅遊資訊",
+              "url": "https://tourism.bohol.gov.ph/visitbohol-carmen/"
+            }
+          ]
+        },
+        {
+          "id": "hills",
+          "stableId": "cebu-bohol-hills",
+          "title": "巧克力山：從高處看一座接一座的山丘",
+          "paragraphs": [
+            "巧克力山的特色是連綿的圓錐狀丘陵。高處看出去，山丘與其間樹林一起展開；我們照片中的山色帶著綠，不必等到一片褐色才值得看。"
+          ],
+          "sourceIds": [
+            "o-tourism-bohol-gov-ph-countryside-tour",
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "巧克力山的特色是連綿的圓錐狀丘陵，高處看出去，山丘與其間樹林一起展開。",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-countryside-tour"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "看連綿山丘，拍全景與合照",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-countryside-tour"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "與 Carmen 周邊活動串接，接送一併確認。",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-countryside-tour"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議安排 45～60 分鐘。",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-countryside-tour"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "放在白天；當日開放與入場方式出發前確認。[官方鄉村路線](https://tourism.bohol.gov.ph/countryside-tour/)",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-countryside-tour"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "官方鄉村路線的觀景台需登階，帶幼兒或推車先問實際觀景點的入口與停放安排；強雨或登階不便時換時段，午餐仍按原本時間吃。",
+              "sourceIds": [
+                "o-tourism-bohol-gov-ph-countryside-tour"
+              ]
+            }
+          },
+          "images": [
+            "photo-07",
+            "frame-09",
+            "frame-10"
+          ],
+          "links": [
+            {
+              "label": "Carmen 巧克力山觀景地圖搜尋",
+              "url": "https://www.google.com/maps/search/?api=1&query=Chocolate+Hills+Viewpoint+Carmen+Bohol"
+            }
+          ]
+        },
+        {
+          "id": "tarsier",
+          "stableId": "cebu-bohol-tarsier",
+          "title": "Bilar 眼鏡猴觀察：在枝葉間慢慢找",
+          "paragraphs": [
+            "我們這次參觀的是 Bohol Tarsier Conservation Area，位於 Villa Aurora, Bilar。照片裡眼鏡猴在左上方葉片間，家人在右下方；注意力從大片山景，移到一根枝條旁的小身影。"
+          ],
+          "sourceIds": [
+            "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+            "v-youtube-com-watch-v-qmngtzfpvdk-t-502s",
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "Bohol Tarsier Conservation Area，位於 Villa Aurora, Bilar，在枝葉間觀察眼鏡猴。",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-502s"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "放慢腳步，在枝葉間找小動物",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-502s"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "向司機提供完整園名與下方地圖。",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-502s"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議觀察 30～45 分鐘，另留等候。",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-502s"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "出發前確認當日參觀時間與購票方式。",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-502s"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "穿好走的鞋；在現場輕聲觀察，按指引保持距離、關掉閃光燈。下雨先問步道是否開放，再決定縮短或延後。",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-502s"
+              ]
+            }
+          },
+          "images": [
+            "photo-08",
+            "frame-11",
+            "frame-12"
+          ],
+          "links": [
+            {
+              "label": "Bilar 眼鏡猴園區 Google Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Bohol%20Tarsier%20Conservation%20Area&query_place_id=ChIJORwIIvxDqjMREtkvm-C7978"
+            },
+            {
+              "label": "薄荷島省府 Bilar 地點資料",
+              "url": "https://ppdo.bohol.gov.ph/ppdofiles/Profile/SocioEconomicProfile/EconomicDevelopment/TourismProfile2025.pdf#page=82"
+            },
+            {
+              "label": "影片 08:22 的參觀段落",
+              "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=502s"
+            }
+          ]
+        },
+        {
+          "id": "loboc",
+          "stableId": "cebu-bohol-loboc",
+          "title": "Loboc 午餐船：吃飯與看河景，一起安排",
+          "paragraphs": [
+            "山景與戶外活動之間，也可以換成坐下來用餐。我們當年的行程有 Loboc River 水上餐廳；搭乘午餐船，把河上航程也放進午餐，而不只是找地方吃飽。"
+          ],
+          "sourceIds": [
+            "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "Loboc River 上的午餐船，把河上航程也放進午餐。",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "坐下吃飯，也看看河岸",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "預約時確認船家、登船處與報到時間，用訂單上的碼頭安排接送。",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "一般約 45～60 分鐘的航程；加上報到、候船與用餐，建議整段留 1.5～2 小時。[省府旅遊資料](https://ppdo.bohol.gov.ph/ppdofiles/Profile/SocioEconomicProfile/EconomicDevelopment/TourismProfile2025.pdf#page=125)",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "先固定午餐場次，再排前後活動；兒童計價在預約時確認。",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "遇雨查當日開航及改期方式，陸上餐廳作午餐替代；孩子吃飯時間固定、不想配合場次，選陸上午餐會更好調整。",
+              "sourceIds": [
+                "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel"
+              ]
+            }
+          },
+          "images": [
+            "frame-13",
+            "frame-14",
+            "frame-15"
+          ],
+          "links": [
+            {
+              "label": "Loboc River Cruise 區域地圖搜尋",
+              "url": "https://www.google.com/maps/search/?api=1&query=Loboc+River+Cruise+Bohol"
+            }
+          ]
+        },
+        {
+          "id": "cross",
+          "stableId": "cebu-bohol-cross",
+          "title": "麥哲倫十字架：留給宿霧市區的文化停留",
+          "paragraphs": [
+            "十字架在亭內中央，抬頭還能看見壁畫。這是 Cebu City 的宗教場所，也是認識宿霧歷史的一小站，與薄荷島內陸活動分開安排。[場館介紹](https://santoninodecebubasilica.org/basilica-minore-del-santo-nino/magellans-cross/)"
+          ],
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "Cebu City 的宗教場所，十字架在亭內中央，抬頭還能看見壁畫。",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "看十字架與天花板壁畫",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "在宿霧市區，與薄荷島內陸活動分開安排；市區交通另外算。",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "建議留 20～30 分鐘。",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "排在白天，出發前確認當日開放與宗教活動。",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "亭內有屋頂，進出和接車仍要步行；大雨時改成方便抵達的室內用餐，短暫參觀另找時段。",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk"
+              ]
+            }
+          },
+          "images": [
+            "photo-01"
+          ],
+          "links": [
+            {
+              "label": "麥哲倫十字架 Google Maps 搜尋",
+              "url": "https://www.google.com/maps/search/?api=1&query=Magellan%27s+Cross+Cebu+City"
+            }
+          ]
+        },
+        {
+          "id": "whale-shark",
+          "stableId": "cebu-bohol-whale-shark",
+          "title": "Lila 鯨鯊：我們當年的體驗，與現在的安排不同",
+          "paragraphs": [
+            "我們當年看鯨鯊的地方，是薄荷島 Lila。出海前先聽說明、拿救生衣，再搭小船到活動區；有人下水，也有孩子選擇留在船上看。不一定要全家做同樣的事，才算一起參與。",
+            "當年的船員會以小魚誘餵，讓鯨鯊靠近。現在不能照當年的方式安排。薄荷島省府 2026 年規範禁止餵食、碰觸與騷擾；業者須取得 Certificate of Compliance（COC），鯨鯊互動季為 11 月至翌年 5 月，也不保證每次都能看到。[省府互動季與許可說明](https://bohol.gov.ph/2026/05/01/bohol-strengthens-marine-wildlife-protection-through-enhanced-ordinance-irr/)｜[現行互動規範](https://bohol.gov.ph/2026/05/12/bohol-strengthens-marine-wildlife-protection-and-coastal-resource-management-efforts/)",
+            "詢問行程時，先核對業者的合法營運資格、集合點、當日場次、兒童年齡與救生裝備，以及不下水的人能否留船觀看。現在規範要求游泳者與鯨鯊至少保持 4 公尺、船隻至少 20 公尺；確認業者如何執行，再決定是否參加。",
+            "這段活動要連同住宿接送、說明、候船和回程一起估算。請業者提供完整時間，不直接套用我們當年片中的清晨出發或短暫下水時間。遇到不開航或沒有看到鯨鯊，先問清改期與替代安排；也可以把這個時段留在飯店休息。"
+          ],
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk-t-589s",
+            "o-bohol-gov-ph-2026-05-01-bohol-strengthens-marine-wildlife-protection-t",
+            "o-bohol-gov-ph-2026-05-12-bohol-strengthens-marine-wildlife-protection-a",
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "薄荷島 Lila 的鯨鯊觀察：搭小船到活動區，可以下水，也可以留在船上看。",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-589s",
+                "o-bohol-gov-ph-2026-05-01-bohol-strengthens-marine-wildlife-protection-t",
+                "o-bohol-gov-ph-2026-05-12-bohol-strengthens-marine-wildlife-protection-a"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "看我們當年的乘船與水下體驗，了解現在怎麼安排",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-589s",
+                "o-bohol-gov-ph-2026-05-01-bohol-strengthens-marine-wildlife-protection-t",
+                "o-bohol-gov-ph-2026-05-12-bohol-strengthens-marine-wildlife-protection-a"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "地圖是 Lila 的位置，不是指定業者的登船點；實際接送用預約單上的地點。",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-589s",
+                "o-bohol-gov-ph-2026-05-01-bohol-strengthens-marine-wildlife-protection-t",
+                "o-bohol-gov-ph-2026-05-12-bohol-strengthens-marine-wildlife-protection-a"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "連同住宿接送、說明、候船和回程一起估算；請業者提供完整時間。",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-589s",
+                "o-bohol-gov-ph-2026-05-01-bohol-strengthens-marine-wildlife-protection-t",
+                "o-bohol-gov-ph-2026-05-12-bohol-strengthens-marine-wildlife-protection-a"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "鯨鯊互動季為 11 月至翌年 5 月；業者須取得 Certificate of Compliance（COC），也不保證每次都能看到。[省府互動季與許可說明](https://bohol.gov.ph/2026/05/01/bohol-strengthens-marine-wildlife-protection-through-enhanced-ordinance-irr/)",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-589s",
+                "o-bohol-gov-ph-2026-05-01-bohol-strengthens-marine-wildlife-protection-t",
+                "o-bohol-gov-ph-2026-05-12-bohol-strengthens-marine-wildlife-protection-a"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "禁止餵食、碰觸與騷擾；游泳者與鯨鯊至少保持 4 公尺、船隻至少 20 公尺。[現行互動規範](https://bohol.gov.ph/2026/05/12/bohol-strengthens-marine-wildlife-protection-and-coastal-resource-management-efforts/)",
+              "sourceIds": [
+                "v-youtube-com-watch-v-qmngtzfpvdk-t-589s",
+                "o-bohol-gov-ph-2026-05-01-bohol-strengthens-marine-wildlife-protection-t",
+                "o-bohol-gov-ph-2026-05-12-bohol-strengthens-marine-wildlife-protection-a"
+              ]
+            }
+          },
+          "images": [
+            "frame-27",
+            "frame-28",
+            "frame-30"
+          ],
+          "supportImages": [
+            "frame-29"
+          ],
+          "links": [
+            {
+              "label": "Lila 鄉鎮地圖",
+              "url": "https://www.google.com/maps/search/?api=1&query=Lila+Bohol+Philippines"
+            },
+            {
+              "label": "看我們的 Lila 實訪影片 09:49",
+              "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=589s"
+            }
+          ]
+        }
+      ],
+      "cards": [
+        {
+          "target": "buggy",
+          "assetId": "photo-02",
+          "title": "家庭 buggy",
+          "play": "一起坐車走進丘陵與泥土路",
+          "time": "1～1.5 小時起",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "hills",
+          "assetId": "photo-07",
+          "title": "巧克力山",
+          "play": "看連綿山丘，拍全景與合照",
+          "time": "45～60 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "tarsier",
+          "assetId": "photo-08",
+          "title": "眼鏡猴觀察（Bilar）",
+          "play": "放慢腳步，在枝葉間找小動物",
+          "time": "30～45 分鐘，另留等候",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "loboc",
+          "assetId": "frame-13",
+          "title": "Loboc 午餐船",
+          "play": "坐下吃飯，也看看河岸",
+          "time": "1.5～2 小時，含候船用餐",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "cross",
+          "assetId": "photo-01",
+          "title": "麥哲倫十字架",
+          "play": "看十字架與天花板壁畫",
+          "time": "20～30 分鐘，交通另計",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "whale-shark",
+          "assetId": "frame-27",
+          "title": "Lila 鯨鯊",
+          "play": "歷史體驗與現在的參與條件",
+          "time": "先確認互動季、許可與兒童安排",
+          "focalPoint": [
+            50,
+            50
+          ]
+        }
+      ],
+      "food": {
+        "title": "吃哪餐、怎麼順路：Panglao 自由選餐，內陸先排午餐",
+        "paragraphs": [
+          "我們在 Panglao 吃過 MIST 與 Ubeco；到內陸活動時，午餐則選過 Loboc 河上餐廳。三種用餐的差別，不只是菜色，還有你願不願意配合船的場次。",
+          "抵達後先吃午餐，再入住——我們吃過的地方：MIST，Panglao；放在哪一段比較好安排：住宿接送與入住之間，確認當日營業、等位及行李安排。",
+          "回到住宿區，坐下來吃晚餐——我們吃過的地方：Ubeco，Panglao；放在哪一段比較好安排：內陸回程或休息日，先看接送與最後點餐時間。",
+          "午餐一起看河景——我們吃過的地方：Loboc 午餐船；放在哪一段比較好安排：內陸日，先固定報到與船場次，玩法見 [Loboc 段落](#loboc)。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-qmngtzfpvdk"
+        ],
+        "links": [],
+        "subsections": [
+          {
+            "id": "food-mist",
+            "title": "MIST：竹木空間裡，先吃一頓午餐",
+            "paragraphs": [
+              "等 Molly 入住時，我們在 MIST 吃午餐。木構樓梯、植物與多層用餐空間，和坐在飯店房裡的感覺不同；餐桌上有麵、魚料理、薯條與飲品，可以從照片看看這一餐的樣子。",
+              "抵達日把它當一頓完整午餐，吃完再接入住，而不是在等房間時餓著趕景點。用餐可先留 1～1.5 小時，等位另外算；向店家確認營業、訂位、行李與接送位置。餐廳照片裡有網繩空間，但帶幼兒時仍要問現場使用方式，別只看照片就當成有人看顧的遊戲區。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": [
+              {
+                "label": "MIST 地圖搜尋",
+                "url": "https://www.google.com/maps/search/?api=1&query=MIST+Panglao+Bohol"
+              },
+              {
+                "label": "店家 Facebook",
+                "url": "https://www.facebook.com/mistbohol"
+              },
+              {
+                "label": "用餐影片 03:00",
+                "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=180s"
+              }
+            ],
+            "images": [
+              "frame-18",
+              "frame-17",
+              "frame-16",
+              "frame-19"
+            ]
+          },
+          {
+            "id": "food-ubeco",
+            "title": "Ubeco：晚餐不用跟著船的場次走",
+            "paragraphs": [
+              "Ubeco 是我們在 Panglao 吃過的晚餐。餐桌上有麵、飯類及其他餐點，家人坐在一起吃；想在回到住宿區後自由選餐，它可以成為這一晚的選項。",
+              "用餐可先留 1～1.5 小時，加上住宿往返與等位。店址在 Panglao 的 Poblacion，導航用下方完整搜尋；當日營業與最後點餐先看店家公告。若有辣度、過敏原、兒童座椅或分食需求，訂位時一併問清。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": [
+              {
+                "label": "Ubeco 地圖搜尋",
+                "url": "https://www.google.com/maps/search/?api=1&query=Ubeco+Purok+6+Poblacion+Panglao+Bohol"
+              },
+              {
+                "label": "店家與菜單",
+                "url": "https://www.ubeco-bohol.com/"
+              },
+              {
+                "label": "用餐影片 05:04",
+                "url": "https://www.youtube.com/watch?v=QmngtzfPVDk&t=304s"
+              }
+            ],
+            "images": [
+              "frame-20",
+              "frame-21",
+              "frame-22",
+              "frame-23"
+            ]
+          },
+          {
+            "id": "food-choice",
+            "title": "午餐船，或自由選餐？",
+            "paragraphs": [
+              "想把河景放進用餐，就看 [Loboc 午餐船](#loboc)；想保留臨時休息、調整時間的彈性，選陸上餐廳。MIST 與 Ubeco 在 Panglao，不是內陸景點旁的便當站：如果一整天都在內陸玩，午餐要就近安排，回到 Panglao 再選晚餐。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": []
+          }
+        ]
+      },
+      "stay": {
+        "title": "住哪一側比較適合：住宿也是行程起點",
+        "paragraphs": [
+          "先想這幾晚怎麼過。住在宿霧接城市行程與碼頭，和住在薄荷島、從 Panglao 出發玩內陸，是不同的安排。",
+          "宿霧市區——適合的安排：城市停留與跨島前後休息；行程先算什麼：機場、碼頭與市區活動的接送。",
+          "Panglao——適合的安排：在薄荷島住下，搭配餐廳、飯店休息與內陸日；行程先算什麼：景點往返、用餐與留在飯店的時間。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-qmngtzfpvdk"
+        ],
+        "links": [],
+        "subsections": [
+          {
+            "id": "stay-molly",
+            "title": "Molly Resort Bohol：抵達後先安頓",
+            "paragraphs": [
+              "我們當年先在 MIST 吃午餐，再入住 Molly。房間裡有兩張床，外面是泳池與客房陽台；到達日先留給入住、休息與游泳。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": [
+              {
+                "label": "看 Molly 親子住宿：房間、泳池與抵達日",
+                "url": "/trip/stays/molly-resort-bohol/"
+              }
+            ],
+            "images": [
+              "frame-24"
+            ]
+          },
+          {
+            "id": "stay-henann",
+            "title": "Henann：留一段不趕景點的時間",
+            "paragraphs": [
+              "我們也在 Henann 留了游泳與休息的時間。選館時，想住海濱、分兩間臥室，可以先比較 Alona Beach 與 Premier Coast 的家庭房；偏好池景一般房，再挑時間到海灘，則可以看 Tawala。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": [
+              {
+                "label": "看 Henann 三館親子比較：海灘、房型與泳池",
+                "url": "/trip/stays/henann-bohol-family-comparison/"
+              },
+              {
+                "label": "看我們的 Henann 住宿 Reels",
+                "url": "https://www.facebook.com/reel/383978093985047"
+              }
+            ],
+            "images": [
+              "frame-31"
+            ]
+          }
+        ]
+      },
+      "arrival": {
+        "title": "機票、跨島與接送：把到達時間一起算進旅行",
+        "paragraphs": [],
+        "sourceIds": [
+          "v-youtube-com-watch-v-qmngtzfpvdk"
+        ],
+        "links": [],
+        "subsections": [
+          {
+            "id": "islands",
+            "title": "宿霧與薄荷島，分成兩段安排",
+            "paragraphs": [
+              "宿霧市區、薄荷島內陸、Panglao 住宿與餐廳，是不同的旅行路段。我們這次的鯨鯊實訪在薄荷島 Lila，不在宿霧的 Oslob。",
+              "宿霧市區——可以放什麼：麥哲倫十字架、市區停留與抵離接送；先決定什麼：當天是城市遊玩，還是要趕碼頭／機場。",
+              "薄荷島內陸——可以放什麼：Carmen 山景與 buggy、Bilar 眼鏡猴、Loboc 午餐船；先決定什麼：從哪間住宿出發、午餐場次、接送與完整遊玩日。",
+              "Panglao——可以放什麼：MIST、Ubeco、我們住過的飯店與泳池休息；先決定什麼：到達時間、入住安排、晚餐和休息時間。",
+              "Lila——可以放什麼：我們當年的鯨鯊體驗；先決定什麼：現行許可、互動季、實際業者與參與方式。",
+              "我們當年先從宿霧搭車到碼頭，乘渡輪到薄荷島，再搭車前往住宿。抵達 Panglao 時先在 MIST 吃午餐、等 Molly 的房間，入住後才休息和游泳。這樣的到達日，不必同時扛下整條內陸路線。",
+              "住 Panglao、到 Bilar 或 Carmen 玩，再返回飯店，都要算住宿往返。若也想在宿霧停留，另留城市時段和跨島日；不要把兩島的活動當成相鄰景點。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": []
+          },
+          {
+            "id": "arrival-1",
+            "title": "先比較機票，再決定從哪裡開始",
+            "paragraphs": [
+              "到 [Skyscanner 比較宿霧／薄荷島機票](https://www.skyscanner.com.tw/)，可用 宿霧 CEB 與 薄荷／Panglao TAG 查詢自己的日期。比較的不只是票面金額：轉機與抵離時間、全家托運額度、到住宿的接送，以及是否還需要跨島船票，都影響總成本和可用時間。",
+              "若從宿霧進出，就把往返薄荷島的移動日留出來；若選薄荷島航班，確認抵達後的住宿接送，再決定要不要另外去宿霧。先確定票與住宿，才知道有幾個真正完整的遊玩日。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": []
+          },
+          {
+            "id": "arrival-2",
+            "title": "船班與住宿先選定",
+            "paragraphs": [
+              "宿霧往薄荷島可查 Cebu ↔ Tagbilaran 船班，OceanJet 是可查詢的選項之一。依票上登船處安排接送，別把公司辦公室當碼頭。[OceanJet 官方資訊](https://www.oceanjet.net/contact-us)",
+              "OceanJet 要求姓名與有效身分文件相符，至少開船前 30 分鐘完成 check-in；家庭還要加上到港交通、行李與排隊。[報到 FAQ](https://www.oceanjet.net/faq)",
+              "依 2026 年 2 月 6 日生效的政策，Tourist／Open-Air 免費行李為 10 公斤、Business 為 20 公斤；Tourist／Open-Air 的拖行或可折疊行李須託運。推車處理訂票時另問，途中用品放隨身包。[行李公告](https://www.oceanjet.net/travel-advisories/updated-baggage-policy)",
+              "若住 Panglao，碼頭到飯店、飯店到內陸是不同路段。Panglao 與 Tagbilaran 有橋樑道路連接；接送詢價一次列出住宿、Bilar、Carmen、Loboc 及午餐場次，讓司機調整順序。[省府交通資訊](https://bohol.gov.ph/2026/02/06/bohol-french-embassy-strengthen-readiness-for-3rd-tagbilaran-panglao-bridge-to-ease-traffic-and-boost-connectivity/)"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": []
+          },
+          {
+            "id": "arrival-3",
+            "title": "完整內陸日，吃飯與休息都要算",
+            "paragraphs": [
+              "內陸行程要連同住宿往返、午餐和休息一起估算；公共交通另有等候與轉乘。選包車時一起確認全家座位、兒童乘車需求、等待與回程；各站停留相加，還不是一整天的門到門時間。[官方鄉村線](https://tourism.bohol.gov.ph/countryside-tour/)",
+              "強雨遇到活動取消，就保留陸上午餐與住宿休息。只有一天挑兩三站，有兩天把玩法拆開，換衣、用餐和午睡就比較有空間。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": []
+          },
+          {
+            "id": "arrival-whole-trip",
+            "title": "抵離、住宿與休息，放進整趟旅行",
+            "paragraphs": [
+              "抵達薄荷島先接車、用餐、入住。住在 Panglao，可以像我們當年一樣先在 MIST 吃午餐，再到 Molly 安頓；按船班、接送與入住時間，安排午餐和下午的休息。",
+              "回到住宿的下午留給休息或游泳，晚餐再選 MIST、Ubeco 或住宿附近的餐廳。固定一間飯店，可以多留時間玩景點、使用設施；想換住宿體驗，則把退房、搬行李與重新入住一起排進當天。",
+              "有獨立的 Cebu City 停留，才放麥哲倫十字架。離開日先確定碼頭或機場接送，搭船後接飛機更要留交通餘裕。Lila 條件確認後另排，不能用省略午餐、休息與交通的方式，變出一段可用的時間。",
+              "先選全家最想玩的，再把它們接得順。多留的時間，可以吃飯、換衣服，也讓孩子想多看一下時，不必立刻催著走。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "links": []
+          }
+        ]
+      },
+      "faq": [
+        {
+          "question": "一天能玩完薄荷島四種內陸體驗嗎？",
+          "answer": "可詢問緊湊路線，但要一起看 buggy 長度、Bilar 園區安排與午餐船場次。想悠閒或保留午睡，先選山景加一種活動；四種都想玩，留兩個完整日較容易。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ]
+        },
+        {
+          "question": "Lila 鯨鯊可以直接加在內陸日嗎？",
+          "answer": "先看互動季、合法業者與兒童安排，再算接送和活動整段時間。這篇的內陸試排不預設可以訂到鯨鯊；確定可參加後另留一段，不把它塞進已排滿的山景、buggy 與午餐船之間。條件不合就留飯店休息。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ]
+        },
+        {
+          "question": "孩子一定要下水看鯨鯊嗎？",
+          "answer": "我們當年有孩子留在船上看。這次能否不下水、留船需誰陪同、孩子能用什麼救生裝備，都要向合法業者確認，不用勉強全家做同樣的選擇。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ]
+        },
+        {
+          "question": "小小孩能坐 buggy、推車能上觀景台嗎？",
+          "answer": "兩件事分開問：buggy 用孩子年齡、身高確認乘坐方案；觀景台詢問階梯與推車安排。家中有人不適合乘車或登階，可以由成人分組，或縮減活動。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ]
+        },
+        {
+          "question": "不選午餐船，可以改吃 MIST 或 Ubeco 嗎？",
+          "answer": "在 Panglao 活動或回到住宿區時可以考慮；一整天在內陸，就先就近安排陸上午餐，不為了回 Panglao 吃飯多跑一趟。MIST 與 Ubeco 的介紹見 [餐廳段落](#food)。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ]
+        },
+        {
+          "question": "想在飯店游泳，需要多留一天嗎？",
+          "answer": "可以先把抵達後的下午留給游泳、換衣服與吃飯，完整遊玩日再去內陸。若想多用飯店設施，就少排一兩站或另留休息日；兩床房間、海灘位置和池區選擇，可接著看[住宿介紹](#stay)。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ]
+        },
+        {
+          "question": "宿霧可以當天往返薄荷島嗎？",
+          "answer": "先算兩端接送、報到及來回船班，再看剩多少時間。想進內陸又帶孩子，建議住在薄荷島，留完整日玩；當天往返就縮減景點，保留回程餘裕。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ]
+        },
+        {
+          "question": "孩子的渡輪票怎麼買？",
+          "answer": "用實際生日、艙等向船公司核價，準備年齡及同行監護所需文件。[OceanJet 兒童票政策](https://www.oceanjet.net/news-and-updates/updated-policy-for-infant-and-minor)",
+          "sourceIds": [
+            "v-youtube-com-watch-v-qmngtzfpvdk"
+          ]
+        }
+      ],
+      "videoSourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-180s",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-225s",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-304s",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-502s",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-565s",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-589s"
+      ],
+      "planner": {
+        "title": "行程試排：一至兩個完整薄荷島遊玩日",
+        "paragraphs": [
+          "這裡的一至兩天，指已抵達薄荷島、能從住宿出發的完整遊玩日，不是整趟旅行總天數。住宿是起點，跨島抵離與宿霧停留另算；預約後依交通和午餐場次調整順序。鯨鯊須先確認季節與業者資格，沒有直接加入下面的預設路線。",
+          "這些是規劃建議，景點間交通另外算。先挑兩三種最想玩的；鯨鯊還要先看季節與營運資格，詳細說明在 [Lila 段落](#whale-shark)。接著選 [餐廳](#food) 與 [住宿](#stay)，才知道一天能接上多少活動。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-qmngtzfpvdk"
+        ],
+        "routes": [
+          {
+            "id": "cebu-bohol-1-leisure",
+            "label": "一天悠閒｜山景加一種體驗",
+            "sightseeingDays": 1,
+            "pace": "leisure",
+            "note": "住宿是起點，跨島抵離與宿霧停留另算。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "days": [
+              {
+                "title": "山景加一種體驗",
+                "description": "從住宿出發 → 巧克力山 → 內陸陸上午餐 → Bilar 眼鏡猴 → 回住宿。想玩 buggy，就搭配山景，把眼鏡猴留另一日；只想看景，就提早回飯店休息。 若最想坐午餐船，可改 Bilar 眼鏡猴 → Loboc 午餐船 → 回住宿，減掉山景與 buggy。buggy 與午餐船都想保留，改兩天或活動二選一，比壓縮午餐更實際。",
+                "stops": [
+                  "hills",
+                  "tarsier"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "cebu-bohol-1-compact",
+            "label": "一天緊湊｜先固定午餐，再接活動",
+            "sightseeingDays": 1,
+            "pace": "compact",
+            "note": "預約後依交通和午餐場次調整順序。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "days": [
+              {
+                "title": "先固定午餐，再接活動",
+                "description": "向接送業者討論 Bilar 眼鏡猴、巧克力山、所選 buggy 與午餐的串接。選船先按報到時間反推上午；若會趕，減一站。不玩 buggy 就留更多看景時間；不選船改內陸陸上午餐。晚餐回到 Panglao，可依住宿位置與營業時間選 Ubeco。",
+                "stops": [
+                  "tarsier",
+                  "hills",
+                  "buggy",
+                  "loboc"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "cebu-bohol-2-leisure",
+            "label": "兩天悠閒｜不同玩法分兩天",
+            "sightseeingDays": 2,
+            "pace": "leisure",
+            "note": "兩天下午都留休息。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "days": [
+              {
+                "title": "第一天：山景與 buggy",
+                "description": "從住宿出發 → 巧克力山 → buggy（選配）→ 內陸陸上午餐 → 回住宿。",
+                "stops": [
+                  "hills",
+                  "buggy"
+                ]
+              },
+              {
+                "title": "第二天：眼鏡猴與午餐",
+                "description": "從住宿出發 → Bilar 眼鏡猴 → Loboc 午餐船或內陸陸上午餐 → 回住宿。兩天下午都留休息；晚餐再選住宿區可接上的餐廳。",
+                "stops": [
+                  "tarsier",
+                  "loboc"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "cebu-bohol-2-compact",
+            "label": "兩天緊湊｜四種玩法與調整空間",
+            "sightseeingDays": 2,
+            "pace": "compact",
+            "note": "由司機依接送位置串接。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-qmngtzfpvdk"
+            ],
+            "days": [
+              {
+                "title": "第一天：四種玩法串接",
+                "description": "巧克力山、buggy（選配）、陸上午餐、Bilar 眼鏡猴，由司機依接送位置串接。",
+                "stops": [
+                  "hills",
+                  "buggy",
+                  "tarsier"
+                ]
+              },
+              {
+                "title": "第二天：Loboc 午餐船或休息",
+                "description": "Loboc 午餐船（選配）。沒選船就留住宿休息，或確認能否補排第一天因天候略過的活動。",
+                "stops": [
+                  "loboc"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "extension": {
+        "title": "完整影片與延伸閱讀",
+        "paragraphs": [
+          "想看實際旅行，接著看 [《宿霧親子旅遊之薄荷島三日遊》完整影片](https://www.youtube.com/watch?v=QmngtzfPVDk)。也可以從想看的片段開始：[MIST 午餐 03:00](https://www.youtube.com/watch?v=QmngtzfPVDk&t=180s)｜[Molly 住宿 03:45](https://www.youtube.com/watch?v=QmngtzfPVDk&t=225s)｜[Ubeco 晚餐 05:04](https://www.youtube.com/watch?v=QmngtzfPVDk&t=304s)｜[Bilar 眼鏡猴 08:22](https://www.youtube.com/watch?v=QmngtzfPVDk&t=502s)｜[Henann 住宿 09:25](https://www.youtube.com/watch?v=QmngtzfPVDk&t=565s)｜[Lila 鯨鯊 09:49](https://www.youtube.com/watch?v=QmngtzfPVDk&t=589s)。",
+          "影片保留當年的畫面；現在的船班、餐廳營業、飯店入住條件及海上活動，出發前看各段的行前來源。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-qmngtzfpvdk",
+          "v-youtube-com-watch-v-qmngtzfpvdk-t-180s",
+          "v-youtube-com-watch-v-qmngtzfpvdk-t-225s",
+          "v-youtube-com-watch-v-qmngtzfpvdk-t-304s",
+          "v-youtube-com-watch-v-qmngtzfpvdk-t-502s",
+          "v-youtube-com-watch-v-qmngtzfpvdk-t-565s",
+          "v-youtube-com-watch-v-qmngtzfpvdk-t-589s"
+        ],
+        "links": [
+          {
+            "label": "旅行總覽",
+            "url": "/trip/"
+          },
+          {
+            "label": "泰國旅行",
+            "url": "/trip/thailand/"
+          },
+          {
+            "label": "紐西蘭旅行",
+            "url": "/trip/new-zealand/"
+          }
+        ]
+      },
+      "anchorAliases": {
+        "choose": "places",
+        "dining": "food",
+        "transport": "arrival",
+        "films": "extension"
+      }
+    }
+  ],
+  "routes": [],
+  "coverage": {
+    "countryIds": [
+      "philippines"
+    ],
+    "cityIds": [
+      "cebu-bohol"
+    ]
+  }
+}

@@ -1,0 +1,4721 @@
+{
+  "schema": "eaglish.approved-travel-package/v1",
+  "approved": true,
+  "sources": [
+    {
+      "id": "v-youtube-com-watch-v-cv5aehulhc4",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+      "label": "星耀樟宜：瀑布、迷宮、高處遊戲與機場用餐",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "v-youtube-com-watch-v-wny-jlq8tjm",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "label": "動物園與河川生態園：看動物、遇大雨、再上船",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "v-youtube-com-watch-v-n7lacel6lww",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "夫妻漫遊：哈芝巷、鴨子船、國家博物館與螃蟹米粉",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "v-youtube-com-watch-v-bw7bihyxzm",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "三代同行：Amara 入住、濱海灣花園、恐龍與機場回程",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "v-youtube-com-shorts-86gh1ti5m68",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/shorts/86gh1Ti5m68",
+      "label": "哥哥們較早一次的新加坡出發與抵達",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "v-youtube-com-shorts-qtq-clsixyu",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/shorts/qtQ_CLsIXYU",
+      "label": "家人幫忙照顧孩子，夫妻短暫出遊",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "v-youtube-com-shorts-w8tdslk-trc",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/shorts/w8TdsLK-TRc",
+      "label": "阿婆與舟夏一起出發，抵達新加坡",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "o-mandai-com-en-singapore-zoo-html",
+      "kind": "official",
+      "url": "https://www.mandai.com/en/singapore-zoo.html",
+      "label": "動物園官方資訊與公告",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai",
+      "kind": "official",
+      "url": "https://www.mandai.com/en/plan-your-visit/getting-to-and-around/getting-to-mandai-wildlife-reserve.html",
+      "label": "萬禮交通與接駁",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-wny-jlq8tjm-t-0s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=0s",
+      "label": "看我們的動物園與大雨片段",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-yt-wny-jlq8tjm-000022-v2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "label": "沿著展區走走停停，觀察鱷魚和其他動物。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=22s"
+    },
+    {
+      "id": "m-sg-yt-wny-jlq8tjm-000158-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "label": "看完動物，也留了一段時間給兩個哥哥玩遊戲。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=158s"
+    },
+    {
+      "id": "m-sg-yt-wny-jlq8tjm-000210-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "label": "逛到一半遇上大雨，我們先在步道旁避雨。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=210s"
+    },
+    {
+      "id": "o-mandai-com-en-river-wonders-html",
+      "kind": "official",
+      "url": "https://www.mandai.com/en/river-wonders.html",
+      "label": "河川生態園官方資訊",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-mandai-com-en-see-and-do-rides-river-wonders-amazon-river-quest-html",
+      "kind": "official",
+      "url": "https://www.mandai.com/en/see-and-do/rides/river-wonders/amazon-river-quest.html",
+      "label": "Amazon River Quest 票價與身高條件",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-wny-jlq8tjm-t-340s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=340s",
+      "label": "看河川生態園、身高檢查與上船片段",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-yt-wny-jlq8tjm-000390-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "label": "兩個哥哥一起在水槽前看水中生物。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=390s"
+    },
+    {
+      "id": "m-sg-yt-wny-jlq8tjm-000402-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "label": "水槽裡，魟魚和魚群從眼前游過。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=402s"
+    },
+    {
+      "id": "m-sg-yt-wny-jlq8tjm-000369-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+      "label": "在河川生態園的木舟布景裡，拍一張兄弟合照。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=369s"
+    },
+    {
+      "id": "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+      "kind": "official",
+      "url": "https://www.gardensbythebay.com.sg/en/plan-your-visit/opening-hours.html",
+      "label": "濱海灣花園開放時間與維護日",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su",
+      "kind": "official",
+      "url": "https://www.gardensbythebay.com.sg/en/things-to-do/calendar-of-events/sunflower-surprise-2026.html",
+      "label": "Sunflower Surprise 花展日期",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-bw7bihyxzm-t-367s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=367s",
+      "label": "看我們和阿婆逛花穹的片段",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-yt-bw7bihyxzm-000384-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "花穹的仙人掌區，植栽有各種不同的形狀。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=384s"
+    },
+    {
+      "id": "m-sg-ig-dx-y4whe3ef-06",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "label": "那次到訪，阿婆在鬱金香花圃旁留影。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-ig-dx-y4whe3ef-07",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "label": "推著嬰兒車，在花卉木屋旁留影。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "o-gardensbythebay-com-sg-cloudforest",
+      "kind": "official",
+      "url": "https://www.gardensbythebay.com.sg/cloudforest",
+      "label": "雲霧林官方資訊",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-cloud-forest",
+      "kind": "official",
+      "url": "https://www.gardensbythebay.com.sg/en/things-to-do/calendar-of-events/cloud-forest-featuring-jurassic-world-the-experience.html",
+      "label": "Jurassic World: The Experience",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-gardensbythebay-com-sg-en-frequently-asked-questions-faq-cloud-forest",
+      "kind": "official",
+      "url": "https://www.gardensbythebay.com.sg/en/frequently-asked-questions/faq-cloud-forest-featuring-jurassic-world-the-experience.html",
+      "label": "聲光、票券及體驗常見問題",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-bw7bihyxzm-t-960s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=960s",
+      "label": "看雲霧林與恐龍片段",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-ig-dx-y4whe3ef-03",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "label": "瀑布前，兩個哥哥和恐龍模型一起入鏡。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-ig-dx-y4whe3ef-02",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "label": "三代一起在暴龍模型前留影。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-ig-dx-y4whe3ef-11",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "label": "走上高處步道，阿婆張開雙手拍了一張照片。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "o-visitsingapore-com-content-dam-visitsingapore-neighbourhoods-kampong-g",
+      "kind": "official",
+      "url": "https://www.visitsingapore.com/content/dam/visitsingapore/neighbourhoods/kampong-gelam/Cultural-Precinct-Maps_Kampong-Gelam_Softcopy_11Jan23_(2).pdf",
+      "label": "新加坡旅遊局甘榜格南街區地圖",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-n7lacel6lww-t-310s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=310s",
+      "label": "看夫妻散步哈芝巷的片段",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-000400-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "沿著彩色街屋，慢慢看小店和招牌。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=400s"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-000415-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "走進服飾小店，看看衣架上的衣服。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=415s"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-000430-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "兩人在紀念品店前邊看邊聊。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=430s"
+    },
+    {
+      "id": "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+      "kind": "official",
+      "url": "https://www.bigducktours.com/en/singapore/tickets/duck-tour-ticket",
+      "label": "預訂參考：Singapore DUCKtours",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+      "kind": "official",
+      "url": "https://www.google.com/maps/search/?api=1&query=BIG%20BUS%20and%20DUCK%20Hub%20Suntec%20City%20Tower%202%2001-K8%20Singapore",
+      "label": "預訂參考：DUCKtours 集合點 Maps",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-bigducktours-com-en-singapore-help",
+      "kind": "official",
+      "url": "https://www.bigducktours.com/en/singapore/help",
+      "label": "DUCKtours 天氣與常見問題",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-n7lacel6lww-t-819s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=819s",
+      "label": "看我們搭鴨子船與從水上看魚尾獅",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-000915-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "從水上看魚尾獅，岸邊的步道也一起入鏡。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=915s"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-000845-v2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "上車前，先看看這台高高的水陸車。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=845s"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-000848-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "登上車內，準備出發看城市和海灣。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=848s"
+    },
+    {
+      "id": "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+      "kind": "official",
+      "url": "https://www.nationalmuseum.nhb.gov.sg/whats-on/exhibition/singapore-odyssea",
+      "label": "Singapore Odyssea 常設展",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+      "kind": "official",
+      "url": "https://www.nationalmuseum.nhb.gov.sg/whats-on/exhibition/once-upon-a-tide",
+      "label": "Once Upon a Tide 展期",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+      "kind": "official",
+      "url": "https://www.nationalmuseum.nhb.gov.sg/plan-your-visit/visitor-information/upgrading",
+      "label": "展區整修與重新開放公告",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio",
+      "kind": "official",
+      "url": "https://www.nhb.gov.sg/nationalmuseum/plan-your-visit/visitor-information/admissions",
+      "label": "館方票券與入場資訊",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-n7lacel6lww-t-994s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=994s",
+      "label": "看我們進入博物館與看展的片段",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-001010-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "走進國家博物館，先經過明亮的柱廊。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1010s"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-001054-v2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "跟著 Odyssea 的影像，認識新加坡的發展。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1054s"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-001300-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "到訪那次，也看了 Once Upon a Tide 特展。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1300s"
+    },
+    {
+      "id": "o-jewelchangiairport-com-en-getting-to-jewel-html",
+      "kind": "official",
+      "url": "https://www.jewelchangiairport.com/en/getting-to-jewel.html",
+      "label": "Jewel 交通與航廈連接",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-jewelchangiairport-com-en-attractions-rain-vortex-html",
+      "kind": "official",
+      "url": "https://www.jewelchangiairport.com/en/attractions/rain-vortex.html",
+      "label": "雨漩渦時間",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "o-jewelchangiairport-com-en-attractions-html",
+      "kind": "official",
+      "url": "https://www.jewelchangiairport.com/en/attractions.html",
+      "label": "星空花園與各項遊戲",
+      "checkedOn": "2026-10-03",
+      "rights": "第一方公開資訊摘要；照片不採用"
+    },
+    {
+      "id": "v-youtube-com-watch-v-cv5aehulhc4-t-69s",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=69s",
+      "label": "看雨漩渦、迷宮與高處遊戲片段",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    },
+    {
+      "id": "m-sg-jewel-grandmother-social-refresh-g1-r1",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "label": "阿婆在雨漩渦前留影，玻璃屋頂和植栽環繞著瀑布。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/?img_index=12"
+    },
+    {
+      "id": "m-sg-yt-cv5aehulhc4-000118-g3-v2",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+      "label": "兩個哥哥在鏡子迷宮裡找路，秀秀拿著泡棉棒跟在後方。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=118s"
+    },
+    {
+      "id": "m-sg-yt-cv5aehulhc4-000247-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+      "label": "走上 Canopy Bridge，從高處看星耀樟宜。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=247s"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-000395-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "秀秀戴著墨鏡走在哈芝巷，兩側是彩色店面與招牌，頭頂有遮陽布",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=395s"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-000075-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "我們那次的亞坤早餐；選門市時以自己的路線為主。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=75s"
+    },
+    {
+      "id": "m-sg-yt-cv5aehulhc4-000028-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+      "label": "Jewel 二樓的 Shake Shack，和機場日一起排比較順。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=28s"
+    },
+    {
+      "id": "m-sg-yt-n7lacel6lww-001468-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+      "label": "螃蟹和米粉泡在濃厚的湯底裡，是我們很喜歡的一餐。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1468s"
+    },
+    {
+      "id": "m-sg-yt-bw7bihyxzm-001220-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "後來換到正確房間，才有原本預訂的客廳與臥室配置。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=1220s"
+    },
+    {
+      "id": "m-sg-yt-bw7bihyxzm-001444-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "我們當次使用的 Club 餐飲區，有早餐、咖啡與點心。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=1444s"
+    },
+    {
+      "id": "m-sg-yt-bw7bihyxzm-000865-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "從觀景台看濱海灣金沙與花園。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=865s"
+    },
+    {
+      "id": "m-sg-yt-bw7bihyxzm-000880-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "海瑞抱著妹妹，一起到觀景台看風景。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=880s"
+    },
+    {
+      "id": "m-sg-yt-bw7bihyxzm-000918-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "換個角度，看看擎天樹上方的結構與花園。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=918s"
+    },
+    {
+      "id": "m-sg-yt-bw7bihyxzm-002158-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "滑梯的出口在紅色護欄之間。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=2158s"
+    },
+    {
+      "id": "m-sg-yt-bw7bihyxzm-002145-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "雙腳向前，沿著彎曲的管道滑下。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=2145s"
+    },
+    {
+      "id": "m-sg-yt-bw7bihyxzm-002163-g3-v1",
+      "kind": "youtube",
+      "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+      "label": "阿婆滑完溜滑梯，對著鏡頭雙手比讚。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。",
+      "locator": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=2163s"
+    },
+    {
+      "id": "m-sg-ig-dx-y4whe3ef-01",
+      "kind": "photo",
+      "url": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+      "label": "我們一家七口在星耀樟宜合照，身後就是雨漩渦。",
+      "rights": "鷹式一家自有公開照片與影片，原刊於本站新加坡攻略。"
+    }
+  ],
+  "assets": [
+    {
+      "assetId": "sg-yt-wny-jlq8tjm-000022-v2",
+      "width": 1280,
+      "height": 720,
+      "alt": "鱷魚趴在落葉與植物旁，俯視畫面可見背部、四肢與尾巴。",
+      "caption": "沿著展區走走停停，觀察鱷魚和其他動物。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-wny-jlq8tjm-000022-v2"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000022-v2-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 71424,
+          "sha256": "82c16903769432974b0ea4e8e13393a97b1b5061bca595d3e7bf2dadc9a7fa9e"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000022-v2-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 115920,
+          "sha256": "5fbd9496cfa95cdc07b9423a824c170234a6bdc8184b0749d1361567094fc68d"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000022-v2-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 156258,
+          "sha256": "623d3743e1846cc76033178d5964122233f4a23504c7cb3fa0b06fda8788d987"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "623d3743e1846cc76033178d5964122233f4a23504c7cb3fa0b06fda8788d987",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 1980000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+        "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=22s",
+        "rawSha256": "976d4c33a6a6492fb02cfc7a5886439fcd510431beedeeaa5368a0f1665eeac7",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-wny-jlq8tjm-000158-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "兩個哥哥站在動物園兒童遊戲區，旁邊有滑梯與彩色花朵造型設施。",
+      "caption": "看完動物，也留了一段時間給兩個哥哥玩遊戲。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-wny-jlq8tjm-000158-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000158-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 39822,
+          "sha256": "77a6b0f41599719151b102015a7b0b18f6b225bb17f5ade0e2bea9a581e4e059"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000158-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 70040,
+          "sha256": "088fda1c3d24aef9ace76f84cdcc318812d639e4443644a113bd1b35d1051c0c"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000158-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 99612,
+          "sha256": "693f08c09f9623f701dae93fa341a82567805a8fd856b97e01d80b370a091fb1"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "693f08c09f9623f701dae93fa341a82567805a8fd856b97e01d80b370a091fb1",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 14220000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+        "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=158s",
+        "rawSha256": "52db8470a92e3050d44bab551570a8ce5f783794881036a4b40945279422f5fb",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-wny-jlq8tjm-000210-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在動物園步道旁避雨，身後的地面被雨水打濕。",
+      "caption": "逛到一半遇上大雨，我們先在步道旁避雨。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-wny-jlq8tjm-000210-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000210-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 31538,
+          "sha256": "2d84a94126bfe13bccdefdcc9d09517ae721c0829f930cf7a5e3fe3355ebc642"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000210-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 51912,
+          "sha256": "a1d5f6acf3cfcc632be2a57e7574f5d1792fd8d5cdd3b55f1fa60c6228a413f3"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000210-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 72494,
+          "sha256": "50174031952c3b09b45b36e42de40e1853f75ee5765e5e526b8f031924c77d78"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "50174031952c3b09b45b36e42de40e1853f75ee5765e5e526b8f031924c77d78",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 18900000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+        "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=210s",
+        "rawSha256": "c6a8d25d500e0dd6e5f684e541931d60bf904fbef25d4cfee8d529c39b96e4eb",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-wny-jlq8tjm-000390-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "兩個哥哥站在河川生態園水槽前，其中一人伸手指向水面。",
+      "caption": "兩個哥哥一起在水槽前看水中生物。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-wny-jlq8tjm-000390-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000390-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 24918,
+          "sha256": "417636c055b733a4d58d2e060f97a598f15cba5f7b288de35c2ff2ee0be44af1"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000390-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 42454,
+          "sha256": "186c898a2f297c3314da830a8daf8400b35196ef95bd69c03ba2fb04bd49e5bf"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000390-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 59306,
+          "sha256": "7fd8bea149d01fe28b7d3e80b40bd07a7653ce84bf628da99db54fa947c476f9"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "7fd8bea149d01fe28b7d3e80b40bd07a7653ce84bf628da99db54fa947c476f9",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 35100000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+        "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=390s",
+        "rawSha256": "dbe1003427e8c65e6a1342e04d3ed3eddab3aba411051bb061dcea01b35f0f73",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-wny-jlq8tjm-000402-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "魟魚與魚群在水槽裡游動，底部可見石頭。",
+      "caption": "水槽裡，魟魚和魚群從眼前游過。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-wny-jlq8tjm-000402-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000402-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 16018,
+          "sha256": "7075c4f456b19840df720dcb5226f5aace59f4d99dbd04bc88e91c8fb65d7b83"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000402-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 25464,
+          "sha256": "116748551a4ea69d740e95239bde84022f5aa14130ed64624a6b00a2e575044f"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000402-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 36394,
+          "sha256": "7b2e18da768f4d93fa51613939049551ca2bedb9ca43e4b8c35b02b694613ec0"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "7b2e18da768f4d93fa51613939049551ca2bedb9ca43e4b8c35b02b694613ec0",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 36180000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+        "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=402s",
+        "rawSha256": "80f96c535efc93d78b5e3fba4cb97e0388e1c348b8483944186bd5ca8572bce6",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-wny-jlq8tjm-000369-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "兩個哥哥在 River Wonders 招牌前的木舟造型布景裡合照。",
+      "caption": "在河川生態園的木舟布景裡，拍一張兄弟合照。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-wny-jlq8tjm-000369-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000369-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 54424,
+          "sha256": "64f29c8c6df34d26b993b9ab29b6d06a754e16c28e6337d6559e9c95ebf8ee44"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000369-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 101982,
+          "sha256": "74bb05368035ef99d1867eda595a0bcf718306d1ca545e7291d6bf62fb4d729f"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-WnY-JLQ8TJM-000369-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 145800,
+          "sha256": "39d98ae2448a4c06114711a25063154af404411556e7ed0442891dc1cdfc4140"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "39d98ae2448a4c06114711a25063154af404411556e7ed0442891dc1cdfc4140",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 33210000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM",
+        "locatorUrl": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=369s",
+        "rawSha256": "57469d92154925da514efadb274bd8179a42449134836687225dccca743eb4ca",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-bw7bihyxzm-000384-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "花穹裡有柱狀、球狀等不同形狀的仙人掌與木雕，上方是玻璃屋頂。",
+      "caption": "花穹的仙人掌區，植栽有各種不同的形狀。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-bw7bihyxzm-000384-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000384-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 59908,
+          "sha256": "a7f18ba0334eea74f209dbcb51c67df869ec4c2c364f29ee81bf78fc4934a1e4"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000384-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 111518,
+          "sha256": "b384896e092ea1f19e713e14b66aafd8f4fea9696046a76e150b57f7378778d8"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000384-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 165864,
+          "sha256": "47bafa589fefab65dabd9e0a207f7c68ae3f58ed97004ef59da901b0072dd165"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "47bafa589fefab65dabd9e0a207f7c68ae3f58ed97004ef59da901b0072dd165",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 34560000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+        "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=384s",
+        "rawSha256": "0b2f39b37d7bc58e154425cf4b596e1fe5030dd6c8a32fe2fa2b87496ac86de7",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-ig-dx-y4whe3ef-06",
+      "width": 1440,
+      "height": 1798,
+      "alt": "阿婆穿著紫色上衣，在花穹的彩色鬱金香花圃旁比出手勢。",
+      "caption": "那次到訪，阿婆在鬱金香花圃旁留影。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-ig-dx-y4whe3ef-06"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-06-640.webp",
+          "width": 640,
+          "height": 799,
+          "bytes": 117864,
+          "sha256": "1694c37e3e61cd3087d2a0dbb6c913662271f74a9380c7de34a0a744fd80124e"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-06-960.webp",
+          "width": 960,
+          "height": 1199,
+          "bytes": 214364,
+          "sha256": "ead957e0ba68a90c6bab4ee14181a7b1e51d48fb6fc9be3e7afeb656502fe82d"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-06-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "bytes": 388702,
+          "sha256": "19d20744edf0178ac2c330cecc60a6cfce50839786dc80e54a24faaaef22e336"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "19d20744edf0178ac2c330cecc60a6cfce50839786dc80e54a24faaaef22e336",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+        "rawSha256": "eff46943490ad192ab4343184043c015a01f78abdd8d02c148d95353de8ca963",
+        "crop": [
+          0,
+          0,
+          1440,
+          1798
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-ig-dx-y4whe3ef-07",
+      "width": 1440,
+      "height": 1798,
+      "alt": "秀秀扶著嬰兒車，站在花穹的綠色門框木屋與花卉布景旁。",
+      "caption": "推著嬰兒車，在花卉木屋旁留影。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-ig-dx-y4whe3ef-07"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-07-640.webp",
+          "width": 640,
+          "height": 799,
+          "bytes": 107294,
+          "sha256": "2b2f6608d881e78e5aaaba6e1aa4b0091f7fe6c784303b51d5b1a6969f7ef341"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-07-960.webp",
+          "width": 960,
+          "height": 1199,
+          "bytes": 197170,
+          "sha256": "f24795d31b76305ded86fee3c5a89fca59ba86148afd2e7f7395273fd9b335e8"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-07-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "bytes": 348548,
+          "sha256": "89f8249c01f710f1b66d4b5b252a82ec656302a80c96c7393d4089ab46267247"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "89f8249c01f710f1b66d4b5b252a82ec656302a80c96c7393d4089ab46267247",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+        "rawSha256": "954dad466d5de40f71c532926a09cd740ec0b08ddb267ff9bfe994403fe39847",
+        "crop": [
+          0,
+          0,
+          1440,
+          1798
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-ig-dx-y4whe3ef-03",
+      "width": 1440,
+      "height": 1798,
+      "alt": "兩個哥哥站在雲霧林瀑布與長頸恐龍模型前，背景是植栽牆和玻璃屋頂。",
+      "caption": "瀑布前，兩個哥哥和恐龍模型一起入鏡。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-ig-dx-y4whe3ef-03"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-03-640.webp",
+          "width": 640,
+          "height": 799,
+          "bytes": 114548,
+          "sha256": "0094eb70c249fe0a9d37a513b1600b3c59e617bebed34348d8da05a815e28233"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-03-960.webp",
+          "width": 960,
+          "height": 1199,
+          "bytes": 189454,
+          "sha256": "f34642bde832842983de68836a3820c630881f967baaf45d203003a46a4d9a8a"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-03-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "bytes": 356956,
+          "sha256": "a55e1b4d1878f5ab5632acf0072930d4e5c513d0ec9bb9600f082fa554efdb87"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "a55e1b4d1878f5ab5632acf0072930d4e5c513d0ec9bb9600f082fa554efdb87",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+        "rawSha256": "e34f78f23ae8d6301a4e406e823a9317f0e6bedac894c19baa3168f48d884db2",
+        "crop": [
+          0,
+          0,
+          1440,
+          1798
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-ig-dx-y4whe3ef-02",
+      "width": 1440,
+      "height": 1798,
+      "alt": "家人與嬰兒車在雲霧林暴龍模型前合照，背景可見玻璃屋頂與植栽",
+      "caption": "三代一起在暴龍模型前留影。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-ig-dx-y4whe3ef-02"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-02-640.webp",
+          "width": 640,
+          "height": 799,
+          "bytes": 115920,
+          "sha256": "6513a058e94e8b34dc4cf024e31ad0f26ad52c8bb3022439fb9f723a44e9695f"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-02-960.webp",
+          "width": 960,
+          "height": 1199,
+          "bytes": 189910,
+          "sha256": "f34b13c8e95fa9d4a97b616884bbf35455bab30f1b4dba6b377ab865b041b6a7"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-02-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "bytes": 348926,
+          "sha256": "3a26af2aa82dedede4e37861a36d3f616f1f7a95533c7aff5692e39cf9f6dfce"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "3a26af2aa82dedede4e37861a36d3f616f1f7a95533c7aff5692e39cf9f6dfce",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+        "rawSha256": "958e05ab09c5abe66f41d848f64796e9dbdf2996fc93c3679144f25ca4ec3487",
+        "crop": [
+          0,
+          0,
+          1440,
+          1798
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-ig-dx-y4whe3ef-11",
+      "width": 1440,
+      "height": 1798,
+      "alt": "阿婆在雲霧林高處步道上張開雙手，身後是玻璃屋頂與網欄。",
+      "caption": "走上高處步道，阿婆張開雙手拍了一張照片。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-ig-dx-y4whe3ef-11"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-11-640.webp",
+          "width": 640,
+          "height": 799,
+          "bytes": 116340,
+          "sha256": "5f8c1f021dc1ad022b4e101c3a1f02488e1e23b39e3e07717c069cb76492689b"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-11-960.webp",
+          "width": 960,
+          "height": 1199,
+          "bytes": 192268,
+          "sha256": "3a2a07598100ae68b63433506ab3aedbdf8ff8f3a63e1d8af0e06f29ee1d00f7"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-11-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "bytes": 346200,
+          "sha256": "d95b79ceee4c6d847ed844f81383207ea0e7509965d47c3eef55d41d5f3bb165"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "d95b79ceee4c6d847ed844f81383207ea0e7509965d47c3eef55d41d5f3bb165",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+        "rawSha256": "f2defe2e2a2ab2175b58987c042b24668cb5b0d63fbea922d5a9dcd8314da451",
+        "crop": [
+          0,
+          0,
+          1440,
+          1798
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-000400-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在哈芝巷的彩色街屋旁，兩側有店面、招牌與遮陽布。",
+      "caption": "沿著彩色街屋，慢慢看小店和招牌。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-000400-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000400-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 36512,
+          "sha256": "ea6cd44136f77d0d418600721f1befcade8f5e5e348002ce06bacf70248b5e57"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000400-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 55992,
+          "sha256": "b9270ea6fbbc846c449b1c49cad95857d0453fdea23b86b2555b888d8c4afe7a"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000400-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 77280,
+          "sha256": "7db0158f138aba5ef502a1891c150afc19b601cd7e5111071a107771903c5d44"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "7db0158f138aba5ef502a1891c150afc19b601cd7e5111071a107771903c5d44",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 36000000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=400s",
+        "rawSha256": "dca7026f04dab4b1dff5d14f6d682c76cee7d18b460b9e31f431cb4c97c5cd11",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-000415-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在哈芝巷的服飾店裡，身旁的衣架掛著上衣。",
+      "caption": "走進服飾小店，看看衣架上的衣服。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-000415-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000415-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32194,
+          "sha256": "f18da91bda5ce122b0f9fe9f84d935e68b5a187c9d1e80661361e4252ae9daf0"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000415-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 50882,
+          "sha256": "698af4ea018bdabf7e8bbe69e4127c9000079c46c66c9d28c07f96df45908c29"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000415-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 71130,
+          "sha256": "b53c612f5cfab93671b37a044f933cba1064a9e0c2054017563aebb2c81e0891"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b53c612f5cfab93671b37a044f933cba1064a9e0c2054017563aebb2c81e0891",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 37350000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=415s",
+        "rawSha256": "6a7225ce3ae0bcf6aaf76ac495427cb004507fa2b05ee1c8561430cc421274cc",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-000430-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "海瑞與秀秀站在藍色紀念品店外交談，海瑞手上拿著手機。",
+      "caption": "兩人在紀念品店前邊看邊聊。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-000430-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000430-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32952,
+          "sha256": "03265b33de49221ea045a95aba7ec4910dd7a541939383f1e91751c83c48bc0e"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000430-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 49820,
+          "sha256": "09102565b67a54312975e5a0fac4a5d56d1a833545d5cafaa080bd05ba40b5de"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000430-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 67866,
+          "sha256": "247a9f2f36e80d51dfe280c27e6ec75fdafc7f25e62acf133784fbc9ea459405"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "247a9f2f36e80d51dfe280c27e6ec75fdafc7f25e62acf133784fbc9ea459405",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 38700000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=430s",
+        "rawSha256": "ea75092d11ed80686ccfcc37ce3ff86f9a3fb39b90bf2dbba07f0a03e1ecc34e",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-000915-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "從水上看向正在噴水的魚尾獅，後方有岸邊遊客、樹木與建築。",
+      "caption": "從水上看魚尾獅，岸邊的步道也一起入鏡。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-000915-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000915-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 46900,
+          "sha256": "b735b83ead8504151f86eca2d5c36dc91755fa232b4afecd90f633985af85c32"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000915-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 82172,
+          "sha256": "9d0126757047f32705ce0fb0d8eb8c6e2cc5fe237acc3d7bc2884275e24005b0"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000915-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 116118,
+          "sha256": "714ef6f6f2e1d1482ae5cba7b9be4e5a17203023372600ec0fc5d68a9bd09b31"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "714ef6f6f2e1d1482ae5cba7b9be4e5a17203023372600ec0fc5d68a9bd09b31",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 82350000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=915s",
+        "rawSha256": "e14cbf138a87e080b2894e1dcc4118a46fec0057524ac6b208ac4834692605d0",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-000845-v2",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在橘色 Sea Adventure 水陸車旁，另一側停著綠色車輛。",
+      "caption": "上車前，先看看這台高高的水陸車。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-000845-v2"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000845-v2-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 24262,
+          "sha256": "e86032c573dc5e9eef77fccdb655d6a217ad0445fe69ed17e6796b6f322054f5"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000845-v2-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 37932,
+          "sha256": "5b3ceca89ceb984d2bc3375c42eb298ff6da6bd5a394265003468c1664ed7279"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000845-v2-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 51370,
+          "sha256": "a491a48092d4bf1c241722d6bf5caee88debdc1b461ebf34ce9c6f688b247006"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "a491a48092d4bf1c241722d6bf5caee88debdc1b461ebf34ce9c6f688b247006",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 76050000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=845s",
+        "rawSha256": "1ee648d088db287bda87b30351aebcf6ec1f0c916dba5e8c2a105c382253bf5d",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-000848-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀進入水陸車內，工作人員站在座位旁。",
+      "caption": "登上車內，準備出發看城市和海灣。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-000848-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000848-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 23982,
+          "sha256": "d75310860db3cfc6c38d43e5ce1f1e31774b83fe74b52a1fc27c637e7677c0ad"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000848-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 37482,
+          "sha256": "adeb3c6763b0f8240b82b6cb081bd8cca019edce725ce3d594684b5ce905771c"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000848-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 50146,
+          "sha256": "cb99a6071134c8d77e3f774d91a8f1b068cab786c00c15afb0329d958fef1255"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "cb99a6071134c8d77e3f774d91a8f1b068cab786c00c15afb0329d958fef1255",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 76320000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=848s",
+        "rawSha256": "7870fe1d9ed7813636e2c3f534a023b8582fdb9121bc7773d0df1e3aabec7bd6",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-001010-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在新加坡國家博物館的明亮走廊，旁邊有白色柱子與大窗戶。",
+      "caption": "走進國家博物館，先經過明亮的柱廊。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-001010-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001010-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 14408,
+          "sha256": "fc3215b8ea52545f8bd744d3edd50fb515897c539334a16a5921fe457b1b77ab"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001010-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 22234,
+          "sha256": "dcc3b61647962e123fc4d53fefb67afaf40c1dd96a572ed3d03831f51b9b691b"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001010-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 30742,
+          "sha256": "2ea46558c0a14184c1ffb417a6a0e2eb6d3f84ecd7e7f1ab33c0e3391212317f"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "2ea46558c0a14184c1ffb417a6a0e2eb6d3f84ecd7e7f1ab33c0e3391212317f",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 90900000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1010s",
+        "rawSha256": "4656e7eab77fddafbc73524c4adf7dfa8f3b59540f796b99d25276022f2a7115",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-001054-v2",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀在 Singapore Odyssea 的藍色光影展區，指向弧形影像展示。",
+      "caption": "跟著 Odyssea 的影像，認識新加坡的發展。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-001054-v2"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001054-v2-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 13702,
+          "sha256": "d290513b4c5eab12cabc48075fd42012562318f20be2d8b5473a7bd467492a7d"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001054-v2-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 21544,
+          "sha256": "4b4abc357bcaa2380ffcd5e720f5cba671e16be2084fea859fd2d10554d24f54"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001054-v2-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 29780,
+          "sha256": "04ee6a20321b30411056e6563d0744a892333b3e935f515b0ab20e2b41ce632f"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "04ee6a20321b30411056e6563d0744a892333b3e935f515b0ab20e2b41ce632f",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 94860000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1054s",
+        "rawSha256": "003d4e1b6a8378de816c8a995ae78aa3c6718b1c5b771e3aebdec968bf2e2a1e",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-001300-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在國家博物館 Once Upon a Tide 的發光展名旁。",
+      "caption": "到訪那次，也看了 Once Upon a Tide 特展。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-001300-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001300-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 12958,
+          "sha256": "38ffc63ecfc128ad88e2f9025984e228ec1623d7cb581316ed044904c1f4a311"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001300-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 19642,
+          "sha256": "2f82a5681ffe9e9b9251df3ae5d95869a8d93fd634b996cb414d70955940bb66"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001300-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 27334,
+          "sha256": "09d702a0445b361fa9ceddc553ce28044224fbdda5500e85b3a79ec81d79eec9"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "09d702a0445b361fa9ceddc553ce28044224fbdda5500e85b3a79ec81d79eec9",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 117000000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1300s",
+        "rawSha256": "2ca00b32bce85f2e5e16e889512d374c930621055736066571518441aed20d11",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-jewel-grandmother-social-refresh-g1-r1",
+      "width": 1440,
+      "height": 1798,
+      "alt": "阿婆穿著紫色上衣站在星耀樟宜欄杆旁，身後是雨漩渦與玻璃屋頂。",
+      "caption": "阿婆在雨漩渦前留影，玻璃屋頂和植栽環繞著瀑布。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-jewel-grandmother-social-refresh-g1-r1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-640.webp",
+          "width": 640,
+          "height": 799,
+          "bytes": 103682,
+          "sha256": "94942eca15587da53da7b65d3215a2c6069afc303fe7efd5078b0c12fb8836a7"
+        },
+        {
+          "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-960.webp",
+          "width": 960,
+          "height": 1199,
+          "bytes": 186440,
+          "sha256": "f2edb073dfcbe0bc4b7717f38545c55e7dd6c01244fee03b06d777cf1919d376"
+        },
+        {
+          "url": "/trip/assets/sg-jewel-grandmother-social-refresh-g1-r1-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "bytes": 322602,
+          "sha256": "b229297feb570ef4107797e625fd7bfcc79fefc3ff216f0036b9a47880961b31"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b229297feb570ef4107797e625fd7bfcc79fefc3ff216f0036b9a47880961b31",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+        "locatorUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/?img_index=12",
+        "rawSha256": "02b7c72686c3b9646db1c29a4bcb5537e74bc5b167035365935cb7c79af19e78",
+        "crop": [
+          0,
+          0,
+          1440,
+          1798
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-cv5aehulhc4-000118-g3-v2",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀拿著粉紅色泡棉棒，兩個哥哥站在她前方，鏡子迷宮四周映出多重倒影。",
+      "caption": "兩個哥哥在鏡子迷宮裡找路，秀秀拿著泡棉棒跟在後方。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-cv5aehulhc4-000118-g3-v2"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000118-g3-v2-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 21612,
+          "sha256": "a72c76bdf0d8f72f6980c1e86157ff0c9659e6b4612695247aade709897b99de"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000118-g3-v2-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 35058,
+          "sha256": "4d3fb7e1d8e835ec778f53862d9c9fd5ead0b2fc1e9f8d3a2f47d0d07cc648d3"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000118-g3-v2-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 48166,
+          "sha256": "9733e3360301da0432c65d1835da4befae3df9069ea66dbb43d6c602152ac746"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "9733e3360301da0432c65d1835da4befae3df9069ea66dbb43d6c602152ac746",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 10620000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+        "locatorUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=118s",
+        "rawSha256": "9b27a2796fcf3014a680f11136c970095f341af9bf5cbc76cf9e481977e742de",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-cv5aehulhc4-000247-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在 Canopy Bridge 的玻璃欄杆旁，後方有室內植栽與步道。",
+      "caption": "走上 Canopy Bridge，從高處看星耀樟宜。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-cv5aehulhc4-000247-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000247-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 51712,
+          "sha256": "21eba7386bed0de818654c87f6b240ab0563ef8a998b01a9e4d85af75873e6d2"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000247-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 88686,
+          "sha256": "3c7850ba93c9519328c1d59b54a4341e3bbabd9c74883d7e7133f1efb18dad41"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000247-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 124870,
+          "sha256": "0a24b73271bc65a158f4da7aae4f8ab29ebc132c15322ed7b8118c020fcc67e7"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "0a24b73271bc65a158f4da7aae4f8ab29ebc132c15322ed7b8118c020fcc67e7",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 22230000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+        "locatorUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=247s",
+        "rawSha256": "c085920fdf6205a67beff8f003e9b2586b3e26c50d0a45c4a4602c89e6401c50",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-000395-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀戴著墨鏡走在哈芝巷，兩側是彩色店面與招牌，頭頂有遮陽布",
+      "caption": "秀秀戴著墨鏡走在哈芝巷，兩側是彩色店面與招牌，頭頂有遮陽布",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-000395-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000395-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 37474,
+          "sha256": "c029062a8b543358e7ddec1adacef255ed44bb69aeca33fedd79af0ccb0123fd"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000395-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 57144,
+          "sha256": "67ff3d6dd4ab7389770fd2670310d029970518c3be2eadfc5ad6d42f9163cb8d"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000395-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 78376,
+          "sha256": "0062cacd9bdf6b65ebf9f66bfcd8f9606fa3ed2f4495c4e134f84635e587680d"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "0062cacd9bdf6b65ebf9f66bfcd8f9606fa3ed2f4495c4e134f84635e587680d",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 35550000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=395s",
+        "rawSha256": "eb75859ef26cda8d5ffee6152fa759e3c831e6a9766bbe6ecb5966f2f4a3c58f",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-000075-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "海瑞與秀秀坐在早餐桌旁，秀秀拿著放有吐司的盤子，桌上有飲料",
+      "caption": "我們那次的亞坤早餐；選門市時以自己的路線為主。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-000075-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000075-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 20854,
+          "sha256": "58280cbf9f277c9d79e1bd8cb0a4aec5bb0d2ecedd4ccac0f0583f17b4b3c6ff"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000075-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 34128,
+          "sha256": "31738fcc8bc5cedf66ec2f1e46bce266c2324ddbdbe8d2a019c534d00eda22c5"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-000075-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 49670,
+          "sha256": "23334c986d99b630c2666cb84c2baa44b0f7fc6d71fb43d13c8eee5cf6b80945"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "23334c986d99b630c2666cb84c2baa44b0f7fc6d71fb43d13c8eee5cf6b80945",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 6750000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=75s",
+        "rawSha256": "bc0462cfcc10cf2c5216a619e219513ac62c6c744aa9aa181bf8bec00f139357",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-cv5aehulhc4-000028-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "孩子與大人站在 Jewel Shake Shack 店面旁，後方可見 Shake Shack 招牌和櫃檯",
+      "caption": "Jewel 二樓的 Shake Shack，和機場日一起排比較順。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-cv5aehulhc4-000028-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000028-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 53286,
+          "sha256": "71e89b9a1a6d874e4c6a1fc3330579f9b7ae672606ca7222beab0cca2adc012b"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000028-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 90704,
+          "sha256": "b05e3773f254cf4def1c9f77800276f1d74d0145d75c2ffd5cf15dc77113db6b"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-CV5AEHUlhc4-000028-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 124796,
+          "sha256": "186bf56154ba1bd99e49b57a53a88600134aa02d68fb1dd228589837498bd682"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "186bf56154ba1bd99e49b57a53a88600134aa02d68fb1dd228589837498bd682",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 2520000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4",
+        "locatorUrl": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=28s",
+        "rawSha256": "dd612916dc09f5df6aafbe2b7db8fb4978eb77829cd87480ab9d93a9dfdd1cdf",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-n7lacel6lww-001468-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "一大盤螃蟹米粉放在餐桌上，紅色蟹殼和蟹螯鋪在米粉與湯汁上，旁邊有其他菜盤",
+      "caption": "螃蟹和米粉泡在濃厚的湯底裡，是我們很喜歡的一餐。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-n7lacel6lww-001468-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001468-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 32902,
+          "sha256": "f27d3c7d7b200071ca847aecaa0ceae65aaa84c5ee440fc5f575582830d6b6bd"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001468-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 54222,
+          "sha256": "79c08ebc9f1cb0c2246ed77ac213cd43877da2fad964b0e4f75eaf17105f36c4"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-n7lACEL6lWw-001468-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 77206,
+          "sha256": "0e563100c0e68a1da1e7bc7591a6737e4609de6fe08e3d47698ca61ad0e863c5"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "0e563100c0e68a1da1e7bc7591a6737e4609de6fe08e3d47698ca61ad0e863c5",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 132120000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw",
+        "locatorUrl": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1468s",
+        "rawSha256": "109eb62e4ccb321bdf1caf40f632b3b68adb99e661d3e3bba99fba82a03298be",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-bw7bihyxzm-001220-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在正確房間的客廳旁，畫面可見淺色沙發、餐桌與椅子",
+      "caption": "後來換到正確房間，才有原本預訂的客廳與臥室配置。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-bw7bihyxzm-001220-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001220-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 15750,
+          "sha256": "5c20689dc670654e3028f4d483eb3eddc258efa0bb0d80277e840515f7c5de6a"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001220-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 24674,
+          "sha256": "ba530ca80b348856b4e6bf4464f9e9996043ab567e8e4bf28c76f6b4dfe79194"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001220-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 33956,
+          "sha256": "9dd19bf03b1cc4c22873dce72291e2890f719bf8c8ca49d5587ba95067d6929d"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "9dd19bf03b1cc4c22873dce72291e2890f719bf8c8ca49d5587ba95067d6929d",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 109800000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+        "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=1220s",
+        "rawSha256": "c04e5e4a98f79277fbe73a7a1ab38a55f6946ecd6635aaefbbcb493b1016f771",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-bw7bihyxzm-001444-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在 Club 餐飲區旁，前方有咖啡機、餐盤和食物，身後是窗戶",
+      "caption": "我們當次使用的 Club 餐飲區，有早餐、咖啡與點心。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-bw7bihyxzm-001444-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001444-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 26060,
+          "sha256": "29f56cc38af477632418860630261f97e51ae3f4f890d240b7320468aeaf2c72"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001444-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 40600,
+          "sha256": "1f8cc24b3835ff490b967cb28eadb5c9ad0f90d43e8e5a9afef5098261bc43de"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-001444-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 55946,
+          "sha256": "1f2944dd1932716078b4cae06d99b98b3946462e7c4f0c9d3de56fffd6bac08e"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "1f2944dd1932716078b4cae06d99b98b3946462e7c4f0c9d3de56fffd6bac08e",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 129960000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+        "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=1444s",
+        "rawSha256": "ad97c3e6f5b12477c111edbdcc249e0c31a64319b02cc4fd0ef06a52fb12fc75",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-bw7bihyxzm-000865-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "從擎天樹觀景台看濱海灣金沙與城市，前景有粉紅色的樹冠結構。",
+      "caption": "從觀景台看濱海灣金沙與花園。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-bw7bihyxzm-000865-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000865-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 41220,
+          "sha256": "5a69ac2b9d334f60b4e9c543d4f26480f0cf13242c9c2ebba44a1ec78c2048cd"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000865-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 84518,
+          "sha256": "c1bea0a4c294186c46dc1c90c5114824bf417981f4df265b092b1f16349e3fd8"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000865-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 137834,
+          "sha256": "b50c751ea1b21952f3f577f79e1753dc07031295b7184ec52030e6715161c634"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b50c751ea1b21952f3f577f79e1753dc07031295b7184ec52030e6715161c634",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 77850000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+        "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=865s",
+        "rawSha256": "4dece3460f00f30f5e4a5af1939599017b19291d0c8fc1ad6b7068d9db125422",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-bw7bihyxzm-000880-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "海瑞抱著妹妹站在擎天樹觀景台的欄杆旁，身後可見綠地與遠景。",
+      "caption": "海瑞抱著妹妹，一起到觀景台看風景。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-bw7bihyxzm-000880-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000880-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 13920,
+          "sha256": "c468d469a12ff581fc4a350835a1fedc4ace5b4b6ff7977fdedfadfba93b0479"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000880-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 21866,
+          "sha256": "f76df110197091925ceaccfc5359bb0fd14e6cd517c279f66eae30df91162efc"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000880-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 30736,
+          "sha256": "b5b80a664b2ea6964beddae2c66bba231f43f694b025636fd570d58e26f17d84"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "b5b80a664b2ea6964beddae2c66bba231f43f694b025636fd570d58e26f17d84",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 79200000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+        "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=880s",
+        "rawSha256": "d3409128ab04c7cdc9ae78a7def6adca0b72c280ca222dcc9616547a8ad29c04",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-bw7bihyxzm-000918-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "秀秀站在擎天樹觀景處，阿婆在後方欄杆旁，身後可見粉紅色樹冠結構。",
+      "caption": "換個角度，看看擎天樹上方的結構與花園。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-bw7bihyxzm-000918-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000918-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 26246,
+          "sha256": "373d8f8527d45f25f73362c508ae6a3f0f3d7f8f8cd5b4cb19eb0e8d2da625da"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000918-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 40346,
+          "sha256": "26c2260a535f0649c93fc3b101e888bd35044c070aebcecda0f2a717cccd642e"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-000918-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 57922,
+          "sha256": "acf3b7ef2dc928decab5ecc8352c45332d92681ec8ff8e871ca8e812417befc7"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "acf3b7ef2dc928decab5ecc8352c45332d92681ec8ff8e871ca8e812417befc7",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 82620000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+        "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=918s",
+        "rawSha256": "ab0cc994770689b8b2ed46978cc5c32f3640d49e7265298f78d2032cee94547b",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-bw7bihyxzm-002158-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "T3 溜滑梯出口可見金屬滑道、紅色護欄與前方走道。",
+      "caption": "滑梯的出口在紅色護欄之間。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-bw7bihyxzm-002158-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002158-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 19394,
+          "sha256": "799cdfd504e8b75bc1babef0b59435a57c385cfe436103467f218c17818ef913"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002158-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 29874,
+          "sha256": "e92861ee96561f1a9d664ea8f8f9b502c49948a4c27a94bc9a7bccf9303807a9"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002158-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 42760,
+          "sha256": "ba3996ad0b3df957bc6610dbe3dd5896f8ecaa83ecbf332b241cfa4c6931aaed"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "ba3996ad0b3df957bc6610dbe3dd5896f8ecaa83ecbf332b241cfa4c6931aaed",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 194220000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+        "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=2158s",
+        "rawSha256": "3fb8ad099ba8f1265918019ec9a154430a7d9020ae7c4b877198a2bce2d75e34",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-bw7bihyxzm-002145-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "第一人稱視角沿著 T3 溜滑梯的彎曲管道向下，前方可見雙腳。",
+      "caption": "雙腳向前，沿著彎曲的管道滑下。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-bw7bihyxzm-002145-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002145-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 12158,
+          "sha256": "9f71ba302aa87b3a8d3922dafa53bd57a5172754246f454923e46e28736341a3"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002145-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 25626,
+          "sha256": "28402f27dadfdb098c9516cd52781578b3eea7a2f2b1b1e39a5bb986805e88c7"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002145-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 37858,
+          "sha256": "c34990a2439f66c1cbb84fc77bf6ee3e07a6619866e8f11093a20fae6e39a37a"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "c34990a2439f66c1cbb84fc77bf6ee3e07a6619866e8f11093a20fae6e39a37a",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 193050000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+        "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=2145s",
+        "rawSha256": "6f3f80d727b2d969e676e17836d281d4bc203e6d5f389a49d14e216cb339c520",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-yt-bw7bihyxzm-002163-g3-v1",
+      "width": 1280,
+      "height": 720,
+      "alt": "阿婆穿著紫色上衣，在航廈內面向鏡頭，雙手比出拇指。",
+      "caption": "阿婆滑完溜滑梯，對著鏡頭雙手比讚。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-yt-bw7bihyxzm-002163-g3-v1"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002163-g3-v1-640.webp",
+          "width": 640,
+          "height": 360,
+          "bytes": 21398,
+          "sha256": "606c9894b8414024361eeb9eccd4c98c3f6805a564dbaa62d2e333fb77823885"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002163-g3-v1-960.webp",
+          "width": 960,
+          "height": 540,
+          "bytes": 33404,
+          "sha256": "ac3a705149c80cc019250d99d43bdfb5c2e046c5072fd3fa365d1ac93250f56e"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-yt-_Bw7BihYxzM-002163-g3-v1-1280.webp",
+          "width": 1280,
+          "height": 720,
+          "bytes": 47604,
+          "sha256": "37dd08f3efe9cbe49a5227eb6aac39e941c28cec81fe18e174b069aeca16a9f7"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "37dd08f3efe9cbe49a5227eb6aac39e941c28cec81fe18e174b069aeca16a9f7",
+        "sourceWidth": 1280,
+        "sourceHeight": 720,
+        "kind": "video-frame",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1280,
+          "height": 720
+        },
+        "pts": 194670000,
+        "timebase": "1/90000"
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM",
+        "locatorUrl": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=2163s",
+        "rawSha256": "c3ace07eb8cae6a01cee3f20471f943c866519e8035360c51a87f8e9c15a88ff",
+        "crop": [
+          0,
+          0,
+          1280,
+          720
+        ],
+        "creator": "鷹式一家"
+      }
+    },
+    {
+      "assetId": "sg-ig-dx-y4whe3ef-01",
+      "width": 1440,
+      "height": 1798,
+      "alt": "一家七口在星耀樟宜室內瀑布前合照，背景是圓形玻璃屋頂和綠色植栽",
+      "caption": "我們一家七口在星耀樟宜合照，身後就是雨漩渦。",
+      "focalPoint": [
+        50,
+        50
+      ],
+      "sourceIds": [
+        "m-sg-ig-dx-y4whe3ef-01"
+      ],
+      "variants": [
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-01-640.webp",
+          "width": 640,
+          "height": 799,
+          "bytes": 90280,
+          "sha256": "d107b43e1c4bced0d4685dc2428423de7367a6036af0d8694405800bceb60d28"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-01-960.webp",
+          "width": 960,
+          "height": 1199,
+          "bytes": 159096,
+          "sha256": "61b91681c50da00b85fcb23ec3fae91d47a1fe7ce0d291883946c80f02b32a1d"
+        },
+        {
+          "url": "/trip/assets/singapore/sg-ig-DX_y4WhE3EF-01-1440.webp",
+          "width": 1440,
+          "height": 1798,
+          "bytes": 268658,
+          "sha256": "e9309ae0e695d708186193c4f064fe20b75160e4e6c917ba3ec5be1037254146"
+        }
+      ],
+      "lineage": {
+        "sourceSha256": "e9309ae0e695d708186193c4f064fe20b75160e4e6c917ba3ec5be1037254146",
+        "sourceWidth": 1440,
+        "sourceHeight": 1798,
+        "kind": "photo",
+        "activePicture": {
+          "x": 0,
+          "y": 0,
+          "width": 1440,
+          "height": 1798
+        }
+      },
+      "legacyProvenance": {
+        "sourceUrl": "https://www.instagram.com/eaglish.fam/p/DX_y4WhE3EF/",
+        "rawSha256": "c0fb43b18b1a5d1d870654e29933b89a4fe95f664bf324ac09930f6c0dfc3afa",
+        "crop": [
+          0,
+          0,
+          1440,
+          1798
+        ],
+        "creator": "鷹式一家"
+      }
+    }
+  ],
+  "countries": [
+    {
+      "id": "singapore",
+      "path": "/trip/singapore/",
+      "singleDestination": true,
+      "name": "新加坡",
+      "englishName": "Singapore",
+      "flag": "🇸🇬",
+      "title": "新加坡自由行：8 個景點、親子玩法與 2–4 日行程安排",
+      "description": "從新加坡動物園、濱海灣花園到星耀樟宜，整理鷹式一家實際走過的景點、美食與住宿經驗，搭配 2–4 日建議行程、交通及雨天安排。",
+      "intro": [
+        "帶孩子、大人和長輩一起玩新加坡，可以從各自喜歡的景點開始，把交通、用餐和休息排得順一些。",
+        "這裡整理了我們幾次親子、夫妻與三代同行的景點、美食和住宿經驗：先看照片挑地方，再用 2–4 日建議行程，排出適合這一趟的步調。"
+      ],
+      "author": "鷹式一家",
+      "updatedOn": "2026-10-03",
+      "sourceIds": [
+        "v-youtube-com-watch-v-cv5aehulhc4",
+        "v-youtube-com-watch-v-wny-jlq8tjm",
+        "v-youtube-com-watch-v-n7lacel6lww",
+        "v-youtube-com-watch-v-bw7bihyxzm",
+        "v-youtube-com-shorts-86gh1ti5m68",
+        "v-youtube-com-shorts-qtq-clsixyu",
+        "v-youtube-com-shorts-w8tdslk-trc"
+      ],
+      "cityIds": [
+        "singapore"
+      ],
+      "image": "sg-ig-dx-y4whe3ef-01",
+      "faq": [
+        {
+          "question": "第一次帶孩子，兩天怎麼安排？",
+          "answer": "兩個完整白天可以一天選萬禮、一天逛濱海灣花園，先玩全家最喜歡的地方。喜歡街區與城市歷史，也可換成哈芝巷、博物館或鴨子船；想多走幾站，可選三、四日版。Jewel 另放在機場日。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        }
+      ]
+    }
+  ],
+  "cities": [
+    {
+      "id": "singapore",
+      "countryId": "singapore",
+      "path": "/trip/singapore/",
+      "name": "新加坡",
+      "englishName": "Singapore",
+      "destinationKind": "city",
+      "title": "新加坡自由行：8 個景點、親子玩法與 2–4 日行程安排",
+      "description": "從新加坡動物園、濱海灣花園到星耀樟宜，整理鷹式一家實際走過的景點、美食與住宿經驗，搭配 2–4 日建議行程、交通及雨天安排。",
+      "intro": [
+        "帶孩子、大人和長輩一起玩新加坡，可以從各自喜歡的景點開始，把交通、用餐和休息排得順一些。",
+        "這裡整理了我們幾次親子、夫妻與三代同行的景點、美食和住宿經驗：先看照片挑地方，再用 2–4 日建議行程，排出適合這一趟的步調。"
+      ],
+      "sourceIds": [
+        "v-youtube-com-watch-v-cv5aehulhc4",
+        "v-youtube-com-watch-v-wny-jlq8tjm",
+        "v-youtube-com-watch-v-n7lacel6lww",
+        "v-youtube-com-watch-v-bw7bihyxzm",
+        "v-youtube-com-shorts-86gh1ti5m68",
+        "v-youtube-com-shorts-qtq-clsixyu",
+        "v-youtube-com-shorts-w8tdslk-trc",
+        "o-mandai-com-en-singapore-zoo-html",
+        "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai",
+        "v-youtube-com-watch-v-wny-jlq8tjm-t-0s",
+        "o-mandai-com-en-river-wonders-html"
+      ],
+      "author": "鷹式一家",
+      "updatedOn": "2026-10-03",
+      "hero": [
+        "sg-ig-dx-y4whe3ef-01",
+        "sg-ig-dx-y4whe3ef-02",
+        "sg-ig-dx-y4whe3ef-06"
+      ],
+      "places": [
+        {
+          "id": "singapore-zoo",
+          "stableId": "sg-singapore-zoo",
+          "title": "新加坡動物園：留一整段時間給動物和孩子",
+          "paragraphs": [
+            "新加坡動物園位在萬禮，主要沿戶外展區看動物，適合留一大段時間走走停停。帶孩子來，可以把喜歡的動物、兒童遊戲區、喝水和吃飯一起排進去。",
+            "先選幾種最想看的動物，再安排路線。上午走較長的戶外路段，下午依天氣和體力調整；若同一天接著去河川生態園，可以把動物園的參觀重點集中一些。"
+          ],
+          "sourceIds": [
+            "o-mandai-com-en-singapore-zoo-html",
+            "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai",
+            "v-youtube-com-watch-v-wny-jlq8tjm-t-0s"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "新加坡動物園位在萬禮，主要沿戶外展區看動物，適合留一大段時間走走停停。",
+              "sourceIds": [
+                "o-mandai-com-en-singapore-zoo-html",
+                "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "動物觀察・兒童遊戲",
+              "sourceIds": [
+                "o-mandai-com-en-singapore-zoo-html",
+                "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "80 Mandai Lake Road，Singapore 729826。 Khatib MRT（NS14）Exit A 搭 M2 接駁至 Mandai Wildlife EAST，再前往入口。接駁車程約 20 分鐘，另留市區 MRT、候車及入口步行時間。",
+              "sourceIds": [
+                "o-mandai-com-en-singapore-zoo-html",
+                "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "4–5 小時；若要完整慢逛或停留遊戲區，可留更長。",
+              "sourceIds": [
+                "o-mandai-com-en-singapore-zoo-html",
+                "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "08:30–18:00，最後入園 17:00。",
+              "sourceIds": [
+                "o-mandai-com-en-singapore-zoo-html",
+                "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "多數展區需要戶外移動，帶上雨具，並依現場天氣調整參觀路線。",
+              "sourceIds": [
+                "o-mandai-com-en-singapore-zoo-html",
+                "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai"
+              ]
+            }
+          },
+          "extraFacts": [
+            {
+              "label": "門票",
+              "value": "外國旅客可選單園或多園產品，依到訪日期核對票券及使用條件。",
+              "sourceIds": [
+                "o-mandai-com-en-singapore-zoo-html",
+                "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai"
+              ]
+            },
+            {
+              "label": "近期展區異動",
+              "value": "非洲企鵝展區 2026/8/31–11/30 整修；Elephants of Asia 在 10/29 暫停開放，包含當日 11:30 的展示及餵食活動。若以這些動物為重點，訂票前先看最新公告。",
+              "sourceIds": [
+                "o-mandai-com-en-singapore-zoo-html",
+                "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai"
+              ]
+            }
+          ],
+          "images": [
+            "sg-yt-wny-jlq8tjm-000022-v2",
+            "sg-yt-wny-jlq8tjm-000158-g3-v1",
+            "sg-yt-wny-jlq8tjm-000210-v1"
+          ],
+          "story": {
+            "title": "我們那次的小記錄",
+            "text": "那次我們先帶兩個哥哥看動物，接著去兒童遊戲區，後來遇上很大的雨，只走了部分展區。剩下的行程也跟著天氣調整。",
+            "paragraphs": [
+              "那次我們先帶兩個哥哥看動物，接著去兒童遊戲區，後來遇上很大的雨，只走了部分展區。剩下的行程也跟著天氣調整。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-wny-jlq8tjm-t-0s"
+            ]
+          },
+          "links": [
+            {
+              "label": "新加坡動物園 Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Singapore%20Zoo%2080%20Mandai%20Lake%20Road%20Singapore"
+            },
+            {
+              "label": "動物園官方資訊與公告",
+              "url": "https://www.mandai.com/en/singapore-zoo.html"
+            },
+            {
+              "label": "萬禮交通與接駁",
+              "url": "https://www.mandai.com/en/plan-your-visit/getting-to-and-around/getting-to-mandai-wildlife-reserve.html"
+            },
+            {
+              "label": "看我們的動物園與大雨片段",
+              "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=0s"
+            }
+          ]
+        },
+        {
+          "id": "river-wonders",
+          "stableId": "sg-river-wonders",
+          "title": "河川生態園：看水中世界，遊船另外選",
+          "paragraphs": [
+            "River Wonders 和新加坡動物園同在萬禮，參觀重點是河川生態、水族展區與大熊貓。園區有較多遮蔽，可以安排半天，讓孩子看看水中生物與不同的動物。",
+            "想搭 Amazon River Quest，可另加購園內遊船，先確認孩子身高。遇雨或雷電停駛時，先逛開放的展區，再依船班狀況調整。"
+          ],
+          "sourceIds": [
+            "o-mandai-com-en-river-wonders-html",
+            "o-mandai-com-en-see-and-do-rides-river-wonders-amazon-river-quest-html",
+            "v-youtube-com-watch-v-wny-jlq8tjm-t-340s"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "River Wonders 和新加坡動物園同在萬禮，參觀重點是河川生態、水族展區與大熊貓。",
+              "sourceIds": [
+                "o-mandai-com-en-river-wonders-html",
+                "o-mandai-com-en-see-and-do-rides-river-wonders-amazon-river-quest-html"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "河川生態・水族展區",
+              "sourceIds": [
+                "o-mandai-com-en-river-wonders-html",
+                "o-mandai-com-en-see-and-do-rides-river-wonders-amazon-river-quest-html"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "80 Mandai Lake Road，和動物園同區；可由 Khatib MRT 搭 M2 至 Mandai Wildlife EAST。",
+              "sourceIds": [
+                "o-mandai-com-en-river-wonders-html",
+                "o-mandai-com-en-see-and-do-rides-river-wonders-amazon-river-quest-html"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "園區 2–3 小時；若搭遊船，再把排隊、報到與登船算進去。",
+              "sourceIds": [
+                "o-mandai-com-en-river-wonders-html",
+                "o-mandai-com-en-see-and-do-rides-river-wonders-amazon-river-quest-html"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "09:00–18:00，最後入園 17:00；Amazon River Quest 最後一班 17:30。",
+              "sourceIds": [
+                "o-mandai-com-en-river-wonders-html",
+                "o-mandai-com-en-see-and-do-rides-river-wonders-amazon-river-quest-html"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "先逛有遮蔽的展區；遊船可能因雨或雷電停駛，依現場通知安排。",
+              "sourceIds": [
+                "o-mandai-com-en-river-wonders-html",
+                "o-mandai-com-en-see-and-do-rides-river-wonders-amazon-river-quest-html"
+              ]
+            }
+          },
+          "extraFacts": [
+            {
+              "label": "遊船條件",
+              "value": "Amazon River Quest 身高至少 106 公分；106–135 公分須有成人陪同。遊船另加購 SGD 5，入園票另購。",
+              "sourceIds": [
+                "o-mandai-com-en-river-wonders-html",
+                "o-mandai-com-en-see-and-do-rides-river-wonders-amazon-river-quest-html"
+              ]
+            }
+          ],
+          "images": [
+            "sg-yt-wny-jlq8tjm-000390-v1",
+            "sg-yt-wny-jlq8tjm-000402-g3-v1",
+            "sg-yt-wny-jlq8tjm-000369-g3-v1"
+          ],
+          "story": {
+            "title": "我們那次的小記錄",
+            "text": "動物園下大雨後，我們換到河川生態園，船班當時也暫停了。等到後來恢復開放，孩子通過身高檢查，我們才一起上船。",
+            "paragraphs": [
+              "動物園下大雨後，我們換到河川生態園，船班當時也暫停了。等到後來恢復開放，孩子通過身高檢查，我們才一起上船。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-wny-jlq8tjm-t-340s"
+            ]
+          },
+          "links": [
+            {
+              "label": "河川生態園 Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=River%20Wonders%2080%20Mandai%20Lake%20Road%20Singapore"
+            },
+            {
+              "label": "河川生態園官方資訊",
+              "url": "https://www.mandai.com/en/river-wonders.html"
+            },
+            {
+              "label": "Amazon River Quest 票價與身高條件",
+              "url": "https://www.mandai.com/en/see-and-do/rides/river-wonders/amazon-river-quest.html"
+            },
+            {
+              "label": "看河川生態園、身高檢查與上船片段",
+              "url": "https://www.youtube.com/watch?v=WnY-JLQ8TJM&t=340s"
+            }
+          ]
+        },
+        {
+          "id": "flower-dome",
+          "stableId": "sg-flower-dome",
+          "title": "花穹：讓喜歡花的人慢慢看",
+          "paragraphs": [
+            "Flower Dome 是濱海灣花園的冷房溫室，適合看植物、花卉佈置與季節展覽。喜歡花、拍照或室內散步的家人，可以留時間慢慢逛。",
+            "花穹與雲霧林在同一園區，中間安排午餐和休息，就能接著看另一座溫室。孩子若更期待恐龍，大人可以輪流陪伴，讓喜歡花的家人多逛一會兒。"
+          ],
+          "sourceIds": [
+            "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+            "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su",
+            "v-youtube-com-watch-v-bw7bihyxzm-t-367s"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "Flower Dome 是濱海灣花園的冷房溫室，適合看植物、花卉佈置與季節展覽。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "季節花展・溫室散步",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "濱海灣花園，18 Marina Gardens Drive。Bayfront MRT（CE1／DT16）Exit B 經地下通道，再走 Dragonfly 或 Meadow Bridge 進園；進園後另留步行至溫室的時間。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "60–90 分鐘；喜歡植物或拍照可留更久。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "09:00–21:00，最後入場 20:30；2026/10/6 為預定維護日。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "依現場天氣與公告調整。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su"
+              ]
+            }
+          },
+          "extraFacts": [
+            {
+              "label": "門票",
+              "value": "依想去的場館核對票券包含項目與適用日期；花穹和雲霧林可以一起安排。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su"
+              ]
+            },
+            {
+              "label": "當期花展",
+              "value": "我們照片中的 Tulipmania 2026 鬱金香展已於 5/17 結束。下一檔 Sunflower Surprise: Garden by the Ocean 預定 2026/10/9–11/9 展出；本文核對日為 10/3，可依旅行日期選花展。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-en-plan-your-visit-opening-hours-html",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-sunflower-su"
+              ]
+            }
+          ],
+          "images": [
+            "sg-yt-bw7bihyxzm-000384-v1",
+            "sg-ig-dx-y4whe3ef-06",
+            "sg-ig-dx-y4whe3ef-07"
+          ],
+          "story": {
+            "title": "我們那次的小記錄",
+            "text": "我們帶阿婆和阿姨來的那次，喜歡花的家人在花穹逛得很開心，兩個哥哥則惦記著另一側的恐龍。輪流安排大家喜歡的地方，三代同行也能各自有所期待。",
+            "paragraphs": [
+              "我們帶阿婆和阿姨來的那次，喜歡花的家人在花穹逛得很開心，兩個哥哥則惦記著另一側的恐龍。輪流安排大家喜歡的地方，三代同行也能各自有所期待。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-bw7bihyxzm-t-367s"
+            ]
+          },
+          "links": [
+            {
+              "label": "花穹 Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Flower%20Dome%20Gardens%20by%20the%20Bay%20Singapore"
+            },
+            {
+              "label": "濱海灣花園開放時間與維護日",
+              "url": "https://www.gardensbythebay.com.sg/en/plan-your-visit/opening-hours.html"
+            },
+            {
+              "label": "Sunflower Surprise 花展日期",
+              "url": "https://www.gardensbythebay.com.sg/en/things-to-do/calendar-of-events/sunflower-surprise-2026.html"
+            },
+            {
+              "label": "看我們和阿婆逛花穹的片段",
+              "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=367s"
+            }
+          ]
+        },
+        {
+          "id": "cloud-forest",
+          "stableId": "sg-gardens-cloud-forest",
+          "title": "雲霧林：瀑布、高處步道與侏羅紀世界",
+          "paragraphs": [
+            "Cloud Forest 有室內瀑布、植物覆蓋的山體與高處步道。從地面看瀑布，再沿館內路線往上走，可以欣賞溫室裡不同高度的景觀。",
+            "截至 2026/10/3，館內持續展出 Jurassic World: The Experience。恐龍模型、聲光與互動場景穿插在雲霧林裡，喜歡恐龍的孩子可以把這站列為重點。"
+          ],
+          "sourceIds": [
+            "o-gardensbythebay-com-sg-cloudforest",
+            "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-cloud-forest",
+            "o-gardensbythebay-com-sg-en-frequently-asked-questions-faq-cloud-forest",
+            "v-youtube-com-watch-v-bw7bihyxzm-t-960s"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "Cloud Forest 有室內瀑布、植物覆蓋的山體與高處步道。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-cloudforest",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-cloud-forest",
+                "o-gardensbythebay-com-sg-en-frequently-asked-questions-faq-cloud-forest"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "瀑布步道・恐龍體驗",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-cloudforest",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-cloud-forest",
+                "o-gardensbythebay-com-sg-en-frequently-asked-questions-faq-cloud-forest"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "位於濱海灣花園，從雲霧林入口入場，沿館內動線參觀。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-cloudforest",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-cloud-forest",
+                "o-gardensbythebay-com-sg-en-frequently-asked-questions-faq-cloud-forest"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "整座雲霧林建議留 90–120 分鐘；其中侏羅紀體驗，官方建議約 1 小時。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-cloudforest",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-cloud-forest",
+                "o-gardensbythebay-com-sg-en-frequently-asked-questions-faq-cloud-forest"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "09:00–21:00，最後入場 20:00；2026/10/26 為預定維護日。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-cloudforest",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-cloud-forest",
+                "o-gardensbythebay-com-sg-en-frequently-asked-questions-faq-cloud-forest"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "部分場景有突然的吼聲、燈光與閃光，可先觀察孩子反應，選擇舒服的觀看距離。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-cloudforest",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-cloud-forest",
+                "o-gardensbythebay-com-sg-en-frequently-asked-questions-faq-cloud-forest"
+              ]
+            }
+          },
+          "extraFacts": [
+            {
+              "label": "票券選擇",
+              "value": "選票時核對雲霧林、花穹及當期體驗的包含項目；想去擎天樹觀景台等設施，可另外選票。",
+              "sourceIds": [
+                "o-gardensbythebay-com-sg-cloudforest",
+                "o-gardensbythebay-com-sg-en-things-to-do-calendar-of-events-cloud-forest",
+                "o-gardensbythebay-com-sg-en-frequently-asked-questions-faq-cloud-forest"
+              ]
+            }
+          ],
+          "images": [
+            "sg-ig-dx-y4whe3ef-03",
+            "sg-ig-dx-y4whe3ef-02",
+            "sg-ig-dx-y4whe3ef-11"
+          ],
+          "story": {
+            "title": "我們那次的小記錄",
+            "text": "那次在花穹陪阿婆賞花時，哥哥們已經惦記著恐龍。走進雲霧林後，換成他們期待的場景，也輪到大人陪他們慢慢看。",
+            "paragraphs": [
+              "那次在花穹陪阿婆賞花時，哥哥們已經惦記著恐龍。走進雲霧林後，換成他們期待的場景，也輪到大人陪他們慢慢看。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-bw7bihyxzm-t-960s"
+            ]
+          },
+          "links": [
+            {
+              "label": "雲霧林 Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Cloud%20Forest%20Gardens%20by%20the%20Bay%20Singapore"
+            },
+            {
+              "label": "雲霧林官方資訊",
+              "url": "https://www.gardensbythebay.com.sg/cloudforest"
+            },
+            {
+              "label": "Jurassic World: The Experience",
+              "url": "https://www.gardensbythebay.com.sg/en/things-to-do/calendar-of-events/cloud-forest-featuring-jurassic-world-the-experience.html"
+            },
+            {
+              "label": "聲光、票券及體驗常見問題",
+              "url": "https://www.gardensbythebay.com.sg/en/frequently-asked-questions/faq-cloud-forest-featuring-jurassic-world-the-experience.html"
+            },
+            {
+              "label": "看雲霧林與恐龍片段",
+              "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=960s"
+            }
+          ]
+        },
+        {
+          "id": "haji-lane",
+          "stableId": "sg-haji-lane",
+          "title": "哈芝巷：彩色街屋、小店與街區散步",
+          "paragraphs": [
+            "哈芝巷位在甘榜格南（Kampong Gelam）一帶，有彩色街屋、壁畫、小店與餐飲。沿著街道走，遇到喜歡的店就進去，適合夫妻散步，也能讓一家人換個步調。",
+            "街區主要在戶外，可以選較涼的時段逛 60–90 分鐘，再坐下來吃飯。店家各有營業時間，想逛哪間店，就先查那間的開門時間。"
+          ],
+          "sourceIds": [
+            "o-visitsingapore-com-content-dam-visitsingapore-neighbourhoods-kampong-g",
+            "v-youtube-com-watch-v-n7lacel6lww-t-310s"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "哈芝巷位在甘榜格南（Kampong Gelam）一帶，有彩色街屋、壁畫、小店與餐飲。",
+              "sourceIds": [
+                "o-visitsingapore-com-content-dam-visitsingapore-neighbourhoods-kampong-g"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "彩色街屋・小店散步",
+              "sourceIds": [
+                "o-visitsingapore-com-content-dam-visitsingapore-neighbourhoods-kampong-g"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "以 Bugis MRT（EW12／DT14）為街區入口，再步行前往哈芝巷。",
+              "sourceIds": [
+                "o-visitsingapore-com-content-dam-visitsingapore-neighbourhoods-kampong-g"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "散步 60–90 分鐘，用餐另留時間；喜歡逛小店可以多留一會兒。",
+              "sourceIds": [
+                "o-visitsingapore-com-content-dam-visitsingapore-neighbourhoods-kampong-g"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "各間店有自己的營業時間，可依想逛的店安排。",
+              "sourceIds": [
+                "o-visitsingapore-com-content-dam-visitsingapore-neighbourhoods-kampong-g"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "這是一段戶外散步；先安排可坐下休息的用餐，再依天氣縮短步行。",
+              "sourceIds": [
+                "o-visitsingapore-com-content-dam-visitsingapore-neighbourhoods-kampong-g"
+              ]
+            }
+          },
+          "extraFacts": [],
+          "images": [
+            "sg-yt-n7lacel6lww-000395-v1",
+            "sg-yt-n7lacel6lww-000400-g3-v1",
+            "sg-yt-n7lacel6lww-000415-g3-v1"
+          ],
+          "story": {
+            "title": "我們那次的小記錄",
+            "text": "我們夫妻單獨來的那次，在哈芝巷邊走邊看。天氣很熱，就留了一段時間坐下來吃飯，也聊起以前替婆婆買絲巾的事。這種慢慢逛的旅行，我們也很喜歡。",
+            "paragraphs": [
+              "我們夫妻單獨來的那次，在哈芝巷邊走邊看。天氣很熱，就留了一段時間坐下來吃飯，也聊起以前替婆婆買絲巾的事。這種慢慢逛的旅行，我們也很喜歡。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-n7lacel6lww-t-310s"
+            ]
+          },
+          "links": [
+            {
+              "label": "哈芝巷 Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Haji%20Lane%20Singapore"
+            },
+            {
+              "label": "新加坡旅遊局甘榜格南街區地圖",
+              "url": "https://www.visitsingapore.com/content/dam/visitsingapore/neighbourhoods/kampong-gelam/Cultural-Precinct-Maps_Kampong-Gelam_Softcopy_11Jan23_(2).pdf"
+            },
+            {
+              "label": "看夫妻散步哈芝巷的片段",
+              "url": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=310s"
+            }
+          ],
+          "supportImages": [
+            "sg-yt-n7lacel6lww-000430-g3-v1"
+          ]
+        },
+        {
+          "id": "duck-tour",
+          "stableId": "sg-duck-experience",
+          "title": "鴨子船：從街上開進海灣",
+          "paragraphs": [
+            "鴨子船是水陸兩用的觀光體驗，先在街上行駛，再開進水裡欣賞海灣與城市景觀。入水的那一刻很有趣，我們也從船上拍到了魚尾獅。",
+            "建議預留 90–120 分鐘，把集合、換票、報到與體驗一起算進去。同一天想去博物館，可以先選船班，再往前排午餐和交通。"
+          ],
+          "sourceIds": [
+            "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+            "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+            "o-bigducktours-com-en-singapore-help",
+            "v-youtube-com-watch-v-n7lacel6lww-t-819s"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "鴨子船是水陸兩用的觀光體驗，先在街上行駛，再開進水裡欣賞海灣與城市景觀。",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "水陸體驗・海灣景觀",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "見下方地圖與官方交通資訊。",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "90–120 分鐘，是集合及體驗的規劃預留；實際航程依選購產品。",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "依官方公告。",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "一般下雨仍可能運行；能見度不佳或雷電等情況可能延後，依業者安排。",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            }
+          },
+          "extraFacts": [
+            {
+              "label": "預訂前確認",
+              "value": "依選購產品確認集合地點、報到時間、語言、日期、兒童規則與雨天安排。",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            },
+            {
+              "label": "預訂參考：Singapore DUCKtours",
+              "value": "可參考 Singapore DUCKtours 選購水陸體驗；以下提供這個產品目前的集合點、船班與天氣安排。",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            },
+            {
+              "label": "DUCKtours 集合與時長",
+              "value": "BIG BUS & DUCK Hub，Suntec City Tower 2，3 Temasek Boulevard #01-K8；行程約 60 分鐘，須提早 30 分鐘報到。",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            },
+            {
+              "label": "DUCKtours 語言與時段",
+              "value": "英語班每小時 10:00–18:00；中文班目前 15:30、16:30、17:30，訂位時再核對當日供應。",
+              "sourceIds": [
+                "o-bigducktours-com-en-singapore-tickets-duck-tour-ticket",
+                "o-google-com-maps-search-api-1-query-big-20bus-20and-20duck-20hub-20sunt",
+                "o-bigducktours-com-en-singapore-help"
+              ]
+            }
+          ],
+          "images": [
+            "sg-yt-n7lacel6lww-000915-v1",
+            "sg-yt-n7lacel6lww-000845-v2",
+            "sg-yt-n7lacel6lww-000848-g3-v1"
+          ],
+          "story": {
+            "title": "我們那次的小記錄",
+            "text": "上船前，我們還猜坐右邊比較好拍照。那次兩側都有拍攝機會，駕駛也會調整角度，我們就跟著船的方向，拍下眼前的風景。",
+            "paragraphs": [
+              "上船前，我們還猜坐右邊比較好拍照。那次兩側都有拍攝機會，駕駛也會調整角度，我們就跟著船的方向，拍下眼前的風景。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-n7lacel6lww-t-819s"
+            ]
+          },
+          "links": [
+            {
+              "label": "預訂參考：Singapore DUCKtours",
+              "url": "https://www.bigducktours.com/en/singapore/tickets/duck-tour-ticket"
+            },
+            {
+              "label": "預訂參考：DUCKtours 集合點 Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=BIG%20BUS%20and%20DUCK%20Hub%20Suntec%20City%20Tower%202%2001-K8%20Singapore"
+            },
+            {
+              "label": "DUCKtours 天氣與常見問題",
+              "url": "https://www.bigducktours.com/en/singapore/help"
+            },
+            {
+              "label": "看我們搭鴨子船與從水上看魚尾獅",
+              "url": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=819s"
+            }
+          ]
+        },
+        {
+          "id": "national-museum",
+          "stableId": "sg-national-museum",
+          "title": "國家博物館：用光影與聲音走進城市歷史",
+          "paragraphs": [
+            "新加坡國家博物館位在 Stamford Road。Singapore Odyssea: A Journey Through Time 用影像、聲音與互動呈現歷史，參觀時配戴 RFID 手環，跟著展覽認識這座城市。",
+            "帶孩子或長輩來，可以先挑一個展覽慢慢看，再坐下休息。博物館也適合排在炎熱的中午或雨天，出發前查好當日展覽與開放時間。"
+          ],
+          "sourceIds": [
+            "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+            "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+            "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+            "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio",
+            "v-youtube-com-watch-v-n7lacel6lww-t-994s"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "新加坡國家博物館位在 Stamford Road。",
+              "sourceIds": [
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+                "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+                "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "光影互動・城市歷史",
+              "sourceIds": [
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+                "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+                "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "館方一般開放 10:00–19:00；93 Stamford Road，Singapore 178897。各展覽可能另有最後入場或活動提早閉館時段。",
+              "sourceIds": [
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+                "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+                "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "90–120 分鐘；想看多個展覽，再加時間。",
+              "sourceIds": [
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+                "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+                "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "Singapore Odyssea 位在二樓 Shaw Foundation Glass Rotunda，屬常設展。2026/10/9 因私人活動，16:00 關閉、最後入場 15:30。",
+              "sourceIds": [
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+                "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+                "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "依現場天氣與公告調整。",
+              "sourceIds": [
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+                "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+                "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio"
+              ]
+            }
+          },
+          "extraFacts": [
+            {
+              "label": "影片裡的期間展",
+              "value": "Once Upon a Tide: Singapore’s Journey from Settlement to Global City 展期為 2025/5/24–2026/10/9，可在這段期間安排參觀。",
+              "sourceIds": [
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+                "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+                "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio"
+              ]
+            },
+            {
+              "label": "近期展區調整",
+              "value": "Singapore History Gallery 預定 2026/10/10 重新開放；二樓部分展廳預定 2027 年第一季重開。本文核對日為 10/3，Odyssea 的開放時間見上列常設展資訊。",
+              "sourceIds": [
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+                "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+                "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio"
+              ]
+            },
+            {
+              "label": "門票",
+              "value": "外國旅客依要看的展覽選票。Odyssea 提供 6 歲以下兒童免費入場，其他展覽與票種各有條件。",
+              "sourceIds": [
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-singapore-odyssea",
+                "o-nationalmuseum-nhb-gov-sg-whats-on-exhibition-once-upon-a-tide",
+                "o-nationalmuseum-nhb-gov-sg-plan-your-visit-visitor-information-upgradin",
+                "o-nhb-gov-sg-nationalmuseum-plan-your-visit-visitor-information-admissio"
+              ]
+            }
+          ],
+          "images": [
+            "sg-yt-n7lacel6lww-001010-g3-v1",
+            "sg-yt-n7lacel6lww-001054-v2",
+            "sg-yt-n7lacel6lww-001300-v1"
+          ],
+          "story": {
+            "title": "我們那次的小記錄",
+            "text": "我們夫妻那次聽了朋友推薦才來，街上很熱，走進館內換個步調。展覽裡的街道與海洋聲音讓我們印象很深，也讓眼前的新加坡多了一段歷史。",
+            "paragraphs": [
+              "我們夫妻那次聽了朋友推薦才來，街上很熱，走進館內換個步調。展覽裡的街道與海洋聲音讓我們印象很深，也讓眼前的新加坡多了一段歷史。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-n7lacel6lww-t-994s"
+            ]
+          },
+          "links": [
+            {
+              "label": "新加坡國家博物館 Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=National%20Museum%20of%20Singapore%2093%20Stamford%20Road%20Singapore"
+            },
+            {
+              "label": "Singapore Odyssea 常設展",
+              "url": "https://www.nationalmuseum.nhb.gov.sg/whats-on/exhibition/singapore-odyssea"
+            },
+            {
+              "label": "Once Upon a Tide 展期",
+              "url": "https://www.nationalmuseum.nhb.gov.sg/whats-on/exhibition/once-upon-a-tide"
+            },
+            {
+              "label": "展區整修與重新開放公告",
+              "url": "https://www.nationalmuseum.nhb.gov.sg/plan-your-visit/visitor-information/upgrading"
+            },
+            {
+              "label": "館方票券與入場資訊",
+              "url": "https://www.nhb.gov.sg/nationalmuseum/plan-your-visit/visitor-information/admissions"
+            },
+            {
+              "label": "看我們進入博物館與看展的片段",
+              "url": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=994s"
+            }
+          ]
+        },
+        {
+          "id": "jewel",
+          "stableId": "sg-jewel-changi",
+          "title": "星耀樟宜：瀑布、迷宮與高處遊戲",
+          "paragraphs": [
+            "Jewel 位在樟宜機場公共區，有雨漩渦、室內植栽、餐廳與商店。看完瀑布、吃一餐，再到五樓選迷宮或網道遊戲，就能安排一段機場日行程。轉機前往時，先確認入境資格與來回時間。",
+            "五樓有 Canopy Park、Canopy Bridge、鏡子迷宮、樹籬迷宮與網道。依家人的年齡、身高和興趣挑活動，再選包含這些項目的票券。"
+          ],
+          "sourceIds": [
+            "o-jewelchangiairport-com-en-getting-to-jewel-html",
+            "o-jewelchangiairport-com-en-attractions-rain-vortex-html",
+            "o-jewelchangiairport-com-en-attractions-html",
+            "v-youtube-com-watch-v-cv5aehulhc4-t-69s"
+          ],
+          "facts": {
+            "what": {
+              "label": "是什麼",
+              "value": "Jewel 位在樟宜機場公共區，有雨漩渦、室內植栽、餐廳與商店。",
+              "sourceIds": [
+                "o-jewelchangiairport-com-en-getting-to-jewel-html",
+                "o-jewelchangiairport-com-en-attractions-rain-vortex-html",
+                "o-jewelchangiairport-com-en-attractions-html"
+              ]
+            },
+            "play": {
+              "label": "玩什麼",
+              "value": "雨漩渦・迷宮與網道",
+              "sourceIds": [
+                "o-jewelchangiairport-com-en-getting-to-jewel-html",
+                "o-jewelchangiairport-com-en-attractions-rain-vortex-html",
+                "o-jewelchangiairport-com-en-attractions-html"
+              ]
+            },
+            "arrival": {
+              "label": "怎麼去",
+              "value": "T1 抵達公共區可直接連接；T2、T3 由二樓連通橋前往，T4 須搭接駁。MRT 樟宜機場站 CG2 可由 Tanah Merah 或 Expo 轉線。",
+              "sourceIds": [
+                "o-jewelchangiairport-com-en-getting-to-jewel-html",
+                "o-jewelchangiairport-com-en-attractions-rain-vortex-html",
+                "o-jewelchangiairport-com-en-attractions-html"
+              ]
+            },
+            "duration": {
+              "label": "留多久",
+              "value": "3–5 小時，適合瀑布、用餐和少量遊戲；機場報到、行李、入出境、航廈移動與登機緩衝另算。",
+              "sourceIds": [
+                "o-jewelchangiairport-com-en-getting-to-jewel-html",
+                "o-jewelchangiairport-com-en-attractions-rain-vortex-html",
+                "o-jewelchangiairport-com-en-attractions-html"
+              ]
+            },
+            "availability": {
+              "label": "何時能去",
+              "value": "Jewel 建築 24 小時開放；想看雨漩渦，可安排在 10:00–22:00 的運作時段。 Canopy Park 週一至四 10:00–21:00、週五至日 10:00–22:00，最後入場在關閉前 30 分鐘；鏡子與樹籬迷宮 10:00–21:00，最後入場 20:30。",
+              "sourceIds": [
+                "o-jewelchangiairport-com-en-getting-to-jewel-html",
+                "o-jewelchangiairport-com-en-attractions-rain-vortex-html",
+                "o-jewelchangiairport-com-en-attractions-html"
+              ]
+            },
+            "conditions": {
+              "label": "雨天或特殊條件",
+              "value": "Walking Net 與 Bouncing Net 身高至少 110 公分；Bouncing Net 每節 45 分鐘，含約 10 分鐘安全說明。依選擇的活動確認鞋子、陪同與行李寄放要求。",
+              "sourceIds": [
+                "o-jewelchangiairport-com-en-getting-to-jewel-html",
+                "o-jewelchangiairport-com-en-attractions-rain-vortex-html",
+                "o-jewelchangiairport-com-en-attractions-html"
+              ]
+            }
+          },
+          "extraFacts": [
+            {
+              "label": "星空花園",
+              "value": "Canopy Park 在五樓，基本票包含 Discovery Slides、Foggy Bowls、Petal Garden 及 Topiary Walk；迷宮、網道等另看產品包含項目。",
+              "sourceIds": [
+                "o-jewelchangiairport-com-en-getting-to-jewel-html",
+                "o-jewelchangiairport-com-en-attractions-rain-vortex-html",
+                "o-jewelchangiairport-com-en-attractions-html"
+              ]
+            }
+          ],
+          "images": [
+            "sg-jewel-grandmother-social-refresh-g1-r1",
+            "sg-yt-cv5aehulhc4-000118-g3-v2",
+            "sg-yt-cv5aehulhc4-000247-v1"
+          ],
+          "story": {
+            "title": "我們那次的小記錄",
+            "text": "早一次帶哥哥們來時，我們依孩子身高挑了能玩的活動。奶奶到場後，大人也輪流去玩，Jewel 讓我們願意在機場多留一點時間。",
+            "paragraphs": [
+              "早一次帶哥哥們來時，我們依孩子身高挑了能玩的活動。奶奶到場後，大人也輪流去玩，Jewel 讓我們願意在機場多留一點時間。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4-t-69s"
+            ]
+          },
+          "links": [
+            {
+              "label": "星耀樟宜 Maps",
+              "url": "https://www.google.com/maps/search/?api=1&query=Jewel%20Changi%20Airport%2078%20Airport%20Boulevard%20Singapore"
+            },
+            {
+              "label": "Jewel 交通與航廈連接",
+              "url": "https://www.jewelchangiairport.com/en/getting-to-jewel.html"
+            },
+            {
+              "label": "雨漩渦時間",
+              "url": "https://www.jewelchangiairport.com/en/attractions/rain-vortex.html"
+            },
+            {
+              "label": "星空花園與各項遊戲",
+              "url": "https://www.jewelchangiairport.com/en/attractions.html"
+            },
+            {
+              "label": "看雨漩渦、迷宮與高處遊戲片段",
+              "url": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=69s"
+            }
+          ]
+        }
+      ],
+      "cards": [
+        {
+          "target": "singapore-zoo",
+          "assetId": "sg-yt-wny-jlq8tjm-000022-v2",
+          "title": "新加坡動物園",
+          "play": "動物觀察・兒童遊戲",
+          "time": "預留 4–5 小時",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "river-wonders",
+          "assetId": "sg-yt-wny-jlq8tjm-000390-v1",
+          "title": "河川生態園",
+          "play": "河川生態・水族展區",
+          "time": "預留 2–3 小時",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "flower-dome",
+          "assetId": "sg-ig-dx-y4whe3ef-06",
+          "title": "花穹",
+          "play": "季節花展・溫室散步",
+          "time": "預留 60–90 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "cloud-forest",
+          "assetId": "sg-ig-dx-y4whe3ef-02",
+          "title": "雲霧林",
+          "play": "瀑布步道・恐龍體驗",
+          "time": "預留 90–120 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "haji-lane",
+          "assetId": "sg-yt-n7lacel6lww-000395-v1",
+          "title": "哈芝巷",
+          "play": "彩色街屋・小店散步",
+          "time": "預留 60–90 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "duck-tour",
+          "assetId": "sg-yt-n7lacel6lww-000845-v2",
+          "title": "鴨子船",
+          "play": "水陸體驗・海灣景觀",
+          "time": "預留 90–120 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "national-museum",
+          "assetId": "sg-yt-n7lacel6lww-001054-v2",
+          "title": "新加坡國家博物館",
+          "play": "光影互動・城市歷史",
+          "time": "預留 90–120 分鐘",
+          "focalPoint": [
+            50,
+            50
+          ]
+        },
+        {
+          "target": "jewel",
+          "assetId": "sg-jewel-grandmother-social-refresh-g1-r1",
+          "title": "星耀樟宜",
+          "play": "雨漩渦・迷宮與網道",
+          "time": "預留 3–5 小時",
+          "focalPoint": [
+            50,
+            50
+          ]
+        }
+      ],
+      "food": {
+        "title": "吃什麼：早餐、機場漢堡與一桌螃蟹米粉",
+        "paragraphs": [
+          "早餐、午餐和晚餐跟著當天的區域安排，逛完就能坐下來吃。下面整理我們吃過的幾種選擇，餐費依當日點菜與份量計算。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-cv5aehulhc4",
+          "v-youtube-com-watch-v-wny-jlq8tjm"
+        ],
+        "links": [],
+        "subsections": [
+          {
+            "id": "food-ya-kun",
+            "title": "亞坤：把一頓早餐留給咖椰吐司",
+            "paragraphs": [
+              "咖椰奶油吐司、蛋與咖啡或茶，很適合當一天的開始。預留 30–45 分鐘，排隊另算；從官方門市列表找住宿或當天路線附近的店，就能順路吃早餐。",
+              "我們夫妻那次，也用亞坤早餐開始一天的行程。想點一樣的品項，可先看品牌菜單，再依要去的門市確認供應和營業時間。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "亞坤官方門市列表",
+                "url": "https://app.yakun.com/find-us"
+              },
+              {
+                "label": "亞坤菜單",
+                "url": "https://app.yakun.com/menu.html"
+              },
+              {
+                "label": "看亞坤早餐片段",
+                "url": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=28s"
+              }
+            ],
+            "images": [
+              "sg-yt-n7lacel6lww-000075-v1"
+            ]
+          },
+          {
+            "id": "food-shake-shack",
+            "title": "Shake Shack Jewel：機場日的一餐",
+            "paragraphs": [
+              "早一次來 Jewel 時，我們先吃了 Shake Shack 的漢堡。店在二樓 #02-256，可以和瀑布、逛街一起安排在機場日。",
+              "目前營業時間為 08:30–22:30。用餐留 45–60 分鐘，排隊另算，再另外留好報到與登機時間。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "Google Maps",
+                "url": "https://www.google.com/maps/search/?api=1&query=Shake%20Shack%20Jewel%20Changi%20Airport%2002-256%20Singapore"
+              },
+              {
+                "label": "Jewel Shake Shack 位置與時間",
+                "url": "https://www.jewelchangiairport.com/en/dine/shake-shack.html"
+              },
+              {
+                "label": "看我們實際用餐片段",
+                "url": "https://www.youtube.com/watch?v=CV5AEHUlhc4&t=30s"
+              }
+            ],
+            "images": [
+              "sg-yt-cv5aehulhc4-000028-v1"
+            ]
+          },
+          {
+            "id": "food-long-ji",
+            "title": "龍記螃蟹米粉：適合留一餐好好坐下來",
+            "paragraphs": [
+              "我們夫妻那次吃過螃蟹米粉，後來帶孩子、阿婆與家人同行，又回來吃了一次。很喜歡它濃厚的湯底，適合留一餐，大家坐下來一起吃。",
+              "建議預留 60–90 分鐘用餐，候位另算。螃蟹的重量、當日價格和整桌份量先問清楚，再依人數點菜；下面兩段影片，一段是夫妻用餐，一段是三代同行，可以先看看整桌吃起來的樣子。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "看夫妻那次吃螃蟹米粉",
+                "url": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=1406s"
+              },
+              {
+                "label": "看三代同行再吃螃蟹米粉",
+                "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=1514s"
+              }
+            ],
+            "images": [
+              "sg-yt-n7lacel6lww-001468-v1"
+            ]
+          },
+          {
+            "id": "food-area-meals",
+            "title": "哈芝巷與花園的午餐安排",
+            "paragraphs": [
+              "在哈芝巷那次，我們在附近吃了土耳其料理，有鷹嘴豆泥和雞肉；逛濱海灣花園時，則在美食區吃午餐。吃飯接在正在玩的區域，整天的路線也順一些。",
+              "帶孩子或長輩，午餐可以先留一段坐下來休息的時間，讓每個人選到想吃的東西，再接著逛下一站。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "看哈芝巷附近的土耳其料理",
+                "url": "https://www.youtube.com/watch?v=n7lACEL6lWw&t=505s"
+              },
+              {
+                "label": "看花園美食區午餐",
+                "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=767s"
+              }
+            ]
+          }
+        ]
+      },
+      "stay": {
+        "title": "Amara Singapore：三代同行的入住經驗",
+        "paragraphs": [
+          "我們三代同行那次，住在丹戎巴葛的 Amara Singapore。",
+          "飯店位於 165 Tanjong Pagar Road，可搭 Tanjong Pagar MRT 規劃交通。目前一般入住時間為 15:00，退房為 12:00。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-cv5aehulhc4",
+          "v-youtube-com-watch-v-wny-jlq8tjm",
+          "v-youtube-com-watch-v-n7lacel6lww",
+          "v-youtube-com-watch-v-bw7bihyxzm",
+          "v-youtube-com-shorts-86gh1ti5m68",
+          "v-youtube-com-shorts-qtq-clsixyu",
+          "v-youtube-com-shorts-w8tdslk-trc"
+        ],
+        "links": [
+          {
+            "label": "Amara Singapore Maps",
+            "url": "https://www.google.com/maps/search/?api=1&query=Amara%20Singapore%20165%20Tanjong%20Pagar%20Road%20Singapore"
+          },
+          {
+            "label": "Amara Singapore 聯絡資訊",
+            "url": "https://singapore.amarahotels.com/contact"
+          },
+          {
+            "label": "Amara Singapore 入住資訊",
+            "url": "https://singapore.amarahotels.com/frequently-asked-questions"
+          },
+          {
+            "label": "看當次入住溝通的完整前段",
+            "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=0s"
+          },
+          {
+            "label": "接著看正確房間與後續待遇",
+            "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=1170s"
+          }
+        ],
+        "subsections": [
+          {
+            "id": "stay-experience",
+            "title": "我們當次在 Amara 的入住經驗",
+            "paragraphs": [
+              "那次是四位成人、三個孩子，包括妹妹，訂的是兩間臥室加客廳的空間。到了現場，人數與嬰兒床的安排出現溝通問題，還被要求加付約新台幣 5,000 元；一開始帶我們去的房間又只有一間臥室，和原訂房型有落差。",
+              "後來確認並換到正確房間，才有原訂的客廳、臥室與浴室。當次後續有水果、mini bar，以及 Club 的早餐、咖啡與點心；房卡的樓層權限也再花了時間處理。",
+              "回看這次入住，前段花了不少時間處理房型、費用與房卡，後來才把原訂的空間與後續餐飲安排接上。整段過程都留在影片裡。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [],
+            "images": [
+              "sg-yt-bw7bihyxzm-001220-v1",
+              "sg-yt-bw7bihyxzm-001444-v1"
+            ]
+          }
+        ]
+      },
+      "arrival": {
+        "title": "到達與交通：機場、萬禮與濱海灣怎麼走",
+        "paragraphs": [
+          "帶著孩子、嬰兒車和行李出門，交通時間也包括找出口、等車、上車和集合。先按區域排行程，移動與休息都更好安排。",
+          "市區可依路線選 MRT、計程車或 Grab。多人同行，先確認車輛能容納乘客與行李，必要時分車，預訂時也說明兒童乘車需求。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-cv5aehulhc4",
+          "v-youtube-com-watch-v-wny-jlq8tjm"
+        ],
+        "links": [],
+        "subsections": [
+          {
+            "id": "arrival-1",
+            "title": "樟宜機場與 Jewel",
+            "paragraphs": [
+              "MRT 樟宜機場站為 CG2，可由 Tanah Merah 或 Expo 轉線。Jewel 位在公共區，T1 可直接連接，T2／T3 走二樓連通橋，T4 搭接駁；依抵達或離境航廈留好移動時間。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "Jewel 到達方式",
+                "url": "https://www.jewelchangiairport.com/en/getting-to-jewel.html"
+              }
+            ]
+          },
+          {
+            "id": "arrival-2",
+            "title": "萬禮雙園",
+            "paragraphs": [
+              "Khatib MRT（NS14）Exit A 搭 M2 至 Mandai Wildlife EAST。7 歲以上單程 SGD 2.50，未滿 7 歲免費，使用非現金感應支付。接駁車程約 20 分鐘，市區 MRT、候車、下車步行與買票另留時間。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "M2 接駁與車資",
+                "url": "https://www.mandai.com/en/faq/shuttle-services.html"
+              }
+            ]
+          },
+          {
+            "id": "arrival-3",
+            "title": "濱海灣花園",
+            "paragraphs": [
+              "Bayfront MRT（CE1／DT16）Exit B 經地下通道，再走 Dragonfly 或 Meadow Bridge 進園；Gardens by the Bay MRT（TE22）Exit 1 位在園區另一側。依要去的溫室選入口，再留步行至場館的時間。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "花園交通與入口",
+                "url": "https://www.gardensbythebay.com.sg/en/plan-your-visit/getting-here.html"
+              }
+            ]
+          },
+          {
+            "id": "arrival-4",
+            "title": "離境日先把機場流程留好",
+            "paragraphs": [
+              "Jewel 官方建議轉機造訪至少留 5 小時。先按航班、入出境、行李與航空公司報到要求留好緩衝，再用剩餘時間看瀑布、用餐或玩設施。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "Jewel 轉機與行李常見問題",
+                "url": "https://www.jewelchangiairport.com/en/faqs.html"
+              }
+            ]
+          }
+        ]
+      },
+      "rain": {
+        "title": "下雨時怎麼換",
+        "paragraphs": [
+          "市中心可改排國家博物館、花穹或雲霧林；在萬禮時，先逛河川生態園較有遮蔽的展區，遊船則可能因雨或雷電停駛。鴨子船與擎天樹的露天活動，依當天天氣及營運安排調整。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-cv5aehulhc4",
+          "v-youtube-com-watch-v-wny-jlq8tjm"
+        ],
+        "links": []
+      },
+      "faq": [
+        {
+          "question": "第一次帶孩子，兩天怎麼安排？",
+          "answer": "兩個完整白天可以一天選萬禮、一天逛濱海灣花園，先玩全家最喜歡的地方。喜歡街區與城市歷史，也可換成哈芝巷、博物館或鴨子船；想多走幾站，可選三、四日版。Jewel 另放在機場日。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        },
+        {
+          "question": "動物園和河川生態園要排同一天嗎？",
+          "answer": "兩園可以排同一天，活動量會較大。上午在動物園挑重點，午餐後換河川生態園；帶小小孩、長輩或想慢逛，可以選一園或拆成兩天。河川遊船另加購，並依孩子身高與天氣安排。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        },
+        {
+          "question": "花穹和雲霧林有什麼不同？",
+          "answer": "兩座都在濱海灣花園。花穹以植物與季節花展為主，雲霧林有瀑布、高處步道與目前的侏羅紀體驗。依想去的場館核對票券，再加選其他園區設施。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        },
+        {
+          "question": "照片裡的鬱金香，現在去還有嗎？",
+          "answer": "照片記錄的是 Tulipmania 2026，已於 5/17 結束。本文核對日為 2026/10/3，下一檔 Sunflower Surprise 預定 10/9–11/9 展出，可依旅行日期選擇花展。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        },
+        {
+          "question": "下雨時可以去哪些地方？",
+          "answer": "市中心可安排國家博物館、花穹或雲霧林；在萬禮則先逛河川生態園有遮蔽的展區。遊船可能因雨或雷電停駛，鴨子船與擎天樹露天活動也依當天營運和天氣調整。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        },
+        {
+          "question": "國家博物館能看到影片中的同一個展嗎？",
+          "answer": "Singapore Odyssea 是常設展；影片裡另有 Once Upon a Tide 期間展，展期到 2026/10/9。10/9 的 Odyssea 於 16:00 提早閉展，最後入場 15:30；Singapore History Gallery 預定 10/10 重開，可依日期安排要看的展覽。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        },
+        {
+          "question": "轉機可以直接去 Jewel 嗎？",
+          "answer": "Jewel 位在機場公共區，轉機前往需符合入境資格。官方建議至少留 5 小時轉機時間，再按航班、行李、入出境及登機需求，計算實際可遊玩的時間。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        },
+        {
+          "question": "天空之網和 T3 溜滑梯，孩子多高才能玩？",
+          "answer": "Jewel 的 Walking Net 與 Bouncing Net 身高至少 110 公分；第三航廈 T3 一樓溜滑梯適用 1.3–2 公尺，B2 適用 1.1–2 公尺。各活動有自己的穿著與陪同規則，選票前可先量孩子身高。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        },
+        {
+          "question": "想接迪士尼郵輪，要算進這份 2–4 日行程嗎？",
+          "answer": "這裡的 2–4 日是完整市區觀光日，郵輪另外安排。先留出登船、下船、機場與交通所需時間，再決定前後能安排幾個新加坡觀光日。",
+          "sourceIds": [
+            "v-youtube-com-watch-v-cv5aehulhc4"
+          ]
+        }
+      ],
+      "videoSourceIds": [
+        "v-youtube-com-watch-v-cv5aehulhc4",
+        "v-youtube-com-watch-v-wny-jlq8tjm",
+        "v-youtube-com-watch-v-n7lacel6lww",
+        "v-youtube-com-watch-v-bw7bihyxzm",
+        "v-youtube-com-shorts-86gh1ti5m68",
+        "v-youtube-com-shorts-qtq-clsixyu",
+        "v-youtube-com-shorts-w8tdslk-trc"
+      ],
+      "planner": {
+        "title": "新加坡 2–4 日行程：先選區域，再選步調",
+        "paragraphs": [
+          "以下提供 2、3、4 個完整觀光日的路線，抵達、離境、星耀樟宜與郵輪天數另外安排。",
+          "悠閒版以一個主要區域為一天，保留午睡、坐下吃飯和臨時調整的空間；緊湊版把同區活動接起來。帶嬰兒或長輩同行，可以先選悠閒版，再依體力加選。",
+          "喜歡動物，把萬禮排成一整天；想看花、瀑布和恐龍，就把濱海灣花園排在一起。夫妻出遊可以多留時間給哈芝巷與博物館，帶長輩則讓室內活動和休息穿插著來。",
+          "各站時間是建議停留時間，交通、排隊與用餐另留。花穹與雲霧林位於同一個園區，可以一起安排；星耀樟宜適合放在抵達或離境日。",
+          "機場日加選：Jewel 與 T3：Jewel 的瀑布、用餐與一兩項遊戲，建議留 3–5 小時；入境、報到、託運、出境及登機緩衝另外安排。想玩第三航廈的 T3 溜滑梯，再加上跨航廈交通。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-cv5aehulhc4",
+          "v-youtube-com-watch-v-wny-jlq8tjm",
+          "v-youtube-com-watch-v-n7lacel6lww",
+          "v-youtube-com-watch-v-bw7bihyxzm",
+          "v-youtube-com-shorts-86gh1ti5m68",
+          "v-youtube-com-shorts-qtq-clsixyu",
+          "v-youtube-com-shorts-w8tdslk-trc"
+        ],
+        "routes": [
+          {
+            "id": "singapore-2-leisure",
+            "label": "2 日悠閒：先把最想去的玩好",
+            "sightseeingDays": 2,
+            "pace": "leisure",
+            "note": "第一次帶小小孩或長輩，想少換地方。 喜歡街區或城市歷史，可用哈芝巷、博物館或鴨子船替換其中一天。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4",
+              "v-youtube-com-watch-v-wny-jlq8tjm",
+              "v-youtube-com-watch-v-n7lacel6lww",
+              "v-youtube-com-watch-v-bw7bihyxzm",
+              "v-youtube-com-shorts-86gh1ti5m68",
+              "v-youtube-com-shorts-qtq-clsixyu",
+              "v-youtube-com-shorts-w8tdslk-trc"
+            ],
+            "days": [
+              {
+                "title": "萬禮選一園",
+                "description": "上午看動物，中午在園區用餐，下午按體力繼續或回飯店；若更喜歡水族、想縮短步行，可改選河川生態園。 可改選：河川生態園。",
+                "stops": [
+                  "singapore-zoo"
+                ]
+              },
+              {
+                "title": "濱海灣選一座溫室",
+                "description": "上午看瀑布和恐龍，午餐後慢逛園區或休息；偏愛花卉則把主行程換成花穹。 可改選：花穹。",
+                "stops": [
+                  "cloud-forest"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "singapore-2-compact",
+            "label": "2 日緊湊：動物與花園各一整天",
+            "sightseeingDays": 2,
+            "pace": "compact",
+            "note": "願意早出門、能走較長時間，想集中看同區的四站。 動物園這天活動量最大；遇大雨或孩子累了，可改成選一園，把另一園留到下次。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4",
+              "v-youtube-com-watch-v-wny-jlq8tjm",
+              "v-youtube-com-watch-v-n7lacel6lww",
+              "v-youtube-com-watch-v-bw7bihyxzm",
+              "v-youtube-com-shorts-86gh1ti5m68",
+              "v-youtube-com-shorts-qtq-clsixyu",
+              "v-youtube-com-shorts-w8tdslk-trc"
+            ],
+            "days": [
+              {
+                "title": "動物園 → 河川生態園",
+                "description": "開園後先看動物園裡最想看的動物，午餐後轉河川生態園，留出下午的參觀時間。",
+                "stops": [
+                  "singapore-zoo",
+                  "river-wonders"
+                ]
+              },
+              {
+                "title": "花穹 → 午餐 → 雲霧林",
+                "description": "兩座溫室之間留完整的用餐和休息時間；有餘裕再去擎天樹一帶，想看燈光秀可先安排下午休息。 可加選：濱海灣花園加選。",
+                "stops": [
+                  "flower-dome",
+                  "cloud-forest"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "singapore-3-leisure",
+            "label": "3 日悠閒：再加一段城市時間",
+            "sightseeingDays": 3,
+            "pace": "leisure",
+            "note": "想兼顧孩子和大人，又保留飯店休息。 夫妻若更喜歡街區，可以把萬禮這天改成哈芝巷，再留一頓慢慢吃的午餐。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4",
+              "v-youtube-com-watch-v-wny-jlq8tjm",
+              "v-youtube-com-watch-v-n7lacel6lww",
+              "v-youtube-com-watch-v-bw7bihyxzm",
+              "v-youtube-com-shorts-86gh1ti5m68",
+              "v-youtube-com-shorts-qtq-clsixyu",
+              "v-youtube-com-shorts-w8tdslk-trc"
+            ],
+            "days": [
+              {
+                "title": "萬禮選一園",
+                "description": "以看動物為主，也可換成河川生態園，留時間慢慢逛其中一園。 可改選：河川生態園。",
+                "stops": [
+                  "singapore-zoo"
+                ]
+              },
+              {
+                "title": "一座溫室＋花園散步",
+                "description": "先選雲霧林或花穹，午餐後保留園區散步及休息，想看另一座再依體力決定。 可加選：花穹。",
+                "stops": [
+                  "cloud-forest"
+                ]
+              },
+              {
+                "title": "國家博物館＋一個下午選項",
+                "description": "看完展覽坐下吃午餐；下午選鴨子船或哈芝巷，再留一段休息時間。 可加選：鴨子船、哈芝巷。",
+                "stops": [
+                  "national-museum"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "singapore-3-compact",
+            "label": "3 日緊湊：動物、花園、城市三個模組",
+            "sightseeingDays": 3,
+            "pace": "compact",
+            "note": "有三個完整白天、想看較多地方的家庭或夫妻。 哈芝巷可加選，也可替換第三天其中一站，依全家的體力決定。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4",
+              "v-youtube-com-watch-v-wny-jlq8tjm",
+              "v-youtube-com-watch-v-n7lacel6lww",
+              "v-youtube-com-watch-v-bw7bihyxzm",
+              "v-youtube-com-shorts-86gh1ti5m68",
+              "v-youtube-com-shorts-qtq-clsixyu",
+              "v-youtube-com-shorts-w8tdslk-trc"
+            ],
+            "days": [
+              {
+                "title": "動物園＋河川生態園",
+                "description": "早到、午餐後換園，預先選好動物園重點；Amazon River Quest 另看身高與天氣。",
+                "stops": [
+                  "singapore-zoo",
+                  "river-wonders"
+                ]
+              },
+              {
+                "title": "花穹＋雲霧林",
+                "description": "同園區的兩座溫室，中間穿插午餐；想去擎天樹觀景台，再加購觀景台票。 可加選：濱海灣花園加選。",
+                "stops": [
+                  "flower-dome",
+                  "cloud-forest"
+                ]
+              },
+              {
+                "title": "博物館＋鴨子船",
+                "description": "先依船班安排報到，再往前排午餐與交通；傍晚有體力，可加選哈芝巷散步。 可加選：哈芝巷。",
+                "stops": [
+                  "national-museum",
+                  "duck-tour"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "singapore-4-leisure",
+            "label": "4 日悠閒：每個人都有喜歡的一天",
+            "sightseeingDays": 4,
+            "pace": "leisure",
+            "note": "三代同行、帶嬰兒，或想多留時間給用餐及散步。 把休息也留進行程，每個人都能用舒服的步調參與。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4",
+              "v-youtube-com-watch-v-wny-jlq8tjm",
+              "v-youtube-com-watch-v-n7lacel6lww",
+              "v-youtube-com-watch-v-bw7bihyxzm",
+              "v-youtube-com-shorts-86gh1ti5m68",
+              "v-youtube-com-shorts-qtq-clsixyu",
+              "v-youtube-com-shorts-w8tdslk-trc"
+            ],
+            "days": [
+              {
+                "title": "動物園慢慢看",
+                "description": "把動物和孩子遊戲時間留在同一天；河川生態園可替換，想兩園都玩則用第四天另排。 可加選：河川生態園。",
+                "stops": [
+                  "singapore-zoo"
+                ]
+              },
+              {
+                "title": "濱海灣花園：花與恐龍",
+                "description": "上午讓喜歡花的家人慢逛，午餐與休息後再看瀑布和恐龍；依體力決定是否前往第二座溫室。",
+                "stops": [
+                  "flower-dome",
+                  "cloud-forest"
+                ]
+              },
+              {
+                "title": "博物館＋自由下午",
+                "description": "上午看展、午餐後回飯店或加選鴨子船；有船班預訂時，按報到時間反排。 可加選：鴨子船。",
+                "stops": [
+                  "national-museum"
+                ]
+              },
+              {
+                "title": "哈芝巷與一頓慢慢吃的飯",
+                "description": "逛小店、吃飯，再留時間整理行李；若更想去第二座動物園，可以把這天改成河川生態園。 可改選：河川生態園。",
+                "stops": [
+                  "haji-lane"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "singapore-4-compact",
+            "label": "4 日緊湊：七個景點分四區走",
+            "sightseeingDays": 4,
+            "pace": "compact",
+            "note": "希望走到主要七站，把動物、花園、城市與街區分成四天。 第八站 Jewel 放在機場日；整趟旅行還要加上抵達、離境與移動所需的天數。",
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4",
+              "v-youtube-com-watch-v-wny-jlq8tjm",
+              "v-youtube-com-watch-v-n7lacel6lww",
+              "v-youtube-com-watch-v-bw7bihyxzm",
+              "v-youtube-com-shorts-86gh1ti5m68",
+              "v-youtube-com-shorts-qtq-clsixyu",
+              "v-youtube-com-shorts-w8tdslk-trc"
+            ],
+            "days": [
+              {
+                "title": "萬禮雙園",
+                "description": "早到動物園，午餐後換河川生態園，晚上留給晚餐與休息。",
+                "stops": [
+                  "singapore-zoo",
+                  "river-wonders"
+                ]
+              },
+              {
+                "title": "花穹＋雲霧林＋花園加選",
+                "description": "兩座溫室配午餐；有體力再加觀景台或夜間燈光，雨天以室內活動為主。 可加選：濱海灣花園加選。",
+                "stops": [
+                  "flower-dome",
+                  "cloud-forest"
+                ]
+              },
+              {
+                "title": "國家博物館＋鴨子船",
+                "description": "保留兩站之間的交通與報到時間，晚餐再安排想吃的餐廳。",
+                "stops": [
+                  "national-museum",
+                  "duck-tour"
+                ]
+              },
+              {
+                "title": "哈芝巷＋街區用餐",
+                "description": "這天慢逛哈芝巷，把時間留給小店、午餐，或補上前幾天因雨取消的活動。",
+                "stops": [
+                  "haji-lane"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "extension": {
+        "title": "加選與延伸旅行",
+        "paragraphs": [
+          "先挑全家這一趟最想去的地方，再把交通、吃飯與休息留進行程。有人想看花、有人等著看恐龍，也有人喜歡坐下來慢慢吃一餐，讓每個人都有期待，旅行就有了自己的步調。",
+          "實用資訊核對：2026/10/3（新加坡時間）。照片與旅行小記錄來自過去的到訪；出發前可由各站官方連結確認當日展覽、票券與營運資訊。"
+        ],
+        "sourceIds": [
+          "v-youtube-com-watch-v-cv5aehulhc4",
+          "v-youtube-com-watch-v-wny-jlq8tjm",
+          "v-youtube-com-watch-v-n7lacel6lww",
+          "v-youtube-com-watch-v-bw7bihyxzm",
+          "v-youtube-com-shorts-86gh1ti5m68",
+          "v-youtube-com-shorts-qtq-clsixyu",
+          "v-youtube-com-shorts-w8tdslk-trc"
+        ],
+        "links": [],
+        "subsections": [
+          {
+            "id": "supertree",
+            "title": "濱海灣花園加選：擎天樹觀景台與夜間燈光",
+            "paragraphs": [
+              "Supertree Observatory 是擎天樹的觀景台，能從高處看花園與城市；OCBC Skyway 則是樹與樹之間的空中步道。逛完兩座溫室，可以加選觀景台，預留約 30–45 分鐘，排隊另算。",
+              "觀景台一般開放 09:00–21:00，最後入場 20:30；2026/10/15 為預定維護日，門票另購。帶嬰兒車或需要無階差路線，可在訂票時向館方確認通往屋頂的動線。",
+              "想留到晚上，可參考 Garden Rhapsody 的 19:45、20:45 場次，通常免費，特殊售票節慶依公告。先安排晚餐與休息，再看天氣和體力決定是否留下來。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "擎天樹觀景台 Maps",
+                "url": "https://www.google.com/maps/search/?api=1&query=Supertree%20Observatory%20Gardens%20by%20the%20Bay%20Singapore"
+              },
+              {
+                "label": "Supertree Observatory 官方資訊",
+                "url": "https://www.gardensbythebay.com.sg/en/things-to-do/attractions/supertree-observatory.html"
+              },
+              {
+                "label": "Garden Rhapsody 場次與活動公告",
+                "url": "https://www.gardensbythebay.com.sg/en/things-to-do/calendar-of-events/garden-rhapsody.html"
+              },
+              {
+                "label": "看我們上觀景台的片段",
+                "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=841s"
+              }
+            ],
+            "images": [
+              "sg-yt-bw7bihyxzm-000865-g3-v1",
+              "sg-yt-bw7bihyxzm-000880-g3-v1",
+              "sg-yt-bw7bihyxzm-000918-g3-v1"
+            ]
+          },
+          {
+            "id": "t3-slide",
+            "title": "機場加選：第三航廈 T3 溜滑梯",
+            "paragraphs": [
+              "The Slide @ T3 位在第三航廈，我們回程也去玩了這個溜滑梯。開放時間為 12:00–22:30；一樓版本適用身高 1.3–2 公尺，B2 版本適用 1.1–2 公尺。",
+              "請穿包覆腳部的鞋；場方禁止穿著高跟鞋、涼鞋、Crocs、裙子與短褲。一樓休息時段為 16:00–17:00，B2 為 17:00–18:00。一樓由 Changi App／Changi Rewards 會員 QR 碼兌換，每名會員每天最多 15 次。",
+              "那次我們提早到了，先去做其他事情，等開放後再回來，阿婆也滑了一趟。想玩這站，可留 30–45 分鐘，再加上排隊、從 Jewel 移動，以及報到和登機所需的時間。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "T3 溜滑梯 Maps",
+                "url": "https://www.google.com/maps/search/?api=1&query=The%20Slide%20at%20Terminal%203%20Changi%20Airport%20Singapore"
+              },
+              {
+                "label": "T3 溜滑梯規則與兌換",
+                "url": "https://www.changiairport.com/en/experience/attractions-directory/the-slide-t3.html"
+              },
+              {
+                "label": "看我們回程找溜滑梯與實際玩的片段",
+                "url": "https://www.youtube.com/watch?v=_Bw7BihYxzM&t=1952s"
+              }
+            ],
+            "images": [
+              "sg-yt-bw7bihyxzm-002158-g3-v1",
+              "sg-yt-bw7bihyxzm-002145-v1",
+              "sg-yt-bw7bihyxzm-002163-g3-v1"
+            ]
+          },
+          {
+            "id": "cruise",
+            "title": "延伸旅行：迪士尼探險號，和市區分開安排",
+            "paragraphs": [
+              "想接著搭郵輪，可以看我們一家五口加上阿婆、阿姨搭 Disney Adventure（迪士尼探險號）的記錄。船上住宿、餐廳、孩子活動與上下船，適合另排成一段旅行。",
+              "我們那次有機場接駁到登船地點，下船後再搭車到市區飯店。實際登船集合、交通與航程長度，依你購買的航次資料確認；先把郵輪和機場緩衝固定好，再決定前後能留幾個完整的新加坡觀光日。"
+            ],
+            "sourceIds": [
+              "v-youtube-com-watch-v-cv5aehulhc4"
+            ],
+            "links": [
+              {
+                "label": "看迪士尼探險號完整家庭記錄",
+                "url": "https://www.youtube.com/watch?v=v3dwQDEwuio"
+              },
+              {
+                "label": "先看機場接駁與登船片段",
+                "url": "https://www.youtube.com/watch?v=v3dwQDEwuio&t=49s"
+              },
+              {
+                "label": "看下船後銜接市區飯店",
+                "url": "https://www.youtube.com/watch?v=v3dwQDEwuio&t=3030s"
+              },
+              {
+                "label": "Disney Cruise Line 新加坡航次資訊",
+                "url": "https://disneycruise.disney.go.com/en-sg/cruises-destinations/overview/singapore-singapore/"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ],
+  "routes": [],
+  "coverage": {
+    "countryIds": [
+      "singapore"
+    ],
+    "cityIds": [
+      "singapore"
+    ]
+  }
+}

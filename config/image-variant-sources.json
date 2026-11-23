@@ -1,4 +1,20 @@
 {
+  "/assets/acer-luggage/cover-480.webp": {
+    "source": "26f1f817ecf550852249e67e8f8a856c8bdb7a249538081c55ee26440cb3e5fb",
+    "variant": "c7c1050b4d9f82df42b34efc797b55e438d76b60500e97436b69e67627eb4841"
+  },
+  "/assets/acer-luggage/cover-960.webp": {
+    "source": "26f1f817ecf550852249e67e8f8a856c8bdb7a249538081c55ee26440cb3e5fb",
+    "variant": "f7c1638a4a6a9cde802b5dc6b6a9642b1a2b8fc6a29a3189bbe4d68ec71f5f13"
+  },
+  "/assets/acer-luggage/product-card-480.webp": {
+    "source": "e9d342e965e1d44588f25c85be8ee5eea0f58479804cfe8a1eb5630156764719",
+    "variant": "80bb922ec18b1fca4bd0b1910c50c69b28a8eff378a8fd671b289b4b04684117"
+  },
+  "/assets/acer-luggage/product-card-960.webp": {
+    "source": "e9d342e965e1d44588f25c85be8ee5eea0f58479804cfe8a1eb5630156764719",
+    "variant": "6065c6663461df18dda641f41769f3b0dc5cb5b8878297dd56405c7f6da51452"
+  },
   "/assets/artisan-cb301/blog-cover-v2-480.webp": {
     "source": "a9aae1fbe3f47360a002a1c4cb6da576cf7a4d6972589948dbf4a9656b3b6fb1",
     "variant": "20ca8b2992e8b5778cb871a0bcc4e2258093c3748917606d508fc8cd33bedfb1"
@@ -15,6 +31,54 @@
     "source": "d5af51b7750caaee9031f90f962e4a1e4562fbf958f4c1bf637fd3435521c4f8",
     "variant": "8b031529f3d3daf17337214d058839825f8d7d5ff91af0cf125e3071321e0d64"
   },
+  "/assets/bernie/cover-480.webp": {
+    "source": "25b20050dff1403754fee055aac92cc9f09c636322673162c424d0563a9b6fda",
+    "variant": "adaca8514edf52812d3ef273acd60a237457c42fe2399b19e892200d96d68ea5"
+  },
+  "/assets/bernie/cover-960.webp": {
+    "source": "25b20050dff1403754fee055aac92cc9f09c636322673162c424d0563a9b6fda",
+    "variant": "e114a4a9f84c85ccd189b84868b2c50fa8f211a645f474bd2c7a4b6fb408de42"
+  },
+  "/assets/bernie/product-card-480.webp": {
+    "source": "f5d60059d5e9e9f8e68538840ac03210a3c040ccb789dc630e409d4c4c6551f7",
+    "variant": "f5605f6f0bfaa30ce9782fa74d318dfb2f0ce6d8412568305cc3b4488593d7b1"
+  },
+  "/assets/bernie/product-card-960.webp": {
+    "source": "f5d60059d5e9e9f8e68538840ac03210a3c040ccb789dc630e409d4c4c6551f7",
+    "variant": "50ffb28d7e665d78a152b3d4e984a460fb84277d7241d5555b8dec549973d4cc"
+  },
+  "/assets/blackmores/cover-480.webp": {
+    "source": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
+    "variant": "ad05aedc8fbb880e650fb2fa4b6d4a09a95a4d2465abd6d5961c9581c8b5291d"
+  },
+  "/assets/blackmores/cover-960.webp": {
+    "source": "234ca90de9e87a786834bc4f4aecbbb7aaa7aa48383dbf0ebebb36f47a155a9e",
+    "variant": "197d41daaeb2616ec46d089a1054c5cff0337afe5a86f1c7b5a239ff436644b5"
+  },
+  "/assets/blackmores/cover-v2-480.webp": {
+    "source": "d54bab94e7a47bbb61fc811e7f9a9ac667c14d1af438d6dcfbb18ea2e9f50137",
+    "variant": "8fba3c4ba2151c7096329fa1dc36f06a974d19cd27efa0e73a109592bbd6fa9b"
+  },
+  "/assets/blackmores/cover-v2-960.webp": {
+    "source": "d54bab94e7a47bbb61fc811e7f9a9ac667c14d1af438d6dcfbb18ea2e9f50137",
+    "variant": "c531a48bd7c8d9d73f3ef93121d1e434fd6727ae0bcbbc75cdfaeab4b9372761"
+  },
+  "/assets/blackmores/product-card-480.webp": {
+    "source": "55ee331c3c90007bc1469b09090e6cb125b5eccd18fa550f1f152360c733aee9",
+    "variant": "45bc991d582c084a2a0bcc88f6d3cba24bd8b95146faf77505ac1ec5bd9aa535"
+  },
+  "/assets/blackmores/product-card-960.webp": {
+    "source": "55ee331c3c90007bc1469b09090e6cb125b5eccd18fa550f1f152360c733aee9",
+    "variant": "f84d429fe9758def4c170f3cf2eeaa6e4c7b028f1388689b44213876ed7ffddb"
+  },
+  "/assets/blackmores/product-card-v2-480.webp": {
+    "source": "a9ab903ddc056dbf632c9392af6f2ff674bd105351d004ef890c597ec0c28ed1",
+    "variant": "b49586e3591328fe3c30ed89c10874ea18c5b3d7f2b13a48a5352240298fab93"
+  },
+  "/assets/blackmores/product-card-v2-960.webp": {
+    "source": "a9ab903ddc056dbf632c9392af6f2ff674bd105351d004ef890c597ec0c28ed1",
+    "variant": "25fe3004777e93c53ffad1e0df15879239c0647dd43407cd09f288104c439ea2"
+  },
   "/assets/branden/cover-480.webp": {
     "source": "968c4c27daa73ea7f5c0a7b67704f8de601124853cbce2f1d1b1e0ca005058ee",
     "variant": "79554e97e7f24e4cecc04e103f10760ceebd4de8491b5d406f4833af8682a6fc"
@@ -30,6 +94,22 @@
   "/assets/branden/product-card-960.webp": {
     "source": "4cfe308db103c88d85079fea8f55325654e7549b4bc963ed4887cb2104454451",
     "variant": "4280676311831cb6cf243b8cdd2a8ca499599235e4585211300a77de2ad4b95d"
+  },
+  "/assets/brush-baby/cover-480.webp": {
+    "source": "c96f60023fa312e64cf7b8a61af2aa4de8c868b8e310ed72a5b8c206f9b2dc9b",
+    "variant": "4c3c68e10509cb699a23e8dd9bb967bb57594cb891ea008d9158742bd638b765"
+  },
+  "/assets/brush-baby/cover-960.webp": {
+    "source": "c96f60023fa312e64cf7b8a61af2aa4de8c868b8e310ed72a5b8c206f9b2dc9b",
+    "variant": "84617359be6db96d26231804f5f088dfe08ed04ba04f5ae945af51d8598785b7"
+  },
+  "/assets/brush-baby/product-card-480.webp": {
+    "source": "35b806efb91dac9be325f9e3e3231fb3587407f1f30d683ca632c7cd4272494d",
+    "variant": "f5371b5abaaf0714acdf3218e1c8a0b5ac2c1bbb68c8648a4ef9074546cb9643"
+  },
+  "/assets/brush-baby/product-card-960.webp": {
+    "source": "35b806efb91dac9be325f9e3e3231fb3587407f1f30d683ca632c7cd4272494d",
+    "variant": "baa3a8feb37bc759d81f09c4b0bbc5a2dc5fa8e0b7b4624cf8f03a48fb819db6"
   },
   "/assets/caesar-kenting/journal/cover-title-v2-480.webp": {
     "source": "f19127dfcdf6f87f9121503040a746429843449a80df6e2250447d53f7250f08",
@@ -54,6 +134,22 @@
   "/assets/chulu-aomori-drinks/flavored-960.webp": {
     "source": "8ea9c8d1e793771e6a36ef1b2af6b9d423a04caa8c32c940a56f223e380a5532",
     "variant": "60175f9f2873fc0652bcbace8ef185d8661e90294ebe4645dcf16df1ed3dbe4a"
+  },
+  "/assets/done-by-deer/cover-480.webp": {
+    "source": "0d3f12e5da6f72d12c06e387b7d9a44467bb83724e08885d8c929b400c6442ee",
+    "variant": "bbc0ed472841daac214fa661e084625118f7295da9edf0609ee5e12ad42033fd"
+  },
+  "/assets/done-by-deer/cover-960.webp": {
+    "source": "0d3f12e5da6f72d12c06e387b7d9a44467bb83724e08885d8c929b400c6442ee",
+    "variant": "9038521a648067e6101cdc723e799567d89d58fd3e6aff703f9bc13b0171cdf5"
+  },
+  "/assets/done-by-deer/product-card-480.webp": {
+    "source": "9c17b36d520221123dd802b62b3be6ee00d8c351c3088b4310bb83f68ddd90b8",
+    "variant": "c2f67756d76876ca8c38c91f30cad122364a4b3b9904ab292caef3c78560d062"
+  },
+  "/assets/done-by-deer/product-card-960.webp": {
+    "source": "9c17b36d520221123dd802b62b3be6ee00d8c351c3088b4310bb83f68ddd90b8",
+    "variant": "9c9a608a66560935d006fe1cf021ef36239511a62faf2182d3e57d71ae55b6b4"
   },
   "/assets/eben/blog-cover-480.webp": {
     "source": "3cca1dda428fe97d4bd0521e149e0b6ed5834fada1ec317f540309f0390ff0f7",
@@ -106,6 +202,78 @@
   "/assets/hummus-guide/cover-v1-960.webp": {
     "source": "e7694cef420d4548436b09f8f08ed783a45fa45d01f0d1cc8bdcd6e17f739ee0",
     "variant": "7f8e4a17d59e638b770e0a9a4f4eba18ee57f7a9a1a5aa37834303d17bfb4c86"
+  },
+  "/assets/ilovekids-rotating-bookcase/cover-480.webp": {
+    "source": "e49ff7679055b350f569d7228e7618e6b20a83e60dd5dbeea3f677f24c25adac",
+    "variant": "b0ca249a92d9a20874df6c02e1dbb11f15f4d77740c7e2c420e17a5bd17edcc6"
+  },
+  "/assets/ilovekids-rotating-bookcase/cover-960.webp": {
+    "source": "e49ff7679055b350f569d7228e7618e6b20a83e60dd5dbeea3f677f24c25adac",
+    "variant": "f04037fb18dd5ef8abde1e0226238f7c9cce8c7f8321c9a046261675ae2a4ac7"
+  },
+  "/assets/ilovekids-rotating-bookcase/product-card-480.webp": {
+    "source": "61dfb90790072d2fd9b6b50479dfac178c504b95cd570b8cf4bbc79c428a69c1",
+    "variant": "526e91fc76d72209331bd5478da68db55fd5a838795bd0ef311e0f0100503f68"
+  },
+  "/assets/ilovekids-rotating-bookcase/product-card-960.webp": {
+    "source": "61dfb90790072d2fd9b6b50479dfac178c504b95cd570b8cf4bbc79c428a69c1",
+    "variant": "15dfb0f0de898b083b8576175b2a9c0346616639c34a1179a629c96ce5c0b64a"
+  },
+  "/assets/insta360-ezway/cover-480.webp": {
+    "source": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
+    "variant": "d41b9827ce17d49e96984f1b85a620014cbef71c43639b33bca571f7bcc906c0"
+  },
+  "/assets/insta360-ezway/cover-960.webp": {
+    "source": "cb76deb214d44482da06a29db37d7ac67b24b7ad253e41cb9b024910e73bbde8",
+    "variant": "349b6faf094c65dcf43e4cf6a9b4b4b1536238ccaf37d89ec64d8fc58ab8137f"
+  },
+  "/assets/jan-jul-winter/cover-480.webp": {
+    "source": "29f91fb19d61a3c68e9c55a98eaa9460f27bd13bf35d51c0685c4d6ab0dfd573",
+    "variant": "9deab05654808b495e88706400145d6d25ee9789bdd9293ca3caaa188de46de6"
+  },
+  "/assets/jan-jul-winter/cover-960.webp": {
+    "source": "29f91fb19d61a3c68e9c55a98eaa9460f27bd13bf35d51c0685c4d6ab0dfd573",
+    "variant": "63e75aef79cc80a9cd3b1bd09e6834c30172f111bd0f02431e36a31d9db04ce1"
+  },
+  "/assets/jan-jul/product-card-480.webp": {
+    "source": "a94278c7a43ae0eb10a52b61a4291250e33c1b8258f889e4770666945a48853d",
+    "variant": "43ba5e91aa5e7d4762541c140a3859bc6fe6ab3f6817683abc7e26b229f3e57a"
+  },
+  "/assets/jan-jul/product-card-960.webp": {
+    "source": "a94278c7a43ae0eb10a52b61a4291250e33c1b8258f889e4770666945a48853d",
+    "variant": "58ce9b583c00ab4a6954dadb23d8beaed93a5c886376d0d04d8381ff8aac3c68"
+  },
+  "/assets/jowua/cover-480.webp": {
+    "source": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+    "variant": "771f241c87f749ecf8c438bc3d34e8ea169290e458699d7ba76c071adfa38f90"
+  },
+  "/assets/jowua/cover-960.webp": {
+    "source": "fe448b05e0873463dd52cbd6b6d74f24defafbae7ff3a1b19a4baba72fc750c9",
+    "variant": "2858ef4f7e825db5848ad22961dcea1e671e7e5ca2a866213ba2299686bc6483"
+  },
+  "/assets/jowua/product-card-480.webp": {
+    "source": "3cd34fa635b7c31a4a1ebe19195d8c23a048dd89ace6c506167c892c356dd2b3",
+    "variant": "e7b06f7edcbd1718658d0b7d02a9271812cdca89ad2febfebd34bc0b3cd05002"
+  },
+  "/assets/jowua/product-card-960.webp": {
+    "source": "3cd34fa635b7c31a4a1ebe19195d8c23a048dd89ace6c506167c892c356dd2b3",
+    "variant": "9c9d7f41a43c11889e2fbfbddac60f906dfef542cee9ffd75bfc58e3cde2a767"
+  },
+  "/assets/kids-active-toys/cover-480.webp": {
+    "source": "d92224bb500ded1ed2987fd0e2eb87d7af47924c76c1e381831baadf8ac2e885",
+    "variant": "3e7a0f2abad1323e166a117043ad4e85585a5588b3b6573cb36f953dc12108da"
+  },
+  "/assets/kids-active-toys/cover-960.webp": {
+    "source": "d92224bb500ded1ed2987fd0e2eb87d7af47924c76c1e381831baadf8ac2e885",
+    "variant": "e2f41fa1c4c0d5ef977afb936ac33749ecc81d4b136c8e09d67f9e20604f906f"
+  },
+  "/assets/kids-active-toys/product-card-480.webp": {
+    "source": "f20fa489e975dc273df8b771fb9282a0c12f74f0aa77a4f6c425147dc4a1a95a",
+    "variant": "2e6f540ccefa9d8779d05d1db2fe433300e5cdefd59b2e0f69a88c186bbadc32"
+  },
+  "/assets/kids-active-toys/product-card-960.webp": {
+    "source": "f20fa489e975dc273df8b771fb9282a0c12f74f0aa77a4f6c425147dc4a1a95a",
+    "variant": "3f71260620e7a74f9ae4283aa2f53f092a61522eeb8933de83fd66a2288703ba"
   },
   "/assets/kietla/cover-style-v2-480.webp": {
     "source": "57be3e05538912782f8eb16bfd0162a9a2b3e561f4bab7f25d89b1a875828100",
@@ -195,6 +363,30 @@
     "source": "f95f102f8016f9e236a938ceda0d3da629dd6c00eb86302e7a4c0c9493ee6c77",
     "variant": "b57cb6784370e71a0d7d7837f9f34b0a1cf6dce9a963d23aa03b87b9e9a9771a"
   },
+  "/assets/momax-locator/cover-480.webp": {
+    "source": "8b169cc005100d80b913502660034efe104824314a616f07d92f7b9900ca0393",
+    "variant": "3fd703834d41f01d13adce1e184f65cd122e2075ce3076b7d8cf80b3bca8728e"
+  },
+  "/assets/momax-locator/cover-960.webp": {
+    "source": "8b169cc005100d80b913502660034efe104824314a616f07d92f7b9900ca0393",
+    "variant": "c4e3c9ecc7735f715770e6a712df030fcd0c1f9d68cc7ee451c4b5405a1b88c7"
+  },
+  "/assets/momax-locator/product-card-480.webp": {
+    "source": "469f0ef1a84d5d72b2d3733a8b673abd4ddb0498affd0dcc7cd6d8b8731d0b72",
+    "variant": "73caf616cebd3e24953515063bd063601c2e6ca777e38b7076285691ae337613"
+  },
+  "/assets/momax-locator/product-card-960.webp": {
+    "source": "469f0ef1a84d5d72b2d3733a8b673abd4ddb0498affd0dcc7cd6d8b8731d0b72",
+    "variant": "e56060964112b386b5ce345a396764226c05b18e87632157fe1d09f59fd7943c"
+  },
+  "/assets/parakito/cover-480.webp": {
+    "source": "bc16169fac7de0e85b28112909a803c4ad36bf1a68bb3487ff2ac7e75dcd6a3e",
+    "variant": "a19f8bb331b61b30e789692510f7392e9044de0a4c44c356890af75465d93f06"
+  },
+  "/assets/parakito/cover-960.webp": {
+    "source": "bc16169fac7de0e85b28112909a803c4ad36bf1a68bb3487ff2ac7e75dcd6a3e",
+    "variant": "06287ff2224d3eede1e84b422c4dd81ad2faf323c243865c2382b0cb8f2ba5b7"
+  },
   "/assets/playzu/cover-480.webp": {
     "source": "478a66147a7f329e61d8fd26d9534fb4652e3381bdea6ac2e7cbe396e993f872",
     "variant": "2950a3611046e6b69eb8e974f8c83834b7374c36216f9097aec18ac959e89ea3"
@@ -210,6 +402,14 @@
   "/assets/playzu/vintage-cover-960.webp": {
     "source": "440f6ac9d5d7fb647ac3d35ad194c99b6447dfb760babfca435ce6c375a7682d",
     "variant": "a2479c4d6ed04de35d0fd8042d00ee1f413c93a939c91d269b7ca3c183359d9e"
+  },
+  "/assets/sanfufarm/cover-480.webp": {
+    "source": "c27c64fedf40fbfdc454aed39fd943f0f99909bab640a3df19f64e25aaa0381c",
+    "variant": "8c0b6c03c854580dfdc14c57c9c404acc8670f00cf3431f9cdc4f7a94e1940ac"
+  },
+  "/assets/sanfufarm/cover-960.webp": {
+    "source": "c27c64fedf40fbfdc454aed39fd943f0f99909bab640a3df19f64e25aaa0381c",
+    "variant": "3bf5f0d3dc4442a9fed5a687461447a7cee73cae4d4c762cff48a1c6f0574bd5"
   },
   "/assets/shinwa-living/cover-480.webp": {
     "source": "976dea336e7334f2475cf2294a93ac358cac3191ed2b90e4dcba48322dbaee92",
@@ -235,6 +435,14 @@
     "source": "4f1f97b75dd5829543ac1c86186a1f6c48d8aff60cda75337cc438ebc677230d",
     "variant": "e678c086461e3d9c20b1c37047badcaa603a43142281a2202c93bbab0d0fc895"
   },
+  "/assets/wave/cover-480.webp": {
+    "source": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+    "variant": "f503bfbbada6d03bc40e9996a37eb2ecce2760c597bc8f0e59e94c5c9cfe43a5"
+  },
+  "/assets/wave/cover-960.webp": {
+    "source": "2ec70cbb21e6a3957b44ce498e0ad5b3f67dd1064b5c5dde4801373992449385",
+    "variant": "5b147c26c34650bbb8b5d00221d8f8bf10a95176fe8f2fcbcc7505c9f2279e5a"
+  },
   "/assets/wave/family-480.webp": {
     "source": "4a6a88bd35dfdee1793c8ec327cb1c66028e0378abc16569382081f8175a540d",
     "variant": "67f10b03c3107f52739e15ebd19e650115005a7700d72e31778e637ad5fa14c4"
@@ -243,6 +451,14 @@
     "source": "4a6a88bd35dfdee1793c8ec327cb1c66028e0378abc16569382081f8175a540d",
     "variant": "cce88d5fa74675e499ff714b3da32b1f977d0b7964da5432b505282e1cad1e90"
   },
+  "/assets/wave/product-card-480.webp": {
+    "source": "e248b610284f3ed85f4d8e442a7ab2da17824a9241a9b72f70946c874147fe3a",
+    "variant": "25551de1ac3b4340d954ef467e037a2bd0adcd73958d5e4bafeba429bb9f2292"
+  },
+  "/assets/wave/product-card-960.webp": {
+    "source": "e248b610284f3ed85f4d8e442a7ab2da17824a9241a9b72f70946c874147fe3a",
+    "variant": "944098b29232dc0643bc4c3ff0edfe7403d10b380bd48d4b24fa4fe67f0c4af6"
+  },
   "/assets/wave/toast-480.webp": {
     "source": "2f1d6c4de12bd97b5ad0bce1d3e663ee5a80266f233701d9b0e72c5e8f4085c5",
     "variant": "a374229bfb57f71952166b9ee05fc1c3c9cabf690e1adacf670d19e6d9d7db05"
@@ -250,5 +466,21 @@
   "/assets/wave/toast-960.webp": {
     "source": "2f1d6c4de12bd97b5ad0bce1d3e663ee5a80266f233701d9b0e72c5e8f4085c5",
     "variant": "6a5604bc1b077d88f6575fe2629dc407bdf2f81637e6ead59cee1b267ae8867a"
+  },
+  "/assets/zoofamily-kids-camera/cover-480.webp": {
+    "source": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+    "variant": "e987d9603084f4a8c0db3081c71864eebdee559d0079125108e14e679a51c370"
+  },
+  "/assets/zoofamily-kids-camera/cover-960.webp": {
+    "source": "3dfe30841937c6102a538f8a77443b722a64ede2d04bbcc069a05c836b4969a5",
+    "variant": "af526aeb9d1eb23352153a55ea66bed012be11a1afaf8ed5f8c5899d8e55a20a"
+  },
+  "/assets/zoofamily-kids-camera/product-card-480.webp": {
+    "source": "e5d9fb35d4316726eaa810beb477926870602aff41a4fb0c384bec90d3a40cbe",
+    "variant": "610254b0439a20e7cec79c10ff04dcf8d475310571b253e1be047a56a4c6dfa1"
+  },
+  "/assets/zoofamily-kids-camera/product-card-960.webp": {
+    "source": "e5d9fb35d4316726eaa810beb477926870602aff41a4fb0c384bec90d3a40cbe",
+    "variant": "8f66ffd9c511c32ebb2fc02020fd64607750e055f6a1ce103a28466963a23768"
   }
 }

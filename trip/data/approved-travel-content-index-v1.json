@@ -1,10 +1,41 @@
 {
-  "schema": "eaglish.approved-travel-content-index/v1",
-  "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
-  "publication": true,
+  "schema": "eaglish.approved-travel-content-index/v2",
+  "packages": [
+    {
+      "dataPath": "trip/data/europe-malaysia-approved-travel-v1.json",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/japan-approved-travel-v1.json",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/thailand-approved-travel-v1.json",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/singapore-approved-travel-v1.json",
+      "packageSha256": "e6542d7be3f2faf6fecbf5828522a55c6d09aad4a3c04785349d50b9537a818e",
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/cebu-bohol-approved-travel-v1.json",
+      "packageSha256": "9d452287100cae918e6b12d700ff1855541fbee4a38f91cc199d6b5acbca3c93",
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/new-zealand-approved-travel-v1.json",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "publication": true
+    }
+  ],
   "pages": [
     {
       "path": "/trip/norway/",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
       "title": "挪威旅行，這次想往哪裡走？",
       "description": "比較奧斯陸、特羅姆瑟與斯瓦巴長年鎮的親子玩法，先選季節和目的地，再串機票、住宿與完整遊玩日。",
       "updatedOn": "2026-10-04",
@@ -105,10 +136,11 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "b029d145148914b069c278a559f3f0f0d9ac161775342da52e50974d763e1eae"
+      "sha256": "b527e90140380d3ead10747969d32f497c08e4001980cef88386b5d5bb7aabc1"
     },
     {
       "path": "/trip/netherlands/",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
       "title": "荷蘭旅行，城市與近郊怎麼搭？",
       "description": "阿姆斯特丹城市日逛 ARTIS，羊角村另排完整日遊，Zeewolde 的童話鬆餅屋另作加選，包含往返交通、訂位與住宿考量。",
       "updatedOn": "2026-10-04",
@@ -143,10 +175,11 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "a72b1592f42b8deec1db4a9b4cf4b72251c610e769c171fcbde0e86cfe6b0f40"
+      "sha256": "a406e6e765926bccf0226dd7649a3d94e807c01003b11595923d271d63749700"
     },
     {
       "path": "/trip/malaysia/",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
       "title": "馬來西亞親子旅行",
       "description": "從爸爸熟悉的檳城吃食，到孩子想見朋友的吉隆坡，整理鷹式一家實訪照片、旅行故事、景點與住宿經驗，搭配兩城交通及親子行程規劃。",
       "updatedOn": "2026-10-12",
@@ -164,10 +197,11 @@
         "my-g2-s02",
         "my-g2-s03"
       ],
-      "sha256": "6da012fa1758b0c17f18c3f34ec32bbf98c838560ab08ae0f9356b756f66523d"
+      "sha256": "c316963966e08b6cd80f090c33218fe6c61005367939770e98d246732cf15f8a"
     },
     {
       "path": "/trip/guides/oslo-with-kids/",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
       "title": "奧斯陸親子攻略：恐龍、維京展品與極地船",
       "description": "整理三座博物館的親子玩法、機場進城、住宿選擇與一至兩個完整城市日的安排。",
       "updatedOn": "2026-10-04",
@@ -198,10 +232,11 @@
         "photo-oslo-fram-2",
         "photo-oslo-fram-3"
       ],
-      "sha256": "7f38815c7d7d13fc639cdb4efc3213ff2d86701235725f7e63c77e7216c74ba6"
+      "sha256": "d94034f6be2abc45c5526b4c3de8d04d103eba59dd70cbacfe9f2215bea04605"
     },
     {
       "path": "/trip/guides/svalbard-with-kids/",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
       "title": "斯瓦巴親子攻略：長年鎮、種子庫與冰川船行",
       "description": "帶孩子在長年鎮住五天：輪式狗車、博物館、全球種子庫與冰川船行的實訪，搭配種子備份的故事、Radisson住宿及SAS航線。",
       "updatedOn": "2026-10-05",
@@ -249,10 +284,11 @@
         "photo-svalbard-glacier-cruise-2",
         "photo-svalbard-glacier-cruise-3"
       ],
-      "sha256": "8dd825374fea9644bb88889e3202f0b27c40198d79c17b21df09b6c8e037408d"
+      "sha256": "f5ab01c96f1f39c19096b654153762d67d555fce5d42d02ea32005e260139b04"
     },
     {
       "path": "/trip/guides/tromso-with-kids/",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
       "title": "特羅姆瑟親子攻略：海豹、馴鹿與山頂景色",
       "description": "整理 Polaria、馴鹿與薩米文化、Fjellheisen 纜車和極地博物館的親子玩法、住宿與天候調整。",
       "updatedOn": "2026-10-04",
@@ -287,10 +323,11 @@
         "photo-tromso-polarmuseet-2",
         "photo-tromso-polarmuseet-3"
       ],
-      "sha256": "c20dc1e8d827b8090ba7c0cdc30386ede2190a5f027cc16568034baa0f661363"
+      "sha256": "3bd1fc6b0e596b03eefbf93eccacd717b7017d7383b48a8c93470e329e22c4cf"
     },
     {
       "path": "/trip/guides/amsterdam-with-kids/",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
       "title": "阿姆斯特丹親子攻略：ARTIS 與羊角村日遊",
       "description": "以阿姆斯特丹為基地，ARTIS 城市日與羊角村船遊分天安排，Zeewolde 的 Hans & Grietje 另作加選；整理交通、住宿與親子玩法。",
       "updatedOn": "2026-10-04",
@@ -324,10 +361,11 @@
         "photo-hans-grietje-2",
         "photo-hans-grietje-3"
       ],
-      "sha256": "5f951b713dffd6ae9fb30e1465b64e1181402b5cfe410224ddbdc879cf0e8b0b"
+      "sha256": "84a91b5ffbf50eba5bd9dd66b2fd5535bff6c8ab4677965c62a2ee072139093a"
     },
     {
       "path": "/trip/guides/penang-with-kids/",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
       "title": "檳城親子旅行",
       "description": "跟著鷹式一家逛喬治市與姓氏橋、聽娘惹宅邸導覽、試榴槤，再到光大、Entopia 與升旗山。包含實訪照片、食宿故事、交通與二至四日行程。",
       "updatedOn": "2026-10-12",
@@ -338,10 +376,11 @@
         "my-youtube-ayuc0px5ctc",
         "my-youtube-uro4dhm3dpk"
       ],
-      "sha256": "d913c7e136dc258092a7ed31a48c6fd04514a3d766d5f855df6b019d4132481f"
+      "sha256": "1a5babf1b7903cc013057a00534d3ecb2f15555c430ec47e01bdb42d2c9d1a2c"
     },
     {
       "path": "/trip/guides/kuala-lumpur-with-kids/",
+      "packageSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
       "title": "吉隆坡親子旅行",
       "description": "為了孩子與朋友相見出發，整理吉隆坡塔、Petrosains、老城、REXKL 與 KidZania 的家庭實訪，搭配 Skyline 公寓經驗、交通與二至四日行程。",
       "updatedOn": "2026-10-12",
@@ -349,7 +388,349 @@
         "my-youtube-v7id6nvbpuo",
         "my-youtube-my-7kubdvc8"
       ],
-      "sha256": "5b99bf5dcee4d009a4ac10aea0ce7040ab0152234df41159c7c741da946cb054"
+      "sha256": "a468c06d2f1aa95deef4e8538cafeeee0c348146de1845fdd7bb885e010911a2"
+    },
+    {
+      "path": "/trip/japan/",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "title": "日本親子旅行：北海道旭川、札幌、小樽與余市攻略",
+      "description": "日本親子旅行先看北海道：旭川動物園、札幌滑雪與市區、小樽運河與三角市場、余市海邊度假屋與 Kiroro 玩雪，附實訪照片、交通和嬰兒照顧經驗。",
+      "updatedOn": "2026-10-22",
+      "sourceIds": [
+        "a01",
+        "a10",
+        "a12",
+        "s01",
+        "c01",
+        "o01",
+        "y00"
+      ],
+      "sha256": "758ca1a83542e120149ef7f84f19487d99ffa67b1f697019bd6dde7b2f71cec2"
+    },
+    {
+      "path": "/trip/guides/asahikawa-with-kids/",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "title": "旭川親子攻略：旭山動物園、科學館與博物館",
+      "description": "一家人帶著嬰兒走進旭川，從旭山動物園到科學館、博物館，再吃烤羊肉，記下各站玩法與家庭步調。",
+      "updatedOn": "2026-10-22",
+      "sourceIds": [
+        "ig-asahikawa",
+        "a10",
+        "a12",
+        "a13",
+        "a15",
+        "alma-jma-cold",
+        "alma-zoo-behavior",
+        "alma-museum-context"
+      ],
+      "sha256": "3501c424613a1621f5179f058b6f28752305d28576b24d99a7690dc3f0d46db0"
+    },
+    {
+      "path": "/trip/guides/sapporo-with-kids/",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "title": "札幌親子攻略：手稻滑雪、白色戀人與 AOAO 水族館",
+      "description": "我們在札幌住 Airbnb，安排兩天 iSKI 滑雪課，也帶孩子做巧克力、看水族館，記下嬰兒照顧與市區移動的實際經驗。",
+      "updatedOn": "2026-10-22",
+      "sourceIds": [
+        "s01",
+        "s03",
+        "s04",
+        "c01",
+        "c03",
+        "c04",
+        "terra-iski-family",
+        "terra-shiroi",
+        "terra-aoao",
+        "terra-aoao-access"
+      ],
+      "sha256": "6ddeac25c69ae0afc43a5a8246f4011007425c51ac73ca1630cd15447b2a3b00"
+    },
+    {
+      "path": "/trip/guides/otaru-with-kids/",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "title": "小樽親子散步：音樂盒、運河遊船與三角市場",
+      "description": "滑雪摔傷的隔天，我們帶著嬰兒從南小樽一路逛到小樽站：音樂盒、六花亭、炸雞午餐、運河館與運河遊船，晚上在三角市場吃螃蟹；另附 2023–24 年冬天的水族館一日。",
+      "updatedOn": "2026-10-21",
+      "sourceIds": [
+        "o01",
+        "o08",
+        "o09",
+        "o10"
+      ],
+      "sha256": "711472acf954690ca036c5a1eba012bfbc50c72b5588f8bbd42d144150174155"
+    },
+    {
+      "path": "/trip/guides/yoichi-with-kids/",
+      "packageSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "title": "余市親子攻略：海邊度假屋、Kiroro 玩雪與 Nikka 酒廠",
+      "description": "冬天住在余市海邊的度假屋五天四夜：Kiroro 雪場、雪上活動、えびす岩・大黒岩、在地迴轉壽司和 Nikka 余市蒸餾所的商店。住宿與 Family Tour 為受邀體驗。",
+      "updatedOn": "2026-10-24",
+      "sourceIds": [
+        "y00",
+        "y01",
+        "y02",
+        "y10",
+        "yoichi-town-profile"
+      ],
+      "sha256": "6c0b3972b70c8ca05fa0a9db05931cc155db12657267bdea94a9af084c9dd3a7"
+    },
+    {
+      "path": "/trip/thailand/",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "title": "泰國親子旅行：曼谷、清邁、清萊",
+      "description": "看實訪照片挑曼谷、清邁與清萊的市集、手作、水族館、白廟與山景，依天數和步調串起三城旅行，再看各城完整攻略。",
+      "updatedOn": "2026-09-27",
+      "sourceIds": [
+        "v-youtube-com-watch-v-f5h0ggdax2c",
+        "v-youtube-com-watch-v-droh1lm7dmo",
+        "v-instagram-com-reel-ctrl60vqjsw"
+      ],
+      "sha256": "adcc0781e47915dd8b836b19e699008ce6467c17dc9b85ebffb750704405b597"
+    },
+    {
+      "path": "/trip/guides/bangkok-with-kids/",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "title": "曼谷親子景點與行程：市集、搭船、動物園與侏羅紀體驗",
+      "description": "曼谷親子自由行去哪玩？整理恰圖恰、兒童館、SEA LIFE、Safari World、侏羅紀體驗、河濱夜市、暹羅蛇園、老屋餐廳與空邦龍運河搭船，附實訪照片、地圖、交通、雨備與 2～5 日區域行程。",
+      "updatedOn": "2026-09-27",
+      "sourceIds": [
+        "v-youtube-com-watch-v-f5h0ggdax2c",
+        "v-youtube-com-watch-v-f5cqv1ys69g",
+        "v-youtube-com-watch-v-f5h0ggdax2c-t-1097s",
+        "v-youtube-com-watch-v-f5h0ggdax2c-t-2370s",
+        "v-youtube-com-watch-v-f5cqv1ys69g-t-670s",
+        "v-youtube-com-watch-v-f5cqv1ys69g-t-1041s",
+        "v-youtube-com-watch-v-f5cqv1ys69g-t-1645s",
+        "o-thailandtravel-or-jp-chatuchak-weekend-market",
+        "o-publicspace-bangkok-go-th-spaces-info-2fbd1377-1bc8-4565-86c",
+        "o-tattpe-org-tw-uploads-content-files-e-brochure-20bangkok-28e",
+        "v-youtube-com-watch-v-f5h0ggdax2c-t-742s"
+      ],
+      "sha256": "0f2d6b09dfc678a910bd6b9992fee8cc0c965aabf72a93447f2f3dd95a1c54c4"
+    },
+    {
+      "path": "/trip/guides/chiang-mai-with-kids/",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "title": "清邁親子自由行：穿泰服逛古城、動手造紙，走進飛機咖啡廳",
+      "description": "清邁親子自由行去哪玩？古城泰服、Elefin 大象咖啡廳、Jing Jai、週日市集、大象紙園、飛機咖啡廳、One Nimman 與動物園，附實景照片、Google Maps、營業提醒、雨備及可依星期調整的行程試排。",
+      "updatedOn": "2026-09-27",
+      "sourceIds": [
+        "v-youtube-com-watch-v-droh1lm7dmo",
+        "v-youtube-com-watch-v-qd5mnwfa4lc",
+        "v-youtube-com-watch-v-tp4x3xkeax0",
+        "o-jingjaicentralchiangmai-com-market",
+        "v-youtube-com-watch-v-droh1lm7dmo-t-1030s",
+        "o-gingerfarmkitchen-com-welcome",
+        "o-gingerfarmkitchen-com-reservations"
+      ],
+      "sha256": "1a1dcdc23b733981a68183cfce37057a38a51eaef016a72cdc92e87bb28a060c"
+    },
+    {
+      "path": "/trip/guides/chiang-rai-with-kids/",
+      "packageSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "title": "清萊親子自由行：花園、農場與夜市，白廟黑屋分兩區玩",
+      "description": "清萊親子自由行怎麼排？Singha Park、Lalitta 花園、Akha FarmVille 山景與羊群、村落文化參訪和夜市，搭配白廟、黑屋的分區路線。附實景照片、Google Maps、雨備與互動行程。",
+      "updatedOn": "2026-09-27",
+      "sourceIds": [
+        "v-instagram-com-reel-ctrl60vqjsw",
+        "v-instagram-com-reel-ctwhijto1us",
+        "v-instagram-com-reel-ctulgsfibul",
+        "v-instagram-com-reel-ctznwwziyey",
+        "v-instagram-com-p-cty2vosvqnc",
+        "o-thailandtravel-or-jp-singha-park",
+        "o-singhapark-com",
+        "o-lalittacafe-com-about-us"
+      ],
+      "sha256": "bb3b97cd0dfad07df2b95b908a6bc30e9ba6b9e5f9b810a964a57dcc76256d97"
+    },
+    {
+      "path": "/trip/singapore/",
+      "packageSha256": "e6542d7be3f2faf6fecbf5828522a55c6d09aad4a3c04785349d50b9537a818e",
+      "title": "新加坡自由行：8 個景點、親子玩法與 2–4 日行程安排",
+      "description": "從新加坡動物園、濱海灣花園到星耀樟宜，整理鷹式一家實際走過的景點、美食與住宿經驗，搭配 2–4 日建議行程、交通及雨天安排。",
+      "updatedOn": "2026-10-03",
+      "sourceIds": [
+        "v-youtube-com-watch-v-cv5aehulhc4",
+        "v-youtube-com-watch-v-wny-jlq8tjm",
+        "v-youtube-com-watch-v-n7lacel6lww",
+        "v-youtube-com-watch-v-bw7bihyxzm",
+        "v-youtube-com-shorts-86gh1ti5m68",
+        "v-youtube-com-shorts-qtq-clsixyu",
+        "v-youtube-com-shorts-w8tdslk-trc",
+        "o-mandai-com-en-singapore-zoo-html",
+        "o-mandai-com-en-plan-your-visit-getting-to-and-around-getting-to-mandai",
+        "v-youtube-com-watch-v-wny-jlq8tjm-t-0s",
+        "o-mandai-com-en-river-wonders-html"
+      ],
+      "sha256": "7197ac938cc11aee0275d96ef3eea8436c883cfd34e371cfaf4a77cf3fa798df"
+    },
+    {
+      "path": "/trip/guides/cebu-bohol-with-kids/",
+      "packageSha256": "9d452287100cae918e6b12d700ff1855541fbee4a38f91cc199d6b5acbca3c93",
+      "title": "宿霧、薄荷島親子自由行：景點、餐廳與住宿，跨島怎麼排？",
+      "description": "從鷹式一家實訪的巧克力山、buggy、Bilar眼鏡猴、Loboc午餐船與Lila鯨鯊，搭配MIST、Ubeco及薄荷島住宿，按兩島交通、用餐和休息安排親子旅行。",
+      "updatedOn": "2026-09-30",
+      "sourceIds": [
+        "v-youtube-com-watch-v-qmngtzfpvdk",
+        "o-tourism-bohol-gov-ph-visitbohol-carmen",
+        "o-tourism-bohol-gov-ph-countryside-tour",
+        "o-ppdo-bohol-gov-ph-ppdofiles-profile-socioeconomicprofile-economicdevel",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-502s",
+        "v-youtube-com-watch-v-qmngtzfpvdk-t-589s"
+      ],
+      "sha256": "b41dd58a5bdc0edb5d525fc6d3452914419058cbfa85f0934bad0ef618883db8"
+    },
+    {
+      "path": "/trip/new-zealand/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "紐西蘭親子自由行：南島、北島怎麼選？從七天到三週的路線規劃",
+      "description": "第一次帶孩子去紐西蘭，先決定想過怎樣的幾天，再挑景點：是住在城市搭車看展，開車去哈比村與滑車園區，還是把時間交給湖泊、海岸和雪山？這份總覽把我們去過的地方分成八個區域，讓你從假期長度選一條真正走得通的路線。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-ne6-znp10de",
+        "v-youtube-com-watch-v-y3ad6z2nack",
+        "v-youtube-com-watch-v-tmuskf-rakm",
+        "v-youtube-com-watch-v-ksl8zbttkje",
+        "v-instagram-com-p-c5vpj4kpq2y"
+      ],
+      "sha256": "77a55a67b4a1a4303447ed03656e7437ec966d24857598298093ba80a0171a49"
+    },
+    {
+      "path": "/trip/new-zealand/north-island/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "奧克蘭出發的北島親子自駕：滑車、哈比村與動物園，三到五天怎麼選？",
+      "description": "想從城市看風景，也想帶孩子玩滑車、走進電影場景，紐西蘭北島可以把這幾種旅行放在一起。這條路線以奧克蘭為起終點，往 Hamilton、Matamata 與 Rotorua 延伸；重點是先選想玩的活動，再決定沿途住哪裡。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-ne6-znp10de-t-188s",
+        "v-youtube-com-watch-v-ne6-znp10de-t-679s",
+        "v-youtube-com-watch-v-ne6-znp10de-t-1059s",
+        "v-youtube-com-watch-v-6ymodbn2vda",
+        "v-youtube-com-watch-v-g5-8du-47w0",
+        "o-skycityauckland-co-nz-sky-tower-admissions",
+        "o-aucklandcouncil-govt-nz-en-parks-recreation-get-outdoors-aklpaths-path",
+        "o-rotorua-skyline-co-nz-things-to-do-luge-rotorua"
+      ],
+      "sha256": "24c9b94678721227b5dc1b75bd74d4170b0f938b73a33b33722a757aea5225a4"
+    },
+    {
+      "path": "/trip/new-zealand/wellington/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "威靈頓親子自由行：海港、Te Papa、動物園與纜車，兩到三天怎麼排？",
+      "description": "威靈頓可以從海港一路玩進博物館，也能搭一趟沿坡而上的纜車，換個高度看城市。把我們走過的四種玩法分開安排，兩天以城市與動物園為主，多一天再放慢步調。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-y3ad6z2nack",
+        "v-youtube-com-watch-v-y3ad6z2nack-t-331s",
+        "v-youtube-com-watch-v-y3ad6z2nack-t-1449s",
+        "v-youtube-com-watch-v-y3ad6z2nack-t-2140s",
+        "o-wellingtonnz-com-visit-see-and-do-harbourside-market",
+        "o-newzealand-com-au-feature-wellingtons-colourful-markets",
+        "o-tepapa-govt-nz-visit-plan-your-visit",
+        "o-tepapa-govt-nz-visit-tickets-international-visitor-museum-entry"
+      ],
+      "sha256": "0a2b5a4b6c9a535d86ea056f5f420fe432fdaefbbe7c6fdb341bedc72b9a25dd"
+    },
+    {
+      "path": "/trip/new-zealand/christchurch/3-days/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "基督城＋Akaroa 親子三日：市區電車、羊駝農場與海灣出海怎麼安排？",
+      "description": "基督城適合用電車與街區散步慢慢進入南島旅行；離開城市，Akaroa 則把羊駝、海濱與出海放在同一個海灣周邊。三天可以看見兩種風景，但應該先分出城市日與海灣日，再決定要不要在 Akaroa 過夜。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-lhga49nnyfo-t-2404s",
+        "v-youtube-com-watch-v-tmuskf-rakm-t-997s",
+        "v-youtube-com-watch-v-tmuskf-rakm-t-1724s",
+        "v-youtube-com-watch-v-tmuskf-rakm-t-1796s",
+        "v-youtube-com-watch-v-tmuskf-rakm-t-1966s",
+        "o-christchurchattractions-nz-christchurch-tram",
+        "o-ninjavalley-co-nz-christchurch-hours",
+        "o-ninjavalley-co-nz-christchurch-pricing"
+      ],
+      "sha256": "cead905205ba7ef55fe7eb64307685793e5605d2c26f8f01d147aad7ce278c6a"
+    },
+    {
+      "path": "/trip/new-zealand/mid-canterbury/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "Mid Canterbury 親子自駕：Ashburton 看飛機、Methven 飛熱氣球，冬天再上 Mt Hutt",
+      "description": "從基督城往外走，Mid Canterbury 可以是看博物館的一天，也可以是滑雪、滑冰或飛上天空的活動假期。這一區最重要的選擇不是先排景點順序，而是先選季節與想玩的活動。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-lhga49nnyfo-t-941s",
+        "v-youtube-com-watch-v-kuopmocz-pq-t-800s",
+        "v-youtube-com-watch-v-1ns20ajx9yi",
+        "v-youtube-com-watch-v-i8xpzkwtvyk-t-374s",
+        "v-youtube-com-watch-v-i8xpzkwtvyk-t-1520s",
+        "v-youtube-com-watch-v-wkocj6xodmu-t-18s",
+        "o-ashburtonmuseum-co-nz-visit",
+        "o-aviationmuseum-co-nz"
+      ],
+      "sha256": "094e07819cee776ecd67ef293d2aa9e9b0dc6514b9fb4dd19cf09845f76f0f1b"
+    },
+    {
+      "path": "/trip/new-zealand/kaikoura/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "Kaikōura 親子海岸：看海狗、走海邊，兩天怎麼安排？",
+      "description": "帶孩子到 Kaikōura，不一定要用一張出海船票開始。從 Ōhau Point 的觀景平台看海狗，到海岸散步，先在陸地認識這片海，再決定要不要安排海上皮划艇，就能組成一段有層次的旅行。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-tmuskf-rakm-t-576s",
+        "v-instagram-com-p-c5vpj4kpq2y",
+        "o-doc-govt-nz-kaikoura-marine",
+        "o-doc-govt-nz-give-wildlife-space"
+      ],
+      "sha256": "ea482ed0338087a3ce7ce701061ff32a0fa84d9bf895593bf378c0289d5889ca"
+    },
+    {
+      "path": "/trip/new-zealand/otago/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "Oamaru、Moeraki 到但尼丁：看圓石、走海岸，親子三天怎麼排？",
+      "description": "這段南島東岸行程，適合喜歡邊開車邊換風景的家庭：從 Oamaru 的歷史街區，到 Moeraki 的圓石沙灘，再到但尼丁的博物館、陡街與 Sandfly Bay。把三地順著旅程方向串起來，會比住在同一處每天往返更實際。參觀資訊核對：2026 年 9 月 28 日；臨時開閉與路況仍以出發當日公告為準。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-azczvsggqho",
+        "v-instagram-com-p-c5vpj4kpq2y",
+        "o-victorianoamaru-co-nz-heritage-precinct",
+        "o-doc-govt-nz-parks-and-recreation-places-to-go-otago-places-moeraki-are",
+        "o-tuhura-nz-visit-tickets",
+        "o-tuhura-nz-visit-tickets-international-pricing",
+        "o-dunedin-govt-nz-community-facilities-freedom-camping",
+        "o-doc-govt-nz-parks-and-recreation-places-to-go-otago-places-otago-penin"
+      ],
+      "sha256": "f8226ecf17a48af30a883292fba897154a3b2fdf8115b75d8218a370b088cbc7"
+    },
+    {
+      "path": "/trip/new-zealand/queenstown-arrowtown/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "皇后鎮＋箭鎮親子自由行：滑車、蒸汽船、農場與淘金，兩到三天怎麼選？",
+      "description": "皇后鎮可以上山玩滑車，也能搭船到湖的另一邊看農場；箭鎮則把老街、博物館與淘金放在一起。從我們實際走過的地方選行程，先分成「山上、湖上、老街」三條線，就容易決定要留幾天。",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-youtube-com-watch-v-ksl8zbttkje",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-155s",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-500s",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-630s",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-834s",
+        "v-youtube-com-watch-v-ksl8zbttkje-t-961s",
+        "o-queenstown-skyline-co-nz-activities-luge",
+        "o-realnz-com-en-experiences-tss-earnslaw-walter-peak-experiences"
+      ],
+      "sha256": "8a687f4f4282b42021069c02bc73836231f125ec9d537b694a7a97dc8803a677"
+    },
+    {
+      "path": "/trip/new-zealand/wanaka-tekapo/",
+      "packageSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "title": "Cardrona、Wānaka 到 Tekapo：湖區親子自駕，途中停靠與住宿怎麼分？",
+      "description": "湖邊散步、看一棵長在水邊的樹、到小教堂前看看山與湖，是南島旅行裡不必買一整天套票的玩法。這條路最需要安排的，其實是「今晚住在哪裡」：Cardrona、Wānaka 與 Tekapo 分屬不同位置，選對停靠與住宿，風景才不會只剩下車窗外的一瞬間。參觀資訊核對：2026 年 9 月 28 日；臨時開閉與",
+      "updatedOn": "2026-09-28",
+      "sourceIds": [
+        "v-instagram-com-p-c5vpj4kpq2y",
+        "o-fundraise-bcf-org-nz-fundraisers-cardronabrafence",
+        "o-wanaka-co-nz-explore-waterfall-creek-track",
+        "o-wanaka-co-nz-wanaka-stories-your-guide-to-the-wanaka-tree",
+        "o-churchofthegoodshepherd-org-nz-visit"
+      ],
+      "sha256": "008d6ac3d594ac2c71f5ccbf8fcfd827ca1d79652a10563ecb56738ad7532e19"
     }
   ]
 }

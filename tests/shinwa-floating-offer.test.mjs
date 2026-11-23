@@ -9,7 +9,7 @@ test('floating CTA docks without height oscillation and returns on reverse scrol
  const slot={style:{},append(){},getBoundingClientRect:()=>({top:homeTop})};
  const button={before(){},getBoundingClientRect:()=>({height:classes.has('is-floating')?52:54})};
  const document={createElement:()=>document.created++?bar:slot,created:0,body:{},addEventListener(){},activeElement:null};
- const window={innerHeight:800,addEventListener(){}};
+ const window={innerHeight:800,scrollY:1200,addEventListener(){}};
  const context={document,window,requestAnimationFrame:fn=>(frames.push(fn),frames.length),getComputedStyle:()=>({bottom:'69px'}),ResizeObserver:class{observe(){}}};
  vm.runInNewContext(source,context);
  const ctrl=context.ArticleFloatingOffer.mount(button);const flush=()=>frames.shift()();
@@ -19,6 +19,8 @@ test('floating CTA docks without height oscillation and returns on reverse scrol
  homeTop=677;ctrl.schedule();flush();assert.equal(classes.has('is-floating'),false);
  ctrl.schedule();flush();assert.equal(classes.has('is-floating'),false);
  homeTop=900;ctrl.schedule();flush();assert.equal(classes.has('is-floating'),true);
+ window.scrollY=300;ctrl.schedule();flush();assert.equal(classes.has('is-floating'),false,'not over the title and cover');
+ window.scrollY=1200;ctrl.schedule();flush();assert.equal(classes.has('is-floating'),true);
  assert.equal(context.ArticleFloatingOffer.mount(button),ctrl);
  ctrl.setAvailable(false);flush();assert.equal(classes.has('is-floating'),false);
 });

@@ -32,5 +32,21 @@ export async function loadBrowserRuntime() {
   const loaded = await import(module);
   const chromium = loaded.chromium || loaded.default?.chromium;
   const executablePath = process.env.CHROME_PATH || (existsSync(macChrome) ? macChrome : undefined);
-  return {chromium, executablePath};
+  return {chromium: returningVisitor(chromium), rawChromium: chromium, executablePath};
+}
+
+// The homepage greets a first-time visitor with the 「你想找什麼？」 dialog (design/welcome-guide.js),
+// which would sit on top of whatever a test wants to click. Browser tests act as a returning
+// visitor who already answered it; tests/welcome-guide.test.mjs uses rawChromium to test the dialog.
+const welcomeSeen = () => { try { localStorage.setItem('eg_welcome_v1', 'done'); } catch {} };
+function returningVisitor(chromium) {
+  const wrapped = Object.create(chromium);
+  wrapped.launch = async (options) => {
+    const browser = await chromium.launch(options);
+    const newContext = browser.newContext.bind(browser);
+    browser.newContext = async (o) => { const c = await newContext(o); await c.addInitScript(welcomeSeen); return c; };
+    browser.newPage = async (o) => { const c = await browser.newContext(o); const page = await c.newPage(); page.on('close', () => c.close().catch(() => {})); return page; };
+    return browser;
+  };
+  return wrapped;
 }

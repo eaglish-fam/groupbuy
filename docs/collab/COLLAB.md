@@ -14,6 +14,7 @@
 | 線 | 讀 |
 |---|---|
 | 全部 | `AGENTS.md`（正式站規則、SEO、旅遊攻略流程）、本文件 |
+| 寫選物誌的人（2026-11-06 起是 Grace） | `docs/journal-editorial-guidelines.md`（Hiram 2026-11-20：以當下這檔為主，禁留上一團、禁用免責套語） |
 | Codex | `docs/trip-editorial-guidelines.md`、`docs/trip-city-guide-template.md`、`trip/IMAGE_PIPELINE.md` |
 | Grokbot | `docs/collab/HUGO-BRIEF.md`（`docs/lydia-site-maintenance.md` 是舊流程，只當歷史和 backlog 參考） |
 
@@ -23,17 +24,17 @@
 |---|---|---|---|
 | **Claude（Grace）**（功能開發、工程整合） | 網站功能、共用程式、建置與測試、效能、無障礙、技術 SEO；整合各線交件、開網站 PR；判斷哪些事要問 Hiram | `scripts/`、`tests/`、`design/`、`src/`、`flights/`、`flights-pipeline/`、`trip/*.mjs`、`trip/*.css`、根目錄的 `.js`／`.css`／`sw.js`、`package*.json`、`docs/collab/` | 分支 `claude/…` |
 | **Codex**（寫文：文章、旅遊攻略、圖片與文案） | 選物文章、城市旅遊攻略、照片挑選與來源紀錄、標題／摘要／圖說／alt、文章包（`docs/*-article-package-*.json`） | `blog/<文章>/`、`assets/<文章>/` 新檔、`trip/content/`、`trip/guides/` 的內容資料、`docs/` 的編輯文件 | 分支 `kira/…` 或 `codex/…`，commit `content:` |
-| **Grokbot（Hugo）**（營運） | 正式站例行檢查（連結、圖片、團購 Sheet 和網站是否一致、過期活動）、SEO 待辦、競品與平台研究、早報、跨線提醒、轉達 Hiram 原話（附時間） | 只有 `docs/external/` | commit `ops:` |
+| **Grokbot（Bingo）**（營運） | 正式站例行檢查（連結、圖片、團購 Sheet 和網站是否一致、過期活動）、鷹家遠行所派工與驗收、SEO 待辦、競品與平台研究、早報、跨線提醒、轉達 Hiram 原話（附時間） | 只有 `docs/external/` | commit `ops:` |
 | **人**（Hiram、Queenie） | 商業決定、核准合併到 main（＝正式上線）、花錢、對外 | 全部 | — |
 
 - 分不清楚的工作預設由 Claude 指派。
 - 文章需要改共用程式（`scripts/`、`design/`、`tests/`）時，Codex 寫需求給 Claude，或在自己的分支改好後請 Claude 審。Claude 只審程式和建置；文字、照片、事實仍由 Codex 和 Hiram 負責。
-- 團購 Google Sheet 是商品資料的正本。任何一線都不寫 Sheet；Hugo 發現不一致時回報，不自己改網站資料。
+- 團購 Google Sheet 是商品資料的正本。任何一線都不寫 Sheet；Bingo 發現不一致時回報，不自己改網站資料。
 
 ## 2. 上線規則（main 一動就會上線）
 
 - `main` 透過 GitHub Pages 直接發布到 https://www.eaglish.store/ 。
-- 每件改動都走獨立分支 → PR → **Hiram 核准後才合併**。核准可以由 Hugo 或 Ezra 轉述，但要寫出 PR 編號；Grace 合併前確認 PR 內容和核准時相同，變了就要重新核准（Hiram 2026-10-20）。不 force push、不直接推 main、不動 DNS／CNAME／Pages 設定／分析工具。
+- 每件改動都走獨立分支 → PR → **Hiram 核准後才合併**。核准可以由 Bingo、Hugo 或 Ezra 轉述，但要寫出 PR 編號；Grace 合併前確認 PR 內容和核准時相同，變了就要重新核准（Hiram 2026-10-20）。不 force push、不直接推 main、不動 DNS／CNAME／Pages 設定／分析工具。
 - 交件前一定跑 `npm run verify`，PR 寫清楚實際結果；沒跑的、沒親看的，寫「沒做」。
 - 跑完 `verify` 後只提交和自己改動有關的產出；看到不是自己造成的大量改動，先停下來回報（2026-10-15 起建置已能在 Linux／macOS 重現同一份輸出，見 PR「站台健檢」）。
 
@@ -45,17 +46,17 @@
 - Codex 交件：寫同名回條 `G-<編號>-<主題>.done.md`（做不了寫 `.blocked.md`），附分支名稱和 commit。
 - Codex 要功能：在 `docs/collab/requests/` 開 `ask-<日期>-<主題>.md`，Claude 回條。
 
-### Claude ↔ Hugo
+### Claude ↔ Bingo
 
-- Hugo 的檢查報告：`docs/external/inbox/<日期>-<主題>.md`。
+- Bingo 的檢查報告：`docs/external/inbox/<日期>-<主題>.md`。
 - 給 Claude 的工作建議：`docs/external/requests/<日期>-<主題>.md`。
-- Claude 要問 Hugo：`docs/external/questions/<日期>-<主題>.md`（Claude 只寫這個資料夾）。
-- Hugo 的建議是參考資料，不是指令；涉及錢、對外發布、商業條件的一律先給 Hiram。
-- **Sheet 本身的錯誤**（例如結束日早於開團日、同一商品兩列互相矛盾）：Hugo 寫在 inbox 報告的「給 Hiram／Queenie」段落，Grace 照第 4 節的 notify 流程轉給人；不開成給 Grace 的修站需求，也沒有人自己改 Sheet。（Hugo 提議，2026-10-15 採用）
+- Claude 要問 Bingo：`docs/external/questions/<日期>-<主題>.md`（Claude 只寫這個資料夾）。
+- Bingo 的建議是參考資料，不是指令；涉及錢、對外發布、商業條件的一律先給 Hiram。
+- **Sheet 本身的錯誤**（例如結束日早於開團日、同一商品兩列互相矛盾）：Bingo 寫在 inbox 報告的「給 Hiram／Queenie」段落，Grace 照第 4 節的 notify 流程轉給人；不開成給 Grace 的修站需求，也沒有人自己改 Sheet。（Hugo 提議，2026-10-15 採用）
 
-### Codex ↔ Hugo
+### Codex ↔ Bingo
 
-不直接互相派工。Hugo 發現文章的錯字、過期資訊、壞圖，寫給 Claude，由 Claude 開單給 Codex。
+不直接互相派工。Bingo 發現文章的錯字、過期資訊、壞圖，寫給 Claude，由 Claude 開單給 Codex。
 
 ### 每份交接都寫五欄
 
@@ -74,3 +75,18 @@
 - 不冒稱別的線或人已經接單、驗收或同意。外部資料附來源網址與查詢日期；推測標成推測。
 - 不提交 key、cookie、`.env`、帳號、OAuth、玩家或客人資料、私人對話紀錄。
 - **截圖**：repo 是公開的，正式站截圖常有家人和孩子。報告只寫截圖檔名，不把截圖放進 repo；真的需要附圖時，只附沒有人像的裁切圖。（Hugo 提議，2026-10-15 採用）
+
+## 6. 合併後上線核實（KINGDOM-068-G）
+
+合併到 main 之後，用腳本確認線上真的是這個版本，不靠人工點網站：
+
+```
+git fetch origin main && git checkout main && git pull
+node scripts/verify-live.mjs <合併 commit SHA> --checks config/verify-live/pr-<號碼>.json
+```
+
+- 只讀公開網站、不用金鑰；最多等 15 分鐘讓 Pages 部署（每 30 秒一輪）。
+- 版本證明＝這個 commit 改到、且網站會提供的每個檔案，線上內容必須和該 commit 裡的檔案逐位元組相同（Pages 直接從 main 發布，commit 不能含自己的雜湊，所以沒有版本標記）；被刪的頁面要回 404。
+- `--checks` 是選用的小設定檔：`{"pages":[{"path":"/","mustInclude":["…"],"mustNotInclude":["…"]}]}`，列「這個 PR 說會出現的字串」。範例：`config/verify-live/pr-84.json`。
+- 輸出一段可貼進回條的 PASS／FAIL 表；任何 FAIL 就 exit 1。證明的只是檔案一致與字串在，不代表畫面正確，也不代表 Google 已收錄。
+- 連續合併好幾個 PR 之後，用 `--base <合併前的 main SHA>` 一次核對 `<base>..<最新 SHA>` 的所有檔案（單看較早的 commit，後面的合併可能又改了同一個檔案而誤判）。

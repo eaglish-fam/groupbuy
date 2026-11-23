@@ -1,0 +1,25 @@
+{
+ "schema": "eaglish.article-package/v1",
+ "editorialStatus": "Grace 撰寫（decisions/2026-11-06-hiram-grace-writes-journal-and-trip.md）；Bingo 工單 GB-046",
+ "identity": {"slug": "brush-baby", "title": "孩子不愛刷牙怎麼辦？Brush Baby 從嬰兒潔牙棉巾到兒童電動牙刷，依年齡挑"},
+ "sources": [
+  {"kind": "own-article", "url": "https://projecteaglet.com/brush-baby/", "readAt": "2026-11-13", "facts": ["潔牙手指棉巾 0–16 個月、一盒 28 片獨立包裝、木醣醇與葡萄柚／艾草萃取、可冷藏、可生物分解材質", "嬰幼兒聲波電動牙刷 0–36 個月、電池式", "Wild Ones 企鵝／大象／河馬／熊貓、USB 磁吸充電、充 4 小時約用 28 天、2 分鐘計時每 30 秒提醒、2 段聲波強度、燈光閃爍", "全系列電動牙刷有 LED 燈", "太空探險／獨角獸 3 歲以上、電池式", "Go-Kidz 外出型電池式、附刷頭蓋、刷頭不與其他款共用"]},
+  {"kind": "groupbuy-sheet", "readAt": "2026-11-13", "facts": ["品牌「Brush Baby 兒童電動牙刷」", "2026-11-23～2026-11-29", "連結尚未提供"]}
+ ],
+ "notStated": ["本團品項", "價格", "組合與贈品", "運費與出貨"],
+ "media": "assets/brush-baby/sources.md：全部為鷹式家庭 2021 年自拍照片，去除相機資料",
+ "technicalSeo": {"author": {"type": "Organization", "name": "鷹式一家", "url": "https://www.eaglish.store/"}, "datePublished": "2026-11-13", "dateModified": "2026-11-13", "social": {"ogImage": "https://www.eaglish.store/assets/brush-baby/cover.webp", "width": 1600, "height": 1000, "shareImage": "https://www.eaglish.store/assets/brush-baby/share.webp", "shareWidth": 1200, "shareHeight": 630}, "structuredData": ["Article", "BreadcrumbList"], "crawlableOfferFallback": "/#catalog"},
+ "siteIntegration": {
+  "brand": "Brush Baby 兒童電動牙刷",
+  "category": "口腔清潔",
+  "journalCategory": "母嬰",
+  "excerpt": "孩子不愛刷牙？先讓刷牙變好玩。照年齡整理 Brush Baby 潔牙棉巾、嬰兒牙刷到 3 歲以上電動牙刷怎麼挑，附我們家兩兄弟小時候的實際用法。",
+  "readLabel": "依年齡挑牙刷 →",
+  "cover": "/assets/brush-baby/cover.webp",
+  "card": "/assets/brush-baby/product-card.webp",
+  "coverSource": "/assets/brush-baby/cover-source.html",
+  "coverIdentity": "Brush Baby",
+  "coverReview": {"identityVisible": true, "realPhotoPreserved": true, "mobileCardLegible": true, "viewportWidths": [320, 390, 768, 1440], "reviewer": "Grace", "reviewScope": "Grace 2026-11-13 看過 cover.webp、product-card.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Brush Baby 字樣與標題可讀；右側為自家照片，未修改。"},
+  "catalogKey": "brushBaby"
+ }
+}

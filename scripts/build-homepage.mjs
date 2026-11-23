@@ -5,9 +5,16 @@ import {readSnapshot,snapshotCards} from './catalog-snapshot.mjs';
 import {renderHomepageTravelEntry} from './homepage-travel-entry.mjs';
 const require=createRequire(import.meta.url),{catalog,escape}=require('../product-content.js');
 const root = new URL('../', import.meta.url);
-const release = '20261002-leofoo-booking-sync';
-const productMediaRelease = '20261006-fullbleed';
-const designScriptRelease = '20261014-shinwa-release-g6d';
+const release = '20261021-calendar-g1';
+const productMediaRelease = '20261112-filter-design';
+const designScriptRelease = '20261112-filter-design';
+// catalog-core.js decides open/upcoming for the home page and /calendar/; bumped so LINE and phones drop the cached copy (GB-015-6).
+const catalogCoreRelease = '20261122-janjul-article';
+const campaignBannersRelease = '20261108-luna-link';
+// First-visit「你想找什麼？」guide (Hiram 2026-11-10).
+const welcomeGuideRelease = '20261112-design-align';
+// permanent-offers.js learned percentage discounts (Jowua 95折); an old cached copy would reject the registry.
+const permanentOffersRelease = '20261116-jowua-percent';
 let html = readFileSync(new URL('design/index.html', root), 'utf8');
 const firstPick=Object.entries(catalog).filter(([,item])=>item.article&&item.image&&item.title&&/^\d{4}-\d{2}-\d{2}$/.test(item.published||''))
   .sort((a,b)=>b[1].published.localeCompare(a[1].published))[0];
@@ -23,19 +30,30 @@ const staticPick=`<article class="hero-slide is-active" data-pick-key="${escape(
                 <span class="photo-index">EDITOR'S PICK / 01</span>
               </article>`;
 html=html.replace(/<article class="hero-slide is-active"[\s\S]*?<\/article>/,staticPick);
+// The journal shows the same first pick on desktop only. Below 901px the carousel is hidden, and the
+// 1px source keeps phones and tablets from downloading the cover there.
+const journalPath=new URL('blog/index.html',root),journal=readFileSync(journalPath,'utf8');
+const blankPixel='data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7';
+const journalPick=staticPick.replace(/<img [^>]*\/>/,img=>`<picture><source media="(max-width: 900px)" srcset="${blankPixel}" sizes="1px">${img.replace('fetchpriority="high"','loading="eager" fetchpriority="high" decoding="async"')}</picture>`);
+if(!/<article class="hero-slide is-active"[\s\S]*?<\/article>/.test(journal))throw Error('Journal hero slide missing');
+writeFileSync(journalPath,journal.replace(/<article class="hero-slide is-active"[\s\S]*?<\/article>/,journalPick.replace(/\n {16}/g,'\n          ').replace(/\n {14}<\/article>/,'\n        </article>')));
 html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
+  .replace(/<title>[^<]*<\/title>/, `<title>鷹式一家團購｜鷹家買物社：當期開團、折扣碼與選物誌</title>`)
+  .replace('<span class="sr-only">把喜歡的日常帶回家</span>', '<span class="sr-only">鷹式一家團購：把喜歡的日常帶回家</span>')
   .replace('content="noindex,nofollow"', 'content="index,follow,max-image-preview:large"')
   .replace(/<div class="preview-strip">[\s\S]*?<\/div>/, '')
   .replace('href="./" class="logo"', 'href="/" class="logo"')
   .replaceAll('href="./', 'href="/design/')
   .replaceAll('src="./', 'src="/design/')
   .replace(/content="從餐桌、居家到旅行，跟著鷹式一家發現生活選物、當期團購與真實使用筆記。"/,
-    'content="鷹式一家 Eaglish Family 官方團購網站！精選台灣、日韓、歐美優質商品團購，從餐桌好食、親子用品、居家生活到旅行選物，查看當期開團、常駐好物、折扣碼與團購行事曆，也能閱讀選物筆記與鷹家遠行所的親子旅行指南。"')
+    'content="鷹式一家 Eaglish Family 官方團購網站。看當期開團、團購行事曆、常駐折扣碼，以及鷹家親自用過的選物誌與親子旅行指南，從餐桌好食到居家生活與旅行選物。"')
+  // The source file wraps this tag over three lines; keep it on one line so a plain-text check (grep, curl) finds it.
+  .replace(/<meta\s+name="description"\s+content="([^"]*)"\s*\/>/, '<meta name="description" content="$1">')
   .replace('</head>', `<link rel="canonical" href="https://www.eaglish.store/">
     <meta name="google-site-verification" content="FdPBW_xSaPXriw8r-beUzCvUXbh0J4BqT-0ADmKbdSY">
     <meta property="og:site_name" content="鷹家買物社">
-    <meta property="og:title" content="鷹家買物社｜把喜歡的日常，帶回家">
-    <meta property="og:description" content="當期團購、生活選物筆記與鷹家遠行所旅行指南，從日常到旅途，把喜歡分享給你。">
+    <meta property="og:title" content="鷹式一家團購｜鷹家買物社：當期開團、折扣碼與選物誌">
+    <meta property="og:description" content="鷹式一家 Eaglish Family 官方團購網站。看當期開團、團購行事曆、常駐折扣碼，以及鷹家親自用過的選物誌與親子旅行指南，從餐桌好食到居家生活與旅行選物。">
     <meta property="og:url" content="https://www.eaglish.store/">
     <meta property="og:type" content="website">
     <meta property="og:locale" content="zh_TW">
@@ -44,7 +62,7 @@ html = html.replace('lang="zh-Hant"', 'lang="zh-TW"')
     <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png">
     <link rel="manifest" href="/icons/site.webmanifest">
     <meta name="agd-partner-manual-verification">
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.eaglish.store/#organization","name":"鷹家買物社","alternateName":["鷹式一家","Eaglish Family"],"url":"https://www.eaglish.store/","logo":"https://www.eaglish.store/logo-eaglish-text.png"}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://www.eaglish.store/#organization","name":"鷹家買物社","alternateName":["鷹式一家","Eaglish Family"],"url":"https://www.eaglish.store/","logo":"https://www.eaglish.store/logo-eaglish-text.png","sameAs":["https://www.facebook.com/eaglish.family/","https://www.instagram.com/eaglish.fam/","https://www.youtube.com/@eaglish.family"]},{"@type":"WebSite","@id":"https://www.eaglish.store/#website","url":"https://www.eaglish.store/","name":"鷹家買物社","alternateName":["鷹式一家團購","鷹式一家","Eaglish Family"],"inLanguage":"zh-TW","publisher":{"@id":"https://www.eaglish.store/#organization"}}]}</script>
   </head>`);
 html=html.replace(/<!-- travel-entry:start -->[\s\S]*?<!-- travel-entry:end -->/,renderHomepageTravelEntry());
 if(!html.includes('id="travel-entry"'))throw Error('Homepage travel entry insertion failed');
@@ -55,6 +73,11 @@ html=html.replace('正在讀取最新團購…','商品選購目錄')
 if(!html.includes('data-snapshot-card'))throw Error('Homepage snapshot insertion failed');
 html = html.replace(/((?:src|href)="\/[^"]+\.(?:js|css))(?:\?[^"]*)?"/g, '$1?v=' + release + '"');
 html = html.replace(`src="/design/design.js?v=${release}"`, `src="/design/design.js?v=${designScriptRelease}"`);
+html = html.replace(`src="/design/catalog-core.js?v=${release}"`, `src="/design/catalog-core.js?v=${catalogCoreRelease}"`);
+html = html.replace(`src="/design/campaign-banners.js?v=${release}"`, `src="/design/campaign-banners.js?v=${campaignBannersRelease}"`);
+html = html.replace(`src="/design/permanent-offers.js?v=${release}"`, `src="/design/permanent-offers.js?v=${permanentOffersRelease}"`);
+html = html.replace(`src="/design/welcome-guide.js?v=${release}"`, `src="/design/welcome-guide.js?v=${welcomeGuideRelease}"`)
+  .replace(`href="/design/welcome-guide.css?v=${release}"`, `href="/design/welcome-guide.css?v=${welcomeGuideRelease}"`);
 for (const file of ['design.css','mobile-grid.css','complete-content.css']) {
   html = html.replace(`href="/design/${file}?v=${release}"`, `href="/design/${file}?v=${productMediaRelease}"`);
 }

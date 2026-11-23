@@ -1,0 +1,105 @@
+{
+  "version": 2,
+  "date": "2026-10-19",
+  "scope": "Blackmores visual/editorial revision",
+  "originalSourceLedger": "docs/blackmores-media-sources-v1.json",
+  "cutouts": [
+    {
+      "name": "kids-fish-oil",
+      "source": "/assets/blackmores/kids-fish-oil.webp",
+      "output": "/assets/blackmores/kids-fish-oil-cutout-v1.png",
+      "width": 475,
+      "height": 684,
+      "sourceSha256": "f6d16ad01944a7151a1732a9d711d342af1f59347d1c213be74b0165de68f5c0",
+      "outputSha256": "a6aaf0630ed039f1d6432121725047a45e347bc8aea47bab82bb7ab4e284f6e0",
+      "generatedMaskSha256": "0f92ebc04fdeadc783339071aa48a5fbe929f2a06178e351fca5b23d9079a85f",
+      "originalRGBIdentical": true,
+      "alphaZero": 65932,
+      "alphaOpaque": 1349,
+      "total": 324900
+    },
+    {
+      "name": "mini-fish-oil",
+      "source": "/assets/blackmores/mini-fish-oil.webp",
+      "output": "/assets/blackmores/mini-fish-oil-cutout-v1.png",
+      "width": 440,
+      "height": 720,
+      "sourceSha256": "d3add82332fced3c4c5a5d57730ba9e6464d4d0460609b0d3eb7b8b2219b17ab",
+      "outputSha256": "a7def48c514ca4b8ebedba5d41d58a951991ce7c5087658db7d472d8a2ea01ef",
+      "generatedMaskSha256": "f4eec046c4a9f940f508b746f4ea6c53bea8ec3b101d1ab08fe04e025c43e28d",
+      "originalRGBIdentical": true,
+      "alphaZero": 60068,
+      "alphaOpaque": 1219,
+      "total": 316800
+    },
+    {
+      "name": "kids-lutein",
+      "source": "/assets/blackmores/kids-lutein.webp",
+      "output": "/assets/blackmores/kids-lutein-cutout-v1.png",
+      "width": 485,
+      "height": 718,
+      "sourceSha256": "ca2d2345f522908a62c8f371ef6d3e0e1c5887a37d56de3ea5aa3b836425d50e",
+      "outputSha256": "b19081a612f6b044bd79560f0f87df22d6e7ca50d9d7ffb378809e693d4eafd8",
+      "generatedMaskSha256": "b7f420598ca21d91ccd3ad162394ec2c36e2f9bb41ab8d323e0aec5424d238b5",
+      "originalRGBIdentical": true,
+      "alphaZero": 69800,
+      "alphaOpaque": 1533,
+      "total": 348230
+    },
+    {
+      "name": "adult-lutein",
+      "source": "/assets/blackmores/adult-lutein.webp",
+      "output": "/assets/blackmores/adult-lutein-cutout-v1.png",
+      "width": 459,
+      "height": 648,
+      "sourceSha256": "c87ee3aeaedb87e7152f73a246ff7e5154d0a95988c5591f59139e5b97926f98",
+      "outputSha256": "6418c60497edf7a59a6a8b6902a88c5d4e85cc9675ed5308a8644738c3e7e717",
+      "generatedMaskSha256": "cfe0f07b40c9f1b6fa245625630e1ce6e33a749beee55bb80b89b49e83ec126d",
+      "originalRGBIdentical": true,
+      "alphaZero": 58036,
+      "alphaOpaque": 1481,
+      "total": 297432
+    },
+    {
+      "name": "lc-plasma",
+      "source": "/assets/blackmores/lc-plasma.webp",
+      "output": "/assets/blackmores/lc-plasma-cutout-v1.png",
+      "width": 423,
+      "height": 540,
+      "sourceSha256": "9bcd2acc9b8fb5eb3c1e33849727abed79293580ea72b0d33d5e5e7c8da1a769",
+      "outputSha256": "8c25e5039e7b492ff4eed27c19d53d5d23f6de810f35fdb081494e9120ceca1a",
+      "generatedMaskSha256": "46c2d98274b5c9570f141f2365c7571c2bfd40eb5777a26f6ddd937e1dcbb9b4",
+      "originalRGBIdentical": true,
+      "alphaZero": 31628,
+      "alphaOpaque": 1269,
+      "total": 228420
+    }
+  ],
+  "processing": "imagegen supplied exterior-removal alpha. Generated RGB was discarded. Alpha was resized to original dimensions and joined to the unchanged original RGB; decoded RGB equality was checked. No product or label was redrawn.",
+  "backdrop": {
+    "path": "/assets/blackmores/studio-backdrop-v1.webp",
+    "type": "AI-generated studio background; no product pixels",
+    "sha256": "20ad9121193ee0e915204fae7706cd80a4fabec1abc05c0d36fce6359c1874d2",
+    "prompt": "Warm ivory limewash wall and matte tabletop, soft natural light and botanical shadow, stone riser on right; no products, people, text or logos."
+  },
+  "compositions": {
+    "source": "/assets/blackmores/cover-source-v2.html",
+    "sourceSha256": "e52dfbbbaf43effb379ad201fc53dc4e39e2a398bcee18e3b677228ce714f226",
+    "cover": "/assets/blackmores/cover-v2.webp",
+    "card": "/assets/blackmores/product-card-v2.webp",
+    "method": "Native Chrome composition of unchanged original product RGB with removal alpha, generated studio backdrop and editable typography; 1600x1000 authoring cover and separate 1000x750 card; website variants produced by existing optimizer."
+  },
+  "review": {
+    "state": "root_visual_candidate_accepted",
+    "originalRGBVerified": true,
+    "creamAndDarkBackgroundsReviewed": true,
+    "viewportWidths": [
+      320,
+      390,
+      768,
+      1440
+    ],
+    "independentEditorialReview": "Lydia existing owner conversation; same revision g4",
+    "publicationAuthorized": false
+  }
+}

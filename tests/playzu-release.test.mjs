@@ -23,7 +23,15 @@ test('Playzu original version preserves 20 named vendor patterns and all three f
  assert.ok(html.includes('https://www.youtube.com/shorts/7HBV5e0bggc'),'only the exact Playzu video from its current Sheet row');
  for(const m of html.matchAll(/src="(\/assets\/playzu\/[^"?]+)"/g))assert.ok(fs.existsSync(new URL('..'+m[1],import.meta.url)));
 });
+test('Playzu current Morocco campaign window is open through 11/30 and closed after',()=>{
+ const row={'品牌':'Playzu','類型':'短期','開團日期':'2026-11-02','結束日期':'2026-11-30','連結':'https://p2.groupbuyforms.tw/40q0b'};
+ assert.equal(pc.campaignFor([row],'playzu','2026-11-21').state,'open');
+ assert.equal(pc.campaignFor([row],'playzu','2026-11-30').state,'open');
+ assert.equal(pc.campaignFor([row],'playzu','2026-12-01').state,'closed');
+});
 test('Playzu active article retains shared journal chrome and valid image files',()=>{
  for(const path of ['/blog/journal-nav.css','/articles/article.css','/assets/editorial/eaglish-journal-wordmark-v1.svg'])assert.ok(html.includes(path));
  for(const m of html.matchAll(/src="(\/assets\/playzu\/[^"?]+)"/g))assert.ok(fs.existsSync(new URL('..'+m[1],import.meta.url)));
+ for(const path of ['/assets/playzu/cover.webp','/assets/playzu/pattern-08.webp','/assets/playzu/pattern-09.webp'])assert.ok(html.includes(`src="${path}"`),path);
+ assert.ok(!html.includes('vintage-cover'));
 });

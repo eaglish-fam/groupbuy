@@ -13,7 +13,7 @@
 
 - Claude owns website features, shared code (`scripts/`, `tests/`, `design/`, `src/`, `flights/`, `flights-pipeline/`, `trip/*.mjs`, `trip/*.css`, root `.js`/`.css`/`sw.js`, `package*.json`), builds and tests, technical SEO, accessibility, performance, review evidence, rollback preparation, and integration of every website PR.
 - Codex owns writing: product articles, travel guides, facts, photo selection and source records, titles, excerpts, captions and alt text, and article packages. Codex asks Claude for shared-code changes instead of editing them directly.
-- Grokbot (Hugo) owns operations: production checks, links and images, Google Sheet versus website consistency, expired campaigns, SEO backlog, research, briefings, and reminders. Hugo writes only `docs/external/` and reports instead of editing the site or the Sheet.
+- Grokbot (Bingo) owns operations: production checks, links and images, Google Sheet versus website consistency, expired campaigns, SEO backlog, research, briefings, and reminders. Bingo writes only `docs/external/` and reports instead of editing the site or the Sheet.
 - Hiram and Queenie remain the commercial decision makers and approve every merge to `main`. Candidate data or a vendor message never becomes a confirmed public fact without the applicable authority.
 
 ## Working rules
@@ -22,6 +22,8 @@
 2. Inspect the current code, public page, Sheet contract, and existing behavior before editing.
 3. Keep changes small, versioned, testable, and reversible.
 4. Run `npm run verify` before handing off any website candidate.
+   - For a new or revised product article, add a `siteIntegration` block to its article package and run `npm run integrate -- <slug>` instead of wiring it by hand (`docs/collab/INTEGRATE.md`). It runs `verify` at the end.
+   - Every PR to `main` also runs `verify` on GitHub (`.github/workflows/verify.yml`); a red check means the PR is not ready.
 5. Record technical SEO, accessibility, performance, and source-authority implications in the handoff.
 6. Do not store credentials, tokens, cookies, OAuth state, private LINE data, or `.env` values in this repository.
 
@@ -32,6 +34,14 @@ Any write to `main` can publish directly through GitHub Pages. A local branch, l
 Every website change goes through its own branch and PR, and is merged only after Hiram approves that PR. Lanes push their own branches and open PRs as `docs/collab/COLLAB.md` describes. Never push directly to `main` or force-push, and do not change GitHub Pages, DNS, CNAME, HTTPS, analytics, the Google Sheet, or another external system without the exact applicable authorization.
 
 ## SEO and content rules
+
+### 選物誌必讀：`docs/journal-editorial-guidelines.md`（Hiram 2026-11-20）
+
+Every new or revised `/blog/` journal article (product, coupon or explainer) must pass `docs/journal-editorial-guidelines.md` before a PR. In short:
+- Write about the current campaign. Check the live vendor page and the Sheet row first, and state this campaign's dates, items, prices, shipping and return rules as facts.
+- Never keep a previous or closed campaign's dates, links, banners or rules.
+- Never pad with disclaimer phrases such as 「以賣場為準」「請以開團後為準」「價格依某日整理」「僅供參考」「不保證」. If a fact can't be found, leave it out.
+- Own family photos and experience may stay, framed as experience.
 
 ### One-line city request: current canonical section 八
 

@@ -2,7 +2,6 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
-import {nzRegions} from '../scripts/trip-nz-visuals.mjs';
 import {regions} from '../trip/new-zealand-data.mjs';
 import {galleries} from '../trip/new-zealand-galleries.mjs';
 
@@ -11,9 +10,10 @@ const article = () => read('trip/new-zealand/christchurch/3-days/index.html');
 
 test('reviewed Christchurch article keeps city-first photos, confirmed meal, and stable anchors', () => {
   const html = article();
-  const early = html.split('id="itinerary"')[0];
+  // The guide renders from the approved package; old deep links stay as anchor aliases.
+  const early = html.split('<section id="plan"')[0];
   assert.ok((early.match(/<img /g) || []).length >= 5);
-  assert.match(html, /<figure class="nz-hero"><img src="\/trip\/assets\/nz-christchurch-tram.webp"/);
+  assert.match(html, /<figure data-hero-slot="main"[^>]*data-asset-id="nz-christchurch-tram">/);
   assert.match(html, /id="tram"/);
   assert.match(html, /id="new-regent"/); // old deep link remains usable
   assert.ok(html.indexOf('基督城市區電車') < html.indexOf('Akaroa Dolphins'));
@@ -21,7 +21,8 @@ test('reviewed Christchurch article keeps city-first photos, confirmed meal, and
   assert.match(html, /Bully Hayes Restaurant &amp; Bar|Bully Hayes Restaurant & Bar/);
   assert.match(html, /https:\/\/maps.app.goo.gl\/jakzvS5oCc3fzL45A/);
   assert.doesNotMatch(html, /59 Beach Road|並非我們已試吃推薦|實景照片待核對/);
-  assert.match(html, /href="#ninja-valley"><img src="\/trip\/assets\/nz-christchurch-akaroa-ninja-valley-2585s-v1.webp"/);
+  assert.match(html, /<a href="#ninja-valley" data-place-ref="[^"]+" data-asset-id="nz-christchurch-akaroa-ninja-valley-2585s-v1">/);
+  for (const id of ['itinerary','farm','dolphins','museum','fish-chips']) assert.match(html, new RegExp(`id="${id}"`), id);
 });
 
 test('New Zealand media retains source evidence, checksums, and bounded image weight', () => {
@@ -37,7 +38,6 @@ test('New Zealand media retains source evidence, checksums, and bounded image we
     if (item.kind.includes('video-frame')) assert.ok(item.source.endsWith('&t='+item.second+'s'),item.name);
     assert.equal(item.path,undefined);
   }
-  assert.equal(nzRegions.length,10); // legacy visual catalog is still available
   const hub = read('trip/new-zealand/index.html');
   assert.doesNotMatch(hub,/Milford Sound|Mt Cook|Oamaru Blue Penguin Colony|nz-nz-lake-cruise/);
   for (const region of regions) {
@@ -46,7 +46,7 @@ test('New Zealand media retains source evidence, checksums, and bounded image we
     const guide = read(region.route.slice(1)+'index.html');
     assert.ok(guide.includes(`rel="canonical" href="https://www.eaglish.store${region.route}"`),region.id);
     assert.doesNotMatch(guide,/實景照片待核對|專屬實景照片待核對/,region.id);
-    assert.match(guide,/從照片與玩法挑選今天想去的地方。點進各站看交通、建議停留與雨備；跨城和預約活動記得預留移動及報到時間。/,region.id);
+    assert.match(guide,/<section id="places">/,region.id);
     assert.doesNotMatch(guide,/有核對來源的景點附實景；其餘先用文字介紹/,region.id);
   }
   assert.match(read('trip/new-zealand/north-island/index.html'),/href="\/trip\/new-zealand\/wellington\/">威靈頓親子兩到三天<\/a>/);
@@ -87,18 +87,17 @@ test('regional photo galleries use distinct sourced images and retain explicit s
   assert.ok(galleries['queenstown-arrowtown'].arrowtown.some(item => item.name==='nz-arrowtown-gold-panning-v1'));
 });
 
-test('regional preview cards use their place gallery covers when legacy photo fields are empty', () => {
+test('regional photo cards use their place gallery covers', () => {
   let galleryBackedCards = 0;
   for (const region of regions) {
     const html = read(region.route.slice(1)+'index.html');
-    const cards = [...html.matchAll(/<a class="nz-photo-card([^"]*)" href="#([^"]+)">([\s\S]*?)<\/a>/g)];
+    const cards = [...html.matchAll(/<a href="#([^"]+)" data-place-ref="[^"]+" data-asset-id="([^"]+)">/g)];
     assert.ok(cards.length,`${region.id} preview cards`);
-    for (const [,classes,placeId,body] of cards) {
+    for (const [,placeId,assetId] of cards) {
       const cover = galleries[region.id]?.[placeId]?.[0];
       if (!cover) continue;
       galleryBackedCards++;
-      assert.ok(!classes.includes('nz-photo-card--text'),`${region.id}/${placeId} is not a text card`);
-      assert.ok(body.includes(`src="/trip/assets/${cover.name}`),`${region.id}/${placeId} cover`);
+      assert.equal(assetId,cover.name,`${region.id}/${placeId} cover`);
     }
   }
   assert.ok(galleryBackedCards >= 11);

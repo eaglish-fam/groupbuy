@@ -24,7 +24,9 @@ function mountFloatingOffer(button){
     // Once reached, keep it in the article, including while reading the footer.
     // Reverse scrolling restores the float when its home passes below the baseline.
     const homeReached=home.top<=window.innerHeight-bottom-height;
-    bar.classList.toggle('is-floating',available&&!homeReached&&!keyboard&&!document.fullscreenElement);
+    // Stay in place while the reader is still on the title and cover; float only once they scroll.
+    const intro=window.scrollY<window.innerHeight*.5;
+    bar.classList.toggle('is-floating',available&&!intro&&!homeReached&&!keyboard&&!document.fullscreenElement);
   }
   function schedule(){if(!frame)frame=requestAnimationFrame(update);}
   window.addEventListener('scroll',schedule,{passive:true});
@@ -53,7 +55,7 @@ async function refreshOffer(navigate=false){
     offerButton.textContent=label;offerButton.disabled=c.state!=='open';offerButton.setAttribute('aria-label',label);
     if(c.state==='open')offerButton.dataset.desktopFloatingLabel='true';
     floatingOffer.setAvailable(c.state==='open');
-    statusEl.textContent=c.state==='open'?'已核對當期檔期。價格、庫存與優惠請以廠商賣場為準。':'暫不提供直接購買；仍可閱讀文章或返回團購首頁。';
+    statusEl.textContent=c.state==='open'?(c.end?'這一檔團購至 '+c.end.replace(/^(\d{4})-(\d{2})-(\d{2})$/,'$1/$2/$3')+' 23:59。':'這一檔正在開團。'):'目前沒有開放中的團購；仍可閱讀文章或返回團購首頁。';
     const current=ProductContent.rowForArticle(rows,articleKey);
     const list=ProductContent.videos([...seed,...ProductContent.fromRow(current||{})]);
     const signature=JSON.stringify(list);if(videoEl&&signature!==videoSignature){videoEl.replaceChildren();ProductContent.mountVideos(videoEl,list);videoSignature=signature;}

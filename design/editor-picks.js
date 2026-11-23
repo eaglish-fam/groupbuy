@@ -21,6 +21,16 @@
   function mount(content) {
     const carousel = document.querySelector("[data-editor-picks]");
     if (!carousel || !content?.catalog) return null;
+    // data-editor-picks-media keeps a carousel that CSS hides on small screens from loading its slides there.
+    const gate = carousel.dataset.editorPicksMedia ? matchMedia(carousel.dataset.editorPicksMedia) : null;
+    if (gate && !gate.matches) {
+      gate.addEventListener?.("change", function opened(event) {
+        if (!event.matches) return;
+        gate.removeEventListener("change", opened);
+        mount(content);
+      });
+      return null;
+    }
     const picks = ordered(content.catalog);
     if (!picks.length) return null;
 
@@ -87,16 +97,10 @@
 
     const slides = picks.map(slide);
     track.replaceChildren(...slides);
-    const dots = picks.map((item, index) => {
-      const dot = document.createElement("button");
-      dot.type = "button";
-      dot.className = "pick-dot";
-      dot.setAttribute("aria-label", `顯示第 ${index + 1} 篇：${item.title}`);
-      dot.setAttribute("aria-pressed", "false");
-      dot.addEventListener("click", () => show(index));
-      return dot;
-    });
-    dotsRoot.replaceChildren(...dots);
+    // A "3／18" counter instead of one dot per pick: 18 dots were too small to tap or tell apart.
+    const counter = document.createElement("span");
+    counter.className = "pick-count";
+    dotsRoot.replaceChildren(counter);
     controls.hidden = picks.length < 2;
 
     function stop() {
@@ -106,7 +110,7 @@
 
     function schedule() {
       stop();
-      if (pausedByUser || interacting || document.hidden || picks.length < 2) return;
+      if (pausedByUser || interacting || document.hidden || gate?.matches === false || picks.length < 2) return;
       timer = setTimeout(() => {
         show(active + 1, false);
         schedule();
@@ -128,7 +132,7 @@
         item.setAttribute("aria-hidden", String(!selected));
         item.inert = !selected;
       });
-      dots.forEach((dot, position) => dot.setAttribute("aria-pressed", String(position === active)));
+      counter.textContent = `${active + 1}／${picks.length}`;
       carousel.setAttribute("aria-label", `Editor's Pick 選物文章：${picks[active].title}`);
       if (userInitiated) schedule();
     }
@@ -179,6 +183,7 @@
       schedule();
     });
     document.addEventListener("visibilitychange", schedule);
+    gate?.addEventListener?.("change", schedule);
     reducedMotion.addEventListener?.("change", (event) => setPaused(event.matches));
     show(0, false);
     setPaused(pausedByUser);

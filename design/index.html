@@ -13,14 +13,18 @@
     <link rel="stylesheet" href="./mobile-grid.css?v=2" />
     <link rel="stylesheet" href="./complete-content.css?v=3" />
     <link rel="stylesheet" href="./travel-entry.css" />
+    <link rel="stylesheet" href="./welcome-guide.css" />
     <script defer src="./papaparse.min.js"></script>
     <script defer src="/product-content.js?v=20261002-leofoo-booking-sync"></script>
     <script defer src="./permanent-offers.js?v=20261014-shinwa-offer-adapter"></script>
     <script defer src="./entry-image-widths.js"></script>
     <script defer src="./editor-picks.js"></script>
+    <script defer src="./catalog-core.js"></script>
     <script defer src="./design.js"></script>
     <script defer src="./mobile-grid.js?v=2"></script>
     <script defer src="./complete-content.js?v=3"></script>
+    <script defer src="./campaign-banners.js"></script>
+    <script defer src="./welcome-guide.js"></script>
   <link rel="stylesheet" href="/release.css?v=20260909">
 <script defer src="/site-runtime.js?v=20260914-analytics-v1"></script>
 </head>
@@ -51,7 +55,7 @@
       </div>
     </header>
     <nav class="content-nav" aria-label="所有網站內容">
-      <a href="#catalog">開團好物</a><a href="#calendar">團購行事曆</a><a href="#coupon">折扣碼</a
+      <a href="#catalog">開團好物</a><a class="nav-everyday" href="/everyday/">鷹家日常</a><a href="/calendar/">團購行事曆</a><a href="#coupon">折扣碼</a
       ><a href="#kang-books">康先生的書</a><a href="#edu">教育公益</a
       ><a href="#journal">生活筆記</a><a href="#latestVideo">最新影片</a
       ><a href="#shopping-notice">購物須知</a><a href="#about">關於我們</a>
@@ -96,7 +100,7 @@
             <button type="button" class="pick-toggle" data-pick-toggle aria-label="暫停自動輪播" aria-pressed="false"><span aria-hidden="true">Ⅱ</span></button>
             <div class="pick-navigation">
               <button type="button" class="pick-arrow" data-pick-prev aria-label="上一篇 Editor's Pick">←</button>
-              <div class="pick-dots" data-pick-dots role="group" aria-label="選擇 Editor's Pick"></div>
+              <div class="pick-dots" data-pick-dots aria-hidden="true"></div>
               <button type="button" class="pick-arrow" data-pick-next aria-label="下一篇 Editor's Pick">→</button>
             </div>
             <span class="pick-control-spacer" aria-hidden="true"></span>
@@ -114,9 +118,10 @@
           >
             看全部好物
           </button>
+          <button type="button" class="welcome-reopen" data-welcome-open>✦ 幫我找：你想找什麼？</button>
         </div>
         <div class="category-links">
-          <button data-category="食品">
+          <button type="button" class="welcome-reopen-chip" data-welcome-open aria-label="幫我找：打開分類引導">✦ 幫我找</button><button data-category="食品">
             <span>01</span>餐桌好食<small>每天都值得好好吃</small></button
           ><button data-category="居家">
             <span>02</span>舒服的家<small>把日常變得更順手</small></button
@@ -127,6 +132,11 @@
           </button>
         </div>
       </section>
+      <a class="everyday-banner wrap" href="/everyday/" data-everyday-banner>
+        <span class="everyday-faces" aria-hidden="true"><img src="/assets/play/characters/cast/shihan.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><img src="/assets/play/characters/cast/yating.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><img src="/assets/play/characters/cast/kexin.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><img src="/assets/play/characters/cast/jiahao.webp" alt="" width="56" height="56" loading="lazy" decoding="async"><img src="/assets/play/characters/cast/shufen.webp" alt="" width="56" height="56" loading="lazy" decoding="async"></span>
+        <span class="everyday-text"><small>鷹家日常</small><strong>跟著鄰居的一天，看看他們用什麼</strong></span>
+        <span class="everyday-go" aria-hidden="true">去逛逛 →</span>
+      </a>
       <section class="catalog-section" id="catalog">
         <div class="wrap">
           <header class="section-heading">
@@ -186,6 +196,10 @@
               看全部</button
             ><span id="result-count" role="status">正在讀取最新團購…</span>
           </div>
+          <div class="active-filters" id="active-filters" hidden>
+            <span id="active-filters-label"></span>
+            <button type="button" class="filter-clear" data-reset-filters>✕ 清除篩選，看全部商品</button>
+          </div>
           <p class="source-status" id="source-status" aria-live="polite"></p>
           <noscript><p>以下可直接閱讀商品介紹與文章。即時開團狀態、篩選及購買入口需要啟用 JavaScript；未開啟時不顯示即時優惠。</p><style>.catalog-toolbar,.filter-row,.category-links,.more-row{display:none!important}</style></noscript>
           <div class="product-grid" id="products" aria-busy="true">
@@ -212,6 +226,7 @@
             <h2>團購行事曆</h2>
           </div>
           <div class="calendar-heading-actions">
+            <a class="text-link calendar-page-link" href="/calendar/">看本週開團與即將截止 <span aria-hidden="true">→</span></a>
             <button id="export-calendar" class="button secondary">
               匯入開結團提醒
             </button>
@@ -421,7 +436,7 @@
         </header>
         <div id="original-notice"><details class="notice-qa" open>
           <summary>在這裡怎麼下單？</summary>
-          <p>我們是嚴選團購的入口。點各團的「立即前往」會帶你到該品牌／廠商的官方團購表單，在那裡填寫、付款即完成訂購。鷹家負責幫你把關選品，<strong>實際出貨與付款由各團廠商處理</strong>。</p>
+          <p>我們是嚴選團購的入口。點各團的「前往團購」會另開該品牌／廠商的官方團購表單，在那裡填寫、付款即完成訂購。鷹家負責幫你把關選品，<strong>實際出貨與付款由各團廠商處理</strong>。</p>
         </details>
 <details class="notice-qa">
           <summary>大概多久出貨／收到？</summary>
@@ -492,6 +507,21 @@
       </div>
       <small>商品由合作廠商提供，訂購、付款、配送與售後請依各賣場說明。</small>
     </footer>
+    <dialog id="welcome-guide" class="welcome-guide" aria-labelledby="welcome-title" aria-describedby="welcome-desc">
+      <p class="welcome-eyebrow">歡迎來到鷹家買物社</p>
+      <h2 id="welcome-title">你想找什麼？</h2>
+      <p id="welcome-desc">選一類，直接帶你看那一類的團購好物。</p>
+      <div class="welcome-options">
+        <button type="button" data-category="母嬰" data-welcome-choice="母嬰"><strong>母嬰</strong><small>陪伴孩子的小幫手</small></button>
+        <button type="button" data-category="食品" data-welcome-choice="食品"><strong>食品</strong><small>每天都值得好好吃</small></button>
+        <button type="button" data-category="居家" data-welcome-choice="居家"><strong>居家</strong><small>把日常變得更順手</small></button>
+        <button type="button" data-category="旅遊" data-welcome-choice="旅遊"><strong>旅遊</strong><small>帶上喜歡，一起走走</small></button>
+        <button type="button" data-category="3C 家電" data-welcome-choice="3C 家電"><strong>3C 家電</strong><small>好用的科技小物</small></button>
+        <button type="button" data-category="" data-welcome-choice="all"><strong>全部好物</strong><small>一次看所有開團</small></button>
+        <a class="welcome-everyday" href="/everyday/" data-welcome-choice="everyday"><strong>看鷹家日常，從故事挑</strong><small>跟著角色的一天，看他們用什麼</small></a>
+      </div>
+      <button type="button" class="welcome-skip" data-welcome-skip>先自己逛逛</button>
+    </dialog>
     <dialog id="product-dialog" aria-labelledby="detail-title">
       <div class="dialog-header">
         <span>選物詳情</span

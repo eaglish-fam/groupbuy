@@ -1,19 +1,93 @@
 {
-  "schema": "eaglish.approved-travel-registration/v1",
-  "dataPath": "trip/data/europe-malaysia-approved-travel-v1.json",
-  "expectedSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
-  "countryIds": [
-    "norway",
-    "netherlands",
-    "malaysia"
-  ],
-  "cityIds": [
-    "oslo",
-    "svalbard",
-    "tromso",
-    "amsterdam",
-    "penang",
-    "kuala-lumpur"
-  ],
-  "publication": true
+  "schema": "eaglish.approved-travel-registration/v2",
+  "packages": [
+    {
+      "dataPath": "trip/data/europe-malaysia-approved-travel-v1.json",
+      "expectedSha256": "cbb762a697500a0a6143b7b742b2a4939279fe3132fed3c6db2543bc38d71f51",
+      "countryIds": [
+        "norway",
+        "netherlands",
+        "malaysia"
+      ],
+      "cityIds": [
+        "oslo",
+        "svalbard",
+        "tromso",
+        "amsterdam",
+        "penang",
+        "kuala-lumpur"
+      ],
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/japan-approved-travel-v1.json",
+      "expectedSha256": "dc6cd8494a2c40c6bc041638248edc3c6ce2c7f45033883edd75b07cc5fdfba8",
+      "countryIds": [
+        "japan"
+      ],
+      "cityIds": [
+        "asahikawa",
+        "sapporo",
+        "otaru",
+        "yoichi"
+      ],
+      "routeIds": [
+        "hokkaido-seven-days"
+      ],
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/thailand-approved-travel-v1.json",
+      "expectedSha256": "0dfa6068862e33f52f20ffc39a653529c809e8ffe70e3eff3fb0c4bcfb97cda0",
+      "countryIds": [
+        "thailand"
+      ],
+      "cityIds": [
+        "bangkok",
+        "chiang-mai",
+        "chiang-rai"
+      ],
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/singapore-approved-travel-v1.json",
+      "expectedSha256": "e6542d7be3f2faf6fecbf5828522a55c6d09aad4a3c04785349d50b9537a818e",
+      "countryIds": [
+        "singapore"
+      ],
+      "cityIds": [
+        "singapore"
+      ],
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/cebu-bohol-approved-travel-v1.json",
+      "expectedSha256": "9d452287100cae918e6b12d700ff1855541fbee4a38f91cc199d6b5acbca3c93",
+      "countryIds": [
+        "philippines"
+      ],
+      "cityIds": [
+        "cebu-bohol"
+      ],
+      "publication": true
+    },
+    {
+      "dataPath": "trip/data/new-zealand-approved-travel-v1.json",
+      "expectedSha256": "018341d38fea0748cce83169dcf4a01c8402d6c3a5d72f90c73233d29df5e437",
+      "countryIds": [
+        "new-zealand"
+      ],
+      "cityIds": [
+        "north-island",
+        "wellington",
+        "christchurch-akaroa",
+        "mid-canterbury",
+        "kaikoura",
+        "otago",
+        "queenstown-arrowtown",
+        "wanaka-tekapo"
+      ],
+      "publication": true
+    }
+  ]
 }
