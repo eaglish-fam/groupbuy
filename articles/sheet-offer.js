@@ -36,6 +36,7 @@
         const csv = await response.text(); if (/^\s*</.test(csv)) throw Error('Unexpected response');
         const parsed = Papa.parse(csv, {header: false, skipEmptyLines: true}); if (parsed.errors.length) throw Error('Invalid CSV');
         const campaign = ProductContent.campaignFor(ProductContent.sheetRows(parsed.data), key);
+        ProductContent.mountKeyFacts?.(key, campaign, campaign.state === 'open' ? {buy: {href: ProductContent.withUTM(campaign.url, item.brands[0])}} : {});
         if (campaign.state !== 'open') { set(false); status.textContent = '目前沒有開放中的團購；文章仍可繼續閱讀，下次開團時這裡會出現購買入口。'; return; }
         set(true, ProductContent.withUTM(campaign.url, item.brands[0]));
         const end = campaign.end ? campaign.end.replace(/^(\d{4})-(\d{2})-(\d{2})$/, '$1/$2/$3') : '';

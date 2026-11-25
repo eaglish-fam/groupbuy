@@ -51,6 +51,7 @@ async function refreshOffer(navigate=false){
     const csv=await r.text();if(/^\s*</.test(csv))throw Error('Unexpected HTML');
     const parsed=Papa.parse(csv,{header:false,skipEmptyLines:true});if(parsed.errors.length)throw Error('Invalid CSV');
     const rows=ProductContent.sheetRows(parsed.data),c=ProductContent.campaignFor(rows,articleKey);
+    ProductContent.mountKeyFacts?.(articleKey,c,{buy:{onClick:()=>offerButton.click()}});
     const label=c.state==='open'?(offerButton.dataset.openLabel||c.label):c.label;
     offerButton.textContent=label;offerButton.disabled=c.state!=='open';offerButton.setAttribute('aria-label',label);
     if(c.state==='open')offerButton.dataset.desktopFloatingLabel='true';
