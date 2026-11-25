@@ -53,28 +53,28 @@
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread/index.html",
-      "index": 11035
+      "index": 11066
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 12690
+      "index": 12694
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 39220
+      "index": 39224
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (443KB): /assets/kidsread/2026-07-IMG_9537.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 51703
+      "index": 51707
     },
     {
       "level": "warn",

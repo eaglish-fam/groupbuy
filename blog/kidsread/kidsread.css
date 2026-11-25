@@ -120,7 +120,7 @@ body.kidsread-series{--kr-soft:#f2f0e8;--kr-green-soft:#e6ece6;--kr-rust-deep:#7
 .kidsread-series .kr-bundle{display:flex;flex-direction:column;padding:18px 18px 16px;border:1px solid var(--line);border-radius:14px;background:#fffdf7;scroll-margin-top:120px}
 .kidsread-series .kr-bundle header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
 .kidsread-series .kr-bundle-key{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;font:600 20px/1 var(--serif)}
-.kidsread-series .kr-bundle h3{margin:0;font:600 18px/1.4 var(--serif)}
+.kidsread-series .kr-bundle-name{margin:0;font:600 18px/1.4 var(--serif);color:var(--ink)}
 .kidsread-series .kr-bundle-age{margin:2px 0 0;color:var(--rust,#a05238);font-size:14px;font-weight:700}
 .kidsread-series .kr-bundle-why{margin:0 0 10px;font-size:15px;line-height:1.7}
 .kidsread-series .kr-bundle-items{list-style:none;margin:0 0 12px;padding:0;border-top:1px solid var(--line)}
