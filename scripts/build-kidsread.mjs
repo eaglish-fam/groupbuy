@@ -17,7 +17,7 @@ const esc = v => String(v ?? '').replaceAll('&', '&amp;').replaceAll('<', '&lt;'
 const attr = v => String(v ?? '').replaceAll('&', '&amp;').replaceAll('"', '&quot;');
 const ORIGIN = 'https://www.eaglish.store';
 const PUBLISHED = '2026-11-23';
-const MODIFIED = '2026-11-23';
+const MODIFIED = '2026-11-25';
 const SERIES_CSS = '/blog/kidsread/kidsread.css?v=20261123';
 const SERIES_JS = '/blog/kidsread/kidsread.js?v=20261123';
 
@@ -187,8 +187,10 @@ const FAQ = {
 const faqHtml = (id, n) => `<section id="faq" data-editorial-section><p class="section-label">${n}</p><h2>常見問題</h2>${FAQ[id].map(([q, a]) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('')}</section>`;
 
 function offerHtml(n) {
-  return `<section id="offer" class="purchase" data-editorial-section><p class="section-label">${n}</p><h2>KidsRead 團購 12/31 開團</h2><p>KidsRead 這一檔是 2026/12/31～2027/01/06。開團前可以先在這系列文章挑好教材、加進選購清單；開團後按下面的按鈕就能下單。</p>${listButton}<a class="offer-link" href="/#catalog" data-sheet-offer data-open-label="選購 KidsRead 點讀教材 ↗" data-editorial-exclude>到買物社查看當期團購 ↗</a><p>本文含團購連結。</p><noscript><p data-editorial-exclude>請到<a href="/">買物社</a>查看當期團購。</p></noscript></section>`;
+  // 檔期以團購 Sheet「Kidsread 點讀筆」為準（Hiram 2026-11-24 更正為 11/30 開團）；結束日待 Hiram 確認前不寫
+  return `<section id="offer" class="purchase" data-editorial-section><p class="section-label">${n}</p><h2>KidsRead 團購 11/30（一）開團</h2><p>KidsRead 這一檔 2026/11/30（一）開團。開團前可以先在這系列文章挑好教材、加進選購清單；開團後按下面的按鈕就能下單。</p>${listButton}<a class="offer-link" href="/#catalog" data-sheet-offer data-open-label="選購 KidsRead 點讀教材 ↗" data-editorial-exclude>到買物社查看當期團購 ↗</a><p>本文含團購連結。</p><noscript><p data-editorial-exclude>請到<a href="/">買物社</a>查看當期團購。</p></noscript></section>`;
 }
+
 function nextReads(cur) {
   const others = PAGES.filter(p => p.id !== cur);
   return `<section id="series" data-editorial-section><p class="section-label">KidsRead 系列</p><h2>接著讀</h2><ul class="kr-next">${others.map(p => `<li><a href="${url(p)}"><img src="${coverPath(p).replace('.webp', '-480.webp')}" width="480" height="300" alt="${attr(coverAlt(p))}" loading="lazy" decoding="async"><span>${p.n} ${esc(p.nav)}</span></a></li>`).join('')}</ul></section>`;
