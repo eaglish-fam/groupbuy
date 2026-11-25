@@ -52,3 +52,15 @@
   .reading-nav *, .reading-nav *:before{animation:none!important;transition:none!important}
 }
 @media print{.reading-nav,.reading-nav__flight{display:none!important}}
+/* C（2026-11）：閱讀進度線貼在 header 下緣；手機、平板用「目前在：○○ ›」小膠囊取代左邊直立的目錄標籤，點了展開目錄。 */
+.reading-nav__progress{position:absolute;left:0;right:0;top:calc(var(--reading-nav-top) - 20px);height:3px;background:transparent;pointer-events:none}
+.reading-nav__progress span{display:block;height:100%;background:var(--rust,#a05238);transform-origin:left center;transform:scaleX(0);transition:transform .12s linear}
+.reading-nav__now{display:none}
+@media(max-width:1199px){
+  .reading-nav.has-now .reading-nav__tab{display:none}
+  .reading-nav__now{position:absolute;top:calc(var(--reading-nav-top) - 10px);left:12px;max-width:calc(100vw - 24px);display:inline-flex;align-items:center;gap:6px;min-height:36px;padding:0 14px;border:1px solid rgba(255,255,255,.6);border-radius:999px;background:rgba(250,247,240,.86);-webkit-backdrop-filter:blur(14px) saturate(1.4);backdrop-filter:blur(14px) saturate(1.4);box-shadow:0 6px 18px rgba(52,46,40,.14);font-size:13px!important;pointer-events:auto;transition:opacity .2s ease,transform .2s ease}
+  .reading-nav__now-kicker{color:var(--rust,#a05238);font-weight:700;flex:none}
+  .reading-nav__now-label{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:var(--ink,#343a30)}
+  .reading-nav.is-open .reading-nav__now{opacity:0;pointer-events:none;transform:translateY(-6px)}
+}
+@media(prefers-reduced-motion:reduce){.reading-nav__progress span{transition:none}}

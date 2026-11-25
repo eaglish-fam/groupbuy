@@ -159,6 +159,63 @@
       update();
     }
   }
+  // B：團購狀態分頁的底色（手機）／底線（桌機）會滑到選中的那一格。
+  function statusIndicator() {
+    const tabs = document.querySelector(".catalog-toolbar .status-tabs");
+    if (!tabs) return;
+    const place = () => {
+      const on = tabs.querySelector('[aria-pressed="true"]');
+      if (!on) return;
+      tabs.style.setProperty("--tab-x", on.offsetLeft + "px");
+      tabs.style.setProperty("--tab-w", on.offsetWidth + "px");
+      tabs.classList.add("has-indicator");
+    };
+    new MutationObserver(place).observe(tabs, { attributes: true, subtree: true, attributeFilter: ["aria-pressed"] });
+    if ("ResizeObserver" in window) new ResizeObserver(place).observe(tabs);
+    place();
+  }
+  // B：手機上把分類／排序／國家收進「篩選」按鈕，點了從底部滑出面板（選單本身原封不動搬過去，原本的程式照常運作）。
+  function filterSheet() {
+    const row = document.querySelector(".filter-row");
+    if (!row) return;
+    const labels = [...row.querySelectorAll(":scope > label")];
+    const open = document.createElement("button");
+    open.type = "button";
+    open.className = "filter-open";
+    open.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M7 12h10M10 17h4"/></svg>篩選與排序<b data-filter-count hidden></b>';
+    row.prepend(open);
+    const sheet = document.createElement("dialog");
+    sheet.className = "filter-sheet";
+    sheet.setAttribute("aria-label", "篩選與排序");
+    sheet.innerHTML = '<div class="filter-sheet-head"><h2>篩選與排序</h2><button type="button" class="filter-sheet-x" aria-label="關閉">×</button></div><div class="filter-sheet-body"></div><div class="filter-sheet-foot"><button type="button" class="button secondary" data-filter-clear>清除</button><button type="button" class="button primary" data-filter-done>看結果</button></div>';
+    document.body.append(sheet);
+    const body = sheet.querySelector(".filter-sheet-body");
+    const mq = matchMedia("(max-width: 700px)");
+    const placeLabels = () => {
+      if (mq.matches) body.append(...labels);
+      else open.after(...labels);
+    };
+    const count = () => {
+      const n = ["#category", "#country"].filter((id) => $(id)?.value).length + ($("#sort")?.value && $("#sort").value !== "recommended" ? 1 : 0);
+      const badge = open.querySelector("[data-filter-count]");
+      badge.textContent = n;
+      badge.hidden = !n;
+      const result = $("#result-count")?.textContent || "";
+      sheet.querySelector("[data-filter-done]").textContent = /\d+/.test(result) ? `看 ${result.match(/\d+/)[0]} 件` : "看結果";
+    };
+    placeLabels();
+    mq.addEventListener?.("change", placeLabels);
+    open.addEventListener("click", () => { count(); sheet.showModal(); });
+    sheet.addEventListener("click", (e) => {
+      if (e.target === sheet || e.target.closest(".filter-sheet-x, [data-filter-done]")) sheet.close();
+      if (e.target.closest("[data-filter-clear]")) { document.querySelector(".category-reset")?.click(); setTimeout(count, 50); }
+    });
+    sheet.addEventListener("change", () => setTimeout(count, 50));
+    window.addEventListener("catalog-rendered", count);
+    count();
+  }
+  statusIndicator();
+  filterSheet();
   pinUnderHeader();
   edgeFades();
   const collectEvents = () => CatalogCore.collectEvents(products);

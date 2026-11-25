@@ -26,5 +26,7 @@ test('key-facts card: open campaigns get facts written from the article itself; 
   assert.match(fs.readFileSync(new URL('../articles/sheet-offer.js', import.meta.url), 'utf8'), /mountKeyFacts\?\.\(key, campaign/);
   assert.match(fs.readFileSync(new URL('../articles/article.js', import.meta.url), 'utf8'), /mountKeyFacts\?\.\(articleKey,c,/);
   const source = fs.readFileSync(new URL('../product-content.js', import.meta.url), 'utf8');
-  assert.match(source, /\['open','upcoming'\]\.includes\(c\.state\)/, 'closed campaigns show no card');
+  // Hiram 2026-11-25：結團也要有下一步——重點卡改成「已結團＋加入 LINE」，只有狀態不明時不出卡。
+  assert.match(source, /\['open','upcoming','closed'\]\.includes\(c\.state\)/);
+  assert.match(source, /這一檔已結團[\s\S]*?lineNotifyLink\(\{surface:'article_key_facts'/);
 });

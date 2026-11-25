@@ -25,8 +25,19 @@
         if (open) { link.target = '_blank'; link.rel = 'noopener noreferrer'; } else { link.removeAttribute('target'); link.removeAttribute('rel'); }
         link.textContent = open ? (link.dataset.openLabel || text) : retry ? '重新確認團購狀態' : text;
         if (retry) link.setAttribute('aria-disabled', 'true'); else link.removeAttribute('aria-disabled');
+        delete link.dataset.lineNotify; delete link.dataset.lineProduct; link.classList.remove('is-line-notify');
       }
       floating?.setAvailable(open);
+    }
+    // 結團或還沒開團：購買鈕改成「開團通知我・加入 LINE」，浮動鈕照樣出現（Hiram 2026-11-25：結團就導 LINE）。
+    function notify(state) {
+      const label = state === 'upcoming' ? '開團提醒我・LINE ↗' : '開團通知我・LINE ↗';
+      for (const {link} of links) {
+        link.setAttribute('href', ProductContent.LINE_COMMUNITY); link.target = '_blank'; link.rel = 'noopener noreferrer';
+        link.textContent = label; link.removeAttribute('aria-disabled');
+        link.dataset.lineNotify = 'article_offer'; link.dataset.lineProduct = item.brands[0]; link.classList.add('is-line-notify');
+      }
+      floating?.setAvailable(true);
     }
     async function refresh() {
       if (busy) return; busy = true;
@@ -37,7 +48,10 @@
         const parsed = Papa.parse(csv, {header: false, skipEmptyLines: true}); if (parsed.errors.length) throw Error('Invalid CSV');
         const campaign = ProductContent.campaignFor(ProductContent.sheetRows(parsed.data), key);
         ProductContent.mountKeyFacts?.(key, campaign, campaign.state === 'open' ? {buy: {href: ProductContent.withUTM(campaign.url, item.brands[0])}} : {});
-        if (campaign.state !== 'open') { set(false); status.textContent = '目前沒有開放中的團購；文章仍可繼續閱讀，下次開團時這裡會出現購買入口。'; return; }
+        if (campaign.state !== 'open') {
+          if ((campaign.state === 'closed' || campaign.state === 'upcoming') && ProductContent.LINE_COMMUNITY) { notify(campaign.state); status.textContent = campaign.state === 'upcoming' ? '這一檔還沒開團；加入 LINE 社群，開團當天會通知你。' : '這一檔已結團；加入 LINE 社群，下次開團、補貨會第一時間通知你。'; return; }
+          set(false); status.textContent = '目前沒有開放中的團購；文章仍可繼續閱讀，下次開團時這裡會出現購買入口。'; return;
+        }
         set(true, ProductContent.withUTM(campaign.url, item.brands[0]));
         const end = campaign.end ? campaign.end.replace(/^(\d{4})-(\d{2})-(\d{2})$/, '$1/$2/$3') : '';
         status.textContent = end ? `本期團購至 ${end} 23:59。` : '這一檔正在開團。';

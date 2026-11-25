@@ -59,10 +59,18 @@
     <nav class="reading-nav__panel" id="reading-nav-panel" aria-label="文章章節導覽" inert>
       <div class="reading-nav__heading"><span>這篇怎麼讀</span><button class="reading-nav__close" type="button" aria-label="收合文章目錄">×</button></div>
       <ol class="reading-nav__list"></ol>
-    </nav>`;
+    </nav>
+    <div class="reading-nav__progress" aria-hidden="true"><span></span></div>
+    <button class="reading-nav__now" type="button" aria-controls="reading-nav-panel"><span class="reading-nav__now-kicker">目前在</span><span class="reading-nav__now-label"></span><span aria-hidden="true">›</span></button>`;
   const tab = root.querySelector('.reading-nav__tab');
   const panel = root.querySelector('.reading-nav__panel');
   const list = root.querySelector('.reading-nav__list');
+  // C：閱讀進度線（header 下方）＋「目前在：○○」小膠囊（手機、平板，點了展開目錄）。
+  const progressBar = root.querySelector('.reading-nav__progress span');
+  const nowChip = root.querySelector('.reading-nav__now');
+  const nowLabel = root.querySelector('.reading-nav__now-label');
+  root.classList.add('has-now');
+  nowChip.addEventListener('click', () => setOpen(true));
   entries.forEach(entry => {
     const item = document.createElement('li');
     const link = document.createElement('a');
@@ -168,6 +176,11 @@
     for (const entry of entries) {
       if (entry.target.getBoundingClientRect().top <= top + 100) active = entry;
     }
+    const articleRect = article.getBoundingClientRect();
+    const total = Math.max(1, articleRect.height - innerHeight + top);
+    progressBar.style.transform = `scaleX(${Math.min(1, Math.max(0, (top - articleRect.top) / total))})`;
+    const nowText = ((active || entries[0]).sideLink?.textContent || (active || entries[0]).link?.textContent || '').trim();
+    if (nowLabel.textContent !== nowText) { nowLabel.textContent = nowText; nowChip.setAttribute('aria-label', `目前在：${nowText}，展開文章目錄`); }
     if (active !== current) {
       current = active;
       for (const entry of entries) {

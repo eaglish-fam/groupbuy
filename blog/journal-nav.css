@@ -35,3 +35,11 @@ html { scroll-padding-top: 150px; }
   .journal-chrome .article-filters { transition: none; }
   html { scroll-behavior: auto; }
 }
+/* G（2026-11）：分類標籤不再是一整塊綠色。選中的是紙色膠囊＋墨色字＋細邊，和三站其他分頁同一套；綠色只當點綴。
+   這一排也和買物社一樣，左右兩邊都淡出（journal-home.js 依捲動位置加 has-more-start／has-more-end）。 */
+.journal-chrome .filter-scroll button{border-color:var(--line);background:transparent;color:var(--muted,#676d60)}
+.journal-chrome .filter-scroll button[aria-pressed="true"]{background:#fffdf8;border-color:var(--ink,#343a30);color:var(--ink,#343a30);box-shadow:0 1px 6px rgba(52,58,48,.12)}
+.journal-chrome .filter-scroll button:hover{border-color:var(--ink,#343a30);color:var(--ink,#343a30)}
+.journal-chrome .filter-scroll,.journal-chrome .status-scroll{--fade-start:0px;--fade-end:0px;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-start),#000 calc(100% - var(--fade-end)),transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-start),#000 calc(100% - var(--fade-end)),transparent 100%)}
+.journal-chrome .has-more-start{--fade-start:28px}
+.journal-chrome .has-more-end{--fade-end:28px}
