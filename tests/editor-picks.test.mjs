@@ -90,3 +90,26 @@ test('journal home: campaign banner on every width, status navigation, and the n
   assert.match(script, /document|doc\.hidden/);
   assert.match(script, /JournalHome/);
 });
+
+test('homepage carousel switches to open campaigns once the Sheet loads: timed first by end date, evergreens fill up to eight', () => {
+  const all = [
+    { key: 'a', article: '/blog/a/', published: '2026-11-01', title: 'A' },
+    { key: 'b', article: '/blog/b/', published: '2026-11-02', title: 'B' },
+    { key: 'c', article: '/blog/c/', published: '2026-11-03', title: 'C' },
+    { key: 'd', article: '/blog/d/', published: '2026-11-04', title: 'D' },
+  ];
+  const open = (href, end, long = false) => ({ article: { article: href }, status: { key: 'open', long }, end, url: 'https://shop.example/' + href, key: href });
+  const picks = EditorPicks.openPicks(all, [
+    open('/blog/a/', '2026-12-10'),
+    open('/blog/b/', '', true),
+    open('/blog/c/', '2026-11-30'),
+    { article: { article: '/blog/d/' }, status: { key: 'closed' }, end: '2026-11-01' },
+    { kind: 'book', article: { article: '/blog/a/' }, status: { key: 'open' } },
+  ], Date.parse('2026-11-25T12:00:00+08:00'));
+  assert.deepEqual(picks.map(p => p.key), ['c', 'a', 'b']);
+  assert.equal(picks[0].campaign.url, 'https://shop.example//blog/c/');
+  assert.equal(picks[2].campaign.end, '');
+  const script = fs.readFileSync(new URL('../design/editor-picks.js', import.meta.url), 'utf8');
+  assert.match(script, /catalog-rendered/);
+  assert.match(script, /dataset\.buyKey/);
+});

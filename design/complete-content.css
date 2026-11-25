@@ -688,3 +688,27 @@ html { scroll-padding-top: 150px; }
   .content-nav a { min-height: 46px; padding: 0 10px; font-size: 14px; }
   html { scroll-padding-top: 136px; }
 }
+
+/* 首頁大圖輪播（2026-11）：Sheet 載入後只放開團中的選物。圖上「開團中・剩 N 天」，標題旁「去團購」。 */
+.hero-caption.has-buy { gap: 14px; align-items: center; justify-content: space-between; }
+.hero-caption.has-buy strong { flex: 1 1 auto; }
+.hero-buy {
+  flex: none; pointer-events: auto;
+  display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 16px;
+  border-radius: 999px; background: var(--ink); color: #fffdf8;
+  font-size: 14px; font-weight: 700; text-decoration: none; white-space: nowrap;
+}
+.hero-buy:hover { background: #22271f; }
+.hero-buy:focus-visible { outline: 3px solid var(--orange); outline-offset: 2px; }
+.photo-index.hero-campaign-badge {
+  top: 16px; left: 16px; right: auto;
+  border-radius: 999px; padding: 5px 12px;
+  background: rgba(255, 253, 248, .92); color: var(--olive);
+  font: 700 12px/1.4 -apple-system, BlinkMacSystemFont, "PingFang TC", "Microsoft JhengHei", sans-serif; letter-spacing: .02em;
+}
+.photo-index.hero-campaign-badge.is-urgent { background: var(--orange); color: #fffdf8; }
+@media (max-width: 700px) {
+  .photo-index.hero-campaign-badge { display: inline-flex; top: 10px; left: 10px; font-size: 11px; padding: 3px 10px; }
+  .hero-caption.has-buy { gap: 10px; }
+  .hero-buy { min-height: 36px; padding: 0 12px; font-size: 13px; }
+}
