@@ -21,7 +21,7 @@
       "cluster": null,
       "published": "2026-11-10",
       "modified": "2026-11-10",
-      "sourceHash": "dceef8e2fda73335c25d6e8d0110296e0f221afca2c0b8418c06898f6019f1a0"
+      "sourceHash": "4932862ed0910f6c25316b74c9dc587a634443e9ac9e4265ddcec30036d75981"
     },
     {
       "slug": "artisan-cb301",
@@ -40,7 +40,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "456c963d442b641076261dad06599ade17524eaed4ee668174ec2f16c6349e19"
+      "sourceHash": "c7e9ed816c80bc7e80efc9c16cdd1c7f9a26038830a8e5e9bf9e528a2e448c08"
     },
     {
       "slug": "atojet",
@@ -59,7 +59,7 @@
       "cluster": "home",
       "published": "2026-09-08",
       "modified": "2026-09-11",
-      "sourceHash": "b7f73ea8e2689e5bedaa571dd59c278903a9a303b911df0cd4ca908cc32c7cc6"
+      "sourceHash": "165b820d533b8d31ac2ddf380c8c034b7de5560513b35e2acb5b51ac5f7a0685"
     },
     {
       "slug": "bernie",
@@ -79,7 +79,7 @@
       "cluster": null,
       "published": "2026-11-06",
       "modified": "2026-11-06",
-      "sourceHash": "f7f5966154dad8f042da3c681631a51f76d6cd886b62d4b4d9da083ab2d9c19f"
+      "sourceHash": "059b6fd6a5bfa5c7d06f66dfa6635e2abfb502a0d0637cea29829dc5adfac9a3"
     },
     {
       "slug": "blackmores",
@@ -101,7 +101,7 @@
       "cluster": null,
       "published": "2026-10-19",
       "modified": "2026-10-22",
-      "sourceHash": "0d4eab18169752f75f8ace6080c1832eb41c3d4859ce8cd641c5fce7a28ae4ab"
+      "sourceHash": "1c22dc69b90d82770b5a989b20a6cbe030adb8e41ea8c02873db1ddafdf61fcc"
     },
     {
       "slug": "branden",
@@ -120,7 +120,7 @@
       "cluster": null,
       "published": "2026-09-24",
       "modified": "2026-09-24",
-      "sourceHash": "ad1ada891239c8e3a2a742674eda296dd08906aa4f85741340fdd7e5d9870c11"
+      "sourceHash": "86b72a9774f9796518bff1670cdcfb0676dcc20d9ee6459863c5f4065c9f8941"
     },
     {
       "slug": "brush-baby",
@@ -142,7 +142,7 @@
       "cluster": null,
       "published": "2026-11-13",
       "modified": "2026-11-13",
-      "sourceHash": "3ef881ca779908af050572bd98162f77803fb746980aef770ffe8460e7460a63"
+      "sourceHash": "d085cff606363ca06f85d349f2d32e29a288a5f878d972c306f07745673fba90"
     },
     {
       "slug": "caesar-kenting",
@@ -164,7 +164,7 @@
       "cluster": "travel",
       "published": "2026-09-13",
       "modified": "2026-09-14",
-      "sourceHash": "a4b574b3ea24f1e10b4bc06b805afd32d287a5d0c552b0570d48b94a3f435844"
+      "sourceHash": "f40acef0ed8466d4d9b61b41dd72b3911f01531b19371b0afb8cfd3e345a9411"
     },
     {
       "slug": "chulu-aomori-drinks",
@@ -186,7 +186,7 @@
       "cluster": "table",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "5640d37fd59060a71a6500ad28787b456c87a197facace764f7304723e543d84"
+      "sourceHash": "cb84f290e5f39b846dd694e39b82f207aaba4413440cafee2bfc6c3dc0abfcab"
     },
     {
       "slug": "done-by-deer",
@@ -206,7 +206,7 @@
       "cluster": null,
       "published": "2026-10-22",
       "modified": "2026-10-22",
-      "sourceHash": "29a986da138e56d3918207df7c6a2429ba5611d344e959856ce8dd88cc093758"
+      "sourceHash": "813553f27f1082e1072a7fc566fae29c812d6469ae2724b5422233019981dd15"
     },
     {
       "slug": "eben-kombucha",
@@ -226,7 +226,7 @@
       "cluster": null,
       "published": "2026-09-29",
       "modified": "2026-09-29",
-      "sourceHash": "63712a76cd0ae0fb4b851df22b8db3c63a2378547473c400362574fa503718db"
+      "sourceHash": "b5de9515b3fc5362b6ab18dd82e2a11ee1097a629487819096903097fcd2f8a7"
     },
     {
       "slug": "fushan-gifts",
@@ -248,7 +248,7 @@
       "cluster": "table",
       "published": "2026-09-12",
       "modified": "2026-09-12",
-      "sourceHash": "37c8b581db215e86c2120fb6f6210c1120fee9f190633b8f166886e6368d8985"
+      "sourceHash": "85f1218e0b174afe44bc490045690fe434eb120b34a10182e95098a57d2a8443"
     },
     {
       "slug": "hereu-tag",
@@ -270,7 +270,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "1c3584f7283e8d7a799bac1a0ae3a2a83bde34e02799a26870be3c79a28a89bc"
+      "sourceHash": "a3254da4781bad4ed2e13e0d59a51c78b6573143d18987fd109e2f8ceb97ffae"
     },
     {
       "slug": "hummus-guide",
@@ -298,7 +298,7 @@
       "prepared": "2026-10-13",
       "published": "2026-10-13",
       "modified": "2026-10-13",
-      "sourceHash": "acdde50991b7b07a89c4fc5cb9d9ee84a57570f3025a485f614226db4271359c"
+      "sourceHash": "b000b95316f46bf27f7fe1ec7ef9c3b75e2b60c39c30ff5f0ab3d30b1dd8214c"
     },
     {
       "slug": "ilovekids-rotating-bookcase",
@@ -320,7 +320,7 @@
       "cluster": null,
       "published": "2026-11-10",
       "modified": "2026-11-10",
-      "sourceHash": "bda59fba2f6cf5171857ed7c69dd8de343a52aead347088c5e4bb615e26ff8e0"
+      "sourceHash": "095b54174b489fc5ef1d3155ac66d2936653fdc62f9c03ee79199954984c2454"
     },
     {
       "slug": "insta360-ezway",
@@ -351,7 +351,7 @@
       "prepared": "2026-11-17",
       "published": "2026-11-17",
       "modified": "2026-11-17",
-      "sourceHash": "afd23cf9a5c24d96605e8f4797bd0a6d17cfd404fca0c544578197ba7cd643bd"
+      "sourceHash": "fac079fe099b03d51f80609f1938e54638bb962ad120dcf023465c1f434ab4b5"
     },
     {
       "slug": "jan-jul-winter",
@@ -374,7 +374,7 @@
       "cluster": null,
       "published": "2026-11-22",
       "modified": "2026-11-22",
-      "sourceHash": "eb9d656f14f8ac29b5a93785f88bbc31b61b19c53841740e309095d7f2d1add6"
+      "sourceHash": "e0a34f2451ed92b6f259c55606e52a406dae0be232e34ebfef897db5d5ff1ba7"
     },
     {
       "slug": "jowua",
@@ -396,7 +396,7 @@
       "cluster": null,
       "published": "2026-11-16",
       "modified": "2026-11-16",
-      "sourceHash": "8359968cd00beef021f75aac70ad2dc8bc71c79189d76c3ab1d70d45fcb9762e"
+      "sourceHash": "91403da9657b0462c35c0785a827a498d5b6009252d62d0820b1089be17eec04"
     },
     {
       "slug": "kids-active-toys",
@@ -419,7 +419,7 @@
       "cluster": null,
       "published": "2026-11-10",
       "modified": "2026-11-10",
-      "sourceHash": "2de8d05964a6660f878f396b8bbb0f39069a0a72b51427cecf5ed3cbf5ebb736"
+      "sourceHash": "eaa411bc5015b5d3aaa7e95de78b9c8670d7aada18c497a2fbef874a9d28c4d2"
     },
     {
       "slug": "kidsread",
@@ -454,7 +454,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "d466933987325535b00a56ded77a65017f322bb69b9eb7af848354813d6bf973"
+      "sourceHash": "159a3f623ffcc13db31c34c4582de7053ced4f7be4ebf0931595f9090e01b537"
     },
     {
       "slug": "kidsread-chinese",
@@ -489,7 +489,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "2b238323904056d8e41d543648cbbb642fc841861b119083dd30b45617e6e50a"
+      "sourceHash": "5a7a608df06fd9268b2eace5ed9ff6eccd4cb6d25fddc28779c01172bdde21ca"
     },
     {
       "slug": "kidsread-english",
@@ -524,7 +524,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "e4b30acb32ac4a8d58e363b5c210286bb19a654c038c5fa6bfa8979f43b0f571"
+      "sourceHash": "cdb90252452714b57ff009bfdeb66ecd3af16fb899eeb8d2c188007df3b0f2d8"
     },
     {
       "slug": "kidsread-pen",
@@ -559,7 +559,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "12f4174ef78a2c38c5a4f08a2fce2921704df8cb0f393afc6bc5b4455dd9a27f"
+      "sourceHash": "7bf9ad1d701f255f0b91140e9ac8aa1f9482251b8ddc0d20db3fec997d87275e"
     },
     {
       "slug": "kidsread-phonics-roadmap",
@@ -594,7 +594,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "85e1816252a9cc6f9359ac8b1e07aeb2e30a49de3d89fe954efcc54a4eac43cc"
+      "sourceHash": "b0056b5655ca893277380475138c96c3b628ec4f8a9a916546ef920fe69ae680"
     },
     {
       "slug": "kidsread-zhuyin",
@@ -629,7 +629,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "962c3bc649b2718fa183b9ae23ddf7c4d3e131e073f8df56f3d42e95f01962f3"
+      "sourceHash": "f5c708561dd48c0eb779d21d628f62562120c93c1c6ea86e7f14b1a8d6dcdee0"
     },
     {
       "slug": "kietla-kids-sunglasses",
@@ -652,7 +652,7 @@
       "cluster": "travel",
       "published": "2026-09-11",
       "modified": "2026-09-11",
-      "sourceHash": "1df2a463ce74e157030be63aa02226fb2aabf687aa610279e16ecd957b813d89"
+      "sourceHash": "9c3a5a712eaa3bb3c5979872251db6f1061eab6d4d918c197b936264cac27ce0"
     },
     {
       "slug": "knsh",
@@ -692,7 +692,7 @@
       "cluster": "family",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "bfd8bb6122f2d557241a6e7b22c63d432b8173fab461c45cb29cdf81fec89c5b"
+      "sourceHash": "1290eec78068ec2273f943efa4699f36b0f2586af8e1ea5168de6c4205a9897a"
     },
     {
       "slug": "leofoo",
@@ -738,7 +738,7 @@
       "cluster": null,
       "published": "2026-10-08",
       "modified": "2026-10-08",
-      "sourceHash": "26f403e99cb38c84e369d8933b265bf66067fbcdba06163c664c1c09accbaacc"
+      "sourceHash": "c03d9dd48deb4711a12b41c4bd457b62dccd80b28abb86cdebac7baf32a43186"
     },
     {
       "slug": "meroware",
@@ -757,7 +757,7 @@
       "cluster": "family",
       "published": "2026-09-09",
       "modified": "2026-09-11",
-      "sourceHash": "712f72266365da3129de40e87e146b9e87c70a20ee9b65cfae827700ad3ef663"
+      "sourceHash": "31c3e6f6a89664beae8df2e179c203acd157dd760993833ad4c3028b40ca4224"
     },
     {
       "slug": "miamily",
@@ -778,7 +778,7 @@
       "cluster": "travel",
       "published": "2026-09-16",
       "modified": "2026-11-06",
-      "sourceHash": "bed6535ef39750617491c56acafd3b19b2b80623fac0608f337b52a5bd0e59ab"
+      "sourceHash": "9e9271badc9e1c67dac0e7c4cbb6585b7abc2607d4549f3fd5c9b137f90dfe2a"
     },
     {
       "slug": "mitoy-rice-blocks",
@@ -797,7 +797,7 @@
       "cluster": "family",
       "published": "2026-09-10",
       "modified": "2026-09-11",
-      "sourceHash": "a834181842d4f60dc576dad7da3023fa3aa68a25fb9e8cb6bfce6f387bf079fd"
+      "sourceHash": "04119b0994fec39b505830334509614555a0b73b04b49b0497589bf024ef11e4"
     },
     {
       "slug": "momax-locator",
@@ -823,7 +823,7 @@
       "cluster": null,
       "published": "2026-11-10",
       "modified": "2026-11-20",
-      "sourceHash": "c38214a26e7e9652f0185901c0551c8bff234e6d4288906d5f01a5283a4864a1"
+      "sourceHash": "ef93654f23d98bb74fa45a09d7a85285d64b7adf13a88851f9f76ae2dc4aaa44"
     },
     {
       "slug": "parakito",
@@ -844,7 +844,7 @@
       "cluster": null,
       "published": "2026-10-15",
       "modified": "2026-10-15",
-      "sourceHash": "38579e9945d1d2db81d81ad3bcce3427ae093ca31691113e89773df42b910090"
+      "sourceHash": "15cdc3592c7484270be33ba964f307591b58fb6a7928b9e27ff3e1aaf155ac64"
     },
     {
       "slug": "playzu",
@@ -865,7 +865,7 @@
       "cluster": "family",
       "published": "2026-09-11",
       "modified": "2026-11-20",
-      "sourceHash": "0c3a970f21289b4d61333f5f020833699fa97ebd4a8ef46eebdb786fba28c9ac"
+      "sourceHash": "cabe662fb639a83d5d2582c994e2a23c29649798263aa98e9217be815f833de3"
     },
     {
       "slug": "sanfufarm",
@@ -889,7 +889,7 @@
       "cluster": "travel",
       "published": "2026-10-23",
       "modified": "2026-10-23",
-      "sourceHash": "c64a07bb1491ffd4d948c0edf8a7530ec09569e22cd760468645a751aa5b7551"
+      "sourceHash": "f2dc559492a69463127d8285aaa05322c8eb1e3c7a880973421e0d6252482b8c"
     },
     {
       "slug": "shinwa-living",
@@ -911,7 +911,7 @@
       "cluster": "home",
       "published": "2026-10-14",
       "modified": "2026-10-14",
-      "sourceHash": "4469270fc6c3dd5e414c4846dda4509329a10931fe630ca97bd974a9bd76c5dc"
+      "sourceHash": "403aecb7ef22c65725b507cbb89a422a29cc76b70b415a6147ec1769cb5db80e"
     },
     {
       "slug": "shoumaji",
@@ -932,7 +932,7 @@
       "cluster": "travel",
       "published": "2026-09-17",
       "modified": "2026-09-17",
-      "sourceHash": "d42106303c12713468a6e6250ccbe0f91cce69013b3188e9be0e382c35f48121"
+      "sourceHash": "229ddfbf501a9bd8c4ffa2990006796605cf1596403a47ed154b750f3072d162"
     },
     {
       "slug": "wave-hummus",
@@ -951,7 +951,7 @@
       "cluster": "table",
       "published": "2026-09-08",
       "modified": "2026-11-06",
-      "sourceHash": "51bb58be6fc84b0f2a35d420e2d02dba4914e35c7ef415d3fdcbc2571919b920"
+      "sourceHash": "1683c69dec820ecb4689996565e5605e61c6b3f5422382c8cd101c8977fc203d"
     },
     {
       "slug": "zoofamily-kids-camera",
@@ -971,7 +971,7 @@
       "cluster": null,
       "published": "2026-11-06",
       "modified": "2026-11-06",
-      "sourceHash": "f31f8f3588275c5a4f4c8a65db9c9386d420c567b5a6d7fb356070d6f1523d1d"
+      "sourceHash": "b7ff74bee340bc64aa17804b65f5ef9db5805480b74da18aa9474fb68de106be"
     }
   ]
 }
