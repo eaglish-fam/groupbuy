@@ -2,7 +2,12 @@
   const sheetUrl = 'https://docs.google.com/spreadsheets/d/1-RuyD9eCkrDpgFFXGHRWaTF-LYKaDK-MxAw3uNMozeU/gviz/tq?tqx=out:csv&headers=1&sheet=' + encodeURIComponent('現正開團');
   const cards = [...document.querySelectorAll('[data-article]')]
     .sort((a,b) => BlogIndexModel.newestFirst(a.dataset.published || a.dataset.prepared,b.dataset.published || b.dataset.prepared));
-  const shelves = Object.fromEntries(['open','upcoming','journal'].map(k => [k, document.querySelector('[data-shelf="' + k + '"]')]));
+  // 知識指南（explainer）有自己的書架；舊頁面或測試沒有那一格時，照舊放進選物文章。
+  const shelves = Object.fromEntries(['open','upcoming','journal','guides'].map(k => [k, document.querySelector('[data-shelf="' + k + '"]')]).filter(([, el]) => el));
+  // 知識文可以用 data-campaign-key 掛上一個型錄團購（例如 KidsRead 入口頁），就照那一檔顯示開團狀態。
+  const campaignKey = card => card.dataset.campaignKey || card.dataset.article;
+  const kindOf = card => card.dataset.campaignKey ? 'product' : card.dataset.contentKind;
+  const shelfFor = (card, state) => (state.shelf === 'journal' && card.dataset.contentKind === 'explainer' && !card.dataset.campaignKey && shelves.guides) ? shelves.guides : shelves[state.shelf];
   const filterButtons = [...document.querySelectorAll('[data-blog-category]')];
   const availableCategories = new Set(cards.map(card => card.dataset.category).filter(Boolean));
   const filterEmpty = document.querySelector('#filter-empty');
@@ -27,7 +32,7 @@
       const visible = [...shelf.querySelectorAll('[data-article]')].filter(card => !card.hidden).length;
       visibleTotal += visible;
       shelf.classList.toggle('is-filtered', Boolean(currentCategory));
-      document.querySelector('[data-empty="' + key + '"]').hidden = visible > 0;
+      const emptyNote = document.querySelector('[data-empty="' + key + '"]'); if (emptyNote) emptyNote.hidden = visible > 0;
       shelf.closest('.shelf').hidden = Boolean(currentCategory) && visible === 0;
     }
     filterEmpty.hidden = visibleTotal > 0;
@@ -46,7 +51,7 @@
   }
   function render(rows) {
     for (const card of cards) {
-      const state = BlogIndexModel.stateForArticle(rows, card.dataset.article, undefined, card.dataset.contentKind);
+      const state = BlogIndexModel.stateForArticle(rows, campaignKey(card), undefined, kindOf(card));
       card.dataset.state = state.shelf;
       card.querySelector('[data-status]').textContent = state.label;
       const buy = card.querySelector('[data-buy]');
@@ -55,9 +60,10 @@
         if (state.url) { buy.href = state.url; buy.target = '_blank'; buy.rel = 'noopener noreferrer'; }
         else buy.removeAttribute('href');
       }
-      shelves[state.shelf].append(card);
+      shelfFor(card, state).append(card);
     }
     applyCategory(currentCategory, false);
+    window.JournalHome?.update?.(cards, rows);
     day = ProductContent.today();
     refreshedAt = Date.now();
   }
@@ -65,12 +71,13 @@
     refreshedAt = 0;
     for (const card of cards) {
       card.dataset.state = 'journal';
-      card.querySelector('[data-status]').textContent = BlogIndexModel.stateForArticle([], card.dataset.article, undefined, card.dataset.contentKind).label;
+      card.querySelector('[data-status]').textContent = BlogIndexModel.stateForArticle([], campaignKey(card), undefined, kindOf(card)).label;
       const buy = card.querySelector('[data-buy]');
       if (buy) { buy.hidden = true; buy.removeAttribute('href'); }
-      shelves.journal.append(card);
+      shelfFor(card, {shelf: 'journal'}).append(card);
     }
     applyCategory(currentCategory, false);
+    window.JournalHome?.update?.(cards, null);
   }
   function refresh() {
     if (inFlight) return inFlight;
@@ -100,7 +107,7 @@
     const button = e.target.closest('[data-blog-category]');
     if (!button) return;
     applyCategory(button.dataset.blogCategory);
-    document.querySelector('#open-now:not([hidden]), #upcoming:not([hidden]), #journal:not([hidden])')?.scrollIntoView({behavior:'smooth',block:'start'});
+    document.querySelector('#open-now:not([hidden]), #upcoming:not([hidden]), #journal:not([hidden]), #guides:not([hidden])')?.scrollIntoView({behavior:'smooth',block:'start'});
   });
   window.addEventListener('popstate', () => applyCategory(new URLSearchParams(location.search).get('category') || '', false));
   setInterval(() => { if (!document.hidden && (day !== ProductContent.today() || Date.now() - refreshedAt > 300000)) refresh(); }, 60000);
@@ -108,7 +115,8 @@
     const a = e.target.closest('[data-buy]');
     if (!a) return;
     e.preventDefault();
-    const key = a.closest('[data-article]')?.dataset.article;
+    const owner = a.closest('[data-article]');
+    const key = owner && campaignKey(owner);
     if (!ProductContent.catalog[key]) return;
     if (buying) return;
     buying = true;
@@ -120,7 +128,9 @@
       if (!c || c.state !== 'open') { pending?.close(); return; }
       const destination = ProductContent.withUTM(c.url, ProductContent.catalog[key].brands[0]);
       const article = ProductContent.catalog[key];
-      window.SiteAnalytics?.outboundGroupbuy({ productId: article.id, productName: article.brands[0], groupType: c.end ? 'limited' : 'evergreen', sourceSurface: 'blog_index_card', articleSlug: article.article.split('/').filter(Boolean).at(-1), destinationUrl: destination, ctaLabel: a.textContent, campaignKey: c.end || 'evergreen', legacyEvent: 'click_group_from_blog' });
+      // KidsRead 這類型錄沒有 article（入口頁是知識文），用卡片自己的連結當 slug
+      const articleHref = owner.querySelector('a[href^="/blog/"]')?.getAttribute('href') || '';
+      window.SiteAnalytics?.outboundGroupbuy({ productId: article.id, productName: article.brands[0], groupType: c.end ? 'limited' : 'evergreen', sourceSurface: 'blog_index_card', articleSlug: String(article.article || articleHref).split('/').filter(Boolean).at(-1), destinationUrl: destination, ctaLabel: a.textContent, campaignKey: c.end || 'evergreen', legacyEvent: 'click_group_from_blog' });
       if (pending && !pending.closed) pending.location.replace(destination);
       else location.assign(destination);
     } finally { buying = false; }
