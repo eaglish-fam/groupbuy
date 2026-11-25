@@ -363,7 +363,7 @@ function registerCards() {
 function registerCatalog() {
   const path = 'product-content.js';
   let s = read(path);
-  const line = `    kidsread:{id:'kidsread',brands:['Kidsread 點讀筆'],article:null,title:'KidsRead 點讀筆',excerpt:'錄音點讀筆與中英文點讀教材：自然發音、英文繪本、注音、知識立體書，依孩子年齡挑。',category:'親子學習',image:'/assets/kidsread/covers/hub.webp',cardImage:'/assets/kidsread/covers/hub.webp',published:'${PUBLISHED}'},\n`;
+  const line = `    kidsread:{id:'kidsread',brands:['Kidsread 點讀筆'],article:null,contentUrl:'/blog/kidsread/',title:'KidsRead 點讀筆',excerpt:'錄音點讀筆與中英文點讀教材：自然發音、英文繪本、注音、知識立體書，依孩子年齡挑。',category:'親子學習',image:'/assets/kidsread/covers/hub.webp',cardImage:'/assets/kidsread/covers/hub.webp',published:'${PUBLISHED}'},\n`;
   s = s.replace(/^ {4}kidsread:\{[^\n]*\n/m, '');
   const at = s.search(/^ {4}fushanFrozen:\{/m);
   if (at < 0) throw Error('product-content.js: anchor fushanFrozen not found');
