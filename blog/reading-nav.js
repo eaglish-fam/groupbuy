@@ -54,7 +54,7 @@
   root.innerHTML = `
     <button class="reading-nav__shade" type="button" tabindex="-1" aria-label="收合文章目錄"></button>
     <button class="reading-nav__tab" type="button" aria-expanded="false" aria-controls="reading-nav-panel" aria-label="展開文章目錄">
-      <span class="reading-nav__tab-label">文章目錄</span><span class="reading-nav__chevron" aria-hidden="true">›</span>
+      <span class="reading-nav__tab-label">文章目錄</span><span class="reading-nav__chevron" aria-hidden="true">›</span><span class="reading-nav__ticks" aria-hidden="true"></span>
     </button>
     <nav class="reading-nav__panel" id="reading-nav-panel" aria-label="文章章節導覽" inert>
       <div class="reading-nav__heading"><span>這篇怎麼讀</span><button class="reading-nav__close" type="button" aria-label="收合文章目錄">×</button></div>
@@ -71,7 +71,12 @@
   const nowLabel = root.querySelector('.reading-nav__now-label');
   // 「目前在」膠囊先不開：手機、平板保留左側直立的文章目錄標籤（Hiram 2026-11-25：「原本全站有懸浮的文章列表……你全部把它拿掉了」）。
   nowChip.addEventListener('click', () => setOpen(true));
+  // D（Hiram 2026-11-25 選「刻度條」）：手機、平板左邊一排細線，一章一條；讀過的變深綠、正在讀的拉長變鏽紅；點了展開目錄。
+  const ticks = root.querySelector('.reading-nav__ticks');
+  root.classList.add('has-ticks');
   entries.forEach(entry => {
+    entry.tick = document.createElement('i');
+    ticks.append(entry.tick);
     const item = document.createElement('li');
     const link = document.createElement('a');
     link.href = entry.link.hash;
@@ -183,6 +188,12 @@
     if (nowLabel.textContent !== nowText) { nowLabel.textContent = nowText; nowChip.setAttribute('aria-label', `目前在：${nowText}，展開文章目錄`); }
     if (active !== current) {
       current = active;
+      const activeIndex = entries.indexOf(active);
+      entries.forEach((entry, index) => {
+        entry.tick.classList.toggle('is-done', activeIndex > index);
+        entry.tick.classList.toggle('is-on', activeIndex === index);
+      });
+      tab.setAttribute('aria-label', active ? `展開文章目錄，目前在第 ${activeIndex + 1} 章，共 ${entries.length} 章` : '展開文章目錄');
       for (const entry of entries) {
         for (const link of [entry.link, entry.sideLink]) {
           if (entry === active) link.setAttribute('aria-current', 'location');
