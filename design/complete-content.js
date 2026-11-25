@@ -58,6 +58,7 @@
   }
   function resourceShelves() {
     if (!loaded) return;
+    navCounts();
     for (const kind of ["coupon", "book", "edu"]) {
       const list = products.filter((p) =>
         kind === "coupon"
@@ -85,6 +86,56 @@
       }
     }
   }
+  // 頂部導覽：開團好物、折扣碼附上數量；捲動時標出目前所在段落，並把那一格捲進可視範圍。
+  function navCounts() {
+    const counts = {
+      "#catalog": products.filter((p) => !p.kind && p.status.key === "open").length,
+      "#coupon": products.filter((p) => p.status.key === "open" && (p.kind === "coupon" || (p.coupon && !p.kind))).length,
+    };
+    for (const [href, n] of Object.entries(counts)) {
+      const link = document.querySelector(`.content-nav a[href="${href}"]`);
+      if (!link) continue;
+      let badge = link.querySelector("b[data-nav-count]");
+      if (!badge) {
+        badge = document.createElement("b");
+        badge.dataset.navCount = "";
+        link.append(badge);
+      }
+      badge.textContent = n;
+      badge.hidden = !n;
+    }
+  }
+  function navSpy() {
+    const nav = document.querySelector(".content-nav");
+    if (!nav) return;
+    const links = [...nav.querySelectorAll('a[href^="#"]')];
+    let queued = false;
+    const mark = () => {
+      queued = false;
+      // 目前段落＝頂端已經捲過畫面上方約三分之一的最後一段（隱藏的段落不算）。
+      const line = Math.max(nav.getBoundingClientRect().bottom + 24, innerHeight * 0.35);
+      let current = null;
+      for (const a of links) {
+        const section = document.querySelector(a.getAttribute("href"));
+        if (section && !section.hidden && section.getBoundingClientRect().top <= line) current = a;
+      }
+      for (const a of links) {
+        const on = a === current;
+        if (on === a.hasAttribute("aria-current")) continue;
+        if (on) {
+          a.setAttribute("aria-current", "true");
+          const left = a.offsetLeft - (nav.clientWidth - a.offsetWidth) / 2;
+          nav.scrollTo({ left: Math.max(0, left), behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+        } else a.removeAttribute("aria-current");
+      }
+    };
+    const queue = () => { if (!queued) { queued = true; requestAnimationFrame(mark); } };
+    addEventListener("scroll", queue, { passive: true });
+    addEventListener("resize", queue);
+    window.addEventListener("catalog-rendered", queue);
+    mark();
+  }
+  navSpy();
   const collectEvents = () => CatalogCore.collectEvents(products);
   function renderCalendar() {
     // Recheck the date when browsing months, including tabs left open overnight.

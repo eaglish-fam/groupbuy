@@ -657,3 +657,34 @@ a.works-chip.is-primary:hover { background: #22271f; border-color: #22271f; }
   .card-links .card-reading { height: 36px; font-size: 12.5px; }
   .card-more { font-size: 12.5px; }
 }
+
+/* 買物社頂部導覽（2026-11 重做）：和選物誌一樣的分頁列。固定在頁首下方、捲動時標出目前段落、
+   開團好物／折扣碼附數量；手機上可左右滑，右側淡出提示還有更多。 */
+.content-nav {
+  position: sticky; top: 88px; z-index: 19;
+  gap: 2px; padding: 0 24px;
+  scrollbar-width: none; overscroll-behavior-x: contain; scroll-behavior: smooth;
+}
+.content-nav::-webkit-scrollbar { display: none; }
+.content-nav a {
+  flex: 0 0 auto; gap: 6px; min-height: 48px; padding: 0 12px;
+  border-bottom: 2px solid transparent;
+  color: var(--muted); font-size: 15px; font-weight: 600; text-decoration: none;
+  transition: color .16s ease, border-color .16s ease;
+}
+.content-nav a:hover { color: var(--ink); }
+.content-nav a:focus-visible { outline: 3px solid var(--orange); outline-offset: -3px; }
+.content-nav a[aria-current] { color: var(--ink); border-bottom-color: var(--orange); }
+.content-nav .nav-everyday, .content-nav a[href="/trip/"] { color: var(--olive); }
+.content-nav b[data-nav-count] {
+  min-width: 20px; padding: 1px 6px; border-radius: 999px;
+  background: var(--cream); color: var(--olive); font-size: 12px; font-weight: 700; line-height: 1.5; text-align: center;
+}
+.content-nav a[aria-current] b[data-nav-count] { background: var(--olive); color: #fffdf8; }
+html { scroll-padding-top: 150px; }
+@media (max-width: 1100px) { .site-header + .content-nav, .content-nav { top: 88px; } }
+@media (max-width: 700px) {
+  .content-nav { top: 78px; gap: 0; padding: 0 40px 0 8px; }
+  .content-nav a { min-height: 46px; padding: 0 10px; font-size: 14px; }
+  html { scroll-padding-top: 136px; }
+}
