@@ -136,6 +136,31 @@
     mark();
   }
   navSpy();
+  // 頂部導覽貼齊 header：用 header 實際高度（手機、桌機、字體縮放都對），不寫死數字。
+  function pinUnderHeader() {
+    const header = document.querySelector(".site-header");
+    if (!header) return;
+    const set = () => document.documentElement.style.setProperty("--site-header-h", header.getBoundingClientRect().height + "px");
+    set();
+    if ("ResizeObserver" in window) new ResizeObserver(set).observe(header);
+    else addEventListener("resize", set);
+  }
+  // 可左右滑的列：哪一側還有內容，就在那一側淡出。
+  function edgeFades() {
+    for (const row of document.querySelectorAll(".content-nav, .status-tabs, .category-links")) {
+      const update = () => {
+        const max = row.scrollWidth - row.clientWidth;
+        row.classList.toggle("has-more-start", row.scrollLeft > 2);
+        row.classList.toggle("has-more-end", max - row.scrollLeft > 2);
+      };
+      row.addEventListener("scroll", update, { passive: true });
+      if ("ResizeObserver" in window) new ResizeObserver(update).observe(row);
+      addEventListener("resize", update);
+      update();
+    }
+  }
+  pinUnderHeader();
+  edgeFades();
   const collectEvents = () => CatalogCore.collectEvents(products);
   function renderCalendar() {
     // Recheck the date when browsing months, including tabs left open overnight.
