@@ -201,7 +201,7 @@
   });
 
   // 底部三站導覽：往下捲收起、往上捲或到頁底時出現（CSS 在 site-navigation.css 的 switcher-tucked）。
-  if (document.querySelector(".site-switcher")) {
+  if (typeof document.querySelector === "function" && typeof addEventListener === "function" && document.querySelector(".site-switcher")) {
     let lastY = scrollY, queued = false;
     addEventListener("scroll", () => {
       if (queued) return;

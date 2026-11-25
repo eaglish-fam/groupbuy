@@ -31,7 +31,7 @@
     }
     // 結團或還沒開團：購買鈕改成「開團通知我・加入 LINE」，浮動鈕照樣出現（Hiram 2026-11-25：結團就導 LINE）。
     function notify(state) {
-      const label = state === 'upcoming' ? '開團提醒我・加入 LINE ↗' : '開團通知我・加入 LINE ↗';
+      const label = state === 'upcoming' ? '開團提醒我・LINE ↗' : '開團通知我・LINE ↗';
       for (const {link} of links) {
         link.setAttribute('href', ProductContent.LINE_COMMUNITY); link.target = '_blank'; link.rel = 'noopener noreferrer';
         link.textContent = label; link.removeAttribute('aria-disabled');

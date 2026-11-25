@@ -12,7 +12,7 @@ const refresh=source.slice(source.indexOf('async function refreshOffer('),source
 function fixture({slug,openLabel,state='open',failure=false}){
   const attrs={},button={dataset:openLabel?{openLabel}:{},disabled:true,textContent:'',setAttribute(k,v){attrs[k]=v;},closest(){return {classList:{contains:()=>false}};}},status={textContent:''},effects=[],requests=[];
   const sandbox={document:{body:{dataset:slug?{sourceArticleSlug:slug}:{}}},article:ProductContent.catalog.wave,articleKey:'wave',offerButton:button,statusEl:status,
-    sheetUrl:'https://fixture.invalid/current-wave.csv',busy:false,seed:[],videoSignature:'[]',videoEl:null,ProductContent:{...ProductContent,sheetRows:()=>[],campaignFor:()=>({state,label:'fixture '+state,url:'https://example.com/current-wave',end:''}),rowForArticle:()=>null},
+    sheetUrl:'https://fixture.invalid/current-wave.csv',busy:false,lastState:'',seed:[],videoSignature:'[]',videoEl:null,ProductContent:{...ProductContent,sheetRows:()=>[],campaignFor:()=>({state,label:'fixture '+state,url:'https://example.com/current-wave',end:''}),rowForArticle:()=>null},
     floatingOffer:{setAvailable(v){effects.push(['available',v]);}},Papa:{parse:()=>({errors:[],data:[]})},Date,AbortSignal,
     fetch:async(url,options)=>{requests.push({url,options});if(failure)throw Error('explicit network-failure fixture');return {ok:true,text:async()=>'fixture CSV'};},
     window:{SiteAnalytics:{outboundGroupbuy(v){effects.push(['event',v]);}},location:{assign(v){effects.push(['navigate',v]);}}},console:{warn(){}},
@@ -31,7 +31,10 @@ test('legacy Wave source and label remain unchanged without knowledge context',a
   const f=fixture({});await f.run(true);assert.equal(f.button.textContent,'fixture open');assert.equal(f.effects.find(e=>e[0]==='event')[1].articleSlug,'wave-hummus');
 });
 test('closed, upcoming and unknown fixtures never navigate or emit purchase events',async()=>{
-  for(const state of ['closed','upcoming','unknown']){const f=fixture({slug:'hummus-guide',state});await f.run(true);assert.equal(f.button.disabled,true);assert.ok(!f.effects.some(e=>['event','navigate'].includes(e[0])));}
+  for(const state of ['closed','upcoming','unknown']){const f=fixture({slug:'hummus-guide',state});await f.run(true);assert.ok(!f.effects.some(e=>['event','navigate'].includes(e[0])),state);
+    // Hiram 2026-11-25：結團或還沒開團就導 LINE 社群——按鈕可以按，但只開 LINE，不是購買。
+    if(state==='unknown')assert.equal(f.button.disabled,true);
+    else{assert.equal(f.button.disabled,false);assert.match(f.button.textContent,/LINE/);assert.equal(f.sandbox.lastState,'line');}}
 });
 test('failed network is retryable but cannot use a prior offer or vendor URL',async()=>{
   const f=fixture({slug:'hummus-guide',failure:true});await f.run(true);assert.equal(f.button.textContent,'重新確認團購狀態');assert.equal(f.button.disabled,false);assert.ok(!f.effects.some(e=>['event','navigate'].includes(e[0])));assert.match(f.status.textContent,/未使用過期連結/);

@@ -11,147 +11,147 @@
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-jan-jul-winter",
       "file": "blog/jan-jul-winter/index.html",
-      "index": 12544
+      "index": 12522
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /#product-jowua",
       "file": "blog/jowua/index.html",
-      "index": 12195
+      "index": 12173
     },
     {
       "level": "warn",
       "category": "links",
       "message": "Link fragment not found on destination page: /trip/guides/chiang-mai-with-kids/#reels-2023",
       "file": "trip/guides/chiang-rai-with-kids/index.html",
-      "index": 66274
+      "index": 71321
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (454KB): /assets/branden/gen2-1.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/branden/index.html",
-      "index": 7073
+      "index": 7051
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (375KB): /assets/caesar-kenting/journal/pool-detail.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/caesar-kenting/index.html",
-      "index": 18378
+      "index": 18339
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (357KB): /assets/kids-active-toys/scoot-ride-sit.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kids-active-toys/index.html",
-      "index": 8554
+      "index": 8532
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread/index.html",
-      "index": 11045
+      "index": 11023
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 12700
+      "index": 12678
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 39230
+      "index": 39208
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (443KB): /assets/kidsread/2026-07-IMG_9537.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 51713
+      "index": 51691
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/spray-6h.jpg",
       "file": "blog/parakito/index.html",
-      "index": 6378
+      "index": 6356
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/spray-7h.jpg",
       "file": "blog/parakito/index.html",
-      "index": 6528
+      "index": 6506
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/spray-8h-intensive.jpg",
       "file": "blog/parakito/index.html",
-      "index": 6678
+      "index": 6656
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/spray-8h-classic.jpg",
       "file": "blog/parakito/index.html",
-      "index": 6840
+      "index": 6818
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/rollon-6h.jpg",
       "file": "blog/parakito/index.html",
-      "index": 7577
+      "index": 7555
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/rollon-7h.jpg",
       "file": "blog/parakito/index.html",
-      "index": 7732
+      "index": 7710
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /assets/parakito/rollon-8h-intensive.jpg",
       "file": "blog/parakito/index.html",
-      "index": 7887
+      "index": 7865
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (554KB): /assets/shinwa-living/fold-table-mahjong.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 9314
+      "index": 9292
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (495KB): /assets/shinwa-living/cat-shoehorn-whole.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 10790
+      "index": 10768
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (474KB): /assets/shinwa-living/cat-shoehorn-use.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/shinwa-living/index.html",
-      "index": 11077
+      "index": 11055
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (387KB): /assets/zoofamily-kids-camera/hiram-06.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/zoofamily-kids-camera/index.html",
-      "index": 6848
+      "index": 6826
     },
     {
       "level": "warn",
@@ -165,56 +165,56 @@
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 4254
+      "index": 4244
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9143
+      "index": 9133
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9257
+      "index": 9247
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9371
+      "index": 9361
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9484
+      "index": 9474
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9598
+      "index": 9588
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 59909
+      "index": 59899
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 59909
+      "index": 59899
     },
     {
       "level": "warn",

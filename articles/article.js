@@ -55,8 +55,8 @@ async function refreshOffer(navigate=false){
     // 結團或還沒開團：按鈕改成「開團通知我・加入 LINE」，點了開 LINE 社群（Hiram 2026-11-25）。
     const notifyLine=(c.state==='closed'||c.state==='upcoming')&&ProductContent.LINE_COMMUNITY;
     lastState=notifyLine?'line':c.state;
-    const label=c.state==='open'?(offerButton.dataset.openLabel||c.label):notifyLine?(c.state==='upcoming'?'開團提醒我・加入 LINE ↗':'開團通知我・加入 LINE ↗'):c.label;
-    offerButton.textContent=label;offerButton.disabled=c.state!=='open'&&!notifyLine;offerButton.setAttribute('aria-label',label);offerButton.classList.toggle('is-line-notify',!!notifyLine);
+    const label=c.state==='open'?(offerButton.dataset.openLabel||c.label):notifyLine?(c.state==='upcoming'?'開團提醒我・LINE ↗':'開團通知我・LINE ↗'):c.label;
+    offerButton.textContent=label;offerButton.disabled=c.state!=='open'&&!notifyLine;offerButton.setAttribute('aria-label',label);offerButton.classList?.toggle('is-line-notify',!!notifyLine);
     if(c.state==='open')offerButton.dataset.desktopFloatingLabel='true';
     floatingOffer.setAvailable(c.state==='open'||!!notifyLine);
     statusEl.textContent=notifyLine?(c.state==='upcoming'?'這一檔還沒開團；加入 LINE 社群，開團當天會通知你。':'這一檔已結團；加入 LINE 社群，下次開團、補貨會第一時間通知你。'):c.state==='open'?(c.end?'這一檔團購至 '+c.end.replace(/^(\d{4})-(\d{2})-(\d{2})$/,'$1/$2/$3')+' 23:59。':'這一檔正在開團。'):'目前沒有開放中的團購；仍可閱讀文章或返回團購首頁。';

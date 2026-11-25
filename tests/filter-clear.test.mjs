@@ -48,7 +48,10 @@ test('filtering shows what is filtered; one click brings back every product', {t
     await page.waitForFunction(() => /^3 件選物/.test(document.querySelector('#result-count')?.textContent || ''));
     const bar = page.locator('#active-filters');
     assert.equal(await bar.isVisible(), false, `${width}: no bar before filtering`);
+    // Phones keep 分類／排序／國家 in the 篩選與排序 sheet.
+    if (width < 700) await page.locator('.filter-open').click();
     await page.selectOption('#category', '母嬰');
+    if (width < 700) await page.locator('[data-filter-done]').click();
     await bar.waitFor({state: 'visible'});
     assert.equal(await page.locator('#active-filters-label').innerText(), '母嬰');
     await page.fill('#search', '奶');

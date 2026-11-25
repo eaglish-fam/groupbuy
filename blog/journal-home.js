@@ -134,3 +134,17 @@
     setTab,
   };
 })();
+
+// 可左右滑的分頁、分類列：哪一側還有內容，就在那一側淡出（和買物社一致）。
+(() => {
+  for (const row of document.querySelectorAll('.journal-chrome .filter-scroll, .journal-chrome .status-scroll')) {
+    const update = () => {
+      const max = row.scrollWidth - row.clientWidth;
+      row.classList.toggle('has-more-start', row.scrollLeft > 2);
+      row.classList.toggle('has-more-end', max - row.scrollLeft > 2);
+    };
+    row.addEventListener('scroll', update, { passive: true });
+    if ('ResizeObserver' in window) new ResizeObserver(update).observe(row);
+    update();
+  }
+})();

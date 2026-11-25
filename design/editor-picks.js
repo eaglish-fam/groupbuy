@@ -150,6 +150,17 @@
 
     let slides = picks.map(slide);
     track.replaceChildren(...slides);
+    // 圖上方的細進度條（像限動）：一段一張，進行中的那段跟著自動輪播的 6.5 秒填滿。
+    const visual = carousel.querySelector(".hero-visual");
+    const progress = document.createElement("div");
+    progress.className = "pick-progress";
+    progress.setAttribute("aria-hidden", "true");
+    visual?.append(progress);
+    function buildProgress() {
+      progress.replaceChildren(...picks.map(() => document.createElement("span")));
+      progress.hidden = picks.length < 2;
+    }
+    buildProgress();
     // A "3／18" counter instead of one dot per pick: 18 dots were too small to tap or tell apart.
     const counter = document.createElement("span");
     counter.className = "pick-count";
@@ -159,11 +170,13 @@
     function stop() {
       clearTimeout(timer);
       timer = 0;
+      carousel.classList.add("is-paused");
     }
 
     function schedule() {
       stop();
       if (pausedByUser || interacting || document.hidden || gate?.matches === false || picks.length < 2) return;
+      carousel.classList.remove("is-paused");
       timer = setTimeout(() => {
         show(active + 1, false);
         schedule();
@@ -186,6 +199,10 @@
         item.inert = !selected;
       });
       counter.textContent = `${active + 1}／${picks.length}`;
+      [...progress.children].forEach((bar, position) => {
+        bar.className = position < active ? "is-done" : "";
+        if (position === active) { void bar.offsetWidth; bar.className = "is-active"; }
+      });
       carousel.setAttribute("aria-label", `Editor's Pick 選物文章：${picks[active].title}`);
       if (userInitiated) schedule();
     }
@@ -246,6 +263,7 @@
       slides = picks.map(slide);
       track.replaceChildren(...slides);
       controls.hidden = picks.length < 2;
+      buildProgress();
       carousel.dataset.mode = "open";
       show(0, false);
       schedule();

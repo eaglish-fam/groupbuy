@@ -131,7 +131,7 @@
     card.innerHTML=`<div class="kf-head"><p class="kf-title">這一檔重點</p><span class="kf-pill">${escape(pill)}</span></div><dl>${rows.map(([k,v])=>`<div><dt>${escape(k)}</dt><dd>${escape(v)}</dd></div>`).join('')}</dl><div class="kf-actions">${c.state==='open'?(buy?.href?`<a class="kf-buy" href="${escape(buy.href)}" target="_blank" rel="noopener noreferrer">前往團購<span aria-hidden="true">↗</span></a>`:'<button type="button" class="kf-buy">前往團購<span aria-hidden="true">↗</span></button>'):lineNotifyLink({surface:'article_key_facts',product:item.brands[0],label:'開團提醒我・加入 LINE',className:'kf-buy kf-line'})}${document.getElementById('offer')?'<a class="kf-more" href="#offer">看團購細節</a>':''}</div>`;
     const b=card.querySelector('button.kf-buy');if(b&&buy?.onClick)b.addEventListener('click',buy.onClick);
   }
-  const KEY_FACTS_CSS=`.key-facts{margin:22px 0 26px;padding:18px 20px 16px;border:1px solid #dcd5c9;border-radius:16px;background:#fffdf8;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.6;color:#343a30}
+  const KEY_FACTS_CSS=`.key-facts{text-align:left;margin:22px 0 26px;padding:18px 20px 16px;border:1px solid #dcd5c9;border-radius:16px;background:#fffdf8;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.6;color:#343a30}
 .key-facts .kf-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
 .key-facts .kf-title{margin:0;font-size:13px;font-weight:700;letter-spacing:.08em;color:#46533a}
 .key-facts .kf-pill{padding:3px 11px;border-radius:999px;background:#eee9dd;color:#46533a;font-size:13px;font-weight:700;white-space:nowrap}
@@ -147,8 +147,9 @@
 .key-facts .kf-wait{font-size:14px;color:#676d60}
 .key-facts .kf-note{margin:0;font-size:15px;line-height:1.75;color:#343a30}
 .key-facts.is-closed{background:#f6f3ec}
-.key-facts .kf-line{background:#06c755;color:#fff}
-.key-facts .kf-line:hover{background:#05b14c}
+.key-facts .kf-line{background:#E8EEE3;border:1px solid #C9D6C0;color:#2F4A36;gap:7px}
+.key-facts .kf-line:hover{background:#DDE6D5;border-color:#B8C8AE;color:#2F4A36}
+.key-facts .kf-line::before{content:"";width:18px;height:18px;flex:none;background:#06C755;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.8-3.4 7.9-5.9C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.8-3.4 7.9-5.9C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8z'/%3E%3C/svg%3E") center/contain no-repeat}
 .key-facts .kf-more{display:inline-flex;align-items:center;min-height:44px;color:#a84c2b;font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:700px){.key-facts{margin:18px 0 22px;padding:16px 16px 14px}.key-facts dd{font-size:14.5px}.key-facts .kf-buy{flex:1 1 auto;justify-content:center}}`;
   function campaign(rows,now=today()){return campaignFor(rows,'atojet',now);}

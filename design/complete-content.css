@@ -748,6 +748,64 @@ html { scroll-padding-top: 150px; }
 /* 項目間距只由各項目左右內距決定（不用 gap，否則兩端漸層和第一個項目之間會多出空隙）。 */
 .content-nav.content-nav { gap: 0; }
 
-/* 結團／未開團：主按鈕改成 LINE 開團通知（LINE 綠只用在這顆按鈕上）。 */
-.button.line-notify { background: #06c755; border-color: #06c755; color: #fff; justify-content: center; gap: 6px; }
-.button.line-notify:hover { background: #05b14c; border-color: #05b14c; color: #fff; }
+/* 結團／未開團：主按鈕改成 LINE 開團通知。Ophelia 配色檢查（2026-11-25）：LINE 亮綠配白字只有 2.26:1、彩度又搶，
+   改成淡鼠尾草底＋深綠字（8.25:1）＋細邊；LINE 綠只留在小對話框圖示上當辨識點綴。 */
+.button.line-notify { background:#E8EEE3; border:1px solid #C9D6C0; color:#2F4A36; justify-content: center; gap: 7px; }
+.button.line-notify:hover { background:#DDE6D5; border-color:#B8C8AE; color:#2F4A36; }
+.line-notify::before, .shelf-line-btn::before { content:"";width:18px;height:18px;flex:none;background:#06C755;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.8-3.4 7.9-5.9C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.8-3.4 7.9-5.9C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8z'/%3E%3C/svg%3E") center/contain no-repeat; }
+
+/* 首頁輪播（A）：圖片上方一段一段的細進度條，取代手機上整排的箭頭和「1／8」；
+   手機只留一顆小小的暫停鈕在圖片右上角（自動輪播一定要能暫停）。 */
+.hero-carousel { position: relative; }
+.pick-progress { position: absolute; z-index: 3; left: 12px; right: 12px; top: 8px; display: flex; gap: 4px; pointer-events: none; }
+.pick-progress[hidden] { display: none; }
+.pick-progress span { flex: 1 1 0; height: 3px; border-radius: 2px; overflow: hidden; background: rgba(255, 253, 248, .45); box-shadow: 0 0 3px rgba(0, 0, 0, .18); }
+.pick-progress span::after { content: ""; display: block; width: 0; height: 100%; background: #fffdf8; }
+.pick-progress span.is-done::after { width: 100%; }
+.pick-progress span.is-active::after { animation: pick-fill 6.5s linear forwards; }
+[data-editor-picks].is-paused .pick-progress span.is-active::after { animation-play-state: paused; }
+@keyframes pick-fill { to { width: 100%; } }
+@media (prefers-reduced-motion: reduce) { .pick-progress span.is-active::after { animation: none; width: 100%; } }
+.photo-index.hero-campaign-badge { top: 20px; }
+@media (max-width: 700px) {
+  [data-editor-picks] .hero-pick-controls { position: absolute; z-index: 4; top: 18px; right: 10px; display: block; min-height: 0; padding: 0; width: auto; background: transparent; border: 0; }
+  [data-editor-picks] .hero-pick-controls .pick-navigation, [data-editor-picks] .hero-pick-controls .pick-control-spacer { display: none; }
+  [data-editor-picks] .hero-pick-controls .pick-toggle { width: 34px; min-height: 34px; height: 34px; border-radius: 999px; background: rgba(255, 253, 248, .88); font-size: 13px; box-shadow: 0 2px 8px rgba(0, 0, 0, .15); }
+  .photo-index.hero-campaign-badge { top: 20px; }
+}
+
+/* B：團購狀態分頁。選中的那格有一塊底色（手機是膠囊、桌機是底線）滑過去。 */
+.catalog-toolbar .status-tabs { position: relative; }
+.catalog-toolbar .status-tabs.has-indicator::after {
+  content: ""; position: absolute; left: 0; bottom: 0; width: var(--tab-w, 0); height: 2px;
+  transform: translateX(var(--tab-x, 0)); background: var(--olive);
+  transition: transform .3s cubic-bezier(.3,.7,.2,1), width .3s cubic-bezier(.3,.7,.2,1); pointer-events: none;
+}
+.catalog-toolbar .status-tabs.has-indicator button[aria-pressed="true"] { border-bottom-color: transparent; }
+/* 篩選按鈕（手機）與底部面板 */
+.filter-open { display: none; }
+.filter-sheet { width: 100%; max-width: 560px; margin: auto auto 0; padding: 0; border: 0; border-radius: 22px 22px 0 0; background: var(--paper); color: var(--ink); box-shadow: 0 -12px 40px rgba(52,58,48,.25); }
+.filter-sheet::backdrop { background: rgba(30, 32, 28, .35); }
+.filter-sheet[open] { animation: sheet-up .28s cubic-bezier(.3,.7,.2,1); }
+@keyframes sheet-up { from { transform: translateY(40px); opacity: .4; } }
+.filter-sheet-head { display: flex; align-items: center; justify-content: space-between; padding: 18px 20px 8px; }
+.filter-sheet-head h2 { margin: 0; font-size: 18px; }
+.filter-sheet-x { width: 44px; height: 44px; border: 0; border-radius: 999px; background: transparent; font-size: 24px; color: var(--muted); cursor: pointer; }
+.filter-sheet-body { display: grid; gap: 12px; padding: 8px 20px 4px; }
+.filter-sheet-body label { display: grid; gap: 6px; font-size: 13px; font-weight: 700; color: var(--olive); }
+.filter-sheet-body select { width: 100%; min-height: 48px; padding: 0 14px; border: 1px solid var(--line); border-radius: 12px; background: #fff; font-size: 16px; color: var(--ink); }
+.filter-sheet-foot { display: grid; grid-template-columns: 1fr 2fr; gap: 10px; padding: 16px 20px calc(16px + env(safe-area-inset-bottom, 0px)); }
+.filter-sheet-foot .button { min-height: 50px; justify-content: center; border-radius: 999px; }
+@media (prefers-reduced-motion: reduce) { .filter-sheet[open] { animation: none; } .catalog-toolbar .status-tabs.has-indicator::after { transition: none; } }
+@media (max-width: 700px) {
+  .catalog-toolbar .status-tabs { gap: 4px; padding: 4px; border-radius: 999px; background: var(--cream); border-bottom: 0; }
+  .catalog-toolbar .status-tabs button { position: relative; z-index: 1; min-height: 38px; padding: 0 14px; border: 0; border-radius: 999px; background: transparent; font-size: 14px; }
+  .catalog-toolbar .status-tabs button[aria-pressed="true"] { color: var(--ink); font-weight: 700; }
+  .catalog-toolbar .status-tabs.has-indicator::after { top: 4px; bottom: 4px; height: auto; border-radius: 999px; background: #fffdf8; box-shadow: 0 1px 6px rgba(52,58,48,.14); z-index: 0; }
+  .filter-row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .filter-row > .category-reset { display: none; }
+  .filter-open { display: inline-flex; align-items: center; gap: 6px; min-height: 40px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px; background: #fff; color: var(--ink); font-size: 14px; font-weight: 600; cursor: pointer; }
+  .filter-open svg { width: 16px; height: 16px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+  .filter-open b { min-width: 20px; padding: 0 6px; border-radius: 999px; background: var(--olive); color: #fff; font-size: 12px; line-height: 20px; text-align: center; }
+  .filter-open b[hidden] { display: none; }
+}
