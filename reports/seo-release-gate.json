@@ -25,7 +25,7 @@
       "category": "links",
       "message": "Link fragment not found on destination page: /trip/guides/chiang-mai-with-kids/#reels-2023",
       "file": "trip/guides/chiang-rai-with-kids/index.html",
-      "index": 71321
+      "index": 71373
     },
     {
       "level": "warn",
@@ -39,7 +39,7 @@
       "category": "images",
       "message": "Image exceeds 350KB (375KB): /assets/caesar-kenting/journal/pool-detail.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/caesar-kenting/index.html",
-      "index": 18339
+      "index": 18344
     },
     {
       "level": "warn",
@@ -53,28 +53,28 @@
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread/index.html",
-      "index": 11023
+      "index": 11027
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 12678
+      "index": 12682
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 39208
+      "index": 39212
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (443KB): /assets/kidsread/2026-07-IMG_9537.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 51691
+      "index": 51695
     },
     {
       "level": "warn",
