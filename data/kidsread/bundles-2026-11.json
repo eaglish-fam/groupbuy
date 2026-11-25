@@ -1,0 +1,22 @@
+{
+  "source": "Hiram 2026-11-25 傳的 KidsRead 11/30 開團套組表（品名、內容、原價、團購價、套組原價、套組團購價、贈品）",
+  "ageNote": "適合年齡：B、D、E、F 由套組內每套教材在 catalog.json 的建議年齡合起來看；A 0–2、C 0–3 照 Hiram 2026-11-25 字母題選 D（照他舉的例子）。",
+  "gifts": {
+    "either": "點讀筆保護套（粉藍色，不含錄音點讀筆）或點讀小卡收納冊（iREAD 浣熊）",
+    "both": "點讀筆保護套（粉藍色，不含錄音點讀筆）＋點讀小卡收納冊（iREAD 浣熊）"
+  },
+  "sets": [
+    {"key": "A", "name": "小小英語探索家套組", "age": "0–2 歲", "why": "寶寶的第一套英文：童謠有聲書、自然聲音書、摸得到的認知圖典，再加一盒字母有聲積木。", "list": 4610, "price": 3720, "gift": "either",
+     "items": [["k30-twinkle-twinkle-little-star", "Twinkle, Twinkle, Little Star 兒童經典歌謠有聲書", 700, 580], ["n14-nature-and-me", "NATURE & ME 三語自然聲音書", 580, 490], ["n16-sensory-dictionary", "My First Sensory Dictionary 我的第一本認知圖典", 680, 550], ["k09-kidsread-talking-alphabet-blocks", "TALKING ALPHABET BLOCKS 有聲積木", 2650, 2100]]},
+    {"key": "B", "name": "小手翻玩學英語套組", "age": "2–4 歲", "why": "五本翻翻書、百葉窗書和雙語繪本，讓孩子用手翻、用眼找，邊玩邊聽英文。", "list": 4480, "price": 3800, "gift": "either",
+     "items": [["k20-busy-helpers", "Busy Helpers 找找遊戲翻翻書", 900, 760], ["k25-lift-the-flap-play", "LIFT-THE-FLAP & PLAY 角色扮演遊戲書 第一輯", 1350, 1150], ["n01-tino-farm", "小象 TINO 的農場攝影集 雙語繪本", 580, 490], ["k57-animal-magic", "Animal Magic－In the Ocean／In the Jungle 雙語百葉窗書（2 冊）", 850, 720], ["k15-flip-flap-x", "Flip Flap！色彩×形狀 認知翻翻書", 800, 680]]},
+    {"key": "C", "name": "自然發音啟蒙套組", "age": "0–3 歲", "why": "自然發音從這裡開始：36 本點讀繪本的歌謠先聽熟，再用遊戲字卡一個音一個音玩。", "list": 6800, "price": 5610, "gift": "either",
+     "items": [["k03-phonics-cards", "Phonics Cards 自然發音遊戲字卡", 900, 760], ["k01-jy-phonics-readers", "JY Phonics Readers 自然發音點讀教材", 5900, 4850]]},
+    {"key": "D", "name": "自主閱讀茁壯套組", "age": "3–6 歲", "why": "自然發音學完的下一步：先用 CVC 拼音火箭練拼讀，再接 30 本橋樑書自己讀。", "list": 7100, "price": 5330, "gift": "either",
+     "items": [["k04-zoom-zoom-zoom-phonics-cvc", "ZOOM ZOOM ZOOM PHONICS CVC 自然拼音火箭", 2850, 2180], ["k05-forward-phonics", "Forward Phonics 自然發音橋樑書（30 冊）", 4250, 3150]]},
+    {"key": "E", "name": "小小知識家套組", "age": "3–8 歲", "why": "法國 KiDiDOC 立體知識書四輯 11 本：3–4 歲爸媽陪讀，5 歲以後可以自己翻、自己點。", "list": 10075, "price": 8680, "gift": "both",
+     "items": [["k52-kididoc-12345", "KiDiDOC 超好玩！互動知識書 第一輯（3 冊）", 2725, 2350], ["k52-kididoc-12345", "KiDiDOC 超好玩！互動知識書 第二輯（3 冊）", 2725, 2350], ["k52-kididoc-12345", "KiDiDOC 超好玩！互動知識書 第三輯（3 冊）", 2725, 2350], ["k52-kididoc-12345", "KiDiDOC 超好玩！互動知識書 第五輯（2 冊）", 1900, 1630]]},
+    {"key": "F", "name": "新書我都要套組", "age": "3–6 歲以上", "why": "這次的 9 套新書一次帶齊：拉頁書、推理遊戲書、手電筒書、夜燈書和雙語繪本。小暴龍款、三角龍款只差夜燈書附的抱枕。", "list": 9590, "price": 8058, "gift": "both", "variants": ["小暴龍款", "三角龍款"],
+     "items": [["n02-expandable-explorations", "Expandable Explorations 探索大世界 全景拉頁書（中英雙語，2 冊）", 2000, 1699], ["n03-dog-detective-london", "狗探長的倫敦謎案大追查 抽拉式推理遊戲書", 680, 580], ["n05-goodnight-baby-dinosaurs", "Goodnight, Baby Dinosaurs 小恐龍晚安魔法 夜燈書＋抱枕（小暴龍或三角龍）", 1150, 900], ["n06-word-magic", "文字魔法世界 識字學習套裝", 1850, 1620], ["n04-shine-a-light", "SHINE-A-LIGHT 手電筒遊戲書（2 冊）", 900, 760], ["n07-kingsley", "Kingsley 的異想世界 雙語繪本", 850, 699], ["n08-copy-that-copy-cat", "Copy That, Copy Cat! 仿生科學互動翻翻書", 900, 760], ["n01-tino-farm", "小象 TINO 的農場攝影集 雙語繪本", 580, 490], ["n16-sensory-dictionary", "My First Sensory Dictionary 我的第一本認知圖典", 680, 550]]}
+  ]
+}
