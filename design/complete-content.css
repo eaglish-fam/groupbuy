@@ -712,3 +712,23 @@ html { scroll-padding-top: 150px; }
   .hero-caption.has-buy { gap: 10px; }
   .hero-buy { min-height: 36px; padding: 0 12px; font-size: 13px; }
 }
+
+/* 2026-11-25 Hiram 選 B：桌機左右並排。兩張卡圖區同一高度、圖片同一個高度規格，
+   文字從同一條線開始，購買按鈕都貼齊卡片底部。 */
+@media (min-width: 901px) {
+  .works-list { grid-template-columns: 1fr 1fr; align-items: stretch; }
+  .works-slot { display: grid; }
+  .works-slot[hidden] { display: none; }
+  .works-card { grid-template-columns: 1fr; grid-template-rows: 320px 1fr; min-height: 0; height: 100%; }
+  .works-visual { height: 320px; padding: 30px 24px; }
+  .works-cover { width: auto; height: 260px; transform: none; }
+  .works-shots { height: 260px; align-items: center; }
+  .works-shots img { width: auto; height: 236px; max-width: none; }
+  .works-body { padding: 28px 32px 30px; }
+}
+@media (max-width: 900px) {
+  .works-visual { height: 250px; min-height: 0; padding: 20px 16px; }
+  .works-cover { width: auto; height: 200px; transform: none; }
+  .works-shots { height: 200px; align-items: center; }
+  .works-shots img { width: auto; height: 190px; max-width: none; }
+}
