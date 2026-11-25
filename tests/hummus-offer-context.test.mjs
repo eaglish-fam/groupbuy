@@ -32,8 +32,10 @@ test('legacy Wave source and label remain unchanged without knowledge context',a
 });
 test('closed, upcoming and unknown fixtures never navigate or emit purchase events',async()=>{
   for(const state of ['closed','upcoming','unknown']){const f=fixture({slug:'hummus-guide',state});await f.run(true);assert.ok(!f.effects.some(e=>['event','navigate'].includes(e[0])),state);
-    // Hiram 2026-11-25：結團或還沒開團就導 LINE 社群——按鈕可以按，但只開 LINE，不是購買。
+    // Hiram 2026-11-25：結團導 LINE 社群——按鈕可以按，但只開 LINE，不是購買。
+    // 即將開團內容優先：購買鈕不變成 LINE（「有人就是要看即將開團，不是只是要被提醒」）。
     if(state==='unknown')assert.equal(f.button.disabled,true);
+    else if(state==='upcoming'){assert.equal(f.button.disabled,true);assert.doesNotMatch(f.button.textContent,/LINE/);assert.equal(f.sandbox.lastState,'upcoming');}
     else{assert.equal(f.button.disabled,false);assert.match(f.button.textContent,/LINE/);assert.equal(f.sandbox.lastState,'line');}}
 });
 test('failed network is retryable but cannot use a prior offer or vendor URL',async()=>{

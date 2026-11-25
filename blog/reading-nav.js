@@ -69,7 +69,7 @@
   const progressBar = root.querySelector('.reading-nav__progress span');
   const nowChip = root.querySelector('.reading-nav__now');
   const nowLabel = root.querySelector('.reading-nav__now-label');
-  root.classList.add('has-now');
+  // 「目前在」膠囊先不開：手機、平板保留左側直立的文章目錄標籤（Hiram 2026-11-25：「原本全站有懸浮的文章列表……你全部把它拿掉了」）。
   nowChip.addEventListener('click', () => setOpen(true));
   entries.forEach(entry => {
     const item = document.createElement('li');

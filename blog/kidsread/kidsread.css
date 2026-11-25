@@ -103,3 +103,10 @@ body.kidsread-series{--kr-soft:#f2f0e8;--kr-green-soft:#e6ece6;--kr-rust-deep:#7
 .kidsread-series .kr-row{display:flex;flex-wrap:wrap;gap:8px}
 .kidsread-series .kr-note{font-size:13px;color:var(--muted)}
 @media(prefers-reduced-motion:reduce){.kidsread-series .kr-sheet[open]{animation:none}.kidsread-series .kr-card a{transition:none}}
+
+/* 文章開頭的目錄：一排整齊的章節連結（之前沒有樣式，變成一整串底線字；Hiram 2026-11-25）。 */
+.kidsread-series .choice-links{display:flex;flex-wrap:wrap;align-items:center;gap:2px 6px;margin:18px 0 28px;padding:10px 0;border-block:1px solid var(--line)}
+.kidsread-series .choice-links::before{content:"這篇目錄";width:100%;margin-bottom:2px;color:var(--muted);font-size:12px;letter-spacing:.12em}
+.kidsread-series .choice-links a{display:inline-flex;align-items:center;min-height:40px;padding:0 10px;border-radius:999px;color:var(--green);font-size:14px;line-height:1.4;text-decoration:none}
+.kidsread-series .choice-links a:hover{background:#eef1e8}
+.kidsread-series .choice-links a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
