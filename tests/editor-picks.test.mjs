@@ -60,24 +60,56 @@ test('homepage exposes an accessible, pausable carousel with a no-JS first artic
   assert.match(css, /grid-template-columns: 1fr auto 1fr/);
 });
 
-test('journal home shows the same Editor\'s Pick carousel on desktop only', () => {
+test('journal home: campaign banner on every width, status navigation, and the newest pick as the no-JS slide', () => {
+  // Hiram 2026-11-24：選物誌要像選物部落格，有導航列（開團中、即將開團、已結團）和 Hero Banner。
   const html = fs.readFileSync(new URL('../blog/index.html', import.meta.url), 'utf8');
   const css = fs.readFileSync(new URL('../blog/journal-hero.css', import.meta.url), 'utf8');
-  const script = fs.readFileSync(new URL('../design/editor-picks.js', import.meta.url), 'utf8');
+  const script = fs.readFileSync(new URL('../blog/journal-home.js', import.meta.url), 'utf8');
   const [first] = EditorPicks.ordered(ProductContent.catalog);
-  const hero = html.match(/<div class="journal-hero">[\s\S]*?<section/)?.[0] || '';
-  assert.match(hero, /<header class="blog-hero"><h1>/);
-  assert.match(hero, /data-editor-picks data-editor-picks-media="\(min-width: 901px\)"/);
+  const hero = html.match(/<section class="campaign-hero"[\s\S]*?<\/section>/)?.[0] || '';
+  assert.match(hero, /data-campaign-hero/);
   assert.match(hero, /aria-roledescription="carousel"/);
-  for (const control of ['data-pick-prev', 'data-pick-next', 'data-pick-toggle', 'data-pick-dots']) assert.ok(hero.includes(control), control);
+  for (const control of ['data-ch-prev', 'data-ch-next', 'data-ch-toggle', 'data-ch-dots']) assert.ok(hero.includes(control), control);
   assert.ok(hero.includes(`data-pick-key="${first.key}"`) && hero.includes(`href="${first.article}"`), 'static slide is the newest pick');
   const image = hero.match(/<img [^>]*>/)?.[0] || '';
-  assert.match(hero, /<picture><source media="\(max-width: 900px\)" srcset="data:image\/gif;base64,[^"]+" sizes="1px"><img /, 'hidden phone layout must not fetch the hero image');
   assert.match(image, /loading="eager"/);
-  assert.match(css, /\.journal-hero \.hero-carousel\{display:none\}/);
-  assert.match(css, /@media \(min-width:901px\)/);
+  assert.doesNotMatch(hero, /data:image\/gif/, 'the banner image loads on phones too');
+  assert.match(html, /<header class="blog-hero"><h1>/);
+  const tabs = html.match(/<nav class="status-tabs"[\s\S]*?<\/nav>/)?.[0] || '';
+  for (const [tab, label] of [['open', '開團中'], ['upcoming', '即將開團'], ['journal', '已結團'], ['guides', '知識指南']]) {
+    assert.ok(tabs.includes(`data-status-tab="${tab}"`) && tabs.includes(label), label);
+    assert.ok(html.includes(`data-shelf="${tab}"`), `shelf ${tab}`);
+  }
+  assert.equal((html.match(/class="journal-chrome"/g) || []).length, 1);
+  assert.ok(html.indexOf('class="status-tabs"') > html.indexOf('class="journal-chrome"') && html.indexOf('class="status-tabs"') < html.indexOf('<main'), 'status tabs live in the sticky journal chrome');
   assert.match(html, /\/blog\/journal-hero\.css\?v=/);
-  assert.ok(html.indexOf('/product-content.js') < html.indexOf('/design/editor-picks.js'), 'catalog loads before the carousel');
-  assert.match(script, /editorPicksMedia/);
-  assert.match(script, /gate\?\.matches === false/);
+  assert.ok(html.indexOf('/blog/blog.js') < html.indexOf('/blog/journal-home.js'), 'journal home script loads after blog.js');
+  assert.match(css, /prefers-reduced-motion/);
+  assert.match(css, /min-height:4[4-8]px/);
+  assert.match(script, /6500/);
+  assert.match(script, /document|doc\.hidden/);
+  assert.match(script, /JournalHome/);
+});
+
+test('homepage carousel switches to open campaigns once the Sheet loads: timed first by end date, evergreens fill up to eight', () => {
+  const all = [
+    { key: 'a', article: '/blog/a/', published: '2026-11-01', title: 'A' },
+    { key: 'b', article: '/blog/b/', published: '2026-11-02', title: 'B' },
+    { key: 'c', article: '/blog/c/', published: '2026-11-03', title: 'C' },
+    { key: 'd', article: '/blog/d/', published: '2026-11-04', title: 'D' },
+  ];
+  const open = (href, end, long = false) => ({ article: { article: href }, status: { key: 'open', long }, end, url: 'https://shop.example/' + href, key: href });
+  const picks = EditorPicks.openPicks(all, [
+    open('/blog/a/', '2026-12-10'),
+    open('/blog/b/', '', true),
+    open('/blog/c/', '2026-11-30'),
+    { article: { article: '/blog/d/' }, status: { key: 'closed' }, end: '2026-11-01' },
+    { kind: 'book', article: { article: '/blog/a/' }, status: { key: 'open' } },
+  ], Date.parse('2026-11-25T12:00:00+08:00'));
+  assert.deepEqual(picks.map(p => p.key), ['c', 'a', 'b']);
+  assert.equal(picks[0].campaign.url, 'https://shop.example//blog/c/');
+  assert.equal(picks[2].campaign.end, '');
+  const script = fs.readFileSync(new URL('../design/editor-picks.js', import.meta.url), 'utf8');
+  assert.match(script, /catalog-rendered/);
+  assert.match(script, /dataset\.buyKey/);
 });

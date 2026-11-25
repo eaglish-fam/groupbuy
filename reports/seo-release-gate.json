@@ -25,7 +25,7 @@
       "category": "links",
       "message": "Link fragment not found on destination page: /trip/guides/chiang-mai-with-kids/#reels-2023",
       "file": "trip/guides/chiang-rai-with-kids/index.html",
-      "index": 64022
+      "index": 66274
     },
     {
       "level": "warn",
@@ -53,28 +53,28 @@
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread/index.html",
-      "index": 11051
+      "index": 11045
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 12706
+      "index": 12700
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (365KB): /assets/kidsread/2026-07-IMG_9543.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 39236
+      "index": 39230
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image exceeds 350KB (443KB): /assets/kidsread/2026-07-IMG_9537.webp. File weight alone does not guarantee ranking; only flagged for review.",
       "file": "blog/kidsread-english/index.html",
-      "index": 51719
+      "index": 51713
     },
     {
       "level": "warn",
@@ -172,49 +172,49 @@
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9142
+      "index": 9143
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9256
+      "index": 9257
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9370
+      "index": 9371
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9483
+      "index": 9484
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9597
+      "index": 9598
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 56941
+      "index": 59909
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 56941
+      "index": 59909
     },
     {
       "level": "warn",
@@ -228,7 +228,7 @@
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/index.html",
-      "index": 540643
+      "index": 541543
     },
     {
       "level": "warn",

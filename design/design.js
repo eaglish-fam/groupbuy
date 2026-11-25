@@ -132,12 +132,19 @@ function leofooCard(p, plans, matchedPlans) {
     <div class="card-primary-action"><a class="button primary" href="/blog/leofoo/#plans">比較三種方案</a></div>
     </div></div></article>`;
 }
+// 商品卡圖上的狀態標籤：限時團顯示倒數（剩 N 天，會自動更新），其他顯示狀態。書、教育資源不顯示。
+function cardBadge(p) {
+  if (p.kind === "book" || p.kind === "edu") return "";
+  if (timedCampaign(p)) return `<span class="card-badge timed${isClosingSoon(p.end) ? " is-urgent" : ""}">${countdownMarkup(p)}</span>`;
+  const text = p.kind === "coupon" && p.status.key === "open" ? "折扣碼" : p.status.long && p.status.key === "open" ? "常駐開團" : p.status.label;
+  return `<span class="card-badge ${esc(p.status.key)}">${esc(text)}</span>`;
+}
 function card(p, leofooPlans = [], matchedLeofooPlans = []) {
   if (leofooPlans.length === LEOFOO_PLANS.length) return leofooCard(p, leofooPlans, matchedLeofooPlans);
   const idx = products.indexOf(p);
   const label =
     p.kind === "book"
-      ? "康先生的書"
+      ? "康先生的作品"
       : p.kind === "edu"
         ? "教育・公益"
         : p.kind === "coupon" && p.status.key === "open"
@@ -168,17 +175,14 @@ function card(p, leofooPlans = [], matchedLeofooPlans = []) {
     ? `product-offer-${p.permanentOfferId}`
     : p.article?.id ? `product-${p.article.id}` : "";
   return `<article class="product-card" ${cardId ? `id="${esc(cardId)}"` : ""} data-product-key="${esc(p.key)}">
-    <div class="product-picture"><button class="image-open" data-detail="${idx}" aria-label="查看 ${esc(p.brand)} 詳情">${firstImage ? `<img src="${esc(cardImage)}"${responsive}${backupImage ? ` data-fallback-src="${esc(backupImage)}"` : ''} alt="${esc(p.brand)}" loading="lazy" decoding="async" fetchpriority="low" width="1000" height="750">` : "<span>商品資訊</span>"}</button><button class="save" data-save="${idx}" aria-label="收藏 ${esc(p.brand)}" aria-pressed="${saved.has(p.key)}">${bookmark}</button></div>
+    <div class="product-picture"><button class="image-open" data-detail="${idx}" aria-label="查看 ${esc(p.brand)} 詳情">${firstImage ? `<img src="${esc(cardImage)}"${responsive}${backupImage ? ` data-fallback-src="${esc(backupImage)}"` : ''} alt="${esc(p.brand)}" loading="lazy" decoding="async" fetchpriority="low" width="1000" height="750">` : "<span>商品資訊</span>"}</button><button class="save" data-save="${idx}" aria-label="收藏 ${esc(p.brand)}" aria-pressed="${saved.has(p.key)}">${bookmark}</button>${cardBadge(p)}</div>
     <div class="product-body"><div class="product-meta"><span class="status ${p.status.key}${timedCampaign(p) ? " timed" : ""}">${label}</span><span>${esc(p.category.split(/[,，]/)[0])}${p.country ? " / " + esc(p.country) : ""}</span></div>
     <h3><button data-detail="${idx}" style="font:inherit;text-align:left;padding:0">${esc(p.brand)}</button></h3><p class="product-description">${esc(p.description)}</p>
-    <div class="product-bottom">${timedCampaign(p) ? `<p class="date-line">${countdownMarkup(p)}</p>` : ""}
+    <div class="product-bottom">
     ${p.coupon && p.status.key === "open" ? `<div class="coupon-inline"><small>專屬折扣碼</small><code>${esc(p.coupon)}</code><button type="button" data-copy-code="${esc(p.coupon)}">複製折扣碼</button></div>` : ""}
     ${p.disclosure ? `<p class="small permanent-offer-disclosure">${esc(p.disclosure)}</p>` : ""}
-    ${p.kind === "book" && retailerLinks ? `<div class="retailer-links">${retailerLinks}</div>` : `<div class="card-actions"><button class="button secondary" data-detail="${idx}">商品詳情</button></div>`}
-    ${p.article?.article ? `<a class="card-reading" href="${esc(p.article.article)}">先讀生活筆記<span aria-hidden="true">↗</span></a>` : ""}
-    ${p.videos.length ? `<button class="card-reading card-video" data-detail="${idx}">觀看使用影片</button>` : ""}
-    ${!p.kind && (p.end || p.start) && p.status.key !== "closed" && !p.status.soldOut ? `<button class="card-calendar" data-calendar-product="${idx}">加入行事曆</button>` : ""}
-    ${p.kind === "book" && retailerLinks ? "" : `<div class="card-primary-action">${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">${cta}</a>` : `<button class="button secondary" data-save="${idx}">${saved.has(p.key) ? "已收藏 ✓" : "先收藏"}</button>`}</div>`}
+    ${p.kind === "book" && retailerLinks ? `<div class="retailer-links">${retailerLinks}</div>` : `<div class="card-primary-action">${p.status.key === "open" ? `<a class="button primary" href="${esc(p.url)}" data-buy-key="${esc(p.key)}" target="_blank" rel="noopener noreferrer">${cta}</a>` : `<button class="button secondary" data-save="${idx}">${saved.has(p.key) ? "已收藏 ✓" : "先收藏"}</button>`}</div>`}
+    <div class="card-links">${p.article?.article ? `<a class="card-reading" href="${esc(p.article.article)}">看選購筆記<span aria-hidden="true">↗</span></a>` : ""}<button type="button" class="card-more" data-detail="${idx}">${p.videos.length ? "詳情・影片" : "商品詳情"}</button></div>
     </div></div></article>`;
 }
 function render() {

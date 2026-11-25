@@ -351,7 +351,7 @@ function registerCards() {
   let s = read(path);
   s = s.replace(/\n?\s*<article class="article-card" data-article="kidsread[a-z-]*"[\s\S]*?<\/article>/g, '');
   const cardHtml = p => `
-        <article class="article-card" data-article="${p.slug}" data-content-kind="explainer" data-category="母嬰" data-prepared="${PUBLISHED}" data-published="${PUBLISHED}" data-state="journal">
+        <article class="article-card" data-article="${p.slug}"${p.id === 'hub' ? ' data-campaign-key="kidsread"' : ''} data-content-kind="explainer" data-category="母嬰" data-prepared="${PUBLISHED}" data-published="${PUBLISHED}" data-state="journal">
           <a class="card-image" href="${url(p)}"><img src="${coverPath(p)}" width="1600" height="1000" alt="${attr(coverAlt(p))}" loading="lazy" decoding="async" fetchpriority="low" srcset="${coverPath(p).replace('.webp', '-480.webp')} 480w, ${coverPath(p).replace('.webp', '-960.webp')} 960w, ${coverPath(p)} 1600w" sizes="(max-width:700px) 90vw, 45vw"></a>
           <div class="card-copy"><div class="card-meta"><span data-status>閱讀知識指南</span><span>${esc(p.meta)}</span></div><h3><a href="${url(p)}">${esc(p.title)}</a></h3><p>${esc(p.excerpt)}</p><div class="card-actions"><a class="read" href="${url(p)}">${esc(p.readLabel)}</a></div></div>
         </article>`;

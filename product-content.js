@@ -1,13 +1,13 @@
 /* Shared article/video contract. No Sheet writes, publishing or message sending. */
 (function(root,factory){const api=factory();if(typeof module==='object')module.exports=api;else root.ProductContent=api;})(typeof globalThis!=='undefined'?globalThis:this,function(){
   const catalog={
-    janJulWinter:{id:'jan-jul-winter',brands:['加拿大 Jan & Jul 秋冬保暖系列'],article:'/blog/jan-jul-winter/',title:'Jan & Jul 秋冬保暖怎麼挑？防水外套、刷毛褲、雪靴與手套，出國玩雪和台灣濕冷都好穿',readingTitle:'Jan & Jul 秋冬保暖怎麼挑？防水外套、刷毛褲、雪靴與手套，出國玩雪和台灣濕冷都好穿',coverAlt:'兩個孩子穿著 Jan & Jul 防水外套在海邊沙灘上走；下雨下雪照樣出門玩',excerpt:'過年去日本、韓國玩雪，或台灣冬天濕冷通勤：照用途整理 Jan & Jul 防水外套、刷毛褲、雪靴和手套怎麼配，附我們家兩兄弟的實拍。',category:'秋冬保暖',image:'/assets/jan-jul-winter/cover.webp',cardImage:'/assets/jan-jul/product-card.webp',published:'2026-11-22'},
+    janJulWinter:{facts:{price:'外套 NT$1,780 起、雪靴 NT$1,480 起',shipping:'本島單筆滿 NT$3,000 免運（未滿 NT$90）',delivery:'12 月上旬陸續出貨'},id:'jan-jul-winter',brands:['加拿大 Jan & Jul 秋冬保暖系列'],article:'/blog/jan-jul-winter/',title:'Jan & Jul 秋冬保暖怎麼挑？防水外套、刷毛褲、雪靴與手套，出國玩雪和台灣濕冷都好穿',readingTitle:'Jan & Jul 秋冬保暖怎麼挑？防水外套、刷毛褲、雪靴與手套，出國玩雪和台灣濕冷都好穿',coverAlt:'兩個孩子穿著 Jan & Jul 防水外套在海邊沙灘上走；下雨下雪照樣出門玩',excerpt:'過年去日本、韓國玩雪，或台灣冬天濕冷通勤：照用途整理 Jan & Jul 防水外套、刷毛褲、雪靴和手套怎麼配，附我們家兩兄弟的實拍。',category:'秋冬保暖',image:'/assets/jan-jul-winter/cover.webp',cardImage:'/assets/jan-jul/product-card.webp',published:'2026-11-22'},
     jowua:{id:'jowua',brands:['Jowua'],article:'/blog/jowua/',title:'Jowua 折扣碼 eagle 全館 95 折｜Tesla 車用配件怎麼挑、折扣碼怎麼用',readingTitle:'Jowua 折扣碼 eagle 全館 95 折｜Tesla 車用配件怎麼挑、折扣碼怎麼用',coverAlt:'Jowua 折扣碼 eagle 全館 95 折；Qi2 車架、掛鉤、螢幕保護貼與扶手箱收納',excerpt:'Jowua 折扣碼 eagle，台灣官網全館 95 折，從連結進入自動帶入。整理 Tesla Model 3／Y 新車常買的遮陽簾、腳踏墊、保護貼與 Qi2 車架，還有運費、退貨與保固。',category:'車用配件',image:'/assets/jowua/cover.webp',cardImage:'/assets/jowua/product-card.webp',published:'2026-11-16'},
     brushBaby:{id:'brush-baby',brands:['Brush Baby 兒童電動牙刷'],article:'/blog/brush-baby/',title:'孩子不愛刷牙怎麼辦？Brush Baby 從嬰兒潔牙棉巾到兒童電動牙刷，依年齡挑',readingTitle:'孩子不愛刷牙怎麼辦？Brush Baby 從嬰兒潔牙棉巾到兒童電動牙刷，依年齡挑',coverAlt:'在恩與在熙小時候坐在沙發上拿著 Brush Baby 電動牙刷；刷牙變成好玩的事',excerpt:'孩子不愛刷牙？先讓刷牙變好玩。照年齡整理 Brush Baby 潔牙棉巾、嬰兒牙刷到 3 歲以上電動牙刷怎麼挑，附我們家兩兄弟小時候的實際用法。',category:'口腔清潔',image:'/assets/brush-baby/cover.webp',cardImage:'/assets/brush-baby/product-card.webp',published:'2026-11-13'},
     acerLuggage:{id:'acer-luggage',brands:['acer 前開式行李箱'],article:'/blog/acer-luggage/',title:'acer 前開式行李箱怎麼選？哥本哈根 20、25、28 吋尺寸、容量與全家搭法',readingTitle:'acer 前開式行李箱怎麼選？哥本哈根 20、25、28 吋尺寸、容量與團購價',coverAlt:'acer 哥本哈根前開式行李箱五色；尺寸與團購價選購筆記',excerpt:'acer 哥本哈根前開式行李箱 20 吋登機、25／28 吋託運：整理三種尺寸的長寬高、容量、重量和五種顏色，以及親子出國、過年返鄉怎麼搭。',category:'旅行選物',image:'/assets/acer-luggage/cover.webp',cardImage:'/assets/acer-luggage/product-card.webp',published:'2026-11-10'},
-    ilovekidsBookcase:{id:'ilovekids-rotating-bookcase',brands:['愛兒館 旋轉書櫃'],article:'/blog/ilovekids-rotating-bookcase/',title:'愛兒館旋轉書櫃好用嗎？小房間收繪本，孩子自己拿、自己放回去',readingTitle:'愛兒館旋轉書櫃好用嗎？小房間收繪本，孩子自己拿、自己放回去',coverAlt:'孩子站在愛兒館旋轉書櫃旁拿繪本；愛兒館旋轉書櫃使用心得',excerpt:'孩子房間不到 2 坪，長型書架讓書東倒西歪。我們 2023 年開始用愛兒館旋轉書櫃：佔地小、每格不深孩子好拿放，也整理了 DIY 組裝和退貨前要知道的事。',category:'兒童閱讀收納',image:'/assets/ilovekids-rotating-bookcase/cover.webp',cardImage:'/assets/ilovekids-rotating-bookcase/product-card.webp',published:'2026-11-10'},
+    ilovekidsBookcase:{facts:{price:'旋轉書櫃一組 NT$6,199（原價 NT$9,999）',shipping:'本島滿 NT$2,399 免運，單買書櫃就過門檻',delivery:'11/30 起陸續出貨'},id:'ilovekids-rotating-bookcase',brands:['愛兒館 旋轉書櫃'],article:'/blog/ilovekids-rotating-bookcase/',title:'愛兒館旋轉書櫃好用嗎？小房間收繪本，孩子自己拿、自己放回去',readingTitle:'愛兒館旋轉書櫃好用嗎？小房間收繪本，孩子自己拿、自己放回去',coverAlt:'孩子站在愛兒館旋轉書櫃旁拿繪本；愛兒館旋轉書櫃使用心得',excerpt:'孩子房間不到 2 坪，長型書架讓書東倒西歪。我們 2023 年開始用愛兒館旋轉書櫃：佔地小、每格不深孩子好拿放，也整理了 DIY 組裝和退貨前要知道的事。',category:'兒童閱讀收納',image:'/assets/ilovekids-rotating-bookcase/cover.webp',cardImage:'/assets/ilovekids-rotating-bookcase/product-card.webp',published:'2026-11-10'},
     kidsActiveToys:{id:'kids-active-toys',brands:['兒童放電神器'],article:'/blog/kids-active-toys/',title:'兒童放電神器怎麼選？平衡車、扭扭車、Vespa 電動車、滑板車與彈跳床，依年齡和場地挑',readingTitle:'兒童放電神器怎麼選？平衡車、扭扭車、Vespa 電動車、滑板車與彈跳床，依年齡和場地挑',coverAlt:'兩個孩子坐在 Vespa 兒童電動車旁；兒童放電神器選購筆記',excerpt:'平衡車、扭扭車、Vespa 電動車、滑板車和彈跳床，先看孩子年齡和常去的場地：公園玩哪幾樣、下雨天在家玩哪幾樣，用鷹家實拍整理五樣怎麼挑。',category:'親子放電',image:'/assets/kids-active-toys/cover.webp',cardImage:'/assets/kids-active-toys/product-card.webp',published:'2026-11-10'},
-    momaxLocator:{id:'momax-locator',brands:['Momax 定位器 X 鷹式一家','Momax 定位器','Momax','MOMAX 定位器','Momax 定位器 x 鷹式一家'],article:'/blog/momax-locator/',title:'Momax 定位器怎麼選？Metro Poppies 聯名雙系統款，iPhone、Android 都能用',readingTitle:'Momax 定位器怎麼選？Metro Poppies 聯名雙系統款，iPhone、Android 都能用',coverAlt:'Momax Metro Poppies 聯名四色絨毛定位器；iPhone、Android 都能用的防丟選購筆記',excerpt:'家裡手機有 iPhone 也有 Android？Momax Metro Poppies 聯名雙系統定位器兩種都能設定，但使用時只能擇一系統。整理它怎麼找東西、掛在哪裡最有用，以及團購價與免運門檻。',category:'生活防丟',image:'/assets/momax-locator/cover.webp',cardImage:'/assets/momax-locator/product-card.webp',published:'2026-11-10'},
+    momaxLocator:{facts:{price:'單入 NT$699、2 入 NT$1,360、四色 NT$2,600',shipping:'超商滿 NT$699、宅配滿 NT$1,200 免運',delivery:'下單後 5 個工作天內寄出'},id:'momax-locator',brands:['Momax 定位器 X 鷹式一家','Momax 定位器','Momax','MOMAX 定位器','Momax 定位器 x 鷹式一家'],article:'/blog/momax-locator/',title:'Momax 定位器怎麼選？Metro Poppies 聯名雙系統款，iPhone、Android 都能用',readingTitle:'Momax 定位器怎麼選？Metro Poppies 聯名雙系統款，iPhone、Android 都能用',coverAlt:'Momax Metro Poppies 聯名四色絨毛定位器；iPhone、Android 都能用的防丟選購筆記',excerpt:'家裡手機有 iPhone 也有 Android？Momax Metro Poppies 聯名雙系統定位器兩種都能設定，但使用時只能擇一系統。整理它怎麼找東西、掛在哪裡最有用，以及團購價與免運門檻。',category:'生活防丟',image:'/assets/momax-locator/cover.webp',cardImage:'/assets/momax-locator/product-card.webp',published:'2026-11-10'},
     zoofamilyKidsCamera:{id:'zoofamily-kids-camera',brands:['比利時 ZooFamily 兒童相機'],article:'/blog/zoofamily-kids-camera/',title:'ZooFamily 兒童相機怎麼選？四款功能、年齡與價格比較',readingTitle:'ZooFamily 兒童相機怎麼選？四款功能、年齡與價格比較',coverAlt:'ZooFamily 兒童相機，四款怎麼選',excerpt:'ZooFamily 兒童相機怎麼選？比較 ZooFriends、UrbanZoo、ZooPrint、ZooVideo 的適用年齡、觸控操作、黑白列印與自拍錄影，也說清楚實際感光畫素與軟體插值，依孩子的玩法縮小選擇。',category:'親子探索',image:'/assets/zoofamily-kids-camera/cover.webp',cardImage:'/assets/zoofamily-kids-camera/product-card.webp',published:'2026-11-06'},
     bernie:{id:'bernie',brands:['伯尼寢具'],article:'/blog/bernie/',title:'伯尼寢具選物指南：天絲床包、舒芙水洗被怎麼挑？',readingTitle:'伯尼寢具選物指南：天絲床包、舒芙水洗被怎麼挑？',coverAlt:'媽媽和兩個孩子在白底彩色點點的被面上共讀繪本，旁有伯尼寢具標題',excerpt:'伯尼寢具選物指南：用家庭實拍看白底點點和米色床面，比較舒芙水洗被、單件兩用被、無被套床包枕套組與完整床組，再按床墊高度、換洗習慣及現貨預購挑選。',category:'居家選物',image:'/assets/bernie/cover.webp',cardImage:'/assets/bernie/product-card.webp',published:'2026-11-06'},
     sanfufarm:{id:'sanfufarm',brands:['三富休閒農場'],article:'/blog/sanfufarm/',title:'三富休閒農場房型怎麼選？森林館、紫屋與欒樹館比較',excerpt:'依人數、孩子年齡與是否帶狗，比較森林館、紫屋與欒樹館，並整理早餐、下午茶、DIY 與夜間導覽的份數。',category:'親子旅行',image:'/assets/sanfufarm/cover.webp',published:'2026-10-23'},
@@ -90,11 +90,49 @@
     if((r['開團日期']&&!start)||(r['結束日期']&&!end)||(!end&&!/長期|long/i.test(type)))return {state:'unavailable',label:'檔期待確認'};
     if(start&&end&&start>end)return {state:'unavailable',label:'檔期待確認'};
     if(end&&now>end)return {state:'closed',label:'本次團購已結束'};
-    if(start&&now<start)return {state:'upcoming',label:'尚未開團'};
+    if(start&&now<start)return {state:'upcoming',label:'尚未開團',start,end};
     if(!url)return {state:'unavailable',label:'購買連結待確認'};
     if(String(r['庫存狀態']||'')==='售完')return {state:'closed',label:'目前已售完'};
-    return {state:'open',label:'查看當期組合優惠',url,videos:fromRow(r),end};
+    return {state:'open',label:'查看當期組合優惠',url,videos:fromRow(r),start,end};
   }
+
+  // 文章開頭的「這一檔重點」卡：檔期、團購價、運費、出貨，加一個購買鈕。只在開團中或即將開團時出現。
+  // facts（團購價／運費／出貨）寫在 catalog 該篇條目，來源是文章自己的團購說明段落。
+  function mountKeyFacts(key,c,{buy}={}){
+    if(typeof document==='undefined')return;
+    const item=catalog[key];let card=document.querySelector('.key-facts');
+    if(!item||!c||!['open','upcoming'].includes(c.state)){card?.remove();return;}
+    const byline=document.querySelector('main .byline');if(!byline)return;
+    if(!document.getElementById('key-facts-style')){const st=document.createElement('style');st.id='key-facts-style';st.textContent=KEY_FACTS_CSS;document.head.append(st);}
+    if(!card){card=document.createElement('aside');card.className='key-facts';card.setAttribute('aria-label','這一檔重點');card.setAttribute('data-editorial-exclude','');byline.after(card);}
+    const md=d=>{const [y,m,dd]=d.split('-').map(Number);return `${m}/${dd}（${'日一二三四五六'[new Date(Date.UTC(y,m-1,dd)).getUTCDay()]}）`;};
+    const left=c.end?Math.floor((Date.parse(c.end+'T00:00:00+08:00')+86400000-Date.now())/86400000):null;
+    const pill=c.state==='upcoming'?'即將開團':c.end?(left>=1?`開團中・剩 ${left} 天`:'今天最後一天'):'開團中';
+    // 開團前只寫開團日（結束日在開團後才寫）；跨年的結束日把年份寫出來。
+    const endText=c.end?(c.start&&c.end.slice(0,4)!==c.start.slice(0,4)?c.end.slice(0,4)+'/':'')+md(c.end)+'23:59':'';
+    const range=c.state==='upcoming'?md(c.start)+'開團':c.end?`${c.start?md(c.start)+'～':''}${endText}`:'常駐開團';
+    const f=item.facts||{};
+    const rows=[['檔期',range],['團購價',f.price],['運費',f.shipping],['出貨',f.delivery]].filter(([,v])=>v);
+    card.classList.toggle('is-urgent',c.state==='open'&&left!==null&&left<=3);
+    card.innerHTML=`<div class="kf-head"><p class="kf-title">這一檔重點</p><span class="kf-pill">${escape(pill)}</span></div><dl>${rows.map(([k,v])=>`<div><dt>${escape(k)}</dt><dd>${escape(v)}</dd></div>`).join('')}</dl><div class="kf-actions">${c.state==='open'?(buy?.href?`<a class="kf-buy" href="${escape(buy.href)}" target="_blank" rel="noopener noreferrer">前往團購<span aria-hidden="true">↗</span></a>`:'<button type="button" class="kf-buy">前往團購<span aria-hidden="true">↗</span></button>'):`<span class="kf-wait">開團當天，這裡會出現購買入口</span>`}${document.getElementById('offer')?'<a class="kf-more" href="#offer">看團購細節</a>':''}</div>`;
+    const b=card.querySelector('button.kf-buy');if(b&&buy?.onClick)b.addEventListener('click',buy.onClick);
+  }
+  const KEY_FACTS_CSS=`.key-facts{margin:22px 0 26px;padding:18px 20px 16px;border:1px solid #dcd5c9;border-radius:16px;background:#fffdf8;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.6;color:#343a30}
+.key-facts .kf-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:10px}
+.key-facts .kf-title{margin:0;font-size:13px;font-weight:700;letter-spacing:.08em;color:#46533a}
+.key-facts .kf-pill{padding:3px 11px;border-radius:999px;background:#eee9dd;color:#46533a;font-size:13px;font-weight:700;white-space:nowrap}
+.key-facts.is-urgent .kf-pill{background:#a84c2b;color:#fffdf8}
+.key-facts dl{display:grid;gap:6px;margin:0}
+.key-facts dl div{display:grid;grid-template-columns:4.2em 1fr;gap:10px;align-items:baseline}
+.key-facts dt{margin:0;font-size:13px;color:#676d60}
+.key-facts dd{margin:0;font-size:15px;font-weight:600}
+.key-facts .kf-actions{display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px;margin-top:14px}
+.key-facts .kf-buy{display:inline-flex;align-items:center;gap:6px;min-height:44px;padding:0 20px;border:0;border-radius:999px;background:#343a30;color:#fffdf8;font-family:inherit;font-size:15px;font-weight:700;line-height:1;text-decoration:none;cursor:pointer}
+.key-facts .kf-buy:hover{background:#22271f}
+.key-facts .kf-buy:focus-visible,.key-facts .kf-more:focus-visible{outline:3px solid #a84c2b;outline-offset:2px}
+.key-facts .kf-wait{font-size:14px;color:#676d60}
+.key-facts .kf-more{display:inline-flex;align-items:center;min-height:44px;color:#a84c2b;font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){.key-facts{margin:18px 0 22px;padding:16px 16px 14px}.key-facts dd{font-size:14.5px}.key-facts .kf-buy{flex:1 1 auto;justify-content:center}}`;
   function campaign(rows,now=today()){return campaignFor(rows,'atojet',now);}
   function dialog(title){const d=document.createElement('dialog');d.className='content-dialog';d.setAttribute('aria-label',title);const head=document.createElement('header'),h=document.createElement('h2'),close=document.createElement('button');h.textContent=title;close.className='close';close.textContent='關閉 ×';close.setAttribute('aria-label','關閉視窗');close.onclick=()=>d.close();head.append(h,close);d.append(head);const previous=document.activeElement;d.addEventListener('close',()=>{d.remove();previous?.focus();});d.addEventListener('click',e=>{if(e.target===d){const b=d.getBoundingClientRect();if(e.clientX<b.left||e.clientX>b.right||e.clientY<b.top||e.clientY>b.bottom)d.close();}});document.body.append(d);return d;}
   function mountVideos(container,input){
@@ -130,5 +168,5 @@
     container.append(nav,panel);select(list[0],0);
   }
   function install(getGroups){document.addEventListener('click',e=>{const v=e.target.closest('[data-video-brand]'),r=e.target.closest('[data-reading-brand]');if(!v&&!r)return;const g=getGroups().find(g=>g.brand===(v?.dataset.videoBrand||r?.dataset.readingBrand));if(!g)return;e.preventDefault();e.stopPropagation();const d=dialog(v?'觀看影片':'閱讀文章');if(v)mountVideos(d,g.videos||g.video);else{const p=document.createElement('p');p.textContent='選擇閱讀內容（尚未整合的舊文保留原始入口）';d.append(p);for(const x of readingLinks(g)){const a=document.createElement('a');a.href=x.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=x.title;d.append(a);}}d.showModal();});}
-  return {catalog,escape,safeUrl,withUTM,videoId,instagramEmbed,videos,fromRow,sheetRows,entry,readingLinks,readingButton,videoButton,date,campaign,campaignFor,rowForArticle,today,mountVideos,install};
+  return {catalog,escape,safeUrl,withUTM,videoId,instagramEmbed,videos,fromRow,sheetRows,entry,readingLinks,readingButton,videoButton,date,campaign,campaignFor,rowForArticle,today,mountVideos,mountKeyFacts,install};
 });
