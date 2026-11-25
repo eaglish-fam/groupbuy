@@ -361,3 +361,11 @@ body.travel-home{--ink:#494139;--paper:#fcfaf5;--line:#dcd5c9;--muted:#70665b;--
 .travel-home .film-chapter p{margin:0 0 8px;font-size:14px}
 .travel-home .regional-film :focus-visible{outline:3px solid #15366a;outline-offset:3px}
 @media(max-width:700px){.travel-home #regional-film-content{grid-template-columns:1fr;gap:18px}}
+
+/* 遠行所頂部導覽（2026-11）：和買物社、選物誌同一套分頁列樣式，三站看起來是同一個家。 */
+.travel-home .home-masthead nav{gap:2px;align-self:stretch;align-items:stretch}
+.travel-home .home-masthead nav a{min-height:48px;padding:0 14px;border-bottom:2px solid transparent;color:var(--muted);font:600 15px/1 var(--sans);transition:color .16s ease,border-color .16s ease}
+.travel-home .home-masthead nav a:hover{color:var(--ink);text-decoration:none;border-bottom-color:var(--line)}
+.travel-home .home-masthead nav a:focus-visible{outline:3px solid var(--signal);outline-offset:-3px}
+.travel-home .home-masthead nav a:target,.travel-home .home-masthead nav a[aria-current]{color:var(--ink);border-bottom-color:var(--signal)}
+@media(max-width:700px){.travel-home .home-masthead nav{justify-content:flex-start;gap:0;margin-inline:-10px;width:calc(100% + 20px)}.travel-home .home-masthead nav a{min-height:44px;padding:0 12px;font-size:14px}}
