@@ -64,3 +64,19 @@
   .reading-nav.is-open .reading-nav__now{opacity:0;pointer-events:none;transform:translateY(-6px)}
 }
 @media(prefers-reduced-motion:reduce){.reading-nav__progress span{transition:none}}
+/* D 刻度條（Hiram 2026-11-25 選 D）：手機、平板把直立「文章目錄」字換成一排細線，一章一條。桌機維持左側整排目錄。 */
+.reading-nav__ticks{display:none}
+@media(max-width:1199px){
+  .reading-nav.has-ticks .reading-nav__tab{width:28px;min-height:0;padding:12px 0 12px 7px;gap:0;justify-content:flex-start;align-items:flex-start;border-radius:0 12px 12px 0;background:rgba(250,247,240,.84);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);box-shadow:2px 3px 10px #36594f22}
+  .reading-nav.has-ticks .reading-nav__tab-label{display:none}
+  .reading-nav.has-ticks .reading-nav__ticks{display:flex;flex-direction:column;gap:9px}
+  .reading-nav__ticks i{display:block;width:10px;height:2px;border-radius:2px;background:#9aa596;transition:width .2s ease,background-color .2s ease}
+  .reading-nav__ticks i.is-done{background:var(--green,#36594f)}
+  .reading-nav__ticks i.is-on{width:16px;height:3px;background:var(--rust,#a05238)}
+  .reading-nav.has-ticks .reading-nav__list a:before{content:"";min-width:0;width:12px;height:2px;flex:none;border-radius:2px;background:#9aa596;opacity:1}
+  .reading-nav.has-ticks .reading-nav__list a[aria-current="location"]:before{width:20px;height:3px;background:var(--rust,#a05238)}
+}
+@media(max-width:760px){
+  body:not(.hummus-guide):has(>.reading-nav.has-ticks) :is(.article-layout.wrap,.article-body){padding-left:32px}
+}
+@media(prefers-reduced-motion:reduce){.reading-nav__ticks i{transition:none}}
