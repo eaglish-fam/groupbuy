@@ -7,7 +7,7 @@ const require=createRequire(import.meta.url),{catalog,escape}=require('../produc
 const root = new URL('../', import.meta.url);
 const release = '20261021-calendar-g1';
 const productMediaRelease = '20261112-filter-design';
-const designScriptRelease = '20261125-cta';
+const designScriptRelease = '20261125-upcoming';
 // catalog-core.js decides open/upcoming for the home page and /calendar/; bumped so LINE and phones drop the cached copy (GB-015-6).
 const catalogCoreRelease = '20261122-janjul-article';
 const campaignBannersRelease = '20261108-luna-link';

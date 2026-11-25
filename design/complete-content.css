@@ -752,7 +752,7 @@ html { scroll-padding-top: 150px; }
    改成淡鼠尾草底＋深綠字（8.25:1）＋細邊；LINE 綠只留在小對話框圖示上當辨識點綴。 */
 .button.line-notify { background:#E8EEE3; border:1px solid #C9D6C0; color:#2F4A36; justify-content: center; gap: 7px; }
 .button.line-notify:hover { background:#DDE6D5; border-color:#B8C8AE; color:#2F4A36; }
-.line-notify::before, .shelf-line-btn::before { content:"";width:18px;height:18px;flex:none;background:#06C755;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.8-3.4 7.9-5.9C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.8-3.4 7.9-5.9C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8z'/%3E%3C/svg%3E") center/contain no-repeat; }
+.line-notify::before, .shelf-line-btn::before, .card-line::before { content:"";width:18px;height:18px;flex:none;background:#06C755;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.8-3.4 7.9-5.9C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8z'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s5.8-3.4 7.9-5.9C21.4 14.3 22 12.7 22 11c0-4.4-4.5-8-10-8z'/%3E%3C/svg%3E") center/contain no-repeat; }
 
 /* 首頁輪播（A）：圖片上方一段一段的細進度條，取代手機上整排的箭頭和「1／8」；
    手機只留一顆小小的暫停鈕在圖片右上角（自動輪播一定要能暫停）。 */
@@ -809,3 +809,10 @@ html { scroll-padding-top: 150px; }
   .filter-open b { min-width: 20px; padding: 0 6px; border-radius: 999px; background: var(--olive); color: #fff; font-size: 12px; line-height: 20px; text-align: center; }
   .filter-open b[hidden] { display: none; }
 }
+
+/* 即將開團卡：LINE 提醒是次要連結（主按鈕＝看開團內容） */
+.card-links .card-line{display:inline-flex;align-items:center;gap:6px;color:#2F4A36}
+.card-links .card-line::before{width:15px;height:15px}
+.card-links .card-more{white-space:nowrap}
+.card-links .card-line [aria-hidden]{display:none}
+.detail-copy .button.primary + .button.line-notify{margin-top:10px}
