@@ -747,3 +747,7 @@ html { scroll-padding-top: 150px; }
 }
 /* 項目間距只由各項目左右內距決定（不用 gap，否則兩端漸層和第一個項目之間會多出空隙）。 */
 .content-nav.content-nav { gap: 0; }
+
+/* 結團／未開團：主按鈕改成 LINE 開團通知（LINE 綠只用在這顆按鈕上）。 */
+.button.line-notify { background: #06c755; border-color: #06c755; color: #fff; justify-content: center; gap: 6px; }
+.button.line-notify:hover { background: #05b14c; border-color: #05b14c; color: #fff; }

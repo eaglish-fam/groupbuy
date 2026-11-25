@@ -45,3 +45,25 @@ aside.site-reading-note>ul>li{margin:0;padding:0;min-width:0}
 aside.site-reading-note a{display:inline-flex;align-items:center;min-height:44px;font-size:13px;color:#784b39;line-height:1.8;text-underline-offset:4px}
 aside.site-reading-note a:focus-visible{outline:3px solid #784b39;outline-offset:3px}
 @media(max-width:700px){aside.site-reading-note{padding:18px;margin:23px 0}aside.site-reading-note>h3{font-size:20px}aside.site-reading-note>p{font-size:13px}aside.site-reading-note>ul{display:block}aside.site-reading-note a{width:100%;font-size:13px}}
+/* 手機（2026-11-25，Hiram：轉換率優先）：文章的浮動購買鈕、遠行所的「行程規劃」不再疊在導覽上面，
+   而是和導覽同一排：導覽縮成三個圖示（文字留給讀屏），右邊長出那顆按鈕。畫面只剩一層浮動元件。 */
+@media(max-width:700px){
+  html:has(.offer-bar.is-floating) .site-switcher-inner,html:has(.trip-plan-entry:not([hidden])) .site-switcher-inner{max-width:none;width:158px;margin:0}
+  html:has(.offer-bar.is-floating) .site-switcher a,html:has(.trip-plan-entry:not([hidden])) .site-switcher a{font-size:0;gap:0;padding:6px 0}
+  html:has(.site-switcher) .offer-bar.is-floating{left:182px!important;right:12px!important;bottom:calc(8px + env(safe-area-inset-bottom,0px))!important;transform:none!important;width:auto!important;max-width:none!important;z-index:71}
+  html:has(.site-switcher) .offer-bar.is-floating>:is(button,a){display:block!important;width:100%!important;max-width:none!important;min-height:58px!important;height:58px;line-height:56px!important;text-align:center;margin:0!important;padding:0 16px!important;border-radius:999px!important;font-size:15px!important;white-space:nowrap!important;overflow:hidden;text-overflow:ellipsis}
+  html:has(.site-switcher) .trip-plan-entry:not([hidden]){left:182px;right:12px!important;bottom:calc(8px + env(safe-area-inset-bottom,0px))!important;width:auto;height:58px;flex-direction:row;gap:0;border-radius:999px;z-index:71;font-size:15px;background:#784b39;border-color:#784b39;color:#fffdf8;box-shadow:0 12px 32px rgba(52,46,40,.18)}
+  html:has(.site-switcher) .trip-plan-entry:not([hidden]):hover{background:#663e2f}
+}
+/* 結團／未開團時，購買鈕變成「開團通知我・加入 LINE」：LINE 綠只用在這顆按鈕。 */
+.offer-bar .is-line-notify,.offer-bar.is-floating .is-line-notify,.purchase .offer-bar.is-floating button.is-line-notify{background:#06c755!important;border-color:#06c755!important;color:#fff!important}
+/* 底部導覽：往下捲收起、往上捲出現（site-runtime.js 加 switcher-tucked）。文章購買鈕或行程規劃在同一排時不收。 */
+html.switcher-tucked .site-switcher-inner{transform:translateY(calc(100% + 24px));opacity:0;pointer-events:none}
+html.switcher-tucked:has(.offer-bar.is-floating) .site-switcher-inner,html.switcher-tucked:has(.trip-plan-entry:not([hidden])) .site-switcher-inner{transform:none;opacity:1;pointer-events:auto}
+.site-switcher-inner{transition:width .28s cubic-bezier(.3,.7,.2,1),margin .28s cubic-bezier(.3,.7,.2,1),transform .28s ease,opacity .2s ease}
+/* 換站時，選中的那顆膠囊滑到新的位置（支援跨頁 View Transition 的瀏覽器；其他瀏覽器照常換頁）。 */
+@view-transition{navigation:auto}
+.site-switcher a[aria-current]{view-transition-name:switcher-current}
+::view-transition-group(switcher-current){animation-duration:.34s;animation-timing-function:cubic-bezier(.3,.7,.2,1)}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
+@media(prefers-reduced-motion:reduce){@view-transition{navigation:none}.site-switcher-inner{transition:none!important}}

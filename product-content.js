@@ -96,15 +96,29 @@
     return {state:'open',label:'查看當期組合優惠',url,videos:fromRow(r),start,end};
   }
 
+
+  // 結團、還沒開團時的下一步：加入 LINE 社群，開團第一時間通知（Hiram 2026-11-25：結團就引導加入 LINE）。
+  const LINE_COMMUNITY='https://line.me/ti/g2/YOQM0ZQlrN3jj_R5BP4W-hnxE3Ij1005VxJT7w';
+  function lineNotifyLink({surface,product='',label='開團通知我・加入 LINE',className='line-notify'}={}){
+    return `<a class="${escape(className)}" href="${LINE_COMMUNITY}" target="_blank" rel="noopener noreferrer" data-line-notify="${escape(surface||'')}" data-line-product="${escape(product)}">${escape(label)}<span aria-hidden="true">↗</span></a>`;
+  }
   // 文章開頭的「這一檔重點」卡：檔期、團購價、運費、出貨，加一個購買鈕。只在開團中或即將開團時出現。
   // facts（團購價／運費／出貨）寫在 catalog 該篇條目，來源是文章自己的團購說明段落。
   function mountKeyFacts(key,c,{buy}={}){
     if(typeof document==='undefined')return;
     const item=catalog[key];let card=document.querySelector('.key-facts');
-    if(!item||!c||!['open','upcoming'].includes(c.state)){card?.remove();return;}
+    if(!item||!c||!['open','upcoming','closed'].includes(c.state)){card?.remove();return;}
     const byline=document.querySelector('main .byline');if(!byline)return;
     if(!document.getElementById('key-facts-style')){const st=document.createElement('style');st.id='key-facts-style';st.textContent=KEY_FACTS_CSS;document.head.append(st);}
     if(!card){card=document.createElement('aside');card.className='key-facts';card.setAttribute('aria-label','這一檔重點');card.setAttribute('data-editorial-exclude','');byline.after(card);}
+    if(c.state==='closed'){
+      if(!document.getElementById('key-facts-style')){const st=document.createElement('style');st.id='key-facts-style';st.textContent=KEY_FACTS_CSS;document.head.append(st);}
+      if(!card){card=document.createElement('aside');card.className='key-facts';card.setAttribute('aria-label','這一檔重點');card.setAttribute('data-editorial-exclude','');byline.after(card);}
+      card.classList.remove('is-urgent');card.classList.add('is-closed');
+      card.innerHTML=`<div class="kf-head"><p class="kf-title">這一檔已結團</p><span class="kf-pill">等下一檔</span></div><p class="kf-note">文章可以繼續看。想買的話，加入 LINE 社群，下次開團、補貨會第一時間通知你。</p><div class="kf-actions">${lineNotifyLink({surface:'article_key_facts',product:item.brands[0],className:'kf-buy kf-line'})}<a class="kf-more" href="/#catalog">看正在開團的好物</a></div>`;
+      return;
+    }
+    card?.classList.remove('is-closed');
     const md=d=>{const [y,m,dd]=d.split('-').map(Number);return `${m}/${dd}（${'日一二三四五六'[new Date(Date.UTC(y,m-1,dd)).getUTCDay()]}）`;};
     const left=c.end?Math.floor((Date.parse(c.end+'T00:00:00+08:00')+86400000-Date.now())/86400000):null;
     const pill=c.state==='upcoming'?'即將開團':c.end?(left>=1?`開團中・剩 ${left} 天`:'今天最後一天'):'開團中';
@@ -114,7 +128,7 @@
     const f=item.facts||{};
     const rows=[['檔期',range],['團購價',f.price],['運費',f.shipping],['出貨',f.delivery]].filter(([,v])=>v);
     card.classList.toggle('is-urgent',c.state==='open'&&left!==null&&left<=3);
-    card.innerHTML=`<div class="kf-head"><p class="kf-title">這一檔重點</p><span class="kf-pill">${escape(pill)}</span></div><dl>${rows.map(([k,v])=>`<div><dt>${escape(k)}</dt><dd>${escape(v)}</dd></div>`).join('')}</dl><div class="kf-actions">${c.state==='open'?(buy?.href?`<a class="kf-buy" href="${escape(buy.href)}" target="_blank" rel="noopener noreferrer">前往團購<span aria-hidden="true">↗</span></a>`:'<button type="button" class="kf-buy">前往團購<span aria-hidden="true">↗</span></button>'):`<span class="kf-wait">開團當天，這裡會出現購買入口</span>`}${document.getElementById('offer')?'<a class="kf-more" href="#offer">看團購細節</a>':''}</div>`;
+    card.innerHTML=`<div class="kf-head"><p class="kf-title">這一檔重點</p><span class="kf-pill">${escape(pill)}</span></div><dl>${rows.map(([k,v])=>`<div><dt>${escape(k)}</dt><dd>${escape(v)}</dd></div>`).join('')}</dl><div class="kf-actions">${c.state==='open'?(buy?.href?`<a class="kf-buy" href="${escape(buy.href)}" target="_blank" rel="noopener noreferrer">前往團購<span aria-hidden="true">↗</span></a>`:'<button type="button" class="kf-buy">前往團購<span aria-hidden="true">↗</span></button>'):lineNotifyLink({surface:'article_key_facts',product:item.brands[0],label:'開團提醒我・加入 LINE',className:'kf-buy kf-line'})}${document.getElementById('offer')?'<a class="kf-more" href="#offer">看團購細節</a>':''}</div>`;
     const b=card.querySelector('button.kf-buy');if(b&&buy?.onClick)b.addEventListener('click',buy.onClick);
   }
   const KEY_FACTS_CSS=`.key-facts{margin:22px 0 26px;padding:18px 20px 16px;border:1px solid #dcd5c9;border-radius:16px;background:#fffdf8;font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;line-height:1.6;color:#343a30}
@@ -131,6 +145,10 @@
 .key-facts .kf-buy:hover{background:#22271f}
 .key-facts .kf-buy:focus-visible,.key-facts .kf-more:focus-visible{outline:3px solid #a84c2b;outline-offset:2px}
 .key-facts .kf-wait{font-size:14px;color:#676d60}
+.key-facts .kf-note{margin:0;font-size:15px;line-height:1.75;color:#343a30}
+.key-facts.is-closed{background:#f6f3ec}
+.key-facts .kf-line{background:#06c755;color:#fff}
+.key-facts .kf-line:hover{background:#05b14c}
 .key-facts .kf-more{display:inline-flex;align-items:center;min-height:44px;color:#a84c2b;font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
 @media(max-width:700px){.key-facts{margin:18px 0 22px;padding:16px 16px 14px}.key-facts dd{font-size:14.5px}.key-facts .kf-buy{flex:1 1 auto;justify-content:center}}`;
   function campaign(rows,now=today()){return campaignFor(rows,'atojet',now);}
@@ -168,5 +186,5 @@
     container.append(nav,panel);select(list[0],0);
   }
   function install(getGroups){document.addEventListener('click',e=>{const v=e.target.closest('[data-video-brand]'),r=e.target.closest('[data-reading-brand]');if(!v&&!r)return;const g=getGroups().find(g=>g.brand===(v?.dataset.videoBrand||r?.dataset.readingBrand));if(!g)return;e.preventDefault();e.stopPropagation();const d=dialog(v?'觀看影片':'閱讀文章');if(v)mountVideos(d,g.videos||g.video);else{const p=document.createElement('p');p.textContent='選擇閱讀內容（尚未整合的舊文保留原始入口）';d.append(p);for(const x of readingLinks(g)){const a=document.createElement('a');a.href=x.url;a.target='_blank';a.rel='noopener noreferrer';a.textContent=x.title;d.append(a);}}d.showModal();});}
-  return {catalog,escape,safeUrl,withUTM,videoId,instagramEmbed,videos,fromRow,sheetRows,entry,readingLinks,readingButton,videoButton,date,campaign,campaignFor,rowForArticle,today,mountVideos,mountKeyFacts,install};
+  return {catalog,escape,safeUrl,withUTM,videoId,instagramEmbed,videos,fromRow,sheetRows,entry,readingLinks,readingButton,videoButton,date,campaign,campaignFor,rowForArticle,today,mountVideos,mountKeyFacts,LINE_COMMUNITY,lineNotifyLink,install};
 });

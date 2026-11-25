@@ -172,6 +172,12 @@
       return;
     }
     const brand = a.closest(".product-card")?.querySelector("h3")?.textContent || "";
+    // 結團／未開團時的「開團通知我（LINE）」：獨立事件，不算進團購外連的轉換。
+    const line = a.closest("[data-line-notify]");
+    if (line) {
+      track("join_line_click", { source_surface: line.dataset.lineNotify, group_name: line.dataset.lineProduct || brand, transport_type: "beacon" });
+      return;
+    }
     const outbound = a.closest("[data-outbound-product-id]");
     if (outbound) {
       outboundGroupbuy({
@@ -193,6 +199,23 @@
     else if (a.closest(".social-links") || /line.me|instagram.com|facebook.com|youtube.com|tiktok.com/.test(u.hostname))
       track("click_social", { social_platform: u.hostname, event_category: "engagement" });
   });
+
+  // 底部三站導覽：往下捲收起、往上捲或到頁底時出現（CSS 在 site-navigation.css 的 switcher-tucked）。
+  if (document.querySelector(".site-switcher")) {
+    let lastY = scrollY, queued = false;
+    addEventListener("scroll", () => {
+      if (queued) return;
+      queued = true;
+      requestAnimationFrame(() => {
+        queued = false;
+        const y = scrollY, delta = y - lastY;
+        if (Math.abs(delta) < 10) return;
+        const nearBottom = innerHeight + y >= document.documentElement.scrollHeight - 48;
+        document.documentElement.classList.toggle("switcher-tucked", delta > 0 && y > 240 && !nearBottom);
+        lastY = y;
+      });
+    }, { passive: true });
+  }
   if (production && "serviceWorker" in navigator) {
     // A first visit is already served fresh from the network. Reloading it when the
     // new worker claims the page would log a second page_view referred by itself.

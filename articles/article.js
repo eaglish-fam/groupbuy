@@ -4,7 +4,7 @@ const articleKey=document.body.dataset.articleKey;
 const article=ProductContent.catalog[articleKey];
 // A knowledge guide may refer to a real product without becoming that product article.
 const sourceArticleSlug=document.body.dataset.sourceArticleSlug||article?.article.split('/').filter(Boolean).at(-1);
-const offerButton=document.querySelector('[data-current-offer]'),statusEl=document.querySelector('#offer-status'),videoEl=document.querySelector('#article-videos');let busy=false;
+const offerButton=document.querySelector('[data-current-offer]'),statusEl=document.querySelector('#offer-status'),videoEl=document.querySelector('#article-videos');let busy=false,lastState='';
 if(!article)throw Error('Unknown article identity');
 // Keep the original button and its click/focus state; reserve its home in the article.
 function mountFloatingOffer(button){
@@ -52,11 +52,14 @@ async function refreshOffer(navigate=false){
     const parsed=Papa.parse(csv,{header:false,skipEmptyLines:true});if(parsed.errors.length)throw Error('Invalid CSV');
     const rows=ProductContent.sheetRows(parsed.data),c=ProductContent.campaignFor(rows,articleKey);
     ProductContent.mountKeyFacts?.(articleKey,c,{buy:{onClick:()=>offerButton.click()}});
-    const label=c.state==='open'?(offerButton.dataset.openLabel||c.label):c.label;
-    offerButton.textContent=label;offerButton.disabled=c.state!=='open';offerButton.setAttribute('aria-label',label);
+    // 結團或還沒開團：按鈕改成「開團通知我・加入 LINE」，點了開 LINE 社群（Hiram 2026-11-25）。
+    const notifyLine=(c.state==='closed'||c.state==='upcoming')&&ProductContent.LINE_COMMUNITY;
+    lastState=notifyLine?'line':c.state;
+    const label=c.state==='open'?(offerButton.dataset.openLabel||c.label):notifyLine?(c.state==='upcoming'?'開團提醒我・加入 LINE ↗':'開團通知我・加入 LINE ↗'):c.label;
+    offerButton.textContent=label;offerButton.disabled=c.state!=='open'&&!notifyLine;offerButton.setAttribute('aria-label',label);offerButton.classList.toggle('is-line-notify',!!notifyLine);
     if(c.state==='open')offerButton.dataset.desktopFloatingLabel='true';
-    floatingOffer.setAvailable(c.state==='open');
-    statusEl.textContent=c.state==='open'?(c.end?'這一檔團購至 '+c.end.replace(/^(\d{4})-(\d{2})-(\d{2})$/,'$1/$2/$3')+' 23:59。':'這一檔正在開團。'):'目前沒有開放中的團購；仍可閱讀文章或返回團購首頁。';
+    floatingOffer.setAvailable(c.state==='open'||!!notifyLine);
+    statusEl.textContent=notifyLine?(c.state==='upcoming'?'這一檔還沒開團；加入 LINE 社群，開團當天會通知你。':'這一檔已結團；加入 LINE 社群，下次開團、補貨會第一時間通知你。'):c.state==='open'?(c.end?'這一檔團購至 '+c.end.replace(/^(\d{4})-(\d{2})-(\d{2})$/,'$1/$2/$3')+' 23:59。':'這一檔正在開團。'):'目前沒有開放中的團購；仍可閱讀文章或返回團購首頁。';
     const current=ProductContent.rowForArticle(rows,articleKey);
     const list=ProductContent.videos([...seed,...ProductContent.fromRow(current||{})]);
     const signature=JSON.stringify(list);if(videoEl&&signature!==videoSignature){videoEl.replaceChildren();ProductContent.mountVideos(videoEl,list);videoSignature=signature;}
@@ -69,6 +72,9 @@ async function refreshOffer(navigate=false){
   }catch(error){floatingOffer.setAvailable(false);delete offerButton.dataset.desktopFloatingLabel;offerButton.disabled=false;offerButton.textContent='重新確認團購狀態';offerButton.setAttribute('aria-label','重新確認團購狀態');statusEl.textContent='目前無法取得最新資料，未使用過期連結。你可以重試或返回團購首頁。';console.warn(articleKey+' offer unavailable:',error.message);}
   finally{busy=false;}
 }
-offerButton.addEventListener('click',()=>refreshOffer(true));window.addEventListener('focus',()=>refreshOffer());document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshOffer();});refreshOffer();
+offerButton.addEventListener('click',()=>{
+  if(lastState==='line'){window.SiteAnalytics?.track?.('join_line_click',{source_surface:'article_offer',group_name:article.brands[0],transport_type:'beacon'});window.open(ProductContent.LINE_COMMUNITY,'_blank','noopener');return;}
+  refreshOffer(true);
+});window.addEventListener('focus',()=>refreshOffer());document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshOffer();});refreshOffer();
 
 setInterval(()=>{if(!document.hidden)refreshOffer();},300000);
