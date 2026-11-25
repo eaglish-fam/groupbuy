@@ -29,7 +29,8 @@
     }
   }
   doc.addEventListener('click', e => {
-    const t = e.target.closest('[data-status-tab]'); if (!t) return;
+    // 只認導覽列上的分頁；<main> 選了分頁後也帶 data-status-tab，不能把整頁的點擊（卡片連結）都吃掉（Hiram 2026-11-25：點即將開團的卡會跳回標題）。
+    const t = e.target.closest('[data-status-tab]'); if (!t || !tabs.includes(t)) return;
     e.preventDefault();
     setTab(t.dataset.statusTab);
     const target = t.dataset.statusTab === 'all' ? hero : doc.getElementById(SECTIONS[t.dataset.statusTab]);

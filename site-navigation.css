@@ -68,3 +68,16 @@ html.switcher-tucked:has(.offer-bar.is-floating) .site-switcher-inner,html.switc
 ::view-transition-group(switcher-current){animation-duration:.34s;animation-timing-function:cubic-bezier(.3,.7,.2,1)}
 ::view-transition-old(root),::view-transition-new(root){animation-duration:.16s}
 @media(prefers-reduced-motion:reduce){@view-transition{navigation:none}.site-switcher-inner{transition:none!important}}
+/* 手機瀏覽器：底部不再是一條硬邊，內容往下漸漸淡進紙色（和上方 header 一樣半透明；Hiram 2026-11-25）。PWA 沒有瀏覽器工具列，不加。 */
+@media(max-width:700px) and (display-mode:browser){
+  .site-switcher::before{content:"";position:absolute;left:0;right:0;bottom:0;height:calc(34px + env(safe-area-inset-bottom,0px));background:linear-gradient(to bottom,rgba(250,247,240,0),rgba(250,247,240,.72) 55%,rgba(250,247,240,.92));pointer-events:none;z-index:-1}
+}
+/* PWA（加到主畫面）：底部導覽離 iPhone 的主畫面指示條遠一點，避免誤觸、叫出系統手勢（Hiram 2026-11-25：往上約 5px）。 */
+@media(display-mode:standalone){
+  .site-switcher{padding-bottom:calc(14px + env(safe-area-inset-bottom,0px))}
+  body{padding-bottom:calc(var(--site-switcher-height) + 18px + env(safe-area-inset-bottom,0px))}
+}
+@media(max-width:700px) and (display-mode:standalone){
+  html:has(.site-switcher) .offer-bar.is-floating{bottom:calc(14px + env(safe-area-inset-bottom,0px))!important}
+  html:has(.site-switcher) .trip-plan-entry:not([hidden]){bottom:calc(14px + env(safe-area-inset-bottom,0px))!important}
+}
