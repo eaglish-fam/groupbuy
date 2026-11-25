@@ -454,7 +454,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "e3d52da4793f024362df846fb3ef8c9966fa1acfc462cfccf3fb117ad721933b"
+      "sourceHash": "dfaa3a5defa6bf3fde7d6528e86aef938de47d785b05add8490c97e43f3ccc26"
     },
     {
       "slug": "kidsread-chinese",
@@ -489,7 +489,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "5003a3654e92e81b93f9e8e22f105a0c78d1c84c1f7203497ebfc948b54894aa"
+      "sourceHash": "b1c78663edbb262e65e774e1b4792af245a15a8c7fdb0c3c42ecbf2cd6804dd0"
     },
     {
       "slug": "kidsread-english",
@@ -524,7 +524,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "953d9afcb979e184794cad24d4de7997946459dcc65f8670b41e1f0dc77ed4d0"
+      "sourceHash": "6dc23b433bb0350d2e9c9568516fc41c3ffbb52cd3d9d915cbd4fe56c1d9cc81"
     },
     {
       "slug": "kidsread-pen",
@@ -559,7 +559,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "959827d19459782f9bf4acbc1632b27f5bbcd327044004c9f80474db4cb4bc60"
+      "sourceHash": "8f0615d10c91c8bd5311c59e149d85ca55fdf8b4383a31a4679efdc4ec68f0a6"
     },
     {
       "slug": "kidsread-phonics-roadmap",
@@ -594,7 +594,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "db57c92f4fd8f90aad63e82a473cb38f35706a11feaec18ebeb6c3ec271e4fa8"
+      "sourceHash": "f459c36a84d969b083d3d54e4dee7dc1265d04f4ed3b8ec6adbc35b1c179684b"
     },
     {
       "slug": "kidsread-zhuyin",
@@ -629,7 +629,7 @@
       "prepared": "2026-11-23",
       "published": "2026-11-23",
       "modified": "2026-11-25",
-      "sourceHash": "243d6b7ecc31db539d4f1ba0c5aaedfdf1a7c92b8c65771dc76f6447f8ab46de"
+      "sourceHash": "7f7ec3d7f7742cedc3d3dc90c25052e3c7b1863a08018731f5a83dbc26cf930a"
     },
     {
       "slug": "kietla-kids-sunglasses",
