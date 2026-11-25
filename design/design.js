@@ -137,7 +137,7 @@ function card(p, leofooPlans = [], matchedLeofooPlans = []) {
   const idx = products.indexOf(p);
   const label =
     p.kind === "book"
-      ? "康先生的書"
+      ? "康先生的作品"
       : p.kind === "edu"
         ? "教育・公益"
         : p.kind === "coupon" && p.status.key === "open"

@@ -4,6 +4,58 @@
     selectedDate = "",
     events = [];
   const pad = (n) => String(n).padStart(2, "0");
+  // 書名「鷹式教養－紙本書」→ 書「鷹式教養」＋格式「紙本」。同一本書的各格式合成一張卡。
+  const BOOK_INFO = {
+    鷹式教養: {
+      subtitle: "不被 AI 取代的人生演算法",
+      desc: "康先生寫家庭、教育，也寫孩子在 AI 時代仍要練的判斷與責任。紙本、電子書都買得到，選你習慣的讀法。",
+    },
+  };
+  function worksBooks(list) {
+    const books = new Map();
+    for (const p of list) {
+      const [title, rawFormat = ""] = p.brand.split(/\s*[－—–-]\s*/);
+      const format = /電子/.test(rawFormat) ? "電子書" : /紙本|實體/.test(rawFormat) ? "紙本" : rawFormat || "購買";
+      if (!books.has(title)) books.set(title, { title, formats: [], cover: "", fallback: "", note: [] });
+      const b = books.get(title);
+      if (!b.cover || format === "紙本") {
+        b.cover = p.images[0] || b.cover;
+        b.fallback = p.fallbackImage || p.images[1] || b.fallback;
+      }
+      if (p.retailers.length) b.formats.push({ format, product: p });
+    }
+    const order = (f) => (f.format === "紙本" ? 0 : f.format === "電子書" ? 1 : 2);
+    return [...books.values()]
+      .map((b) => {
+        const info = BOOK_INFO[b.title] || {};
+        const groups = b.formats
+          .sort((x, y) => order(x) - order(y))
+          .map(
+            ({ format, product: p }) => `<div class="works-group"><p class="works-group-label">${esc(format)}</p><div class="works-chips">${p.retailers
+              .map(
+                (r) =>
+                  `<a class="works-chip" href="${esc(ProductContent.withUTM(r.url, p.brand))}" target="_blank" rel="noopener noreferrer" data-outbound-product-id="${esc(p.key)}" data-outbound-product-name="${esc(p.brand)}" data-outbound-group-type="book" data-outbound-source-surface="homepage_works" data-outbound-campaign-key="book" data-outbound-retailer="${esc(r.name)}" data-outbound-legacy-event="click_book">${esc(r.name)}</a>`,
+              )
+              .join("")}</div></div>`,
+          )
+          .join("");
+        const cover = b.cover
+          ? `<img class="works-cover" src="${esc(b.cover.replace(/=w\d+$/, "=w600"))}"${b.fallback ? ` data-fallback-src="${esc(b.fallback)}"` : ""} alt="《${esc(b.title)}》書封" width="600" height="800" loading="lazy" decoding="async">`
+          : `<span class="works-cover works-cover-empty">《${esc(b.title)}》</span>`;
+        return `<article class="works-card works-book" aria-label="書：${esc(b.title)}">
+          <div class="works-visual works-visual-book">${cover}</div>
+          <div class="works-body">
+            <p class="works-kind">書・親子教養</p>
+            <h3>${esc(b.title)}</h3>
+            ${info.subtitle ? `<p class="works-subtitle">${esc(info.subtitle)}</p>` : ""}
+            ${info.desc ? `<p class="works-desc">${esc(info.desc)}</p>` : ""}
+            <ul class="works-facts" aria-label="購買方式">${b.formats.map((f) => `<li>${esc(f.format)}</li>`).join("")}<li>${b.formats.reduce((n, f) => n + f.product.retailers.length, 0)} 個購書通路</li></ul>
+            <div class="works-actions">${groups}</div>
+          </div>
+        </article>`;
+      })
+      .join("");
+  }
   function resourceShelves() {
     if (!loaded) return;
     for (const kind of ["coupon", "book", "edu"]) {
@@ -13,10 +65,17 @@
             (p.kind === "coupon" || (p.coupon && !p.kind))
           : p.kind === kind,
       );
+      // 康先生的作品：同一本書的紙本／電子書（Sheet 上分兩列）合成一張卡；遊戲那張卡寫在 HTML 裡。
+      if (kind === "book") {
+        const slot = $("#book-products");
+        slot.innerHTML = worksBooks(list);
+        slot.hidden = !list.length;
+        continue;
+      }
       $(`#${kind}-products`).innerHTML = list.length
         ? list.map(card).join("")
         : `<p class="resource-empty">${kind === "coupon" ? "目前沒有開放中的優惠，之後再來看看。" : "目前沒有已公布的資料。"}</p>`;
-      // Books and edu resources come and go with the Sheet; hide an empty shelf and its nav link
+      // Edu resources come and go with the Sheet; hide an empty shelf and its nav link
       // instead of showing a dead-end section. Coupons keep their "come back later" note.
       if (kind !== "coupon") {
         const id = kind === "book" ? "kang-books" : "edu";
@@ -208,7 +267,7 @@
       );
     }
     if (p.kind === "book") {
-      copy.querySelector(".status").textContent = "康先生的書";
+      copy.querySelector(".status").textContent = "康先生的作品";
       copy.querySelector(".date-line")?.remove();
       for (const node of copy.querySelectorAll("p"))
         if (node.textContent === "目前暫不提供訂購入口。")
