@@ -488,21 +488,8 @@
     font-size: 14px;
   }
 }
-/* Phones: the section nav and the status tabs scroll sideways but showed no hint that more items
-   sit off-screen. A short fade on the right edge marks the overflow; the trailing padding lets the
-   last item scroll clear of the fade. */
+/* Phones: sideways-scrolling rows fade on whichever edge still has items (see the edge-fade rules below). */
 @media (max-width: 700px) {
-  .content-nav,
-  .status-tabs {
-    -webkit-mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
-    mask-image: linear-gradient(90deg, #000 calc(100% - 32px), transparent);
-  }
-  .content-nav {
-    padding-right: 40px;
-  }
-  .status-tabs {
-    padding-right: 40px;
-  }
   .category-links button[aria-pressed="true"] {
     border-left-width: 1px;
     border-color: var(--orange);
@@ -661,7 +648,7 @@ a.works-chip.is-primary:hover { background: #22271f; border-color: #22271f; }
 /* 買物社頂部導覽（2026-11 重做）：和選物誌一樣的分頁列。固定在頁首下方、捲動時標出目前段落、
    開團好物／折扣碼附數量；手機上可左右滑，右側淡出提示還有更多。 */
 .content-nav {
-  position: sticky; top: 88px; z-index: 19;
+  position: sticky; top: var(--site-header-h, 88px); z-index: 19;
   gap: 2px; padding: 0 24px;
   scrollbar-width: none; overscroll-behavior-x: contain; scroll-behavior: smooth;
 }
@@ -682,9 +669,8 @@ a.works-chip.is-primary:hover { background: #22271f; border-color: #22271f; }
 }
 .content-nav a[aria-current] b[data-nav-count] { background: var(--olive); color: #fffdf8; }
 html { scroll-padding-top: 150px; }
-@media (max-width: 1100px) { .site-header + .content-nav, .content-nav { top: 88px; } }
 @media (max-width: 700px) {
-  .content-nav { top: 78px; gap: 0; padding: 0 40px 0 8px; }
+  .content-nav { top: var(--site-header-h, 78px); gap: 0; padding: 0 12px; }
   .content-nav a { min-height: 46px; padding: 0 10px; font-size: 14px; }
   html { scroll-padding-top: 136px; }
 }
@@ -732,3 +718,32 @@ html { scroll-padding-top: 150px; }
   .works-shots { height: 200px; align-items: center; }
   .works-shots img { width: auto; height: 190px; max-width: none; }
 }
+
+/* 可以左右滑的列（頂部導覽、團購狀態、情境分類）：左右兩邊用同樣的淡出，而且只有那一側還有內容可滑時才出現
+   （complete-content.js 依捲動位置加上 has-more-start／has-more-end）。取代原本只有右側淡出、左側硬切。
+   頂部導覽浮在內容上，不能用 mask（會把自己的底色一起淡掉、透出後面的照片），改用兩片紙色漸層蓋在邊緣。 */
+.status-tabs, .category-links {
+  --fade-start: 0px; --fade-end: 0px;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent 100%);
+}
+.status-tabs.has-more-start, .category-links.has-more-start { --fade-start: 28px; }
+.status-tabs.has-more-end, .category-links.has-more-end { --fade-end: 28px; }
+.content-nav::before, .content-nav::after {
+  content: ""; position: sticky; z-index: 1; flex: none; width: 32px; align-self: stretch;
+  pointer-events: none; opacity: 0; transition: opacity .2s ease;
+}
+.content-nav::before { left: 0; margin-right: -32px; background: linear-gradient(90deg, var(--paper) 25%, rgba(250, 248, 243, 0)); }
+.content-nav::after { right: 0; margin-left: -32px; background: linear-gradient(270deg, var(--paper) 25%, rgba(250, 248, 243, 0)); }
+.content-nav.has-more-start::before, .content-nav.has-more-end::after { opacity: 1; }
+/* 漸層要貼齊導覽列的左右邊，所以導覽列本身不留左右內距，改由第一個、最後一個項目留白。 */
+.content-nav { padding-inline: 0; }
+.content-nav > a:first-of-type { margin-left: 24px; }
+.content-nav > a:last-of-type { margin-right: 24px; }
+@media (max-width: 700px) {
+  .content-nav { padding-inline: 0; }
+  .content-nav > a:first-of-type { margin-left: 12px; }
+  .content-nav > a:last-of-type { margin-right: 12px; }
+}
+/* 項目間距只由各項目左右內距決定（不用 gap，否則兩端漸層和第一個項目之間會多出空隙）。 */
+.content-nav.content-nav { gap: 0; }
