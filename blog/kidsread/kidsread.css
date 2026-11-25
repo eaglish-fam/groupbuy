@@ -110,3 +110,28 @@ body.kidsread-series{--kr-soft:#f2f0e8;--kr-green-soft:#e6ece6;--kr-rust-deep:#7
 .kidsread-series .choice-links a{display:inline-flex;align-items:center;min-height:40px;padding:0 10px;border-radius:999px;color:var(--green);font-size:14px;line-height:1.4;text-decoration:none}
 .kidsread-series .choice-links a:hover{background:#eef1e8}
 .kidsread-series .choice-links a:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+
+/* 11/30 開團套組（Hiram 2026-11-25）：一組一張卡，年齡在最上面，書名連到教材介紹。 */
+.kidsread-series .kr-bundle-jump{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 18px}
+.kidsread-series .kr-bundle-jump a{display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:0 14px 0 6px;border:1px solid var(--line);border-radius:999px;background:#fffdf7;color:var(--ink);font-size:14px;text-decoration:none}
+.kidsread-series .kr-bundle-jump a b{display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--green);color:#fff;font:600 14px/1 var(--serif)}
+.kidsread-series .kr-bundles{display:grid;gap:16px;margin:0 0 18px}
+@media(min-width:760px){.kidsread-series .kr-bundles{grid-template-columns:1fr 1fr}}
+.kidsread-series .kr-bundle{display:flex;flex-direction:column;padding:18px 18px 16px;border:1px solid var(--line);border-radius:14px;background:#fffdf7;scroll-margin-top:120px}
+.kidsread-series .kr-bundle header{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+.kidsread-series .kr-bundle-key{display:grid;place-items:center;flex:none;width:42px;height:42px;border-radius:50%;background:var(--green);color:#fff;font:600 20px/1 var(--serif)}
+.kidsread-series .kr-bundle h3{margin:0;font:600 18px/1.4 var(--serif)}
+.kidsread-series .kr-bundle-age{margin:2px 0 0;color:var(--rust,#a05238);font-size:14px;font-weight:700}
+.kidsread-series .kr-bundle-why{margin:0 0 10px;font-size:15px;line-height:1.7}
+.kidsread-series .kr-bundle-items{list-style:none;margin:0 0 12px;padding:0;border-top:1px solid var(--line)}
+.kidsread-series .kr-bundle-items li{display:flex;justify-content:space-between;gap:12px;padding:8px 0;border-bottom:1px solid var(--line);font-size:14px;line-height:1.5}
+.kidsread-series .kr-bundle-items a{color:var(--ink);text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:3px}
+.kidsread-series .kr-bundle-items span{flex:none;color:var(--muted);font-variant-numeric:tabular-nums}
+.kidsread-series .kr-bundle-price{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 12px;margin:auto 0 8px}
+.kidsread-series .kr-bundle-price s{color:var(--muted);font-size:14px}
+.kidsread-series .kr-bundle-price strong{font:700 22px/1.2 var(--serif);color:var(--ink)}
+.kidsread-series .kr-bundle-price em{font-style:normal;font-size:13px;font-weight:700;color:var(--rust,#a05238);background:#f6e9e3;padding:2px 8px;border-radius:99px}
+.kidsread-series .kr-bundle-note{margin:0 0 8px;font-size:13.5px;color:var(--muted)}
+.kidsread-series .kr-bundle-gift{margin:0;padding:10px 12px;border-radius:10px;background:#eef1e8;font-size:13.5px;line-height:1.6}
+.kidsread-series .kr-bundle-gift b{display:block;color:var(--green);font-size:12.5px;letter-spacing:.06em}
+.kidsread-series .kr-bundle-foot{font-size:14px;color:var(--muted)}

@@ -18,11 +18,18 @@ const attr = v => String(v ?? '').replaceAll('&', '&amp;').replaceAll('"', '&quo
 const ORIGIN = 'https://www.eaglish.store';
 const PUBLISHED = '2026-11-23';
 const MODIFIED = '2026-11-25';
-const SERIES_CSS = '/blog/kidsread/kidsread.css?v=20261125-toc';
+const SERIES_CSS = '/blog/kidsread/kidsread.css?v=20261125-bundles';
 const SERIES_JS = '/blog/kidsread/kidsread.js?v=20261123';
 
 const C = JSON.parse(read('data/kidsread/catalog.json'));
 const items = C.items.filter(i => i.status === 'active');
+// 11/30 開團套組（Hiram 2026-11-25 傳的套組表）。總價必須等於各套相加，打錯字就不產生頁面。
+const BUNDLES = JSON.parse(read('data/kidsread/bundles-2026-11.json'));
+for (const set of BUNDLES.sets) {
+  const list = set.items.reduce((n, x) => n + x[2], 0), price = set.items.reduce((n, x) => n + x[3], 0);
+  if (list !== set.list || price !== set.price) throw Error(`bundles: ${set.key} 總價對不上（${list}/${price}）`);
+  for (const [id] of set.items) if (!C.items.some(i => i.id === id && i.status === 'active')) throw Error(`bundles: ${set.key} 找不到教材 ${id}`);
+}
 const byId = Object.fromEntries(items.map(i => [i.id, i]));
 const homeOf = {english: 'kidsread-english', chinese: 'kidsread-chinese'};
 
@@ -138,6 +145,11 @@ ${goals ? `<p class="kr-q" id="kr-q-goal">想先學什麼？</p><div class="kr-c
 ${tags ? `<p class="kr-q" id="kr-q-tag">想找哪一類？</p><div class="kr-chips" role="group" aria-labelledby="kr-q-tag">${chip('tag', 'all', '全部', true)}${guide ? chip('tag', 'guide:' + guide.id, guide.label, false) : ''}${tagIds.map(t => chip('tag', t, cats[t], false)).join('')}</div>` : ''}
 <p class="kr-count" aria-live="polite">找到 <b data-kr-count>${list.length}</b> 套</p></div>`;
 }
+const money = n => n.toLocaleString('en-US');
+function bundlesHtml() {
+  const it = id => C.items.find(i => i.id === id);
+  return `<p>${esc('這次開團把幾套常一起買的教材配成套組：價格就是各套團購價相加，再多送點讀筆配件。先照孩子年齡挑一組，點書名可以看那套教材的完整介紹。')}</p><p class="kr-bundle-jump">${BUNDLES.sets.map(b => `<a href="#bundle-${b.key.toLowerCase()}"><b>${b.key}</b>${esc(b.age)}</a>`).join('')}</p><div class="kr-bundles">${BUNDLES.sets.map(b => `<article class="kr-bundle" id="bundle-${b.key.toLowerCase()}"><header><span class="kr-bundle-key">${b.key}</span><div><h3>${esc(b.name)}</h3><p class="kr-bundle-age">適合 ${esc(b.age)}</p></div></header><p class="kr-bundle-why">${esc(b.why)}</p><ul class="kr-bundle-items">${b.items.map(([id, name, , price]) => `<li><a href="${attr(bookHref(it(id)))}" data-book="${attr(id)}">${esc(name)}</a><span>${money(price)}</span></li>`).join('')}</ul><p class="kr-bundle-price"><s>套組原價 ${money(b.list)}</s><strong>團購價 ${money(b.price)}</strong><em>省 ${money(b.list - b.price)}</em></p>${b.variants ? `<p class="kr-bundle-note">兩種款式：${b.variants.map(esc).join('、')}（只差抱枕）</p>` : ''}<p class="kr-bundle-gift"><b>${b.gift === 'both' ? '兩樣都送' : '贈品 2 選 1'}</b>${esc(BUNDLES.gifts[b.gift])}</p></article>`).join('')}</div><p class="kr-bundle-foot">套組不含點讀筆；家裡還沒有 KidsRead 點讀筆，記得一起選筆。11/30（一）開團後到<a href="#offer">開團</a>下單。</p>`;
+}
 const listButton = '<button type="button" class="kr-listbtn" data-kr-open-list hidden>選購清單 <b data-kr-list-count>0</b></button>';
 
 function bookSection(it) {
@@ -204,6 +216,7 @@ function body(p) {
     const picksBy = a => (C.picks || []).filter(x => x.age === a).map(x => ({...x, it: byId[x.id]})).filter(x => x.it);
     S.push(['finder', '找教材', '30 秒找到適合的教材', `<p>選孩子的年齡和想先學的，下面的書單會馬上更新。每張卡片點進去，可以看那套教材的完整介紹。</p>${filterBlock(items, {goals: true})}${listButton}<div id="kr-books">${grid(items, 'hub', '全部教材')}</div>`]);
     S.push(['picks', '鷹家推薦', '不知道選哪個？鷹家先幫你挑', [['0-3', '0–2 歲'], ['3-6', '3–5 歲'], ['6+', '6 歲以上']].map(([a, l]) => `<h3>${l}</h3><ul class="kr-picks">${picksBy(a).map(x => `<li><a href="${attr(bookHref(x.it))}" data-book="${attr(x.it.id)}"><img src="${attr(x.it.cover)}" width="208" height="208" alt="${attr(x.it.name)}" loading="lazy" decoding="async"></a><div><p><strong>${esc(x.it.name)}</strong></p><p>${esc(x.why)}</p><button type="button" class="kr-add" data-kr-add="${attr(x.it.id)}" hidden>加入選購清單</button></div></li>`).join('')}</ul>`).join('')]);
+    S.push(['bundles', '開團套組', '11/30 開團套組：照年齡直接選一組', bundlesHtml()]);
     S.push(['buy', '怎麼買', '先選點讀筆，再依年齡配一套', `<p>所有教材都不含點讀筆。第一次買要筆加教材；家裡已經有 KidsRead 點讀筆，只挑教材就好。</p><div class="kr-buy">${PEN_PRODUCTS.map(x => `<div><h3>${esc(x.name)}</h3><p>${esc(x.who)}</p><ul>${x.contents.map(c => `<li>${esc(c)}</li>`).join('')}</ul></div>`).join('')}</div><p>PLUS 3.0：${(C.pen.specs || []).map(esc).join('、')}。</p>`]);
     S.push(['guides', '五篇導覽', '依孩子的需要，從這幾篇開始', `<ul class="kr-next kr-guides">${PAGES.filter(x => x.id !== 'hub').map(x => `<li><a href="${url(x)}"><img src="${coverPath(x).replace('.webp', '-480.webp')}" width="480" height="300" alt="${attr(coverAlt(x))}" loading="lazy" decoding="async"><span>${x.n} ${esc(x.nav)}</span><small>${esc(x.excerpt)}</small></a></li>`).join('')}</ul>`]);
   }
