@@ -443,7 +443,7 @@
       "publicationState": "published",
       "datePrepared": "2026-11-23",
       "datePublished": "2026-11-23",
-      "dateModified": "2026-11-23",
+      "dateModified": "2026-11-25",
       "topics": [
         "KidsRead",
         "KidsRead 點讀筆",
@@ -453,8 +453,8 @@
       ],
       "prepared": "2026-11-23",
       "published": "2026-11-23",
-      "modified": "2026-11-23",
-      "sourceHash": "e544620a164064ddef9aab9a66b2c53c8c80f3f4cbd0243e3d5ccae853d4d963"
+      "modified": "2026-11-25",
+      "sourceHash": "9c539e7021d25dc8c898170724379940fe15f055313f126300ce0997f44e6893"
     },
     {
       "slug": "kidsread-chinese",
@@ -478,7 +478,7 @@
       "publicationState": "published",
       "datePrepared": "2026-11-23",
       "datePublished": "2026-11-23",
-      "dateModified": "2026-11-23",
+      "dateModified": "2026-11-25",
       "topics": [
         "KidsRead 中文教材",
         "中文點讀書",
@@ -488,8 +488,8 @@
       ],
       "prepared": "2026-11-23",
       "published": "2026-11-23",
-      "modified": "2026-11-23",
-      "sourceHash": "4e65fc65b4f866b3490d26b84fb05c759d2e16bce7b331267bf40b53f5b97830"
+      "modified": "2026-11-25",
+      "sourceHash": "e3a0a78952bf504268a50b59192f5834f5c84d86b4d098096db171903e31a337"
     },
     {
       "slug": "kidsread-english",
@@ -513,7 +513,7 @@
       "publicationState": "published",
       "datePrepared": "2026-11-23",
       "datePublished": "2026-11-23",
-      "dateModified": "2026-11-23",
+      "dateModified": "2026-11-25",
       "topics": [
         "KidsRead 英文教材",
         "英文點讀繪本",
@@ -523,8 +523,8 @@
       ],
       "prepared": "2026-11-23",
       "published": "2026-11-23",
-      "modified": "2026-11-23",
-      "sourceHash": "aaecb5eb1d0eda47a9516c00fe8cdaab10194a5c1e0ecf10961c6b9212be0343"
+      "modified": "2026-11-25",
+      "sourceHash": "169383b7d4a25a5711a385f607b858f82afb0cc2dbcb2bd96486886d7469afa4"
     },
     {
       "slug": "kidsread-pen",
@@ -548,7 +548,7 @@
       "publicationState": "published",
       "datePrepared": "2026-11-23",
       "datePublished": "2026-11-23",
-      "dateModified": "2026-11-23",
+      "dateModified": "2026-11-25",
       "topics": [
         "KidsRead 點讀筆",
         "錄音點讀筆",
@@ -558,8 +558,8 @@
       ],
       "prepared": "2026-11-23",
       "published": "2026-11-23",
-      "modified": "2026-11-23",
-      "sourceHash": "48518961f46033cf6b668540325e1625a50b2874126517cf40955349567f8c7c"
+      "modified": "2026-11-25",
+      "sourceHash": "601e127674a585f1574dd0e79984ef57f24ad69e3413e6d272fc87b28cf72d9c"
     },
     {
       "slug": "kidsread-phonics-roadmap",
@@ -583,7 +583,7 @@
       "publicationState": "published",
       "datePrepared": "2026-11-23",
       "datePublished": "2026-11-23",
-      "dateModified": "2026-11-23",
+      "dateModified": "2026-11-25",
       "topics": [
         "自然發音怎麼教",
         "英文分級讀本",
@@ -593,8 +593,8 @@
       ],
       "prepared": "2026-11-23",
       "published": "2026-11-23",
-      "modified": "2026-11-23",
-      "sourceHash": "fb241d944086c6ff22e1b133c714f10ae8b90f4eb272bcf64f1578335db2e1a5"
+      "modified": "2026-11-25",
+      "sourceHash": "fd0a14b0a96cbf2064559d0364f7368afbc39e89c4868dccccd22acaa8e40c2e"
     },
     {
       "slug": "kidsread-zhuyin",
@@ -618,7 +618,7 @@
       "publicationState": "published",
       "datePrepared": "2026-11-23",
       "datePublished": "2026-11-23",
-      "dateModified": "2026-11-23",
+      "dateModified": "2026-11-25",
       "topics": [
         "注音怎麼學",
         "ㄅㄆㄇ教材",
@@ -628,8 +628,8 @@
       ],
       "prepared": "2026-11-23",
       "published": "2026-11-23",
-      "modified": "2026-11-23",
-      "sourceHash": "3cf74e7937639ffbac3dbb44cbc44b3395b766b10a1005b565c61c1b29814b8c"
+      "modified": "2026-11-25",
+      "sourceHash": "e1c66e211d863d03f00c4803f079a4984e87409ffb03942ea8101fb2e3b91814"
     },
     {
       "slug": "kietla-kids-sunglasses",
