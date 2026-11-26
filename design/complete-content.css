@@ -816,3 +816,10 @@ html { scroll-padding-top: 150px; }
 .card-links .card-more{white-space:nowrap}
 .card-links .card-line [aria-hidden]{display:none}
 .detail-copy .button.primary + .button.line-notify{margin-top:10px}
+
+/* 卡片封面的開團狀態標籤移到右下角：左上角通常已有封面文字，右下角大多是空的（Hiram 2026-11-26）。
+   首頁輪播不動：輪播右下角是標題列和「去團購」按鈕。 */
+.card-badge { left: auto; top: auto; right: 10px; bottom: 10px; }
+@media (max-width: 700px) {
+  .card-badge { left: auto; top: auto; right: 7px; bottom: 7px; }
+}
