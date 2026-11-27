@@ -69,6 +69,7 @@
     {"slug": "20261123-plafarm-pm", "destination": "/"},
     {"slug": "20261124-ilovekids-pm", "destination": "/blog/ilovekids-rotating-bookcase/", "anchor": "offer"},
     {"slug": "20261125-shoumaji-am", "destination": "/blog/shoumaji/"},
-    {"slug": "20261125-ilovekids-pm", "destination": "/blog/ilovekids-rotating-bookcase/", "anchor": "offer"}
+    {"slug": "20261125-ilovekids-pm", "destination": "/blog/ilovekids-rotating-bookcase/", "anchor": "offer"},
+    {"slug": "20261231-giaretti-am", "destination": "/blog/giaretti/"}
   ]
 }

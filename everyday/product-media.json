@@ -2,6 +2,13 @@
  "schema": "eaglish.play-media/v2",
  "note": "由 scripts/build-play-media.mjs 從已發布的選物誌內文照片產生（不含封面與商品卡），不要手改",
  "products": {
+  "Giaretti 珈樂堤": [
+   {
+    "src": "/assets/giaretti/product-card.webp",
+    "alt": "Giaretti 奶瓶清洗機、調理機、原汁機怎麼挑？依每天想省的時間選",
+    "designed": true
+   }
+  ],
   "加拿大 Jan & Jul 秋冬保暖系列": [
    {
     "src": "/assets/jan-jul-winter/jacket-kids.webp",
