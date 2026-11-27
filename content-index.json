@@ -251,6 +251,29 @@
       "sourceHash": "d0fa30ccb866b7319506bb3e66307fcd437cd0893ac98d09873f96446cb332ae"
     },
     {
+      "slug": "giaretti",
+      "url": "https://www.eaglish.store/blog/giaretti/",
+      "title": "Giaretti 奶瓶清洗機、調理機、原汁機怎麼挑？依每天想省的時間選｜鷹家選物誌",
+      "productNames": [
+        "Giaretti 珈樂堤"
+      ],
+      "productId": "giaretti",
+      "mode": "product",
+      "intent": "product:giaretti",
+      "topics": [
+        "Giaretti",
+        "珈樂堤",
+        "奶瓶清洗機",
+        "豆漿機",
+        "副食品調理機",
+        "原汁機"
+      ],
+      "cluster": null,
+      "published": "2026-11-27",
+      "modified": "2026-11-27",
+      "sourceHash": "c68cded2b64e4052a0794a150b94d4b32782bd2232ed8771ab543542c46b403b"
+    },
+    {
       "slug": "hereu-tag",
       "url": "https://www.eaglish.store/blog/hereu-tag/",
       "title": "Hereu Tag 智慧定位器怎麼用？iPhone 設定、找鑰匙與行李指南｜鷹家選物誌",

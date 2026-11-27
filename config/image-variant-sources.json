@@ -187,6 +187,22 @@
     "source": "004a15659e929de88d0ffd615d7bd7ac476855c5b412444ade22c3b173007364",
     "variant": "d2247133db8560e7f93d59e01664c394d8bd1981c0f752651eb0d9b49dc5bda6"
   },
+  "/assets/giaretti/cover-480.webp": {
+    "source": "b6829193c5e4f733e0ea1266c21d1b7117350d8b0d584a4d48ae0c3f2648e11d",
+    "variant": "ecae4df5f89880021fc4cdeeef4d694d4d126522fd35693582cea71451980d2e"
+  },
+  "/assets/giaretti/cover-960.webp": {
+    "source": "b6829193c5e4f733e0ea1266c21d1b7117350d8b0d584a4d48ae0c3f2648e11d",
+    "variant": "24e23fd8ff99f2a455f86773ec7ca0cc3c01a2eb80281d946204b3cbf50f806e"
+  },
+  "/assets/giaretti/product-card-480.webp": {
+    "source": "8dff5e8ffab5165491263a195c7a165fc75905722a19534d3b5345f195148228",
+    "variant": "73e5ce7b3a3f1ecd268eb387919dca21e6d6ed9b11b70dc8a41c61d5eddff89d"
+  },
+  "/assets/giaretti/product-card-960.webp": {
+    "source": "8dff5e8ffab5165491263a195c7a165fc75905722a19534d3b5345f195148228",
+    "variant": "0b3ce1e5e14ec4507085e9d709b4b07287dbfcb2b9a5d9a836fa379c7e853ff6"
+  },
   "/assets/hereu-tag/cover-480.webp": {
     "source": "99a70f19ea673c9190d8007b8f7966c137b2f95801107b8465b3085d60da1011",
     "variant": "8c331004868d4cd3199cc8aa510c935e4e1e6f4bd2d36ca605c9e97d64996777"

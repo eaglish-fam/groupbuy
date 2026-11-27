@@ -1,0 +1,25 @@
+{
+ "schema": "eaglish.article-package/v1",
+ "editorialStatus": "Grace 撰寫（decisions/2026-11-06-hiram-grace-writes-journal-and-trip.md）；Bingo 工單 GB-056；Hiram 2026-11-27 字母題回 A 允許讀 Giaretti 官網",
+ "identity": {"slug": "giaretti", "title": "Giaretti 奶瓶清洗機、調理機、原汁機怎麼挑？依每天想省的時間選"},
+ "sources": [
+  {"kind": "vendor-official-site", "url": "https://www.giaretti.com.tw/", "readAt": "2026-11-27", "facts": ["GT-WB8S、GT-WBR828、GT-WB01、GT-MEB01、GT-MEB06S、GT-SJ138 容量、行程、消毒、烘乾、尺寸、重量、功率依官網商品說明圖逐字轉錄（scratchpad specs.md，每項註明圖片序號）", "保固：自發票日起一年，配件耗材除外，無到府服務（保固與維修頁）"]},
+  {"kind": "groupbuy-sheet", "url": "Sheet 現正開團 Giaretti 珈樂堤", "readAt": "2026-11-27", "facts": ["檔期 2026-12-31～2027-01-06", "描述：洗奶瓶機、營養調理/豆漿機、冷壓原汁機、減噪柔音破壁機", "image 欄圖片（封面與商品卡使用）"]}
+ ],
+ "notStated": ["本團實際上架型號與組合", "團購價、贈品、出貨時間", "GT-WBR828 功率", "GT-WB01、GT-WBR828、GT-SJ138 噪音分貝"],
+ "media": "封面與商品卡右側為團購 Sheet image 欄提供的圖片（assets/giaretti/giaretti-sheet.jpg）；官網商品圖標示盜圖必究，未使用",
+ "technicalSeo": {"author": {"type": "Organization", "name": "鷹式一家", "url": "https://www.eaglish.store/"}, "datePublished": "2026-11-27", "dateModified": "2026-11-27", "social": {"ogImage": "https://www.eaglish.store/assets/giaretti/cover.webp", "width": 1600, "height": 1000}, "structuredData": ["Article", "BreadcrumbList"], "crawlableOfferFallback": "/#catalog"},
+ "siteIntegration": {
+  "brand": "Giaretti 珈樂堤",
+  "category": "廚房與育兒家電",
+  "journalCategory": "母嬰",
+  "excerpt": "每天洗奶瓶、打豆漿和副食品，想交給機器？比較 Giaretti 珈樂堤三款奶瓶清洗機、兩款營養調理機和冷壓原汁機的容量、行程、消毒方式與尺寸。",
+  "readLabel": "依需求挑一台 →",
+  "cover": "/assets/giaretti/cover.webp",
+  "card": "/assets/giaretti/product-card.webp",
+  "coverSource": "/assets/giaretti/cover-source.html",
+  "coverIdentity": "Giaretti",
+  "coverReview": {"identityVisible": true, "realPhotoPreserved": true, "mobileCardLegible": true, "viewportWidths": [320, 390, 768, 1440], "reviewer": "Grace", "reviewScope": "Grace 2026-11-27 看過 cover.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Giaretti 字樣與標題可讀；右側為團購 Sheet 提供的圖片，未修改。"},
+  "catalogKey": "giaretti"
+ }
+}

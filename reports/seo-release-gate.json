@@ -1,11 +1,18 @@
 {
   "counts": {
-    "pages": 80,
+    "pages": 81,
     "blocking": 0,
-    "warnings": 34,
-    "total": 34
+    "warnings": 35,
+    "total": 35
   },
   "findings": [
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /#product-giaretti",
+      "file": "blog/giaretti/index.html",
+      "index": 10483
+    },
     {
       "level": "warn",
       "category": "links",
@@ -172,49 +179,49 @@
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9138
+      "index": 9072
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9252
+      "index": 9186
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9366
+      "index": 9300
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9479
+      "index": 9413
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Image missing meaningful alt text",
       "file": "index.html",
-      "index": 9593
+      "index": 9527
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Raster image is not webp/avif: /logo-eaglish-text.png",
       "file": "index.html",
-      "index": 59904
+      "index": 59838
     },
     {
       "level": "warn",
       "category": "images",
       "message": "Below-fold image missing loading=\"lazy\" (existing exceptions are warned, not blocked)",
       "file": "index.html",
-      "index": 59904
+      "index": 59838
     },
     {
       "level": "warn",

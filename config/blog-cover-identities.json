@@ -676,6 +676,27 @@
         "reviewer": "Grace",
         "reviewScope": "Grace 2026-11-23（依 Hiram「綠色只是點綴」改版後重看）：六張封面 960px 原圖是鷹式一家自己拍的實拍照滿版，左下紙色小框寫 KidsRead＋頁名，綠色只剩框邊細線；選物誌首頁 KidsRead 卡片在 320/390/768/1440 的渲染，KidsRead 在封面與卡片標題都看得到。"
       }
+    },
+    "/blog/giaretti/": {
+      "identity": "Giaretti",
+      "image": "/assets/giaretti/cover.webp",
+      "imageSha256": "b6829193c5e4f733e0ea1266c21d1b7117350d8b0d584a4d48ae0c3f2648e11d",
+      "source": "/assets/giaretti/cover-source.html",
+      "sourceSha256": "aecafccd90e967421c37662be78faa4fa7f8b0d7df002c57be389fe69e8f4bc3",
+      "review": {
+        "identityVisible": true,
+        "realPhotoPreserved": true,
+        "imageSha256": "b6829193c5e4f733e0ea1266c21d1b7117350d8b0d584a4d48ae0c3f2648e11d",
+        "viewportWidths": [
+          320,
+          390,
+          768,
+          1440
+        ],
+        "mobileCardLegible": true,
+        "reviewer": "Grace",
+        "reviewScope": "Grace 2026-11-27 看過 cover.webp 原圖與文章、選物誌卡片在 320/390/768/1440 的渲染：Giaretti 字樣與標題可讀；右側為團購 Sheet 提供的圖片，未修改。"
+      }
     }
   }
 }
