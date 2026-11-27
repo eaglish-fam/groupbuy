@@ -1,14 +1,15 @@
 import {mkdirSync,writeFileSync} from 'node:fs';
 import {resolve} from 'node:path';
-import {prioritizeFirstTravelImage} from './trip-image-priority.mjs';
 import {renderTravelHomeR24} from './render-travel-home-r24.mjs';
 const origin='https://www.eaglish.store';
 export const nzRoute='/trip/new-zealand/christchurch/3-days/';
 const nz='/trip/new-zealand/';
 export function buildDestinations(root){
  const write=(path,html)=>{
-  mkdirSync(resolve(root,path.slice(1)),{recursive:true});writeFileSync(resolve(root,path.slice(1),'index.html'),prioritizeFirstTravelImage(html));
+  mkdirSync(resolve(root,path.slice(1)),{recursive:true});writeFileSync(resolve(root,path.slice(1),'index.html'),html);
  };
+ // The home opens on its inline SVG world map; every photo sits below the first
+ // screen and stays lazy, so no photo is promoted or preloaded here.
  write('/trip/',renderTravelHomeR24());
  // Thailand and New Zealand now render from their approved packages. The old
  // overview URLs (Thai cities, Christchurch and Akaroa hubs) point to the matching guide.

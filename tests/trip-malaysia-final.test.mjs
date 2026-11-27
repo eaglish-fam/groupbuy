@@ -51,7 +51,7 @@ test('country and city diagrams answer separate questions with bounded intrinsic
  assert.match(read('trip/approved-editorial-chapters.css'),/width: min\(100%,320px\)/);
 });
 test('world discovery shares the existing entry family, real Malaysia geography and matching city targets',()=>{
- const home=renderTravelHomeR24();assert.match(home,/data-country-panel="malaysia"/);assert.match(home,/走進馬來西亞/);
+ const home=renderTravelHomeR24();assert.match(home,/<li class="dest-card" data-country="malaysia" data-region="asia"><a class="dest-link" href="\/trip\/malaysia\/">/);assert.match(home,/<span class="dest-meta">亞洲｜2 份指南<\/span>/);
  for(const c of cities){assert.ok(home.includes(c.path));for(const card of c.cards){const p=c.places.find(p=>p.id===card.target);assert.ok(p.images.includes(card.assetId));const a=data.assets.find(a=>a.assetId===card.assetId);assert.ok(card.imagePair||a.cardPhoto);if(card.imagePair){assert.equal(card.imagePair.length,2);assert.ok(card.imagePair.every(id=>p.images.includes(id)));}else assert.equal(a.cardPhoto.width/a.cardPhoto.height,1.5);}}
  const country=data.countries.find(c=>c.id==='malaysia');assert.equal(country.discovery.isoNumeric,'458');assert.equal(country.geographicMap.views.length,2);
  assert.deepEqual(country.geographicMap.views.flatMap(v=>v.points).map(p=>p.cityId),['penang','kuala-lumpur','penang','kuala-lumpur']);

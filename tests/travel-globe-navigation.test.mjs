@@ -18,8 +18,10 @@ test('country picks follow their real continent, preserve selected guide scope a
 test('Taiwan region/county/back remains hierarchical without a redundant world breadcrumb row',()=>{
  let state=initialState();assert.equal(atlasNavigation(state,geo,catalog).breadcrumbs.length,0);state=reduce(state,{type:'region',id:'tw-north'});assert.equal(state.top,'taiwan');assert.equal(state.continentId,null);assert.equal(atlasNavigation(state,geo,catalog).backLabel,'回台灣全覽');const county=geo.counties.find(c=>c.regionId==='tw-north');state=reduce(state,{type:'county',id:county.id});assert.equal(state.countyId,county.id);state=reduce(state,{type:'back'});assert.equal(state.countyId,null);assert.equal(state.regionId,'tw-north');state=reduce(state,{type:'back'});assert.equal(state.regionId,null);state=reduce(state,{type:'country',id:'tw'});assert.equal(state.top,'taiwan');
 });
-test('rendered portable home has two no-JS mode links, aligned title/recenter shell and no old world arrow/breadcrumb rows',()=>{
- const html=renderTravelHomeR24(),primary=html.match(/<nav id="top-levels"[^>]*>([\s\S]*?)<\/nav>/)[1];assert.equal((primary.match(/<a /g)||[]).length,2);assert(html.includes('class="map-heading-row"'));assert(html.includes('id="continent-nav"'));assert(html.includes('hidden>回到世界地圖</button>'));assert(!html.includes('<span>看世界地圖</span>'));assert(html.includes('data-site-style="/trip/atlas-navigation.css"'));assert(html.includes('globe-copy-g2-20261014'));for(const country of catalog.countries)assert(html.includes(country.href));
+test('the home links every catalog country statically and no longer loads the interactive globe',()=>{
+ // The globe and Taiwan drill-down moved off the home (Taiwan: /trip/taiwan/); the
+ // atlas modules above stay covered for any page that still mounts them.
+ const html=renderTravelHomeR24();assert(!html.includes('atlas-ui-bundle'));assert(!html.includes('id="top-levels"'));assert(!html.includes('id="globe-stage"'));assert(html.includes('<a href="/trip/taiwan/">台灣</a>'));for(const country of catalog.countries)assert(html.includes(`href="${country.href}"`),country.id);
 });
 test('the secondary globe note disappears after the interactive map is ready',()=>{
  const source=readFileSync(new URL('trip/atlas-ui.mjs',root),'utf8');

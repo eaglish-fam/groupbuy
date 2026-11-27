@@ -26,28 +26,27 @@ const approved=fs.existsSync(registrationPath)?(registration=>{
 const reduce=(s,a)=>reducePlaceExperience(s,a,data.geography,catalog,data);
 
 test('production build renders portable53 exactly with no private or preview data',()=>{
- const html=renderTravelHomeR24(),actual=JSON.parse(html.match(/<script id="atlas-config" type="application\/json">([\s\S]*?)<\/script>/)[1]);
- assert.deepEqual({...actual,catalog:config.catalog},config);assert.equal(actual.privateAtlas,null);
- assert.deepEqual(actual.catalog.hero,catalog.hero);assert.deepEqual(actual.catalog.themes,catalog.themes);
- for(const type of ['countries','guides']){
-  const originalIds=new Set(catalog[type].map(v=>v.id));assert.deepEqual(actual.catalog[type].filter(v=>originalIds.has(v.id)),catalog[type]);
-  // Countries migrated from legacy pages (Thailand; single-destination Singapore) keep their reviewed home records.
-  const legacyCountryIds=new Set([...catalog.countries.map(v=>v.id),...(approved?.countries||[]).filter(c=>c.singleDestination).map(c=>c.id)]);
-  const additions=actual.catalog[type].filter(v=>!originalIds.has(v.id)),owners=(type==='countries'?approved?.countries||[]:approved?.cities||[]).filter(v=>!legacyCountryIds.has(type==='countries'?v.id:v.countryId));
-  assert.deepEqual(additions.map(v=>v.id).sort(),owners.map(v=>v.id).sort());
-  for(const record of additions){const owner=owners.find(v=>v.id===record.id),asset=approved.assets.find(a=>a.assetId===(type==='countries'?owner.discovery.assetId:owner.hero[0]));assert.equal(record.href,owner.path);assert.deepEqual(record.approvedPhoto,asset);}
- }
- assert.doesNotMatch(html,/\/Users\/|tailb3|\/candidates\/|noindex|artifactPath|rawSha256|rawPath|candidateRevision/);
+ // The home now links the Taiwan places through /trip/taiwan/ instead of embedding the
+ // atlas; the hub renders every reviewed place from the same portable data.
+ const html=renderTravelHomeR24(),hub=read('trip/taiwan/index.html');
+ assert.doesNotMatch(html,/id="atlas-config"/);
+ const hubIds=[...hub.matchAll(/<li class="hub-card"[^>]*data-place-id="([^"]+)"/g)].map(m=>m[1]);
+ assert.deepEqual(hubIds.sort(),[...release.places].sort());
+ assert.equal(config.privateAtlas,null);
+ for(const page of [html,hub])assert.doesNotMatch(page,/\/Users\/|tailb3|\/candidates\/|noindex|artifactPath|rawSha256|rawPath|candidateRevision/);
  assert.equal(data.places.length,53);assert.deepEqual(data.places.map(p=>p.id),release.places);
  assert.deepEqual(Object.fromEntries(['attraction','restaurant','hotel'].map(c=>[c,data.places.filter(p=>p.category===c).length])),{attraction:41,restaurant:7,hotel:5});
- for(const id of excludedTaiwanPlaceIds)assert.ok(!data.places.some(p=>p.id===id));
+ for(const id of excludedTaiwanPlaceIds)assert.ok(!data.places.some(p=>p.id===id)&&!hubIds.includes(id));
  assert.match(html,/name="robots" content="index,follow,max-image-preview:large"/);
  assert.match(html,/rel="canonical" href="https:\/\/www.eaglish.store\/trip\/"/);
  assert.equal((html.match(/\sid="guides"/g)||[]).length,1);
- assert.match(html,/id="category-tabs"/);assert.match(html,/id="place-detail"/);
+ assert.match(hub,/data-category-filter="restaurant"/);assert.match(hub,/data-region-filter="offshore"/);
+ assert.match(html,/<h2 id="taiwan-title">台灣，從家門口出發<\/h2><p class="tw-lead">53 個我們帶孩子去過的地方：41 個景點、7 間餐廳、5 間住宿/);
+ for(const [slug,n] of [['north',36],['central',2],['south',14],['offshore',1]])assert.match(html,new RegExp(`<a href="/trip/taiwan/#${slug}">[\\s\\S]*?<span class="region-count">${n} 個</span></a>`));
+ assert.match(html,/<li class="is-empty"><div><span class="region-name">東部<\/span><span class="region-counties">還沒有紀錄<\/span><span class="region-count">0 個<\/span><\/div><\/li>/);
  assert.match(html,/id="trip-list-feedback" role="status" aria-live="polite"/);
  assert.match(html,/href="#planning">排行程/);
- assert.match(html,/data-site-style="\/trip\/home\.css"/);
+ assert.match(html,/data-site-style="\/trip\/trip-home\.css"/);
 });
 test('all48 content-addressed photo bytes remain480 square with5 genuine text-only gaps',async()=>{
  assert.equal(Object.keys(release.photos).length,48);assert.equal(data.places.filter(p=>p.photo).length,48);
@@ -82,6 +81,10 @@ test('classificationtabsfilterprimarycategory andfilm chapters followregion',()=
  assert.equal(selectRegionalFilms({...initialState(),regionId:'tw-offshore',countyId:'tw-penghu-county'},data).length,0);
  assert.equal(selectRegionalFilms({...initialState(),top:'world'},data).length,0);
  assert.doesNotMatch(renderRegionalFilms(data.regionalFilms),/iframe|autoplay/);
+ const home=renderTravelHomeR24();
+ for(const f of data.regionalFilms){const card=home.match(new RegExp(`<article class="regional-film" data-film-id="${f.videoId}">[\\s\\S]*?</article>`))[0];assert.ok(card.includes(`href="${f.fullUrl}"`));assert.equal((card.match(/class="film-chapter"/g)||[]).length,f.chapters.length);assert.doesNotMatch(card,/iframe|autoplay|待放/);}
+ assert.match(home,/<article class="regional-film" data-film-id="pUoNpHyWl-A"><div class="film-media"><img src="\/trip\/assets\/taiwan-place-cards-r24\/place-tw-daqiu-/);
+ assert.match(home,/<article class="regional-film" data-film-id="M3Faazw7Tts"><div class="film-media film-tile" aria-hidden="true"><span class="film-tile-name">金門<\/span>/);
  const daqiu=data.places.find(p=>p.id==='place-tw-daqiu');assert.ok(daqiu.visitLinks.some(l=>l.url==='https://www.youtube.com/watch?v=pUoNpHyWl-A&t=2210s'));
 });
 test('productionphotoidentityrejectsforeignorigin,unknownnamespace andqueries',()=>{

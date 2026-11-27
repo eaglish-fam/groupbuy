@@ -27,6 +27,12 @@ for(const page of pages){
   if(srcMeta.width>1440||srcFile.size>imageBudget(srcMeta.width,src))throw new Error(`${page}: fallback ${src} is ${srcMeta.width}px/${srcFile.size} bytes; use a compressed desktop variant`);
   const srcset=tag.match(/\bsrcset="([^"]+)"/)?.[1];
   const sizes=tag.match(/\bsizes="([^"]+)"/)?.[1];
+  // A single source that is itself phone-sized (the 480px Taiwan place cards) already
+  // meets the <=640px rule; it must still declare its size and stay lazy.
+  if(!srcset&&!sizes&&srcMeta.width<=640){
+   if(!/\bloading="lazy"/.test(tag)||tag.match(/\bwidth="(\d+)"/)?.[1]!==String(srcMeta.width)||tag.match(/\bheight="(\d+)"/)?.[1]!==String(srcMeta.height))throw new Error(`${page}: ${src} needs lazy loading and its real width/height`);
+   checked++;continue;
+  }
   if(!srcset||!sizes)throw new Error(`${page}: ${src} needs srcset and sizes`);
   const variants=[...srcset.matchAll(/(\/trip\/assets\/[^\s,]+\.webp)\s+(\d+)w/g)];
   if(variants.length<2||!variants.some(v=>Number(v[2])<=640))throw new Error(`${page}: ${src} needs a <=640px variant`);

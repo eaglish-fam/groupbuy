@@ -2,8 +2,8 @@
   "counts": {
     "pages": 82,
     "blocking": 0,
-    "warnings": 35,
-    "total": 35
+    "warnings": 39,
+    "total": 39
   },
   "findings": [
     {
@@ -33,6 +33,34 @@
       "message": "Link fragment not found on destination page: /trip/guides/chiang-mai-with-kids/#reels-2023",
       "file": "trip/guides/chiang-rai-with-kids/index.html",
       "index": 73760
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /trip/taiwan/#north",
+      "file": "trip/index.html",
+      "index": 89478
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /trip/taiwan/#central",
+      "file": "trip/index.html",
+      "index": 89653
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /trip/taiwan/#south",
+      "file": "trip/index.html",
+      "index": 89809
+    },
+    {
+      "level": "warn",
+      "category": "links",
+      "message": "Link fragment not found on destination page: /trip/taiwan/#offshore",
+      "file": "trip/index.html",
+      "index": 90121
     },
     {
       "level": "warn",
@@ -235,7 +263,7 @@
       "category": "images",
       "message": "Hero/first image should not be lazy-loaded",
       "file": "trip/index.html",
-      "index": 541573
+      "index": 82533
     },
     {
       "level": "warn",

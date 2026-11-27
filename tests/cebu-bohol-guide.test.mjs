@@ -83,7 +83,9 @@ test('expanded page keeps grouped media, ordinary flights and precise scope',()=
  const pkg=JSON.parse(read('trip/data/cebu-bohol-approved-travel-v1.json'));
  assert.ok(pkg.cities[0].planner.routes.every(r=>r.days.every(d=>!d.stops.includes('whale-shark')&&!d.stops.includes('cross'))));
  const home=read('trip/index.html');
- for(const link of travelHomeCatalog.guides.find(g=>g.id==='cebu-bohol').planningLinks){assert.ok(home.includes(config.path+'#'+link.target));assert.ok(html.includes(`id="${link.target}"`),link.target);}
+ // The home links the guide itself; its planning anchors stay on the guide page.
+ assert.ok(home.includes(`href="${config.path}"`));
+ for(const link of travelHomeCatalog.guides.find(g=>g.id==='cebu-bohol').planningLinks)assert.ok(html.includes(`id="${link.target}"`),link.target);
  assert.match(home,/機票雷達目前暫停更新/);
  assert.match(read('trip/home.js'),/planningOnly!=='true'/);
  const media=JSON.parse(read('trip/assets/cebu-bohol-media.json')),old=JSON.parse(read('trip/assets/cebu-bohol-media-v3.json'));

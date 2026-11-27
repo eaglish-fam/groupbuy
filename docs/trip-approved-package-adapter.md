@@ -44,13 +44,9 @@
 
 `approvedCityDay(planner, {routeId,index,startDate})` 只讀核准路線／calendar。返回 blocked、outsideReviewedRules 及 calendarStatus；無規則返回 no-rules-provided，不當成當前健康／開放。這是純資料能力，g2 renderer 提供核准靜態 routes，**沒有偽裝工作的日期表單或新 controller**。g3 以真正城市來源接 ①天數②步調③日期／單日切換，再驗所有支援操作；時間窗／年齡／導覽條件若影響 route，不能只塞一段文字就宣稱程式已限制。
 
-## R24 seam（尚未啟用）
+## 首頁目的地（2026-11-27 改版後）
 
-`prepareApprovedR24Discovery(actualR24Html, approvedData, {catalog,config})` 僅作用真正 R24 的 `country-panels`、`home-guide-grid` marker，fail closed；用所在首頁的 `renderPhotoFrame` 及來源比例，不冒用 R22 frozen context、不硬套文章3:2。返回含新 country panel、city featured card、六頁 no-JS links、CollectionPage 的 html，以及相同 catalog/config projection。
-
-先要求既有 catalog/config 相符，只新增核准 countries/guides、保留台灣資料；nested variants 在 `approvedPhoto` 中明列，不猜 unsuffixed 檔。不得只改舊 generic `renderTravelHome` 就說已改正式首頁。
-
-g2 不 import 這個 seam 到 live build，不改既有 catalog/projection／atlas bundle。返回 `runtimeIntegrationRequired:true`：g3 必須接 `atlas-ui.mjs` 的 approvedPhoto renderer（舊 record 保留 frozen context 驗證）、實際 renderTravelHomeR24 config slot、country panels／static links、catalog/projection的同版reconcile、build ordering、image checker 與 SEO inventory。先 source identity freeze，才啟用兩國四篇。未正式接線不能宣稱 world／Europe 按鈕已可進新頁。
+`/trip/` 首頁不再用 R24 marker seam（`prepareApprovedR24Discovery`、`addSingaporeDiscovery` 已移除）。`scripts/render-travel-home-r24.mjs` 的 `mergeApprovedDestinations(catalogDestinations(catalog), packages)` 直接讀已登記的 approved packages：catalog 已有的國家（泰國、紐西蘭、菲律賓）必須是同一組國家／指南網址，否則 fail closed（Reconcile）；其他國家以 `discovery` 的洲別、ISO 代碼與 `assetId` 照片加入首頁目的地卡與世界地圖。單一目的地且沒有 discovery 的國家（新加坡）只在 `singleDestinationGeography` 補洲別與 ISO 代碼，封面用該指南 `hero[0]`。新指南城市要在 `guidePins` 加一個經緯度，否則 build 失敗。
 
 ## 保全及驗收
 
