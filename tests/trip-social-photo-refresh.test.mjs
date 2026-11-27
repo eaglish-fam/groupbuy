@@ -36,7 +36,9 @@ test('unsafe ARTIS main and hero aliases are absent from every current data cons
 test('Jewel body is grandmother, hero triptych stays, home and short card share the same independent 3:2 pair',()=>{
  const jewel=sg.article.sections.find(s=>s.id==='jewel');assert.equal(jewel.images[0].assetId,approved[0][0]);assert.deepEqual(sg.article.heroImages.map(a=>a.assetId),['sg-ig-DX_y4WhE3EF-01','sg-ig-DX_y4WhE3EF-02','sg-ig-DX_y4WhE3EF-06']);
  const card=resolveSingaporeNavigation(sg.article,sg.navigationView).cards.find(c=>c.target==='jewel');assert.equal(new Set(card.imagePair.map(a=>a.lineage.sourceSha256)).size,2);const identity=card.imagePair.map(a=>a.assetId).join(' ');
- for(const h of [renderSingaporeNavigationOverview(sg.article,sg.navigationView),renderTravelHomeR24()]){assert(h.includes('data-photo-pair="'+identity+'"'));assert(h.includes('aspect-ratio:3/2'));assert(h.includes('object-fit:cover'));}
+ const h=renderSingaporeNavigationOverview(sg.article,sg.navigationView);assert(h.includes('data-photo-pair="'+identity+'"'));assert(h.includes('aspect-ratio:3/2'));assert(h.includes('object-fit:cover'));
+ // The home's single Singapore card uses the pair's first photo (the family at the Jewel).
+ assert(renderTravelHomeR24().match(/<li class="dest-card" data-country="singapore"[\s\S]*?<\/li>/)[0].includes(card.imagePair[0].variants.at(-1).url));
 });
 test('Jewel rejects duplicate sources, cross-venue heroes, missing pairs and swapped primary identity',()=>{
  for(const change of [v=>v.imagePair=[v.assetId,v.assetId],v=>v.imagePair=[v.assetId,'sg-ig-DX_y4WhE3EF-02'],v=>v.imagePair=['unknown',v.assetId],v=>v.imagePair=[v.imagePair[1],v.assetId]]){const d=structuredClone(sg);change(d.navigationView.cards.find(c=>c.target==='jewel'));assert.throws(()=>resolveSingaporeNavigation(d.article,d.navigationView));}

@@ -125,12 +125,15 @@ function renderCard(record,index){
  return `<li class="hub-card" data-category="${place.category}" data-place-id="${escape(place.id)}">${media}<h3 class="hub-card-title">${escape(place.name)}</h3><p class="hub-card-cat">${category}</p><p class="hub-card-text">${escape(place.whatToExpect)}</p><a class="hub-card-link" href="${escape(link.href)}"${attrs} data-link-kind="${link.kind}">${label}<span class="sr-only">：${escape(place.name)}${hint}</span></a></li>`;
 }
 
-function wordmark(root,n,width){
+// The reviewed 鷹家遠行所 wordmark, shared by the /trip/ home and this hub. Each copy
+// gets its own title id so two wordmarks on one page stay uniquely labelled.
+export function travelWordmark(root,{className,idPrefix,n,width}){
  const template=readFileSync(resolve(root,'trip/content/home-r24.html.template'),'utf8');
  const svg=template.match(/<svg class="home-wordmark"[\s\S]*?<\/svg>/)?.[0];
  if(!svg||!svg.includes('aria-labelledby="home-wordmark-title-1"'))throw Error('Expected the reviewed 鷹家遠行所 wordmark');
- return svg.replace('class="home-wordmark"','class="hub-wordmark"').replace(/width="\d+" height="\d+"/,`width="${width}" height="${Math.round(width*968/4969)}"`).replaceAll('home-wordmark-title-1','hub-wordmark-title-'+n);
+ return svg.replace('class="home-wordmark"',`class="${className}"`).replace(/width="\d+" height="\d+"/,`width="${width}" height="${Math.round(width*968/4969)}"`).replaceAll('home-wordmark-title-1',idPrefix+n);
 }
+const wordmark=(root,n,width)=>travelWordmark(root,{className:'hub-wordmark',idPrefix:'hub-wordmark-title-',n,width});
 
 export function renderTaiwanHub(root){
  const model=taiwanHubModel(root);
@@ -161,7 +164,7 @@ export function renderTaiwanHub(root){
  return `<!doctype html>
 <html lang="zh-Hant-TW">
 <head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escape(title)}</title><meta name="description" content="${escape(description)}"><meta name="robots" content="index,follow,max-image-preview:large"><link rel="canonical" href="${canonical}"><meta property="og:type" content="website"><meta property="og:title" content="${escape(title)}"><meta property="og:description" content="${escape(description)}"><meta property="og:url" content="${canonical}"><meta property="og:site_name" content="鷹家遠行所"><meta property="og:locale" content="zh_TW"><meta property="og:image" content="${origin}${escape(share.photo.src)}"><meta property="og:image:alt" content="${escape(share.photo.alt)}"><link rel="icon" href="/icons/favicon.svg"><link rel="stylesheet" href="/trip/taiwan-hub.css?v=${cssVersion}"><script type="application/ld+json">${JSON.stringify(jsonld).replaceAll('<','\\u003c')}</script><script defer src="/trip/taiwan-hub.js?v=${jsVersion}"></script><script defer src="/site-runtime.js?v=${runtimeVersion}"></script></head>
-<body class="taiwan-hub"><a class="skip" href="#main">跳到主要內容</a><header class="hub-top"><div class="hub-wrap hub-top-inner"><a class="hub-brand" href="/trip/" aria-label="鷹家遠行所首頁">${wordmark(root,1,168)}</a><nav class="hub-nav" aria-label="遠行所"><a href="/trip/#destinations">目的地</a><a href="${pagePath}" aria-current="page">台灣</a><a href="/trip/#guides">旅行紀錄</a><a href="/trip/#planning">排行程</a></nav></div></header>
+<body class="taiwan-hub"><a class="skip" href="#main">跳到主要內容</a><header class="hub-top"><div class="hub-wrap hub-top-inner"><a class="hub-brand" href="/trip/" aria-label="鷹家遠行所首頁">${wordmark(root,1,168)}</a><nav class="hub-nav" aria-label="遠行所"><a href="/trip/#destinations">目的地</a><a href="${pagePath}" aria-current="page">台灣</a><a href="/trip/#records">旅行紀錄</a><a href="/trip/#planning">排行程</a></nav></div></header>
 <main id="main" class="hub-wrap" data-taiwan-hub>
 <nav class="hub-crumb" aria-label="頁面位置"><ol><li><a href="/trip/">遠行所</a></li><li aria-current="page">台灣</li></ol></nav>
 <div class="hub-intro"><h1>台灣，我們去過的 ${total} 個地方</h1><p>點地圖或地區，只看那一區；每個地點都是我們自己帶孩子去過的。</p></div>

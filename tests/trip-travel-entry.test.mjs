@@ -22,12 +22,14 @@ test('actual R24 NZ and approved Europe countries use one country entry and CTA 
  assert.match(css,/\.travel-home \.travel-country-entry \.home-panel-photo\{aspect-ratio:3\/2\}/);
  assert.match(css,/\.travel-home \.travel-country-entry \.home-panel-photo>img\{width:100%;height:100%;object-fit:cover;/);
  assert.doesNotMatch(css,/:has\(>img\[data-camera-hero\]\)/,'Shared cover geometry cannot depend on Europe-only metadata');
+ // The home shows each country as one destination card: the photo and name open the
+ // country page, and the card lists every guide of that country.
  for(const id of ['new-zealand','norway','netherlands']){
-  const card=h.match(new RegExp('<article[^>]*data-country-panel="'+id+'"[^>]*>[\\s\\S]*?</article>'))?.[0];
-  assert.ok(card,id);assert.match(card,/travel-country-entry/);assert.match(card,/home-panel-actions travel-entry-actions/);
-  assert.match(card,/travel-entry-primary/);assert.match(card,/travel-entry-secondary/);
+  const card=h.match(new RegExp('<li class="dest-card" data-country="'+id+'"[^>]*>[\\s\\S]*?</li></ul></details></li>'))?.[0];
+  assert.ok(card,id);assert.match(card,new RegExp('<a class="dest-link" href="/trip/'+id+'/">'));
+  assert.match(card,/<details class="dest-guides"><summary>/);
  }
- assert.match(h,/data-site-style="\/trip\/travel-entry.css"/);
+ assert.match(h,/data-site-style="\/trip\/trip-home.css"/);
 });
 test('country city CTA shares world entry style; Netherlands does not invent extra city tabs',()=>{
  const norway=renderApprovedCountry(data,'norway'),nl=renderApprovedCountry(data,'netherlands');
@@ -43,8 +45,9 @@ test('six approved entry slots share clean camera-first 3:2 images and matching 
   assert.equal(country.image,country.discovery.assetId);
   const lead=data.assets.find(a=>a.assetId===country.image),markup=renderApprovedCountry(data,country.id);
   assert.equal(lead.width*2,lead.height*3);assert.equal(lead.lineage.kind,'photo');
-  const card=home.match(new RegExp('<article[^>]*data-country-panel="'+country.id+'"[^>]*>[\\s\\S]*?</article>'))?.[0];assert.ok(card);
-  assert.match(card,/<img data-camera-hero/);assert.ok(card.includes(lead.variants.at(-1).url));
+  // The home card uses the same approved 3:2 lead photo, every variant, uncropped.
+  const card=home.match(new RegExp('<li class="dest-card" data-country="'+country.id+'"[^>]*>[\\s\\S]*?<h3>'))?.[0];assert.ok(card);
+  for(const v of lead.variants)assert.ok(card.includes(v.url+' '+v.width+'w'),v.url);assert.ok(card.includes(`width="${lead.width}" height="${lead.height}"`));
   assert.ok(markup.includes('property="og:image" content="https://www.eaglish.store'+lead.variants.at(-1).url+'"'));
   assert.ok(country.cityIds.some(id=>data.cities.find(c=>c.id===id).hero[0]===lead.assetId));
  }

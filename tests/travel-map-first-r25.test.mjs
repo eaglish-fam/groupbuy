@@ -1,52 +1,52 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
-import {mapFirstTravelHome,renderTravelHomeR24} from '../scripts/render-travel-home-r24.mjs';
+import {renderTravelHomeR24,travelHomeModel,guidePins} from '../scripts/render-travel-home-r24.mjs';
 import {prioritizeFirstTravelImage} from '../scripts/trip-image-priority.mjs';
 const read=p=>readFileSync(new URL('../'+p,import.meta.url),'utf8');
-const template=read('trip/content/home-r24.html.template');
-const registrationPath=new URL('../trip/data/approved-travel-registration-v1.json',import.meta.url),registration=existsSync(registrationPath)?JSON.parse(readFileSync(registrationPath)):null;
-// Countries migrated from a legacy page (Thailand) keep their reviewed home cards, so
-// only approved cities of countries new to the home catalog add a card.
-const {travelHomeCatalog}=await import('../trip/home-catalog.mjs');
-const approvedGuides=registration?(registration.packages||[registration]).flatMap(p=>JSON.parse(read(p.dataPath)).cities).filter(c=>!travelHomeCatalog.countries.some(k=>k.id===c.countryId)&&c.id!=='singapore'):[];
+const html=renderTravelHomeR24(),main=html.slice(html.indexOf('<main id="main">'));
+const model=travelHomeModel();
 
-test('home has one brief H1 then the actual map before any promoted photo or article',()=>{
- const html=renderTravelHomeR24();
- const main=html.slice(html.indexOf('<main id="main">'));
- assert.match(main,/^<main id="main"><section class="home-introduction home-wrap"/);
- const intro=main.indexOf('id="home-title"'),map=main.indexOf('id="destinations"'),hero=main.indexOf('class="home-opening home-wrap"'),featured=main.indexOf('id="featured"'),planning=main.indexOf('id="planning"');
- assert.ok(intro<map&&map<hero&&hero<featured&&featured<planning);
- assert.doesNotMatch(main.slice(0,map),/<img\b|class="home-guide"|home-opening-photo/);
- assert.equal((main.match(/\sid="home-title"/g)||[]).length,1);
- assert.equal((main.match(/\sid="destinations"/g)||[]).length,1);
- assert.doesNotMatch(main,/從一片風景，開始遠行。|先選地區，再找到想去的國家。|aria-labelledby="atlas-heading"|class="atlas-intro"/);
- assert.match(main,/<section class="home-destinations home-wrap" id="destinations" aria-label="目的地地圖">/);
- const guideSection=main.slice(featured,planning);
- assert.equal((guideSection.match(/class="home-guide"/g)||[]).length,7+approvedGuides.length);
- for(const guide of approvedGuides)assert.equal((guideSection.match(new RegExp(`data-guide-id="${guide.id}"`,'g'))||[]).length,1);
- assert.equal((guideSection.match(/data-guide-id="singapore"/g)||[]).length,1);
- const withoutSingapore=guideSection.replace(/<article class="home-guide" data-guide-id="singapore">[\s\S]*?<\/article>/,'');
- assert.equal((withoutSingapore.match(/class="home-guide"/g)||[]).length,6+approvedGuides.length);
+test('home has one brief H1 and the inline world map before destinations, Taiwan, films and planning',()=>{
+ assert.match(main,/^<main id="main">\n<section class="home-hero" aria-labelledby="home-title">/);
+ const at=id=>main.indexOf(`id="${id}"`);
+ assert.ok(at('home-title')<main.indexOf('class="world-map"')&&main.indexOf('class="world-map"')<at('destinations')&&at('destinations')<at('taiwan')&&at('taiwan')<at('records')&&at('records')<at('planning'));
+ assert.doesNotMatch(main.slice(0,at('destinations')),/<img\b/,'the first screen is the inline map, not a photo');
+ assert.equal((html.match(/<h1(?:\s[^>]*)?>/g)||[]).length,1);
+ assert.match(html,/<h1 id="home-title">我們帶孩子走過的地方<\/h1>/);
+ for(const id of ['home-title','destinations','guides','taiwan','records','planning'])assert.equal((html.match(new RegExp(`\\sid="${id}"`,'g'))||[]).length,1,id);
+ // The previous globe, Taiwan place wall and country panels now live on /trip/taiwan/ and the country pages.
+ assert.doesNotMatch(html,/atlas-ui-bundle|id="globe-stage"|id="atlas-config"|class="place-card"|data-country-panel=/);
 });
-test('module reorder and compact globe chrome preserve all approved content outside the exact navigation seams',()=>{
- const actual=mapFirstTravelHome(template);
- const reviewedTemplate=template.replace('<div class="atlas-intro"><h2 id="atlas-heading">從一片風景，開始遠行。</h2><p>先選地區，再找到想去的國家。</p></div>','').replace('aria-labelledby="atlas-heading"','aria-label="目的地地圖"');
- const withoutChrome=html=>{let h=html.replace(/<nav id="top-levels"[^>]*>[\s\S]*?<\/nav>/,'[PRIMARY_MAP_MODES]');const start=h.indexOf('<div class="map-header">')>=0?h.indexOf('<div class="map-header">'):h.indexOf('<div class="map-heading-row">'),end=h.indexOf('<div id="regions"',start);assert.ok(start>=0&&end>start);return h.slice(0,start)+'[GLOBE_NAVIGATION_CHROME]'+h.slice(end);};
- const inventory=html=>[...withoutChrome(html).matchAll(/<(?:h[1-4]|p|figcaption|img|a)\b[^>]*(?:>[\s\S]*?<\/(?:h[1-4]|p|figcaption|a)>|>)/g)].map(m=>m[0].replace(' data-primary-travel-photo','')).sort();
- assert.deepEqual(inventory(actual),inventory(reviewedTemplate));
- const frames=html=>[...html.matchAll(/<div class="r22-photo-frame"[^>]*>/g)].map(m=>m[0]).sort();
- assert.deepEqual(frames(actual),frames(template));
- const mapStart='<section class="home-destinations home-wrap"';
- const beforeMap=reviewedTemplate.slice(reviewedTemplate.indexOf(mapStart),reviewedTemplate.indexOf('<section class="home-planning home-wrap"'));
- const afterMap=actual.slice(actual.indexOf(mapStart),actual.indexOf('<section class="home-opening home-wrap"'));
- assert.ok(beforeMap.length>100000);assert.equal(withoutChrome(afterMap),withoutChrome(beforeMap));
- assert.equal(actual.split('{{ATLAS_CONFIG}}').length,2);
+test('the world map is a static build-time SVG with a text equivalent and no runtime map request',()=>{
+ const map=html.match(/<div class="world-map" role="region" aria-label="鷹式一家去過的國家地圖" aria-describedby="world-map-text">([\s\S]*?)<\/div>/)?.[1];
+ assert.ok(map);
+ assert.match(map,/^<svg class="world-map-svg" viewBox="0 0 960 520"[^>]*aria-hidden="true"/);
+ // Taiwan plus every visited country that is large enough at 1:110m (Singapore is a pin only).
+ const shapes=(map.match(/<g class="map-visited">([\s\S]*?)<\/g>/)[1].match(/<path /g)||[]).length;
+ assert.equal(shapes,1+model.countries.filter(c=>c.isoNumeric!=='702').length);
+ assert.equal((map.match(/<circle cx/g)||[]).length,model.guideCount+1,'one pin per guide plus the Taiwan ring');
+ assert.match(map,/<text [^>]+>家在這裡<\/text>/);
+ for(const c of model.countries)for(const g of c.guides)assert.ok(guidePins[g.id],g.id);
+ const text=html.match(/<p class="sr-only" id="world-map-text">([^<]+)<\/p>/)[1];
+ assert.ok(text.includes(`台灣（${model.taiwan.places.length} 個地點）`));
+ for(const c of model.countries)assert.ok(text.includes(`${c.name}（${c.guides.length} 份指南）`),c.name);
+ // The country list beside the map is the map's interactive equivalent.
+ const list=html.match(/<nav class="hero-places" aria-label="去過的國家與指南數">([\s\S]*?)<\/nav>/)[1];
+ assert.match(list,/^<ul><li><a href="\/trip\/taiwan\/"><span class="place-name">台灣<\/span><span class="place-count">53 個地點<\/span><\/a><\/li>/);
+ for(const c of model.countries)assert.ok(list.includes(`<a href="${c.href}"><span class="place-name">${c.name}</span><span class="place-count">${c.guides.length} 份指南</span></a>`),c.id);
+ const scripts=[...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map(m=>m[1]);
+ for(const src of scripts)assert.match(src,/^\/(trip\/trip-home\.js|site-font-loader\.js|site-runtime\.js)\?v=[a-f0-9]+$/);
+ assert.doesNotMatch(read('trip/trip-home.js'),/fetch\(|XMLHttpRequest|import\(|https?:\/\//);
 });
-test('reorder fails closed for duplicate, missing or unexpectedly reordered source modules',()=>{
- assert.throws(()=>mapFirstTravelHome(template.replace('home-destinations home-wrap','missing-map')),/Expected one/);
- assert.throws(()=>mapFirstTravelHome(template+'<section class="home-destinations home-wrap"'),/Expected one/);
- assert.throws(()=>mapFirstTravelHome(template.replace('home-featured home-wrap','temporary home-wrap').replace('home-destinations home-wrap','home-featured home-wrap').replace('temporary home-wrap','home-destinations home-wrap')),/Unexpected/);
+test('one sticky header only, with tokens, focus, motion and tap-target rules in the home stylesheet',()=>{
+ const css=read('trip/trip-home.css');
+ assert.equal((css.match(/position:sticky/g)||[]).length,1);
+ assert.match(css,/\.home-top\{position:sticky;top:0/);
+ assert.doesNotMatch(css.replace(/:root\{[^}]*\}/,''),/#[0-9a-f]{3,6}\b/i,'colours come from custom properties');
+ assert.match(css,/:focus-visible/);assert.match(css,/prefers-reduced-motion:reduce/);assert.match(css,/min-height:44px/);
+ assert.match(html,/<style data-site-style="\/trip\/trip-home\.css">/);
+ assert.doesNotMatch(html,/<header class="home-masthead/,'the shared sticky masthead rule does not stack a second bar');
 });
 test('travel map labels explicitly use the isolated serif with both Taiwan glyphs',()=>{
  const css=read('trip/home.css'),rule=css.match(/\.travel-home \.atlas-component :is\(#top-levels button,[^}]+\}/)?.[0];

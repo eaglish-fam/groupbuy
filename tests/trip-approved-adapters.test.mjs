@@ -9,8 +9,7 @@ import {readApprovedTravelPackage,publicPackageHash} from '../scripts/trip-appro
 import {renderApprovedCity,approvedAttractionGallery} from '../scripts/trip-city-approved-adapter.mjs';
 import {renderApprovedCountry} from '../scripts/trip-country-approved-adapter.mjs';
 import {allocateApprovedCountryTrip,approvedCityDay,addLocalDays} from '../trip/country-approved-model.mjs';
-import {prepareApprovedR24Discovery} from '../scripts/trip-approved-discovery.mjs';
-import {renderTravelHomeR24} from '../scripts/render-travel-home-r24.mjs';
+import {renderTravelHomeR24,catalogDestinations,mergeApprovedDestinations} from '../scripts/render-travel-home-r24.mjs';
 import {travelHomeCatalog} from '../trip/home-catalog.mjs';
 const root=mkdtempSync(resolve(tmpdir(),'approved-travel-tests-'));
 const data=await syntheticTravelPackage(root),frozen=writeSyntheticPackage(root,data);
@@ -124,20 +123,20 @@ test('city calendar applies only approved local-date rules and reports missing/s
  assert.equal(approvedCityDay({...p,calendar:[]},{...args,startDate:'2026-02-01'}).calendarStatus,'no-rules-provided');
  assert.equal(addLocalDays('2024-02-28',1),'2024-02-29');assert.throws(()=>addLocalDays('2026-02-29',0));
 });
-test('R24 seam explicitly returns reconciled projection, source-ratio home frames and six safe static links; live default unchanged',()=>{
- const original=renderTravelHomeR24(),config=JSON.parse(readFileSync(new URL('../trip/data/taiwan-atlas-r24.json',import.meta.url)));
- const added=prepareApprovedR24Discovery(original,data,{catalog:travelHomeCatalog,config});
- assert.equal(added.catalog.countries.length,travelHomeCatalog.countries.length+2);assert.equal(added.catalog.guides.length,travelHomeCatalog.guides.length+4);assert.deepEqual(added.catalog,added.config.catalog);
- assert.equal(added.config.data.places.length,53);assert.equal(added.runtimeIntegrationRequired,false);
- for(const page of [...data.countries,...data.cities])assert.ok(added.html.includes(page.path));
- assert.match(added.html,/data-photo-context="home:approved-fixture-photo/);assert.match(added.html,/--photo-ratio:1200\/1800/);assert.match(added.html,/<noscript><nav aria-label="新增旅行目的地">/);
+test('home destinations add a new approved country with its discovery photo, keep reviewed entries and fail closed; live default unchanged',()=>{
+ const original=renderTravelHomeR24(),base=catalogDestinations(travelHomeCatalog);
+ const added=mergeApprovedDestinations(base,[data]);
+ assert.equal(added.length,base.length+2);assert.equal(added.flatMap(c=>c.guides).length,base.flatMap(c=>c.guides).length+4);
  for(const country of data.countries){
-  const photo=data.assets.find(a=>a.assetId===country.discovery.assetId);
-  const card=added.html.match(new RegExp('<article[^>]*data-country-panel="'+country.id+'"[^>]*>[\\s\\S]*?</article>'))?.[0];assert.ok(card);
-  if(photo.width*2!==photo.height*3)assert.doesNotMatch(card,/<img data-camera-hero/,'A portrait fixture must not be forced into the camera landscape crop');
+  const entry=added.find(c=>c.id===country.id),photo=data.assets.find(a=>a.assetId===country.discovery.assetId);
+  assert.equal(entry.href,country.path);assert.equal(entry.region,country.discovery.region);assert.equal(entry.isoNumeric,country.discovery.isoNumeric);
+  assert.deepEqual(entry.guides.map(g=>g.href),country.cityIds.map(id=>data.cities.find(c=>c.id===id).path));
+  assert.deepEqual(entry.picture.variants.map(v=>v.url),photo.variants.map(v=>v.url));assert.equal(entry.picture.alt,photo.alt);
  }
- const mismatch=structuredClone(config);mismatch.catalog.countries.pop();assert.throws(()=>prepareApprovedR24Discovery(original,data,{catalog:travelHomeCatalog,config:mismatch}),/Reconcile/);
- assert.throws(()=>prepareApprovedR24Discovery(original.replace('<div id="country-panels">',''),data,{catalog:travelHomeCatalog,config}),/R24 marker/);
+ // A country the catalog already lists must point at the same country and guide URLs.
+ const drift=structuredClone(data);drift.countries[0].id=travelHomeCatalog.countries[0].id;assert.throws(()=>mergeApprovedDestinations(base,[drift]),/Reconcile/);
+ const missing=structuredClone(data);delete missing.countries[0].discovery;assert.throws(()=>mergeApprovedDestinations(base,[missing]),/discovery required/);
+ const twice=structuredClone(data);twice.countries[0].id='fixture-country-renamed';assert.throws(()=>mergeApprovedDestinations(base,[data,twice]),/Duplicate/);
  assert.equal(renderTravelHomeR24(),original);assert.doesNotMatch(original,/fixture-country|fixture-city|Synthetic/);
  assert.equal(publicPackageHash(Buffer.from(original)),publicPackageHash(Buffer.from(renderTravelHomeR24())));
 });

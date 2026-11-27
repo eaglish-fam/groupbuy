@@ -3,12 +3,10 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {regions} from '../trip/new-zealand-data.mjs';
-import {travelHomeCatalog} from '../trip/home-catalog.mjs';
 
 const root=resolve(import.meta.dirname,'..');
 const read=path=>readFileSync(resolve(root,path),'utf8');
 const pages=[
- ['trip/index.html',travelHomeCatalog.guides.find(g=>g.id==='cebu-bohol').image.src.split('/').at(-1).replace(/\.webp$/,'')],
  ['trip/new-zealand/index.html','nz-christchurch-tram'],
  ['trip/new-zealand/christchurch/3-days/index.html','nz-christchurch-tram'],
  ...regions.filter(region=>region.route!=='/trip/new-zealand/christchurch/3-days/').map(region=>[region.route.slice(1)+'index.html',region.hero]),
@@ -31,20 +29,22 @@ test('travel entry pages preload their first visual using the same responsive so
   assert.match(preload[0],/fetchpriority="high"/);
   const preloadSource=preload[0].match(/href="([^"]+)"/)[1];
   assert.ok(existsSync(resolve(root,'.'+preloadSource)),`${path}: missing preload fallback`);
-  // The map-first homepage contains earlier inert destination-panel copies.
-  // Verify its explicit visible primary, not a hidden image with the same src.
-  const image=path==='trip/index.html'
-   ?html.match(/<img\b[^>]*\bdata-primary-travel-photo\b[^>]*>/)?.[0]
-   :html.match(new RegExp(`<img [^>]*src="[^"]*${id}[^>]+>`))[0];
-  if(path==='trip/index.html'){
-   assert.equal((html.match(/<img\b[^>]*\bdata-primary-travel-photo\b[^>]*>/g)||[]).length,1);
-   assert.match(image,new RegExp(`src="[^"]*${id}[^\"]*"`));
-  }
+  const image=html.match(new RegExp(`<img [^>]*src="[^"]*${id}[^>]+>`))[0];
   assert.match(image,/loading="eager" fetchpriority="high"/);
   assert.equal(preload[0].match(/imagesrcset="([^"]+)"/)[1],image.match(/srcset="([^"]+)"/)[1]);
   assert.equal(preload[0].match(/imagesizes="([^"]+)"/)[1],image.match(/sizes="([^"]+)"/)[1]);
   assert.equal((html.match(/<img [^>]*fetchpriority="high"/g)||[]).length,1,`${path}: one high-priority image`);
  }
+});
+
+test('the travel home opens on its inline map, so no photo is preloaded and every photo stays lazy',()=>{
+ const html=read('trip/index.html'),head=html.split('</head>')[0];
+ assert.doesNotMatch(head,/rel="preload"[^>]*as="image"/);
+ assert.doesNotMatch(html,/fetchpriority="high"|loading="eager"/);
+ assert.ok(html.indexOf('<svg class="world-map-svg"')<html.indexOf('<img '),'the map precedes the first photo');
+ const images=[...html.matchAll(/<img\b[^>]*>/g)].map(m=>m[0]);
+ assert.ok(images.length>=8);
+ for(const tag of images){assert.match(tag,/loading="lazy"/);assert.match(tag,/width="\d+" height="\d+"/);}
 });
 
 test('Bangkok guide (approved template) loads only its main hero eagerly and defers the place cards',()=>{

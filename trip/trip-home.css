@@ -1,0 +1,209 @@
+/* /trip/ home of 鷹家遠行所. Brand tokens shared with /trip/taiwan/; one container
+   width and one column gap; headings use the site heading serif registered by
+   site-font-loader.js. */
+:root{
+ --th-navy:#15366a;--th-paper:#fcfaf5;--th-paper-2:#f4efe5;--th-ink:#3f3831;--th-ink-2:#494139;
+ --th-muted:#6c6257;--th-rust:#8a4f36;--th-rust-2:#784b39;--th-line:#dcd5c9;--th-land:#e6dfd1;
+ --th-map:#efe9dd;--th-white:#fff;--th-navy-tint:#e4e9f1;
+ --th-serif:"Eaglish Heading Serif","Songti TC","PMingLiU",serif;
+ --th-sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;
+ --th-wrap:1180px;--th-gutter:20px;--th-gap:24px;--th-radius:14px;--th-top:72px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:calc(var(--th-top) + 16px)}
+body.trip-home{margin:0;overflow-x:clip;background:var(--th-paper);color:var(--th-ink);font:16px/1.7 var(--th-sans)}
+:where(.trip-home) a{color:inherit;text-decoration:none}
+.trip-home img{display:block;max-width:100%}
+.trip-home :is(a,button,summary):focus-visible{outline:3px solid var(--th-rust);outline-offset:3px;border-radius:6px}
+.trip-home :is(h1,h2,h3){font-family:var(--th-serif);font-weight:500;color:var(--th-ink);margin:0;overflow-wrap:break-word;min-width:0;text-wrap:balance}
+.trip-home p{margin:0}
+.trip-home ul,.trip-home ol{margin:0;padding:0;list-style:none}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.trip-home .skip{position:fixed;left:12px;top:-100px;z-index:100;background:var(--th-white);color:var(--th-navy);padding:12px 16px;border-radius:8px}
+.trip-home .skip:focus{top:12px}
+.wrap{width:min(var(--th-wrap),100% - 2*var(--th-gutter));margin-inline:auto}
+
+/* Header: the page's only sticky element. */
+.home-top{position:sticky;top:0;z-index:60;background:var(--th-paper);border-bottom:1px solid var(--th-line)}
+.home-top-inner{display:flex;align-items:center;justify-content:space-between;gap:var(--th-gap);min-height:var(--th-top)}
+.home-brand{display:inline-flex;align-items:center;min-height:44px}
+.home-wordmark{display:block;width:168px;height:auto}
+.home-nav{display:flex;gap:4px;font-size:15px;color:var(--th-muted)}
+.home-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:999px}
+.home-nav a:hover{color:var(--th-navy)}
+
+/* Hero: the map is the signature. */
+.home-hero{padding:40px 0 24px}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) 280px;grid-template-areas:"main places";gap:40px;align-items:end}
+.hero-main{grid-area:main;min-width:0}
+.home-hero h1{font-size:44px;line-height:1.25}
+.hero-lead{margin-top:10px!important;color:var(--th-muted);font-size:17px}
+.world-map{margin-top:24px;background:var(--th-map);border-radius:var(--th-radius);overflow:hidden}
+.world-map-svg{display:block;width:100%;height:auto}
+.world-map-svg .map-land{fill:var(--th-land)}
+.world-map-svg .map-borders{fill:none;stroke:var(--th-paper);stroke-width:.7;stroke-linejoin:round}
+.world-map-svg .map-visited path{fill:var(--th-navy);stroke:var(--th-navy);stroke-width:.6;stroke-linejoin:round}
+.world-map-svg .map-pins circle{fill:var(--th-rust);stroke:var(--th-paper);stroke-width:1.4}
+.world-map-svg .map-home circle{fill:none;stroke:var(--th-rust);stroke-width:2}
+.world-map-svg .map-home path{fill:none;stroke:var(--th-ink);stroke-width:1}
+.world-map-svg .map-home text{font:500 18px/1 var(--th-serif);fill:var(--th-ink)}
+.hero-places{grid-area:places;min-width:0}
+.hero-places ul{border-top:1px solid var(--th-line)}
+.hero-places a{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:48px;border-bottom:1px solid var(--th-line)}
+.hero-places .place-name{font-family:var(--th-serif);font-size:18px;font-weight:500;color:var(--th-ink)}
+.hero-places .place-count{font-size:14px;color:var(--th-muted)}
+.hero-places a:hover .place-name{color:var(--th-navy)}
+
+/* Shared section rhythm */
+.home-block{padding:56px 0}
+.block-head{display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:20px}
+.block-head h2{font-size:30px;line-height:1.3}
+.block-note{color:var(--th-muted);font-size:15px}
+
+/* Destinations */
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
+.chips button{font:inherit;font-size:15px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--th-line);background:transparent;color:var(--th-ink-2);cursor:pointer}
+.chips button:hover{border-color:var(--th-navy);color:var(--th-navy)}
+.chips button[aria-pressed="true"]{background:var(--th-navy);border-color:var(--th-navy);color:var(--th-white)}
+.dest-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:32px var(--th-gap);align-items:start}
+.dest-card[hidden]{display:none}
+.dest-link{display:block}
+.dest-photo{aspect-ratio:3/2;border-radius:12px;overflow:hidden;background:var(--th-land)}
+.dest-photo img{width:100%;height:100%;object-fit:cover;transition:transform .35s ease}
+.dest-link:hover img{transform:scale(1.03)}
+.dest-card h3{font-size:22px;line-height:1.35;margin-top:12px}
+.dest-link:hover h3{color:var(--th-navy)}
+.dest-meta{color:var(--th-muted);font-size:14px}
+p.dest-meta{display:flex;align-items:center;min-height:44px}
+.dest-guides summary{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:44px;cursor:pointer;list-style:none}
+.dest-guides summary::-webkit-details-marker{display:none}
+.dest-toggle{flex:none;font-size:14px;color:var(--th-navy);padding:2px 12px;border:1px solid var(--th-line);border-radius:999px}
+.dest-guides summary:hover .dest-toggle{border-color:var(--th-navy)}
+.dest-guides[open] .dest-toggle{background:var(--th-navy-tint)}
+.dest-guides ul{border-top:1px solid var(--th-line)}
+.dest-guides a{display:flex;align-items:center;min-height:44px;font-size:15px;border-bottom:1px solid var(--th-line)}
+.dest-guides a:hover{color:var(--th-navy)}
+
+/* Taiwan door */
+.home-taiwan{background:var(--th-paper-2)}
+.tw-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center}
+.tw-copy h2{font-size:34px;line-height:1.3}
+.tw-lead{color:var(--th-muted);margin:10px 0 24px!important}
+.tw-regions{border-top:1px solid var(--th-line)}
+.tw-regions li>*{display:grid;grid-template-columns:64px minmax(0,1fr) auto;gap:12px;align-items:center;min-height:52px;border-bottom:1px solid var(--th-line)}
+.region-name{font-family:var(--th-serif);font-size:20px;font-weight:500;color:var(--th-ink)}
+.region-counties{color:var(--th-muted);font-size:14px}
+.region-count{font-size:14px;color:var(--th-navy);font-weight:600}
+.tw-regions a:hover .region-name{color:var(--th-navy)}
+.tw-regions .is-empty .region-name,.tw-regions .is-empty .region-count{color:var(--th-muted);font-weight:400}
+.button{display:inline-flex;align-items:center;min-height:48px;margin-top:24px;padding:0 24px;border-radius:999px;background:var(--th-navy);color:var(--th-white)!important;font-weight:600;font-size:15px}
+.button:hover{background:var(--th-ink)}
+.tw-photos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.tw-photos figure{margin:0}
+.tw-photo{aspect-ratio:1/1;border-radius:12px;overflow:hidden;background:var(--th-land)}
+.tw-photo img{width:100%;height:100%;object-fit:cover}
+.tw-photos figcaption{font-size:14px;margin-top:8px;color:var(--th-ink-2)}
+
+/* Full travel films */
+.film-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--th-gap);align-items:start}
+.regional-film{display:grid;grid-template-columns:minmax(0,160px) minmax(0,1fr);gap:20px;padding:20px;border:1px solid var(--th-line);border-radius:var(--th-radius);background:var(--th-white)}
+.film-media{aspect-ratio:1/1;border-radius:10px;overflow:hidden;background:var(--th-paper-2)}
+.film-media img{width:100%;height:100%;object-fit:cover}
+.film-tile{display:flex;flex-direction:column;justify-content:flex-end;gap:4px;padding:16px;background:var(--th-navy);color:var(--th-white)}
+.film-tile-name{font-family:var(--th-serif);font-size:34px;line-height:1.1}
+.film-tile-note{font-size:14px;opacity:.85}
+.film-body{min-width:0}
+.regional-film h3{font-size:20px;line-height:1.45;text-wrap:pretty}
+.film-intro{margin-top:8px!important;color:var(--th-muted);font-size:15px}
+.film-full-link a{display:inline-flex;align-items:center;gap:4px;min-height:44px;color:var(--th-navy);font-weight:600}
+.film-full-link a:hover{text-decoration:underline;text-underline-offset:4px}
+.regional-film details{border-top:1px solid var(--th-line)}
+.regional-film summary{display:flex;align-items:center;min-height:44px;cursor:pointer;font-size:15px;color:var(--th-ink-2)}
+.regional-film ol{padding-bottom:4px}
+.film-chapter{padding:6px 0;border-top:1px solid var(--th-line);font-size:14px}
+.film-chapter>a{display:inline-flex;align-items:center;gap:4px;min-height:44px;color:var(--th-navy)}
+.film-chapter p{color:var(--th-muted)}
+.film-notice{margin-top:4px!important}
+.film-notice a{text-decoration:underline;text-underline-offset:3px}
+
+/* Planning */
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:var(--th-gap);align-items:start}
+.plan-card{padding:20px;border:1px solid var(--th-line);border-radius:var(--th-radius);background:var(--th-paper)}
+.plan-card[hidden]{display:none}
+.plan-card h3{font-size:20px;line-height:1.4}
+.plan-text{margin-top:6px!important;color:var(--th-muted);font-size:14px}
+.plan-status{display:inline-block;margin-top:6px!important;padding:0 10px;border-radius:999px;background:var(--th-paper-2);color:var(--th-rust-2);font-size:13px}
+.plan-link{display:inline-flex;align-items:center;min-height:44px;margin-top:4px;color:var(--th-navy);font-size:15px;text-decoration:underline;text-decoration-color:var(--th-line);text-underline-offset:4px}
+.plan-link:hover{text-decoration-color:currentColor}
+.offers{margin-top:8px!important;border-top:1px solid var(--th-line)}
+.offer{padding:6px 0;border-bottom:1px solid var(--th-line)}
+.offer-guide{display:flex;align-items:center;min-height:44px;font-size:15px;color:var(--th-ink)}
+.offer-guide:hover{color:var(--th-navy)}
+.offer-links{display:flex;flex-wrap:wrap;gap:8px}
+.offer-links a{display:inline-flex;align-items:center;gap:4px;min-height:44px;padding:0 14px;border:1px solid var(--th-line);border-radius:999px;font-size:14px;color:var(--th-navy)}
+.offer-links a:hover{border-color:var(--th-navy)}
+.plan-note{margin-top:8px!important;color:var(--th-muted);font-size:12.5px;line-height:1.6}
+.plan-saved{margin-top:8px!important;border-top:1px solid var(--th-line)}
+.plan-saved li{display:flex;align-items:center;justify-content:space-between;gap:8px;border-bottom:1px solid var(--th-line)}
+.plan-saved a{display:flex;align-items:center;min-height:44px;font-size:15px}
+.plan-saved button{flex:none;font:inherit;font-size:13px;min-height:44px;min-width:44px;padding:0 10px;border:0;background:transparent;color:var(--th-muted);cursor:pointer}
+.plan-saved button:hover{color:var(--th-rust-2)}
+
+/* Footer */
+.home-footer{border-top:1px solid var(--th-line);padding:28px 0 32px;color:var(--th-muted);font-size:14px}
+.home-footer-inner{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px}
+.home-footer .home-wordmark{width:150px}
+.home-footer nav{display:flex;gap:4px;margin-left:auto}
+.home-footer nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px}
+.home-footer nav a:hover{color:var(--th-navy)}
+
+@media (max-width:900px){
+ .hero-grid{grid-template-columns:minmax(0,1fr);grid-template-areas:"main" "places";gap:20px}
+ .hero-places ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--th-gap)}
+ .dest-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 16px}
+ .tw-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+ .film-grid{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:640px){
+ :root{--th-gutter:16px;--th-top:60px}
+ .home-nav{display:none}
+ .home-wordmark{width:150px}
+ .home-hero{padding-top:24px}
+ .home-hero h1{font-size:30px}
+ .hero-lead{font-size:16px}
+ .world-map{margin-top:16px}
+ /* The country list becomes one horizontal row of pills under the map. */
+ .hero-places ul{display:flex;gap:8px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;border:0;margin-inline:calc(-1*var(--th-gutter));padding:2px var(--th-gutter) 4px}
+ .hero-places ul::-webkit-scrollbar{display:none}
+ .hero-places li{flex:none}
+ .hero-places a{gap:6px;min-height:44px;padding:0 14px;border:1px solid var(--th-line);border-radius:999px}
+ .hero-places .place-name{font-size:15px}
+ .hero-places .place-count{font-size:13px}
+ .home-block{padding:40px 0}
+ .block-head h2,.tw-copy h2{font-size:24px}
+ .chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-inline:calc(-1*var(--th-gutter));padding:2px var(--th-gutter)}
+ .chips::-webkit-scrollbar{display:none}
+ .chips button{flex:none}
+ .dest-card h3{font-size:18px;margin-top:10px}
+ .dest-meta{font-size:13px}
+ .dest-guides summary{flex-wrap:wrap;gap:0 8px}
+ .tw-regions li>*{grid-template-columns:52px minmax(0,1fr) auto}
+ .region-name{font-size:18px}
+ .region-counties{font-size:13px}
+ .tw-photos{gap:8px}
+ .tw-photos figcaption{font-size:13px}
+ .regional-film{grid-template-columns:88px minmax(0,1fr);grid-template-areas:"media title" "body body";gap:14px 14px;padding:16px}
+ .film-media{grid-area:media}
+ .film-body{display:contents}
+ .regional-film h3{grid-area:title;align-self:center;font-size:18px}
+ .film-intro,.film-full-link,.regional-film details{grid-column:1/-1}
+ .film-intro{margin-top:0!important}
+ .film-tile{padding:10px}
+ .film-tile-name{font-size:24px}
+ .film-tile-note{display:none}
+ .home-footer nav{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+ .trip-home *{transition:none!important;scroll-behavior:auto!important}
+ .dest-link:hover img{transform:none}
+}
