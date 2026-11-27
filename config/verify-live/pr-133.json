@@ -1,0 +1,9 @@
+{"pages":[
+ {"path":"/blog/kidsread/","mustInclude":["KidsRead 點讀筆完整指南","鷹家先幫你挑","/blog/kidsread/kidsread.js"]},
+ {"path":"/blog/kidsread-pen/","mustInclude":["為什麼需要 KidsRead 點讀筆？","一張錄音貼紙，可以放四種聲音"]},
+ {"path":"/blog/kidsread-phonics-roadmap/","mustInclude":["自然發音路線圖","章節小說"]},
+ {"path":"/blog/kidsread-english/","mustInclude":["KidsRead 英文教材全書單","book-n01-tino-farm"],"mustNotInclude":["開團優惠7/20"]},
+ {"path":"/blog/kidsread-zhuyin/","mustInclude":["ㄅㄆㄇ初階到進階","文字魔法世界"]},
+ {"path":"/blog/kidsread-chinese/","mustInclude":["KidsRead 中文教材全書單","book-n03-dog-detective-london"]},
+ {"path":"/blog/","mustInclude":["data-article=\"kidsread\""]}
+]}
