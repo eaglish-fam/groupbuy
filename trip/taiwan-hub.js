@@ -1,6 +1,7 @@
 /* /trip/taiwan/ progressive enhancement: region and category filters over the
-   server-rendered cards. No network, storage or third-party code; without this
-   script every place stays visible. */
+   server-rendered cards, plus 「加入清單」 saving place ids in this browser only
+   (the /trip/ home shows the list). No network or third-party code; without this
+   script every place stays visible and the save buttons stay hidden. */
 (() => {
   'use strict';
   const hub = document.querySelector('[data-taiwan-hub]');
@@ -76,6 +77,51 @@
     if (shape) setRegion(state.region === shape.dataset.region ? 'all' : shape.dataset.region);
   });
   window.addEventListener('hashchange', () => setRegion(fromHash(), { updateUrl: false }));
+
+  // 旅程清單: same key and shape as the /trip/ home ({ version: 1, ids }).
+  const key = hub.dataset.storageKey;
+  const saveButtons = [...hub.querySelectorAll('[data-save-place]')];
+  const savedLink = hub.querySelector('[data-saved-link]');
+  const savedCount = hub.querySelector('[data-saved-count]');
+  const status = hub.querySelector('#hub-save-status');
+  const known = new Set(saveButtons.map(button => button.dataset.savePlace));
+  let saved = null;
+  try {
+    const raw = window.localStorage.getItem(key);
+    const parsed = raw && raw.length < 20000 ? JSON.parse(raw) : null;
+    saved = parsed && parsed.version === 1 && Array.isArray(parsed.ids)
+      ? [...new Set(parsed.ids.filter(id => typeof id === 'string' && known.has(id)))].slice(0, 200)
+      : [];
+  } catch { saved = null; }
+  if (key && saved) {
+    const paintSaved = () => {
+      const set = new Set(saved);
+      for (const button of saveButtons) {
+        const on = set.has(button.dataset.savePlace);
+        button.setAttribute('aria-pressed', String(on));
+        button.textContent = on ? '已在清單' : '加入清單';
+      }
+      if (savedLink) savedLink.hidden = saved.length === 0;
+      if (savedCount) savedCount.textContent = String(saved.length);
+    };
+    for (const button of saveButtons) button.hidden = false;
+    paintSaved();
+    hub.addEventListener('click', event => {
+      const button = event.target.closest('[data-save-place]');
+      if (!button) return;
+      const id = button.dataset.savePlace;
+      const name = button.closest('.hub-card')?.querySelector('.hub-card-title')?.textContent || '';
+      const next = saved.includes(id) ? saved.filter(other => other !== id) : [...saved, id].slice(0, 200);
+      try { window.localStorage.setItem(key, JSON.stringify({ version: 1, ids: next })); } catch {
+        if (status) status.textContent = '這個瀏覽器不能存清單。';
+        return;
+      }
+      const added = next.length > saved.length;
+      saved = next;
+      paintSaved();
+      if (status) status.textContent = added ? `已把 ${name} 加入清單，共 ${saved.length} 個` : `已從清單移除 ${name}`;
+    });
+  }
   state.region = fromHash();
   render();
 })();

@@ -97,6 +97,14 @@ body.taiwan-hub{margin:0;overflow-x:clip;background:var(--hub-paper);color:var(-
 .hub-card-title{font-size:18px;line-height:1.4;margin-top:12px!important}
 .hub-card-cat{margin:2px 0 0;font-size:13px;color:var(--hub-rust)}
 .hub-card-text{margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--hub-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hub-card-foot{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:auto}
+.hub-card-save{position:relative;z-index:1;flex:none;min-height:36px;padding:4px 12px;border:1px solid var(--hub-line);border-radius:999px;background:var(--hub-paper,#fff);color:var(--hub-navy);font:inherit;font-size:13px;cursor:pointer}
+.hub-card-save[hidden]{display:none}
+.hub-card-save:hover{border-color:var(--hub-navy)}
+.hub-card-save[aria-pressed=true]{background:var(--hub-navy);border-color:var(--hub-navy);color:#fff}
+.hub-card-save:focus-visible{outline:3px solid var(--hub-rust);outline-offset:2px}
+.hub-saved{flex:none;white-space:nowrap;font-size:14px;color:var(--hub-navy);text-decoration:underline;text-underline-offset:4px}
+.hub-saved[hidden]{display:none}
 .hub-card-link{align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;font-size:14px;color:var(--hub-navy);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px}
 .hub-card-link::after{content:"";position:absolute;inset:0;border-radius:12px}
 .hub-card:hover .hub-card-link{text-decoration-color:currentColor}

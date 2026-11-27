@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import {readFileSync,existsSync} from 'node:fs';
 import {resolve} from 'node:path';
 import {renderTaiwanHub,taiwanHubModel,placeLink} from '../scripts/build-trip-taiwan.mjs';
+import {planStorageKey} from '../trip/taiwan-place-experience.mjs';
 const root=resolve(import.meta.dirname,'..');
 const read=path=>readFileSync(resolve(root,path),'utf8');
 const html=read('trip/taiwan/index.html');
@@ -86,10 +87,18 @@ test('the county map is a labelled region with a text equivalent and region list
  assert.equal((html.match(/<g class="inset/g)||[]).length,2,'連江 and 金門 insets');
 });
 
-test('no runtime network fetch for page content; JS only filters the static page',()=>{
+test('no runtime network fetch for page content; JS filters the static page and saves the trip list locally',()=>{
  // site-runtime.js is the shared analytics runtime every public page loads (production host only).
  const js=read('trip/taiwan-hub.js');
- assert.doesNotMatch(js,/fetch\(|XMLHttpRequest|import\(|localStorage|sessionStorage|https?:\/\//);
+ assert.doesNotMatch(js,/fetch\(|XMLHttpRequest|import\(|sessionStorage|https?:\/\//);
+ // 旅程清單 (Hiram 2026-11-27 「C」): browser-local only, same key and shape the /trip/ home reads.
+ assert.match(js,/localStorage\.getItem\(key\)/);assert.match(js,/version: 1, ids/);
+ assert.match(html,new RegExp(`data-taiwan-hub data-storage-key="${planStorageKey.replaceAll('.','\\.')}"`));
+ const saves=[...html.matchAll(/<button type="button" class="hub-card-save" data-save-place="([^"]+)" aria-pressed="false" aria-label="把[^"]+加入旅程清單" hidden>加入清單<\/button>/g)].map(m=>m[1]);
+ assert.equal(saves.length,53,'one hidden save button per place (shown only when storage works)');
+ assert.equal(new Set(saves).size,53);
+ assert.match(html,/<a class="hub-saved" href="\/trip\/#atlas-planning" data-saved-link hidden>/);
+ assert.match(html,/id="hub-save-status" role="status"/);
  assert.match(js,/aria-pressed/);
  const scripts=[...html.matchAll(/<script\b[^>]*\bsrc="([^"]+)"/g)].map(m=>m[1]);
  for(const src of scripts)assert.match(src,/^\/(trip\/taiwan-hub\.js|site-font-loader\.js|site-runtime\.js)\?v=[a-f0-9]+$/);
