@@ -1,0 +1,152 @@
+/* /trip/taiwan/ hub. Brand tokens of 鷹家遠行所; one container width; headings use
+   the shared site heading serif registered by site-font-loader.js. */
+:root{
+ --hub-navy:#15366a;--hub-paper:#fcfaf5;--hub-paper-2:#f4efe5;--hub-ink:#3f3831;--hub-ink-2:#494139;
+ --hub-muted:#6c6257;--hub-rust:#784b39;--hub-rust-2:#8a4f36;--hub-line:#dcd5c9;--hub-land:#ebe5d8;
+ --hub-select:#eef1f6;--hub-wrap:1180px;--hub-gutter:20px;--hub-radius:14px;
+ --hub-serif:"Eaglish Heading Serif","Songti TC","PMingLiU",serif;
+ --hub-sans:-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;scroll-padding-top:88px}
+body.taiwan-hub{margin:0;overflow-x:clip;background:var(--hub-paper);color:var(--hub-ink);font:16px/1.7 var(--hub-sans)}
+.taiwan-hub a{color:inherit;text-decoration:none}
+.taiwan-hub img{display:block;max-width:100%}
+.taiwan-hub :is(a,button):focus-visible{outline:3px solid var(--hub-rust);outline-offset:3px;border-radius:6px}
+.taiwan-hub :is(h1,h2,h3){font-family:var(--hub-serif);font-weight:500;color:var(--hub-ink);margin:0;overflow-wrap:break-word;min-width:0}
+.sr-only{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+.taiwan-hub .skip{position:fixed;left:12px;top:-100px;z-index:100;background:#fff;color:var(--hub-navy);padding:12px 16px;border-radius:8px}
+.taiwan-hub .skip:focus{top:12px}
+.hub-wrap{width:min(var(--hub-wrap),100% - 2*var(--hub-gutter));margin-inline:auto}
+
+/* Header */
+.hub-top{position:sticky;top:0;z-index:60;background:rgba(252,250,245,.94);border-bottom:1px solid var(--hub-line)}
+@supports ((backdrop-filter:blur(1px)) or (-webkit-backdrop-filter:blur(1px))){.hub-top{background:rgba(252,250,245,.86);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}}
+.hub-top-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;min-height:72px}
+.hub-brand{display:inline-flex;align-items:center;min-height:44px}
+.hub-wordmark{display:block;width:168px;height:auto}
+.hub-nav{display:flex;gap:4px;font-size:15px;color:var(--hub-muted)}
+.hub-nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 12px;border-radius:999px}
+.hub-nav a:hover{color:var(--hub-navy)}
+.hub-nav a[aria-current]{color:var(--hub-navy);font-weight:700}
+
+/* Intro */
+.hub-crumb ol{display:flex;flex-wrap:wrap;gap:0;margin:0;padding:20px 0 0;list-style:none;font-size:14px;color:var(--hub-muted)}
+.hub-crumb li+li::before{content:"／";padding:0 6px}
+.hub-crumb a{display:inline-flex;align-items:center;min-height:44px;text-decoration:underline;text-decoration-color:var(--hub-line);text-underline-offset:4px}
+.hub-crumb a:hover{color:var(--hub-navy);text-decoration-color:currentColor}
+.hub-crumb li[aria-current]{display:inline-flex;align-items:center}
+.hub-intro{padding:2px 0 28px}
+.hub-intro h1{font-size:40px;line-height:1.25;text-wrap:balance}
+.hub-intro p{margin:10px 0 0;color:var(--hub-muted);font-size:17px}
+
+/* Layout */
+.hub-layout{display:grid;grid-template-columns:340px minmax(0,1fr);gap:48px;align-items:start;padding-bottom:80px}
+@media (min-width:901px) and (min-height:860px){.hub-side{position:sticky;top:96px}}
+
+/* Map */
+.hub-map{margin:0;background:var(--hub-paper-2);border-radius:var(--hub-radius);padding:12px 12px 10px}
+.hub-map-svg{display:block;width:100%;height:auto}
+.hub-map-svg path{stroke:var(--hub-paper);stroke-width:.8;stroke-linejoin:round;transition:opacity .2s ease}
+.hub-map-svg .has-places{cursor:pointer}
+.hub-map-svg .counties path.has-places:hover{stroke:var(--hub-ink);stroke-width:1.2}
+.hub-map-svg .inset rect{fill:var(--hub-paper);stroke:var(--hub-line)}
+.hub-map-svg .inset.has-places{cursor:pointer}
+.hub-map-svg .inset.has-places:hover rect{stroke:var(--hub-navy)}
+.hub-map-svg text{font:700 14px/1 var(--hub-sans);fill:var(--hub-navy);text-anchor:middle;pointer-events:none}
+.hub-map-svg text.on-dark{fill:#fff}
+.hub-map-svg .inset-name{font-weight:400;font-size:12px;fill:var(--hub-muted);text-anchor:start}
+.hub-map-svg .inset-count{font-size:13px;text-anchor:end}
+.hub-map-svg .is-dim{opacity:.35}
+.hub-legend{display:flex;flex-wrap:wrap;align-items:center;gap:4px 12px;margin-top:6px;font-size:12px;color:var(--hub-muted)}
+.hub-legend-item{display:inline-flex;align-items:center;gap:5px}
+.hub-legend-item i{display:inline-block;width:12px;height:12px;border-radius:3px}
+
+/* Region list */
+.hub-regions{list-style:none;margin:14px 0 0;padding:0;border-top:1px solid var(--hub-line)}
+.hub-regions button{display:grid;grid-template-columns:64px minmax(0,1fr) auto;align-items:center;gap:10px;width:100%;min-height:46px;margin:0;padding:8px 8px;border:0;border-bottom:1px solid var(--hub-line);border-radius:0;background:transparent;color:var(--hub-muted);font:inherit;font-size:13px;line-height:1.45;text-align:left;cursor:pointer}
+.hub-regions button:hover{background:rgba(21,54,106,.04)}
+.hub-region-name{font-family:var(--hub-serif);font-size:18px;color:var(--hub-ink)}
+.hub-region-counties{min-width:0}
+.hub-region-count{font-size:15px;font-weight:700;color:var(--hub-navy);font-variant-numeric:tabular-nums}
+.hub-regions button[aria-pressed="true"]{background:var(--hub-select)}
+.hub-regions button[aria-pressed="true"] .hub-region-name{color:var(--hub-navy);font-weight:700}
+.hub-regions button.is-empty .hub-region-count,.hub-regions button.is-empty .hub-region-name{color:var(--hub-muted)}
+
+/* Category chips and result count */
+.hub-bar{display:flex;align-items:center;gap:12px;margin-bottom:6px}
+.hub-chips{display:flex;gap:8px;min-width:0}
+.hub-chips button{flex:none;white-space:nowrap;min-height:44px;padding:0 16px;border:1px solid var(--hub-line);border-radius:999px;background:transparent;color:var(--hub-ink-2);font:inherit;font-size:14px;cursor:pointer}
+.hub-chips button:hover{border-color:var(--hub-navy);color:var(--hub-navy)}
+.hub-chips button[aria-pressed="true"]{background:var(--hub-navy);border-color:var(--hub-navy);color:#fff}
+.hub-result{flex:none;margin:0 0 0 auto;font-size:14px;color:var(--hub-muted);white-space:nowrap}
+.hub-empty{margin:28px 0;padding:28px;border:1px dashed var(--hub-line);border-radius:var(--hub-radius);color:var(--hub-muted);text-align:center}
+
+/* County groups and cards */
+.hub-county{scroll-margin-top:96px}
+.hub-county-head{display:flex;align-items:baseline;gap:10px;margin:26px 0 14px}
+.hub-county-head h2{font-size:24px;line-height:1.3}
+.hub-county-count{font-size:14px;color:var(--hub-muted)}
+.hub-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px 24px}
+.hub-card{position:relative;display:flex;flex-direction:column;min-width:0}
+.hub-card[hidden],.hub-county[hidden]{display:none}
+.hub-card-media{aspect-ratio:4/3;border-radius:12px;overflow:hidden;background:var(--hub-land)}
+.hub-card-media img{width:100%;height:100%;object-fit:cover;transition:transform .3s ease}
+.hub-card:hover .hub-card-media img{transform:scale(1.03)}
+.hub-card-media.is-empty{display:grid;place-items:center;color:var(--hub-muted);font-size:14px}
+.hub-card-title{font-size:18px;line-height:1.4;margin-top:12px!important}
+.hub-card-cat{margin:2px 0 0;font-size:13px;color:var(--hub-rust)}
+.hub-card-text{margin:4px 0 0;font-size:14px;line-height:1.65;color:var(--hub-muted);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.hub-card-link{align-self:flex-start;display:inline-flex;align-items:center;min-height:44px;font-size:14px;color:var(--hub-navy);text-decoration:underline;text-decoration-color:transparent;text-underline-offset:4px}
+.hub-card-link::after{content:"";position:absolute;inset:0;border-radius:12px}
+.hub-card:hover .hub-card-link{text-decoration-color:currentColor}
+.hub-card:hover .hub-card-title{color:var(--hub-navy)}
+.hub-card-link:focus-visible{outline:none}
+.hub-card:has(.hub-card-link:focus-visible){outline:3px solid var(--hub-rust);outline-offset:6px;border-radius:12px}
+
+/* Footer */
+.hub-footer{border-top:1px solid var(--hub-line);padding:28px 0 36px;color:var(--hub-muted);font-size:14px}
+.hub-footer-inner{display:flex;flex-wrap:wrap;align-items:center;gap:8px 24px}
+.hub-footer .hub-wordmark{width:150px}
+.hub-footer p{margin:0}
+.hub-footer nav{display:flex;gap:4px;margin-left:auto}
+.hub-footer nav a{display:inline-flex;align-items:center;min-height:44px;padding:0 10px}
+.hub-footer nav a:hover{color:var(--hub-navy)}
+
+@media (max-width:900px){
+ .hub-layout{grid-template-columns:minmax(0,1fr);gap:24px}
+ .hub-side{display:grid;grid-template-columns:minmax(0,180px) minmax(0,1fr);gap:18px;align-items:start}
+ .hub-regions{margin-top:0}
+ .hub-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 16px}
+}
+@media (max-width:640px){
+ :root{--hub-gutter:16px}
+ html{scroll-padding-top:72px}
+ .hub-top-inner{min-height:60px}
+ .hub-nav{display:none}
+ .hub-wordmark{width:150px}
+ .hub-intro{padding-bottom:20px}
+ .hub-intro h1{font-size:28px}
+ .hub-intro p{font-size:16px}
+ .hub-side{grid-template-columns:minmax(0,124px) minmax(0,1fr);gap:14px}
+ .hub-map{padding:8px 6px 6px}
+ .hub-legend{display:none}
+ .hub-regions button{grid-template-columns:52px minmax(0,1fr);min-height:44px;padding:6px 4px}
+ .hub-region-name{font-size:16px}
+ .hub-region-counties{display:none}
+ .hub-region-count{justify-self:start;font-weight:400}
+ .hub-bar{flex-direction:column;align-items:stretch;gap:4px}
+ .hub-chips{overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:none;margin-inline:calc(-1*var(--hub-gutter));padding:2px var(--hub-gutter)}
+ .hub-chips::-webkit-scrollbar{display:none}
+ .hub-result{margin:0;font-size:13px}
+ .hub-county{scroll-margin-top:72px}
+ .hub-county-head{margin:22px 0 12px}
+ .hub-county-head h2{font-size:22px}
+ .hub-card-title{font-size:16px;margin-top:10px!important}
+ .hub-card-text{font-size:13.5px}
+ .hub-footer nav{margin-left:0}
+}
+@media (prefers-reduced-motion:reduce){
+ .taiwan-hub *{transition:none!important;scroll-behavior:auto!important}
+ .hub-card:hover .hub-card-media img{transform:none}
+}
